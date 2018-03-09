@@ -35,10 +35,15 @@ namespace DataConnect.DAO.HungTD
         }
         public string GetFullNameLocaion(int locationID)
         {
-            Location ward = db.Locations.SingleOrDefault(x => x.LocationID == locationID);
-            Location district = db.Locations.SingleOrDefault(x => x.LocationID == ward.LocationParent);
-            Location prince = db.Locations.SingleOrDefault(x => x.LocationID == district.LocationParent);
-            return ward.LocationName + " - " + district.LocationName + " - " + prince.LocationName;
+            try
+            {
+
+                Location ward = db.Locations.SingleOrDefault(x => x.LocationID == locationID);
+                Location district = db.Locations.SingleOrDefault(x => x.LocationID == ward.LocationParent);
+                Location prince = db.Locations.SingleOrDefault(x => x.LocationID == district.LocationParent);
+                return ward.LocationName + " - " + district.LocationName + " - " + prince.LocationName;
+            }
+            catch { return ""; }
         }
     }
 }

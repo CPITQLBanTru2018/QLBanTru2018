@@ -43,7 +43,11 @@ namespace DataConnect.DAO.HungTD
                         on c.DepartmentID equals d.DepartmentID
                         join p in position
                         on c.PositionID equals p.PositionID
-                        where d.DepartmentID.Equals(departmentID)
+                        join de in degree 
+                        on e.DegreeID equals de.DegreeID
+                        join l in location
+                        on e.LocationID equals l.LocationID
+                        where c.DepartmentID.Equals(departmentID)
                         select new Department_EmployeeViewModel
                         {
                             EmployeeID = e.EmployeeID,
@@ -59,11 +63,12 @@ namespace DataConnect.DAO.HungTD
                             DepartmentName = d.Name,
                             PositionID = p.PositionID,
                             PositionName = p.Name,
-                            DegreeID = e.Degree.DegreeID,
-                            DegreeName = e.Degree.Name,
+                            DegreeID = e.DegreeID,
+                            DegreeName = de.Name,
                             Status = e.Status
                         };
-            return query.ToList();
+            List<Department_EmployeeViewModel> list = query.ToList();
+            return list;
         }
         public bool Insert(Employee entity)
         {

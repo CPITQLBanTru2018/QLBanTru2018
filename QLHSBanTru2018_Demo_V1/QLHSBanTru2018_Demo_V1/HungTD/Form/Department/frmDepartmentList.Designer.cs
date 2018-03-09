@@ -48,6 +48,7 @@
             this.colLayoutPhone = new DevExpress.XtraGrid.Columns.TileViewColumn();
             this.colLayoutEmail = new DevExpress.XtraGrid.Columns.TileViewColumn();
             this.colLayoutPosition = new DevExpress.XtraGrid.Columns.TileViewColumn();
+            this.colLayoutLocation = new DevExpress.XtraGrid.Columns.TileViewColumn();
             this.pcLeft = new DevExpress.XtraEditors.PanelControl();
             this.gcDepartmentList = new DevExpress.XtraGrid.GridControl();
             this.gridView1 = new DevExpress.XtraGrid.Views.Grid.GridView();
@@ -62,7 +63,6 @@
             this.txtName = new System.Windows.Forms.MaskedTextBox();
             this.gcEmployee = new DevExpress.XtraGrid.GridControl();
             this.tileView1 = new DevExpress.XtraGrid.Views.Tile.TileView();
-            this.colLayoutLocation = new DevExpress.XtraGrid.Columns.TileViewColumn();
             this.cardView1 = new DevExpress.XtraGrid.Views.Card.CardView();
             this.colLayoutLastName = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colFirtName = new DevExpress.XtraGrid.Columns.GridColumn();
@@ -114,6 +114,14 @@
             this.colLayoutPosition.Name = "colLayoutPosition";
             this.colLayoutPosition.Visible = true;
             this.colLayoutPosition.VisibleIndex = 4;
+            // 
+            // colLayoutLocation
+            // 
+            this.colLayoutLocation.Caption = "Location";
+            this.colLayoutLocation.FieldName = "LocationDetail";
+            this.colLayoutLocation.Name = "colLayoutLocation";
+            this.colLayoutLocation.Visible = true;
+            this.colLayoutLocation.VisibleIndex = 5;
             // 
             // pcLeft
             // 
@@ -245,6 +253,7 @@
             this.txtDepartmentID.ReadOnly = true;
             this.txtDepartmentID.Size = new System.Drawing.Size(34, 21);
             this.txtDepartmentID.TabIndex = 3;
+            this.txtDepartmentID.Text = "1";
             // 
             // txtName
             // 
@@ -376,14 +385,6 @@
             this.tileView1.TileTemplate.Add(tileViewItemElement9);
             this.tileView1.TileTemplate.Add(tileViewItemElement10);
             this.tileView1.TileTemplate.Add(tileViewItemElement11);
-            // 
-            // colLayoutLocation
-            // 
-            this.colLayoutLocation.Caption = "Location";
-            this.colLayoutLocation.FieldName = "LocationDetail";
-            this.colLayoutLocation.Name = "colLayoutLocation";
-            this.colLayoutLocation.Visible = true;
-            this.colLayoutLocation.VisibleIndex = 5;
             // 
             // cardView1
             // 

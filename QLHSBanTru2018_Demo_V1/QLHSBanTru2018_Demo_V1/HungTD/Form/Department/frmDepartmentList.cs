@@ -57,15 +57,8 @@ namespace QLHSBanTru2018_Demo_V1.HungTD.Form.Department
         private void testLoadEmployee()
         {
             List<Department_EmployeeViewModel> listEmployee;
-            try
-            {
-                listEmployee = new EmployeeDAO().ListAllByDepartment(int.Parse(txtDepartmentID.Text));
-                gcEmployee.DataSource = listEmployee;
-            }
-            catch
-            {
-
-            }
+            listEmployee = new EmployeeDAO().ListAllByDepartment(int.Parse(txtDepartmentID.Text));
+            gcEmployee.DataSource = listEmployee;
         }
         private void BindingDetail()
         {
@@ -77,7 +70,14 @@ namespace QLHSBanTru2018_Demo_V1.HungTD.Form.Department
 
         private void txtName_TextChanged(object sender, EventArgs e)
         {
-            testLoadEmployee();
+            try
+            {
+                testLoadEmployee();
+            }
+            catch
+            {
+
+            }
         }
 
         private void btnDelete_Click(object sender, EventArgs e)
