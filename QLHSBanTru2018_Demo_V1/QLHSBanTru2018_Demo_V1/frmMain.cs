@@ -10,6 +10,8 @@ using System.Windows.Forms;
 using DevExpress.XtraBars;
 using QLHSBanTru2018_Demo_V1.HungTD.Form.Department;
 using QLHSBanTru2018_Demo_V1.HungTD.Form.Employee;
+using QLHSBanTru2018_Demo_V1.HungTD.Form.Position;
+using QLHSBanTru2018_Demo_V1.HungTD.Form.Course;
 
 namespace QLHSBanTru2018_Demo_V1
 {
@@ -30,6 +32,17 @@ namespace QLHSBanTru2018_Demo_V1
         {
             pnControlsPanel.Controls.Clear();
             pnControlsPanel.Controls.Add(new frmEmployeeList());
+        }
+        private void btnPosition_ItemClick(object sender, ItemClickEventArgs e)
+        {
+            pnControlsPanel.Controls.Clear();
+            pnControlsPanel.Controls.Add(new frmPositionList());
+        }
+
+        private void btnCourse_ItemClick(object sender, ItemClickEventArgs e)
+        {
+            pnControlsPanel.Controls.Clear();
+            pnControlsPanel.Controls.Add(new frmCourseList());
         }
         #endregion
 

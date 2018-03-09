@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmEmployeeList));
             this.pcMenu = new DevExpress.XtraEditors.PanelControl();
             this.btnDelete = new DevExpress.XtraEditors.SimpleButton();
@@ -35,10 +36,12 @@
             this.btnAdd = new DevExpress.XtraEditors.SimpleButton();
             this.gcDepartmentList = new DevExpress.XtraGrid.GridControl();
             this.gridView1 = new DevExpress.XtraGrid.Views.Grid.GridView();
+            this.employeeBindingSource = new System.Windows.Forms.BindingSource(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.pcMenu)).BeginInit();
             this.pcMenu.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.gcDepartmentList)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridView1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.employeeBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
             // pcMenu
@@ -92,6 +95,9 @@
             // 
             // gcDepartmentList
             // 
+            this.gcDepartmentList.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.gcDepartmentList.Location = new System.Drawing.Point(88, 0);
             this.gcDepartmentList.MainView = this.gridView1;
             this.gcDepartmentList.Name = "gcDepartmentList";
@@ -108,6 +114,10 @@
             this.gridView1.OptionsFind.AlwaysVisible = true;
             this.gridView1.OptionsView.ShowGroupPanel = false;
             // 
+            // employeeBindingSource
+            // 
+            this.employeeBindingSource.DataSource = typeof(DataConnect.Employee);
+            // 
             // frmEmployeeList
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -120,6 +130,7 @@
             this.pcMenu.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.gcDepartmentList)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridView1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.employeeBindingSource)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -132,5 +143,6 @@
         private DevExpress.XtraEditors.SimpleButton btnAdd;
         private DevExpress.XtraGrid.GridControl gcDepartmentList;
         private DevExpress.XtraGrid.Views.Grid.GridView gridView1;
+        private System.Windows.Forms.BindingSource employeeBindingSource;
     }
 }
