@@ -41,6 +41,7 @@
             this.colStatus = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colStartDate = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colEndDate = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.panel1 = new System.Windows.Forms.Panel();
             this.layoutControl1 = new DevExpress.XtraLayout.LayoutControl();
             this.layoutControlGroup1 = new DevExpress.XtraLayout.LayoutControlGroup();
             this.txtCourseID = new DevExpress.XtraEditors.TextEdit();
@@ -57,6 +58,7 @@
             this.pcLeft.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.gcCourseList)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridView1)).BeginInit();
+            this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControl1)).BeginInit();
             this.layoutControl1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlGroup1)).BeginInit();
@@ -167,7 +169,7 @@
             this.colSTT.AppearanceHeader.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
             this.colSTT.AppearanceHeader.TextOptions.VAlignment = DevExpress.Utils.VertAlignment.Center;
             this.colSTT.Caption = "STT";
-            this.colSTT.FieldName = "DepartmentID";
+            this.colSTT.FieldName = "CourseID";
             this.colSTT.Name = "colSTT";
             this.colSTT.Visible = true;
             this.colSTT.VisibleIndex = 0;
@@ -215,17 +217,29 @@
             this.colEndDate.VisibleIndex = 3;
             this.colEndDate.Width = 267;
             // 
+            // panel1
+            // 
+            this.panel1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.panel1.Controls.Add(this.layoutControl1);
+            this.panel1.Location = new System.Drawing.Point(487, 3);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(316, 75);
+            this.panel1.TabIndex = 5;
+            // 
             // layoutControl1
             // 
+            this.layoutControl1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.layoutControl1.Controls.Add(this.txtCourseID);
             this.layoutControl1.Controls.Add(this.txtName);
             this.layoutControl1.Controls.Add(this.dtStartDate);
             this.layoutControl1.Controls.Add(this.dtEndDate);
-            this.layoutControl1.Location = new System.Drawing.Point(484, 2);
+            this.layoutControl1.Location = new System.Drawing.Point(3, 3);
             this.layoutControl1.Name = "layoutControl1";
             this.layoutControl1.Root = this.layoutControlGroup1;
-            this.layoutControl1.Size = new System.Drawing.Size(315, 116);
-            this.layoutControl1.TabIndex = 5;
+            this.layoutControl1.Size = new System.Drawing.Size(309, 69);
+            this.layoutControl1.TabIndex = 0;
             this.layoutControl1.Text = "layoutControl1";
             // 
             // layoutControlGroup1
@@ -235,17 +249,17 @@
             this.layoutControlGroup1.Items.AddRange(new DevExpress.XtraLayout.BaseLayoutItem[] {
             this.layoutControlItem1,
             this.layoutControlItem3,
-            this.layoutControlItem4,
-            this.layoutControlItem2});
+            this.layoutControlItem2,
+            this.layoutControlItem4});
             this.layoutControlGroup1.Name = "layoutControlGroup1";
-            this.layoutControlGroup1.Size = new System.Drawing.Size(315, 116);
+            this.layoutControlGroup1.Size = new System.Drawing.Size(309, 69);
             this.layoutControlGroup1.TextVisible = false;
             // 
             // txtCourseID
             // 
             this.txtCourseID.Location = new System.Drawing.Point(12, 12);
             this.txtCourseID.Name = "txtCourseID";
-            this.txtCourseID.Size = new System.Drawing.Size(50, 20);
+            this.txtCourseID.Size = new System.Drawing.Size(140, 20);
             this.txtCourseID.StyleController = this.layoutControl1;
             this.txtCourseID.TabIndex = 4;
             // 
@@ -254,24 +268,24 @@
             this.layoutControlItem1.Control = this.txtCourseID;
             this.layoutControlItem1.Location = new System.Drawing.Point(0, 0);
             this.layoutControlItem1.Name = "layoutControlItem1";
-            this.layoutControlItem1.Size = new System.Drawing.Size(54, 24);
+            this.layoutControlItem1.Size = new System.Drawing.Size(144, 24);
             this.layoutControlItem1.TextSize = new System.Drawing.Size(0, 0);
             this.layoutControlItem1.TextVisible = false;
             // 
             // txtName
             // 
-            this.txtName.Location = new System.Drawing.Point(66, 12);
+            this.txtName.Location = new System.Drawing.Point(156, 12);
             this.txtName.Name = "txtName";
-            this.txtName.Size = new System.Drawing.Size(237, 20);
+            this.txtName.Size = new System.Drawing.Size(141, 20);
             this.txtName.StyleController = this.layoutControl1;
             this.txtName.TabIndex = 5;
             // 
             // layoutControlItem2
             // 
             this.layoutControlItem2.Control = this.txtName;
-            this.layoutControlItem2.Location = new System.Drawing.Point(54, 0);
+            this.layoutControlItem2.Location = new System.Drawing.Point(144, 0);
             this.layoutControlItem2.Name = "layoutControlItem2";
-            this.layoutControlItem2.Size = new System.Drawing.Size(241, 24);
+            this.layoutControlItem2.Size = new System.Drawing.Size(145, 24);
             this.layoutControlItem2.TextSize = new System.Drawing.Size(0, 0);
             this.layoutControlItem2.TextVisible = false;
             // 
@@ -284,7 +298,7 @@
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
             this.dtStartDate.Properties.CalendarTimeProperties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-            this.dtStartDate.Size = new System.Drawing.Size(132, 20);
+            this.dtStartDate.Size = new System.Drawing.Size(140, 20);
             this.dtStartDate.StyleController = this.layoutControl1;
             this.dtStartDate.TabIndex = 6;
             // 
@@ -293,37 +307,37 @@
             this.layoutControlItem3.Control = this.dtStartDate;
             this.layoutControlItem3.Location = new System.Drawing.Point(0, 24);
             this.layoutControlItem3.Name = "layoutControlItem3";
-            this.layoutControlItem3.Size = new System.Drawing.Size(136, 72);
+            this.layoutControlItem3.Size = new System.Drawing.Size(144, 25);
             this.layoutControlItem3.TextSize = new System.Drawing.Size(0, 0);
             this.layoutControlItem3.TextVisible = false;
             // 
             // dtEndDate
             // 
             this.dtEndDate.EditValue = null;
-            this.dtEndDate.Location = new System.Drawing.Point(173, 36);
+            this.dtEndDate.Location = new System.Drawing.Point(178, 36);
             this.dtEndDate.Name = "dtEndDate";
             this.dtEndDate.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
             this.dtEndDate.Properties.CalendarTimeProperties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-            this.dtEndDate.Size = new System.Drawing.Size(130, 20);
+            this.dtEndDate.Size = new System.Drawing.Size(119, 20);
             this.dtEndDate.StyleController = this.layoutControl1;
             this.dtEndDate.TabIndex = 7;
             // 
             // layoutControlItem4
             // 
             this.layoutControlItem4.Control = this.dtEndDate;
-            this.layoutControlItem4.Location = new System.Drawing.Point(136, 24);
+            this.layoutControlItem4.Location = new System.Drawing.Point(144, 24);
             this.layoutControlItem4.Name = "layoutControlItem4";
-            this.layoutControlItem4.Size = new System.Drawing.Size(159, 72);
-            this.layoutControlItem4.Text = " đến";
-            this.layoutControlItem4.TextSize = new System.Drawing.Size(21, 13);
+            this.layoutControlItem4.Size = new System.Drawing.Size(145, 25);
+            this.layoutControlItem4.Text = "đến";
+            this.layoutControlItem4.TextSize = new System.Drawing.Size(18, 13);
             // 
             // frmCourseList
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.Controls.Add(this.layoutControl1);
+            this.Controls.Add(this.panel1);
             this.Controls.Add(this.pcLeft);
             this.Controls.Add(this.pcMenu);
             this.Name = "frmCourseList";
@@ -335,6 +349,7 @@
             this.pcLeft.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.gcCourseList)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridView1)).EndInit();
+            this.panel1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.layoutControl1)).EndInit();
             this.layoutControl1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlGroup1)).EndInit();
@@ -366,6 +381,7 @@
         private DevExpress.XtraGrid.Columns.GridColumn colStatus;
         private DevExpress.XtraGrid.Columns.GridColumn colStartDate;
         private DevExpress.XtraGrid.Columns.GridColumn colEndDate;
+        private System.Windows.Forms.Panel panel1;
         private DevExpress.XtraLayout.LayoutControl layoutControl1;
         private DevExpress.XtraEditors.TextEdit txtCourseID;
         private DevExpress.XtraEditors.TextEdit txtName;
@@ -374,7 +390,7 @@
         private DevExpress.XtraLayout.LayoutControlGroup layoutControlGroup1;
         private DevExpress.XtraLayout.LayoutControlItem layoutControlItem1;
         private DevExpress.XtraLayout.LayoutControlItem layoutControlItem3;
-        private DevExpress.XtraLayout.LayoutControlItem layoutControlItem4;
         private DevExpress.XtraLayout.LayoutControlItem layoutControlItem2;
+        private DevExpress.XtraLayout.LayoutControlItem layoutControlItem4;
     }
 }

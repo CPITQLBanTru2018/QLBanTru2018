@@ -287,6 +287,7 @@
             this.colLayoutEmail,
             this.colLayoutPosition,
             this.colLayoutLocation});
+            this.tileView1.ColumnSet.GroupColumn = this.colLayoutPosition;
             this.tileView1.GridControl = this.gcEmployee;
             this.tileView1.Name = "tileView1";
             this.tileView1.OptionsBehavior.KeepFocusedRowOnUpdate = false;
@@ -294,6 +295,8 @@
             this.tileView1.OptionsTiles.LayoutMode = DevExpress.XtraGrid.Views.Tile.TileViewLayoutMode.Kanban;
             this.tileView1.OptionsTiles.Orientation = System.Windows.Forms.Orientation.Vertical;
             this.tileView1.OptionsTiles.RowCount = 0;
+            this.tileView1.SortInfo.AddRange(new DevExpress.XtraGrid.Columns.GridColumnSortInfo[] {
+            new DevExpress.XtraGrid.Columns.GridColumnSortInfo(this.colLayoutPosition, DevExpress.Data.ColumnSortOrder.Ascending)});
             tableColumnDefinition1.Length.Value = 150D;
             tableColumnDefinition2.Length.Value = 302D;
             this.tileView1.TileColumns.Add(tableColumnDefinition1);
