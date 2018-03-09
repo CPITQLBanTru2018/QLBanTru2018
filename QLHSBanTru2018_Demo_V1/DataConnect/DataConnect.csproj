@@ -52,6 +52,11 @@
     <Compile Include="DAO\HungTD\LoginDAO.cs" />
     <Compile Include="DAO\HungTD\PositionDAO.cs" />
     <Compile Include="DAO\HungTD\ReligionDAO.cs" />
+    <Compile Include="DAO\ThanhCongTC\PreferredDAO.cs" />
+    <Compile Include="DAO\ThanhCongTC\ReceivableDetailDAO.cs" />
+    <Compile Include="DAO\ThanhCongTC\ReceivableDetail_PreferredDAO.cs" />
+    <Compile Include="DAO\ThanhCongTC\ReceivableDetail_StudentDAO.cs" />
+    <Compile Include="DAO\ThanhCongTC\ReceivableIDAO.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Properties\Settings.Designer.cs">
       <AutoGen>True</AutoGen>
