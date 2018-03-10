@@ -32,18 +32,18 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmLogin));
             this.defaultLookAndFeel1 = new DevExpress.LookAndFeel.DefaultLookAndFeel(this.components);
             this.panel1 = new System.Windows.Forms.Panel();
+            this.bunifuFlatButton2 = new Bunifu.Framework.UI.BunifuFlatButton();
             this.label2 = new System.Windows.Forms.Label();
+            this.panel2 = new System.Windows.Forms.Panel();
+            this.panel3 = new System.Windows.Forms.Panel();
+            this.btnFacebook = new Bunifu.Framework.UI.BunifuFlatButton();
+            this.bunifuFlatButton1 = new Bunifu.Framework.UI.BunifuFlatButton();
             this.txtPassword = new Bunifu.Framework.UI.BunifuMaterialTextbox();
             this.txtUsername = new Bunifu.Framework.UI.BunifuMaterialTextbox();
             this.labDangNhapHeThong = new System.Windows.Forms.Label();
             this.labError = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.chkRemember = new System.Windows.Forms.CheckBox();
-            this.bunifuFlatButton2 = new Bunifu.Framework.UI.BunifuFlatButton();
-            this.panel2 = new System.Windows.Forms.Panel();
-            this.panel3 = new System.Windows.Forms.Panel();
-            this.btnFacebook = new Bunifu.Framework.UI.BunifuFlatButton();
-            this.bunifuFlatButton1 = new Bunifu.Framework.UI.BunifuFlatButton();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
             this.panel3.SuspendLayout();
@@ -70,98 +70,6 @@
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(600, 400);
             this.panel1.TabIndex = 0;
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.label2.Location = new System.Drawing.Point(369, 74);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(173, 14);
-            this.label2.TabIndex = 18;
-            this.label2.Text = "Dành cho cán bộ và viên chức";
-            // 
-            // txtPassword
-            // 
-            this.txtPassword.Cursor = System.Windows.Forms.Cursors.IBeam;
-            this.txtPassword.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtPassword.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.txtPassword.HintForeColor = System.Drawing.Color.Empty;
-            this.txtPassword.HintText = "";
-            this.txtPassword.isPassword = true;
-            this.txtPassword.LineFocusedColor = System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(115)))), ((int)(((byte)(199)))));
-            this.txtPassword.LineIdleColor = System.Drawing.Color.Gray;
-            this.txtPassword.LineMouseHoverColor = System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(115)))), ((int)(((byte)(199)))));
-            this.txtPassword.LineThickness = 1;
-            this.txtPassword.Location = new System.Drawing.Point(372, 152);
-            this.txtPassword.Margin = new System.Windows.Forms.Padding(4);
-            this.txtPassword.Name = "txtPassword";
-            this.txtPassword.Size = new System.Drawing.Size(200, 27);
-            this.txtPassword.TabIndex = 2;
-            this.txtPassword.Text = "Tên đăng nhập";
-            this.txtPassword.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
-            // 
-            // txtUsername
-            // 
-            this.txtUsername.Cursor = System.Windows.Forms.Cursors.IBeam;
-            this.txtUsername.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtUsername.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.txtUsername.HintForeColor = System.Drawing.Color.Empty;
-            this.txtUsername.HintText = "Tên đăng nhập";
-            this.txtUsername.isPassword = false;
-            this.txtUsername.LineFocusedColor = System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(115)))), ((int)(((byte)(199)))));
-            this.txtUsername.LineIdleColor = System.Drawing.Color.Gray;
-            this.txtUsername.LineMouseHoverColor = System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(115)))), ((int)(((byte)(199)))));
-            this.txtUsername.LineThickness = 1;
-            this.txtUsername.Location = new System.Drawing.Point(372, 117);
-            this.txtUsername.Margin = new System.Windows.Forms.Padding(4);
-            this.txtUsername.Name = "txtUsername";
-            this.txtUsername.Size = new System.Drawing.Size(200, 27);
-            this.txtUsername.TabIndex = 1;
-            this.txtUsername.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
-            // 
-            // labDangNhapHeThong
-            // 
-            this.labDangNhapHeThong.AutoSize = true;
-            this.labDangNhapHeThong.Font = new System.Drawing.Font("Tahoma", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labDangNhapHeThong.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.labDangNhapHeThong.Location = new System.Drawing.Point(367, 41);
-            this.labDangNhapHeThong.Name = "labDangNhapHeThong";
-            this.labDangNhapHeThong.Size = new System.Drawing.Size(216, 25);
-            this.labDangNhapHeThong.TabIndex = 13;
-            this.labDangNhapHeThong.Text = "Đăng Nhập Hệ Thống";
-            // 
-            // labError
-            // 
-            this.labError.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labError.ForeColor = System.Drawing.Color.Red;
-            this.labError.Location = new System.Drawing.Point(372, 301);
-            this.labError.Name = "labError";
-            this.labError.Size = new System.Drawing.Size(200, 23);
-            this.labError.TabIndex = 12;
-            this.labError.Text = "Đã xảy ra lỗi";
-            this.labError.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(474, 378);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(114, 13);
-            this.label1.TabIndex = 5;
-            this.label1.Text = "Bản quyền thuộc CPIT";
-            // 
-            // chkRemember
-            // 
-            this.chkRemember.AutoSize = true;
-            this.chkRemember.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.chkRemember.Location = new System.Drawing.Point(372, 186);
-            this.chkRemember.Name = "chkRemember";
-            this.chkRemember.Size = new System.Drawing.Size(129, 20);
-            this.chkRemember.TabIndex = 3;
-            this.chkRemember.Text = "Ghi nhớ mật khẩu";
-            this.chkRemember.UseVisualStyleBackColor = true;
             // 
             // bunifuFlatButton2
             // 
@@ -197,6 +105,17 @@
             this.bunifuFlatButton2.Textcolor = System.Drawing.Color.White;
             this.bunifuFlatButton2.TextFont = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.bunifuFlatButton2.Click += new System.EventHandler(this.btnExit_Click);
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.label2.Location = new System.Drawing.Point(369, 74);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(173, 14);
+            this.label2.TabIndex = 18;
+            this.label2.Text = "Dành cho cán bộ và viên chức";
             // 
             // panel2
             // 
@@ -290,6 +209,87 @@
             this.bunifuFlatButton1.TextFont = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.bunifuFlatButton1.Click += new System.EventHandler(this.btnLogin_Click);
             // 
+            // txtPassword
+            // 
+            this.txtPassword.Cursor = System.Windows.Forms.Cursors.IBeam;
+            this.txtPassword.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtPassword.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.txtPassword.HintForeColor = System.Drawing.Color.Empty;
+            this.txtPassword.HintText = "";
+            this.txtPassword.isPassword = true;
+            this.txtPassword.LineFocusedColor = System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(115)))), ((int)(((byte)(199)))));
+            this.txtPassword.LineIdleColor = System.Drawing.Color.Gray;
+            this.txtPassword.LineMouseHoverColor = System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(115)))), ((int)(((byte)(199)))));
+            this.txtPassword.LineThickness = 1;
+            this.txtPassword.Location = new System.Drawing.Point(372, 152);
+            this.txtPassword.Margin = new System.Windows.Forms.Padding(4);
+            this.txtPassword.Name = "txtPassword";
+            this.txtPassword.Size = new System.Drawing.Size(200, 27);
+            this.txtPassword.TabIndex = 2;
+            this.txtPassword.Text = "Tên đăng nhập";
+            this.txtPassword.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
+            // 
+            // txtUsername
+            // 
+            this.txtUsername.Cursor = System.Windows.Forms.Cursors.IBeam;
+            this.txtUsername.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtUsername.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.txtUsername.HintForeColor = System.Drawing.Color.Empty;
+            this.txtUsername.HintText = "Tên đăng nhập";
+            this.txtUsername.isPassword = false;
+            this.txtUsername.LineFocusedColor = System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(115)))), ((int)(((byte)(199)))));
+            this.txtUsername.LineIdleColor = System.Drawing.Color.Gray;
+            this.txtUsername.LineMouseHoverColor = System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(115)))), ((int)(((byte)(199)))));
+            this.txtUsername.LineThickness = 1;
+            this.txtUsername.Location = new System.Drawing.Point(372, 117);
+            this.txtUsername.Margin = new System.Windows.Forms.Padding(4);
+            this.txtUsername.Name = "txtUsername";
+            this.txtUsername.Size = new System.Drawing.Size(200, 27);
+            this.txtUsername.TabIndex = 1;
+            this.txtUsername.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
+            // 
+            // labDangNhapHeThong
+            // 
+            this.labDangNhapHeThong.AutoSize = true;
+            this.labDangNhapHeThong.Font = new System.Drawing.Font("Tahoma", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labDangNhapHeThong.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.labDangNhapHeThong.Location = new System.Drawing.Point(367, 41);
+            this.labDangNhapHeThong.Name = "labDangNhapHeThong";
+            this.labDangNhapHeThong.Size = new System.Drawing.Size(216, 25);
+            this.labDangNhapHeThong.TabIndex = 13;
+            this.labDangNhapHeThong.Text = "Đăng Nhập Hệ Thống";
+            // 
+            // labError
+            // 
+            this.labError.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labError.ForeColor = System.Drawing.Color.Red;
+            this.labError.Location = new System.Drawing.Point(372, 301);
+            this.labError.Name = "labError";
+            this.labError.Size = new System.Drawing.Size(200, 23);
+            this.labError.TabIndex = 12;
+            this.labError.Text = "Đã xảy ra lỗi";
+            this.labError.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(474, 378);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(114, 13);
+            this.label1.TabIndex = 5;
+            this.label1.Text = "Bản quyền thuộc CPIT";
+            // 
+            // chkRemember
+            // 
+            this.chkRemember.AutoSize = true;
+            this.chkRemember.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.chkRemember.Location = new System.Drawing.Point(372, 186);
+            this.chkRemember.Name = "chkRemember";
+            this.chkRemember.Size = new System.Drawing.Size(129, 20);
+            this.chkRemember.TabIndex = 3;
+            this.chkRemember.Text = "Ghi nhớ mật khẩu";
+            this.chkRemember.UseVisualStyleBackColor = true;
+            // 
             // frmLogin
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -300,6 +300,7 @@
             this.Name = "frmLogin";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Đăng Nhập Hệ Thống";
+            this.Load += new System.EventHandler(this.frmLogin_Load);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             this.panel2.ResumeLayout(false);

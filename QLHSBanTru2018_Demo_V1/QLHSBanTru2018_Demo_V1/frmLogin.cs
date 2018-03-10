@@ -34,6 +34,20 @@ namespace QLHSBanTru2018_Demo_V1
                 int result = new LoginDAO().Login(txtUsername.Text, MD5Hash.PasswordEncryptor.MD5Hash(txtPassword.Text));
                 if (result == 1)
                 {
+                    if (chkRemember.Checked)
+                    {
+                        Properties.Settings.Default.Checkbox = true;
+                        Properties.Settings.Default.Username = txtUsername.Text;
+                        Properties.Settings.Default.Password = txtPassword.Text;
+                        Properties.Settings.Default.Save();
+                    }
+                    else
+                    {
+                        Properties.Settings.Default.Checkbox = false;
+                        Properties.Settings.Default.Username = "";
+                        Properties.Settings.Default.Password = "";
+                        Properties.Settings.Default.Save();
+                    }
                     DialogResult = DialogResult.OK;
                     Close();
                 }
@@ -58,6 +72,16 @@ namespace QLHSBanTru2018_Demo_V1
             System.Diagnostics.Process.Start("http://facebook.com/duchung.1510");
             //AA
             //Trần Đức Hùng
-        }        
+        }
+
+        private void frmLogin_Load(object sender, EventArgs e)
+        {
+            if (Properties.Settings.Default.Checkbox == true)
+            {
+                chkRemember.CheckState = CheckState.Checked;
+                txtUsername.Text = Properties.Settings.Default.Username;
+                txtPassword.Text = Properties.Settings.Default.Password;
+            }
+        }
     }
 }
