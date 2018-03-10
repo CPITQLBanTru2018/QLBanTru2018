@@ -26,18 +26,18 @@ namespace DataConnect.DAO.HungTD
         {
             return course.SingleOrDefault(x => x.CourseID == courseID);
         }
-        public bool Insert(Course entity)
+        public int Insert(Course entity)
         {
             try
             {
                 course.InsertOnSubmit(entity);
                 db.SubmitChanges();
                 //History
-                return true;
+                return entity.CourseID;
             }
             catch
             {
-                return false;
+                return 0;
             }
         }
         public bool Edit(Course entity)
@@ -65,6 +65,13 @@ namespace DataConnect.DAO.HungTD
                 Course obj = course.Single(x => x.CourseID == courseID);
                 obj.Status = false;
                 db.SubmitChanges();
+
+                Semester se1 = new SemesterDAO().ListByCourseID(courseID)[0];
+                Semester se2 = new SemesterDAO().ListByCourseID(courseID)[1];
+
+                new SemesterDAO().Delete(se1.SemesterID);
+                new SemesterDAO().Delete(se2.SemesterID);
+
                 return true;
             }
             catch

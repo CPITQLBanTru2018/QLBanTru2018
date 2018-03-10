@@ -52,6 +52,7 @@
     <Compile Include="DAO\HungTD\LoginDAO.cs" />
     <Compile Include="DAO\HungTD\PositionDAO.cs" />
     <Compile Include="DAO\HungTD\ReligionDAO.cs" />
+    <Compile Include="DAO\HungTD\SemesterDAO.cs" />
     <Compile Include="DAO\ThanhCongTC\PreferredDAO.cs" />
     <Compile Include="DAO\ThanhCongTC\ReceivableDetailDAO.cs" />
     <Compile Include="DAO\ThanhCongTC\ReceivableDetail_PreferredDAO.cs" />

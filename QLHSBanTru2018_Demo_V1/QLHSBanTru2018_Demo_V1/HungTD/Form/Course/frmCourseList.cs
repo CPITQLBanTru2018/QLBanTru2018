@@ -52,7 +52,7 @@ namespace QLHSBanTru2018_Demo_V1.HungTD.Form.Course
         {
             frmCourseDetail courseDetail = new frmCourseDetail();
             courseDetail.Function = 2;
-            courseDetail.course = new CourseDAO().GetByID(int.Parse(layoutControlItem1.Text));
+            courseDetail.course = new CourseDAO().GetByID(int.Parse(txtCourseID.Text));
             courseDetail.ShowDialog();
             if (courseDetail.DialogResult == DialogResult.OK)
                 FillGridControl();
@@ -61,7 +61,7 @@ namespace QLHSBanTru2018_Demo_V1.HungTD.Form.Course
         {
             if (MessageBox.Show("Bạn có muốn xóa " + txtName.Text, "Thông báo", MessageBoxButtons.YesNo) == DialogResult.Yes)
             {
-                if (new CourseDAO().Delete(int.Parse(layoutControlItem1.Text)) == true)
+                if (new CourseDAO().Delete(int.Parse(txtCourseID.Text)) == true)
                 {
                     MessageBox.Show("Xóa thành công!", "Thông báo");
                 }
