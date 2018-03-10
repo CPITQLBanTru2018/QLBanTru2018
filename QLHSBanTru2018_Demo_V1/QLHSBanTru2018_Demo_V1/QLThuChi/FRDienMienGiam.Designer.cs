@@ -336,7 +336,7 @@
             // 
             // bntThoat
             // 
-            this.bntThoat.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("simpleButton1.ImageOptions.Image")));
+            this.bntThoat.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("bntThoat.ImageOptions.Image")));
             this.bntThoat.Location = new System.Drawing.Point(313, 324);
             this.bntThoat.Name = "bntThoat";
             this.bntThoat.Size = new System.Drawing.Size(75, 23);
@@ -346,7 +346,7 @@
             // 
             // bntLuu
             // 
-            this.bntLuu.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("simpleButton2.ImageOptions.Image")));
+            this.bntLuu.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("bntLuu.ImageOptions.Image")));
             this.bntLuu.Location = new System.Drawing.Point(232, 324);
             this.bntLuu.Name = "bntLuu";
             this.bntLuu.Size = new System.Drawing.Size(75, 23);
