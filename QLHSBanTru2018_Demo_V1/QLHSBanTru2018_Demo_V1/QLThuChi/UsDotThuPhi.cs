@@ -8,6 +8,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using DevExpress.XtraEditors;
+using DataConnect.DAO.ThanhCongTC;
 
 namespace QLHSBanTru2018_Demo_V1.QLThuChi
 {
@@ -17,10 +18,46 @@ namespace QLHSBanTru2018_Demo_V1.QLThuChi
         {
             InitializeComponent();
         }
+        public void LoadDataDotThu()
+        {
+            ReceivableIDAO db = new ReceivableIDAO();
+            grDotThu.DataSource = db.ListReceivable();
+        }
+        public void LoadDataChitietdotthu()
+        {
+            
+        }
 
         private void UsDotThuPhi_Load(object sender, EventArgs e)
         {
-
+            LoadDataDotThu();
         }
+
+        private void bntThietLapKeHoachThu_Click(object sender, EventArgs e)
+        {
+            FrThietLapKeHoachThu a = new FrThietLapKeHoachThu();
+            a.ShowDialog();
+        }
+
+        private void gridView1_FocusedRowChanged(object sender, DevExpress.XtraGrid.Views.Base.FocusedRowChangedEventArgs e)
+        {
+            try
+            {
+                txtMadotthu.Text = gridView1.GetRowCellValue(e.FocusedRowHandle, "ReceivableID").ToString();
+                txtTendotthu.Text = gridView1.GetRowCellValue(e.FocusedRowHandle, "Name").ToString();
+                txtTongthu.Text = gridView1.GetRowCellValue(e.FocusedRowHandle, "TotalPrice").ToString();
+                dtNgaybatdau.Text = gridView1.GetRowCellValue(e.FocusedRowHandle, "StartDate").ToString();
+                dtNgayketthuc.Text = gridView1.GetRowCellValue(e.FocusedRowHandle, "EndDate").ToString();
+                dtNgaykhoitao.Text = gridView1.GetRowCellValue(e.FocusedRowHandle, "CreatedDate").ToString();
+                ReceivableDetailDAO dt = new ReceivableDetailDAO();
+                grChiTietDotThu.DataSource = dt.ListReceivableDetail(int.Parse(txtMadotthu.Text));
+            }
+            catch 
+            {
+
+            }
+        }
+
+       
     }
 }

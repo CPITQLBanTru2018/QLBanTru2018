@@ -8,6 +8,8 @@ using System.Linq;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using DevExpress.XtraEditors;
+using DataConnect;
+using DataConnect.DAO.ThanhCongTC;
 
 namespace QLHSBanTru2018_Demo_V1.QLThuChi
 {
@@ -27,6 +29,53 @@ namespace QLHSBanTru2018_Demo_V1.QLThuChi
         {
             FRDienMienGiam a = new FRDienMienGiam();
             a.ShowDialog();
+        }
+
+        private void bntLuu_Click(object sender, EventArgs e)
+        {
+
+            try
+            {
+                ReceivableDetail a = new ReceivableDetail();
+                a.Name = txtTenKhoanThu.Text;
+                a.Price = decimal.Parse(txtMucThu.Text);
+                a.SalePrice = 0;
+                a.Status = true;
+                ReceivableDetailDAO.ListDemoReceivableDetail.Add(a);
+                this.Close();
+            }
+            catch 
+            {
+
+                
+            }
+        }
+
+        private void cbHangThang_CheckedChanged(object sender, EventArgs e)
+        {
+            if (cbHangThang.Checked==true)
+            {
+                cbHocKy.Checked = false;
+                cbNam.Checked = false;
+            }
+        }
+
+        private void cbHocKy_CheckedChanged(object sender, EventArgs e)
+        {
+            if (cbHocKy.Checked==true)
+            {
+                cbHangThang.Checked = false;
+                cbNam.Checked = false;
+            }
+        }
+
+        private void cbNam_CheckedChanged(object sender, EventArgs e)
+        {
+            if (cbNam.Checked==true)
+            {
+                cbHocKy.Checked = false;
+                cbHangThang.Checked = false;
+            }
         }
     }
 }

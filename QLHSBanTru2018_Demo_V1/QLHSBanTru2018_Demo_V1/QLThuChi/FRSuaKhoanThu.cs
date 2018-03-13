@@ -29,5 +29,37 @@ namespace QLHSBanTru2018_Demo_V1.QLThuChi
             FRDienMienGiam a = new FRDienMienGiam();
             a.ShowDialog();
         }
+
+        private void bntLuu_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void cbHangThang_CheckedChanged(object sender, EventArgs e)
+        {
+            if (cbHangThang.Checked==true)
+            {
+                cbHocKy.Checked = false;
+                cbNam.Checked = false;
+            }
+        }
+
+        private void cbHocKy_CheckedChanged(object sender, EventArgs e)
+        {
+            if (cbHocKy.Checked==true)
+            {
+                cbHangThang.Checked = false;
+                cbNam.Checked = false;
+            }
+        }
+
+        private void cbNam_CheckedChanged(object sender, EventArgs e)
+        {
+            if (cbNam.Checked==true)
+            {
+                cbHangThang.Checked = false;
+                cbHocKy.Checked = false;
+            }
+        }
     }
 }

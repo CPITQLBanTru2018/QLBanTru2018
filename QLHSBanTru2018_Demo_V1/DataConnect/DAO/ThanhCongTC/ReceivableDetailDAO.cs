@@ -17,7 +17,7 @@ namespace DataConnect.DAO.ThanhCongTC
             a.Price = entity.Price;
             a.SalePrice = entity.SalePrice;
             a.Status = entity.Status;
-            a.Revenue = entity.Revenue;
+            //a.Revenue = entity.Revenue;
             dt.ReceivableDetails.InsertOnSubmit(a);
             dt.SubmitChanges();
             return true;
@@ -30,7 +30,7 @@ namespace DataConnect.DAO.ThanhCongTC
             a.Price = entity.Price;
             a.SalePrice = entity.SalePrice;
             a.Status = entity.Status;
-            a.Revenue = entity.Revenue;
+            //a.Revenue = entity.Revenue;
             dt.SubmitChanges();
             return true;
         }
@@ -41,10 +41,11 @@ namespace DataConnect.DAO.ThanhCongTC
             dt.SubmitChanges();
             return true;
         }
-        public List<ReceivableDetail> ListReceivableDetail()
+        public List<ReceivableDetail> ListReceivableDetail(int MDT)
         {
-            var a = dt.ReceivableDetails;
+            var a = dt.ReceivableDetails.Where(t=>t.ReceivableID==MDT);
             return a.ToList();
         }
+        public static List<ReceivableDetail> ListDemoReceivableDetail = new List<ReceivableDetail>();
     }
 }

@@ -9,7 +9,7 @@ namespace DataConnect.DAO.ThanhCongTC
     public class ReceivableIDAO
     {
         QLHSSmartKidsDataContext dt = new QLHSSmartKidsDataContext();
-        public bool Insert(Receivable entity)
+        public int Insert(Receivable entity)
         {
             Receivable a = new Receivable();
             a.Name = entity.Name;
@@ -18,10 +18,10 @@ namespace DataConnect.DAO.ThanhCongTC
             a.EndDate = entity.EndDate;
             a.CreatedDate = entity.CreatedDate;
             a.Status = entity.Status;
-            a.RevenueID = entity.RevenueID;
+            //a.RevenueID = entity.RevenueID;
             dt.Receivables.InsertOnSubmit(a);
             dt.SubmitChanges();
-            return true;
+            return a.ReceivableID;
         }
         public bool Edit(Receivable entity)
         {
@@ -32,7 +32,7 @@ namespace DataConnect.DAO.ThanhCongTC
             a.EndDate = entity.EndDate;
             a.CreatedDate = entity.CreatedDate;
             a.Status = entity.Status;
-            a.RevenueID = entity.RevenueID;
+            //a.RevenueID = entity.RevenueID;
             dt.SubmitChanges();
             return true;
         }

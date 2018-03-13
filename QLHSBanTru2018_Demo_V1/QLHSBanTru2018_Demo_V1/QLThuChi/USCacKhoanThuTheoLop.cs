@@ -17,6 +17,7 @@ namespace QLHSBanTru2018_Demo_V1.QLThuChi
         {
             InitializeComponent();
         }
+      
 
         private void USCacKhoanThuTheoLop_Load(object sender, EventArgs e)
         {

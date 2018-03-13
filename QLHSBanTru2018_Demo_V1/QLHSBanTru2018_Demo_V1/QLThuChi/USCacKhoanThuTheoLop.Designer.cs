@@ -81,10 +81,10 @@
             // grDanhSachLopHoc
             // 
             this.grDanhSachLopHoc.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.grDanhSachLopHoc.Location = new System.Drawing.Point(2, 20);
+            this.grDanhSachLopHoc.Location = new System.Drawing.Point(2, 21);
             this.grDanhSachLopHoc.MainView = this.gridView2;
             this.grDanhSachLopHoc.Name = "grDanhSachLopHoc";
-            this.grDanhSachLopHoc.Size = new System.Drawing.Size(326, 389);
+            this.grDanhSachLopHoc.Size = new System.Drawing.Size(326, 388);
             this.grDanhSachLopHoc.TabIndex = 0;
             this.grDanhSachLopHoc.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gridView2});
@@ -126,7 +126,6 @@
             this.layoutControlItem3,
             this.layoutControlItem2,
             this.emptySpaceItem1});
-            this.layoutControlGroup1.Location = new System.Drawing.Point(0, 0);
             this.layoutControlGroup1.Name = "Root";
             this.layoutControlGroup1.Size = new System.Drawing.Size(878, 460);
             this.layoutControlGroup1.TextVisible = false;
