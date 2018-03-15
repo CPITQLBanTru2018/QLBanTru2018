@@ -31,6 +31,18 @@
             this.bntThietLapKeHoachThu = new DevExpress.XtraEditors.SimpleButton();
             this.layoutControl1 = new DevExpress.XtraLayout.LayoutControl();
             this.groupControl1 = new DevExpress.XtraEditors.GroupControl();
+            this.dtNgayketthuc = new System.Windows.Forms.DateTimePicker();
+            this.dtNgaybatdau = new System.Windows.Forms.DateTimePicker();
+            this.dtNgaykhoitao = new System.Windows.Forms.DateTimePicker();
+            this.label4 = new System.Windows.Forms.Label();
+            this.label5 = new System.Windows.Forms.Label();
+            this.label6 = new System.Windows.Forms.Label();
+            this.label3 = new System.Windows.Forms.Label();
+            this.txtTongthu = new System.Windows.Forms.TextBox();
+            this.label2 = new System.Windows.Forms.Label();
+            this.txtTendotthu = new System.Windows.Forms.TextBox();
+            this.label1 = new System.Windows.Forms.Label();
+            this.txtMadotthu = new System.Windows.Forms.TextBox();
             this.grChiTietDotThu = new DevExpress.XtraGrid.GridControl();
             this.gridView2 = new DevExpress.XtraGrid.Views.Grid.GridView();
             this.grDotThu = new DevExpress.XtraGrid.GridControl();
@@ -44,18 +56,6 @@
             this.layoutControlItem2 = new DevExpress.XtraLayout.LayoutControlItem();
             this.layoutControlItem3 = new DevExpress.XtraLayout.LayoutControlItem();
             this.layoutControlItem5 = new DevExpress.XtraLayout.LayoutControlItem();
-            this.txtMadotthu = new System.Windows.Forms.TextBox();
-            this.label1 = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
-            this.txtTendotthu = new System.Windows.Forms.TextBox();
-            this.label3 = new System.Windows.Forms.Label();
-            this.txtTongthu = new System.Windows.Forms.TextBox();
-            this.label4 = new System.Windows.Forms.Label();
-            this.label5 = new System.Windows.Forms.Label();
-            this.label6 = new System.Windows.Forms.Label();
-            this.dtNgaykhoitao = new System.Windows.Forms.DateTimePicker();
-            this.dtNgaybatdau = new System.Windows.Forms.DateTimePicker();
-            this.dtNgayketthuc = new System.Windows.Forms.DateTimePicker();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControl1)).BeginInit();
             this.layoutControl1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.groupControl1)).BeginInit();
@@ -79,7 +79,7 @@
             // 
             this.bntThietLapKeHoachThu.Location = new System.Drawing.Point(12, 51);
             this.bntThietLapKeHoachThu.Name = "bntThietLapKeHoachThu";
-            this.bntThietLapKeHoachThu.Size = new System.Drawing.Size(113, 22);
+            this.bntThietLapKeHoachThu.Size = new System.Drawing.Size(115, 22);
             this.bntThietLapKeHoachThu.StyleController = this.layoutControl1;
             this.bntThietLapKeHoachThu.TabIndex = 4;
             this.bntThietLapKeHoachThu.Text = "Thiết lập kế hoạch thu";
@@ -120,6 +120,114 @@
             this.groupControl1.Size = new System.Drawing.Size(659, 99);
             this.groupControl1.TabIndex = 10;
             this.groupControl1.Text = "Thông tin đợt thu";
+            // 
+            // dtNgayketthuc
+            // 
+            this.dtNgayketthuc.CustomFormat = "dd/MM/yyyy";
+            this.dtNgayketthuc.Enabled = false;
+            this.dtNgayketthuc.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
+            this.dtNgayketthuc.Location = new System.Drawing.Point(460, 73);
+            this.dtNgayketthuc.Name = "dtNgayketthuc";
+            this.dtNgayketthuc.Size = new System.Drawing.Size(183, 21);
+            this.dtNgayketthuc.TabIndex = 11;
+            // 
+            // dtNgaybatdau
+            // 
+            this.dtNgaybatdau.CustomFormat = "dd/MM/yyyy";
+            this.dtNgaybatdau.Enabled = false;
+            this.dtNgaybatdau.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
+            this.dtNgaybatdau.Location = new System.Drawing.Point(458, 49);
+            this.dtNgaybatdau.Name = "dtNgaybatdau";
+            this.dtNgaybatdau.Size = new System.Drawing.Size(183, 21);
+            this.dtNgaybatdau.TabIndex = 10;
+            // 
+            // dtNgaykhoitao
+            // 
+            this.dtNgaykhoitao.CustomFormat = "dd/MM/yyyy";
+            this.dtNgaykhoitao.Enabled = false;
+            this.dtNgaykhoitao.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
+            this.dtNgaykhoitao.Location = new System.Drawing.Point(459, 22);
+            this.dtNgaykhoitao.Name = "dtNgaykhoitao";
+            this.dtNgaykhoitao.Size = new System.Drawing.Size(183, 21);
+            this.dtNgaykhoitao.TabIndex = 9;
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Location = new System.Drawing.Point(380, 76);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(74, 13);
+            this.label4.TabIndex = 8;
+            this.label4.Text = "Ngày kết thúc";
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Location = new System.Drawing.Point(380, 52);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(72, 13);
+            this.label5.TabIndex = 7;
+            this.label5.Text = "Ngày bắt đầu";
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Location = new System.Drawing.Point(380, 25);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(73, 13);
+            this.label6.TabIndex = 6;
+            this.label6.Text = "Ngày khởi tạo";
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(19, 76);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(50, 13);
+            this.label3.TabIndex = 5;
+            this.label3.Text = "Tổng thu";
+            // 
+            // txtTongthu
+            // 
+            this.txtTongthu.Enabled = false;
+            this.txtTongthu.Location = new System.Drawing.Point(84, 73);
+            this.txtTongthu.Name = "txtTongthu";
+            this.txtTongthu.Size = new System.Drawing.Size(205, 21);
+            this.txtTongthu.TabIndex = 4;
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(19, 52);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(63, 13);
+            this.label2.TabIndex = 3;
+            this.label2.Text = "Tên đợt thu";
+            // 
+            // txtTendotthu
+            // 
+            this.txtTendotthu.Enabled = false;
+            this.txtTendotthu.Location = new System.Drawing.Point(84, 49);
+            this.txtTendotthu.Name = "txtTendotthu";
+            this.txtTendotthu.Size = new System.Drawing.Size(205, 21);
+            this.txtTendotthu.TabIndex = 2;
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(19, 25);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(59, 13);
+            this.label1.TabIndex = 1;
+            this.label1.Text = "Mã đợt thu";
+            // 
+            // txtMadotthu
+            // 
+            this.txtMadotthu.Enabled = false;
+            this.txtMadotthu.Location = new System.Drawing.Point(84, 22);
+            this.txtMadotthu.Name = "txtMadotthu";
+            this.txtMadotthu.Size = new System.Drawing.Size(205, 21);
+            this.txtMadotthu.TabIndex = 0;
             // 
             // grChiTietDotThu
             // 
@@ -192,9 +300,9 @@
             // emptySpaceItem1
             // 
             this.emptySpaceItem1.AllowHotTrack = false;
-            this.emptySpaceItem1.Location = new System.Drawing.Point(117, 39);
+            this.emptySpaceItem1.Location = new System.Drawing.Point(119, 39);
             this.emptySpaceItem1.Name = "emptySpaceItem1";
-            this.emptySpaceItem1.Size = new System.Drawing.Size(769, 26);
+            this.emptySpaceItem1.Size = new System.Drawing.Size(767, 26);
             this.emptySpaceItem1.TextSize = new System.Drawing.Size(0, 0);
             // 
             // layoutControlItem1
@@ -202,7 +310,7 @@
             this.layoutControlItem1.Control = this.bntThietLapKeHoachThu;
             this.layoutControlItem1.Location = new System.Drawing.Point(0, 39);
             this.layoutControlItem1.Name = "layoutControlItem1";
-            this.layoutControlItem1.Size = new System.Drawing.Size(117, 26);
+            this.layoutControlItem1.Size = new System.Drawing.Size(119, 26);
             this.layoutControlItem1.TextSize = new System.Drawing.Size(0, 0);
             this.layoutControlItem1.TextVisible = false;
             // 
@@ -241,114 +349,6 @@
             this.layoutControlItem5.Size = new System.Drawing.Size(663, 103);
             this.layoutControlItem5.TextSize = new System.Drawing.Size(0, 0);
             this.layoutControlItem5.TextVisible = false;
-            // 
-            // txtMadotthu
-            // 
-            this.txtMadotthu.Enabled = false;
-            this.txtMadotthu.Location = new System.Drawing.Point(84, 22);
-            this.txtMadotthu.Name = "txtMadotthu";
-            this.txtMadotthu.Size = new System.Drawing.Size(205, 21);
-            this.txtMadotthu.TabIndex = 0;
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(19, 25);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(59, 13);
-            this.label1.TabIndex = 1;
-            this.label1.Text = "Mã đợt thu";
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(19, 52);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(63, 13);
-            this.label2.TabIndex = 3;
-            this.label2.Text = "Tên đợt thu";
-            // 
-            // txtTendotthu
-            // 
-            this.txtTendotthu.Enabled = false;
-            this.txtTendotthu.Location = new System.Drawing.Point(84, 49);
-            this.txtTendotthu.Name = "txtTendotthu";
-            this.txtTendotthu.Size = new System.Drawing.Size(205, 21);
-            this.txtTendotthu.TabIndex = 2;
-            // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(19, 76);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(50, 13);
-            this.label3.TabIndex = 5;
-            this.label3.Text = "Tổng thu";
-            // 
-            // txtTongthu
-            // 
-            this.txtTongthu.Enabled = false;
-            this.txtTongthu.Location = new System.Drawing.Point(84, 73);
-            this.txtTongthu.Name = "txtTongthu";
-            this.txtTongthu.Size = new System.Drawing.Size(205, 21);
-            this.txtTongthu.TabIndex = 4;
-            // 
-            // label4
-            // 
-            this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(380, 76);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(74, 13);
-            this.label4.TabIndex = 8;
-            this.label4.Text = "Ngày kết thúc";
-            // 
-            // label5
-            // 
-            this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(380, 52);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(72, 13);
-            this.label5.TabIndex = 7;
-            this.label5.Text = "Ngày bắt đầu";
-            // 
-            // label6
-            // 
-            this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(380, 25);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(73, 13);
-            this.label6.TabIndex = 6;
-            this.label6.Text = "Ngày khởi tạo";
-            // 
-            // dtNgaykhoitao
-            // 
-            this.dtNgaykhoitao.CustomFormat = "dd/MM/yyyy";
-            this.dtNgaykhoitao.Enabled = false;
-            this.dtNgaykhoitao.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
-            this.dtNgaykhoitao.Location = new System.Drawing.Point(459, 22);
-            this.dtNgaykhoitao.Name = "dtNgaykhoitao";
-            this.dtNgaykhoitao.Size = new System.Drawing.Size(183, 21);
-            this.dtNgaykhoitao.TabIndex = 9;
-            // 
-            // dtNgaybatdau
-            // 
-            this.dtNgaybatdau.CustomFormat = "dd/MM/yyyy";
-            this.dtNgaybatdau.Enabled = false;
-            this.dtNgaybatdau.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
-            this.dtNgaybatdau.Location = new System.Drawing.Point(458, 49);
-            this.dtNgaybatdau.Name = "dtNgaybatdau";
-            this.dtNgaybatdau.Size = new System.Drawing.Size(183, 21);
-            this.dtNgaybatdau.TabIndex = 10;
-            // 
-            // dtNgayketthuc
-            // 
-            this.dtNgayketthuc.CustomFormat = "dd/MM/yyyy";
-            this.dtNgayketthuc.Enabled = false;
-            this.dtNgayketthuc.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
-            this.dtNgayketthuc.Location = new System.Drawing.Point(460, 73);
-            this.dtNgayketthuc.Name = "dtNgayketthuc";
-            this.dtNgayketthuc.Size = new System.Drawing.Size(183, 21);
-            this.dtNgayketthuc.TabIndex = 11;
             // 
             // UsDotThuPhi
             // 

@@ -35,6 +35,7 @@ namespace QLHSBanTru2018_Demo_V1.QLThuChi
 
         private void bntThietLapKeHoachThu_Click(object sender, EventArgs e)
         {
+            ReceivableDetailDAO.ListDemoReceivableDetail.Clear();
             FrThietLapKeHoachThu a = new FrThietLapKeHoachThu();
             a.ShowDialog();
         }

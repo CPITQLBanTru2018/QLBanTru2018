@@ -36,6 +36,10 @@ namespace QLHSBanTru2018_Demo_V1.QLThuChi
 
             try
             {
+                ReceivableDetail_Preferred b = new ReceivableDetail_Preferred();
+                b.PreferredID = (int)cbbMiengiam.SelectedValue;
+                b.Percent = int.Parse(txtMucgiam.Text);
+                ReceivableDetail_PreferredDAO.ListDemoReceivableDetail.Add(b);
                 ReceivableDetail a = new ReceivableDetail();
                 a.Name = txtTenKhoanThu.Text;
                 a.Price = decimal.Parse(txtMucThu.Text);
@@ -76,6 +80,18 @@ namespace QLHSBanTru2018_Demo_V1.QLThuChi
                 cbHocKy.Checked = false;
                 cbHangThang.Checked = false;
             }
+        }
+        public void LoadDSMG()
+        {
+            PreferredDAO dt = new PreferredDAO();
+            cbbMiengiam.DataSource = dt.ListPreferred();
+            cbbMiengiam.ValueMember = "PreferredID";
+            cbbMiengiam.DisplayMember = "Name";
+
+        }
+        private void FTaoKhoanThu_Load(object sender, EventArgs e)
+        {
+            LoadDSMG();
         }
     }
 }

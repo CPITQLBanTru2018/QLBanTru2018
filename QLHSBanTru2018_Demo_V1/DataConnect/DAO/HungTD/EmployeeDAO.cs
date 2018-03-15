@@ -36,7 +36,7 @@ namespace DataConnect.DAO.HungTD
             position = db.GetTable<Position>();
             degree = db.GetTable<Degree>();
             location = db.GetTable<Location>();
-            var query = from e in employee
+            var query = from e in employee 
                         join c in contract
                         on e.EmployeeID equals c.EmployeeID
                         join d in department

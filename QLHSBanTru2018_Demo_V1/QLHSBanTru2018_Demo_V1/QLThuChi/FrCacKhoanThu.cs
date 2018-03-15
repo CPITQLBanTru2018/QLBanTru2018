@@ -31,6 +31,7 @@ namespace QLHSBanTru2018_Demo_V1.QLThuChi
 
         private void bntThem_Click(object sender, EventArgs e)
         {
+            
             FTaoKhoanThu a = new FTaoKhoanThu();
             a.ShowDialog();
             //LoadDataKeHoachThu();
@@ -96,13 +97,24 @@ namespace QLHSBanTru2018_Demo_V1.QLThuChi
                         detail.ReceivableID = c;
                         detail.Price = decimal.Parse(a);
                         detail.Status = false;
-                        if (rbd.Insert(detail) == true)
+                        int d = rbd.Insert(detail);
+                        if (d != 0)
                         {
-                            
+                            ReceivableDetail_PreferredDAO dt = new ReceivableDetail_PreferredDAO();
+                            ReceivableDetail_Preferred e1 = new ReceivableDetail_Preferred();
+                            e1.ReceivableDetailID = d;
+                            e1.PreferredID = ReceivableDetail_PreferredDAO.ListDemoReceivableDetail[i].PreferredID;
+                            e1.Percent = ReceivableDetail_PreferredDAO.ListDemoReceivableDetail[i].Percent;
+                            e1.Status = true;
+                            if (dt.Insert(e1) == true)
+                            {
+
+                            }
+
                         }
                         else
                         {
-                            MessageBox.Show("Ban ghi "+i+" bi loi");
+                            MessageBox.Show("Ban ghi " + i + " bi loi");
                         }
                     }
                     MessageBox.Show("Khoi tao hoan tat");

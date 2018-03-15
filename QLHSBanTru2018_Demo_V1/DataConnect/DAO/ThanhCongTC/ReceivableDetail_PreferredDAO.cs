@@ -42,5 +42,6 @@ namespace DataConnect.DAO.ThanhCongTC
             var a = dt.ReceivableDetail_Preferreds;
             return a.ToList();
         }
+        public static List<ReceivableDetail_Preferred> ListDemoReceivableDetail = new List<ReceivableDetail_Preferred>();
     }
 }

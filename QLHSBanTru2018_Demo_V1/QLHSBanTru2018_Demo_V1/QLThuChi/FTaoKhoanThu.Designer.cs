@@ -50,7 +50,11 @@
             this.label8 = new System.Windows.Forms.Label();
             this.cbbDonViThoiGian = new System.Windows.Forms.ComboBox();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.bntDienMienGiam = new DevExpress.XtraEditors.SimpleButton();
+            this.cbbMiengiam = new System.Windows.Forms.ComboBox();
+            this.label3 = new System.Windows.Forms.Label();
+            this.txtMucgiam = new System.Windows.Forms.TextBox();
+            this.label9 = new System.Windows.Forms.Label();
+            this.label10 = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // defaultLookAndFeel1
@@ -236,14 +240,47 @@
             this.groupBox1.TabIndex = 21;
             this.groupBox1.TabStop = false;
             // 
-            // bntDienMienGiam
+            // cbbMiengiam
             // 
-            this.bntDienMienGiam.Location = new System.Drawing.Point(192, 175);
-            this.bntDienMienGiam.Name = "bntDienMienGiam";
-            this.bntDienMienGiam.Size = new System.Drawing.Size(130, 23);
-            this.bntDienMienGiam.TabIndex = 22;
-            this.bntDienMienGiam.Text = "Diện miễn giảm";
-            this.bntDienMienGiam.Click += new System.EventHandler(this.bntDienMienGiam_Click);
+            this.cbbMiengiam.FormattingEnabled = true;
+            this.cbbMiengiam.Location = new System.Drawing.Point(94, 175);
+            this.cbbMiengiam.Name = "cbbMiengiam";
+            this.cbbMiengiam.Size = new System.Drawing.Size(228, 21);
+            this.cbbMiengiam.TabIndex = 23;
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(12, 178);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(78, 13);
+            this.label3.TabIndex = 24;
+            this.label3.Text = "Diện miễn giảm";
+            // 
+            // txtMucgiam
+            // 
+            this.txtMucgiam.Location = new System.Drawing.Point(94, 202);
+            this.txtMucgiam.Name = "txtMucgiam";
+            this.txtMucgiam.Size = new System.Drawing.Size(194, 21);
+            this.txtMucgiam.TabIndex = 25;
+            // 
+            // label9
+            // 
+            this.label9.AutoSize = true;
+            this.label9.Location = new System.Drawing.Point(12, 205);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(80, 13);
+            this.label9.TabIndex = 26;
+            this.label9.Text = "Tỷ lệ miễn giảm";
+            // 
+            // label10
+            // 
+            this.label10.AutoSize = true;
+            this.label10.Location = new System.Drawing.Point(294, 205);
+            this.label10.Name = "label10";
+            this.label10.Size = new System.Drawing.Size(26, 13);
+            this.label10.TabIndex = 27;
+            this.label10.Text = "(%)";
             // 
             // FTaoKhoanThu
             // 
@@ -252,7 +289,11 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(327, 267);
-            this.Controls.Add(this.bntDienMienGiam);
+            this.Controls.Add(this.label10);
+            this.Controls.Add(this.label9);
+            this.Controls.Add(this.txtMucgiam);
+            this.Controls.Add(this.label3);
+            this.Controls.Add(this.cbbMiengiam);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.cbbDonViThoiGian);
             this.Controls.Add(this.label8);
@@ -274,6 +315,7 @@
             this.Controls.Add(this.label1);
             this.Name = "FTaoKhoanThu";
             this.Text = "Tạo khoản thu";
+            this.Load += new System.EventHandler(this.FTaoKhoanThu_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -301,6 +343,10 @@
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.ComboBox cbbDonViThoiGian;
         private System.Windows.Forms.GroupBox groupBox1;
-        private DevExpress.XtraEditors.SimpleButton bntDienMienGiam;
+        private System.Windows.Forms.ComboBox cbbMiengiam;
+        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.TextBox txtMucgiam;
+        private System.Windows.Forms.Label label9;
+        private System.Windows.Forms.Label label10;
     }
 }

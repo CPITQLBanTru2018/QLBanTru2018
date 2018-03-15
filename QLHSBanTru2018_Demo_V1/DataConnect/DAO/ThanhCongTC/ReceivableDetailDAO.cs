@@ -9,7 +9,7 @@ namespace DataConnect.DAO.ThanhCongTC
      public class ReceivableDetailDAO
     {
         QLHSSmartKidsDataContext dt = new QLHSSmartKidsDataContext();
-        public bool Insert(ReceivableDetail entity)
+        public int Insert(ReceivableDetail entity)
         {
             ReceivableDetail a = new ReceivableDetail();
             a.ReceivableID = entity.ReceivableID;
@@ -20,7 +20,7 @@ namespace DataConnect.DAO.ThanhCongTC
             //a.Revenue = entity.Revenue;
             dt.ReceivableDetails.InsertOnSubmit(a);
             dt.SubmitChanges();
-            return true;
+            return a.ReceivableDetailID;
         }
         public bool Edit(ReceivableDetail entity)
         {
