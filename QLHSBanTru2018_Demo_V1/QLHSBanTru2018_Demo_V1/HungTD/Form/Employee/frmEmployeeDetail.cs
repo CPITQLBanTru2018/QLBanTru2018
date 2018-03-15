@@ -22,6 +22,7 @@ namespace QLHSBanTru2018_Demo_V1.HungTD.Form.Employee
             InitializeComponent();
         }
         public int iFunction;
+        public DataConnect.Employee employee;
         private void employeeBindingSource_CurrentChanged(object sender, EventArgs e)
         {
 
@@ -83,7 +84,7 @@ namespace QLHSBanTru2018_Demo_V1.HungTD.Form.Employee
         private void btnSave_Click(object sender, EventArgs e)
         {
             if (txtUsername.Text != "" &&
-                txtPassword.Text != "" &&
+                (txtPassword.Text != "" || iFunction!=1)&&
                 txtFirstName.Text != "" &&
                 txtLastName.Text != "" &&
                 dtBirthday.Text != "" &&
@@ -105,7 +106,7 @@ namespace QLHSBanTru2018_Demo_V1.HungTD.Form.Employee
                     entity.Image = Stream().ToArray();
                 }
                 entity.Email = txtEmail.Text;
-                entity.Phone = phone.Text;
+                entity.Phone = txtPhone.Text;
                 entity.IdentityNumber = txtIdentityNumber.Text;
                 entity.PlaceOfIssue = placeOfIssue.Text;
                 entity.DateOfIssue = DateTime.Parse(dtDateOfIssue.EditValue.ToString());
@@ -121,6 +122,8 @@ namespace QLHSBanTru2018_Demo_V1.HungTD.Form.Employee
                     if(new EmployeeDAO().Insert(entity) == true)
                     {
                         MessageBox.Show("Thành công!", "Thêm thành công!");
+                        DialogResult = DialogResult.OK;
+                        this.Close();
                     }
                     else
                     {
@@ -129,9 +132,12 @@ namespace QLHSBanTru2018_Demo_V1.HungTD.Form.Employee
                 }
                 else if (iFunction == 2)
                 {
+                    entity.EmployeeID = employee.EmployeeID;
                     if (new EmployeeDAO().Update(entity) == true)
                     {
                         MessageBox.Show("Thành công!", "Cập nhật thành công!");
+                        DialogResult = DialogResult.OK;
+                        this.Close();
                     }
                     else
                     {
@@ -146,7 +152,13 @@ namespace QLHSBanTru2018_Demo_V1.HungTD.Form.Employee
         }
 
         private void frmEmployeeDetail_Load(object sender, EventArgs e)
-        {
+        {            
+            LoadDegreeInfor();
+            LoadEthnicGroupInfor();
+            LoadReligionInfor();
+            LoadProvinceInfor();
+            cbbProvince_SelectedIndexChanged(sender, e);
+            cbbDistrict_SelectedIndexChanged(sender, e);
             if (iFunction == 1)
             {
                 this.Text = "Thêm mới nhân viên";
@@ -154,16 +166,46 @@ namespace QLHSBanTru2018_Demo_V1.HungTD.Form.Employee
             else if (iFunction == 2)
             {
                 this.Text = "Chỉnh sửa nhân viên";
-                txtPassword.Visible = false;
-            }
-            LoadDegreeInfor();
-            LoadEthnicGroupInfor();
-            LoadReligionInfor();
-            LoadProvinceInfor();
-            cbbProvince_SelectedIndexChanged(sender, e);
-            cbbDistrict_SelectedIndexChanged(sender, e);
-        }
+                txtPassword.Enabled = false;
+                txtUsername.Text = employee.Username;
+                txtFirstName.Text = employee.FirstName;
+                txtLastName.Text = employee.LastName;
+                dtBirthday.EditValue = employee.Birthday;
+                cbbGender.SelectedIndex = employee.Gender == true ? 0 : 1;
+                txtEmail.Text = employee.Email;
+                txtPhone.Text = employee.Phone;
+                txtIdentityNumber.Text = employee.IdentityNumber;
+                txtPlaceOfIssue.Text = employee.PlaceOfIssue;
+                dtDateOfIssue.EditValue = employee.DateOfIssue;
+                cbbEthnicGroup.SelectedValue = employee.EthnicGroupID;
+                cbbReligion.SelectedValue = employee.ReligionID;
+                cbbDegree.SelectedValue = employee.DegreeID;
 
+                cbbProvince.SelectedValue = new LocationDAO().GetLocationParent(new LocationDAO().GetLocationParent(employee.LocationID));
+                cbbDistrict.SelectedValue = new LocationDAO().GetLocationParent(employee.LocationID);
+                cbbWard.SelectedValue = employee.LocationID;
+
+                txtNote.Text = employee.Note;
+                chbStatus.Checked = employee.Status;
+                try
+                {
+                    picImage.Image = ToImage(employee.Image.ToArray());
+                }
+                catch
+                {
+
+                }
+            }
+        }
+        private Bitmap ToImage(byte[] img)
+        {
+            MemoryStream mStream = new MemoryStream();
+            byte[] image = img;
+            mStream.Write(image, 0, Convert.ToInt32(image.Length));
+            Bitmap bm = new Bitmap(mStream, false);
+            mStream.Dispose();
+            return bm;
+        }
         private void cbbProvince_SelectedIndexChanged(object sender, EventArgs e)
         {
             try
@@ -197,7 +239,7 @@ namespace QLHSBanTru2018_Demo_V1.HungTD.Form.Employee
             ofd.Filter = "Image|*.jpg; *.jpeg; *.png;";
             if (ofd.ShowDialog() == DialogResult.OK)
             {
-                ImagePictureEdit.Image = Image.FromFile(ofd.FileName);
+                picImage.Image = Image.FromFile(ofd.FileName);
             }
         }
         private MemoryStream Stream()
@@ -205,7 +247,7 @@ namespace QLHSBanTru2018_Demo_V1.HungTD.Form.Employee
             try
             {
                 MemoryStream stream = new MemoryStream();
-                ImagePictureEdit.Image.Save(stream, ImageFormat.Jpeg);
+                picImage.Image.Save(stream, ImageFormat.Jpeg);
                 return stream;
             }
             catch

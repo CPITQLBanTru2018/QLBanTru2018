@@ -45,6 +45,8 @@
             this.ribbonStatusBar = new DevExpress.XtraBars.Ribbon.RibbonStatusBar();
             this.defaultLookAndFeel1 = new DevExpress.LookAndFeel.DefaultLookAndFeel(this.components);
             this.pnControlsPanel = new System.Windows.Forms.Panel();
+            this.ribbonPageGroup4 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
+            this.btnAddFunction = new DevExpress.XtraBars.BarButtonItem();
             ((System.ComponentModel.ISupportInitialize)(this.ribbon)).BeginInit();
             this.SuspendLayout();
             // 
@@ -58,9 +60,10 @@
             this.btnPosition,
             this.btnCourse,
             this.bntDotThu,
-            this.bntThuTheoLop});
+            this.bntThuTheoLop,
+            this.btnAddFunction});
             this.ribbon.Location = new System.Drawing.Point(0, 0);
-            this.ribbon.MaxItemId = 7;
+            this.ribbon.MaxItemId = 8;
             this.ribbon.Name = "ribbon";
             this.ribbon.Pages.AddRange(new DevExpress.XtraBars.Ribbon.RibbonPage[] {
             this.ribbonPage1,
@@ -126,7 +129,8 @@
             // 
             this.ribbonPage1.Groups.AddRange(new DevExpress.XtraBars.Ribbon.RibbonPageGroup[] {
             this.ribbonPageGroup1,
-            this.ribbonPageGroup2});
+            this.ribbonPageGroup2,
+            this.ribbonPageGroup4});
             this.ribbonPage1.Name = "ribbonPage1";
             this.ribbonPage1.Text = "Tổ Chức";
             // 
@@ -178,6 +182,21 @@
             this.pnControlsPanel.Size = new System.Drawing.Size(1372, 600);
             this.pnControlsPanel.TabIndex = 3;
             // 
+            // ribbonPageGroup4
+            // 
+            this.ribbonPageGroup4.ItemLinks.Add(this.btnAddFunction);
+            this.ribbonPageGroup4.Name = "ribbonPageGroup4";
+            this.ribbonPageGroup4.Text = "Dành cho nhà phát triển";
+            // 
+            // btnAddFunction
+            // 
+            this.btnAddFunction.Caption = "Thêm Mới Chức Năng";
+            this.btnAddFunction.Id = 7;
+            this.btnAddFunction.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("barButtonItem1.ImageOptions.Image")));
+            this.btnAddFunction.ImageOptions.LargeImage = ((System.Drawing.Image)(resources.GetObject("barButtonItem1.ImageOptions.LargeImage")));
+            this.btnAddFunction.Name = "btnAddFunction";
+            this.btnAddFunction.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.btnAddFunction_ItemClick);
+            // 
             // frmMain
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -213,5 +232,7 @@
         private DevExpress.XtraBars.Ribbon.RibbonPageGroup ribbonPageGroup3;
         private DevExpress.XtraBars.BarButtonItem bntDotThu;
         private DevExpress.XtraBars.BarButtonItem bntThuTheoLop;
+        private DevExpress.XtraBars.BarButtonItem btnAddFunction;
+        private DevExpress.XtraBars.Ribbon.RibbonPageGroup ribbonPageGroup4;
     }
 }

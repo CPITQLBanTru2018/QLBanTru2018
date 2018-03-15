@@ -33,6 +33,15 @@ namespace DataConnect.DAO.HungTD
                         select c;
             return query.ToList();
         }
+        public int GetLocationParent(int locationID)
+        {
+            Table<Location> locationTable = db.GetTable<Location>();
+            var location = from l in locationTable
+                           where l.LocationID.Equals(locationID)
+                           select l;
+            return (int)location.FirstOrDefault().LocationParent;
+
+        }
         public string GetFullNameLocaion(int locationID)
         {
             try

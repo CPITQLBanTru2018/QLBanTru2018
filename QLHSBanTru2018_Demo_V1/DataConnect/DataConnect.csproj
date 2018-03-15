@@ -47,6 +47,8 @@
     <Compile Include="DAO\HungTD\DepartmentDAO.cs" />
     <Compile Include="DAO\HungTD\EmployeeDAO.cs" />
     <Compile Include="DAO\HungTD\EthnicGroupDAO.cs" />
+    <Compile Include="DAO\HungTD\FunctionDAO.cs" />
+    <Compile Include="DAO\HungTD\FunctionGroupDAO.cs" />
     <Compile Include="DAO\HungTD\HistoryDAO.cs" />
     <Compile Include="DAO\HungTD\LocationDAO.cs" />
     <Compile Include="DAO\HungTD\LoginDAO.cs" />
@@ -73,6 +75,7 @@
     </Compile>
     <Compile Include="ViewModel\Department_EmployeeViewModel.cs" />
     <Compile Include="ViewModel\EmployeeFullViewModel.cs" />
+    <Compile Include="ViewModel\FunctionViewModel.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="app.config" />
