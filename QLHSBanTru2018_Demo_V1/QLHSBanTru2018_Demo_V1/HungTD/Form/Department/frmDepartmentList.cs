@@ -56,9 +56,7 @@ namespace QLHSBanTru2018_Demo_V1.HungTD.Form.Department
         }
         private void testLoadEmployee()
         {
-            List<Department_EmployeeViewModel> listEmployee;
-            listEmployee = new EmployeeDAO().ListAllByDepartment(int.Parse(txtDepartmentID.Text));
-            gcEmployee.DataSource = listEmployee;
+
         }
         private void BindingDetail()
         {

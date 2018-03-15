@@ -30,45 +30,7 @@ namespace DataConnect.DAO.HungTD
         }
         public List<Department_EmployeeViewModel> ListAllByDepartment(int departmentID)
         {
-            employee = db.GetTable<Employee>();
-            contract = db.GetTable<Contract>();
-            department = db.GetTable<Department>();
-            position = db.GetTable<Position>();
-            degree = db.GetTable<Degree>();
-            location = db.GetTable<Location>();
-            var query = from e in employee 
-                        join c in contract
-                        on e.EmployeeID equals c.EmployeeID
-                        join d in department
-                        on c.DepartmentID equals d.DepartmentID
-                        join p in position
-                        on c.PositionID equals p.PositionID
-                        join de in degree 
-                        on e.DegreeID equals de.DegreeID
-                        join l in location
-                        on e.LocationID equals l.LocationID
-                        where c.DepartmentID.Equals(departmentID)
-                        select new Department_EmployeeViewModel
-                        {
-                            EmployeeID = e.EmployeeID,
-                            FullName = e.FirstName + " " + e.LastName,
-                            Birthday = e.Birthday,
-                            Gender = e.Gender,
-                            Image = e.Image == null ? null : e.Image.ToArray(),
-                            Phone = e.Phone,
-                            Email = e.Email,
-                            LocationID = e.LocationID,
-                            LocationDetail = new LocationDAO().GetFullNameLocaion(e.LocationID),
-                            DepartmentID = d.DepartmentID,
-                            DepartmentName = d.Name,
-                            PositionID = p.PositionID,
-                            PositionName = p.Name,
-                            DegreeID = e.DegreeID,
-                            DegreeName = de.Name,
-                            Status = e.Status
-                        };
-            List<Department_EmployeeViewModel> list = query.ToList();
-            return list;
+            return null;
         }
         public List<EmployeeFullViewModel> ListAllEmployee(int? departmentID, int? degreeID, int? positionID)
         {
