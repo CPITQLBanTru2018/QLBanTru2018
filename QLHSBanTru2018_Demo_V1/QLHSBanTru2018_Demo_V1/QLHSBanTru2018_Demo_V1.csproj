@@ -253,7 +253,9 @@
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <None Include="Resources\1231.jpg" />
+  </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\DataConnect\DataConnect.csproj">
       <Project>{55672eb9-7166-4771-a19b-1589897b04cf}</Project>

@@ -70,6 +70,51 @@ namespace DataConnect.DAO.HungTD
             List<Department_EmployeeViewModel> list = query.ToList();
             return list;
         }
+        public List<EmployeeFullViewModel> ListAllEmployee(int? departmentID, int? degreeID, int? positionID)
+        {
+            employee = db.GetTable<Employee>();
+            contract = db.GetTable<Contract>();
+            department = db.GetTable<Department>();
+            position = db.GetTable<Position>();
+            degree = db.GetTable<Degree>();
+            location = db.GetTable<Location>();
+            var query = from e in employee
+                        join de in degree
+                        on e.DegreeID equals de.DegreeID
+                        join l in location
+                        on e.LocationID equals l.LocationID
+                        where e.Status == true
+                        select new EmployeeFullViewModel
+                        {
+                            EmployeeID = e.EmployeeID,
+                            Username = e.Username,
+                            FirstName = e.FirstName,
+                            LastName = e.LastName,
+                            FullName = e.FirstName + " " + e.LastName,
+                            Birthday = e.Birthday,
+                            Gender = e.Gender,
+                            Image = e.Image == null ? null : e.Image.ToArray(),
+                            Phone = e.Phone,
+                            Email = e.Email,
+                            LocationID = e.LocationID,
+                            LocationDetail = new LocationDAO().GetFullNameLocaion(e.LocationID),
+                            DegreeID = e.DegreeID,
+                            DegreeName = de.Name,
+                            Note = e.Note,
+                            Status = e.Status
+                        };
+            if (degreeID != null)
+            {
+                query = query.Where(x => x.DegreeID == degreeID);
+            }
+            List<EmployeeFullViewModel> list = query.ToList();
+            return list;
+        }
+        public Employee GetByID (int employeeID)
+        {
+            employee = db.GetTable<Employee>();
+            return db.Employees.SingleOrDefault(x => x.EmployeeID == employeeID);
+        }
         public bool Insert(Employee entity)
         {
             try

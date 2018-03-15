@@ -83,6 +83,16 @@ namespace QLHSBanTru2018_Demo_V1.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap _1231 {
+            get {
+                object obj = ResourceManager.GetObject("1231", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap backgroudLogin {
             get {
                 object obj = ResourceManager.GetObject("backgroudLogin", resourceCulture);
