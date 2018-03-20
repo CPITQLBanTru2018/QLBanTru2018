@@ -110,6 +110,7 @@ namespace QLHSBanTru2018_Demo_V1.QLThuChi
                             {
 
                             }
+                            /// receivableDetail_students
 
                         }
                         else
@@ -118,6 +119,7 @@ namespace QLHSBanTru2018_Demo_V1.QLThuChi
                         }
                     }
                     MessageBox.Show("Khoi tao hoan tat");
+                    this.Close();
                 }
             }
             catch 
