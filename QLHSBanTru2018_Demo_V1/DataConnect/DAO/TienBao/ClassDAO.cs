@@ -53,7 +53,7 @@ namespace DataConnect.DAO.TienBao
             {
                 Class obj = ClassTable.Single(x => x.ClassID == entity.ClassID);
                 obj.Name = entity.Name;
-                obj.Amount = entity.Amount;
+                //obj.Amount = entity.Amount;
                 obj.Status = entity.Status;
 
                 db.SubmitChanges();
