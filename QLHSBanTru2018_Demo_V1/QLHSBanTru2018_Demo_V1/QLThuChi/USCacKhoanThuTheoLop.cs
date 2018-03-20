@@ -47,11 +47,19 @@ namespace QLHSBanTru2018_Demo_V1.QLThuChi
             cbbLophoc.ValueMember = "ClassID";
             cbbLophoc.DisplayMember = "Name";
         }
+        public void laodDotthu()
+        {
+            ReceivableIDAO dt = new ReceivableIDAO();
+            cbbDotthu.DataSource = dt.ListReceivable();
+            cbbDotthu.ValueMember = "ReceivableID";
+            cbbDotthu.DisplayMember = "Name";
+        }
 
         private void USCacKhoanThuTheoLop_Load(object sender, EventArgs e)
         {
             try
             {
+                laodDotthu();
                 LoadNamhoc();
                 studentReceivableDAO.CourseID = (int)cbbNamhoc.SelectedValue;
                 LoadHocky();
@@ -98,14 +106,9 @@ namespace QLHSBanTru2018_Demo_V1.QLThuChi
 
         private void cbbLophoc_SelectionChangeCommitted(object sender, EventArgs e)
         {
-            
+            studentReceivableDAO.ClassID = (int)cbbDotthu.SelectedValue;
         }
         private void gridView1_FocusedRowChanged(object sender, DevExpress.XtraGrid.Views.Base.FocusedRowChangedEventArgs e)
-        {
-            
-        }
-
-        private void gridView2_FocusedRowChanged(object sender, DevExpress.XtraGrid.Views.Base.FocusedRowChangedEventArgs e)
         {
             
         }
