@@ -46,17 +46,21 @@
     </Reference>
     <Reference Include="DevExpress.BonusSkins.v17.2" />
     <Reference Include="DevExpress.Data.v17.2" />
+    <Reference Include="DevExpress.Images.v17.2, Version=17.2.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
     <Reference Include="DevExpress.Office.v17.2.Core" />
+    <Reference Include="DevExpress.Pdf.v17.2.Core, Version=17.2.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
     <Reference Include="DevExpress.RichEdit.v17.2.Core" />
     <Reference Include="DevExpress.RichEdit.v17.2.Export" />
     <Reference Include="DevExpress.Printing.v17.2.Core" />
     <Reference Include="DevExpress.Utils.v17.2" />
+    <Reference Include="DevExpress.Xpo.v17.2, Version=17.2.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
     <Reference Include="DevExpress.XtraBars.v17.2" />
     <Reference Include="DevExpress.Sparkline.v17.2.Core" />
     <Reference Include="DevExpress.XtraEditors.v17.2" />
     <Reference Include="DevExpress.XtraGrid.v17.2, Version=17.2.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
     <Reference Include="DevExpress.XtraLayout.v17.2, Version=17.2.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
     <Reference Include="DevExpress.XtraPrinting.v17.2, Version=17.2.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Reference Include="DevExpress.XtraRichEdit.v17.2, Version=17.2.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
     <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
       <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.dll</HintPath>
     </Reference>
@@ -64,14 +68,22 @@
       <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.SqlServer.dll</HintPath>
     </Reference>
     <Reference Include="Microsoft.VisualBasic" />
+    <Reference Include="PresentationCore" />
     <Reference Include="System" />
     <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Configuration" />
     <Reference Include="System.Core" />
     <Reference Include="System.Data.Linq" />
     <Reference Include="System.Management" />
+    <Reference Include="System.Runtime.Remoting" />
+    <Reference Include="System.Runtime.Serialization" />
     <Reference Include="System.Runtime.Serialization.Formatters.Soap" />
     <Reference Include="System.Security" />
+    <Reference Include="System.ServiceModel" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Web.Services" />
+    <Reference Include="System.Windows.Input.Manipulations" />
+    <Reference Include="System.Xaml" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -80,6 +92,10 @@
     <Reference Include="System.Drawing" />
     <Reference Include="System.Windows.Forms" />
     <Reference Include="System.Xml" />
+    <Reference Include="UIAutomationClient" />
+    <Reference Include="UIAutomationProvider" />
+    <Reference Include="UIAutomationTypes" />
+    <Reference Include="WindowsBase" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="frmLogin.cs">
@@ -93,6 +109,18 @@
     </Compile>
     <Compile Include="frmMain.Designer.cs">
       <DependentUpon>frmMain.cs</DependentUpon>
+    </Compile>
+    <Compile Include="HungTD\Form\Contract\frmContractDetail.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="HungTD\Form\Contract\frmContractDetail.Designer.cs">
+      <DependentUpon>frmContractDetail.cs</DependentUpon>
+    </Compile>
+    <Compile Include="HungTD\Form\Contract\frmContractList.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="HungTD\Form\Contract\frmContractList.Designer.cs">
+      <DependentUpon>frmContractList.cs</DependentUpon>
     </Compile>
     <Compile Include="HungTD\Form\Course\frmCourseDetail.cs">
       <SubType>Form</SubType>
@@ -148,6 +176,12 @@
     <Compile Include="HungTD\Form\Function\frmFunctionList.Designer.cs">
       <DependentUpon>frmFunctionList.cs</DependentUpon>
     </Compile>
+    <Compile Include="HungTD\Form\NewFolder1\frmABC.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="HungTD\Form\NewFolder1\frmABC.Designer.cs">
+      <DependentUpon>frmABC.cs</DependentUpon>
+    </Compile>
     <Compile Include="HungTD\Form\Position\frmPositionDetail.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -159,6 +193,12 @@
     </Compile>
     <Compile Include="HungTD\Form\Position\frmPositionList.Designer.cs">
       <DependentUpon>frmPositionList.cs</DependentUpon>
+    </Compile>
+    <Compile Include="HungTD\Form\WorkProgress\frmWorkProgressList.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="HungTD\Form\WorkProgress\frmWorkProgressList.Designer.cs">
+      <DependentUpon>frmWorkProgressList.cs</DependentUpon>
     </Compile>
     <Compile Include="MD5Hash\PasswordEncryptor.cs" />
     <Compile Include="Program.cs" />
@@ -205,6 +245,12 @@
     <EmbeddedResource Include="frmMain.resx">
       <DependentUpon>frmMain.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="HungTD\Form\Contract\frmContractDetail.resx">
+      <DependentUpon>frmContractDetail.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="HungTD\Form\Contract\frmContractList.resx">
+      <DependentUpon>frmContractList.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="HungTD\Form\Course\frmCourseDetail.resx">
       <DependentUpon>frmCourseDetail.cs</DependentUpon>
     </EmbeddedResource>
@@ -232,11 +278,17 @@
     <EmbeddedResource Include="HungTD\Form\Function\frmFunctionList.resx">
       <DependentUpon>frmFunctionList.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="HungTD\Form\NewFolder1\frmABC.resx">
+      <DependentUpon>frmABC.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="HungTD\Form\Position\frmPositionDetail.resx">
       <DependentUpon>frmPositionDetail.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="HungTD\Form\Position\frmPositionList.resx">
       <DependentUpon>frmPositionList.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="HungTD\Form\WorkProgress\frmWorkProgressList.resx">
+      <DependentUpon>frmWorkProgressList.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\licenses.licx" />
     <EmbeddedResource Include="Properties\Resources.resx">

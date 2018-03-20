@@ -23,6 +23,9 @@ namespace DataConnect.ViewModel
         public int DegreeID { get; set; }
         public string DegreeName { get; set; }
         public string Note { get; set; }
+        public string IdentityNumber { get; set; }
+        public DateTime DateOfIssue { get; set; }
+        public String PlaceOfIssue { get; set; }
         public bool Status { get; set; }
     }
 }

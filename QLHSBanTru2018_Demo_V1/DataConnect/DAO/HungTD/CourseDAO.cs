@@ -64,7 +64,7 @@ namespace DataConnect.DAO.HungTD
             {
                 Course obj = course.Single(x => x.CourseID == courseID);
                 obj.Status = false;
-                db.SubmitChanges();
+                db.SubmitChanges();                
 
                 Semester se1 = new SemesterDAO().ListByCourseID(courseID)[0];
                 Semester se2 = new SemesterDAO().ListByCourseID(courseID)[1];

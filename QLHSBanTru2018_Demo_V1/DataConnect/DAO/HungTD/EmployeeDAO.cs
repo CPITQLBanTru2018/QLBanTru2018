@@ -17,6 +17,7 @@ namespace DataConnect.DAO.HungTD
         Table<Position> position;
         Table<Degree> degree;
         Table<Location> location;
+        Table<Division> division;
         public EmployeeDAO()
         {
             db = new QLHSSmartKidsDataContext();
@@ -63,6 +64,9 @@ namespace DataConnect.DAO.HungTD
                             DegreeID = e.DegreeID,
                             DegreeName = de.Name,
                             Note = e.Note,
+                            IdentityNumber = e.IdentityNumber,
+                            DateOfIssue = e.DateOfIssue,
+                            PlaceOfIssue = e.PlaceOfIssue,
                             Status = e.Status
                         };
             if (degreeID != null)
@@ -71,6 +75,19 @@ namespace DataConnect.DAO.HungTD
             }
             List<EmployeeFullViewModel> list = query.ToList();
             return list;
+        }
+        public List<DataConnect.Employee> LoadLeader()
+        {
+            employee = db.GetTable<Employee>();
+            division = db.GetTable<Division>();
+            position = db.GetTable<Position>();
+            var divisionLeader = from d in division
+                                 where d.PositionID == 1
+                                 select d;
+            var employeeLeader = from e in employee
+                                 where (divisionLeader.Any(x => x.EmployeeID == e.EmployeeID))
+                                 select e;
+            return employeeLeader.ToList();
         }
         public Employee GetByID (int employeeID)
         {

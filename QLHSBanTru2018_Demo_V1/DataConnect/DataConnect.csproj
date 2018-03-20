@@ -42,6 +42,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Common\LoginDetail.cs" />
+    <Compile Include="DAO\HungTD\ContractDAO.cs" />
     <Compile Include="DAO\HungTD\CourseDAO.cs" />
     <Compile Include="DAO\HungTD\DegreeDAO.cs" />
     <Compile Include="DAO\HungTD\DepartmentDAO.cs" />
@@ -73,6 +74,7 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>QLHSSmartKids.dbml</DependentUpon>
     </Compile>
+    <Compile Include="ViewModel\ContractViewModel.cs" />
     <Compile Include="ViewModel\Department_EmployeeViewModel.cs" />
     <Compile Include="ViewModel\EmployeeFullViewModel.cs" />
     <Compile Include="ViewModel\FunctionViewModel.cs" />

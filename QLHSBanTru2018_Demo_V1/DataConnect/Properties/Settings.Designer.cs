@@ -55,5 +55,16 @@ namespace DataConnect.Properties {
                 return ((string)(this["CPITQLHSBanTruConnectionString2"]));
             }
         }
+        
+        [global::System.Configuration.ApplicationScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.SpecialSettingAttribute(global::System.Configuration.SpecialSetting.ConnectionString)]
+        [global::System.Configuration.DefaultSettingValueAttribute("Data Source=DESKTOP-0CIUMFS\\TRANDUCHUNG;Initial Catalog=CPITQLHSBanTru;Persist Se" +
+            "curity Info=True;User ID=sa;Password=khongaibiet")]
+        public string CPITQLHSBanTruConnectionString3 {
+            get {
+                return ((string)(this["CPITQLHSBanTruConnectionString3"]));
+            }
+        }
     }
 }

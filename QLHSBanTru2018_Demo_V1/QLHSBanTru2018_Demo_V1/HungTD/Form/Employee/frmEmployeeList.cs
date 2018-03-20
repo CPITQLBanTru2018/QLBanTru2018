@@ -52,8 +52,8 @@ namespace QLHSBanTru2018_Demo_V1.HungTD.Form.Employee
             dtBirthday.DataBindings.Clear();
             dtBirthday.DataBindings.Add(new Binding("EditValue", gcEmployeeList.DataSource, "Birthday", true, DataSourceUpdateMode.OnPropertyChanged));
 
-            txtPhone.DataBindings.Clear();
-            txtPhone.DataBindings.Add(new Binding("text", gcEmployeeList.DataSource, "Phone"));
+            textEdit1.DataBindings.Clear();
+            textEdit1.DataBindings.Add(new Binding("text", gcEmployeeList.DataSource, "Phone"));
 
             txtEmail.DataBindings.Clear();
             txtEmail.DataBindings.Add(new Binding("text", gcEmployeeList.DataSource, "Email"));
@@ -85,6 +85,11 @@ namespace QLHSBanTru2018_Demo_V1.HungTD.Form.Employee
                 new EmployeeDAO().Delete(int.Parse(txtA.Text));
                 FillGridControl();
             }
+        }
+
+        private void gcEmployeeList_Click(object sender, EventArgs e)
+        {
+
         }
     }
     

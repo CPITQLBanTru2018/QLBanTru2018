@@ -37,16 +37,18 @@
             this.btnCourse = new DevExpress.XtraBars.BarButtonItem();
             this.bntDotThu = new DevExpress.XtraBars.BarButtonItem();
             this.bntThuTheoLop = new DevExpress.XtraBars.BarButtonItem();
+            this.btnAddFunction = new DevExpress.XtraBars.BarButtonItem();
+            this.btnContractManager = new DevExpress.XtraBars.BarButtonItem();
             this.ribbonPage1 = new DevExpress.XtraBars.Ribbon.RibbonPage();
             this.ribbonPageGroup1 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             this.ribbonPageGroup2 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
+            this.ribbonPageGroup4 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
+            this.ribbonPageGroup5 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             this.ribbonPage2 = new DevExpress.XtraBars.Ribbon.RibbonPage();
             this.ribbonPageGroup3 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             this.ribbonStatusBar = new DevExpress.XtraBars.Ribbon.RibbonStatusBar();
             this.defaultLookAndFeel1 = new DevExpress.LookAndFeel.DefaultLookAndFeel(this.components);
             this.pnControlsPanel = new System.Windows.Forms.Panel();
-            this.ribbonPageGroup4 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
-            this.btnAddFunction = new DevExpress.XtraBars.BarButtonItem();
             ((System.ComponentModel.ISupportInitialize)(this.ribbon)).BeginInit();
             this.SuspendLayout();
             // 
@@ -61,14 +63,15 @@
             this.btnCourse,
             this.bntDotThu,
             this.bntThuTheoLop,
-            this.btnAddFunction});
+            this.btnAddFunction,
+            this.btnContractManager});
             this.ribbon.Location = new System.Drawing.Point(0, 0);
-            this.ribbon.MaxItemId = 8;
+            this.ribbon.MaxItemId = 9;
             this.ribbon.Name = "ribbon";
             this.ribbon.Pages.AddRange(new DevExpress.XtraBars.Ribbon.RibbonPage[] {
             this.ribbonPage1,
             this.ribbonPage2});
-            this.ribbon.Size = new System.Drawing.Size(1372, 146);
+            this.ribbon.Size = new System.Drawing.Size(798, 146);
             this.ribbon.StatusBar = this.ribbonStatusBar;
             // 
             // btnDepartment
@@ -125,12 +128,31 @@
             this.bntThuTheoLop.Name = "bntThuTheoLop";
             this.bntThuTheoLop.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.bntThuTheoLop_ItemClick);
             // 
+            // btnAddFunction
+            // 
+            this.btnAddFunction.Caption = "Thêm Mới Chức Năng";
+            this.btnAddFunction.Id = 7;
+            this.btnAddFunction.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("btnAddFunction.ImageOptions.Image")));
+            this.btnAddFunction.ImageOptions.LargeImage = ((System.Drawing.Image)(resources.GetObject("btnAddFunction.ImageOptions.LargeImage")));
+            this.btnAddFunction.Name = "btnAddFunction";
+            this.btnAddFunction.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.btnAddFunction_ItemClick);
+            // 
+            // btnContractManager
+            // 
+            this.btnContractManager.Caption = "Quản Lý Hợp Đồng";
+            this.btnContractManager.Id = 8;
+            this.btnContractManager.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("btnContractManager.ImageOptions.Image")));
+            this.btnContractManager.ImageOptions.LargeImage = ((System.Drawing.Image)(resources.GetObject("btnContractManager.ImageOptions.LargeImage")));
+            this.btnContractManager.Name = "btnContractManager";
+            this.btnContractManager.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.btnContractManager_ItemClick);
+            // 
             // ribbonPage1
             // 
             this.ribbonPage1.Groups.AddRange(new DevExpress.XtraBars.Ribbon.RibbonPageGroup[] {
             this.ribbonPageGroup1,
             this.ribbonPageGroup2,
-            this.ribbonPageGroup4});
+            this.ribbonPageGroup4,
+            this.ribbonPageGroup5});
             this.ribbonPage1.Name = "ribbonPage1";
             this.ribbonPage1.Text = "Tổ Chức";
             // 
@@ -149,6 +171,18 @@
             this.ribbonPageGroup2.Name = "ribbonPageGroup2";
             this.ribbonPageGroup2.Text = "Quản Lý Nhân Viên";
             // 
+            // ribbonPageGroup4
+            // 
+            this.ribbonPageGroup4.ItemLinks.Add(this.btnAddFunction);
+            this.ribbonPageGroup4.Name = "ribbonPageGroup4";
+            this.ribbonPageGroup4.Text = "Dành cho nhà phát triển";
+            // 
+            // ribbonPageGroup5
+            // 
+            this.ribbonPageGroup5.ItemLinks.Add(this.btnContractManager);
+            this.ribbonPageGroup5.Name = "ribbonPageGroup5";
+            this.ribbonPageGroup5.Text = "Hợp Đồng";
+            // 
             // ribbonPage2
             // 
             this.ribbonPage2.Groups.AddRange(new DevExpress.XtraBars.Ribbon.RibbonPageGroup[] {
@@ -165,10 +199,10 @@
             // 
             // ribbonStatusBar
             // 
-            this.ribbonStatusBar.Location = new System.Drawing.Point(0, 746);
+            this.ribbonStatusBar.Location = new System.Drawing.Point(0, 578);
             this.ribbonStatusBar.Name = "ribbonStatusBar";
             this.ribbonStatusBar.Ribbon = this.ribbon;
-            this.ribbonStatusBar.Size = new System.Drawing.Size(1372, 21);
+            this.ribbonStatusBar.Size = new System.Drawing.Size(798, 21);
             // 
             // defaultLookAndFeel1
             // 
@@ -179,34 +213,20 @@
             this.pnControlsPanel.Dock = System.Windows.Forms.DockStyle.Fill;
             this.pnControlsPanel.Location = new System.Drawing.Point(0, 146);
             this.pnControlsPanel.Name = "pnControlsPanel";
-            this.pnControlsPanel.Size = new System.Drawing.Size(1372, 600);
+            this.pnControlsPanel.Size = new System.Drawing.Size(798, 432);
             this.pnControlsPanel.TabIndex = 3;
-            // 
-            // ribbonPageGroup4
-            // 
-            this.ribbonPageGroup4.ItemLinks.Add(this.btnAddFunction);
-            this.ribbonPageGroup4.Name = "ribbonPageGroup4";
-            this.ribbonPageGroup4.Text = "Dành cho nhà phát triển";
-            // 
-            // btnAddFunction
-            // 
-            this.btnAddFunction.Caption = "Thêm Mới Chức Năng";
-            this.btnAddFunction.Id = 7;
-            this.btnAddFunction.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("barButtonItem1.ImageOptions.Image")));
-            this.btnAddFunction.ImageOptions.LargeImage = ((System.Drawing.Image)(resources.GetObject("barButtonItem1.ImageOptions.LargeImage")));
-            this.btnAddFunction.Name = "btnAddFunction";
-            this.btnAddFunction.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.btnAddFunction_ItemClick);
             // 
             // frmMain
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1372, 767);
+            this.ClientSize = new System.Drawing.Size(798, 599);
             this.Controls.Add(this.pnControlsPanel);
             this.Controls.Add(this.ribbonStatusBar);
             this.Controls.Add(this.ribbon);
             this.Name = "frmMain";
             this.Ribbon = this.ribbon;
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.StatusBar = this.ribbonStatusBar;
             this.Text = "Phần Mềm Quản Lý Học Sinh Bán Trú";
             ((System.ComponentModel.ISupportInitialize)(this.ribbon)).EndInit();
@@ -234,5 +254,7 @@
         private DevExpress.XtraBars.BarButtonItem bntThuTheoLop;
         private DevExpress.XtraBars.BarButtonItem btnAddFunction;
         private DevExpress.XtraBars.Ribbon.RibbonPageGroup ribbonPageGroup4;
+        private DevExpress.XtraBars.BarButtonItem btnContractManager;
+        private DevExpress.XtraBars.Ribbon.RibbonPageGroup ribbonPageGroup5;
     }
 }
