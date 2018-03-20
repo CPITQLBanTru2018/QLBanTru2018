@@ -42,18 +42,29 @@ namespace QLHSBanTru2018_Demo_V1.QLThuChi
         public void LoadLophoc()
         {
             studentReceivableDAO dt = new studentReceivableDAO();
-            grDanhSachLopHoc.DataSource = dt.ListClass();
+            //grDanhSachLopHoc.DataSource = dt.ListClass();
+            cbbLophoc.DataSource = dt.ListClass();
+            cbbLophoc.ValueMember = "ClassID";
+            cbbLophoc.DisplayMember = "Name";
         }
 
         private void USCacKhoanThuTheoLop_Load(object sender, EventArgs e)
         {
-            LoadNamhoc();
-            studentReceivableDAO.CourseID = (int)cbbNamhoc.SelectedValue;
-            LoadHocky();
-            studentReceivableDAO.SemesterID = (int)cbbHocky.SelectedValue;
-            LoadKhoihoc();
-            studentReceivableDAO.GradeID = (int)cbbKhoihoc.SelectedValue;
-            LoadLophoc();
+            try
+            {
+                LoadNamhoc();
+                studentReceivableDAO.CourseID = (int)cbbNamhoc.SelectedValue;
+                LoadHocky();
+                studentReceivableDAO.SemesterID = (int)cbbHocky.SelectedValue;
+                LoadKhoihoc();
+                studentReceivableDAO.GradeID = (int)cbbKhoihoc.SelectedValue;
+                LoadLophoc();
+            }
+            catch 
+            {
+
+               
+            }
         }
         public void LoadDSLop()
         {
@@ -64,10 +75,10 @@ namespace QLHSBanTru2018_Demo_V1.QLThuChi
         private void cbbNamhoc_SelectionChangeCommitted(object sender, EventArgs e)
         {
             studentReceivableDAO.CourseID = (int)cbbNamhoc.SelectedValue;
-            studentReceivableDAO.SemesterID = (int)cbbHocky.SelectedValue;
-            studentReceivableDAO.GradeID = (int)cbbKhoihoc.SelectedValue;
             LoadHocky();
+            studentReceivableDAO.SemesterID = (int)cbbHocky.SelectedValue;
             LoadKhoihoc();
+            studentReceivableDAO.GradeID = (int)cbbKhoihoc.SelectedValue;
             LoadLophoc();
         }
 
@@ -96,8 +107,7 @@ namespace QLHSBanTru2018_Demo_V1.QLThuChi
 
         private void gridView2_FocusedRowChanged(object sender, DevExpress.XtraGrid.Views.Base.FocusedRowChangedEventArgs e)
         {
-            studentReceivableDAO.ClassID= (int)gridView2.GetRowCellValue(e.FocusedRowHandle, "ClassID");
-            LoadDSLop();
+            
         }
     }
 }

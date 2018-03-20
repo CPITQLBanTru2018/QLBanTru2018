@@ -19,7 +19,7 @@ namespace DataConnect.DAO.ThanhCongTC
         public static int ClassID = 0;
         public List<Course> ListCourse()
         {
-            var a = dt.Courses;
+            var a = dt.Courses.OrderByDescending(t=>t.CourseID);
             return a.ToList();
         }
         public List<Semester> ListSemester()
