@@ -16,7 +16,7 @@ namespace DataConnect.ViewModel
         public double PayRate { get; set; }
         public DateTime StartDate { get; set; }
         public DateTime? EndDate { get; set; }
-        public int CreatedBy { get; set; }
+        public int? CreatedBy { get; set; }
         public String CreatedByName { get; set; }
         public DateTime CreatedDate { get; set; }
         public byte[] AttachedFile { get; set; }

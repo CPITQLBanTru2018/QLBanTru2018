@@ -40,7 +40,7 @@ namespace DataConnect.DAO.HungTD
                             EndDate = c.EndDate,
                             CreatedBy = c.CreatedBy,
                             CreatedByName = e2.FirstName + " " + e2.LastName,
-                            CreatedDate = c.CreateDate,
+                            CreatedDate = c.CreatedDate,
                             AttachedFile = null,
                             Note = c.Note,
                             Status = c.Status

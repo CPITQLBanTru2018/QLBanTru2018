@@ -12,7 +12,7 @@ namespace DataConnect.Properties {
     
     
     [global::System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
-    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.VisualStudio.Editors.SettingsDesigner.SettingsSingleFileGenerator", "15.5.0.0")]
+    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.VisualStudio.Editors.SettingsDesigner.SettingsSingleFileGenerator", "15.6.0.0")]
     internal sealed partial class Settings : global::System.Configuration.ApplicationSettingsBase {
         
         private static Settings defaultInstance = ((Settings)(global::System.Configuration.ApplicationSettingsBase.Synchronized(new Settings())));
@@ -26,44 +26,11 @@ namespace DataConnect.Properties {
         [global::System.Configuration.ApplicationScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.SpecialSettingAttribute(global::System.Configuration.SpecialSetting.ConnectionString)]
-        [global::System.Configuration.DefaultSettingValueAttribute("Data Source=42.112.20.82,1433;Initial Catalog=CPITQLHSBanTru;Persist Security Inf" +
-            "o=True;User ID=CPITQLHSBanTru")]
-        public string CPITQLHSBanTruConnectionString {
+        [global::System.Configuration.DefaultSettingValueAttribute("Data Source=42.112.20.82;Initial Catalog=CPITQLHSBanTru2018;Persist Security Info" +
+            "=True;User ID=CPITQLHSBanTru;Password=BanTru@2018")]
+        public string CPITQLHSBanTru2018ConnectionString {
             get {
-                return ((string)(this["CPITQLHSBanTruConnectionString"]));
-            }
-        }
-        
-        [global::System.Configuration.ApplicationScopedSettingAttribute()]
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.SpecialSettingAttribute(global::System.Configuration.SpecialSetting.ConnectionString)]
-        [global::System.Configuration.DefaultSettingValueAttribute("Data Source=\"42.112.20.82, 1433\";Initial Catalog=CPITQLHSBanTru;Persist Security " +
-            "Info=True;User ID=CPITQLHSBanTru;Password=bantru2018@")]
-        public string CPITQLHSBanTruConnectionString1 {
-            get {
-                return ((string)(this["CPITQLHSBanTruConnectionString1"]));
-            }
-        }
-        
-        [global::System.Configuration.ApplicationScopedSettingAttribute()]
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.SpecialSettingAttribute(global::System.Configuration.SpecialSetting.ConnectionString)]
-        [global::System.Configuration.DefaultSettingValueAttribute("Data Source=42.112.20.82,1433;Initial Catalog=CPITQLHSBanTru;Persist Security Inf" +
-            "o=True;User ID=CPITQLHSBanTru;Password=bantru2018@")]
-        public string CPITQLHSBanTruConnectionString2 {
-            get {
-                return ((string)(this["CPITQLHSBanTruConnectionString2"]));
-            }
-        }
-        
-        [global::System.Configuration.ApplicationScopedSettingAttribute()]
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.SpecialSettingAttribute(global::System.Configuration.SpecialSetting.ConnectionString)]
-        [global::System.Configuration.DefaultSettingValueAttribute("Data Source=DESKTOP-0CIUMFS\\TRANDUCHUNG;Initial Catalog=CPITQLHSBanTru;Persist Se" +
-            "curity Info=True;User ID=sa;Password=khongaibiet")]
-        public string CPITQLHSBanTruConnectionString3 {
-            get {
-                return ((string)(this["CPITQLHSBanTruConnectionString3"]));
+                return ((string)(this["CPITQLHSBanTru2018ConnectionString"]));
             }
         }
     }

@@ -64,8 +64,9 @@ namespace QLHSBanTru2018_Demo_V1.DAO.HungTD
                     return -2; //Tài khoản không tồn tại
                 }
             }
-            catch
+            catch(Exception e)
             {
+                Console.WriteLine(e);
                 return 0; //Đã xảy ra lỗi trong quá trình đăng nhập
             }
         }

@@ -42,7 +42,7 @@
   <ItemGroup>
     <Reference Include="Accessibility" />
     <Reference Include="Bunifu_UI_v1.5.3">
-      <HintPath>C:\Users\TIENBAO\Downloads\Programs\Bunifu_UI_v1.5.3.dll</HintPath>
+      <HintPath>C:\Users\Tran Duc Hung\Downloads\InnerVisual-Bunifu_UI_v1.5.3 Crack\Bunifu_UI_v1.5.3.dll</HintPath>
     </Reference>
     <Reference Include="DevExpress.BonusSkins.v17.2" />
     <Reference Include="DevExpress.Data.v17.2" />
@@ -61,12 +61,6 @@
     <Reference Include="DevExpress.XtraLayout.v17.2, Version=17.2.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
     <Reference Include="DevExpress.XtraPrinting.v17.2, Version=17.2.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
     <Reference Include="DevExpress.XtraRichEdit.v17.2, Version=17.2.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
-    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
-      <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.dll</HintPath>
-    </Reference>
-    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
-      <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.SqlServer.dll</HintPath>
-    </Reference>
     <Reference Include="Microsoft.VisualBasic" />
     <Reference Include="PresentationCore" />
     <Reference Include="System" />
@@ -354,12 +348,6 @@
     <None Include="Resources\1231.jpg" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\DataConnect\DataConnect.csproj">
-      <Project>{55672eb9-7166-4771-a19b-1589897b04cf}</Project>
-      <Name>DataConnect</Name>
-    </ProjectReference>
-  </ItemGroup>
-  <ItemGroup>
     <None Include="Resources\backgroudLogin.jpg" />
   </ItemGroup>
   <ItemGroup>
@@ -379,6 +367,12 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="HungTD\Form\History\" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\DataConnect\DataConnect.csproj">
+      <Project>{524e1c58-1c31-416d-a0c8-bfb8df822cce}</Project>
+      <Name>DataConnect</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it.
