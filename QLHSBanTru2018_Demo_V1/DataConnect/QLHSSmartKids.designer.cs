@@ -22,7 +22,7 @@ namespace DataConnect
 	using System;
 	
 	
-	[global::System.Data.Linq.Mapping.DatabaseAttribute(Name="CPITQLHSBanTru")]
+	[global::System.Data.Linq.Mapping.DatabaseAttribute(Name="CPITQLHSBanTru2018")]
 	public partial class QLHSSmartKidsDataContext : System.Data.Linq.DataContext
 	{
 		
@@ -66,12 +66,12 @@ namespace DataConnect
     partial void InsertDishDetail(DishDetail instance);
     partial void UpdateDishDetail(DishDetail instance);
     partial void DeleteDishDetail(DishDetail instance);
-    partial void InsertDivision(Division instance);
-    partial void UpdateDivision(Division instance);
-    partial void DeleteDivision(Division instance);
     partial void InsertEmployee(Employee instance);
     partial void UpdateEmployee(Employee instance);
     partial void DeleteEmployee(Employee instance);
+    partial void InsertEmployee_Class(Employee_Class instance);
+    partial void UpdateEmployee_Class(Employee_Class instance);
+    partial void DeleteEmployee_Class(Employee_Class instance);
     partial void InsertEmployee_Function(Employee_Function instance);
     partial void UpdateEmployee_Function(Employee_Function instance);
     partial void DeleteEmployee_Function(Employee_Function instance);
@@ -147,6 +147,9 @@ namespace DataConnect
     partial void InsertReligion(Religion instance);
     partial void UpdateReligion(Religion instance);
     partial void DeleteReligion(Religion instance);
+    partial void InsertRevenue(Revenue instance);
+    partial void UpdateRevenue(Revenue instance);
+    partial void DeleteRevenue(Revenue instance);
     partial void InsertSemester(Semester instance);
     partial void UpdateSemester(Semester instance);
     partial void DeleteSemester(Semester instance);
@@ -174,7 +177,7 @@ namespace DataConnect
     #endregion
 		
 		public QLHSSmartKidsDataContext() : 
-				base(global::DataConnect.Properties.Settings.Default.CPITQLHSBanTruConnectionString2, mappingSource)
+				base(global::DataConnect.Properties.Settings.Default.CPITQLHSBanTru2018ConnectionString, mappingSource)
 		{
 			OnCreated();
 		}
@@ -299,19 +302,19 @@ namespace DataConnect
 			}
 		}
 		
-		public System.Data.Linq.Table<Division> Divisions
-		{
-			get
-			{
-				return this.GetTable<Division>();
-			}
-		}
-		
 		public System.Data.Linq.Table<Employee> Employees
 		{
 			get
 			{
 				return this.GetTable<Employee>();
+			}
+		}
+		
+		public System.Data.Linq.Table<Employee_Class> Employee_Classes
+		{
+			get
+			{
+				return this.GetTable<Employee_Class>();
 			}
 		}
 		
@@ -515,6 +518,14 @@ namespace DataConnect
 			}
 		}
 		
+		public System.Data.Linq.Table<Revenue> Revenues
+		{
+			get
+			{
+				return this.GetTable<Revenue>();
+			}
+		}
+		
 		public System.Data.Linq.Table<Semester> Semesters
 		{
 			get
@@ -590,17 +601,13 @@ namespace DataConnect
 		
 		private int _GradeID;
 		
-		private int _EmployeeID;
-		
 		private string _Name;
-		
-		private int _Amount;
 		
 		private bool _Status;
 		
-		private EntitySet<Student_Class> _Student_Classes;
+		private EntitySet<Employee_Class> _Employee_Classes;
 		
-		private EntityRef<Employee> _Employee;
+		private EntitySet<Student_Class> _Student_Classes;
 		
 		private EntityRef<Grade> _Grade;
 		
@@ -612,20 +619,16 @@ namespace DataConnect
     partial void OnClassIDChanged();
     partial void OnGradeIDChanging(int value);
     partial void OnGradeIDChanged();
-    partial void OnEmployeeIDChanging(int value);
-    partial void OnEmployeeIDChanged();
     partial void OnNameChanging(string value);
     partial void OnNameChanged();
-    partial void OnAmountChanging(int value);
-    partial void OnAmountChanged();
     partial void OnStatusChanging(bool value);
     partial void OnStatusChanged();
     #endregion
 		
 		public Class()
 		{
+			this._Employee_Classes = new EntitySet<Employee_Class>(new Action<Employee_Class>(this.attach_Employee_Classes), new Action<Employee_Class>(this.detach_Employee_Classes));
 			this._Student_Classes = new EntitySet<Student_Class>(new Action<Student_Class>(this.attach_Student_Classes), new Action<Student_Class>(this.detach_Student_Classes));
-			this._Employee = default(EntityRef<Employee>);
 			this._Grade = default(EntityRef<Grade>);
 			OnCreated();
 		}
@@ -674,30 +677,6 @@ namespace DataConnect
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_EmployeeID", DbType="Int NOT NULL")]
-		public int EmployeeID
-		{
-			get
-			{
-				return this._EmployeeID;
-			}
-			set
-			{
-				if ((this._EmployeeID != value))
-				{
-					if (this._Employee.HasLoadedOrAssignedValue)
-					{
-						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
-					}
-					this.OnEmployeeIDChanging(value);
-					this.SendPropertyChanging();
-					this._EmployeeID = value;
-					this.SendPropertyChanged("EmployeeID");
-					this.OnEmployeeIDChanged();
-				}
-			}
-		}
-		
 		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Name", DbType="NVarChar(50) NOT NULL", CanBeNull=false)]
 		public string Name
 		{
@@ -714,26 +693,6 @@ namespace DataConnect
 					this._Name = value;
 					this.SendPropertyChanged("Name");
 					this.OnNameChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Amount", DbType="Int NOT NULL")]
-		public int Amount
-		{
-			get
-			{
-				return this._Amount;
-			}
-			set
-			{
-				if ((this._Amount != value))
-				{
-					this.OnAmountChanging(value);
-					this.SendPropertyChanging();
-					this._Amount = value;
-					this.SendPropertyChanged("Amount");
-					this.OnAmountChanged();
 				}
 			}
 		}
@@ -758,6 +717,19 @@ namespace DataConnect
 			}
 		}
 		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Class_Employee_Class", Storage="_Employee_Classes", ThisKey="ClassID", OtherKey="ClassID")]
+		public EntitySet<Employee_Class> Employee_Classes
+		{
+			get
+			{
+				return this._Employee_Classes;
+			}
+			set
+			{
+				this._Employee_Classes.Assign(value);
+			}
+		}
+		
 		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Class_Student_Class", Storage="_Student_Classes", ThisKey="ClassID", OtherKey="ClassID")]
 		public EntitySet<Student_Class> Student_Classes
 		{
@@ -768,40 +740,6 @@ namespace DataConnect
 			set
 			{
 				this._Student_Classes.Assign(value);
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Employee_Class", Storage="_Employee", ThisKey="EmployeeID", OtherKey="EmployeeID", IsForeignKey=true)]
-		public Employee Employee
-		{
-			get
-			{
-				return this._Employee.Entity;
-			}
-			set
-			{
-				Employee previousValue = this._Employee.Entity;
-				if (((previousValue != value) 
-							|| (this._Employee.HasLoadedOrAssignedValue == false)))
-				{
-					this.SendPropertyChanging();
-					if ((previousValue != null))
-					{
-						this._Employee.Entity = null;
-						previousValue.Classes.Remove(this);
-					}
-					this._Employee.Entity = value;
-					if ((value != null))
-					{
-						value.Classes.Add(this);
-						this._EmployeeID = value.EmployeeID;
-					}
-					else
-					{
-						this._EmployeeID = default(int);
-					}
-					this.SendPropertyChanged("Employee");
-				}
 			}
 		}
 		
@@ -857,6 +795,18 @@ namespace DataConnect
 			{
 				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
 			}
+		}
+		
+		private void attach_Employee_Classes(Employee_Class entity)
+		{
+			this.SendPropertyChanging();
+			entity.Class = this;
+		}
+		
+		private void detach_Employee_Classes(Employee_Class entity)
+		{
+			this.SendPropertyChanging();
+			entity.Class = null;
 		}
 		
 		private void attach_Student_Classes(Student_Class entity)
@@ -1046,6 +996,10 @@ namespace DataConnect
 		
 		private int _EmployeeID;
 		
+		private int _DepartmentID;
+		
+		private int _PositionID;
+		
 		private double _PayRate;
 		
 		private System.DateTime _StartDate;
@@ -1054,7 +1008,11 @@ namespace DataConnect
 		
 		private bool _Status;
 		
+		private EntityRef<Department> _Department;
+		
 		private EntityRef<Employee> _Employee;
+		
+		private EntityRef<Position> _Position;
 		
     #region Extensibility Method Definitions
     partial void OnLoaded();
@@ -1066,6 +1024,10 @@ namespace DataConnect
     partial void OnContractTypeChanged();
     partial void OnEmployeeIDChanging(int value);
     partial void OnEmployeeIDChanged();
+    partial void OnDepartmentIDChanging(int value);
+    partial void OnDepartmentIDChanged();
+    partial void OnPositionIDChanging(int value);
+    partial void OnPositionIDChanged();
     partial void OnPayRateChanging(double value);
     partial void OnPayRateChanged();
     partial void OnStartDateChanging(System.DateTime value);
@@ -1078,7 +1040,9 @@ namespace DataConnect
 		
 		public Contract()
 		{
+			this._Department = default(EntityRef<Department>);
 			this._Employee = default(EntityRef<Employee>);
+			this._Position = default(EntityRef<Position>);
 			OnCreated();
 		}
 		
@@ -1142,6 +1106,54 @@ namespace DataConnect
 					this._EmployeeID = value;
 					this.SendPropertyChanged("EmployeeID");
 					this.OnEmployeeIDChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_DepartmentID", DbType="Int NOT NULL")]
+		public int DepartmentID
+		{
+			get
+			{
+				return this._DepartmentID;
+			}
+			set
+			{
+				if ((this._DepartmentID != value))
+				{
+					if (this._Department.HasLoadedOrAssignedValue)
+					{
+						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
+					}
+					this.OnDepartmentIDChanging(value);
+					this.SendPropertyChanging();
+					this._DepartmentID = value;
+					this.SendPropertyChanged("DepartmentID");
+					this.OnDepartmentIDChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_PositionID", DbType="Int NOT NULL")]
+		public int PositionID
+		{
+			get
+			{
+				return this._PositionID;
+			}
+			set
+			{
+				if ((this._PositionID != value))
+				{
+					if (this._Position.HasLoadedOrAssignedValue)
+					{
+						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
+					}
+					this.OnPositionIDChanging(value);
+					this.SendPropertyChanging();
+					this._PositionID = value;
+					this.SendPropertyChanged("PositionID");
+					this.OnPositionIDChanged();
 				}
 			}
 		}
@@ -1226,6 +1238,40 @@ namespace DataConnect
 			}
 		}
 		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Department_Contract", Storage="_Department", ThisKey="DepartmentID", OtherKey="DepartmentID", IsForeignKey=true)]
+		public Department Department
+		{
+			get
+			{
+				return this._Department.Entity;
+			}
+			set
+			{
+				Department previousValue = this._Department.Entity;
+				if (((previousValue != value) 
+							|| (this._Department.HasLoadedOrAssignedValue == false)))
+				{
+					this.SendPropertyChanging();
+					if ((previousValue != null))
+					{
+						this._Department.Entity = null;
+						previousValue.Contracts.Remove(this);
+					}
+					this._Department.Entity = value;
+					if ((value != null))
+					{
+						value.Contracts.Add(this);
+						this._DepartmentID = value.DepartmentID;
+					}
+					else
+					{
+						this._DepartmentID = default(int);
+					}
+					this.SendPropertyChanged("Department");
+				}
+			}
+		}
+		
 		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Employee_Contract", Storage="_Employee", ThisKey="EmployeeID", OtherKey="EmployeeID", IsForeignKey=true)]
 		public Employee Employee
 		{
@@ -1256,6 +1302,40 @@ namespace DataConnect
 						this._EmployeeID = default(int);
 					}
 					this.SendPropertyChanged("Employee");
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Position_Contract", Storage="_Position", ThisKey="PositionID", OtherKey="PositionID", IsForeignKey=true)]
+		public Position Position
+		{
+			get
+			{
+				return this._Position.Entity;
+			}
+			set
+			{
+				Position previousValue = this._Position.Entity;
+				if (((previousValue != value) 
+							|| (this._Position.HasLoadedOrAssignedValue == false)))
+				{
+					this.SendPropertyChanging();
+					if ((previousValue != null))
+					{
+						this._Position.Entity = null;
+						previousValue.Contracts.Remove(this);
+					}
+					this._Position.Entity = value;
+					if ((value != null))
+					{
+						value.Contracts.Add(this);
+						this._PositionID = value.PositionID;
+					}
+					else
+					{
+						this._PositionID = default(int);
+					}
+					this.SendPropertyChanged("Position");
 				}
 			}
 		}
@@ -2986,7 +3066,7 @@ namespace DataConnect
 		
 		private bool _Status;
 		
-		private EntitySet<Division> _Divisions;
+		private EntitySet<Contract> _Contracts;
 		
     #region Extensibility Method Definitions
     partial void OnLoaded();
@@ -3002,7 +3082,7 @@ namespace DataConnect
 		
 		public Department()
 		{
-			this._Divisions = new EntitySet<Division>(new Action<Division>(this.attach_Divisions), new Action<Division>(this.detach_Divisions));
+			this._Contracts = new EntitySet<Contract>(new Action<Contract>(this.attach_Contracts), new Action<Contract>(this.detach_Contracts));
 			OnCreated();
 		}
 		
@@ -3066,16 +3146,16 @@ namespace DataConnect
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Department_Division", Storage="_Divisions", ThisKey="DepartmentID", OtherKey="DepartmentID")]
-		public EntitySet<Division> Divisions
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Department_Contract", Storage="_Contracts", ThisKey="DepartmentID", OtherKey="DepartmentID")]
+		public EntitySet<Contract> Contracts
 		{
 			get
 			{
-				return this._Divisions;
+				return this._Contracts;
 			}
 			set
 			{
-				this._Divisions.Assign(value);
+				this._Contracts.Assign(value);
 			}
 		}
 		
@@ -3099,13 +3179,13 @@ namespace DataConnect
 			}
 		}
 		
-		private void attach_Divisions(Division entity)
+		private void attach_Contracts(Contract entity)
 		{
 			this.SendPropertyChanging();
 			entity.Department = this;
 		}
 		
-		private void detach_Divisions(Division entity)
+		private void detach_Contracts(Contract entity)
 		{
 			this.SendPropertyChanging();
 			entity.Department = null;
@@ -3518,359 +3598,6 @@ namespace DataConnect
 		}
 	}
 	
-	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.Division")]
-	public partial class Division : INotifyPropertyChanging, INotifyPropertyChanged
-	{
-		
-		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
-		
-		private int _DivisionID;
-		
-		private int _EmployeeID;
-		
-		private int _DepartmentID;
-		
-		private int _PositionID;
-		
-		private System.DateTime _StartDate;
-		
-		private System.DateTime _EndDate;
-		
-		private System.DateTime _CreatedDate;
-		
-		private bool _Status;
-		
-		private EntityRef<Department> _Department;
-		
-		private EntityRef<Employee> _Employee;
-		
-		private EntityRef<Position> _Position;
-		
-    #region Extensibility Method Definitions
-    partial void OnLoaded();
-    partial void OnValidate(System.Data.Linq.ChangeAction action);
-    partial void OnCreated();
-    partial void OnDivisionIDChanging(int value);
-    partial void OnDivisionIDChanged();
-    partial void OnEmployeeIDChanging(int value);
-    partial void OnEmployeeIDChanged();
-    partial void OnDepartmentIDChanging(int value);
-    partial void OnDepartmentIDChanged();
-    partial void OnPositionIDChanging(int value);
-    partial void OnPositionIDChanged();
-    partial void OnStartDateChanging(System.DateTime value);
-    partial void OnStartDateChanged();
-    partial void OnEndDateChanging(System.DateTime value);
-    partial void OnEndDateChanged();
-    partial void OnCreatedDateChanging(System.DateTime value);
-    partial void OnCreatedDateChanged();
-    partial void OnStatusChanging(bool value);
-    partial void OnStatusChanged();
-    #endregion
-		
-		public Division()
-		{
-			this._Department = default(EntityRef<Department>);
-			this._Employee = default(EntityRef<Employee>);
-			this._Position = default(EntityRef<Position>);
-			OnCreated();
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_DivisionID", AutoSync=AutoSync.OnInsert, DbType="Int NOT NULL IDENTITY", IsPrimaryKey=true, IsDbGenerated=true)]
-		public int DivisionID
-		{
-			get
-			{
-				return this._DivisionID;
-			}
-			set
-			{
-				if ((this._DivisionID != value))
-				{
-					this.OnDivisionIDChanging(value);
-					this.SendPropertyChanging();
-					this._DivisionID = value;
-					this.SendPropertyChanged("DivisionID");
-					this.OnDivisionIDChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_EmployeeID", DbType="Int NOT NULL")]
-		public int EmployeeID
-		{
-			get
-			{
-				return this._EmployeeID;
-			}
-			set
-			{
-				if ((this._EmployeeID != value))
-				{
-					if (this._Employee.HasLoadedOrAssignedValue)
-					{
-						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
-					}
-					this.OnEmployeeIDChanging(value);
-					this.SendPropertyChanging();
-					this._EmployeeID = value;
-					this.SendPropertyChanged("EmployeeID");
-					this.OnEmployeeIDChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_DepartmentID", DbType="Int NOT NULL")]
-		public int DepartmentID
-		{
-			get
-			{
-				return this._DepartmentID;
-			}
-			set
-			{
-				if ((this._DepartmentID != value))
-				{
-					if (this._Department.HasLoadedOrAssignedValue)
-					{
-						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
-					}
-					this.OnDepartmentIDChanging(value);
-					this.SendPropertyChanging();
-					this._DepartmentID = value;
-					this.SendPropertyChanged("DepartmentID");
-					this.OnDepartmentIDChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_PositionID", DbType="Int NOT NULL")]
-		public int PositionID
-		{
-			get
-			{
-				return this._PositionID;
-			}
-			set
-			{
-				if ((this._PositionID != value))
-				{
-					if (this._Position.HasLoadedOrAssignedValue)
-					{
-						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
-					}
-					this.OnPositionIDChanging(value);
-					this.SendPropertyChanging();
-					this._PositionID = value;
-					this.SendPropertyChanged("PositionID");
-					this.OnPositionIDChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_StartDate", DbType="DateTime NOT NULL")]
-		public System.DateTime StartDate
-		{
-			get
-			{
-				return this._StartDate;
-			}
-			set
-			{
-				if ((this._StartDate != value))
-				{
-					this.OnStartDateChanging(value);
-					this.SendPropertyChanging();
-					this._StartDate = value;
-					this.SendPropertyChanged("StartDate");
-					this.OnStartDateChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_EndDate", DbType="DateTime NOT NULL")]
-		public System.DateTime EndDate
-		{
-			get
-			{
-				return this._EndDate;
-			}
-			set
-			{
-				if ((this._EndDate != value))
-				{
-					this.OnEndDateChanging(value);
-					this.SendPropertyChanging();
-					this._EndDate = value;
-					this.SendPropertyChanged("EndDate");
-					this.OnEndDateChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CreatedDate", DbType="DateTime NOT NULL")]
-		public System.DateTime CreatedDate
-		{
-			get
-			{
-				return this._CreatedDate;
-			}
-			set
-			{
-				if ((this._CreatedDate != value))
-				{
-					this.OnCreatedDateChanging(value);
-					this.SendPropertyChanging();
-					this._CreatedDate = value;
-					this.SendPropertyChanged("CreatedDate");
-					this.OnCreatedDateChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Status", DbType="Bit NOT NULL")]
-		public bool Status
-		{
-			get
-			{
-				return this._Status;
-			}
-			set
-			{
-				if ((this._Status != value))
-				{
-					this.OnStatusChanging(value);
-					this.SendPropertyChanging();
-					this._Status = value;
-					this.SendPropertyChanged("Status");
-					this.OnStatusChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Department_Division", Storage="_Department", ThisKey="DepartmentID", OtherKey="DepartmentID", IsForeignKey=true)]
-		public Department Department
-		{
-			get
-			{
-				return this._Department.Entity;
-			}
-			set
-			{
-				Department previousValue = this._Department.Entity;
-				if (((previousValue != value) 
-							|| (this._Department.HasLoadedOrAssignedValue == false)))
-				{
-					this.SendPropertyChanging();
-					if ((previousValue != null))
-					{
-						this._Department.Entity = null;
-						previousValue.Divisions.Remove(this);
-					}
-					this._Department.Entity = value;
-					if ((value != null))
-					{
-						value.Divisions.Add(this);
-						this._DepartmentID = value.DepartmentID;
-					}
-					else
-					{
-						this._DepartmentID = default(int);
-					}
-					this.SendPropertyChanged("Department");
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Employee_Division", Storage="_Employee", ThisKey="EmployeeID", OtherKey="EmployeeID", IsForeignKey=true)]
-		public Employee Employee
-		{
-			get
-			{
-				return this._Employee.Entity;
-			}
-			set
-			{
-				Employee previousValue = this._Employee.Entity;
-				if (((previousValue != value) 
-							|| (this._Employee.HasLoadedOrAssignedValue == false)))
-				{
-					this.SendPropertyChanging();
-					if ((previousValue != null))
-					{
-						this._Employee.Entity = null;
-						previousValue.Divisions.Remove(this);
-					}
-					this._Employee.Entity = value;
-					if ((value != null))
-					{
-						value.Divisions.Add(this);
-						this._EmployeeID = value.EmployeeID;
-					}
-					else
-					{
-						this._EmployeeID = default(int);
-					}
-					this.SendPropertyChanged("Employee");
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Position_Division", Storage="_Position", ThisKey="PositionID", OtherKey="PositionID", IsForeignKey=true)]
-		public Position Position
-		{
-			get
-			{
-				return this._Position.Entity;
-			}
-			set
-			{
-				Position previousValue = this._Position.Entity;
-				if (((previousValue != value) 
-							|| (this._Position.HasLoadedOrAssignedValue == false)))
-				{
-					this.SendPropertyChanging();
-					if ((previousValue != null))
-					{
-						this._Position.Entity = null;
-						previousValue.Divisions.Remove(this);
-					}
-					this._Position.Entity = value;
-					if ((value != null))
-					{
-						value.Divisions.Add(this);
-						this._PositionID = value.PositionID;
-					}
-					else
-					{
-						this._PositionID = default(int);
-					}
-					this.SendPropertyChanged("Position");
-				}
-			}
-		}
-		
-		public event PropertyChangingEventHandler PropertyChanging;
-		
-		public event PropertyChangedEventHandler PropertyChanged;
-		
-		protected virtual void SendPropertyChanging()
-		{
-			if ((this.PropertyChanging != null))
-			{
-				this.PropertyChanging(this, emptyChangingEventArgs);
-			}
-		}
-		
-		protected virtual void SendPropertyChanged(String propertyName)
-		{
-			if ((this.PropertyChanged != null))
-			{
-				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
-			}
-		}
-	}
-	
 	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.Employee")]
 	public partial class Employee : INotifyPropertyChanging, INotifyPropertyChanged
 	{
@@ -3887,9 +3614,9 @@ namespace DataConnect
 		
 		private string _LastName;
 		
-		private System.DateTime _Birthday;
+		private System.Nullable<System.DateTime> _Birthday;
 		
-		private bool _Gender;
+		private System.Nullable<bool> _Gender;
 		
 		private int _EthnicGroupID;
 		
@@ -3901,7 +3628,7 @@ namespace DataConnect
 		
 		private string _AddressDetail;
 		
-		private int _DegreeID;
+		private System.Nullable<int> _DegreeID;
 		
 		private string _Email;
 		
@@ -3917,11 +3644,9 @@ namespace DataConnect
 		
 		private bool _Status;
 		
-		private EntitySet<Class> _Classes;
-		
 		private EntitySet<Contract> _Contracts;
 		
-		private EntitySet<Division> _Divisions;
+		private EntitySet<Employee_Class> _Employee_Classes;
 		
 		private EntitySet<Employee_Function> _Employee_Functions;
 		
@@ -3951,9 +3676,9 @@ namespace DataConnect
     partial void OnFirstNameChanged();
     partial void OnLastNameChanging(string value);
     partial void OnLastNameChanged();
-    partial void OnBirthdayChanging(System.DateTime value);
+    partial void OnBirthdayChanging(System.Nullable<System.DateTime> value);
     partial void OnBirthdayChanged();
-    partial void OnGenderChanging(bool value);
+    partial void OnGenderChanging(System.Nullable<bool> value);
     partial void OnGenderChanged();
     partial void OnEthnicGroupIDChanging(int value);
     partial void OnEthnicGroupIDChanged();
@@ -3965,7 +3690,7 @@ namespace DataConnect
     partial void OnLocationIDChanged();
     partial void OnAddressDetailChanging(string value);
     partial void OnAddressDetailChanged();
-    partial void OnDegreeIDChanging(int value);
+    partial void OnDegreeIDChanging(System.Nullable<int> value);
     partial void OnDegreeIDChanged();
     partial void OnEmailChanging(string value);
     partial void OnEmailChanged();
@@ -3985,9 +3710,8 @@ namespace DataConnect
 		
 		public Employee()
 		{
-			this._Classes = new EntitySet<Class>(new Action<Class>(this.attach_Classes), new Action<Class>(this.detach_Classes));
 			this._Contracts = new EntitySet<Contract>(new Action<Contract>(this.attach_Contracts), new Action<Contract>(this.detach_Contracts));
-			this._Divisions = new EntitySet<Division>(new Action<Division>(this.attach_Divisions), new Action<Division>(this.detach_Divisions));
+			this._Employee_Classes = new EntitySet<Employee_Class>(new Action<Employee_Class>(this.attach_Employee_Classes), new Action<Employee_Class>(this.detach_Employee_Classes));
 			this._Employee_Functions = new EntitySet<Employee_Function>(new Action<Employee_Function>(this.attach_Employee_Functions), new Action<Employee_Function>(this.detach_Employee_Functions));
 			this._HealthProblems = new EntitySet<HealthProblem>(new Action<HealthProblem>(this.attach_HealthProblems), new Action<HealthProblem>(this.detach_HealthProblems));
 			this._Histories = new EntitySet<History>(new Action<History>(this.attach_Histories), new Action<History>(this.detach_Histories));
@@ -4098,8 +3822,8 @@ namespace DataConnect
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Birthday", DbType="DateTime NOT NULL")]
-		public System.DateTime Birthday
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Birthday", DbType="DateTime")]
+		public System.Nullable<System.DateTime> Birthday
 		{
 			get
 			{
@@ -4118,8 +3842,8 @@ namespace DataConnect
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Gender", DbType="Bit NOT NULL")]
-		public bool Gender
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Gender", DbType="Bit")]
+		public System.Nullable<bool> Gender
 		{
 			get
 			{
@@ -4230,7 +3954,7 @@ namespace DataConnect
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_AddressDetail", DbType="NVarChar(100)")]
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_AddressDetail", DbType="NVarChar(100) NOT NULL", CanBeNull=false)]
 		public string AddressDetail
 		{
 			get
@@ -4250,8 +3974,8 @@ namespace DataConnect
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_DegreeID", DbType="Int NOT NULL")]
-		public int DegreeID
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_DegreeID", DbType="Int")]
+		public System.Nullable<int> DegreeID
 		{
 			get
 			{
@@ -4414,19 +4138,6 @@ namespace DataConnect
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Employee_Class", Storage="_Classes", ThisKey="EmployeeID", OtherKey="EmployeeID")]
-		public EntitySet<Class> Classes
-		{
-			get
-			{
-				return this._Classes;
-			}
-			set
-			{
-				this._Classes.Assign(value);
-			}
-		}
-		
 		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Employee_Contract", Storage="_Contracts", ThisKey="EmployeeID", OtherKey="EmployeeID")]
 		public EntitySet<Contract> Contracts
 		{
@@ -4440,16 +4151,16 @@ namespace DataConnect
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Employee_Division", Storage="_Divisions", ThisKey="EmployeeID", OtherKey="EmployeeID")]
-		public EntitySet<Division> Divisions
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Employee_Employee_Class", Storage="_Employee_Classes", ThisKey="EmployeeID", OtherKey="EmployeeID")]
+		public EntitySet<Employee_Class> Employee_Classes
 		{
 			get
 			{
-				return this._Divisions;
+				return this._Employee_Classes;
 			}
 			set
 			{
-				this._Divisions.Assign(value);
+				this._Employee_Classes.Assign(value);
 			}
 		}
 		
@@ -4519,7 +4230,7 @@ namespace DataConnect
 					}
 					else
 					{
-						this._DegreeID = default(int);
+						this._DegreeID = default(Nullable<int>);
 					}
 					this.SendPropertyChanged("Degree");
 				}
@@ -4648,18 +4359,6 @@ namespace DataConnect
 			}
 		}
 		
-		private void attach_Classes(Class entity)
-		{
-			this.SendPropertyChanging();
-			entity.Employee = this;
-		}
-		
-		private void detach_Classes(Class entity)
-		{
-			this.SendPropertyChanging();
-			entity.Employee = null;
-		}
-		
 		private void attach_Contracts(Contract entity)
 		{
 			this.SendPropertyChanging();
@@ -4672,13 +4371,13 @@ namespace DataConnect
 			entity.Employee = null;
 		}
 		
-		private void attach_Divisions(Division entity)
+		private void attach_Employee_Classes(Employee_Class entity)
 		{
 			this.SendPropertyChanging();
 			entity.Employee = this;
 		}
 		
-		private void detach_Divisions(Division entity)
+		private void detach_Employee_Classes(Employee_Class entity)
 		{
 			this.SendPropertyChanging();
 			entity.Employee = null;
@@ -4718,6 +4417,198 @@ namespace DataConnect
 		{
 			this.SendPropertyChanging();
 			entity.Employee = null;
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.Employee_Class")]
+	public partial class Employee_Class : INotifyPropertyChanging, INotifyPropertyChanged
+	{
+		
+		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
+		
+		private int _EmployeeID;
+		
+		private int _ClassID;
+		
+		private bool _Status;
+		
+		private EntityRef<Class> _Class;
+		
+		private EntityRef<Employee> _Employee;
+		
+    #region Extensibility Method Definitions
+    partial void OnLoaded();
+    partial void OnValidate(System.Data.Linq.ChangeAction action);
+    partial void OnCreated();
+    partial void OnEmployeeIDChanging(int value);
+    partial void OnEmployeeIDChanged();
+    partial void OnClassIDChanging(int value);
+    partial void OnClassIDChanged();
+    partial void OnStatusChanging(bool value);
+    partial void OnStatusChanged();
+    #endregion
+		
+		public Employee_Class()
+		{
+			this._Class = default(EntityRef<Class>);
+			this._Employee = default(EntityRef<Employee>);
+			OnCreated();
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_EmployeeID", DbType="Int NOT NULL", IsPrimaryKey=true)]
+		public int EmployeeID
+		{
+			get
+			{
+				return this._EmployeeID;
+			}
+			set
+			{
+				if ((this._EmployeeID != value))
+				{
+					if (this._Employee.HasLoadedOrAssignedValue)
+					{
+						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
+					}
+					this.OnEmployeeIDChanging(value);
+					this.SendPropertyChanging();
+					this._EmployeeID = value;
+					this.SendPropertyChanged("EmployeeID");
+					this.OnEmployeeIDChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ClassID", DbType="Int NOT NULL", IsPrimaryKey=true)]
+		public int ClassID
+		{
+			get
+			{
+				return this._ClassID;
+			}
+			set
+			{
+				if ((this._ClassID != value))
+				{
+					if (this._Class.HasLoadedOrAssignedValue)
+					{
+						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
+					}
+					this.OnClassIDChanging(value);
+					this.SendPropertyChanging();
+					this._ClassID = value;
+					this.SendPropertyChanged("ClassID");
+					this.OnClassIDChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Status", DbType="Bit NOT NULL")]
+		public bool Status
+		{
+			get
+			{
+				return this._Status;
+			}
+			set
+			{
+				if ((this._Status != value))
+				{
+					this.OnStatusChanging(value);
+					this.SendPropertyChanging();
+					this._Status = value;
+					this.SendPropertyChanged("Status");
+					this.OnStatusChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Class_Employee_Class", Storage="_Class", ThisKey="ClassID", OtherKey="ClassID", IsForeignKey=true)]
+		public Class Class
+		{
+			get
+			{
+				return this._Class.Entity;
+			}
+			set
+			{
+				Class previousValue = this._Class.Entity;
+				if (((previousValue != value) 
+							|| (this._Class.HasLoadedOrAssignedValue == false)))
+				{
+					this.SendPropertyChanging();
+					if ((previousValue != null))
+					{
+						this._Class.Entity = null;
+						previousValue.Employee_Classes.Remove(this);
+					}
+					this._Class.Entity = value;
+					if ((value != null))
+					{
+						value.Employee_Classes.Add(this);
+						this._ClassID = value.ClassID;
+					}
+					else
+					{
+						this._ClassID = default(int);
+					}
+					this.SendPropertyChanged("Class");
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Employee_Employee_Class", Storage="_Employee", ThisKey="EmployeeID", OtherKey="EmployeeID", IsForeignKey=true)]
+		public Employee Employee
+		{
+			get
+			{
+				return this._Employee.Entity;
+			}
+			set
+			{
+				Employee previousValue = this._Employee.Entity;
+				if (((previousValue != value) 
+							|| (this._Employee.HasLoadedOrAssignedValue == false)))
+				{
+					this.SendPropertyChanging();
+					if ((previousValue != null))
+					{
+						this._Employee.Entity = null;
+						previousValue.Employee_Classes.Remove(this);
+					}
+					this._Employee.Entity = value;
+					if ((value != null))
+					{
+						value.Employee_Classes.Add(this);
+						this._EmployeeID = value.EmployeeID;
+					}
+					else
+					{
+						this._EmployeeID = default(int);
+					}
+					this.SendPropertyChanged("Employee");
+				}
+			}
+		}
+		
+		public event PropertyChangingEventHandler PropertyChanging;
+		
+		public event PropertyChangedEventHandler PropertyChanged;
+		
+		protected virtual void SendPropertyChanging()
+		{
+			if ((this.PropertyChanging != null))
+			{
+				this.PropertyChanging(this, emptyChangingEventArgs);
+			}
+		}
+		
+		protected virtual void SendPropertyChanged(String propertyName)
+		{
+			if ((this.PropertyChanged != null))
+			{
+				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
+			}
 		}
 	}
 	
@@ -8514,7 +8405,7 @@ namespace DataConnect
 			OnCreated();
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_LocationID", DbType="Int NOT NULL", IsPrimaryKey=true)]
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_LocationID", AutoSync=AutoSync.OnInsert, DbType="Int NOT NULL IDENTITY", IsPrimaryKey=true, IsDbGenerated=true)]
 		public int LocationID
 		{
 			get
@@ -9699,7 +9590,7 @@ namespace DataConnect
 		
 		private bool _Status;
 		
-		private EntitySet<Division> _Divisions;
+		private EntitySet<Contract> _Contracts;
 		
     #region Extensibility Method Definitions
     partial void OnLoaded();
@@ -9715,7 +9606,7 @@ namespace DataConnect
 		
 		public Position()
 		{
-			this._Divisions = new EntitySet<Division>(new Action<Division>(this.attach_Divisions), new Action<Division>(this.detach_Divisions));
+			this._Contracts = new EntitySet<Contract>(new Action<Contract>(this.attach_Contracts), new Action<Contract>(this.detach_Contracts));
 			OnCreated();
 		}
 		
@@ -9779,16 +9670,16 @@ namespace DataConnect
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Position_Division", Storage="_Divisions", ThisKey="PositionID", OtherKey="PositionID")]
-		public EntitySet<Division> Divisions
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Position_Contract", Storage="_Contracts", ThisKey="PositionID", OtherKey="PositionID")]
+		public EntitySet<Contract> Contracts
 		{
 			get
 			{
-				return this._Divisions;
+				return this._Contracts;
 			}
 			set
 			{
-				this._Divisions.Assign(value);
+				this._Contracts.Assign(value);
 			}
 		}
 		
@@ -9812,13 +9703,13 @@ namespace DataConnect
 			}
 		}
 		
-		private void attach_Divisions(Division entity)
+		private void attach_Contracts(Contract entity)
 		{
 			this.SendPropertyChanging();
 			entity.Position = this;
 		}
 		
-		private void detach_Divisions(Division entity)
+		private void detach_Contracts(Contract entity)
 		{
 			this.SendPropertyChanging();
 			entity.Position = null;
@@ -10011,6 +9902,8 @@ namespace DataConnect
 		
 		private bool _Status;
 		
+		private System.Nullable<int> _RevenueID;
+		
 		private EntitySet<ReceivableDetail> _ReceivableDetails;
 		
     #region Extensibility Method Definitions
@@ -10031,6 +9924,8 @@ namespace DataConnect
     partial void OnCreatedDateChanged();
     partial void OnStatusChanging(bool value);
     partial void OnStatusChanged();
+    partial void OnRevenueIDChanging(System.Nullable<int> value);
+    partial void OnRevenueIDChanged();
     #endregion
 		
 		public Receivable()
@@ -10179,6 +10074,26 @@ namespace DataConnect
 			}
 		}
 		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_RevenueID", DbType="Int")]
+		public System.Nullable<int> RevenueID
+		{
+			get
+			{
+				return this._RevenueID;
+			}
+			set
+			{
+				if ((this._RevenueID != value))
+				{
+					this.OnRevenueIDChanging(value);
+					this.SendPropertyChanging();
+					this._RevenueID = value;
+					this.SendPropertyChanged("RevenueID");
+					this.OnRevenueIDChanged();
+				}
+			}
+		}
+		
 		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Receivable_ReceivableDetail", Storage="_ReceivableDetails", ThisKey="ReceivableID", OtherKey="ReceivableID")]
 		public EntitySet<ReceivableDetail> ReceivableDetails
 		{
@@ -10243,11 +10158,15 @@ namespace DataConnect
 		
 		private bool _Status;
 		
+		private System.Nullable<int> _RevenueID;
+		
 		private EntitySet<ReceivableDetail_Preferred> _ReceivableDetail_Preferreds;
 		
 		private EntitySet<ReceivableDetail_Student> _ReceivableDetail_Students;
 		
 		private EntityRef<Receivable> _Receivable;
+		
+		private EntityRef<Revenue> _Revenue;
 		
     #region Extensibility Method Definitions
     partial void OnLoaded();
@@ -10265,6 +10184,8 @@ namespace DataConnect
     partial void OnSalePriceChanged();
     partial void OnStatusChanging(bool value);
     partial void OnStatusChanged();
+    partial void OnRevenueIDChanging(System.Nullable<int> value);
+    partial void OnRevenueIDChanged();
     #endregion
 		
 		public ReceivableDetail()
@@ -10272,6 +10193,7 @@ namespace DataConnect
 			this._ReceivableDetail_Preferreds = new EntitySet<ReceivableDetail_Preferred>(new Action<ReceivableDetail_Preferred>(this.attach_ReceivableDetail_Preferreds), new Action<ReceivableDetail_Preferred>(this.detach_ReceivableDetail_Preferreds));
 			this._ReceivableDetail_Students = new EntitySet<ReceivableDetail_Student>(new Action<ReceivableDetail_Student>(this.attach_ReceivableDetail_Students), new Action<ReceivableDetail_Student>(this.detach_ReceivableDetail_Students));
 			this._Receivable = default(EntityRef<Receivable>);
+			this._Revenue = default(EntityRef<Revenue>);
 			OnCreated();
 		}
 		
@@ -10399,6 +10321,30 @@ namespace DataConnect
 			}
 		}
 		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_RevenueID", DbType="Int")]
+		public System.Nullable<int> RevenueID
+		{
+			get
+			{
+				return this._RevenueID;
+			}
+			set
+			{
+				if ((this._RevenueID != value))
+				{
+					if (this._Revenue.HasLoadedOrAssignedValue)
+					{
+						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
+					}
+					this.OnRevenueIDChanging(value);
+					this.SendPropertyChanging();
+					this._RevenueID = value;
+					this.SendPropertyChanged("RevenueID");
+					this.OnRevenueIDChanged();
+				}
+			}
+		}
+		
 		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="ReceivableDetail_ReceivableDetail_Preferred", Storage="_ReceivableDetail_Preferreds", ThisKey="ReceivableDetailID", OtherKey="ReceivableDetailID")]
 		public EntitySet<ReceivableDetail_Preferred> ReceivableDetail_Preferreds
 		{
@@ -10455,6 +10401,40 @@ namespace DataConnect
 						this._ReceivableID = default(int);
 					}
 					this.SendPropertyChanged("Receivable");
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Revenue_ReceivableDetail", Storage="_Revenue", ThisKey="RevenueID", OtherKey="RevenueID", IsForeignKey=true)]
+		public Revenue Revenue
+		{
+			get
+			{
+				return this._Revenue.Entity;
+			}
+			set
+			{
+				Revenue previousValue = this._Revenue.Entity;
+				if (((previousValue != value) 
+							|| (this._Revenue.HasLoadedOrAssignedValue == false)))
+				{
+					this.SendPropertyChanging();
+					if ((previousValue != null))
+					{
+						this._Revenue.Entity = null;
+						previousValue.ReceivableDetails.Remove(this);
+					}
+					this._Revenue.Entity = value;
+					if ((value != null))
+					{
+						value.ReceivableDetails.Add(this);
+						this._RevenueID = value.RevenueID;
+					}
+					else
+					{
+						this._RevenueID = default(Nullable<int>);
+					}
+					this.SendPropertyChanged("Revenue");
 				}
 			}
 		}
@@ -10516,7 +10496,7 @@ namespace DataConnect
 		
 		private double _Percent;
 		
-		private System.Nullable<bool> _Status;
+		private bool _Status;
 		
 		private EntityRef<Preferred> _Preferred;
 		
@@ -10532,7 +10512,7 @@ namespace DataConnect
     partial void OnPreferredIDChanged();
     partial void OnPercentChanging(double value);
     partial void OnPercentChanged();
-    partial void OnStatusChanging(System.Nullable<bool> value);
+    partial void OnStatusChanging(bool value);
     partial void OnStatusChanged();
     #endregion
 		
@@ -10611,8 +10591,8 @@ namespace DataConnect
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Status", DbType="Bit")]
-		public System.Nullable<bool> Status
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Status", DbType="Bit NOT NULL")]
+		public bool Status
 		{
 			get
 			{
@@ -11047,6 +11027,168 @@ namespace DataConnect
 		{
 			this.SendPropertyChanging();
 			entity.Religion = null;
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.Revenue")]
+	public partial class Revenue : INotifyPropertyChanging, INotifyPropertyChanged
+	{
+		
+		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
+		
+		private int _RevenueID;
+		
+		private string _RevenueName;
+		
+		private System.Nullable<double> _TotalRevenue;
+		
+		private System.Nullable<bool> _Status;
+		
+		private EntitySet<ReceivableDetail> _ReceivableDetails;
+		
+    #region Extensibility Method Definitions
+    partial void OnLoaded();
+    partial void OnValidate(System.Data.Linq.ChangeAction action);
+    partial void OnCreated();
+    partial void OnRevenueIDChanging(int value);
+    partial void OnRevenueIDChanged();
+    partial void OnRevenueNameChanging(string value);
+    partial void OnRevenueNameChanged();
+    partial void OnTotalRevenueChanging(System.Nullable<double> value);
+    partial void OnTotalRevenueChanged();
+    partial void OnStatusChanging(System.Nullable<bool> value);
+    partial void OnStatusChanged();
+    #endregion
+		
+		public Revenue()
+		{
+			this._ReceivableDetails = new EntitySet<ReceivableDetail>(new Action<ReceivableDetail>(this.attach_ReceivableDetails), new Action<ReceivableDetail>(this.detach_ReceivableDetails));
+			OnCreated();
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_RevenueID", DbType="Int NOT NULL", IsPrimaryKey=true)]
+		public int RevenueID
+		{
+			get
+			{
+				return this._RevenueID;
+			}
+			set
+			{
+				if ((this._RevenueID != value))
+				{
+					this.OnRevenueIDChanging(value);
+					this.SendPropertyChanging();
+					this._RevenueID = value;
+					this.SendPropertyChanged("RevenueID");
+					this.OnRevenueIDChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_RevenueName", DbType="NVarChar(50)")]
+		public string RevenueName
+		{
+			get
+			{
+				return this._RevenueName;
+			}
+			set
+			{
+				if ((this._RevenueName != value))
+				{
+					this.OnRevenueNameChanging(value);
+					this.SendPropertyChanging();
+					this._RevenueName = value;
+					this.SendPropertyChanged("RevenueName");
+					this.OnRevenueNameChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_TotalRevenue", DbType="Float")]
+		public System.Nullable<double> TotalRevenue
+		{
+			get
+			{
+				return this._TotalRevenue;
+			}
+			set
+			{
+				if ((this._TotalRevenue != value))
+				{
+					this.OnTotalRevenueChanging(value);
+					this.SendPropertyChanging();
+					this._TotalRevenue = value;
+					this.SendPropertyChanged("TotalRevenue");
+					this.OnTotalRevenueChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Status", DbType="Bit")]
+		public System.Nullable<bool> Status
+		{
+			get
+			{
+				return this._Status;
+			}
+			set
+			{
+				if ((this._Status != value))
+				{
+					this.OnStatusChanging(value);
+					this.SendPropertyChanging();
+					this._Status = value;
+					this.SendPropertyChanged("Status");
+					this.OnStatusChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Revenue_ReceivableDetail", Storage="_ReceivableDetails", ThisKey="RevenueID", OtherKey="RevenueID")]
+		public EntitySet<ReceivableDetail> ReceivableDetails
+		{
+			get
+			{
+				return this._ReceivableDetails;
+			}
+			set
+			{
+				this._ReceivableDetails.Assign(value);
+			}
+		}
+		
+		public event PropertyChangingEventHandler PropertyChanging;
+		
+		public event PropertyChangedEventHandler PropertyChanged;
+		
+		protected virtual void SendPropertyChanging()
+		{
+			if ((this.PropertyChanging != null))
+			{
+				this.PropertyChanging(this, emptyChangingEventArgs);
+			}
+		}
+		
+		protected virtual void SendPropertyChanged(String propertyName)
+		{
+			if ((this.PropertyChanged != null))
+			{
+				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
+			}
+		}
+		
+		private void attach_ReceivableDetails(ReceivableDetail entity)
+		{
+			this.SendPropertyChanging();
+			entity.Revenue = this;
+		}
+		
+		private void detach_ReceivableDetails(ReceivableDetail entity)
+		{
+			this.SendPropertyChanging();
+			entity.Revenue = null;
 		}
 	}
 	

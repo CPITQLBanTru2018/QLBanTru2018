@@ -1,15 +1,13 @@
-﻿<?xml version="1.0" encoding="utf-8"?><Database Name="CPITQLHSBanTru" Class="QLHSSmartKidsDataContext" xmlns="http://schemas.microsoft.com/linqtosql/dbml/2007">
-  <Connection Mode="AppSettings" ConnectionString="Data Source=42.112.20.82,1433;Initial Catalog=CPITQLHSBanTru;Persist Security Info=True;User ID=CPITQLHSBanTru" SettingsObjectName="DataConnect.Properties.Settings" SettingsPropertyName="CPITQLHSBanTruConnectionString2" Provider="System.Data.SqlClient" />
+﻿<?xml version="1.0" encoding="utf-8"?><Database Name="CPITQLHSBanTru2018" Class="QLHSSmartKidsDataContext" xmlns="http://schemas.microsoft.com/linqtosql/dbml/2007">
+  <Connection Mode="AppSettings" ConnectionString="Data Source=42.112.20.82;Initial Catalog=CPITQLHSBanTru2018;Persist Security Info=True;User ID=CPITQLHSBanTru" SettingsObjectName="DataConnect.Properties.Settings" SettingsPropertyName="CPITQLHSBanTru2018ConnectionString" Provider="System.Data.SqlClient" />
   <Table Name="dbo.Class" Member="Classes">
     <Type Name="Class">
       <Column Name="ClassID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
       <Column Name="GradeID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
-      <Column Name="EmployeeID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
       <Column Name="Name" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
-      <Column Name="Amount" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
       <Column Name="Status" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
+      <Association Name="Class_Employee_Class" Member="Employee_Classes" ThisKey="ClassID" OtherKey="ClassID" Type="Employee_Class" />
       <Association Name="Class_Student_Class" Member="Student_Classes" ThisKey="ClassID" OtherKey="ClassID" Type="Student_Class" />
-      <Association Name="Employee_Class" Member="Employee" ThisKey="EmployeeID" OtherKey="EmployeeID" Type="Employee" IsForeignKey="true" />
       <Association Name="Grade_Class" Member="Grade" ThisKey="GradeID" OtherKey="GradeID" Type="Grade" IsForeignKey="true" />
     </Type>
   </Table>
@@ -27,11 +25,15 @@
       <Column Name="ContractID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
       <Column Name="ContractType" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
       <Column Name="EmployeeID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="DepartmentID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="PositionID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
       <Column Name="PayRate" Type="System.Double" DbType="Float NOT NULL" CanBeNull="false" />
       <Column Name="StartDate" Type="System.DateTime" DbType="Date NOT NULL" CanBeNull="false" />
       <Column Name="CreateDate" Type="System.DateTime" DbType="Date NOT NULL" CanBeNull="false" />
       <Column Name="Status" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
+      <Association Name="Department_Contract" Member="Department" ThisKey="DepartmentID" OtherKey="DepartmentID" Type="Department" IsForeignKey="true" />
       <Association Name="Employee_Contract" Member="Employee" ThisKey="EmployeeID" OtherKey="EmployeeID" Type="Employee" IsForeignKey="true" />
+      <Association Name="Position_Contract" Member="Position" ThisKey="PositionID" OtherKey="PositionID" Type="Position" IsForeignKey="true" />
     </Type>
   </Table>
   <Table Name="dbo.Course" Member="Courses">
@@ -117,7 +119,7 @@
       <Column Name="DepartmentID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
       <Column Name="Name" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
       <Column Name="Status" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
-      <Association Name="Department_Division" Member="Divisions" ThisKey="DepartmentID" OtherKey="DepartmentID" Type="Division" />
+      <Association Name="Department_Contract" Member="Contracts" ThisKey="DepartmentID" OtherKey="DepartmentID" Type="Contract" />
     </Type>
   </Table>
   <Table Name="dbo.Dish" Member="Dishes">
@@ -140,21 +142,6 @@
       <Association Name="Ingredient_DishDetail" Member="Ingredient" ThisKey="IngredientID" OtherKey="IngredientID" Type="Ingredient" IsForeignKey="true" />
     </Type>
   </Table>
-  <Table Name="dbo.Division" Member="Divisions">
-    <Type Name="Division">
-      <Column Name="DivisionID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
-      <Column Name="EmployeeID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
-      <Column Name="DepartmentID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
-      <Column Name="PositionID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
-      <Column Name="StartDate" Type="System.DateTime" DbType="DateTime NOT NULL" CanBeNull="false" />
-      <Column Name="EndDate" Type="System.DateTime" DbType="DateTime NOT NULL" CanBeNull="false" />
-      <Column Name="CreatedDate" Type="System.DateTime" DbType="DateTime NOT NULL" CanBeNull="false" />
-      <Column Name="Status" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
-      <Association Name="Department_Division" Member="Department" ThisKey="DepartmentID" OtherKey="DepartmentID" Type="Department" IsForeignKey="true" />
-      <Association Name="Employee_Division" Member="Employee" ThisKey="EmployeeID" OtherKey="EmployeeID" Type="Employee" IsForeignKey="true" />
-      <Association Name="Position_Division" Member="Position" ThisKey="PositionID" OtherKey="PositionID" Type="Position" IsForeignKey="true" />
-    </Type>
-  </Table>
   <Table Name="dbo.Employee" Member="Employees">
     <Type Name="Employee">
       <Column Name="EmployeeID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
@@ -162,14 +149,14 @@
       <Column Name="Password" Type="System.String" DbType="VarChar(32) NOT NULL" CanBeNull="false" />
       <Column Name="FirstName" Type="System.String" DbType="NVarChar(20) NOT NULL" CanBeNull="false" />
       <Column Name="LastName" Type="System.String" DbType="NVarChar(20) NOT NULL" CanBeNull="false" />
-      <Column Name="Birthday" Type="System.DateTime" DbType="DateTime NOT NULL" CanBeNull="false" />
-      <Column Name="Gender" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
+      <Column Name="Birthday" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="Gender" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
       <Column Name="EthnicGroupID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
       <Column Name="ReligionID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
       <Column Name="Image" Type="System.Data.Linq.Binary" DbType="Image" CanBeNull="true" UpdateCheck="Never" />
       <Column Name="LocationID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
-      <Column Name="AddressDetail" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
-      <Column Name="DegreeID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="AddressDetail" Type="System.String" DbType="NVarChar(100) NOT NULL" CanBeNull="false" />
+      <Column Name="DegreeID" Type="System.Int32" DbType="Int" CanBeNull="true" />
       <Column Name="Email" Type="System.String" DbType="NVarChar(100) NOT NULL" CanBeNull="false" />
       <Column Name="Phone" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
       <Column Name="IdentityNumber" Type="System.String" DbType="VarChar(15) NOT NULL" CanBeNull="false" />
@@ -177,9 +164,8 @@
       <Column Name="PlaceOfIssue" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
       <Column Name="Note" Type="System.String" DbType="NVarChar(200)" CanBeNull="true" />
       <Column Name="Status" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
-      <Association Name="Employee_Class" Member="Classes" ThisKey="EmployeeID" OtherKey="EmployeeID" Type="Class" />
       <Association Name="Employee_Contract" Member="Contracts" ThisKey="EmployeeID" OtherKey="EmployeeID" Type="Contract" />
-      <Association Name="Employee_Division" Member="Divisions" ThisKey="EmployeeID" OtherKey="EmployeeID" Type="Division" />
+      <Association Name="Employee_Employee_Class" Member="Employee_Classes" ThisKey="EmployeeID" OtherKey="EmployeeID" Type="Employee_Class" />
       <Association Name="Employee_Employee_Function" Member="Employee_Functions" ThisKey="EmployeeID" OtherKey="EmployeeID" Type="Employee_Function" />
       <Association Name="Employee_HealthProblem" Member="HealthProblems" ThisKey="EmployeeID" OtherKey="EmployeeID" Type="HealthProblem" />
       <Association Name="Employee_History" Member="Histories" ThisKey="EmployeeID" OtherKey="EmployeeID" Type="History" />
@@ -187,6 +173,15 @@
       <Association Name="EthnicGroup_Employee" Member="EthnicGroup" ThisKey="EthnicGroupID" OtherKey="EthnicGroupID" Type="EthnicGroup" IsForeignKey="true" />
       <Association Name="Location_Employee" Member="Location" ThisKey="LocationID" OtherKey="LocationID" Type="Location" IsForeignKey="true" />
       <Association Name="Religion_Employee" Member="Religion" ThisKey="ReligionID" OtherKey="ReligionID" Type="Religion" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Employee_Class" Member="Employee_Classes">
+    <Type Name="Employee_Class">
+      <Column Name="EmployeeID" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="ClassID" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="Status" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
+      <Association Name="Class_Employee_Class" Member="Class" ThisKey="ClassID" OtherKey="ClassID" Type="Class" IsForeignKey="true" />
+      <Association Name="Employee_Employee_Class" Member="Employee" ThisKey="EmployeeID" OtherKey="EmployeeID" Type="Employee" IsForeignKey="true" />
     </Type>
   </Table>
   <Table Name="dbo.Employee_Function" Member="Employee_Functions">
@@ -368,7 +363,7 @@
   </Table>
   <Table Name="dbo.Location" Member="Locations">
     <Type Name="Location">
-      <Column Name="LocationID" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="LocationID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
       <Column Name="LocationCode" Type="System.String" DbType="NChar(10) NOT NULL" CanBeNull="false" />
       <Column Name="LocationName" Type="System.String" DbType="NVarChar(100) NOT NULL" CanBeNull="false" />
       <Column Name="LocationNameEnglish" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
@@ -432,7 +427,7 @@
       <Column Name="PositionID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
       <Column Name="Name" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
       <Column Name="Status" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
-      <Association Name="Position_Division" Member="Divisions" ThisKey="PositionID" OtherKey="PositionID" Type="Division" />
+      <Association Name="Position_Contract" Member="Contracts" ThisKey="PositionID" OtherKey="PositionID" Type="Contract" />
     </Type>
   </Table>
   <Table Name="dbo.Preferred" Member="Preferreds">
@@ -453,6 +448,7 @@
       <Column Name="EndDate" Type="System.DateTime" DbType="DateTime NOT NULL" CanBeNull="false" />
       <Column Name="CreatedDate" Type="System.DateTime" DbType="DateTime NOT NULL" CanBeNull="false" />
       <Column Name="Status" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
+      <Column Name="RevenueID" Type="System.Int32" DbType="Int" CanBeNull="true" />
       <Association Name="Receivable_ReceivableDetail" Member="ReceivableDetails" ThisKey="ReceivableID" OtherKey="ReceivableID" Type="ReceivableDetail" />
     </Type>
   </Table>
@@ -464,9 +460,11 @@
       <Column Name="Price" Type="System.Decimal" DbType="Decimal(18,0) NOT NULL" CanBeNull="false" />
       <Column Name="SalePrice" Type="System.Decimal" DbType="Decimal(18,0) NOT NULL" CanBeNull="false" />
       <Column Name="Status" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
+      <Column Name="RevenueID" Type="System.Int32" DbType="Int" CanBeNull="true" />
       <Association Name="ReceivableDetail_ReceivableDetail_Preferred" Member="ReceivableDetail_Preferreds" ThisKey="ReceivableDetailID" OtherKey="ReceivableDetailID" Type="ReceivableDetail_Preferred" />
       <Association Name="ReceivableDetail_ReceivableDetail_Student" Member="ReceivableDetail_Students" ThisKey="ReceivableDetailID" OtherKey="ReceivableDetailID" Type="ReceivableDetail_Student" />
       <Association Name="Receivable_ReceivableDetail" Member="Receivable" ThisKey="ReceivableID" OtherKey="ReceivableID" Type="Receivable" IsForeignKey="true" />
+      <Association Name="Revenue_ReceivableDetail" Member="Revenue" ThisKey="RevenueID" OtherKey="RevenueID" Type="Revenue" IsForeignKey="true" />
     </Type>
   </Table>
   <Table Name="dbo.ReceivableDetail_Preferred" Member="ReceivableDetail_Preferreds">
@@ -474,7 +472,7 @@
       <Column Name="ReceivableDetailID" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
       <Column Name="PreferredID" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
       <Column Name="[Percent]" Member="Percent" Type="System.Double" DbType="Float NOT NULL" CanBeNull="false" />
-      <Column Name="Status" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="Status" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
       <Association Name="Preferred_ReceivableDetail_Preferred" Member="Preferred" ThisKey="PreferredID" OtherKey="PreferredID" Type="Preferred" IsForeignKey="true" />
       <Association Name="ReceivableDetail_ReceivableDetail_Preferred" Member="ReceivableDetail" ThisKey="ReceivableDetailID" OtherKey="ReceivableDetailID" Type="ReceivableDetail" IsForeignKey="true" />
     </Type>
@@ -494,6 +492,15 @@
       <Column Name="Name" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
       <Column Name="Status" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
       <Association Name="Religion_Employee" Member="Employees" ThisKey="ReligionID" OtherKey="ReligionID" Type="Employee" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Revenue" Member="Revenues">
+    <Type Name="Revenue">
+      <Column Name="RevenueID" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="RevenueName" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="TotalRevenue" Type="System.Double" DbType="Float" CanBeNull="true" />
+      <Column Name="Status" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Association Name="Revenue_ReceivableDetail" Member="ReceivableDetails" ThisKey="RevenueID" OtherKey="RevenueID" Type="ReceivableDetail" />
     </Type>
   </Table>
   <Table Name="dbo.Semester" Member="Semesters">
