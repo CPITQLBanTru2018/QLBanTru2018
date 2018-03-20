@@ -83,6 +83,8 @@
             this.emptySpaceItem2 = new DevExpress.XtraLayout.EmptySpaceItem();
             this.layoutControlItem6 = new DevExpress.XtraLayout.LayoutControlItem();
             this.layoutControlGroup3 = new DevExpress.XtraLayout.LayoutControlGroup();
+            this.txtEmployeeID = new DevExpress.XtraEditors.TextEdit();
+            this.layoutControlItem14 = new DevExpress.XtraLayout.LayoutControlItem();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControl1)).BeginInit();
             this.layoutControl1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.gcListEmployee)).BeginInit();
@@ -134,6 +136,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem6)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlGroup3)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtEmployeeID.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem14)).BeginInit();
             this.SuspendLayout();
             // 
             // layoutControl1
@@ -159,6 +163,7 @@
             this.layoutControl1.Controls.Add(this.dtDateOfIssue);
             this.layoutControl1.Controls.Add(this.btnAdd);
             this.layoutControl1.Controls.Add(this.txtPlaceOfIssue);
+            this.layoutControl1.Controls.Add(this.txtEmployeeID);
             this.layoutControl1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.layoutControl1.Location = new System.Drawing.Point(0, 0);
             this.layoutControl1.Name = "layoutControl1";
@@ -229,6 +234,7 @@
             this.btnCancel.StyleController = this.layoutControl1;
             this.btnCancel.TabIndex = 16;
             this.btnCancel.Text = "Hủy";
+            this.btnCancel.Click += new System.EventHandler(this.btnCancel_Click);
             // 
             // btnReset
             // 
@@ -238,6 +244,7 @@
             this.btnReset.StyleController = this.layoutControl1;
             this.btnReset.TabIndex = 15;
             this.btnReset.Text = "Tạo Lại";
+            this.btnReset.Click += new System.EventHandler(this.btnReset_Click);
             // 
             // dtCreatedDate
             // 
@@ -341,6 +348,7 @@
             this.btnSave.StyleController = this.layoutControl1;
             this.btnSave.TabIndex = 14;
             this.btnSave.Text = "Lưu";
+            this.btnSave.Click += new System.EventHandler(this.btnSave_Click);
             // 
             // picImage
             // 
@@ -358,7 +366,7 @@
             this.txtFullName.Location = new System.Drawing.Point(232, 212);
             this.txtFullName.Name = "txtFullName";
             this.txtFullName.Properties.ReadOnly = true;
-            this.txtFullName.Size = new System.Drawing.Size(225, 20);
+            this.txtFullName.Size = new System.Drawing.Size(171, 20);
             this.txtFullName.StyleController = this.layoutControl1;
             this.txtFullName.TabIndex = 22;
             // 
@@ -429,6 +437,7 @@
             this.btnAdd.StyleController = this.layoutControl1;
             this.btnAdd.TabIndex = 28;
             this.btnAdd.Text = "Thêm Mới";
+            this.btnAdd.Click += new System.EventHandler(this.btnAdd_Click);
             // 
             // txtPlaceOfIssue
             // 
@@ -614,7 +623,8 @@
             this.layoutControlItem20,
             this.layoutControlItem21,
             this.layoutControlItem22,
-            this.layoutControlItem23});
+            this.layoutControlItem23,
+            this.layoutControlItem14});
             this.layoutControlGroup4.Location = new System.Drawing.Point(0, 169);
             this.layoutControlGroup4.Name = "layoutControlGroup4";
             this.layoutControlGroup4.Size = new System.Drawing.Size(461, 187);
@@ -637,7 +647,7 @@
             this.layoutControlItem18.Control = this.txtFullName;
             this.layoutControlItem18.Location = new System.Drawing.Point(116, 0);
             this.layoutControlItem18.Name = "layoutControlItem18";
-            this.layoutControlItem18.Size = new System.Drawing.Size(321, 24);
+            this.layoutControlItem18.Size = new System.Drawing.Size(267, 24);
             this.layoutControlItem18.Text = "Họ và tên";
             this.layoutControlItem18.TextSize = new System.Drawing.Size(89, 13);
             // 
@@ -727,6 +737,24 @@
             this.layoutControlGroup3.OptionsItemText.TextToControlDistance = 5;
             this.layoutControlGroup3.Size = new System.Drawing.Size(339, 145);
             // 
+            // txtEmployeeID
+            // 
+            this.txtEmployeeID.Location = new System.Drawing.Point(407, 212);
+            this.txtEmployeeID.Name = "txtEmployeeID";
+            this.txtEmployeeID.Properties.ReadOnly = true;
+            this.txtEmployeeID.Size = new System.Drawing.Size(50, 20);
+            this.txtEmployeeID.StyleController = this.layoutControl1;
+            this.txtEmployeeID.TabIndex = 29;
+            // 
+            // layoutControlItem14
+            // 
+            this.layoutControlItem14.Control = this.txtEmployeeID;
+            this.layoutControlItem14.Location = new System.Drawing.Point(383, 0);
+            this.layoutControlItem14.Name = "layoutControlItem14";
+            this.layoutControlItem14.Size = new System.Drawing.Size(54, 24);
+            this.layoutControlItem14.TextSize = new System.Drawing.Size(0, 0);
+            this.layoutControlItem14.TextVisible = false;
+            // 
             // frmContractDetail
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -791,6 +819,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem6)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlGroup3)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtEmployeeID.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem14)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -852,5 +882,7 @@
         private DevExpress.XtraGrid.Columns.GridColumn colBirthday;
         private DevExpress.XtraEditors.TextEdit txtPlaceOfIssue;
         private DevExpress.XtraLayout.LayoutControlItem fileABC;
+        private DevExpress.XtraEditors.TextEdit txtEmployeeID;
+        private DevExpress.XtraLayout.LayoutControlItem layoutControlItem14;
     }
 }

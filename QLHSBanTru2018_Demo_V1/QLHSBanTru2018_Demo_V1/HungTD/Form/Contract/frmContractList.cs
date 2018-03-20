@@ -56,12 +56,20 @@ namespace QLHSBanTru2018_Demo_V1.HungTD.Form.Contract
         private void btnAdd_Click(object sender, EventArgs e)
         {
             frmContractDetail frmCD = new frmContractDetail();
+            frmCD.iFunction = 1;
             frmCD.ShowDialog();
+            if (frmCD.DialogResult == DialogResult.OK)
+                FillGridControl();
         }
 
         private void btnEdit_Click(object sender, EventArgs e)
         {
-
+            frmContractDetail frmCD = new frmContractDetail();
+            frmCD.iFunction = 2;
+            frmCD.contract = new ContractDAO().GetByID(int.Parse(txtContractID.Text));
+            frmCD.ShowDialog();
+            if (frmCD.DialogResult == DialogResult.OK)
+                FillGridControl();
         }
 
         private void btnDelete_Click(object sender, EventArgs e)

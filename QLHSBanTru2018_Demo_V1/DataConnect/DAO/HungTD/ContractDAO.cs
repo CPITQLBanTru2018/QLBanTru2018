@@ -51,6 +51,7 @@ namespace DataConnect.DAO.HungTD
         {
             try
             {
+                contract = db.GetTable<Contract>();
                 contract.InsertOnSubmit(entity);
                 db.SubmitChanges();
                 //History;
@@ -65,11 +66,17 @@ namespace DataConnect.DAO.HungTD
         {
             try
             {
+                contract = db.GetTable<Contract>();
                 Contract obj = contract.Single(x => x.ContractID == entity.ContractID);
                 obj.ContractType = entity.ContractType;
                 obj.EmployeeID = entity.EmployeeID;
                 obj.PayRate = entity.PayRate;
                 obj.StartDate = entity.StartDate;
+                obj.Note = entity.Note;
+                obj.CreatedDate = entity.CreatedDate;
+                obj.CreatedBy = entity.CreatedBy;
+                obj.EndDate = entity.EndDate;
+                obj.TimeType = entity.TimeType;
                 obj.Status = entity.Status;
                 db.SubmitChanges();
                 //Insert History
@@ -94,6 +101,11 @@ namespace DataConnect.DAO.HungTD
             {
                 return false;
             }
+        }
+        public Contract GetByID(int contractID)
+        {
+            contract = db.GetTable<Contract>();
+            return db.Contracts.SingleOrDefault(x => x.ContractID == contractID);
         }
     }
 }
