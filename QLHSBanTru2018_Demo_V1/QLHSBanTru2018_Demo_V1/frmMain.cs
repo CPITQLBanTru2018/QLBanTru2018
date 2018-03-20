@@ -14,6 +14,7 @@ using QLHSBanTru2018_Demo_V1.HungTD.Form.Position;
 using QLHSBanTru2018_Demo_V1.HungTD.Form.Course;
 using QLHSBanTru2018_Demo_V1.QLThuChi;
 using QLHSBanTru2018_Demo_V1.HungTD.Form.Function;
+using QLHSBanTru2018_Demo_V1.TienBao;
 
 namespace QLHSBanTru2018_Demo_V1
 {
@@ -58,7 +59,13 @@ namespace QLHSBanTru2018_Demo_V1
         #endregion
 
         #region Nguyễn Tiến Bảo
-
+        private void btnTTHocSinh_ItemClick(object sender, ItemClickEventArgs e)
+        {
+            frmStudent Student = new frmStudent();
+            pnControlsPanel.Controls.Clear();
+            pnControlsPanel.Controls.Add(Student);
+            Student.Dock = DockStyle.Fill;
+        }
         #endregion
 
         #region Vũ Đức Thiện
@@ -81,5 +88,6 @@ namespace QLHSBanTru2018_Demo_V1
             a.Dock = DockStyle.Fill;
         }
 
+        
     }
 }

@@ -62,11 +62,18 @@
     <Compile Include="DAO\ThanhCongTC\ReceivableIDAO.cs" />
     <Compile Include="DAO\ThanhCongTC\studentReceivableDAO.cs" />
     <Compile Include="DAO\ThanhCongTC\TCViewModle\TCStudenViewModle.cs" />
+    <Compile Include="DAO\TienBao\ClassDAO.cs" />
+    <Compile Include="DAO\TienBao\GradeDAO.cs" />
+    <Compile Include="DAO\TienBao\StudentDAO.cs" />
+    <Compile Include="DAO\TienBao\StudentParentsDAO.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Properties\Settings.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
       <DependentUpon>Settings.settings</DependentUpon>
+    </Compile>
+    <Compile Include="QLHSSmartKids.cs">
+      <DependentUpon>QLHSSmartKids.dbml</DependentUpon>
     </Compile>
     <Compile Include="QLHSSmartKids.designer.cs">
       <AutoGen>True</AutoGen>
@@ -76,6 +83,7 @@
     <Compile Include="ViewModel\Department_EmployeeViewModel.cs" />
     <Compile Include="ViewModel\EmployeeFullViewModel.cs" />
     <Compile Include="ViewModel\FunctionViewModel.cs" />
+    <Compile Include="ViewModel\StudentViewModel.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="app.config" />

@@ -36,8 +36,8 @@ namespace QLHSBanTru2018_Demo_V1
 
             BonusSkins.Register();
             SkinManager.EnableFormSkins();
-            DialogResult showLogin = new frmLogin().ShowDialog();
-            if (showLogin != DialogResult.OK) return;
+            //DialogResult showLogin = new frmLogin().ShowDialog();
+            //if (showLogin != DialogResult.OK) return;
             Application.Run(new frmMain());            
         }
     }

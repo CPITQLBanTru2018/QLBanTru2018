@@ -42,7 +42,7 @@
   <ItemGroup>
     <Reference Include="Accessibility" />
     <Reference Include="Bunifu_UI_v1.5.3">
-      <HintPath>C:\Users\khico\Downloads\Bunifu_UI_v1.5.3.dll</HintPath>
+      <HintPath>C:\Users\TIENBAO\Downloads\Programs\Bunifu_UI_v1.5.3.dll</HintPath>
     </Reference>
     <Reference Include="DevExpress.BonusSkins.v17.2" />
     <Reference Include="DevExpress.Data.v17.2" />
@@ -199,6 +199,18 @@
     <Compile Include="QLThuChi\UsDotThuPhi.Designer.cs">
       <DependentUpon>UsDotThuPhi.cs</DependentUpon>
     </Compile>
+    <Compile Include="TienBao\frmStudent.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="TienBao\frmStudent.Designer.cs">
+      <DependentUpon>frmStudent.cs</DependentUpon>
+    </Compile>
+    <Compile Include="TienBao\frmStudentDetail.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="TienBao\frmStudentDetail.Designer.cs">
+      <DependentUpon>frmStudentDetail.cs</DependentUpon>
+    </Compile>
     <EmbeddedResource Include="frmLogin.resx">
       <DependentUpon>frmLogin.cs</DependentUpon>
     </EmbeddedResource>
@@ -266,6 +278,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="QLThuChi\UsDotThuPhi.resx">
       <DependentUpon>UsDotThuPhi.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="TienBao\frmStudent.resx">
+      <DependentUpon>frmStudent.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="TienBao\frmStudentDetail.resx">
+      <DependentUpon>frmStudentDetail.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="App.config" />
     <None Include="packages.config" />
