@@ -1,5 +1,10 @@
+<<<<<<< HEAD
 ﻿<?xml version="1.0" encoding="utf-8"?><Database Name="CPITQLHSBanTru" Class="QLHSSmartKidsDataContext" xmlns="http://schemas.microsoft.com/linqtosql/dbml/2007">
   <Connection Mode="AppSettings" ConnectionString="Data Source=DESKTOP-0CIUMFS\TRANDUCHUNG;Initial Catalog=CPITQLHSBanTru;Persist Security Info=True;User ID=sa" SettingsObjectName="DataConnect.Properties.Settings" SettingsPropertyName="CPITQLHSBanTruConnectionString3" Provider="System.Data.SqlClient" />
+=======
+﻿<?xml version="1.0" encoding="utf-8"?><Database Name="CPITQLHSBanTru2018" Class="QLHSSmartKidsDataContext" xmlns="http://schemas.microsoft.com/linqtosql/dbml/2007">
+  <Connection Mode="AppSettings" ConnectionString="Data Source=42.112.20.82;Initial Catalog=CPITQLHSBanTru2018;Persist Security Info=True;User ID=CPITQLHSBanTru" SettingsObjectName="DataConnect.Properties.Settings" SettingsPropertyName="CPITQLHSBanTru2018ConnectionString" Provider="System.Data.SqlClient" />
+>>>>>>> 1cb4b7dab01e55507c227721240d5d333718aa72
   <Table Name="dbo.Class" Member="Classes">
     <Type Name="Class">
       <Column Name="ClassID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
@@ -26,6 +31,8 @@
       <Column Name="ContractType" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
       <Column Name="TimeType" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
       <Column Name="EmployeeID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="DepartmentID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="PositionID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
       <Column Name="PayRate" Type="System.Double" DbType="Float NOT NULL" CanBeNull="false" />
       <Column Name="StartDate" Type="System.DateTime" DbType="DateTime NOT NULL" CanBeNull="false" />
       <Column Name="EndDate" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
@@ -34,8 +41,13 @@
       <Column Name="AttachedFile" Type="System.Data.Linq.Binary" DbType="Image" CanBeNull="true" UpdateCheck="Never" />
       <Column Name="Note" Type="System.String" DbType="NVarChar(500)" CanBeNull="true" />
       <Column Name="Status" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
+      <Association Name="Department_Contract" Member="Department" ThisKey="DepartmentID" OtherKey="DepartmentID" Type="Department" IsForeignKey="true" />
       <Association Name="Employee_Contract" Member="Employee" ThisKey="EmployeeID" OtherKey="EmployeeID" Type="Employee" IsForeignKey="true" />
+<<<<<<< HEAD
       <Association Name="Employee_Contract1" Member="Employee1" ThisKey="CreatedBy" OtherKey="EmployeeID" Type="Employee" IsForeignKey="true" />
+=======
+      <Association Name="Position_Contract" Member="Position" ThisKey="PositionID" OtherKey="PositionID" Type="Position" IsForeignKey="true" />
+>>>>>>> 1cb4b7dab01e55507c227721240d5d333718aa72
     </Type>
   </Table>
   <Table Name="dbo.Course" Member="Courses">
@@ -121,7 +133,7 @@
       <Column Name="DepartmentID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
       <Column Name="Name" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
       <Column Name="Status" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
-      <Association Name="Department_Division" Member="Divisions" ThisKey="DepartmentID" OtherKey="DepartmentID" Type="Division" />
+      <Association Name="Department_Contract" Member="Contracts" ThisKey="DepartmentID" OtherKey="DepartmentID" Type="Contract" />
     </Type>
   </Table>
   <Table Name="dbo.Dish" Member="Dishes">
@@ -144,6 +156,7 @@
       <Association Name="Ingredient_DishDetail" Member="Ingredient" ThisKey="IngredientID" OtherKey="IngredientID" Type="Ingredient" IsForeignKey="true" />
     </Type>
   </Table>
+<<<<<<< HEAD
   <Table Name="dbo.Division" Member="Divisions">
     <Type Name="Division">
       <Column Name="DivisionID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
@@ -161,6 +174,8 @@
       <Association Name="Position_Division" Member="Position" ThisKey="PositionID" OtherKey="PositionID" Type="Position" IsForeignKey="true" />
     </Type>
   </Table>
+=======
+>>>>>>> 1cb4b7dab01e55507c227721240d5d333718aa72
   <Table Name="dbo.Employee" Member="Employees">
     <Type Name="Employee">
       <Column Name="EmployeeID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
@@ -169,13 +184,21 @@
       <Column Name="FirstName" Type="System.String" DbType="NVarChar(20) NOT NULL" CanBeNull="false" />
       <Column Name="LastName" Type="System.String" DbType="NVarChar(20) NOT NULL" CanBeNull="false" />
       <Column Name="Birthday" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+<<<<<<< HEAD
       <Column Name="Gender" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
+=======
+      <Column Name="Gender" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+>>>>>>> 1cb4b7dab01e55507c227721240d5d333718aa72
       <Column Name="EthnicGroupID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
       <Column Name="ReligionID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
       <Column Name="Image" Type="System.Data.Linq.Binary" DbType="Image" CanBeNull="true" UpdateCheck="Never" />
       <Column Name="LocationID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
       <Column Name="AddressDetail" Type="System.String" DbType="NVarChar(100) NOT NULL" CanBeNull="false" />
+<<<<<<< HEAD
       <Column Name="DegreeID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+=======
+      <Column Name="DegreeID" Type="System.Int32" DbType="Int" CanBeNull="true" />
+>>>>>>> 1cb4b7dab01e55507c227721240d5d333718aa72
       <Column Name="Email" Type="System.String" DbType="NVarChar(100) NOT NULL" CanBeNull="false" />
       <Column Name="Phone" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
       <Column Name="IdentityNumber" Type="System.String" DbType="VarChar(15) NOT NULL" CanBeNull="false" />
@@ -184,8 +207,11 @@
       <Column Name="Note" Type="System.String" DbType="NVarChar(200)" CanBeNull="true" />
       <Column Name="Status" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
       <Association Name="Employee_Contract" Member="Contracts" ThisKey="EmployeeID" OtherKey="EmployeeID" Type="Contract" />
+<<<<<<< HEAD
       <Association Name="Employee_Contract1" Member="Contracts1" ThisKey="EmployeeID" OtherKey="CreatedBy" Type="Contract" />
       <Association Name="Employee_Division" Member="Divisions" ThisKey="EmployeeID" OtherKey="EmployeeID" Type="Division" />
+=======
+>>>>>>> 1cb4b7dab01e55507c227721240d5d333718aa72
       <Association Name="Employee_Employee_Class" Member="Employee_Classes" ThisKey="EmployeeID" OtherKey="EmployeeID" Type="Employee_Class" />
       <Association Name="Employee_Employee_Function" Member="Employee_Functions" ThisKey="EmployeeID" OtherKey="EmployeeID" Type="Employee_Function" />
       <Association Name="Employee_HealthProblem" Member="HealthProblems" ThisKey="EmployeeID" OtherKey="EmployeeID" Type="HealthProblem" />
@@ -384,7 +410,7 @@
   </Table>
   <Table Name="dbo.Location" Member="Locations">
     <Type Name="Location">
-      <Column Name="LocationID" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="LocationID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
       <Column Name="LocationCode" Type="System.String" DbType="NChar(10) NOT NULL" CanBeNull="false" />
       <Column Name="LocationName" Type="System.String" DbType="NVarChar(100) NOT NULL" CanBeNull="false" />
       <Column Name="LocationNameEnglish" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
@@ -448,7 +474,7 @@
       <Column Name="PositionID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
       <Column Name="Name" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
       <Column Name="Status" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
-      <Association Name="Position_Division" Member="Divisions" ThisKey="PositionID" OtherKey="PositionID" Type="Division" />
+      <Association Name="Position_Contract" Member="Contracts" ThisKey="PositionID" OtherKey="PositionID" Type="Contract" />
     </Type>
   </Table>
   <Table Name="dbo.Preferred" Member="Preferreds">
