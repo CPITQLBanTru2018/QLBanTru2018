@@ -55,5 +55,16 @@ namespace DataConnect.Properties {
                 return ((string)(this["CPITQLHSBanTruConnectionString2"]));
             }
         }
+        
+        [global::System.Configuration.ApplicationScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.SpecialSettingAttribute(global::System.Configuration.SpecialSetting.ConnectionString)]
+        [global::System.Configuration.DefaultSettingValueAttribute("Data Source=42.112.20.82;Initial Catalog=CPITQLHSBanTru2018;Persist Security Info" +
+            "=True;User ID=CPITQLHSBanTru;Password=BanTru@2018")]
+        public string CPITQLHSBanTru2018ConnectionString {
+            get {
+                return ((string)(this["CPITQLHSBanTru2018ConnectionString"]));
+            }
+        }
     }
 }
