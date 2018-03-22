@@ -5,6 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Data.Linq;
 using DataConnect.ViewModel;
+using DataConnect.DAO.HungTD;
 
 namespace DataConnect.DAO.TienBao
 {
@@ -12,29 +13,43 @@ namespace DataConnect.DAO.TienBao
     {
         QLHSSmartKidsDataContext db = new QLHSSmartKidsDataContext();
 
-        Table<Student> Student;
-        Table<StudentParent> StudentParent;
-        Table<Student_Class> Student_Class;
-
+        Table<Student> StudentTable;
+        Table<StudentParent> StudentParentTable;
+        Table<Student_Class> StudentClassTable;
+        Table<Class> ClassTable;
+        Table<EthnicGroup> EthnicGroupTable;
+        Table<Location> LocationTable;
+        Table<Religion> ReligionTable;
+        Table<Preferred> PreferredTable;
+       
 
         public List<Student> ListAll()
         {
-            Student = db.GetTable<Student>();
-            var query = from e in Student
+            StudentTable = db.GetTable<Student>();
+            var query = from e in StudentTable
                         select e;
             return query.ToList();
         }
         public List<StudentViewModel> ListStudentByClass(int ClassID)
         {
-            Student = db.GetTable<Student>();
-            StudentParent = db.GetTable<StudentParent>();
-            Student_Class = db.GetTable<Student_Class>();
-            var query = from S in Student
-                        join SP in StudentParent
+            StudentTable = db.GetTable<Student>();
+            StudentParentTable = db.GetTable<StudentParent>();
+            StudentClassTable = db.GetTable<Student_Class>();
+            ClassTable = db.GetTable<Class>();
+            EthnicGroupTable = db.GetTable<EthnicGroup>();
+            LocationTable = db.GetTable<Location>();
+            ReligionTable = db.GetTable<Religion>();
+            PreferredTable = db.GetTable<Preferred>();
+            var query = from S in StudentTable
+                        join SP in StudentParentTable
                         on S.StudentID equals SP.StudentID
-                        join SC in Student_Class
+                        join SC in StudentClassTable
                         on S.StudentID equals SC.StudentID
-                        where SC.ClassID.Equals(ClassID)
+                        join C in ClassTable
+                        on SC.ClassID equals C.ClassID
+                        join L in LocationTable
+                        on S.LocationID equals L.LocationID
+                        where SC.ClassID == ClassID where S.Status == true
                         select new StudentViewModel
                         {
                             StudentID = S.StudentID,
@@ -49,7 +64,11 @@ namespace DataConnect.DAO.TienBao
                             MotherName = SP.MotherName,
                             MotherJob = SP.MotherJob,
                             Image = S.Image == null ? null : S.Image.ToArray(),
-                            Status = S.Status
+                            Note = S.Note,
+                            Status = S.Status,
+                            LocationID = S.LocationID,
+                            LocationDetail = new LocationDAO().GetFullNameLocaion(S.LocationID),
+                            ClassID = SC.ClassID
                         };
             List<StudentViewModel> list = query.ToList();
             return list;
@@ -59,8 +78,8 @@ namespace DataConnect.DAO.TienBao
         {
             try
             {
-                Student = db.GetTable<Student>();
-                Student.InsertOnSubmit(entity);
+                StudentTable = db.GetTable<Student>();
+                StudentTable.InsertOnSubmit(entity);
                 db.SubmitChanges();
                 return true;
             }
@@ -74,8 +93,8 @@ namespace DataConnect.DAO.TienBao
         {
             try
             {
-                Student = db.GetTable<Student>();
-                Student model = Student.SingleOrDefault(x => x.StudentID.Equals(entity.StudentID));
+                StudentTable = db.GetTable<Student>();
+                Student model = StudentTable.SingleOrDefault(x => x.StudentID.Equals(entity.StudentID));
                 model.StudentCode = entity.StudentCode;
                 model.FirstName = entity.FirstName;
                 model.LastName = entity.LastName;
@@ -104,8 +123,8 @@ namespace DataConnect.DAO.TienBao
         {
             try
             {
-                Student = db.GetTable<Student>();
-                Student obj = Student.Single(x => x.StudentID == entity.StudentID);
+                StudentTable = db.GetTable<Student>();
+                Student obj = StudentTable.Single(x => x.StudentID == entity.StudentID);
                 obj.StudentCode = entity.StudentCode;
                 obj.FirstName = entity.FirstName;
                 obj.LastName = entity.LastName;
@@ -133,8 +152,8 @@ namespace DataConnect.DAO.TienBao
         {
             try
             {
-                Student = db.GetTable<Student>();
-                Student model = Student.SingleOrDefault(x => x.StudentID.Equals(StudentID));
+                StudentTable = db.GetTable<Student>();
+                Student model = StudentTable.SingleOrDefault(x => x.StudentID.Equals(StudentID));
                 model.Status = false;
                 db.SubmitChanges();
                 return true;
@@ -147,7 +166,7 @@ namespace DataConnect.DAO.TienBao
 
         public Student GetByID(int StudentID)
         {
-            Student = db.GetTable<Student>();
+            StudentTable = db.GetTable<Student>();
             return db.Students.SingleOrDefault(x => x.StudentID == StudentID);
         }
     }

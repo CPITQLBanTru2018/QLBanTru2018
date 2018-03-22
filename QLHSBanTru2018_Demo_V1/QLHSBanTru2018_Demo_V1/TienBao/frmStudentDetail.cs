@@ -12,6 +12,9 @@ using DataConnect.DAO.HungTD;
 using DataConnect.DAO.TienBao;
 using System.IO;
 using System.Drawing.Imaging;
+using DevExpress.XtraGrid.Views.Base;
+using DevExpress.XtraGrid.Columns;
+using DevExpress.XtraGrid.Views.Grid;
 
 namespace QLHSBanTru2018_Demo_V1.TienBao
 {
@@ -20,6 +23,7 @@ namespace QLHSBanTru2018_Demo_V1.TienBao
         public int iFunction;
         public DataConnect.Student Student;
         public DataConnect.StudentParent StudentParents;
+        public DataConnect.Class Class;
 
         #region System
         public frmStudentDetail()
@@ -97,6 +101,7 @@ namespace QLHSBanTru2018_Demo_V1.TienBao
                 DataConnect.Student entity = new DataConnect.Student();
                 DataConnect.StudentParent entity2 = new DataConnect.StudentParent();
                 entity.StudentCode = txtStudentCode.Text;
+                entity.StudentID = int.Parse(txtStudentID.Text);
                 entity.FirstName = txtFirstName.Text;
                 entity.LastName = txtLastName.Text;
                 entity.HomeName = txtHomeName.Text;
@@ -123,7 +128,7 @@ namespace QLHSBanTru2018_Demo_V1.TienBao
                 entity2.MotherBirthday = DateTime.Parse(dtMotherBirthday.EditValue.ToString());
                 entity2.MotherJob = txtMotherJob.Text;
                 entity2.MotherPhone = txtMotherPhone.Text;
-                entity2.StudentID = int.Parse(txtStudentID.Text);
+                
 
 
                 StudentDAO m_StudentDAO = new StudentDAO();
@@ -164,6 +169,48 @@ namespace QLHSBanTru2018_Demo_V1.TienBao
             }
         }
 
+        private void loadHocSinh()
+        {
+            this.Text = "Chỉnh sửa thông tin học sinh";
+            txtStudentID.Text = Convert.ToString(Student.StudentID);
+            txtStudentCode.Text = Student.StudentCode;
+            txtFirstName.Text = Student.FirstName;
+            txtLastName.Text = Student.LastName;
+            txtHomeName.Text = Student.HomeName;
+            dtBirthday.EditValue = Student.Birthday;
+            cbbGender.SelectedIndex = Student.Gender == true ? 0 : 1;
+            txtHobby.Text = Student.Hobby;
+            txtTalen.Text = Student.Talent;
+            txtAddressDetail.Text = Student.AdressDetail;
+
+            cbbEthnicGroup.SelectedValue = Student.EthnicGroupID;
+            cbbReligion.SelectedValue = Student.ReligionID;
+
+            txtFatherName.Text = StudentParents.FatherName;
+            txtFatherJob.Text = StudentParents.FatherJob;
+            txtFatherPhone.Text = StudentParents.FatherPhone;
+            dtFatherBirthday.EditValue = StudentParents.FatherBirthday;
+            txtMotherName.Text = StudentParents.MotherName;
+            txtMotherJob.Text = StudentParents.MotherJob;
+            txtMotherPhone.Text = StudentParents.MotherPhone;
+            dtMotherBirthday.EditValue = StudentParents.MotherBirthday;
+
+            txtClassName.Text = Class.Name;
+
+            cbbProvince.SelectedValue = new LocationDAO().GetLocationParent(new LocationDAO().GetLocationParent(Student.LocationID));
+            cbbDistrict.SelectedValue = new LocationDAO().GetLocationParent(Student.LocationID);
+            cbbWard.SelectedValue = Student.LocationID;
+
+            txtNote.Text = Student.Note;
+            chbStatus.Checked = Student.Status;
+            try
+            {
+                picImage.Image = ToImage(Student.Image.ToArray());
+            }
+            catch
+            {
+            }
+        }
         #endregion
 
 
@@ -179,44 +226,41 @@ namespace QLHSBanTru2018_Demo_V1.TienBao
             if (iFunction == 1)
             {
                 this.Text = "Thêm mới học sinh";
+                txtStudentID.Enabled = false;
             }
             else if (iFunction == 2)
             {
-                this.Text = "Chỉnh sửa thông tin học sinh";
-                txtStudentCode.Text = Student.StudentCode;
-                txtFirstName.Text = Student.FirstName;
-                txtLastName.Text = Student.LastName;
-                txtHomeName.Text = Student.HomeName;
-                dtBirthday.EditValue = Student.Birthday;
-                cbbGender.SelectedIndex = Student.Gender == true ? 0 : 1;
-                txtHobby.Text = Student.Hobby;
-                txtTalen.Text = Student.Talent;
-              
-
-                cbbProvince.SelectedValue = new LocationDAO().GetLocationParent(new LocationDAO().GetLocationParent(Student.LocationID));
-                cbbDistrict.SelectedValue = new LocationDAO().GetLocationParent(Student.LocationID);
-                cbbWard.SelectedValue = Student.LocationID;
-
-                txtNote.Text = Student.Note;
-                chbStatus.Checked = Student.Status;
-                try
-                {
-                    picImage.Image = ToImage(Student.Image.ToArray());
-                }
-                catch
-                {
-
-                }
+                txtStudentID.Enabled = false;
+                loadHocSinh();
+            }
+            else if (iFunction == 3)
+            {
+                txtStudentID.Enabled = false;
+                btnThayAnh.Enabled = false;
+                btnLuu.Enabled = false;
+                btnXoaAnh.Enabled = false;
+                btnXoaDuLieu.Enabled = false;                
+                loadHocSinh();
             }
         }
         private void btnDong_Click(object sender, EventArgs e)
-        {
-            this.Close();
+        {           
+                this.Close();           
         }
 
         private void btnLuu_Click(object sender, EventArgs e)
         {
             ThemHocSinh();
+        }
+
+        private void btnXoaDuLieu_Click(object sender, EventArgs e)
+        {
+            if (MessageBox.Show("Bạn muốn xóa học sinh ?", "Thông báo", MessageBoxButtons.YesNo, MessageBoxIcon.Error) == DialogResult.Yes)
+            {
+                new StudentDAO().StudentDelete(int.Parse(txtStudentID.Text));
+                this.Close();
+
+            }
         }
 
         private void btnThayAnh_Click(object sender, EventArgs e)
@@ -293,8 +337,9 @@ namespace QLHSBanTru2018_Demo_V1.TienBao
             }
         }
 
+
         #endregion
 
-
+        
     }
 }

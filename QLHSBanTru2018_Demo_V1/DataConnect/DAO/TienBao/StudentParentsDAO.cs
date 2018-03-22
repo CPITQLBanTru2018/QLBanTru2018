@@ -17,6 +17,29 @@ namespace DataConnect.DAO.TienBao
             StudentParentsTable = db.GetTable<StudentParent>();
         }
 
+        public List<StudentParent> ListParents(int StudentID)
+        {
+            Table<StudentParent> StudentParentsTable = db.GetTable<StudentParent>();
+            var query = from p in StudentParentsTable
+                        where p.StudentID.Equals(StudentID)
+                        select p;
+            return query.ToList();
+        }
+        //public int GetParent(int StudentID)
+        //{
+        //    Table<StudentParent> StudentParentsTable = db.GetTable<StudentParent>();
+        //    var query = from p in StudentParentsTable
+        //                where p.StudentID.Equals(StudentID)
+        //                select p;
+        //    return (int)query.;
+
+        //}
+
+        public StudentParent GetByID(int StudentID)
+        {
+            StudentParentsTable = db.GetTable<StudentParent>();
+            return db.StudentParents.SingleOrDefault(x => x.StudentID == StudentID);
+        }
         public bool ParentsInsert(StudentParent entity)
         {
             try

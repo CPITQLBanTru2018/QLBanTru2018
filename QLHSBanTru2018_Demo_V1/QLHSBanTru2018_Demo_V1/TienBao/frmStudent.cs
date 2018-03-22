@@ -12,6 +12,9 @@ using DataConnect.DAO.TienBao;
 using DataConnect.DAO.HungTD;
 using System.IO;
 using System.Drawing.Imaging;
+using DevExpress.XtraGrid.Views.Base;
+using DevExpress.XtraGrid.Columns;
+using DevExpress.XtraGrid.Views.Grid;
 
 namespace QLHSBanTru2018_Demo_V1.TienBao
 {
@@ -21,18 +24,6 @@ namespace QLHSBanTru2018_Demo_V1.TienBao
         public frmStudent()
         {
             InitializeComponent();
-        }
-
-        private void frmStudent_Load(object sender, EventArgs e)
-        {
-            this.Dock = DockStyle.Fill;
-            combobox_Defaule();
-
-            cmbNamHoc_SelectedIndexChanged(sender, e);
-            cmbHocKy_SelectedIndexChanged(sender, e);
-            cmbKhoiHoc_SelectedIndexChanged(sender, e);
-            cmbLopHoc_SelectedIndexChanged(sender, e);
-
         }
         #endregion
 
@@ -74,6 +65,7 @@ namespace QLHSBanTru2018_Demo_V1.TienBao
             try
             {
                 dgvHocSinh.DataSource = new StudentDAO().ListStudentByClass(ClassID);
+                BindingDetail();
             }
             catch
             { }
@@ -81,32 +73,36 @@ namespace QLHSBanTru2018_Demo_V1.TienBao
 
         private void BindingDetail()
         {
-            txtStudentID.DataBindings.Clear();
             txtStudentCode.DataBindings.Clear();
+            txtStudentCode.DataBindings.Add(new Binding("text", dgvHocSinh.DataSource, "StudentCode"));
+            txtStudentID.DataBindings.Clear();
+            txtStudentID.DataBindings.Add(new Binding("text", dgvHocSinh.DataSource, "StudentID"));
             txtFirstName.DataBindings.Clear();
+            txtFirstName.DataBindings.Add(new Binding("text", dgvHocSinh.DataSource, "FirstName"));
             txtLastName.DataBindings.Clear();
+            txtLastName.DataBindings.Add(new Binding("text", dgvHocSinh.DataSource, "LastName"));
             dtBirthday.DataBindings.Clear();
+            dtBirthday.DataBindings.Add(new Binding("EditValue", dgvHocSinh.DataSource, "Birthday", true, DataSourceUpdateMode.OnPropertyChanged));         
             radMale.DataBindings.Clear();
-            txtAddress.DataBindings.Clear();
-            radActive.DataBindings.Clear();
+            radMale.DataBindings.Add(new Binding("Checked", dgvHocSinh.DataSource, "Gender", true, DataSourceUpdateMode.OnPropertyChanged));
+                                   
             picImage.DataBindings.Clear();
+            picImage.DataBindings.Add(new Binding("image", dgvHocSinh.DataSource, "Image", true, DataSourceUpdateMode.OnPropertyChanged));
+            //txtAddress.DataBindings.Clear();
+            //txtAddress.DataBindings.Add(new Binding("text", dgvHocSinh.DataSource, "AdressDetail"));
+            txtAddress.DataBindings.Clear();
+            txtAddress.DataBindings.Add(new Binding("text", dgvHocSinh.DataSource, "LocationDetail"));
+            radActive.DataBindings.Clear();
+            radActive.DataBindings.Add(new Binding("Checked", dgvHocSinh.DataSource, "Status", true, DataSourceUpdateMode.OnPropertyChanged));
             txtFatherName.DataBindings.Clear();
+            txtFatherName.DataBindings.Add(new Binding("text", dgvHocSinh.DataSource, "FatherName"));
             txtFatherJob.DataBindings.Clear();
+            txtFatherJob.DataBindings.Add(new Binding("text", dgvHocSinh.DataSource, "FatherJob"));
             txtMotherName.DataBindings.Clear();
+            txtMotherName.DataBindings.Add(new Binding("text", dgvHocSinh.DataSource, "MotherName"));
             txtMotherJob.DataBindings.Clear();
-            txtStudentCode.DataBindings.Add("text", dgvHocSinh.DataSource, "StudentCode");
-            txtStudentID.DataBindings.Add("text", dgvHocSinh.DataSource, "StudentID");
-            txtFirstName.DataBindings.Add("text", dgvHocSinh.DataSource, "FirstName");
-            txtLastName.DataBindings.Add("text", dgvHocSinh.DataSource, "LastName");
-            dtBirthday.DataBindings.Add("value", dgvHocSinh.DataSource, "Birthday");
-            radMale.DataBindings.Add("Checked", dgvHocSinh.DataSource, "Gender", true, DataSourceUpdateMode.OnPropertyChanged);
-            txtAddress.DataBindings.Add("text", dgvHocSinh.DataSource, "AdressDetail");
-            picImage.DataBindings.Add("image", dgvHocSinh.DataSource, "Image", true, DataSourceUpdateMode.OnPropertyChanged);
-            txtFatherName.DataBindings.Add("text", dgvHocSinh.DataSource, "FatherName");
-            txtFatherJob.DataBindings.Add("text", dgvHocSinh.DataSource, "FatherJob");
-            txtMotherName.DataBindings.Add("text", dgvHocSinh.DataSource, "MotherName");
-            txtMotherJob.DataBindings.Add("text", dgvHocSinh.DataSource, "MotherJob");
-            radActive.DataBindings.Add("Checked", dgvHocSinh.DataSource, "Status", true, DataSourceUpdateMode.OnPropertyChanged);
+            txtMotherJob.DataBindings.Add(new Binding("text", dgvHocSinh.DataSource, "MotherJob"));
+            
         }
 
         void combobox_Defaule()
@@ -117,10 +113,40 @@ namespace QLHSBanTru2018_Demo_V1.TienBao
             cmbLopHoc.Text = "-- Chọn lớp học --";
             cmbTrangThai.Text = "-- Chọn trạng thái --";
         }
+
+        void Enable_TextBox()
+        {
+            txtStudentCode.Enabled = false;
+            txtStudentID.Enabled = false;
+            txtFirstName.Enabled = false;
+            txtLastName.Enabled = false;
+            dtBirthday.Enabled = false;
+            txtAddress.Enabled = false;
+            radMale.Enabled = false;
+            radFemale.Enabled = false;
+            radActive.Enabled = false;
+            radLock.Enabled = false;
+            txtFatherName.Enabled = false;
+            txtFatherJob.Enabled = false;
+            txtMotherName.Enabled = false;
+            txtMotherJob.Enabled = false;
+            LabelStatus.Enabled = false;
+            LabelGender.Enabled = false;
+        }
         #endregion
 
         #region Event
+        private void frmStudent_Load(object sender, EventArgs e)
+        {
+            this.Dock = DockStyle.Fill;
+            combobox_Defaule();
+            Enable_TextBox();
+            cmbNamHoc_SelectedIndexChanged(sender, e);
+            cmbHocKy_SelectedIndexChanged(sender, e);
+            cmbKhoiHoc_SelectedIndexChanged(sender, e);
+            cmbLopHoc_SelectedIndexChanged(sender, e);
 
+        }
         private void cmbNamHoc_Click(object sender, EventArgs e)
         {
             LoadCourseInfor();
@@ -161,9 +187,7 @@ namespace QLHSBanTru2018_Demo_V1.TienBao
         {
             try
             {
-
-                FillGridControl(int.Parse(cmbLopHoc.SelectedValue.ToString()));
-                BindingDetail();
+                FillGridControl(int.Parse(cmbLopHoc.SelectedValue.ToString()));               
             }
             catch
             {
@@ -180,28 +204,94 @@ namespace QLHSBanTru2018_Demo_V1.TienBao
             frmStudentDetail StudentDetail = new frmStudentDetail();
             StudentDetail.iFunction = 1;
             StudentDetail.ShowDialog();
-            if (StudentDetail.DialogResult == DialogResult.OK)
+            if (StudentDetail.DialogResult == DialogResult.OK);               
+        }
+
+        private void btnSua_Click(object sender, EventArgs e)
+        {
+            frmStudentDetail m_StudentDetail = new frmStudentDetail();
+            m_StudentDetail.iFunction = 2;
+            m_StudentDetail.Student = new StudentDAO().GetByID(int.Parse(txtStudentID.Text));
+            m_StudentDetail.StudentParents = new StudentParentsDAO().GetByID(int.Parse(txtStudentID.Text));
+            m_StudentDetail.Class = new ClassDAO().GetByClassID(int.Parse(cmbLopHoc.SelectedValue.ToString()));
+            m_StudentDetail.ShowDialog();
+            if (m_StudentDetail.DialogResult == DialogResult.OK)
                 FillGridControl(int.Parse(cmbLopHoc.SelectedValue.ToString()));
+        }
+
+        private void btnXem_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnXemChiTiet_Click(object sender, EventArgs e)
+        {
+            frmStudentDetail m_StudentDetail = new frmStudentDetail();
+            m_StudentDetail.iFunction = 3;
+            m_StudentDetail.Student = new StudentDAO().GetByID(int.Parse(txtStudentID.Text));
+            m_StudentDetail.StudentParents = new StudentParentsDAO().GetByID(int.Parse(txtStudentID.Text));
+            m_StudentDetail.Class = new ClassDAO().GetByClassID(int.Parse(cmbLopHoc.SelectedValue.ToString()));
+            m_StudentDetail.ShowDialog();
+            if (m_StudentDetail.DialogResult == DialogResult.OK)
+                FillGridControl(int.Parse(cmbLopHoc.SelectedValue.ToString()));
+        }
+        private void btnXoa_Click(object sender, EventArgs e)
+        {
+            if (MessageBox.Show("Bạn muốn xóa học sinh ?", "Thông báo", MessageBoxButtons.YesNo, MessageBoxIcon.Error) == DialogResult.Yes)
+            {
+                new StudentDAO().StudentDelete(int.Parse(txtStudentID.Text));
+                FillGridControl(int.Parse(cmbLopHoc.SelectedValue.ToString()));
+            }
         }
         #endregion
 
 
 
 
-        private void gridView1_FocusedRowChanged(object sender, DevExpress.XtraGrid.Views.Base.FocusedRowChangedEventArgs e)
+       
+
+        #region ContextMenu
+        private void xemChiTiếtToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            txtStudentID.Text = bandedGridView1.GetRowCellValue(e.FocusedRowHandle, "StudentID").ToString();
-            txtStudentCode.Text = bandedGridView1.GetRowCellValue(e.FocusedRowHandle, "StudentCode").ToString();
-            txtFirstName.Text = bandedGridView1.GetRowCellValue(e.FocusedRowHandle, "FirstName").ToString();
-            txtLastName.Text = bandedGridView1.GetRowCellValue(e.FocusedRowHandle, "LastName").ToString();
+            frmStudentDetail m_StudentDetail = new frmStudentDetail();
+            m_StudentDetail.iFunction = 3;
+            m_StudentDetail.Student = new StudentDAO().GetByID(int.Parse(txtStudentID.Text));
+            m_StudentDetail.StudentParents = new StudentParentsDAO().GetByID(int.Parse(txtStudentID.Text));
+            m_StudentDetail.Class = new ClassDAO().GetByClassID(int.Parse(cmbLopHoc.SelectedValue.ToString()));
+            m_StudentDetail.ShowDialog();
+            if (m_StudentDetail.DialogResult == DialogResult.OK)
+                FillGridControl(int.Parse(cmbLopHoc.SelectedValue.ToString()));
         }
 
-
-        private void btnXem_Click(object sender, EventArgs e)
+        private void thêmMớiToolStripMenuItem_Click(object sender, EventArgs e)
         {
             frmStudentDetail StudentDetail = new frmStudentDetail();
+            StudentDetail.iFunction = 1;
             StudentDetail.ShowDialog();
+            if (StudentDetail.DialogResult == DialogResult.OK) ;
         }
+
+        private void sửaToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            frmStudentDetail m_StudentDetail = new frmStudentDetail();
+            m_StudentDetail.iFunction = 2;
+            m_StudentDetail.Student = new StudentDAO().GetByID(int.Parse(txtStudentID.Text));
+            m_StudentDetail.StudentParents = new StudentParentsDAO().GetByID(int.Parse(txtStudentID.Text));
+            m_StudentDetail.Class = new ClassDAO().GetByClassID(int.Parse(cmbLopHoc.SelectedValue.ToString()));
+            m_StudentDetail.ShowDialog();
+            if (m_StudentDetail.DialogResult == DialogResult.OK)
+                FillGridControl(int.Parse(cmbLopHoc.SelectedValue.ToString()));
+        }
+
+        private void xóaToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            if (MessageBox.Show("Bạn muốn xóa học sinh ?", "Thông báo", MessageBoxButtons.YesNo, MessageBoxIcon.Error) == DialogResult.Yes)
+            {
+                new StudentDAO().StudentDelete(int.Parse(txtStudentID.Text));
+                FillGridControl(int.Parse(cmbLopHoc.SelectedValue.ToString()));
+            }
+        }
+        #endregion
 
        
     }

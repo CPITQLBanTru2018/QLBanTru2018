@@ -34,9 +34,7 @@ namespace DataConnect.ViewModel
 
 
         public int ClassID { get; set; }
-        public string ClassName { get; set; }
-        public int? PositionID { get; set; }
-        public string PositionName { get; set; }
+        public string ClassName { get; set; }       
         public int LocationID { get; set; }
         public string LocationDetail { get; set; }
         public int EthnicGroupID { get; set; }
