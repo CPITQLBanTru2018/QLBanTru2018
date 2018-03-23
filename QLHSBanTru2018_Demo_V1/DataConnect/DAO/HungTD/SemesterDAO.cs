@@ -10,31 +10,31 @@ namespace DataConnect.DAO.HungTD
     public class SemesterDAO
     {
         QLHSSmartKidsDataContext db;
-        Table<Semester> semester;
+        Table<Semester> semesters;
         public SemesterDAO()
         {
             db = new QLHSSmartKidsDataContext();
-            semester = db.GetTable<Semester>();
+            semesters = db.GetTable<Semester>();
         }
         public List<Semester> ListAll()
         {
-            return (from s in semester select s).ToList();
+            return (from s in semesters select s).ToList();
         }
         public List<Semester> ListByCourseID(int courseID)
         {
-            return (from s in semester
+            return (from s in semesters
                     where s.CourseID == courseID
                     select s).ToList();
         }
         public Semester GetBySemesterID(int semesterID)
         {
-            return semester.SingleOrDefault(x => x.SemesterID == semesterID);
+            return semesters.SingleOrDefault(x => x.SemesterID == semesterID);
         }
         public bool Insert(Semester entity)
         {
             try
             {
-                semester.InsertOnSubmit(entity);
+                semesters.InsertOnSubmit(entity);
                 db.SubmitChanges();
                 return true;
             }
@@ -47,7 +47,7 @@ namespace DataConnect.DAO.HungTD
         {
             try
             {
-                Semester obj = semester.Single(x => x.SemesterID == entity.SemesterID);
+                Semester obj = semesters.Single(x => x.SemesterID == entity.SemesterID);
                 obj.StartDate = entity.StartDate;
                 obj.EndDate = entity.EndDate;
                 obj.Status = entity.Status;
@@ -64,9 +64,28 @@ namespace DataConnect.DAO.HungTD
         {
             try
             {
-                Semester obj = semester.Single(x => x.SemesterID == semesterID);
+                Semester obj = semesters.Single(x => x.SemesterID == semesterID);
                 obj.Status = false;
                 db.SubmitChanges();
+
+
+
+                return true;
+            }
+            catch
+            {
+                return false;
+            }
+        }
+        public bool DeleteByCourse(int courseID)
+        {
+            try
+            {
+                var listDeleteSemester = semesters.Where(x => x.CourseID == courseID);
+                foreach(var item in listDeleteSemester)
+                {
+                    Delete(item.SemesterID);
+                }
                 return true;
             }
             catch
