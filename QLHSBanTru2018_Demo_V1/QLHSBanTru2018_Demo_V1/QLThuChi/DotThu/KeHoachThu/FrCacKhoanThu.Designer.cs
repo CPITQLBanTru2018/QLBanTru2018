@@ -31,6 +31,7 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrThietLapKeHoachThu));
             this.bntDong = new DevExpress.XtraEditors.SimpleButton();
             this.layoutControl1 = new DevExpress.XtraLayout.LayoutControl();
+            this.bntDoituongchinhsach = new DevExpress.XtraEditors.SimpleButton();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.txtTongtien = new System.Windows.Forms.TextBox();
             this.groupControl2 = new DevExpress.XtraEditors.GroupControl();
@@ -62,7 +63,6 @@
             this.layoutControlItem11 = new DevExpress.XtraLayout.LayoutControlItem();
             this.layoutControlItem12 = new DevExpress.XtraLayout.LayoutControlItem();
             this.layoutControlItem5 = new DevExpress.XtraLayout.LayoutControlItem();
-            this.bntDoituongchinhsach = new DevExpress.XtraEditors.SimpleButton();
             this.layoutControlItem14 = new DevExpress.XtraLayout.LayoutControlItem();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControl1)).BeginInit();
             this.layoutControl1.SuspendLayout();
@@ -127,6 +127,17 @@
             this.layoutControl1.Size = new System.Drawing.Size(784, 461);
             this.layoutControl1.TabIndex = 5;
             this.layoutControl1.Text = "layoutControl1";
+            // 
+            // bntDoituongchinhsach
+            // 
+            this.bntDoituongchinhsach.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("bntDoituongchinhsach.ImageOptions.Image")));
+            this.bntDoituongchinhsach.Location = new System.Drawing.Point(270, 413);
+            this.bntDoituongchinhsach.Name = "bntDoituongchinhsach";
+            this.bntDoituongchinhsach.Size = new System.Drawing.Size(152, 36);
+            this.bntDoituongchinhsach.StyleController = this.layoutControl1;
+            this.bntDoituongchinhsach.TabIndex = 9;
+            this.bntDoituongchinhsach.Text = "Đối tượng chính sách";
+            this.bntDoituongchinhsach.Click += new System.EventHandler(this.bntDoituongchinhsach_Click);
             // 
             // pictureBox1
             // 
@@ -427,17 +438,6 @@
             this.layoutControlItem5.Size = new System.Drawing.Size(764, 24);
             this.layoutControlItem5.Text = "Tổng thu";
             this.layoutControlItem5.TextSize = new System.Drawing.Size(43, 13);
-            // 
-            // bntDoituongchinhsach
-            // 
-            this.bntDoituongchinhsach.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("bntDoituongchinhsach.ImageOptions.Image")));
-            this.bntDoituongchinhsach.Location = new System.Drawing.Point(270, 413);
-            this.bntDoituongchinhsach.Name = "bntDoituongchinhsach";
-            this.bntDoituongchinhsach.Size = new System.Drawing.Size(152, 36);
-            this.bntDoituongchinhsach.StyleController = this.layoutControl1;
-            this.bntDoituongchinhsach.TabIndex = 9;
-            this.bntDoituongchinhsach.Text = "Đối tượng chính sách";
-            this.bntDoituongchinhsach.Click += new System.EventHandler(this.bntDoituongchinhsach_Click);
             // 
             // layoutControlItem14
             // 

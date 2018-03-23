@@ -38,7 +38,7 @@ namespace QLHSBanTru2018_Demo_V1.TienBao
 
         private void LoadGradeInfor(int SemesterID)
         {
-            List<DataConnect.Grade> ListGrade = new GradeDAO().ListBySemester(SemesterID);
+            List<DataConnect.Grade> ListGrade = new DataConnect.DAO.HungTD.GradeDAO().ListBySemester(SemesterID);
             cmbKhoiLop.DisplayMember = "Name";
             cmbKhoiLop.ValueMember = "GradeID";
             cmbKhoiLop.DataSource = ListGrade;
