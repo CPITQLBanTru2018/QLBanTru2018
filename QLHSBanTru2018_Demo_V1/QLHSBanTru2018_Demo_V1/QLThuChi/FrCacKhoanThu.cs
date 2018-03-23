@@ -100,17 +100,7 @@ namespace QLHSBanTru2018_Demo_V1.QLThuChi
                         int d = rbd.Insert(detail);
                         if (d != 0)
                         {
-                            ReceivableDetail_PreferredDAO dt = new ReceivableDetail_PreferredDAO();
-                            ReceivableDetail_Preferred e1 = new ReceivableDetail_Preferred();
-                            e1.ReceivableDetailID = d;
-                            e1.PreferredID = ReceivableDetail_PreferredDAO.ListDemoReceivableDetail[i].PreferredID;
-                            e1.Percent = ReceivableDetail_PreferredDAO.ListDemoReceivableDetail[i].Percent;
-                            e1.Status = true;
-                            if (dt.Insert(e1) == true)
-                            {
-
-                            }
-                            /// receivableDetail_students
+                           
 
                         }
                         else

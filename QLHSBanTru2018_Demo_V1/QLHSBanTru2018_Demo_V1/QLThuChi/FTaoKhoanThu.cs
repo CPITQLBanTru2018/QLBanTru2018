@@ -36,10 +36,7 @@ namespace QLHSBanTru2018_Demo_V1.QLThuChi
 
             try
             {
-                ReceivableDetail_Preferred b = new ReceivableDetail_Preferred();
-                b.PreferredID = (int)cbbMiengiam.SelectedValue;
-                b.Percent = int.Parse(txtMucgiam.Text);
-                ReceivableDetail_PreferredDAO.ListDemoReceivableDetail.Add(b);
+                
                 ReceivableDetail a = new ReceivableDetail();
                 a.Name = txtTenKhoanThu.Text;
                 a.Price = decimal.Parse(txtMucThu.Text);

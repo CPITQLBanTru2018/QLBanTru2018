@@ -141,9 +141,6 @@ namespace DataConnect
     partial void InsertReceivableDetail(ReceivableDetail instance);
     partial void UpdateReceivableDetail(ReceivableDetail instance);
     partial void DeleteReceivableDetail(ReceivableDetail instance);
-    partial void InsertReceivableDetail_Preferred(ReceivableDetail_Preferred instance);
-    partial void UpdateReceivableDetail_Preferred(ReceivableDetail_Preferred instance);
-    partial void DeleteReceivableDetail_Preferred(ReceivableDetail_Preferred instance);
     partial void InsertReceivableDetail_Student(ReceivableDetail_Student instance);
     partial void UpdateReceivableDetail_Student(ReceivableDetail_Student instance);
     partial void DeleteReceivableDetail_Student(ReceivableDetail_Student instance);
@@ -502,14 +499,6 @@ namespace DataConnect
 			get
 			{
 				return this.GetTable<ReceivableDetail>();
-			}
-		}
-		
-		public System.Data.Linq.Table<ReceivableDetail_Preferred> ReceivableDetail_Preferreds
-		{
-			get
-			{
-				return this.GetTable<ReceivableDetail_Preferred>();
 			}
 		}
 		
@@ -8934,7 +8923,7 @@ namespace DataConnect
 		
 		private int _LocationGrade;
 		
-		private System.Nullable<int> _LocationParent;
+		private int _LocationParent;
 		
 		private string _Description;
 		
@@ -8958,7 +8947,7 @@ namespace DataConnect
     partial void OnLocationNameEnglishChanged();
     partial void OnLocationGradeChanging(int value);
     partial void OnLocationGradeChanged();
-    partial void OnLocationParentChanging(System.Nullable<int> value);
+    partial void OnLocationParentChanging(int value);
     partial void OnLocationParentChanged();
     partial void OnDescriptionChanging(string value);
     partial void OnDescriptionChanged();
@@ -8973,7 +8962,7 @@ namespace DataConnect
 			OnCreated();
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_LocationID", AutoSync=AutoSync.OnInsert, DbType="Int NOT NULL IDENTITY", IsPrimaryKey=true, IsDbGenerated=true)]
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_LocationID", DbType="Int NOT NULL", IsPrimaryKey=true)]
 		public int LocationID
 		{
 			get
@@ -9073,8 +9062,8 @@ namespace DataConnect
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_LocationParent", DbType="Int")]
-		public System.Nullable<int> LocationParent
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_LocationParent", DbType="Int NOT NULL")]
+		public int LocationParent
 		{
 			get
 			{
@@ -10296,7 +10285,9 @@ namespace DataConnect
 		
 		private bool _Status;
 		
-		private EntitySet<ReceivableDetail_Preferred> _ReceivableDetail_Preferreds;
+		private System.Nullable<double> _Percent;
+		
+		private EntitySet<ReceivableDetail> _ReceivableDetails;
 		
 		private EntitySet<Student> _Students;
 		
@@ -10310,11 +10301,13 @@ namespace DataConnect
     partial void OnNameChanged();
     partial void OnStatusChanging(bool value);
     partial void OnStatusChanged();
+    partial void OnPercentChanging(System.Nullable<double> value);
+    partial void OnPercentChanged();
     #endregion
 		
 		public Preferred()
 		{
-			this._ReceivableDetail_Preferreds = new EntitySet<ReceivableDetail_Preferred>(new Action<ReceivableDetail_Preferred>(this.attach_ReceivableDetail_Preferreds), new Action<ReceivableDetail_Preferred>(this.detach_ReceivableDetail_Preferreds));
+			this._ReceivableDetails = new EntitySet<ReceivableDetail>(new Action<ReceivableDetail>(this.attach_ReceivableDetails), new Action<ReceivableDetail>(this.detach_ReceivableDetails));
 			this._Students = new EntitySet<Student>(new Action<Student>(this.attach_Students), new Action<Student>(this.detach_Students));
 			OnCreated();
 		}
@@ -10379,16 +10372,36 @@ namespace DataConnect
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Preferred_ReceivableDetail_Preferred", Storage="_ReceivableDetail_Preferreds", ThisKey="PreferredID", OtherKey="PreferredID")]
-		public EntitySet<ReceivableDetail_Preferred> ReceivableDetail_Preferreds
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Name="[Percent]", Storage="_Percent", DbType="Float")]
+		public System.Nullable<double> Percent
 		{
 			get
 			{
-				return this._ReceivableDetail_Preferreds;
+				return this._Percent;
 			}
 			set
 			{
-				this._ReceivableDetail_Preferreds.Assign(value);
+				if ((this._Percent != value))
+				{
+					this.OnPercentChanging(value);
+					this.SendPropertyChanging();
+					this._Percent = value;
+					this.SendPropertyChanged("Percent");
+					this.OnPercentChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Preferred_ReceivableDetail", Storage="_ReceivableDetails", ThisKey="PreferredID", OtherKey="RevenueID")]
+		public EntitySet<ReceivableDetail> ReceivableDetails
+		{
+			get
+			{
+				return this._ReceivableDetails;
+			}
+			set
+			{
+				this._ReceivableDetails.Assign(value);
 			}
 		}
 		
@@ -10425,13 +10438,13 @@ namespace DataConnect
 			}
 		}
 		
-		private void attach_ReceivableDetail_Preferreds(ReceivableDetail_Preferred entity)
+		private void attach_ReceivableDetails(ReceivableDetail entity)
 		{
 			this.SendPropertyChanging();
 			entity.Preferred = this;
 		}
 		
-		private void detach_ReceivableDetail_Preferreds(ReceivableDetail_Preferred entity)
+		private void detach_ReceivableDetails(ReceivableDetail entity)
 		{
 			this.SendPropertyChanging();
 			entity.Preferred = null;
@@ -10472,6 +10485,8 @@ namespace DataConnect
 		
 		private System.Nullable<int> _RevenueID;
 		
+		private System.Nullable<int> _PreferredID;
+		
 		private EntitySet<ReceivableDetail> _ReceivableDetails;
 		
     #region Extensibility Method Definitions
@@ -10494,6 +10509,8 @@ namespace DataConnect
     partial void OnStatusChanged();
     partial void OnRevenueIDChanging(System.Nullable<int> value);
     partial void OnRevenueIDChanged();
+    partial void OnPreferredIDChanging(System.Nullable<int> value);
+    partial void OnPreferredIDChanged();
     #endregion
 		
 		public Receivable()
@@ -10662,6 +10679,26 @@ namespace DataConnect
 			}
 		}
 		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_PreferredID", DbType="Int")]
+		public System.Nullable<int> PreferredID
+		{
+			get
+			{
+				return this._PreferredID;
+			}
+			set
+			{
+				if ((this._PreferredID != value))
+				{
+					this.OnPreferredIDChanging(value);
+					this.SendPropertyChanging();
+					this._PreferredID = value;
+					this.SendPropertyChanged("PreferredID");
+					this.OnPreferredIDChanged();
+				}
+			}
+		}
+		
 		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Receivable_ReceivableDetail", Storage="_ReceivableDetails", ThisKey="ReceivableID", OtherKey="ReceivableID")]
 		public EntitySet<ReceivableDetail> ReceivableDetails
 		{
@@ -10728,9 +10765,11 @@ namespace DataConnect
 		
 		private System.Nullable<int> _RevenueID;
 		
-		private EntitySet<ReceivableDetail_Preferred> _ReceivableDetail_Preferreds;
+		private System.Nullable<int> _GradeID;
 		
 		private EntitySet<ReceivableDetail_Student> _ReceivableDetail_Students;
+		
+		private EntityRef<Preferred> _Preferred;
 		
 		private EntityRef<Receivable> _Receivable;
 		
@@ -10754,12 +10793,14 @@ namespace DataConnect
     partial void OnStatusChanged();
     partial void OnRevenueIDChanging(System.Nullable<int> value);
     partial void OnRevenueIDChanged();
+    partial void OnGradeIDChanging(System.Nullable<int> value);
+    partial void OnGradeIDChanged();
     #endregion
 		
 		public ReceivableDetail()
 		{
-			this._ReceivableDetail_Preferreds = new EntitySet<ReceivableDetail_Preferred>(new Action<ReceivableDetail_Preferred>(this.attach_ReceivableDetail_Preferreds), new Action<ReceivableDetail_Preferred>(this.detach_ReceivableDetail_Preferreds));
 			this._ReceivableDetail_Students = new EntitySet<ReceivableDetail_Student>(new Action<ReceivableDetail_Student>(this.attach_ReceivableDetail_Students), new Action<ReceivableDetail_Student>(this.detach_ReceivableDetail_Students));
+			this._Preferred = default(EntityRef<Preferred>);
 			this._Receivable = default(EntityRef<Receivable>);
 			this._Revenue = default(EntityRef<Revenue>);
 			OnCreated();
@@ -10900,7 +10941,7 @@ namespace DataConnect
 			{
 				if ((this._RevenueID != value))
 				{
-					if (this._Revenue.HasLoadedOrAssignedValue)
+					if ((this._Preferred.HasLoadedOrAssignedValue || this._Revenue.HasLoadedOrAssignedValue))
 					{
 						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
 					}
@@ -10913,16 +10954,23 @@ namespace DataConnect
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="ReceivableDetail_ReceivableDetail_Preferred", Storage="_ReceivableDetail_Preferreds", ThisKey="ReceivableDetailID", OtherKey="ReceivableDetailID")]
-		public EntitySet<ReceivableDetail_Preferred> ReceivableDetail_Preferreds
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_GradeID", DbType="Int")]
+		public System.Nullable<int> GradeID
 		{
 			get
 			{
-				return this._ReceivableDetail_Preferreds;
+				return this._GradeID;
 			}
 			set
 			{
-				this._ReceivableDetail_Preferreds.Assign(value);
+				if ((this._GradeID != value))
+				{
+					this.OnGradeIDChanging(value);
+					this.SendPropertyChanging();
+					this._GradeID = value;
+					this.SendPropertyChanged("GradeID");
+					this.OnGradeIDChanged();
+				}
 			}
 		}
 		
@@ -10936,6 +10984,40 @@ namespace DataConnect
 			set
 			{
 				this._ReceivableDetail_Students.Assign(value);
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Preferred_ReceivableDetail", Storage="_Preferred", ThisKey="RevenueID", OtherKey="PreferredID", IsForeignKey=true)]
+		public Preferred Preferred
+		{
+			get
+			{
+				return this._Preferred.Entity;
+			}
+			set
+			{
+				Preferred previousValue = this._Preferred.Entity;
+				if (((previousValue != value) 
+							|| (this._Preferred.HasLoadedOrAssignedValue == false)))
+				{
+					this.SendPropertyChanging();
+					if ((previousValue != null))
+					{
+						this._Preferred.Entity = null;
+						previousValue.ReceivableDetails.Remove(this);
+					}
+					this._Preferred.Entity = value;
+					if ((value != null))
+					{
+						value.ReceivableDetails.Add(this);
+						this._RevenueID = value.PreferredID;
+					}
+					else
+					{
+						this._RevenueID = default(Nullable<int>);
+					}
+					this.SendPropertyChanged("Preferred");
+				}
 			}
 		}
 		
@@ -11027,18 +11109,6 @@ namespace DataConnect
 			}
 		}
 		
-		private void attach_ReceivableDetail_Preferreds(ReceivableDetail_Preferred entity)
-		{
-			this.SendPropertyChanging();
-			entity.ReceivableDetail = this;
-		}
-		
-		private void detach_ReceivableDetail_Preferreds(ReceivableDetail_Preferred entity)
-		{
-			this.SendPropertyChanging();
-			entity.ReceivableDetail = null;
-		}
-		
 		private void attach_ReceivableDetail_Students(ReceivableDetail_Student entity)
 		{
 			this.SendPropertyChanging();
@@ -11049,222 +11119,6 @@ namespace DataConnect
 		{
 			this.SendPropertyChanging();
 			entity.ReceivableDetail = null;
-		}
-	}
-	
-	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.ReceivableDetail_Preferred")]
-	public partial class ReceivableDetail_Preferred : INotifyPropertyChanging, INotifyPropertyChanged
-	{
-		
-		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
-		
-		private int _ReceivableDetailID;
-		
-		private int _PreferredID;
-		
-		private double _Percent;
-		
-		private bool _Status;
-		
-		private EntityRef<Preferred> _Preferred;
-		
-		private EntityRef<ReceivableDetail> _ReceivableDetail;
-		
-    #region Extensibility Method Definitions
-    partial void OnLoaded();
-    partial void OnValidate(System.Data.Linq.ChangeAction action);
-    partial void OnCreated();
-    partial void OnReceivableDetailIDChanging(int value);
-    partial void OnReceivableDetailIDChanged();
-    partial void OnPreferredIDChanging(int value);
-    partial void OnPreferredIDChanged();
-    partial void OnPercentChanging(double value);
-    partial void OnPercentChanged();
-    partial void OnStatusChanging(bool value);
-    partial void OnStatusChanged();
-    #endregion
-		
-		public ReceivableDetail_Preferred()
-		{
-			this._Preferred = default(EntityRef<Preferred>);
-			this._ReceivableDetail = default(EntityRef<ReceivableDetail>);
-			OnCreated();
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ReceivableDetailID", DbType="Int NOT NULL", IsPrimaryKey=true)]
-		public int ReceivableDetailID
-		{
-			get
-			{
-				return this._ReceivableDetailID;
-			}
-			set
-			{
-				if ((this._ReceivableDetailID != value))
-				{
-					if (this._ReceivableDetail.HasLoadedOrAssignedValue)
-					{
-						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
-					}
-					this.OnReceivableDetailIDChanging(value);
-					this.SendPropertyChanging();
-					this._ReceivableDetailID = value;
-					this.SendPropertyChanged("ReceivableDetailID");
-					this.OnReceivableDetailIDChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_PreferredID", DbType="Int NOT NULL", IsPrimaryKey=true)]
-		public int PreferredID
-		{
-			get
-			{
-				return this._PreferredID;
-			}
-			set
-			{
-				if ((this._PreferredID != value))
-				{
-					if (this._Preferred.HasLoadedOrAssignedValue)
-					{
-						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
-					}
-					this.OnPreferredIDChanging(value);
-					this.SendPropertyChanging();
-					this._PreferredID = value;
-					this.SendPropertyChanged("PreferredID");
-					this.OnPreferredIDChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Name="[Percent]", Storage="_Percent", DbType="Float NOT NULL")]
-		public double Percent
-		{
-			get
-			{
-				return this._Percent;
-			}
-			set
-			{
-				if ((this._Percent != value))
-				{
-					this.OnPercentChanging(value);
-					this.SendPropertyChanging();
-					this._Percent = value;
-					this.SendPropertyChanged("Percent");
-					this.OnPercentChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Status", DbType="Bit NOT NULL")]
-		public bool Status
-		{
-			get
-			{
-				return this._Status;
-			}
-			set
-			{
-				if ((this._Status != value))
-				{
-					this.OnStatusChanging(value);
-					this.SendPropertyChanging();
-					this._Status = value;
-					this.SendPropertyChanged("Status");
-					this.OnStatusChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Preferred_ReceivableDetail_Preferred", Storage="_Preferred", ThisKey="PreferredID", OtherKey="PreferredID", IsForeignKey=true)]
-		public Preferred Preferred
-		{
-			get
-			{
-				return this._Preferred.Entity;
-			}
-			set
-			{
-				Preferred previousValue = this._Preferred.Entity;
-				if (((previousValue != value) 
-							|| (this._Preferred.HasLoadedOrAssignedValue == false)))
-				{
-					this.SendPropertyChanging();
-					if ((previousValue != null))
-					{
-						this._Preferred.Entity = null;
-						previousValue.ReceivableDetail_Preferreds.Remove(this);
-					}
-					this._Preferred.Entity = value;
-					if ((value != null))
-					{
-						value.ReceivableDetail_Preferreds.Add(this);
-						this._PreferredID = value.PreferredID;
-					}
-					else
-					{
-						this._PreferredID = default(int);
-					}
-					this.SendPropertyChanged("Preferred");
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="ReceivableDetail_ReceivableDetail_Preferred", Storage="_ReceivableDetail", ThisKey="ReceivableDetailID", OtherKey="ReceivableDetailID", IsForeignKey=true)]
-		public ReceivableDetail ReceivableDetail
-		{
-			get
-			{
-				return this._ReceivableDetail.Entity;
-			}
-			set
-			{
-				ReceivableDetail previousValue = this._ReceivableDetail.Entity;
-				if (((previousValue != value) 
-							|| (this._ReceivableDetail.HasLoadedOrAssignedValue == false)))
-				{
-					this.SendPropertyChanging();
-					if ((previousValue != null))
-					{
-						this._ReceivableDetail.Entity = null;
-						previousValue.ReceivableDetail_Preferreds.Remove(this);
-					}
-					this._ReceivableDetail.Entity = value;
-					if ((value != null))
-					{
-						value.ReceivableDetail_Preferreds.Add(this);
-						this._ReceivableDetailID = value.ReceivableDetailID;
-					}
-					else
-					{
-						this._ReceivableDetailID = default(int);
-					}
-					this.SendPropertyChanged("ReceivableDetail");
-				}
-			}
-		}
-		
-		public event PropertyChangingEventHandler PropertyChanging;
-		
-		public event PropertyChangedEventHandler PropertyChanged;
-		
-		protected virtual void SendPropertyChanging()
-		{
-			if ((this.PropertyChanging != null))
-			{
-				this.PropertyChanging(this, emptyChangingEventArgs);
-			}
-		}
-		
-		protected virtual void SendPropertyChanged(String propertyName)
-		{
-			if ((this.PropertyChanged != null))
-			{
-				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
-			}
 		}
 	}
 	

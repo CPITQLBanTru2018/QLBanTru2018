@@ -41,14 +41,14 @@ namespace DataConnect.DAO.ThanhCongTC
         Table<Student_Class> StdClass;
         Table<Student> STD;
         Table<Preferred> preferred;
-        Table<ReceivableDetail_Preferred> RDP;
+        
         public List<TCStudenViewModle> ListStudents()
         {
             classs = dt.GetTable<Class>();
             StdClass = dt.GetTable<Student_Class>();
             STD = dt.GetTable<Student>();
             preferred = dt.GetTable<Preferred>();
-            RDP = dt.GetTable<ReceivableDetail_Preferred>();
+            
             var a = from b in classs
                     join c in StdClass on b.ClassID equals c.ClassID
                     join d in STD on c.StudentID equals d.StudentID
