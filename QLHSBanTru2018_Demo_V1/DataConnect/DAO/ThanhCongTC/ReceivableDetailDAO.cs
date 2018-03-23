@@ -15,8 +15,9 @@ namespace DataConnect.DAO.ThanhCongTC
             a.ReceivableID = entity.ReceivableID;
             a.Name = entity.Name;
             a.Price = entity.Price;
-            a.SalePrice = entity.SalePrice;
             a.Status = entity.Status;
+            a.PreferredID = entity.PreferredID;
+            a.GradeID = entity.GradeID;
             //a.Revenue = entity.Revenue;
             dt.ReceivableDetails.InsertOnSubmit(a);
             dt.SubmitChanges();
@@ -28,7 +29,8 @@ namespace DataConnect.DAO.ThanhCongTC
             a.ReceivableID = entity.ReceivableID;
             a.Name = entity.Name;
             a.Price = entity.Price;
-            a.SalePrice = entity.SalePrice;
+            a.GradeID = entity.GradeID;
+            a.PreferredID = entity.PreferredID;
             a.Status = entity.Status;
             //a.Revenue = entity.Revenue;
             dt.SubmitChanges();

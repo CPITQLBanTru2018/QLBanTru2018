@@ -40,7 +40,6 @@ namespace QLHSBanTru2018_Demo_V1.QLThuChi
                 ReceivableDetail a = new ReceivableDetail();
                 a.Name = txtTenKhoanThu.Text;
                 a.Price = decimal.Parse(txtMucThu.Text);
-                a.SalePrice = 0;
                 a.Status = true;
                 ReceivableDetailDAO.ListDemoReceivableDetail.Add(a);
                 this.Close();

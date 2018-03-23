@@ -6068,6 +6068,8 @@ namespace DataConnect
 		
 		private EntitySet<Class> _Classes;
 		
+		private EntitySet<ReceivableDetail> _ReceivableDetails;
+		
 		private EntityRef<Semester> _Semester;
 		
     #region Extensibility Method Definitions
@@ -6089,6 +6091,7 @@ namespace DataConnect
 		public Grade()
 		{
 			this._Classes = new EntitySet<Class>(new Action<Class>(this.attach_Classes), new Action<Class>(this.detach_Classes));
+			this._ReceivableDetails = new EntitySet<ReceivableDetail>(new Action<ReceivableDetail>(this.attach_ReceivableDetails), new Action<ReceivableDetail>(this.detach_ReceivableDetails));
 			this._Semester = default(EntityRef<Semester>);
 			OnCreated();
 		}
@@ -6210,6 +6213,19 @@ namespace DataConnect
 			}
 		}
 		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Grade_ReceivableDetail", Storage="_ReceivableDetails", ThisKey="GradeID", OtherKey="GradeID")]
+		public EntitySet<ReceivableDetail> ReceivableDetails
+		{
+			get
+			{
+				return this._ReceivableDetails;
+			}
+			set
+			{
+				this._ReceivableDetails.Assign(value);
+			}
+		}
+		
 		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Semester_Grade", Storage="_Semester", ThisKey="SemesterID", OtherKey="SemesterID", IsForeignKey=true)]
 		public Semester Semester
 		{
@@ -6271,6 +6287,18 @@ namespace DataConnect
 		}
 		
 		private void detach_Classes(Class entity)
+		{
+			this.SendPropertyChanging();
+			entity.Grade = null;
+		}
+		
+		private void attach_ReceivableDetails(ReceivableDetail entity)
+		{
+			this.SendPropertyChanging();
+			entity.Grade = this;
+		}
+		
+		private void detach_ReceivableDetails(ReceivableDetail entity)
 		{
 			this.SendPropertyChanging();
 			entity.Grade = null;
@@ -10392,7 +10420,7 @@ namespace DataConnect
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Preferred_ReceivableDetail", Storage="_ReceivableDetails", ThisKey="PreferredID", OtherKey="RevenueID")]
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Preferred_ReceivableDetail", Storage="_ReceivableDetails", ThisKey="PreferredID", OtherKey="PreferredID")]
 		public EntitySet<ReceivableDetail> ReceivableDetails
 		{
 			get
@@ -10759,15 +10787,17 @@ namespace DataConnect
 		
 		private decimal _Price;
 		
-		private decimal _SalePrice;
-		
 		private bool _Status;
 		
 		private System.Nullable<int> _RevenueID;
 		
 		private System.Nullable<int> _GradeID;
 		
+		private System.Nullable<int> _PreferredID;
+		
 		private EntitySet<ReceivableDetail_Student> _ReceivableDetail_Students;
+		
+		private EntityRef<Grade> _Grade;
 		
 		private EntityRef<Preferred> _Preferred;
 		
@@ -10787,19 +10817,20 @@ namespace DataConnect
     partial void OnNameChanged();
     partial void OnPriceChanging(decimal value);
     partial void OnPriceChanged();
-    partial void OnSalePriceChanging(decimal value);
-    partial void OnSalePriceChanged();
     partial void OnStatusChanging(bool value);
     partial void OnStatusChanged();
     partial void OnRevenueIDChanging(System.Nullable<int> value);
     partial void OnRevenueIDChanged();
     partial void OnGradeIDChanging(System.Nullable<int> value);
     partial void OnGradeIDChanged();
+    partial void OnPreferredIDChanging(System.Nullable<int> value);
+    partial void OnPreferredIDChanged();
     #endregion
 		
 		public ReceivableDetail()
 		{
 			this._ReceivableDetail_Students = new EntitySet<ReceivableDetail_Student>(new Action<ReceivableDetail_Student>(this.attach_ReceivableDetail_Students), new Action<ReceivableDetail_Student>(this.detach_ReceivableDetail_Students));
+			this._Grade = default(EntityRef<Grade>);
 			this._Preferred = default(EntityRef<Preferred>);
 			this._Receivable = default(EntityRef<Receivable>);
 			this._Revenue = default(EntityRef<Revenue>);
@@ -10890,26 +10921,6 @@ namespace DataConnect
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_SalePrice", DbType="Decimal(18,0) NOT NULL")]
-		public decimal SalePrice
-		{
-			get
-			{
-				return this._SalePrice;
-			}
-			set
-			{
-				if ((this._SalePrice != value))
-				{
-					this.OnSalePriceChanging(value);
-					this.SendPropertyChanging();
-					this._SalePrice = value;
-					this.SendPropertyChanged("SalePrice");
-					this.OnSalePriceChanged();
-				}
-			}
-		}
-		
 		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Status", DbType="Bit NOT NULL")]
 		public bool Status
 		{
@@ -10941,7 +10952,7 @@ namespace DataConnect
 			{
 				if ((this._RevenueID != value))
 				{
-					if ((this._Preferred.HasLoadedOrAssignedValue || this._Revenue.HasLoadedOrAssignedValue))
+					if (this._Revenue.HasLoadedOrAssignedValue)
 					{
 						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
 					}
@@ -10965,11 +10976,39 @@ namespace DataConnect
 			{
 				if ((this._GradeID != value))
 				{
+					if (this._Grade.HasLoadedOrAssignedValue)
+					{
+						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
+					}
 					this.OnGradeIDChanging(value);
 					this.SendPropertyChanging();
 					this._GradeID = value;
 					this.SendPropertyChanged("GradeID");
 					this.OnGradeIDChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_PreferredID", DbType="Int")]
+		public System.Nullable<int> PreferredID
+		{
+			get
+			{
+				return this._PreferredID;
+			}
+			set
+			{
+				if ((this._PreferredID != value))
+				{
+					if (this._Preferred.HasLoadedOrAssignedValue)
+					{
+						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
+					}
+					this.OnPreferredIDChanging(value);
+					this.SendPropertyChanging();
+					this._PreferredID = value;
+					this.SendPropertyChanged("PreferredID");
+					this.OnPreferredIDChanged();
 				}
 			}
 		}
@@ -10987,7 +11026,41 @@ namespace DataConnect
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Preferred_ReceivableDetail", Storage="_Preferred", ThisKey="RevenueID", OtherKey="PreferredID", IsForeignKey=true)]
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Grade_ReceivableDetail", Storage="_Grade", ThisKey="GradeID", OtherKey="GradeID", IsForeignKey=true)]
+		public Grade Grade
+		{
+			get
+			{
+				return this._Grade.Entity;
+			}
+			set
+			{
+				Grade previousValue = this._Grade.Entity;
+				if (((previousValue != value) 
+							|| (this._Grade.HasLoadedOrAssignedValue == false)))
+				{
+					this.SendPropertyChanging();
+					if ((previousValue != null))
+					{
+						this._Grade.Entity = null;
+						previousValue.ReceivableDetails.Remove(this);
+					}
+					this._Grade.Entity = value;
+					if ((value != null))
+					{
+						value.ReceivableDetails.Add(this);
+						this._GradeID = value.GradeID;
+					}
+					else
+					{
+						this._GradeID = default(Nullable<int>);
+					}
+					this.SendPropertyChanged("Grade");
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Preferred_ReceivableDetail", Storage="_Preferred", ThisKey="PreferredID", OtherKey="PreferredID", IsForeignKey=true)]
 		public Preferred Preferred
 		{
 			get
@@ -11010,11 +11083,11 @@ namespace DataConnect
 					if ((value != null))
 					{
 						value.ReceivableDetails.Add(this);
-						this._RevenueID = value.PreferredID;
+						this._PreferredID = value.PreferredID;
 					}
 					else
 					{
-						this._RevenueID = default(Nullable<int>);
+						this._PreferredID = default(Nullable<int>);
 					}
 					this.SendPropertyChanged("Preferred");
 				}

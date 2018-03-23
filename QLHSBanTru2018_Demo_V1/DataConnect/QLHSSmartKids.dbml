@@ -261,6 +261,7 @@
       <Column Name="Note" Type="System.String" DbType="NVarChar(200)" CanBeNull="true" />
       <Column Name="Status" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
       <Association Name="Grade_Class" Member="Classes" ThisKey="GradeID" OtherKey="GradeID" Type="Class" />
+      <Association Name="Grade_ReceivableDetail" Member="ReceivableDetails" ThisKey="GradeID" OtherKey="GradeID" Type="ReceivableDetail" />
       <Association Name="Semester_Grade" Member="Semester" ThisKey="SemesterID" OtherKey="SemesterID" Type="Semester" IsForeignKey="true" />
     </Type>
   </Table>
@@ -459,7 +460,7 @@
       <Column Name="Name" Type="System.String" DbType="NVarChar(100) NOT NULL" CanBeNull="false" />
       <Column Name="Status" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
       <Column Name="[Percent]" Member="Percent" Type="System.Double" DbType="Float" CanBeNull="true" />
-      <Association Name="Preferred_ReceivableDetail" Member="ReceivableDetails" ThisKey="PreferredID" OtherKey="RevenueID" Type="ReceivableDetail" />
+      <Association Name="Preferred_ReceivableDetail" Member="ReceivableDetails" ThisKey="PreferredID" OtherKey="PreferredID" Type="ReceivableDetail" />
       <Association Name="Preferred_Student" Member="Students" ThisKey="PreferredID" OtherKey="PreferredID" Type="Student" />
     </Type>
   </Table>
@@ -483,12 +484,13 @@
       <Column Name="ReceivableID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
       <Column Name="Name" Type="System.String" DbType="NVarChar(100) NOT NULL" CanBeNull="false" />
       <Column Name="Price" Type="System.Decimal" DbType="Decimal(18,0) NOT NULL" CanBeNull="false" />
-      <Column Name="SalePrice" Type="System.Decimal" DbType="Decimal(18,0) NOT NULL" CanBeNull="false" />
       <Column Name="Status" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
       <Column Name="RevenueID" Type="System.Int32" DbType="Int" CanBeNull="true" />
       <Column Name="GradeID" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="PreferredID" Type="System.Int32" DbType="Int" CanBeNull="true" />
       <Association Name="ReceivableDetail_ReceivableDetail_Student" Member="ReceivableDetail_Students" ThisKey="ReceivableDetailID" OtherKey="ReceivableDetailID" Type="ReceivableDetail_Student" />
-      <Association Name="Preferred_ReceivableDetail" Member="Preferred" ThisKey="RevenueID" OtherKey="PreferredID" Type="Preferred" IsForeignKey="true" />
+      <Association Name="Grade_ReceivableDetail" Member="Grade" ThisKey="GradeID" OtherKey="GradeID" Type="Grade" IsForeignKey="true" />
+      <Association Name="Preferred_ReceivableDetail" Member="Preferred" ThisKey="PreferredID" OtherKey="PreferredID" Type="Preferred" IsForeignKey="true" />
       <Association Name="Receivable_ReceivableDetail" Member="Receivable" ThisKey="ReceivableID" OtherKey="ReceivableID" Type="Receivable" IsForeignKey="true" />
       <Association Name="Revenue_ReceivableDetail" Member="Revenue" ThisKey="RevenueID" OtherKey="RevenueID" Type="Revenue" IsForeignKey="true" />
     </Type>
