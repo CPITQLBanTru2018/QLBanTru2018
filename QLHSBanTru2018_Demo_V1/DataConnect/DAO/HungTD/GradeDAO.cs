@@ -16,14 +16,20 @@ namespace DataConnect.DAO.HungTD
             db = new QLHSSmartKidsDataContext();
             grade = db.GetTable<Grade>();
         }
-        public List<Grade> ListAll()
+        public List<Grade> ListAllGrade()
         {
             var query = from g in grade
                         where g.Status.Equals(true)
                         select g;
             return query.ToList();
         }
-        public Grade GetByID(int gradeID)
+        public List<Grade> ListBySemester(int SemesterID)
+        {
+            return (from g in grade
+                    where g.SemesterID == SemesterID
+                    select g).ToList();
+        }
+        public Grade GetByGradeIDD(int gradeID)
         {
             return grade.SingleOrDefault(x => x.GradeID == gradeID);
         }
