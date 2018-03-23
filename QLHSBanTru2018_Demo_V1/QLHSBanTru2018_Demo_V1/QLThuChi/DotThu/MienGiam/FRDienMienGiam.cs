@@ -58,8 +58,16 @@ namespace QLHSBanTru2018_Demo_V1.QLThuChi
         public int prID = 0;
         private void gridView1_FocusedRowChanged(object sender, DevExpress.XtraGrid.Views.Base.FocusedRowChangedEventArgs e)
         {
-            preferredName = gridView1.GetRowCellValue(e.FocusedRowHandle, "Name").ToString();
-            prID =int.Parse(gridView1.GetRowCellValue(e.FocusedRowHandle, "PreferredI").ToString());
+            try
+            {
+                preferredName = gridView1.GetRowCellValue(e.FocusedRowHandle, "Name").ToString();
+                prID = int.Parse(gridView1.GetRowCellValue(e.FocusedRowHandle, "PreferredI").ToString());
+            }
+            catch 
+            {
+
+                
+            }
         }
 
         private void bntXoa_Click(object sender, EventArgs e)

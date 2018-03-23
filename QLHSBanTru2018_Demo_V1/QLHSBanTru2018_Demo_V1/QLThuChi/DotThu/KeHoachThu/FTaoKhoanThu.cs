@@ -10,6 +10,7 @@ using System.Windows.Forms;
 using DevExpress.XtraEditors;
 using DataConnect;
 using DataConnect.DAO.ThanhCongTC;
+using QLHSBanTru2018_Demo_V1.QLThuChi.DotThu.KeHoachThu;
 
 namespace QLHSBanTru2018_Demo_V1.QLThuChi
 {
@@ -24,13 +25,25 @@ namespace QLHSBanTru2018_Demo_V1.QLThuChi
         {
             this.Close();
         }
-
+        public void loadHocKy()
+        {
+            SemesterDAO dt = new SemesterDAO();
+            cbbNamhoc.DataSource = dt.ListSemester();
+            cbbNamhoc.ValueMember = "SemesterID";
+            cbbNamhoc.DisplayMember = "Name";
+        }
         private void bntDienMienGiam_Click(object sender, EventArgs e)
         {
             FRDienMienGiam a = new FRDienMienGiam();
             a.ShowDialog();
         }
-
+        public void loadKhoi()
+        {
+            GradeDAO dt = new GradeDAO();
+            cbbKhoihoc.DataSource = dt.listGrade(int.Parse(cbbNamhoc.SelectedValue.ToString()));
+            cbbKhoihoc.ValueMember = "GradeID";
+            cbbKhoihoc.DisplayMember = "Name";
+        }
         private void bntLuu_Click(object sender, EventArgs e)
         {
 
@@ -51,43 +64,28 @@ namespace QLHSBanTru2018_Demo_V1.QLThuChi
             }
         }
 
-        private void cbHangThang_CheckedChanged(object sender, EventArgs e)
-        {
-            if (cbHangThang.Checked==true)
-            {
-                cbHocKy.Checked = false;
-                cbNam.Checked = false;
-            }
-        }
-
-        private void cbHocKy_CheckedChanged(object sender, EventArgs e)
-        {
-            if (cbHocKy.Checked==true)
-            {
-                cbHangThang.Checked = false;
-                cbNam.Checked = false;
-            }
-        }
-
-        private void cbNam_CheckedChanged(object sender, EventArgs e)
-        {
-            if (cbNam.Checked==true)
-            {
-                cbHocKy.Checked = false;
-                cbHangThang.Checked = false;
-            }
-        }
-        public void LoadDSMG()
-        {
-            PreferredDAO dt = new PreferredDAO();
-            cbbMiengiam.DataSource = dt.ListPreferred();
-            cbbMiengiam.ValueMember = "PreferredID";
-            cbbMiengiam.DisplayMember = "Name";
-
-        }
         private void FTaoKhoanThu_Load(object sender, EventArgs e)
         {
-            LoadDSMG();
+            loadHocKy();
+            loadKhoi();
+        }
+
+        private void cbDoituongchinhsach_CheckedChanged(object sender, EventArgs e)
+        {
+            if (bntDoituongchinhsach.Enabled == false)
+            {
+                bntDoituongchinhsach.Enabled = true;
+            }
+            else
+            {
+                bntDoituongchinhsach.Enabled = false;
+            }
+        }
+
+        private void bntDoituongchinhsach_Click(object sender, EventArgs e)
+        {
+            FrDoiTuongchinhsach a = new FrDoiTuongchinhsach();
+            a.ShowDialog();
         }
     }
 }

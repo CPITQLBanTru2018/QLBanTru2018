@@ -65,6 +65,12 @@ namespace DataConnect.DAO.HungTD
                 return false;
             }
         }
+
+        public List<Grade> ListBySemester(int semesterID)
+        {
+            throw new NotImplementedException();
+        }
+
         public bool Delete(int gradeID)
         {
             try

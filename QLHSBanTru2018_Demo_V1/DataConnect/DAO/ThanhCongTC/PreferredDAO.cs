@@ -41,5 +41,6 @@ namespace DataConnect.DAO.ThanhCongTC
             return a.ToList();
         }
         public static List<Preferred> ListDemoPreferred = new List<Preferred>();
+        public static string PreferredIDList = "";
     }
 }

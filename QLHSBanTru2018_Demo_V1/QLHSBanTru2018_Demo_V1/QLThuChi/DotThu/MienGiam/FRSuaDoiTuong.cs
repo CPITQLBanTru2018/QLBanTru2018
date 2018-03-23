@@ -46,7 +46,7 @@ namespace QLHSBanTru2018_Demo_V1.QLThuChi.DotThu.MienGiam
                     a.Name = gridView1.GetRowCellValue(i, gridView1.Columns["Name"]).ToString();
                     a.Status =bool.Parse(gridView1.GetRowCellValue(i, gridView1.Columns["Status"]).ToString());
                     a.Percent = float.Parse(gridView1.GetRowCellValue(i, gridView1.Columns["Percent"]).ToString());
-                    dt.Insert(a);
+                    dt.Edit(a);
                 }
                 catch 
                 {
