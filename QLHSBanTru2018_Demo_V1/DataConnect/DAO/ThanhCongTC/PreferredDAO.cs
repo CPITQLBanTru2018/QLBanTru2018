@@ -14,6 +14,7 @@ namespace DataConnect.DAO.ThanhCongTC
             Preferred a = new Preferred();
             a.Name = entity.Name;
             a.Status = entity.Status;
+            a.Percent = entity.Percent;
             dt.Preferreds.InsertOnSubmit(a);
             dt.SubmitChanges();
             return true;
@@ -22,6 +23,7 @@ namespace DataConnect.DAO.ThanhCongTC
         {
             Preferred a = dt.Preferreds.Where(t => t.PreferredID == entity.PreferredID).FirstOrDefault();
             a.Name = entity.Name;
+            a.Percent = entity.Percent;
             a.Status = entity.Status;
             dt.SubmitChanges();
             return true;

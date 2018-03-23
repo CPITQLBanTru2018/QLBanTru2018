@@ -118,5 +118,11 @@ namespace QLHSBanTru2018_Demo_V1.QLThuChi
                 
             }
         }
+
+        private void bntDoituongchinhsach_Click(object sender, EventArgs e)
+        {
+            FRDienMienGiam a = new FRDienMienGiam();
+            a.ShowDialog();
+        }
     }
 }
