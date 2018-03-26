@@ -43,9 +43,7 @@
             this.label6 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
             this.cbHangThang = new System.Windows.Forms.RadioButton();
-            this.cbbNhomThu = new System.Windows.Forms.ComboBox();
             this.bntHuy = new DevExpress.XtraEditors.SimpleButton();
             this.bntLuu = new DevExpress.XtraEditors.SimpleButton();
             this.txtTenKhoanThu = new System.Windows.Forms.TextBox();
@@ -174,15 +172,6 @@
             this.label3.TabIndex = 30;
             this.label3.Text = "Loại khoản thu";
             // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(6, 40);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(65, 13);
-            this.label2.TabIndex = 29;
-            this.label2.Text = "Thuộc nhóm";
-            // 
             // cbHangThang
             // 
             this.cbHangThang.AutoSize = true;
@@ -194,17 +183,6 @@
             this.cbHangThang.Text = "Hàng tháng";
             this.cbHangThang.UseVisualStyleBackColor = true;
             this.cbHangThang.CheckedChanged += new System.EventHandler(this.cbHangThang_CheckedChanged);
-            // 
-            // cbbNhomThu
-            // 
-            this.cbbNhomThu.FormattingEnabled = true;
-            this.cbbNhomThu.Items.AddRange(new object[] {
-            "Thu định kỳ",
-            "Thu phát sinh"});
-            this.cbbNhomThu.Location = new System.Drawing.Point(88, 37);
-            this.cbbNhomThu.Name = "cbbNhomThu";
-            this.cbbNhomThu.Size = new System.Drawing.Size(228, 21);
-            this.cbbNhomThu.TabIndex = 27;
             // 
             // bntHuy
             // 
@@ -266,9 +244,7 @@
             this.Controls.Add(this.label6);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.label3);
-            this.Controls.Add(this.label2);
             this.Controls.Add(this.cbHangThang);
-            this.Controls.Add(this.cbbNhomThu);
             this.Controls.Add(this.bntHuy);
             this.Controls.Add(this.bntLuu);
             this.Controls.Add(this.txtTenKhoanThu);
@@ -295,9 +271,7 @@
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.Label label2;
         private System.Windows.Forms.RadioButton cbHangThang;
-        private System.Windows.Forms.ComboBox cbbNhomThu;
         private DevExpress.XtraEditors.SimpleButton bntHuy;
         private DevExpress.XtraEditors.SimpleButton bntLuu;
         private System.Windows.Forms.TextBox txtTenKhoanThu;

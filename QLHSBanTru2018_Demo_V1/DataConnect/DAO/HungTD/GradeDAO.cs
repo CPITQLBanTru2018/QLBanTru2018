@@ -66,7 +66,7 @@ namespace DataConnect.DAO.HungTD
             }
         }
 
-        public List<Grade> ListBySemester(int semesterID)
+        public List<Grade> ListBySemester_(int semesterID)
         {
             throw new NotImplementedException();
         }

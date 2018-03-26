@@ -82,26 +82,50 @@ namespace QLHSBanTru2018_Demo_V1.QLThuChi
 
         private void cbbNamhoc_SelectionChangeCommitted(object sender, EventArgs e)
         {
-            studentReceivableDAO.CourseID = (int)cbbNamhoc.SelectedValue;
-            LoadHocky();
-            studentReceivableDAO.SemesterID = (int)cbbHocky.SelectedValue;
-            LoadKhoihoc();
-            studentReceivableDAO.GradeID = (int)cbbKhoihoc.SelectedValue;
-            LoadLophoc();
+            try
+            {
+                studentReceivableDAO.CourseID = (int)cbbNamhoc.SelectedValue;
+                LoadHocky();
+                studentReceivableDAO.SemesterID = (int)cbbHocky.SelectedValue;
+                LoadKhoihoc();
+                studentReceivableDAO.GradeID = (int)cbbKhoihoc.SelectedValue;
+                LoadLophoc();
+            }
+            catch 
+            {
+
+                
+            }
         }
 
         private void cbbHocky_SelectionChangeCommitted(object sender, EventArgs e)
         {
-            studentReceivableDAO.SemesterID = (int)cbbHocky.SelectedValue;
-            studentReceivableDAO.GradeID = (int)cbbKhoihoc.SelectedValue;
-            LoadKhoihoc();
-            LoadLophoc();
+            try
+            {
+                studentReceivableDAO.SemesterID = (int)cbbHocky.SelectedValue;
+                LoadKhoihoc();
+                studentReceivableDAO.GradeID = (int)cbbKhoihoc.SelectedValue;
+                LoadLophoc();
+            }
+            catch 
+            {
+
+                
+            }
         }
 
         private void cbbKhoihoc_SelectionChangeCommitted(object sender, EventArgs e)
         {
-            studentReceivableDAO.GradeID =(int) cbbKhoihoc.SelectedValue;
-            LoadLophoc();
+            try
+            {
+                studentReceivableDAO.GradeID = (int)cbbKhoihoc.SelectedValue;
+                LoadLophoc();
+            }
+            catch 
+            {
+
+                
+            }
         }
 
         private void cbbLophoc_SelectionChangeCommitted(object sender, EventArgs e)

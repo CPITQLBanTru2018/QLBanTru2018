@@ -31,7 +31,7 @@ namespace QLHSBanTru2018_Demo_V1.QLThuChi
 
         private void bntThem_Click(object sender, EventArgs e)
         {
-            
+            PreferredDAO.PreferredIDList = "";
             FTaoKhoanThu a = new FTaoKhoanThu();
             a.ShowDialog();
             //LoadDataKeHoachThu();

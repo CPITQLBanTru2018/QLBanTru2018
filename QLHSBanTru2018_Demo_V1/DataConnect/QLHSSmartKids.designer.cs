@@ -10315,8 +10315,6 @@ namespace DataConnect
 		
 		private System.Nullable<double> _Percent;
 		
-		private EntitySet<ReceivableDetail> _ReceivableDetails;
-		
 		private EntitySet<Student> _Students;
 		
     #region Extensibility Method Definitions
@@ -10335,12 +10333,11 @@ namespace DataConnect
 		
 		public Preferred()
 		{
-			this._ReceivableDetails = new EntitySet<ReceivableDetail>(new Action<ReceivableDetail>(this.attach_ReceivableDetails), new Action<ReceivableDetail>(this.detach_ReceivableDetails));
 			this._Students = new EntitySet<Student>(new Action<Student>(this.attach_Students), new Action<Student>(this.detach_Students));
 			OnCreated();
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_PreferredID", AutoSync=AutoSync.OnInsert, DbType="Int NOT NULL IDENTITY", IsPrimaryKey=true, IsDbGenerated=true)]
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_PreferredID", DbType="Int NOT NULL", IsPrimaryKey=true)]
 		public int PreferredID
 		{
 			get
@@ -10420,19 +10417,6 @@ namespace DataConnect
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Preferred_ReceivableDetail", Storage="_ReceivableDetails", ThisKey="PreferredID", OtherKey="PreferredID")]
-		public EntitySet<ReceivableDetail> ReceivableDetails
-		{
-			get
-			{
-				return this._ReceivableDetails;
-			}
-			set
-			{
-				this._ReceivableDetails.Assign(value);
-			}
-		}
-		
 		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Preferred_Student", Storage="_Students", ThisKey="PreferredID", OtherKey="PreferredID")]
 		public EntitySet<Student> Students
 		{
@@ -10464,18 +10448,6 @@ namespace DataConnect
 			{
 				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
 			}
-		}
-		
-		private void attach_ReceivableDetails(ReceivableDetail entity)
-		{
-			this.SendPropertyChanging();
-			entity.Preferred = this;
-		}
-		
-		private void detach_ReceivableDetails(ReceivableDetail entity)
-		{
-			this.SendPropertyChanging();
-			entity.Preferred = null;
 		}
 		
 		private void attach_Students(Student entity)
@@ -10787,23 +10759,23 @@ namespace DataConnect
 		
 		private decimal _Price;
 		
+		private string _TimeUnits;
+		
+		private System.Nullable<int> _Frequency;
+		
 		private bool _Status;
 		
-		private System.Nullable<int> _RevenueID;
+		private System.Nullable<decimal> _TotalPriceDetail;
 		
 		private System.Nullable<int> _GradeID;
 		
-		private System.Nullable<int> _PreferredID;
+		private string _PreferredID;
 		
 		private EntitySet<ReceivableDetail_Student> _ReceivableDetail_Students;
 		
 		private EntityRef<Grade> _Grade;
 		
-		private EntityRef<Preferred> _Preferred;
-		
 		private EntityRef<Receivable> _Receivable;
-		
-		private EntityRef<Revenue> _Revenue;
 		
     #region Extensibility Method Definitions
     partial void OnLoaded();
@@ -10817,13 +10789,17 @@ namespace DataConnect
     partial void OnNameChanged();
     partial void OnPriceChanging(decimal value);
     partial void OnPriceChanged();
+    partial void OnTimeUnitsChanging(string value);
+    partial void OnTimeUnitsChanged();
+    partial void OnFrequencyChanging(System.Nullable<int> value);
+    partial void OnFrequencyChanged();
     partial void OnStatusChanging(bool value);
     partial void OnStatusChanged();
-    partial void OnRevenueIDChanging(System.Nullable<int> value);
-    partial void OnRevenueIDChanged();
+    partial void OnTotalPriceDetailChanging(System.Nullable<decimal> value);
+    partial void OnTotalPriceDetailChanged();
     partial void OnGradeIDChanging(System.Nullable<int> value);
     partial void OnGradeIDChanged();
-    partial void OnPreferredIDChanging(System.Nullable<int> value);
+    partial void OnPreferredIDChanging(string value);
     partial void OnPreferredIDChanged();
     #endregion
 		
@@ -10831,9 +10807,7 @@ namespace DataConnect
 		{
 			this._ReceivableDetail_Students = new EntitySet<ReceivableDetail_Student>(new Action<ReceivableDetail_Student>(this.attach_ReceivableDetail_Students), new Action<ReceivableDetail_Student>(this.detach_ReceivableDetail_Students));
 			this._Grade = default(EntityRef<Grade>);
-			this._Preferred = default(EntityRef<Preferred>);
 			this._Receivable = default(EntityRef<Receivable>);
-			this._Revenue = default(EntityRef<Revenue>);
 			OnCreated();
 		}
 		
@@ -10921,6 +10895,46 @@ namespace DataConnect
 			}
 		}
 		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_TimeUnits", DbType="NVarChar(10)")]
+		public string TimeUnits
+		{
+			get
+			{
+				return this._TimeUnits;
+			}
+			set
+			{
+				if ((this._TimeUnits != value))
+				{
+					this.OnTimeUnitsChanging(value);
+					this.SendPropertyChanging();
+					this._TimeUnits = value;
+					this.SendPropertyChanged("TimeUnits");
+					this.OnTimeUnitsChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Frequency", DbType="Int")]
+		public System.Nullable<int> Frequency
+		{
+			get
+			{
+				return this._Frequency;
+			}
+			set
+			{
+				if ((this._Frequency != value))
+				{
+					this.OnFrequencyChanging(value);
+					this.SendPropertyChanging();
+					this._Frequency = value;
+					this.SendPropertyChanged("Frequency");
+					this.OnFrequencyChanged();
+				}
+			}
+		}
+		
 		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Status", DbType="Bit NOT NULL")]
 		public bool Status
 		{
@@ -10941,26 +10955,22 @@ namespace DataConnect
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_RevenueID", DbType="Int")]
-		public System.Nullable<int> RevenueID
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_TotalPriceDetail", DbType="Decimal(18,0)")]
+		public System.Nullable<decimal> TotalPriceDetail
 		{
 			get
 			{
-				return this._RevenueID;
+				return this._TotalPriceDetail;
 			}
 			set
 			{
-				if ((this._RevenueID != value))
+				if ((this._TotalPriceDetail != value))
 				{
-					if (this._Revenue.HasLoadedOrAssignedValue)
-					{
-						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
-					}
-					this.OnRevenueIDChanging(value);
+					this.OnTotalPriceDetailChanging(value);
 					this.SendPropertyChanging();
-					this._RevenueID = value;
-					this.SendPropertyChanged("RevenueID");
-					this.OnRevenueIDChanged();
+					this._TotalPriceDetail = value;
+					this.SendPropertyChanged("TotalPriceDetail");
+					this.OnTotalPriceDetailChanged();
 				}
 			}
 		}
@@ -10989,8 +10999,8 @@ namespace DataConnect
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_PreferredID", DbType="Int")]
-		public System.Nullable<int> PreferredID
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_PreferredID", DbType="NVarChar(50)")]
+		public string PreferredID
 		{
 			get
 			{
@@ -11000,10 +11010,6 @@ namespace DataConnect
 			{
 				if ((this._PreferredID != value))
 				{
-					if (this._Preferred.HasLoadedOrAssignedValue)
-					{
-						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
-					}
 					this.OnPreferredIDChanging(value);
 					this.SendPropertyChanging();
 					this._PreferredID = value;
@@ -11060,40 +11066,6 @@ namespace DataConnect
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Preferred_ReceivableDetail", Storage="_Preferred", ThisKey="PreferredID", OtherKey="PreferredID", IsForeignKey=true)]
-		public Preferred Preferred
-		{
-			get
-			{
-				return this._Preferred.Entity;
-			}
-			set
-			{
-				Preferred previousValue = this._Preferred.Entity;
-				if (((previousValue != value) 
-							|| (this._Preferred.HasLoadedOrAssignedValue == false)))
-				{
-					this.SendPropertyChanging();
-					if ((previousValue != null))
-					{
-						this._Preferred.Entity = null;
-						previousValue.ReceivableDetails.Remove(this);
-					}
-					this._Preferred.Entity = value;
-					if ((value != null))
-					{
-						value.ReceivableDetails.Add(this);
-						this._PreferredID = value.PreferredID;
-					}
-					else
-					{
-						this._PreferredID = default(Nullable<int>);
-					}
-					this.SendPropertyChanged("Preferred");
-				}
-			}
-		}
-		
 		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Receivable_ReceivableDetail", Storage="_Receivable", ThisKey="ReceivableID", OtherKey="ReceivableID", IsForeignKey=true)]
 		public Receivable Receivable
 		{
@@ -11124,40 +11096,6 @@ namespace DataConnect
 						this._ReceivableID = default(int);
 					}
 					this.SendPropertyChanged("Receivable");
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Revenue_ReceivableDetail", Storage="_Revenue", ThisKey="RevenueID", OtherKey="RevenueID", IsForeignKey=true)]
-		public Revenue Revenue
-		{
-			get
-			{
-				return this._Revenue.Entity;
-			}
-			set
-			{
-				Revenue previousValue = this._Revenue.Entity;
-				if (((previousValue != value) 
-							|| (this._Revenue.HasLoadedOrAssignedValue == false)))
-				{
-					this.SendPropertyChanging();
-					if ((previousValue != null))
-					{
-						this._Revenue.Entity = null;
-						previousValue.ReceivableDetails.Remove(this);
-					}
-					this._Revenue.Entity = value;
-					if ((value != null))
-					{
-						value.ReceivableDetails.Add(this);
-						this._RevenueID = value.RevenueID;
-					}
-					else
-					{
-						this._RevenueID = default(Nullable<int>);
-					}
-					this.SendPropertyChanged("Revenue");
 				}
 			}
 		}
@@ -11531,7 +11469,7 @@ namespace DataConnect
 		
 		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
 		
-		private int _RevenueID;
+		private decimal _RevenueID;
 		
 		private string _RevenueName;
 		
@@ -11539,13 +11477,11 @@ namespace DataConnect
 		
 		private System.Nullable<bool> _Status;
 		
-		private EntitySet<ReceivableDetail> _ReceivableDetails;
-		
     #region Extensibility Method Definitions
     partial void OnLoaded();
     partial void OnValidate(System.Data.Linq.ChangeAction action);
     partial void OnCreated();
-    partial void OnRevenueIDChanging(int value);
+    partial void OnRevenueIDChanging(decimal value);
     partial void OnRevenueIDChanged();
     partial void OnRevenueNameChanging(string value);
     partial void OnRevenueNameChanged();
@@ -11557,12 +11493,11 @@ namespace DataConnect
 		
 		public Revenue()
 		{
-			this._ReceivableDetails = new EntitySet<ReceivableDetail>(new Action<ReceivableDetail>(this.attach_ReceivableDetails), new Action<ReceivableDetail>(this.detach_ReceivableDetails));
 			OnCreated();
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_RevenueID", DbType="Int NOT NULL", IsPrimaryKey=true)]
-		public int RevenueID
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_RevenueID", DbType="Decimal(18,0) NOT NULL", IsPrimaryKey=true)]
+		public decimal RevenueID
 		{
 			get
 			{
@@ -11641,19 +11576,6 @@ namespace DataConnect
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Revenue_ReceivableDetail", Storage="_ReceivableDetails", ThisKey="RevenueID", OtherKey="RevenueID")]
-		public EntitySet<ReceivableDetail> ReceivableDetails
-		{
-			get
-			{
-				return this._ReceivableDetails;
-			}
-			set
-			{
-				this._ReceivableDetails.Assign(value);
-			}
-		}
-		
 		public event PropertyChangingEventHandler PropertyChanging;
 		
 		public event PropertyChangedEventHandler PropertyChanged;
@@ -11672,18 +11594,6 @@ namespace DataConnect
 			{
 				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
 			}
-		}
-		
-		private void attach_ReceivableDetails(ReceivableDetail entity)
-		{
-			this.SendPropertyChanging();
-			entity.Revenue = this;
-		}
-		
-		private void detach_ReceivableDetails(ReceivableDetail entity)
-		{
-			this.SendPropertyChanging();
-			entity.Revenue = null;
 		}
 	}
 	

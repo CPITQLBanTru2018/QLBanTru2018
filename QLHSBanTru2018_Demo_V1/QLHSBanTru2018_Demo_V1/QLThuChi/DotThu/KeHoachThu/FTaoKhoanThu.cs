@@ -54,6 +54,11 @@ namespace QLHSBanTru2018_Demo_V1.QLThuChi
                 a.Name = txtTenKhoanThu.Text;
                 a.Price = decimal.Parse(txtMucThu.Text);
                 a.Status = true;
+                a.TimeUnits = cbbDonViThoiGian.Text;
+                a.Frequency = int.Parse(txtTanso.Text);
+                a.TotalPriceDetail = decimal.Parse(txtTongthu.Text);
+                a.GradeID = (int)cbbKhoihoc.SelectedValue;
+                a.PreferredID = PreferredDAO.PreferredIDList;
                 ReceivableDetailDAO.ListDemoReceivableDetail.Add(a);
                 this.Close();
             }
@@ -84,8 +89,60 @@ namespace QLHSBanTru2018_Demo_V1.QLThuChi
 
         private void bntDoituongchinhsach_Click(object sender, EventArgs e)
         {
+            
             FrDoiTuongchinhsach a = new FrDoiTuongchinhsach();
             a.ShowDialog();
+        }
+
+        private void txtMucThu_TextChanged(object sender, EventArgs e)
+        {
+            try
+            {
+                decimal a = new decimal();
+                a = decimal.Parse(txtMucThu.Text) * int.Parse(txtTanso.Text);
+                txtTongthu.Text = a.ToString();
+            }
+            catch 
+            {
+
+               
+            }
+        }
+
+        private void txtTanso_TextChanged(object sender, EventArgs e)
+        {
+            try
+            {
+                decimal a = new decimal();
+                a = decimal.Parse(txtMucThu.Text) * int.Parse(txtTanso.Text);
+                txtTongthu.Text = a.ToString();
+            }
+            catch 
+            {
+
+                
+            }
+        }
+
+        private void txtMucThu_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!Char.IsDigit(e.KeyChar) && !Char.IsControl(e.KeyChar))
+            {
+                e.Handled = true;
+            }
+        }
+
+        private void txtTanso_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!Char.IsDigit(e.KeyChar) && !Char.IsControl(e.KeyChar))
+            {
+                e.Handled = true;
+            }
+        }
+
+        private void cbbDonViThoiGian_TextChanged(object sender, EventArgs e)
+        {
+            txtDv.Text = cbbDonViThoiGian.Text;
         }
     }
 }
