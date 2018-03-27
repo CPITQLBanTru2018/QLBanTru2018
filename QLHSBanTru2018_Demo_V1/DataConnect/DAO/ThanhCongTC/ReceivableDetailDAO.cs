@@ -53,5 +53,6 @@ namespace DataConnect.DAO.ThanhCongTC
             return a.ToList();
         }
         public static List<ReceivableDetail> ListDemoReceivableDetail = new List<ReceivableDetail>();
+        public static ReceivableDetail DemoReceibavleDetail;
     }
 }

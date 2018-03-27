@@ -38,7 +38,6 @@
             this.label8 = new System.Windows.Forms.Label();
             this.cbbDonViThoiGian = new System.Windows.Forms.ComboBox();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.label3 = new System.Windows.Forms.Label();
             this.txtTanso = new System.Windows.Forms.TextBox();
             this.label5 = new System.Windows.Forms.Label();
             this.bntDoituongchinhsach = new DevExpress.XtraEditors.SimpleButton();
@@ -128,15 +127,6 @@
             this.groupBox1.TabIndex = 21;
             this.groupBox1.TabStop = false;
             // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(205, 68);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(11, 13);
-            this.label3.TabIndex = 30;
-            this.label3.Text = "/";
-            // 
             // txtTanso
             // 
             this.txtTanso.Location = new System.Drawing.Point(94, 65);
@@ -211,6 +201,7 @@
             // 
             // cbbKhoihoc
             // 
+            this.cbbKhoihoc.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbbKhoihoc.FormattingEnabled = true;
             this.cbbKhoihoc.Items.AddRange(new object[] {
             "Ngày",
@@ -244,6 +235,7 @@
             // 
             // txtTongthu
             // 
+            this.txtTongthu.Enabled = false;
             this.txtTongthu.Location = new System.Drawing.Point(94, 92);
             this.txtTongthu.Name = "txtTongthu";
             this.txtTongthu.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
@@ -284,7 +276,6 @@
             this.Controls.Add(this.cbbNamhoc);
             this.Controls.Add(this.label7);
             this.Controls.Add(this.cbbKhoihoc);
-            this.Controls.Add(this.label3);
             this.Controls.Add(this.txtTanso);
             this.Controls.Add(this.label5);
             this.Controls.Add(this.groupBox1);
@@ -317,7 +308,6 @@
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.ComboBox cbbDonViThoiGian;
         private System.Windows.Forms.GroupBox groupBox1;
-        private System.Windows.Forms.Label label3;
         private System.Windows.Forms.TextBox txtTanso;
         private System.Windows.Forms.Label label5;
         private DevExpress.XtraEditors.SimpleButton bntDoituongchinhsach;

@@ -9,6 +9,10 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using DevExpress.XtraEditors;
 using System.Threading;
+using DataConnect;
+using DataConnect.DAO.ThanhCongTC;
+using QLHSBanTru2018_Demo_V1.QLThuChi.DotThu.KeHoachThu;
+
 
 namespace QLHSBanTru2018_Demo_V1.QLThuChi
 {
@@ -23,43 +27,93 @@ namespace QLHSBanTru2018_Demo_V1.QLThuChi
         {
             this.Close();
         }
-       
-        private void bntDienMienGiam_Click(object sender, EventArgs e)
+        public void loadHocKy()
         {
-            FRDienMienGiam a = new FRDienMienGiam();
+            SemesterDAO dt = new SemesterDAO();
+            cbbNamhoc.DataSource = dt.ListSemester();
+            cbbNamhoc.ValueMember = "SemesterID";
+            cbbNamhoc.DisplayMember = "Name";
+        }
+        public void loadKhoi()
+        {
+            GradeDAO dt = new GradeDAO();
+            cbbKhoihoc.DataSource = dt.listGrade(int.Parse(cbbNamhoc.SelectedValue.ToString()));
+            cbbKhoihoc.ValueMember = "GradeID";
+            cbbKhoihoc.DisplayMember = "Name";
+        }
+        private void FRSuaKhoanThu_Load(object sender, EventArgs e)
+        {
+            loadHocKy();
+            loadKhoi();
+        }
+
+        private void bntDoituongchinhsach_Click(object sender, EventArgs e)
+        {
+            FrDoiTuongchinhsach a = new FrDoiTuongchinhsach();
             a.ShowDialog();
         }
 
-        private void bntLuu_Click(object sender, EventArgs e)
+        private void cbDoituongchinhsach_CheckedChanged(object sender, EventArgs e)
         {
-
-        }
-
-        private void cbHangThang_CheckedChanged(object sender, EventArgs e)
-        {
-            if (cbHangThang.Checked==true)
+            if (bntDoituongchinhsach.Enabled == false)
             {
-                cbHocKy.Checked = false;
-                cbNam.Checked = false;
+                bntDoituongchinhsach.Enabled = true;
+            }
+            else
+            {
+                bntDoituongchinhsach.Enabled = false;
             }
         }
 
-        private void cbHocKy_CheckedChanged(object sender, EventArgs e)
+        private void txtMucThu_TextChanged(object sender, EventArgs e)
         {
-            if (cbHocKy.Checked==true)
+            try
             {
-                cbHangThang.Checked = false;
-                cbNam.Checked = false;
+                decimal a = new decimal();
+                a = decimal.Parse(txtMucThu.Text) * int.Parse(txtTanso.Text);
+                txtTongthu.Text = a.ToString();
+            }
+            catch
+            {
+
+
             }
         }
 
-        private void cbNam_CheckedChanged(object sender, EventArgs e)
+        private void txtTanso_TextChanged(object sender, EventArgs e)
         {
-            if (cbNam.Checked==true)
+            try
             {
-                cbHangThang.Checked = false;
-                cbHocKy.Checked = false;
+                decimal a = new decimal();
+                a = decimal.Parse(txtMucThu.Text) * int.Parse(txtTanso.Text);
+                txtTongthu.Text = a.ToString();
             }
+            catch
+            {
+
+
+            }
+        }
+
+        private void txtMucThu_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!Char.IsDigit(e.KeyChar) && !Char.IsControl(e.KeyChar))
+            {
+                e.Handled = true;
+            }
+        }
+
+        private void txtTanso_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!Char.IsDigit(e.KeyChar) && !Char.IsControl(e.KeyChar))
+            {
+                e.Handled = true;
+            }
+        }
+
+        private void cbbDonViThoiGian_TextChanged(object sender, EventArgs e)
+        {
+            txtDv.Text = cbbDonViThoiGian.Text;
         }
     }
 }
