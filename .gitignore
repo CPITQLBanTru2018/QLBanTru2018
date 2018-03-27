@@ -259,3 +259,4 @@ paket-files/
 # Python Tools for Visual Studio (PTVS)
 __pycache__/
 *.pyc
+QLHSBanTru2018_Demo_V1/DataConnect/DAO/HungTD/GradeDAO.cs

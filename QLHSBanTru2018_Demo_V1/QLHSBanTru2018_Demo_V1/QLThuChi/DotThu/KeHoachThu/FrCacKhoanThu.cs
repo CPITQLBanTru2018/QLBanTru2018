@@ -31,7 +31,7 @@ namespace QLHSBanTru2018_Demo_V1.QLThuChi
 
         private void bntThem_Click(object sender, EventArgs e)
         {
-            
+            PreferredDAO.PreferredIDList = "";
             FTaoKhoanThu a = new FTaoKhoanThu();
             a.ShowDialog();
             //LoadDataKeHoachThu();
@@ -97,6 +97,11 @@ namespace QLHSBanTru2018_Demo_V1.QLThuChi
                         detail.ReceivableID = c;
                         detail.Price = decimal.Parse(a);
                         detail.Status = false;
+                        detail.TimeUnits = gridView1.GetRowCellValue(i, gridView1.Columns["TimeUnits"]).ToString();
+                        detail.Frequency = (int)gridView1.GetRowCellValue(i, gridView1.Columns["Frequency"]);
+                        detail.TotalPriceDetail = (int)gridView1.GetRowCellValue(i, gridView1.Columns["TotalPriceDetail"]);
+                        detail.GradeID = (int)gridView1.GetRowCellValue(i, gridView1.Columns["GradeID"]);
+                        detail.PreferredID = gridView1.GetRowCellValue(i, gridView1.Columns["PreferredID"]).ToString();
                         int d = rbd.Insert(detail);
                         if (d != 0)
                         {
@@ -123,6 +128,28 @@ namespace QLHSBanTru2018_Demo_V1.QLThuChi
         {
             FRDienMienGiam a = new FRDienMienGiam();
             a.ShowDialog();
+        }
+
+        private void gridView1_FocusedRowChanged(object sender, DevExpress.XtraGrid.Views.Base.FocusedRowChangedEventArgs e)
+        {
+            ReceivableDetail a = new ReceivableDetail();
+            try
+            {
+                a.Name = gridView1.GetRowCellValue(e.FocusedRowHandle, "Name").ToString();
+                a.Price = decimal.Parse(gridView1.GetRowCellValue(e.FocusedRowHandle, "Price").ToString());
+                a.Status = true;
+                a.TimeUnits = gridView1.GetRowCellValue(e.FocusedRowHandle, "TimeUnits").ToString();
+                a.Frequency = int.Parse(gridView1.GetRowCellValue(e.FocusedRowHandle, "Frequency").ToString());
+                a.TotalPriceDetail = decimal.Parse(gridView1.GetRowCellValue(e.FocusedRowHandle, "TotalPriceDetail").ToString());
+                a.GradeID = (int)gridView1.GetRowCellValue(e.FocusedRowHandle, "GradeID");
+                a.PreferredID = PreferredDAO.PreferredIDList;
+                PreferredDAO.PreferredIDList = gridView1.GetRowCellValue(e.FocusedRowHandle, "PreferredID").ToString();
+            }
+            catch 
+            {
+
+                
+            }
         }
     }
 }

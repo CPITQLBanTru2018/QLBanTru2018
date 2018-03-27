@@ -18,7 +18,9 @@ namespace DataConnect.DAO.ThanhCongTC
             a.Status = entity.Status;
             a.PreferredID = entity.PreferredID;
             a.GradeID = entity.GradeID;
-            //a.Revenue = entity.Revenue;
+            a.TotalPriceDetail = entity.TotalPriceDetail;
+            a.TimeUnits = entity.TimeUnits;
+            a.Frequency = entity.Frequency;
             dt.ReceivableDetails.InsertOnSubmit(a);
             dt.SubmitChanges();
             return a.ReceivableDetailID;
@@ -32,7 +34,9 @@ namespace DataConnect.DAO.ThanhCongTC
             a.GradeID = entity.GradeID;
             a.PreferredID = entity.PreferredID;
             a.Status = entity.Status;
-            //a.Revenue = entity.Revenue;
+            a.Frequency = entity.Frequency;
+            a.TimeUnits = entity.TimeUnits;
+            a.TotalPriceDetail = entity.TotalPriceDetail;
             dt.SubmitChanges();
             return true;
         }
@@ -49,5 +53,6 @@ namespace DataConnect.DAO.ThanhCongTC
             return a.ToList();
         }
         public static List<ReceivableDetail> ListDemoReceivableDetail = new List<ReceivableDetail>();
+        public static ReceivableDetail DemoReceibavleDetail;
     }
 }
