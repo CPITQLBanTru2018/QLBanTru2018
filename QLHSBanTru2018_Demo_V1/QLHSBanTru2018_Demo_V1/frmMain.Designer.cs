@@ -39,6 +39,8 @@
             this.bntThuTheoLop = new DevExpress.XtraBars.BarButtonItem();
             this.btnAddFunction = new DevExpress.XtraBars.BarButtonItem();
             this.btnContractManager = new DevExpress.XtraBars.BarButtonItem();
+            this.btnTTHocSinh = new DevExpress.XtraBars.BarButtonItem();
+            this.btnTKHocSinh = new DevExpress.XtraBars.BarButtonItem();
             this.ribbonPage1 = new DevExpress.XtraBars.Ribbon.RibbonPage();
             this.ribbonPageGroup1 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             this.ribbonPageGroup2 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
@@ -46,12 +48,13 @@
             this.ribbonPageGroup5 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             this.ribbonPage2 = new DevExpress.XtraBars.Ribbon.RibbonPage();
             this.ribbonPageGroup3 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
+            this.ribbonPage3 = new DevExpress.XtraBars.Ribbon.RibbonPage();
+            this.ribbonPageGroup6 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             this.ribbonStatusBar = new DevExpress.XtraBars.Ribbon.RibbonStatusBar();
             this.defaultLookAndFeel1 = new DevExpress.LookAndFeel.DefaultLookAndFeel(this.components);
             this.pnControlsPanel = new System.Windows.Forms.Panel();
-            this.ribbonPage3 = new DevExpress.XtraBars.Ribbon.RibbonPage();
-            this.ribbonPageGroup6 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
-            this.btnTTHocSinh = new DevExpress.XtraBars.BarButtonItem();
+            this.ribbonPageGroup7 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
+            this.barButtonItem1 = new DevExpress.XtraBars.BarButtonItem();
             ((System.ComponentModel.ISupportInitialize)(this.ribbon)).BeginInit();
             this.SuspendLayout();
             // 
@@ -68,9 +71,11 @@
             this.bntThuTheoLop,
             this.btnAddFunction,
             this.btnContractManager,
-            this.btnTTHocSinh});
+            this.btnTTHocSinh,
+            this.btnTKHocSinh,
+            this.barButtonItem1});
             this.ribbon.Location = new System.Drawing.Point(0, 0);
-            this.ribbon.MaxItemId = 10;
+            this.ribbon.MaxItemId = 12;
             this.ribbon.Name = "ribbon";
             this.ribbon.Pages.AddRange(new DevExpress.XtraBars.Ribbon.RibbonPage[] {
             this.ribbonPage1,
@@ -151,6 +156,24 @@
             this.btnContractManager.Name = "btnContractManager";
             this.btnContractManager.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.btnContractManager_ItemClick);
             // 
+            // btnTTHocSinh
+            // 
+            this.btnTTHocSinh.Caption = "Thông tin học sinh";
+            this.btnTTHocSinh.Id = 9;
+            this.btnTTHocSinh.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("btnTTHocSinh.ImageOptions.Image")));
+            this.btnTTHocSinh.ImageOptions.LargeImage = ((System.Drawing.Image)(resources.GetObject("btnTTHocSinh.ImageOptions.LargeImage")));
+            this.btnTTHocSinh.Name = "btnTTHocSinh";
+            this.btnTTHocSinh.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.btnTTHocSinh_ItemClick);
+            // 
+            // btnTKHocSinh
+            // 
+            this.btnTKHocSinh.Caption = "Tài khoản học sinh";
+            this.btnTKHocSinh.Id = 10;
+            this.btnTKHocSinh.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("btnTKHocSinh.ImageOptions.Image")));
+            this.btnTKHocSinh.ImageOptions.LargeImage = ((System.Drawing.Image)(resources.GetObject("btnTKHocSinh.ImageOptions.LargeImage")));
+            this.btnTKHocSinh.Name = "btnTKHocSinh";
+            this.btnTKHocSinh.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.btnTKHocSinh_ItemClick);
+            // 
             // ribbonPage1
             // 
             this.ribbonPage1.Groups.AddRange(new DevExpress.XtraBars.Ribbon.RibbonPageGroup[] {
@@ -202,6 +225,21 @@
             this.ribbonPageGroup3.Name = "ribbonPageGroup3";
             this.ribbonPageGroup3.Text = "Khoản thu - đợt thu";
             // 
+            // ribbonPage3
+            // 
+            this.ribbonPage3.Groups.AddRange(new DevExpress.XtraBars.Ribbon.RibbonPageGroup[] {
+            this.ribbonPageGroup6,
+            this.ribbonPageGroup7});
+            this.ribbonPage3.Name = "ribbonPage3";
+            this.ribbonPage3.Text = "Học Sinh";
+            // 
+            // ribbonPageGroup6
+            // 
+            this.ribbonPageGroup6.ItemLinks.Add(this.btnTTHocSinh);
+            this.ribbonPageGroup6.ItemLinks.Add(this.btnTKHocSinh);
+            this.ribbonPageGroup6.Name = "ribbonPageGroup6";
+            this.ribbonPageGroup6.Text = "Quản lý hồ sơ học sinh";
+            // 
             // ribbonStatusBar
             // 
             this.ribbonStatusBar.Location = new System.Drawing.Point(0, 578);
@@ -221,27 +259,19 @@
             this.pnControlsPanel.Size = new System.Drawing.Size(798, 432);
             this.pnControlsPanel.TabIndex = 3;
             // 
-            // ribbonPage3
+            // ribbonPageGroup7
             // 
-            this.ribbonPage3.Groups.AddRange(new DevExpress.XtraBars.Ribbon.RibbonPageGroup[] {
-            this.ribbonPageGroup6});
-            this.ribbonPage3.Name = "ribbonPage3";
-            this.ribbonPage3.Text = "Học Sinh";
+            this.ribbonPageGroup7.ItemLinks.Add(this.barButtonItem1);
+            this.ribbonPageGroup7.Name = "ribbonPageGroup7";
+            this.ribbonPageGroup7.Text = "Dữ liệu học sinh";
             // 
-            // ribbonPageGroup6
+            // barButtonItem1
             // 
-            this.ribbonPageGroup6.ItemLinks.Add(this.btnTTHocSinh);
-            this.ribbonPageGroup6.Name = "ribbonPageGroup6";
-            this.ribbonPageGroup6.Text = "Quản lý hồ sơ học sinh";
-            // 
-            // btnTTHocSinh
-            // 
-            this.btnTTHocSinh.Caption = "Thông tin học sinh";
-            this.btnTTHocSinh.Id = 9;
-            this.btnTTHocSinh.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("barButtonItem1.ImageOptions.Image")));
-            this.btnTTHocSinh.ImageOptions.LargeImage = ((System.Drawing.Image)(resources.GetObject("barButtonItem1.ImageOptions.LargeImage")));
-            this.btnTTHocSinh.Name = "btnTTHocSinh";
-            this.btnTTHocSinh.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.btnTTHocSinh_ItemClick);
+            this.barButtonItem1.Caption = "Nhập học sinh từ file Excel";
+            this.barButtonItem1.Id = 11;
+            this.barButtonItem1.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("barButtonItem1.ImageOptions.Image")));
+            this.barButtonItem1.ImageOptions.LargeImage = ((System.Drawing.Image)(resources.GetObject("barButtonItem1.ImageOptions.LargeImage")));
+            this.barButtonItem1.Name = "barButtonItem1";
             // 
             // frmMain
             // 
@@ -286,5 +316,8 @@
         private DevExpress.XtraBars.BarButtonItem btnTTHocSinh;
         private DevExpress.XtraBars.Ribbon.RibbonPage ribbonPage3;
         private DevExpress.XtraBars.Ribbon.RibbonPageGroup ribbonPageGroup6;
+        private DevExpress.XtraBars.BarButtonItem btnTKHocSinh;
+        private DevExpress.XtraBars.BarButtonItem barButtonItem1;
+        private DevExpress.XtraBars.Ribbon.RibbonPageGroup ribbonPageGroup7;
     }
 }

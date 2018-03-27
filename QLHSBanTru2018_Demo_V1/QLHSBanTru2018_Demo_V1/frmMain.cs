@@ -73,6 +73,15 @@ namespace QLHSBanTru2018_Demo_V1
             pnControlsPanel.Controls.Add(m_Student);
             m_Student.Dock = DockStyle.Fill;
         }
+
+        private void btnTKHocSinh_ItemClick(object sender, ItemClickEventArgs e)
+        {
+
+            frmStudentACC m_Studentacc = new frmStudentACC();
+            pnControlsPanel.Controls.Clear();
+            pnControlsPanel.Controls.Add(m_Studentacc);
+            m_Studentacc.Dock = DockStyle.Fill;
+        }
         #endregion
 
         #region Vũ Đức Thiện
@@ -95,6 +104,6 @@ namespace QLHSBanTru2018_Demo_V1
             a.Dock = DockStyle.Fill;
         }
 
-       
+    
     }
 }

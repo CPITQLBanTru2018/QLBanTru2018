@@ -27,6 +27,7 @@ namespace QLHSBanTru2018_Demo_V1.TienBao
         }
         #endregion
 
+
         #region LoadInfor
         private void LoadClassInfor(int GradeID)
         {
@@ -71,6 +72,17 @@ namespace QLHSBanTru2018_Demo_V1.TienBao
             { }
         }
 
+        private void FillStudentLock(int ClassID)
+        {
+            try
+            {
+                dgvHocSinh.DataSource = new StudentDAO().ListStudentLockByClass(ClassID);
+                BindingDetail();
+            }
+            catch
+            { }
+        }
+
         private void BindingDetail()
         {
             txtStudentCode.DataBindings.Clear();
@@ -92,8 +104,8 @@ namespace QLHSBanTru2018_Demo_V1.TienBao
             //txtAddress.DataBindings.Add(new Binding("text", dgvHocSinh.DataSource, "AdressDetail"));
             txtAddress.DataBindings.Clear();
             txtAddress.DataBindings.Add(new Binding("text", dgvHocSinh.DataSource, "LocationDetail"));
-            radActive.DataBindings.Clear();
-            radActive.DataBindings.Add(new Binding("Checked", dgvHocSinh.DataSource, "Status", true, DataSourceUpdateMode.OnPropertyChanged));
+            //radActive.DataBindings.Clear();
+            //radActive.DataBindings.Add(new Binding("Checked", dgvHocSinh.DataSource, "Status", true, DataSourceUpdateMode.OnPropertyChanged));
             txtFatherName.DataBindings.Clear();
             txtFatherName.DataBindings.Add(new Binding("text", dgvHocSinh.DataSource, "FatherName"));
             txtFatherJob.DataBindings.Clear();
@@ -111,7 +123,7 @@ namespace QLHSBanTru2018_Demo_V1.TienBao
             cmbHocKy.Text = "-- Chọn học kỳ --";
             cmbKhoiLop.Text = "-- Chọn khối lớp --";
             cmbLopHoc.Text = "-- Chọn lớp học --";
-            cmbTrangThai.Text = "-- Chọn trạng thái --";
+            cmbTrangThai.Text = "-- Đang học --";
         }
 
         void Enable_TextBox()
@@ -124,18 +136,21 @@ namespace QLHSBanTru2018_Demo_V1.TienBao
             txtAddress.Enabled = false;
             radMale.Enabled = false;
             radFemale.Enabled = false;
-            radActive.Enabled = false;
-            radLock.Enabled = false;
+            //radActive.Enabled = false;
+            //radLock.Enabled = false;
             txtFatherName.Enabled = false;
             txtFatherJob.Enabled = false;
             txtMotherName.Enabled = false;
             txtMotherJob.Enabled = false;
-            LabelStatus.Enabled = false;
+            //LabelStatus.Enabled = false;
             LabelGender.Enabled = false;
         }
+
         #endregion
 
+
         #region Event
+
         private void frmStudent_Load(object sender, EventArgs e)
         {
             this.Dock = DockStyle.Fill;
@@ -146,11 +161,15 @@ namespace QLHSBanTru2018_Demo_V1.TienBao
             cmbKhoiHoc_SelectedIndexChanged(sender, e);
             cmbLopHoc_SelectedIndexChanged(sender, e);
 
+           
+
         }
+
         private void cmbNamHoc_Click(object sender, EventArgs e)
         {
             LoadCourseInfor();
         }
+
         private void cmbNamHoc_SelectedIndexChanged(object sender, EventArgs e)
         {
             try
@@ -161,6 +180,7 @@ namespace QLHSBanTru2018_Demo_V1.TienBao
             {
             }
         }
+
         private void cmbHocKy_SelectedIndexChanged(object sender, EventArgs e)
         {
             try
@@ -172,6 +192,7 @@ namespace QLHSBanTru2018_Demo_V1.TienBao
             {
             }
         }
+
         private void cmbKhoiHoc_SelectedIndexChanged(object sender, EventArgs e)
         {
             try
@@ -183,17 +204,29 @@ namespace QLHSBanTru2018_Demo_V1.TienBao
             {
             }
         }
+
         private void cmbLopHoc_SelectedIndexChanged(object sender, EventArgs e)
         {
-            try
+            if (cmbTrangThai.SelectedText == "-- Đang học --")
             {
-                FillGridControl(int.Parse(cmbLopHoc.SelectedValue.ToString()));               
+                try
+                {
+                    FillGridControl(int.Parse(cmbLopHoc.SelectedValue.ToString()));
+                }
+                catch
+                { }
             }
-            catch
+            else 
             {
-            }
-
+                try
+                {
+                    FillStudentLock(int.Parse(cmbLopHoc.SelectedValue.ToString()));
+                }
+                catch
+                { }
+            }            
         }
+
         private void btnHuy_Click(object sender, EventArgs e)
         {
             combobox_Defaule();
@@ -235,6 +268,7 @@ namespace QLHSBanTru2018_Demo_V1.TienBao
             if (m_StudentDetail.DialogResult == DialogResult.OK)
                 FillGridControl(int.Parse(cmbLopHoc.SelectedValue.ToString()));
         }
+
         private void btnXoa_Click(object sender, EventArgs e)
         {
             if (MessageBox.Show("Bạn muốn xóa học sinh ?", "Thông báo", MessageBoxButtons.YesNo, MessageBoxIcon.Error) == DialogResult.Yes)
@@ -244,13 +278,9 @@ namespace QLHSBanTru2018_Demo_V1.TienBao
             }
         }
         #endregion
+   
 
-
-
-
-       
-
-        #region ContextMenu
+        #region ========== ContextMenu ============
         private void xemChiTiếtToolStripMenuItem_Click(object sender, EventArgs e)
         {
             frmStudentDetail m_StudentDetail = new frmStudentDetail();
@@ -291,8 +321,143 @@ namespace QLHSBanTru2018_Demo_V1.TienBao
                 FillGridControl(int.Parse(cmbLopHoc.SelectedValue.ToString()));
             }
         }
-        #endregion
 
-       
+        #endregion ========== ContextMenu ============
+
+
+        #region ======== Export =========
+        private void btnExport_Click(object sender, EventArgs e)
+        {
+            #region ============== Tạo đối tượng lưu tệp tin ==============
+            //Excel.Range range = sheet.UsedRange;
+            //        // doc
+            //        int rows = range.Rows.Count;
+            //        int cols = range.Columns.Count;
+            
+            #endregion ============== Tạo đối tượng lưu tệp tin ==============
+
+
+            #region ============== Khởi tạo excel ==============
+            // Khởi tạo excel
+            Microsoft.Office.Interop.Excel._Application app = new Microsoft.Office.Interop.Excel.Application();
+            // khởi tạo workbook
+            Microsoft.Office.Interop.Excel._Workbook workbook = app.Workbooks.Add(Type.Missing);
+            // khởi tạo worksheet
+            Microsoft.Office.Interop.Excel._Worksheet worksheet = null;
+            worksheet = workbook.Sheets["Sheet1"];
+            worksheet = workbook.ActiveSheet;
+            worksheet.Name = "Danh sách học sinh";
+            app.Visible = true; // Cho hiển thị excel
+
+            #endregion ============== Khởi tạo excel ==============
+
+          
+            #region ========== Đổ dữ liệu vào Sheet ==========           
+
+            worksheet.Cells[1, 1] = "SỞ GIÁO DỤC VÀ ĐÀO TẠO HÀ NỘI ";
+            worksheet.Cells[2, 1] = " TRƯỜNG MẦM NON HOA LINH ";
+            worksheet.Cells[1, 6] = "CỘNG HÒA XÃ HỘI CHỦ NGHĨA VIỆT NAM ";
+            worksheet.Cells[2, 6] = "      Độc lập-Tự do-Hạnh phúc ";
+
+            worksheet.Cells[4, 1] = "DANH SÁCH HỌC SINH LỚP: " + cmbLopHoc.Text;
+            worksheet.Cells[5, 1] = "Năm học: " + cmbNamHoc.Text;
+
+            worksheet.Cells[9, 1] = "STT";
+            worksheet.Cells[9, 2] = "Mã học sinh";
+            worksheet.Cells[9, 3] = "Họ và tên";
+            worksheet.Cells[9, 4] = "Ngày sinh";
+            worksheet.Cells[9, 5] = "Giới tính";
+            worksheet.Cells[9, 6] = "Họ tên cha";
+            worksheet.Cells[9, 7] = "Nghề nghiệp";
+            worksheet.Cells[9, 8] = "Họ tên mẹ";
+            worksheet.Cells[9, 9] = "Nghề nghiệp";
+
+            // Duyệt hết các dòng trong datagridview
+
+            for (int dong = 0; dong < bandedGridView1.RowCount; dong++)
+            {
+                for (int cot = 0; cot < bandedGridView1.Columns.Count; cot++)
+                {
+                    worksheet.Cells[dong + 10, 1] = dong + 1; // Số thứ tự
+                   // worksheet.Cells[dong + 10, cot + 2]  = bandedGridView1.row[dong].Cells[cot].Value; // Values
+                }
+            }
+
+            int dongData = bandedGridView1.RowCount;
+
+
+
+                worksheet.Cells[dongData + 13, 7] = "Hà Nội, ngày          tháng           năm            . ";
+                worksheet.Cells[dongData + 14, 7] = " HIỆU TRƯỞNG. ";
+
+            #endregion ========== Đổ dữ liệu vào Sheet ==========
+
+
+            #region ============= Căn chỉnh excel =============
+            // Đinh dạng trang
+
+            worksheet.PageSetup.Orientation = Microsoft.Office.Interop.Excel.XlPageOrientation.xlPortrait; // Giấy dọc
+            worksheet.PageSetup.PaperSize = Microsoft.Office.Interop.Excel.XlPaperSize.xlPaperA4; // Loại giấy A4
+            worksheet.PageSetup.LeftMargin = 0; // Căn lề trái
+            worksheet.PageSetup.TopMargin = 0; // Căn lề trên
+            worksheet.PageSetup.RightMargin = 0; // Căn lề phải
+            worksheet.PageSetup.BottomMargin = 0; // Căn lề dưới
+
+            //    worksheet.PageSetup.CenterHorizontally = true; // Căn giữa theo chiều ngang
+
+            // Định dạng cột
+            worksheet.Range["A1"].ColumnWidth = 10;
+            worksheet.Range["B1"].ColumnWidth = 10;
+            worksheet.Range["C1"].ColumnWidth = 30;
+            worksheet.Range["D1"].ColumnWidth = 12;
+            worksheet.Range["E1"].ColumnWidth = 15;
+            worksheet.Range["F1"].ColumnWidth = 15;
+            worksheet.Range["G1"].ColumnWidth = 20;
+            worksheet.Range["H1"].ColumnWidth = 20;
+
+            // Định dạng font chữ
+
+            worksheet.Range["A1", "H100"].Font.Name = "Times New Roman";
+            worksheet.Range["A1", "H100"].Font.Size = 12; // size cho font chữ
+            worksheet.Range["A4", "H4"].Font.Size = 14; // Size tiêu đề lớn hơn chút
+            worksheet.Range["A5", "H5"].Font.Size = 14;
+            worksheet.Range["A1", "H1"].Font.Size = 14;
+            worksheet.Range["A2", "H2"].Font.Size = 14;
+
+            worksheet.Range["A4", "H4"].MergeCells = true; // Nhập dòng tiêu đề
+            worksheet.Range["A5", "H5"].MergeCells = true;
+            worksheet.Range["A1", "C1"].MergeCells = true;
+            worksheet.Range["A2", "C2"].MergeCells = true;
+            worksheet.Range["E1", "G1"].MergeCells = true;
+            worksheet.Range["E2", "G2"].MergeCells = true;
+
+            worksheet.Range["A4", "H4"].Font.Bold = true; // Tô đậm tiêu đề
+            worksheet.Range["A5", "H5"].Font.Bold = true;
+            worksheet.Range["A2", "H2"].Font.Bold = true;
+            worksheet.Range["A9", "G9"].Font.Bold = true; // Tô đậm tên cột trong bảng
+            worksheet.Range["G" + (dongData + 13), "H" + (dongData + 13)].Font.Italic = true; //in nghiêng ngày tháng năm
+            worksheet.Range["G" + (dongData + 14), "H" + (dongData + 14)].Font.Bold = true; // Tô đậm tên cột trong bảng
+
+            //    // Kẻ bảng điểm
+
+            //    worksheet.Range["A9", "H" + (dongData + 9)].Borders.LineStyle = 1;
+
+            //    // Định dạng các cột các dòng text
+            //    worksheet.Range["A1", "A9"].HorizontalAlignment = 3; // Căn giữa tiêu đề bảng
+            //    worksheet.Range["A9", "H9"].HorizontalAlignment = 3; // Tiêu đề cột bảng căn giữa
+            //    worksheet.Range["A4", "H4"].HorizontalAlignment = 3;
+            //    worksheet.Range["A5", "H5"].HorizontalAlignment = 3;
+
+            //    worksheet.Range["A10", "A" + (dongData + 12)].HorizontalAlignment = 3; // 
+            //    worksheet.Range["D10", "D" + (dongData + 12)].HorizontalAlignment = 3; //
+            //    worksheet.Range["E10", "E" + (dongData + 12)].HorizontalAlignment = 3; // 
+            //    worksheet.Range["F10", "F" + (dongData + 12)].HorizontalAlignment = 3; // 
+            //                                                                           // worksheet.Range["G10", "G" + (dongData + 8)].HorizontalAlignment = 3; // 
+            //                                                                           // worksheet.Range["H10", "H" + (dongData + 8)].HorizontalAlignment = 3; //
+
+            #endregion ============= Căn chỉnh excel =============
+
+        }
+        #endregion ======== Export =========
     }
 }

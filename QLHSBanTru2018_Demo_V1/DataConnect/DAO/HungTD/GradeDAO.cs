@@ -29,7 +29,7 @@ namespace DataConnect.DAO.HungTD
                     where g.SemesterID == SemesterID
                     select g).ToList();
         }
-        public Grade GetByGradeIDD(int gradeID)
+        public Grade GetByGradeID(int gradeID)
         {
             return grade.SingleOrDefault(x => x.GradeID == gradeID);
         }
@@ -66,10 +66,7 @@ namespace DataConnect.DAO.HungTD
             }
         }
 
-        public List<Grade> ListBySemester(int semesterID)
-        {
-            throw new NotImplementedException();
-        }
+       
 
         public bool Delete(int gradeID)
         {

@@ -30,6 +30,15 @@ namespace DataConnect.DAO.TienBao
                         select e;
             return query.ToList();
         }
+
+        public void StudentCount()
+        {
+            StudentTable = db.GetTable<Student>();
+            var query = (from e in StudentTable
+                        select e).Count();
+            
+        }
+
         public List<StudentViewModel> ListStudentByClass(int ClassID)
         {
             StudentTable = db.GetTable<Student>();
@@ -50,6 +59,51 @@ namespace DataConnect.DAO.TienBao
                         join L in LocationTable
                         on S.LocationID equals L.LocationID
                         where SC.ClassID == ClassID where S.Status == true
+                        select new StudentViewModel
+                        {
+                            StudentID = S.StudentID,
+                            StudentCode = S.StudentCode,
+                            FirstName = S.FirstName,
+                            LastName = S.LastName,
+                            Birthday = S.Birthday,
+                            Gender = S.Gender,
+                            AdressDetail = S.AdressDetail,
+                            FatherName = SP.FatherName,
+                            FatherJob = SP.FatherJob,
+                            MotherName = SP.MotherName,
+                            MotherJob = SP.MotherJob,
+                            Image = S.Image == null ? null : S.Image.ToArray(),
+                            Note = S.Note,
+                            Status = S.Status,
+                            LocationID = S.LocationID,
+                            LocationDetail = new LocationDAO().GetFullNameLocaion(S.LocationID),
+                            ClassID = SC.ClassID
+                        };
+            List<StudentViewModel> list = query.ToList();
+            return list;
+        }
+
+        public List<StudentViewModel> ListStudentLockByClass(int ClassID)
+        {
+            StudentTable = db.GetTable<Student>();
+            StudentParentTable = db.GetTable<StudentParent>();
+            StudentClassTable = db.GetTable<Student_Class>();
+            ClassTable = db.GetTable<Class>();
+            EthnicGroupTable = db.GetTable<EthnicGroup>();
+            LocationTable = db.GetTable<Location>();
+            ReligionTable = db.GetTable<Religion>();
+            PreferredTable = db.GetTable<Preferred>();
+            var query = from S in StudentTable
+                        join SP in StudentParentTable
+                        on S.StudentID equals SP.StudentID
+                        join SC in StudentClassTable
+                        on S.StudentID equals SC.StudentID
+                        join C in ClassTable
+                        on SC.ClassID equals C.ClassID
+                        join L in LocationTable
+                        on S.LocationID equals L.LocationID
+                        where SC.ClassID == ClassID
+                        where S.Status == false
                         select new StudentViewModel
                         {
                             StudentID = S.StudentID,
