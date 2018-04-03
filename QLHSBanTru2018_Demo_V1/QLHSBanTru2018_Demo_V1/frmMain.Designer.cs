@@ -41,6 +41,7 @@
             this.btnContractManager = new DevExpress.XtraBars.BarButtonItem();
             this.btnTTHocSinh = new DevExpress.XtraBars.BarButtonItem();
             this.btnTKHocSinh = new DevExpress.XtraBars.BarButtonItem();
+            this.barButtonItem1 = new DevExpress.XtraBars.BarButtonItem();
             this.ribbonPage1 = new DevExpress.XtraBars.Ribbon.RibbonPage();
             this.ribbonPageGroup1 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             this.ribbonPageGroup2 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
@@ -50,11 +51,11 @@
             this.ribbonPageGroup3 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             this.ribbonPage3 = new DevExpress.XtraBars.Ribbon.RibbonPage();
             this.ribbonPageGroup6 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
+            this.ribbonPageGroup7 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             this.ribbonStatusBar = new DevExpress.XtraBars.Ribbon.RibbonStatusBar();
             this.defaultLookAndFeel1 = new DevExpress.LookAndFeel.DefaultLookAndFeel(this.components);
             this.pnControlsPanel = new System.Windows.Forms.Panel();
-            this.ribbonPageGroup7 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
-            this.barButtonItem1 = new DevExpress.XtraBars.BarButtonItem();
+            this.btnSemester = new DevExpress.XtraBars.BarButtonItem();
             ((System.ComponentModel.ISupportInitialize)(this.ribbon)).BeginInit();
             this.SuspendLayout();
             // 
@@ -73,9 +74,10 @@
             this.btnContractManager,
             this.btnTTHocSinh,
             this.btnTKHocSinh,
-            this.barButtonItem1});
+            this.barButtonItem1,
+            this.btnSemester});
             this.ribbon.Location = new System.Drawing.Point(0, 0);
-            this.ribbon.MaxItemId = 12;
+            this.ribbon.MaxItemId = 13;
             this.ribbon.Name = "ribbon";
             this.ribbon.Pages.AddRange(new DevExpress.XtraBars.Ribbon.RibbonPage[] {
             this.ribbonPage1,
@@ -174,6 +176,14 @@
             this.btnTKHocSinh.Name = "btnTKHocSinh";
             this.btnTKHocSinh.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.btnTKHocSinh_ItemClick);
             // 
+            // barButtonItem1
+            // 
+            this.barButtonItem1.Caption = "Nhập học sinh từ file Excel";
+            this.barButtonItem1.Id = 11;
+            this.barButtonItem1.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("barButtonItem1.ImageOptions.Image")));
+            this.barButtonItem1.ImageOptions.LargeImage = ((System.Drawing.Image)(resources.GetObject("barButtonItem1.ImageOptions.LargeImage")));
+            this.barButtonItem1.Name = "barButtonItem1";
+            // 
             // ribbonPage1
             // 
             this.ribbonPage1.Groups.AddRange(new DevExpress.XtraBars.Ribbon.RibbonPageGroup[] {
@@ -188,6 +198,7 @@
             // 
             this.ribbonPageGroup1.ItemLinks.Add(this.btnDepartment);
             this.ribbonPageGroup1.ItemLinks.Add(this.btnCourse);
+            this.ribbonPageGroup1.ItemLinks.Add(this.btnSemester);
             this.ribbonPageGroup1.ItemLinks.Add(this.btnPosition);
             this.ribbonPageGroup1.Name = "ribbonPageGroup1";
             this.ribbonPageGroup1.Text = "Tổ Chức";
@@ -240,6 +251,12 @@
             this.ribbonPageGroup6.Name = "ribbonPageGroup6";
             this.ribbonPageGroup6.Text = "Quản lý hồ sơ học sinh";
             // 
+            // ribbonPageGroup7
+            // 
+            this.ribbonPageGroup7.ItemLinks.Add(this.barButtonItem1);
+            this.ribbonPageGroup7.Name = "ribbonPageGroup7";
+            this.ribbonPageGroup7.Text = "Dữ liệu học sinh";
+            // 
             // ribbonStatusBar
             // 
             this.ribbonStatusBar.Location = new System.Drawing.Point(0, 578);
@@ -259,19 +276,14 @@
             this.pnControlsPanel.Size = new System.Drawing.Size(798, 432);
             this.pnControlsPanel.TabIndex = 3;
             // 
-            // ribbonPageGroup7
+            // btnSemester
             // 
-            this.ribbonPageGroup7.ItemLinks.Add(this.barButtonItem1);
-            this.ribbonPageGroup7.Name = "ribbonPageGroup7";
-            this.ribbonPageGroup7.Text = "Dữ liệu học sinh";
-            // 
-            // barButtonItem1
-            // 
-            this.barButtonItem1.Caption = "Nhập học sinh từ file Excel";
-            this.barButtonItem1.Id = 11;
-            this.barButtonItem1.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("barButtonItem1.ImageOptions.Image")));
-            this.barButtonItem1.ImageOptions.LargeImage = ((System.Drawing.Image)(resources.GetObject("barButtonItem1.ImageOptions.LargeImage")));
-            this.barButtonItem1.Name = "barButtonItem1";
+            this.btnSemester.Caption = "Học Kỳ";
+            this.btnSemester.Id = 12;
+            this.btnSemester.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("barButtonItem2.ImageOptions.Image")));
+            this.btnSemester.ImageOptions.LargeImage = ((System.Drawing.Image)(resources.GetObject("barButtonItem2.ImageOptions.LargeImage")));
+            this.btnSemester.Name = "btnSemester";
+            this.btnSemester.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.btnSemester_ItemClick);
             // 
             // frmMain
             // 
@@ -319,5 +331,6 @@
         private DevExpress.XtraBars.BarButtonItem btnTKHocSinh;
         private DevExpress.XtraBars.BarButtonItem barButtonItem1;
         private DevExpress.XtraBars.Ribbon.RibbonPageGroup ribbonPageGroup7;
+        private DevExpress.XtraBars.BarButtonItem btnSemester;
     }
 }

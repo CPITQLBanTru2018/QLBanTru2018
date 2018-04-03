@@ -1,4 +1,5 @@
-﻿using System;
+﻿using DataConnect.ViewModel;
+using System;
 using System.Collections.Generic;
 using System.Data.Linq;
 using System.Linq;
@@ -11,14 +12,40 @@ namespace DataConnect.DAO.HungTD
     {
         QLHSSmartKidsDataContext db;
         Table<Semester> semesters;
+        Table<Course> courses;
         public SemesterDAO()
         {
             db = new QLHSSmartKidsDataContext();
             semesters = db.GetTable<Semester>();
+            courses = db.GetTable<Course>();
         }
-        public List<Semester> ListAll()
+        public List<SemesterViewModel> ListAll(DateTime? startDate, DateTime? endDate, int courseID)
         {
-            return (from s in semesters select s).ToList();
+            var model = db.Semesters.Where(x => x.Status == true);
+            if (startDate != null)
+            {
+                model = model.Where(x => (DateTime.Compare(x.StartDate,(DateTime)startDate)<0));
+            }
+            if (endDate != null)
+            {
+                model = model.Where(x => (DateTime.Compare(x.EndDate, (DateTime)endDate) > 0));
+            }
+            if (courseID != 0)
+            {
+                model = model.Where(x => x.CourseID == courseID);
+            }
+            var res = from m in model
+                      select new SemesterViewModel
+                      {
+                          SemesterID = m.SemesterID,
+                          Name = m.Name,
+                          CourseID = m.CourseID,
+                          CourseName = m.Course.Name,
+                          StartDate = m.StartDate,
+                          EndDate = m.EndDate,
+                          Status = m.Status
+                      };
+            return res.ToList();
         }
         public List<Semester> ListByCourseID(int courseID)
         {
@@ -82,7 +109,7 @@ namespace DataConnect.DAO.HungTD
             try
             {
                 var listDeleteSemester = semesters.Where(x => x.CourseID == courseID);
-                foreach(var item in listDeleteSemester)
+                foreach (var item in listDeleteSemester)
                 {
                     Delete(item.SemesterID);
                 }

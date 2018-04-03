@@ -16,6 +16,7 @@ using QLHSBanTru2018_Demo_V1.QLThuChi;
 using QLHSBanTru2018_Demo_V1.HungTD.Form.Function;
 using QLHSBanTru2018_Demo_V1.HungTD.Form.Contract;
 using QLHSBanTru2018_Demo_V1.TienBao;
+using QLHSBanTru2018_Demo_V1.HungTD.Form.Semester;
 
 namespace QLHSBanTru2018_Demo_V1
 {
@@ -58,6 +59,12 @@ namespace QLHSBanTru2018_Demo_V1
         {
             pnControlsPanel.Controls.Clear();
             pnControlsPanel.Controls.Add(new frmContractList());
+        }
+
+        private void btnSemester_ItemClick(object sender, ItemClickEventArgs e)
+        {
+            pnControlsPanel.Controls.Clear();
+            pnControlsPanel.Controls.Add(new frmSemesterList());
         }
         #endregion
 
@@ -104,6 +111,5 @@ namespace QLHSBanTru2018_Demo_V1
             a.Dock = DockStyle.Fill;
         }
 
-    
     }
 }

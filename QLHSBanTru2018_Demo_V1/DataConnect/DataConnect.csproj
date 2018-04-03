@@ -90,6 +90,7 @@
     <Compile Include="ViewModel\Department_EmployeeViewModel.cs" />
     <Compile Include="ViewModel\EmployeeFullViewModel.cs" />
     <Compile Include="ViewModel\FunctionViewModel.cs" />
+    <Compile Include="ViewModel\SemesterViewModel.cs" />
     <Compile Include="ViewModel\StudentViewModel.cs" />
   </ItemGroup>
   <ItemGroup>

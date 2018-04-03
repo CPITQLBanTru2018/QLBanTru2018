@@ -193,6 +193,12 @@
     <Compile Include="HungTD\Form\Position\frmPositionList.Designer.cs">
       <DependentUpon>frmPositionList.cs</DependentUpon>
     </Compile>
+    <Compile Include="HungTD\Form\Semester\frmSemesterList.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="HungTD\Form\Semester\frmSemesterList.Designer.cs">
+      <DependentUpon>frmSemesterList.cs</DependentUpon>
+    </Compile>
     <Compile Include="HungTD\Form\WorkProgress\frmWorkProgressList.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -321,6 +327,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="HungTD\Form\Position\frmPositionList.resx">
       <DependentUpon>frmPositionList.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="HungTD\Form\Semester\frmSemesterList.resx">
+      <DependentUpon>frmSemesterList.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="HungTD\Form\WorkProgress\frmWorkProgressList.resx">
       <DependentUpon>frmWorkProgressList.cs</DependentUpon>
