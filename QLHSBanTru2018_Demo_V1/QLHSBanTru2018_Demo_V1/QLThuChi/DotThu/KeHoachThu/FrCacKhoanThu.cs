@@ -62,8 +62,30 @@ namespace QLHSBanTru2018_Demo_V1.QLThuChi
 
         private void bntSua_Click(object sender, EventArgs e)
         {
-            FRSuaKhoanThu a = new FRSuaKhoanThu();
-            a.ShowDialog();
+            if (ReceivableDetailDAO.DemoReceibavleDetail is null)
+            {
+
+            }
+            else
+            {
+                FRSuaKhoanThu a = new FRSuaKhoanThu();
+                a.ShowDialog();
+            }
+            if (this.WindowState == FormWindowState.Maximized)
+            {
+                this.WindowState = FormWindowState.Normal;
+                this.WindowState = FormWindowState.Maximized;
+            }
+            else
+            {
+                if (this.WindowState == FormWindowState.Normal)
+                {
+                    this.WindowState = FormWindowState.Maximized;
+                    this.WindowState = FormWindowState.Normal;
+                }
+
+            }
+
         }
 
         private void FrThietLapKeHoachThu_Load(object sender, EventArgs e)
@@ -99,9 +121,9 @@ namespace QLHSBanTru2018_Demo_V1.QLThuChi
                         detail.Status = false;
                         detail.TimeUnits = gridView1.GetRowCellValue(i, gridView1.Columns["TimeUnits"]).ToString();
                         detail.Frequency = (int)gridView1.GetRowCellValue(i, gridView1.Columns["Frequency"]);
-                        detail.TotalPriceDetail = (int)gridView1.GetRowCellValue(i, gridView1.Columns["TotalPriceDetail"]);
+                        detail.TotalPriceDetail = (decimal)gridView1.GetRowCellValue(i, gridView1.Columns["TotalPriceDetail"]);
                         detail.GradeID = (int)gridView1.GetRowCellValue(i, gridView1.Columns["GradeID"]);
-                        detail.PreferredID = gridView1.GetRowCellValue(i, gridView1.Columns["PreferredID"]).ToString();
+                        detail.PreferredID = gridView1.GetRowCellValue(i, gridView1.Columns["PreferredID"]).ToString();                      
                         int d = rbd.Insert(detail);
                         if (d != 0)
                         {
@@ -132,9 +154,9 @@ namespace QLHSBanTru2018_Demo_V1.QLThuChi
 
         private void gridView1_FocusedRowChanged(object sender, DevExpress.XtraGrid.Views.Base.FocusedRowChangedEventArgs e)
         {
-            ReceivableDetail a = new ReceivableDetail();
             try
             {
+                ReceivableDetail a = new ReceivableDetail();
                 a.Name = gridView1.GetRowCellValue(e.FocusedRowHandle, "Name").ToString();
                 a.Price = decimal.Parse(gridView1.GetRowCellValue(e.FocusedRowHandle, "Price").ToString());
                 a.Status = true;
@@ -142,13 +164,36 @@ namespace QLHSBanTru2018_Demo_V1.QLThuChi
                 a.Frequency = int.Parse(gridView1.GetRowCellValue(e.FocusedRowHandle, "Frequency").ToString());
                 a.TotalPriceDetail = decimal.Parse(gridView1.GetRowCellValue(e.FocusedRowHandle, "TotalPriceDetail").ToString());
                 a.GradeID = (int)gridView1.GetRowCellValue(e.FocusedRowHandle, "GradeID");
-                a.PreferredID = PreferredDAO.PreferredIDList;
+                a.PreferredID = gridView1.GetRowCellValue(e.FocusedRowHandle, "PreferredID").ToString();
                 PreferredDAO.PreferredIDList = gridView1.GetRowCellValue(e.FocusedRowHandle, "PreferredID").ToString();
+                ReceivableDetailDAO.DemoReceibavleDetail = a;
+                studentReceivableDAO.TherowFocust = gridView1.FocusedRowHandle;
             }
             catch 
             {
 
                 
+            }
+        }
+
+        private void bntXoa_Click(object sender, EventArgs e)
+        {
+            //MessageBox.Show("" + gridView1.FocusedRowHandle + "");
+            ReceivableDetailDAO.ListDemoReceivableDetail.RemoveAt(gridView1.FocusedRowHandle);
+            
+            if (this.WindowState == FormWindowState.Maximized)
+            {
+                this.WindowState = FormWindowState.Normal;
+                this.WindowState = FormWindowState.Maximized;
+            }
+            else
+            {
+                if (this.WindowState == FormWindowState.Normal)
+                {
+                    this.WindowState = FormWindowState.Maximized;
+                    this.WindowState = FormWindowState.Normal;
+                }
+
             }
         }
     }

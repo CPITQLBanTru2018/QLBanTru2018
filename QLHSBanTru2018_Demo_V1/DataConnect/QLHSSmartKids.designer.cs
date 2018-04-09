@@ -147,9 +147,6 @@ namespace DataConnect
     partial void InsertReligion(Religion instance);
     partial void UpdateReligion(Religion instance);
     partial void DeleteReligion(Religion instance);
-    partial void InsertRevenue(Revenue instance);
-    partial void UpdateRevenue(Revenue instance);
-    partial void DeleteRevenue(Revenue instance);
     partial void InsertSemester(Semester instance);
     partial void UpdateSemester(Semester instance);
     partial void DeleteSemester(Semester instance);
@@ -515,14 +512,6 @@ namespace DataConnect
 			get
 			{
 				return this.GetTable<Religion>();
-			}
-		}
-		
-		public System.Data.Linq.Table<Revenue> Revenues
-		{
-			get
-			{
-				return this.GetTable<Revenue>();
 			}
 		}
 		
@@ -10721,8 +10710,6 @@ namespace DataConnect
 		
 		private EntityRef<Receivable> _Receivable;
 		
-		private EntityRef<Revenue> _Revenue;
-		
     #region Extensibility Method Definitions
     partial void OnLoaded();
     partial void OnValidate(System.Data.Linq.ChangeAction action);
@@ -10754,7 +10741,6 @@ namespace DataConnect
 			this._ReceivableDetail_Students = new EntitySet<ReceivableDetail_Student>(new Action<ReceivableDetail_Student>(this.attach_ReceivableDetail_Students), new Action<ReceivableDetail_Student>(this.detach_ReceivableDetail_Students));
 			this._Grade = default(EntityRef<Grade>);
 			this._Receivable = default(EntityRef<Receivable>);
-			this._Revenue = default(EntityRef<Revenue>);
 			OnCreated();
 		}
 		
@@ -10913,10 +10899,6 @@ namespace DataConnect
 			{
 				if ((this._TotalPriceDetail != value))
 				{
-					if (this._Revenue.HasLoadedOrAssignedValue)
-					{
-						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
-					}
 					this.OnTotalPriceDetailChanging(value);
 					this.SendPropertyChanging();
 					this._TotalPriceDetail = value;
@@ -11047,40 +11029,6 @@ namespace DataConnect
 						this._ReceivableID = default(int);
 					}
 					this.SendPropertyChanged("Receivable");
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Revenue_ReceivableDetail", Storage="_Revenue", ThisKey="TotalPriceDetail", OtherKey="RevenueID", IsForeignKey=true)]
-		public Revenue Revenue
-		{
-			get
-			{
-				return this._Revenue.Entity;
-			}
-			set
-			{
-				Revenue previousValue = this._Revenue.Entity;
-				if (((previousValue != value) 
-							|| (this._Revenue.HasLoadedOrAssignedValue == false)))
-				{
-					this.SendPropertyChanging();
-					if ((previousValue != null))
-					{
-						this._Revenue.Entity = null;
-						previousValue.ReceivableDetails.Remove(this);
-					}
-					this._Revenue.Entity = value;
-					if ((value != null))
-					{
-						value.ReceivableDetails.Add(this);
-						this._TotalPriceDetail = value.RevenueID;
-					}
-					else
-					{
-						this._TotalPriceDetail = default(Nullable<decimal>);
-					}
-					this.SendPropertyChanged("Revenue");
 				}
 			}
 		}
@@ -11445,168 +11393,6 @@ namespace DataConnect
 		{
 			this.SendPropertyChanging();
 			entity.Religion = null;
-		}
-	}
-	
-	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.Revenue")]
-	public partial class Revenue : INotifyPropertyChanging, INotifyPropertyChanged
-	{
-		
-		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
-		
-		private decimal _RevenueID;
-		
-		private string _RevenueName;
-		
-		private System.Nullable<double> _TotalRevenue;
-		
-		private System.Nullable<bool> _Status;
-		
-		private EntitySet<ReceivableDetail> _ReceivableDetails;
-		
-    #region Extensibility Method Definitions
-    partial void OnLoaded();
-    partial void OnValidate(System.Data.Linq.ChangeAction action);
-    partial void OnCreated();
-    partial void OnRevenueIDChanging(decimal value);
-    partial void OnRevenueIDChanged();
-    partial void OnRevenueNameChanging(string value);
-    partial void OnRevenueNameChanged();
-    partial void OnTotalRevenueChanging(System.Nullable<double> value);
-    partial void OnTotalRevenueChanged();
-    partial void OnStatusChanging(System.Nullable<bool> value);
-    partial void OnStatusChanged();
-    #endregion
-		
-		public Revenue()
-		{
-			this._ReceivableDetails = new EntitySet<ReceivableDetail>(new Action<ReceivableDetail>(this.attach_ReceivableDetails), new Action<ReceivableDetail>(this.detach_ReceivableDetails));
-			OnCreated();
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_RevenueID", DbType="Decimal(18,0) NOT NULL", IsPrimaryKey=true)]
-		public decimal RevenueID
-		{
-			get
-			{
-				return this._RevenueID;
-			}
-			set
-			{
-				if ((this._RevenueID != value))
-				{
-					this.OnRevenueIDChanging(value);
-					this.SendPropertyChanging();
-					this._RevenueID = value;
-					this.SendPropertyChanged("RevenueID");
-					this.OnRevenueIDChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_RevenueName", DbType="NVarChar(50)")]
-		public string RevenueName
-		{
-			get
-			{
-				return this._RevenueName;
-			}
-			set
-			{
-				if ((this._RevenueName != value))
-				{
-					this.OnRevenueNameChanging(value);
-					this.SendPropertyChanging();
-					this._RevenueName = value;
-					this.SendPropertyChanged("RevenueName");
-					this.OnRevenueNameChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_TotalRevenue", DbType="Float")]
-		public System.Nullable<double> TotalRevenue
-		{
-			get
-			{
-				return this._TotalRevenue;
-			}
-			set
-			{
-				if ((this._TotalRevenue != value))
-				{
-					this.OnTotalRevenueChanging(value);
-					this.SendPropertyChanging();
-					this._TotalRevenue = value;
-					this.SendPropertyChanged("TotalRevenue");
-					this.OnTotalRevenueChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Status", DbType="Bit")]
-		public System.Nullable<bool> Status
-		{
-			get
-			{
-				return this._Status;
-			}
-			set
-			{
-				if ((this._Status != value))
-				{
-					this.OnStatusChanging(value);
-					this.SendPropertyChanging();
-					this._Status = value;
-					this.SendPropertyChanged("Status");
-					this.OnStatusChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Revenue_ReceivableDetail", Storage="_ReceivableDetails", ThisKey="RevenueID", OtherKey="TotalPriceDetail")]
-		public EntitySet<ReceivableDetail> ReceivableDetails
-		{
-			get
-			{
-				return this._ReceivableDetails;
-			}
-			set
-			{
-				this._ReceivableDetails.Assign(value);
-			}
-		}
-		
-		public event PropertyChangingEventHandler PropertyChanging;
-		
-		public event PropertyChangedEventHandler PropertyChanged;
-		
-		protected virtual void SendPropertyChanging()
-		{
-			if ((this.PropertyChanging != null))
-			{
-				this.PropertyChanging(this, emptyChangingEventArgs);
-			}
-		}
-		
-		protected virtual void SendPropertyChanged(String propertyName)
-		{
-			if ((this.PropertyChanged != null))
-			{
-				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
-			}
-		}
-		
-		private void attach_ReceivableDetails(ReceivableDetail entity)
-		{
-			this.SendPropertyChanging();
-			entity.Revenue = this;
-		}
-		
-		private void detach_ReceivableDetails(ReceivableDetail entity)
-		{
-			this.SendPropertyChanging();
-			entity.Revenue = null;
 		}
 	}
 	
@@ -12974,7 +12760,7 @@ namespace DataConnect
 		
 		private int _StudentParentsID;
 		
-		private System.Nullable<int> _StudentID;
+		private int _StudentID;
 		
 		private string _Password;
 		
@@ -13002,7 +12788,7 @@ namespace DataConnect
     partial void OnCreated();
     partial void OnStudentParentsIDChanging(int value);
     partial void OnStudentParentsIDChanged();
-    partial void OnStudentIDChanging(System.Nullable<int> value);
+    partial void OnStudentIDChanging(int value);
     partial void OnStudentIDChanged();
     partial void OnPasswordChanging(string value);
     partial void OnPasswordChanged();
@@ -13050,8 +12836,8 @@ namespace DataConnect
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_StudentID", DbType="Int")]
-		public System.Nullable<int> StudentID
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_StudentID", DbType="Int NOT NULL")]
+		public int StudentID
 		{
 			get
 			{
@@ -13281,7 +13067,7 @@ namespace DataConnect
 					}
 					else
 					{
-						this._StudentID = default(Nullable<int>);
+						this._StudentID = default(int);
 					}
 					this.SendPropertyChanged("Student");
 				}

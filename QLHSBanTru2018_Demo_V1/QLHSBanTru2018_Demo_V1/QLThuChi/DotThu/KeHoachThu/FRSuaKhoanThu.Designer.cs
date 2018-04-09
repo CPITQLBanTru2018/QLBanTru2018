@@ -37,7 +37,7 @@
             this.bntDoituongchinhsach = new DevExpress.XtraEditors.SimpleButton();
             this.cbDoituongchinhsach = new DevExpress.XtraEditors.CheckEdit();
             this.label6 = new System.Windows.Forms.Label();
-            this.cbbNamhoc = new System.Windows.Forms.ComboBox();
+            this.cbbKyhoc = new System.Windows.Forms.ComboBox();
             this.label7 = new System.Windows.Forms.Label();
             this.cbbKhoihoc = new System.Windows.Forms.ComboBox();
             this.txtTanso = new System.Windows.Forms.TextBox();
@@ -109,24 +109,24 @@
             this.label6.AutoSize = true;
             this.label6.Location = new System.Drawing.Point(5, 136);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(48, 13);
+            this.label6.Size = new System.Drawing.Size(39, 13);
             this.label6.TabIndex = 61;
-            this.label6.Text = "Năm học";
+            this.label6.Text = "Kỳ học";
             // 
-            // cbbNamhoc
+            // cbbKyhoc
             // 
-            this.cbbNamhoc.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cbbNamhoc.FormattingEnabled = true;
-            this.cbbNamhoc.Items.AddRange(new object[] {
+            this.cbbKyhoc.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cbbKyhoc.FormattingEnabled = true;
+            this.cbbKyhoc.Items.AddRange(new object[] {
             "Ngày",
             "Tháng",
             "Học kỳ",
             "Năm"});
-            this.cbbNamhoc.Location = new System.Drawing.Point(87, 136);
-            this.cbbNamhoc.Name = "cbbNamhoc";
-            this.cbbNamhoc.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            this.cbbNamhoc.Size = new System.Drawing.Size(228, 21);
-            this.cbbNamhoc.TabIndex = 60;
+            this.cbbKyhoc.Location = new System.Drawing.Point(87, 136);
+            this.cbbKyhoc.Name = "cbbKyhoc";
+            this.cbbKyhoc.RightToLeft = System.Windows.Forms.RightToLeft.No;
+            this.cbbKyhoc.Size = new System.Drawing.Size(228, 21);
+            this.cbbKyhoc.TabIndex = 60;
             // 
             // label7
             // 
@@ -242,6 +242,7 @@
             this.bntLuu.Size = new System.Drawing.Size(75, 23);
             this.bntLuu.TabIndex = 49;
             this.bntLuu.Text = "Lưu";
+            this.bntLuu.Click += new System.EventHandler(this.bntLuu_Click);
             // 
             // txtTenKhoanThu
             // 
@@ -272,7 +273,7 @@
             this.Controls.Add(this.bntDoituongchinhsach);
             this.Controls.Add(this.cbDoituongchinhsach);
             this.Controls.Add(this.label6);
-            this.Controls.Add(this.cbbNamhoc);
+            this.Controls.Add(this.cbbKyhoc);
             this.Controls.Add(this.label7);
             this.Controls.Add(this.cbbKhoihoc);
             this.Controls.Add(this.txtTanso);
@@ -303,7 +304,7 @@
         private DevExpress.XtraEditors.SimpleButton bntDoituongchinhsach;
         private DevExpress.XtraEditors.CheckEdit cbDoituongchinhsach;
         private System.Windows.Forms.Label label6;
-        private System.Windows.Forms.ComboBox cbbNamhoc;
+        private System.Windows.Forms.ComboBox cbbKyhoc;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.ComboBox cbbKhoihoc;
         private System.Windows.Forms.TextBox txtTanso;

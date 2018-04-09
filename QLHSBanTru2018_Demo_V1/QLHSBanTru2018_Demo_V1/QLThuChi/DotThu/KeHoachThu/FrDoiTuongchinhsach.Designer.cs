@@ -38,6 +38,8 @@
             this.emptySpaceItem1 = new DevExpress.XtraLayout.EmptySpaceItem();
             this.layoutControlItem1 = new DevExpress.XtraLayout.LayoutControlItem();
             this.layoutControlItem3 = new DevExpress.XtraLayout.LayoutControlItem();
+            this.bntHuy = new DevExpress.XtraEditors.SimpleButton();
+            this.layoutControlItem2 = new DevExpress.XtraLayout.LayoutControlItem();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControl1)).BeginInit();
             this.layoutControl1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.panelControl1)).BeginInit();
@@ -48,10 +50,12 @@
             ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem3)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem2)).BeginInit();
             this.SuspendLayout();
             // 
             // layoutControl1
             // 
+            this.layoutControl1.Controls.Add(this.bntHuy);
             this.layoutControl1.Controls.Add(this.bntLuu);
             this.layoutControl1.Controls.Add(this.panelControl1);
             this.layoutControl1.Dock = System.Windows.Forms.DockStyle.Fill;
@@ -66,9 +70,9 @@
             // bntLuu
             // 
             this.bntLuu.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("bntLuu.ImageOptions.Image")));
-            this.bntLuu.Location = new System.Drawing.Point(225, 268);
+            this.bntLuu.Location = new System.Drawing.Point(236, 268);
             this.bntLuu.Name = "bntLuu";
-            this.bntLuu.Size = new System.Drawing.Size(89, 22);
+            this.bntLuu.Size = new System.Drawing.Size(78, 22);
             this.bntLuu.StyleController = this.layoutControl1;
             this.bntLuu.TabIndex = 6;
             this.bntLuu.Text = "Lưu";
@@ -105,7 +109,8 @@
             this.layoutControlGroup1.Items.AddRange(new DevExpress.XtraLayout.BaseLayoutItem[] {
             this.emptySpaceItem1,
             this.layoutControlItem1,
-            this.layoutControlItem3});
+            this.layoutControlItem3,
+            this.layoutControlItem2});
             this.layoutControlGroup1.Name = "Root";
             this.layoutControlGroup1.Size = new System.Drawing.Size(326, 302);
             this.layoutControlGroup1.TextVisible = false;
@@ -115,7 +120,7 @@
             this.emptySpaceItem1.AllowHotTrack = false;
             this.emptySpaceItem1.Location = new System.Drawing.Point(0, 256);
             this.emptySpaceItem1.Name = "emptySpaceItem1";
-            this.emptySpaceItem1.Size = new System.Drawing.Size(213, 26);
+            this.emptySpaceItem1.Size = new System.Drawing.Size(131, 26);
             this.emptySpaceItem1.TextSize = new System.Drawing.Size(0, 0);
             // 
             // layoutControlItem1
@@ -130,11 +135,30 @@
             // layoutControlItem3
             // 
             this.layoutControlItem3.Control = this.bntLuu;
-            this.layoutControlItem3.Location = new System.Drawing.Point(213, 256);
+            this.layoutControlItem3.Location = new System.Drawing.Point(224, 256);
             this.layoutControlItem3.Name = "layoutControlItem3";
-            this.layoutControlItem3.Size = new System.Drawing.Size(93, 26);
+            this.layoutControlItem3.Size = new System.Drawing.Size(82, 26);
             this.layoutControlItem3.TextSize = new System.Drawing.Size(0, 0);
             this.layoutControlItem3.TextVisible = false;
+            // 
+            // bntHuy
+            // 
+            this.bntHuy.Location = new System.Drawing.Point(143, 268);
+            this.bntHuy.Name = "bntHuy";
+            this.bntHuy.Size = new System.Drawing.Size(89, 22);
+            this.bntHuy.StyleController = this.layoutControl1;
+            this.bntHuy.TabIndex = 7;
+            this.bntHuy.Text = "Hủy";
+            this.bntHuy.Click += new System.EventHandler(this.bntHuy_Click);
+            // 
+            // layoutControlItem2
+            // 
+            this.layoutControlItem2.Control = this.bntHuy;
+            this.layoutControlItem2.Location = new System.Drawing.Point(131, 256);
+            this.layoutControlItem2.Name = "layoutControlItem2";
+            this.layoutControlItem2.Size = new System.Drawing.Size(93, 26);
+            this.layoutControlItem2.TextSize = new System.Drawing.Size(0, 0);
+            this.layoutControlItem2.TextVisible = false;
             // 
             // FrDoiTuongchinhsach
             // 
@@ -155,6 +179,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem3)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem2)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -170,5 +195,7 @@
         private DevExpress.XtraLayout.EmptySpaceItem emptySpaceItem1;
         private DevExpress.XtraLayout.LayoutControlItem layoutControlItem1;
         private DevExpress.XtraLayout.LayoutControlItem layoutControlItem3;
+        private DevExpress.XtraEditors.SimpleButton bntHuy;
+        private DevExpress.XtraLayout.LayoutControlItem layoutControlItem2;
     }
 }

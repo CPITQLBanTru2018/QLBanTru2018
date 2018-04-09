@@ -17,6 +17,7 @@ namespace DataConnect.DAO.ThanhCongTC
         public static int SemesterID = 0;
         public static int GradeID = 0;
         public static int ClassID = 0;
+        public static int TherowFocust = 0;
         public List<Course> ListCourse()
         {
             var a = dt.Courses.OrderByDescending(t=>t.CourseID);

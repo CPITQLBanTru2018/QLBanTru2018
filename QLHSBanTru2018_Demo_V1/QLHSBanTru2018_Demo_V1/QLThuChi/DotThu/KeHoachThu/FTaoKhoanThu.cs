@@ -58,7 +58,14 @@ namespace QLHSBanTru2018_Demo_V1.QLThuChi
                 a.Frequency = int.Parse(txtTanso.Text);
                 a.TotalPriceDetail = decimal.Parse(txtTongthu.Text);
                 a.GradeID = (int)cbbKhoihoc.SelectedValue;
-                a.PreferredID = PreferredDAO.PreferredIDList;
+                if (cbDoituongchinhsach.Checked==true)
+                {
+                    a.PreferredID = PreferredDAO.PreferredIDList;
+                }
+                else
+                {
+                    a.PreferredID = "";
+                }             
                 ReceivableDetailDAO.ListDemoReceivableDetail.Add(a);
                 this.Close();
             }

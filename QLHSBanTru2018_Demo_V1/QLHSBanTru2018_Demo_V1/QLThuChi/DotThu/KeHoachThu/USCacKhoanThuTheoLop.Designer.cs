@@ -120,7 +120,7 @@
             this.panelControl3.Controls.Add(this.simpleButton1);
             this.panelControl3.Location = new System.Drawing.Point(259, 12);
             this.panelControl3.Name = "panelControl3";
-            this.panelControl3.Size = new System.Drawing.Size(590, 27);
+            this.panelControl3.Size = new System.Drawing.Size(607, 27);
             this.panelControl3.TabIndex = 12;
             // 
             // simpleButton1
@@ -270,7 +270,7 @@
             this.groupControl1.Controls.Add(this.layoutControl2);
             this.groupControl1.Location = new System.Drawing.Point(12, 160);
             this.groupControl1.Name = "groupControl1";
-            this.groupControl1.Size = new System.Drawing.Size(243, 289);
+            this.groupControl1.Size = new System.Drawing.Size(243, 288);
             this.groupControl1.TabIndex = 7;
             this.groupControl1.Text = "Thông tin học sinh";
             // 
@@ -285,7 +285,7 @@
             this.layoutControl2.Name = "layoutControl2";
             this.layoutControl2.OptionsCustomizationForm.DesignTimeCustomizationFormPositionAndSize = new System.Drawing.Rectangle(660, 152, 650, 400);
             this.layoutControl2.Root = this.layoutControlGroup2;
-            this.layoutControl2.Size = new System.Drawing.Size(239, 266);
+            this.layoutControl2.Size = new System.Drawing.Size(239, 265);
             this.layoutControl2.TabIndex = 0;
             this.layoutControl2.Text = "layoutControl2";
             // 
@@ -293,21 +293,21 @@
             // 
             this.textBox4.Location = new System.Drawing.Point(66, 234);
             this.textBox4.Name = "textBox4";
-            this.textBox4.Size = new System.Drawing.Size(161, 20);
+            this.textBox4.Size = new System.Drawing.Size(144, 20);
             this.textBox4.TabIndex = 8;
             // 
             // textBox3
             // 
             this.textBox3.Location = new System.Drawing.Point(66, 210);
             this.textBox3.Name = "textBox3";
-            this.textBox3.Size = new System.Drawing.Size(161, 20);
+            this.textBox3.Size = new System.Drawing.Size(144, 20);
             this.textBox3.TabIndex = 7;
             // 
             // textBox2
             // 
             this.textBox2.Location = new System.Drawing.Point(66, 186);
             this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(161, 20);
+            this.textBox2.Size = new System.Drawing.Size(144, 20);
             this.textBox2.TabIndex = 6;
             // 
             // panelControl1
@@ -315,7 +315,7 @@
             this.panelControl1.Controls.Add(this.pcAnhhocsinh);
             this.panelControl1.Location = new System.Drawing.Point(66, 12);
             this.panelControl1.Name = "panelControl1";
-            this.panelControl1.Size = new System.Drawing.Size(161, 170);
+            this.panelControl1.Size = new System.Drawing.Size(144, 170);
             this.panelControl1.TabIndex = 4;
             // 
             // pcAnhhocsinh
@@ -325,7 +325,7 @@
             this.pcAnhhocsinh.Location = new System.Drawing.Point(2, 2);
             this.pcAnhhocsinh.Name = "pcAnhhocsinh";
             this.pcAnhhocsinh.Properties.ShowCameraMenuItem = DevExpress.XtraEditors.Controls.CameraMenuItemVisibility.Auto;
-            this.pcAnhhocsinh.Size = new System.Drawing.Size(157, 166);
+            this.pcAnhhocsinh.Size = new System.Drawing.Size(140, 166);
             this.pcAnhhocsinh.TabIndex = 0;
             // 
             // layoutControlGroup2
@@ -339,7 +339,7 @@
             this.layoutControlItem10,
             this.emptySpaceItem1});
             this.layoutControlGroup2.Name = "Root";
-            this.layoutControlGroup2.Size = new System.Drawing.Size(239, 266);
+            this.layoutControlGroup2.Size = new System.Drawing.Size(222, 266);
             this.layoutControlGroup2.TextVisible = false;
             // 
             // layoutControlItem3
@@ -347,7 +347,7 @@
             this.layoutControlItem3.Control = this.panelControl1;
             this.layoutControlItem3.Location = new System.Drawing.Point(54, 0);
             this.layoutControlItem3.Name = "layoutControlItem3";
-            this.layoutControlItem3.Size = new System.Drawing.Size(165, 174);
+            this.layoutControlItem3.Size = new System.Drawing.Size(148, 174);
             this.layoutControlItem3.TextSize = new System.Drawing.Size(0, 0);
             this.layoutControlItem3.TextVisible = false;
             // 
@@ -356,7 +356,7 @@
             this.layoutControlItem8.Control = this.textBox2;
             this.layoutControlItem8.Location = new System.Drawing.Point(0, 174);
             this.layoutControlItem8.Name = "layoutControlItem8";
-            this.layoutControlItem8.Size = new System.Drawing.Size(219, 24);
+            this.layoutControlItem8.Size = new System.Drawing.Size(202, 24);
             this.layoutControlItem8.Text = "Họ tên:";
             this.layoutControlItem8.TextSize = new System.Drawing.Size(51, 13);
             // 
@@ -365,7 +365,7 @@
             this.layoutControlItem9.Control = this.textBox3;
             this.layoutControlItem9.Location = new System.Drawing.Point(0, 198);
             this.layoutControlItem9.Name = "layoutControlItem9";
-            this.layoutControlItem9.Size = new System.Drawing.Size(219, 24);
+            this.layoutControlItem9.Size = new System.Drawing.Size(202, 24);
             this.layoutControlItem9.Text = "Ngày sinh:";
             this.layoutControlItem9.TextSize = new System.Drawing.Size(51, 13);
             // 
@@ -374,7 +374,7 @@
             this.layoutControlItem10.Control = this.textBox4;
             this.layoutControlItem10.Location = new System.Drawing.Point(0, 222);
             this.layoutControlItem10.Name = "layoutControlItem10";
-            this.layoutControlItem10.Size = new System.Drawing.Size(219, 24);
+            this.layoutControlItem10.Size = new System.Drawing.Size(202, 24);
             this.layoutControlItem10.Text = "Địa chỉ:";
             this.layoutControlItem10.TextSize = new System.Drawing.Size(51, 13);
             // 
@@ -394,7 +394,7 @@
             this.grDanhSachHocSinh.Location = new System.Drawing.Point(259, 43);
             this.grDanhSachHocSinh.MainView = this.gridView1;
             this.grDanhSachHocSinh.Name = "grDanhSachHocSinh";
-            this.grDanhSachHocSinh.Size = new System.Drawing.Size(590, 406);
+            this.grDanhSachHocSinh.Size = new System.Drawing.Size(607, 405);
             this.grDanhSachHocSinh.TabIndex = 4;
             this.grDanhSachHocSinh.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gridView1});
@@ -418,7 +418,7 @@
             this.layoutControlItem5,
             this.layoutControlItem6});
             this.layoutControlGroup1.Name = "Root";
-            this.layoutControlGroup1.Size = new System.Drawing.Size(861, 461);
+            this.layoutControlGroup1.Size = new System.Drawing.Size(878, 460);
             this.layoutControlGroup1.TextVisible = false;
             // 
             // layoutControlItem1
@@ -426,7 +426,7 @@
             this.layoutControlItem1.Control = this.grDanhSachHocSinh;
             this.layoutControlItem1.Location = new System.Drawing.Point(247, 31);
             this.layoutControlItem1.Name = "layoutControlItem1";
-            this.layoutControlItem1.Size = new System.Drawing.Size(594, 410);
+            this.layoutControlItem1.Size = new System.Drawing.Size(611, 409);
             this.layoutControlItem1.TextSize = new System.Drawing.Size(0, 0);
             this.layoutControlItem1.TextVisible = false;
             // 
@@ -435,7 +435,7 @@
             this.layoutControlItem2.Control = this.groupControl1;
             this.layoutControlItem2.Location = new System.Drawing.Point(0, 148);
             this.layoutControlItem2.Name = "layoutControlItem2";
-            this.layoutControlItem2.Size = new System.Drawing.Size(247, 293);
+            this.layoutControlItem2.Size = new System.Drawing.Size(247, 292);
             this.layoutControlItem2.TextSize = new System.Drawing.Size(0, 0);
             this.layoutControlItem2.TextVisible = false;
             // 
@@ -468,7 +468,7 @@
             this.layoutControlItem6.Control = this.panelControl3;
             this.layoutControlItem6.Location = new System.Drawing.Point(247, 0);
             this.layoutControlItem6.Name = "layoutControlItem6";
-            this.layoutControlItem6.Size = new System.Drawing.Size(594, 31);
+            this.layoutControlItem6.Size = new System.Drawing.Size(611, 31);
             this.layoutControlItem6.TextSize = new System.Drawing.Size(0, 0);
             this.layoutControlItem6.TextVisible = false;
             // 

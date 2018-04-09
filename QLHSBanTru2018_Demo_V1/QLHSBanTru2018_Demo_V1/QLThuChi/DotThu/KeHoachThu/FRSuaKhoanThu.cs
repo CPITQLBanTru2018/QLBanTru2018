@@ -27,22 +27,40 @@ namespace QLHSBanTru2018_Demo_V1.QLThuChi
         {
             this.Close();
         }
+        public void loadKhoanthu()
+        {
+            StudenGrade dt = new StudenGrade();
+            txtTenKhoanThu.Text = ReceivableDetailDAO.DemoReceibavleDetail.Name;
+            txtMucThu.Text = ReceivableDetailDAO.DemoReceibavleDetail.Price.ToString();
+            txtTanso.Text = ReceivableDetailDAO.DemoReceibavleDetail.ToString();
+            cbbDonViThoiGian.Text = ReceivableDetailDAO.DemoReceibavleDetail.TimeUnits;
+            txtDv.Text = cbbDonViThoiGian.Text;
+            txtTongthu.Text = ReceivableDetailDAO.DemoReceibavleDetail.TotalPriceDetail.ToString();
+            int a = (int)ReceivableDetailDAO.DemoReceibavleDetail.GradeID;
+            cbbKhoihoc.Text = dt.lookforGrade(a).Name;
+            if (ReceivableDetailDAO.DemoReceibavleDetail.PreferredID=="")
+            {
+                cbDoituongchinhsach.Checked = true;
+            }
+            
+        }
         public void loadHocKy()
         {
             SemesterDAO dt = new SemesterDAO();
-            cbbNamhoc.DataSource = dt.ListSemester();
-            cbbNamhoc.ValueMember = "SemesterID";
-            cbbNamhoc.DisplayMember = "Name";
+            cbbKyhoc.DataSource = dt.ListSemester();
+            cbbKyhoc.ValueMember = "SemesterID";
+            cbbKyhoc.DisplayMember = "Name";
         }
         public void loadKhoi()
         {
             GradeDAO dt = new GradeDAO();
-            cbbKhoihoc.DataSource = dt.listGrade(int.Parse(cbbNamhoc.SelectedValue.ToString()));
+            cbbKhoihoc.DataSource = dt.listGrade(int.Parse(cbbKyhoc.SelectedValue.ToString()));
             cbbKhoihoc.ValueMember = "GradeID";
             cbbKhoihoc.DisplayMember = "Name";
         }
         private void FRSuaKhoanThu_Load(object sender, EventArgs e)
         {
+            loadKhoanthu();
             loadHocKy();
             loadKhoi();
         }
@@ -114,6 +132,38 @@ namespace QLHSBanTru2018_Demo_V1.QLThuChi
         private void cbbDonViThoiGian_TextChanged(object sender, EventArgs e)
         {
             txtDv.Text = cbbDonViThoiGian.Text;
+        }
+
+        private void bntLuu_Click(object sender, EventArgs e)
+        {
+            ReceivableDetailDAO.ListDemoReceivableDetail.RemoveAt(studentReceivableDAO.TherowFocust);
+            try
+            {
+
+                ReceivableDetail a = new ReceivableDetail();
+                a.Name = txtTenKhoanThu.Text;
+                a.Price = decimal.Parse(txtMucThu.Text);
+                a.Status = true;
+                a.TimeUnits = cbbDonViThoiGian.Text;
+                a.Frequency = int.Parse(txtTanso.Text);
+                a.TotalPriceDetail = decimal.Parse(txtTongthu.Text);
+                a.GradeID = (int)cbbKhoihoc.SelectedValue;
+                if (cbDoituongchinhsach.Checked == true)
+                {
+                    a.PreferredID = PreferredDAO.PreferredIDList;
+                }
+                else
+                {
+                    a.PreferredID = "";
+                }
+                ReceivableDetailDAO.ListDemoReceivableDetail.Add(a);
+                this.Close();
+            }
+            catch
+            {
+
+
+            }
         }
     }
 }
