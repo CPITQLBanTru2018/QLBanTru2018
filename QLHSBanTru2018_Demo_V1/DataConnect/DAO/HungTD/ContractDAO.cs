@@ -17,6 +17,8 @@ namespace DataConnect.DAO.HungTD
         public ContractDAO()
         {
             db = new QLHSSmartKidsDataContext();
+            contract = db.GetTable<Contract>();
+            employee = db.GetTable<Employee>();
         }
         public List<ContractViewModel> ListAll()
         {
@@ -106,6 +108,35 @@ namespace DataConnect.DAO.HungTD
         {
             contract = db.GetTable<Contract>();
             return db.Contracts.SingleOrDefault(x => x.ContractID == contractID);
+        }
+        public ContractReportViewModel GetForReport(int contractID)
+        {
+            try
+            {
+                var model = from c in contract
+                            where c.ContractID == contractID
+                            select new ContractReportViewModel
+                            {
+                                ContractID = c.ContractID,
+                                ContractType = c.ContractType,
+                                TimeType = c.TimeType,
+                                StringTimeType = c.TimeType.ToString(),
+                                EmployeeID = c.EmployeeID,
+                                EmployeeFullName = c.Employee.FirstName + " " + c.Employee.LastName,
+                                PayRate = c.PayRate,
+                                StartDate = c.StartDate,
+                                EndDate = c.EndDate,
+                                CreatedBy = c.CreatedBy,
+                                CreatedByFullName = c.Employee1.FirstName + " " + c.Employee1.LastName,
+                                CreatedDate = c.CreatedDate
+                            };
+                return model.FirstOrDefault();
+            }
+            catch(Exception ex)
+            {
+                Console.WriteLine("LỖI ĐÂY NÀY:........."+ex.ToString());
+                return null;
+            }
         }
     }
 }

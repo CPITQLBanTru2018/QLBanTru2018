@@ -42,6 +42,7 @@
             this.btnTTHocSinh = new DevExpress.XtraBars.BarButtonItem();
             this.btnTKHocSinh = new DevExpress.XtraBars.BarButtonItem();
             this.barButtonItem1 = new DevExpress.XtraBars.BarButtonItem();
+            this.btnSemester = new DevExpress.XtraBars.BarButtonItem();
             this.ribbonPage1 = new DevExpress.XtraBars.Ribbon.RibbonPage();
             this.ribbonPageGroup1 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             this.ribbonPageGroup2 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
@@ -55,7 +56,8 @@
             this.ribbonStatusBar = new DevExpress.XtraBars.Ribbon.RibbonStatusBar();
             this.defaultLookAndFeel1 = new DevExpress.LookAndFeel.DefaultLookAndFeel(this.components);
             this.pnControlsPanel = new System.Windows.Forms.Panel();
-            this.btnSemester = new DevExpress.XtraBars.BarButtonItem();
+            this.ribbonPageGroup8 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
+            this.btnTopicLesson = new DevExpress.XtraBars.BarButtonItem();
             ((System.ComponentModel.ISupportInitialize)(this.ribbon)).BeginInit();
             this.SuspendLayout();
             // 
@@ -75,9 +77,10 @@
             this.btnTTHocSinh,
             this.btnTKHocSinh,
             this.barButtonItem1,
-            this.btnSemester});
+            this.btnSemester,
+            this.btnTopicLesson});
             this.ribbon.Location = new System.Drawing.Point(0, 0);
-            this.ribbon.MaxItemId = 13;
+            this.ribbon.MaxItemId = 14;
             this.ribbon.Name = "ribbon";
             this.ribbon.Pages.AddRange(new DevExpress.XtraBars.Ribbon.RibbonPage[] {
             this.ribbonPage1,
@@ -184,13 +187,23 @@
             this.barButtonItem1.ImageOptions.LargeImage = ((System.Drawing.Image)(resources.GetObject("barButtonItem1.ImageOptions.LargeImage")));
             this.barButtonItem1.Name = "barButtonItem1";
             // 
+            // btnSemester
+            // 
+            this.btnSemester.Caption = "Học Kỳ";
+            this.btnSemester.Id = 12;
+            this.btnSemester.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("btnSemester.ImageOptions.Image")));
+            this.btnSemester.ImageOptions.LargeImage = ((System.Drawing.Image)(resources.GetObject("btnSemester.ImageOptions.LargeImage")));
+            this.btnSemester.Name = "btnSemester";
+            this.btnSemester.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.btnSemester_ItemClick);
+            // 
             // ribbonPage1
             // 
             this.ribbonPage1.Groups.AddRange(new DevExpress.XtraBars.Ribbon.RibbonPageGroup[] {
             this.ribbonPageGroup1,
             this.ribbonPageGroup2,
             this.ribbonPageGroup4,
-            this.ribbonPageGroup5});
+            this.ribbonPageGroup5,
+            this.ribbonPageGroup8});
             this.ribbonPage1.Name = "ribbonPage1";
             this.ribbonPage1.Text = "Tổ Chức";
             // 
@@ -276,14 +289,20 @@
             this.pnControlsPanel.Size = new System.Drawing.Size(798, 432);
             this.pnControlsPanel.TabIndex = 3;
             // 
-            // btnSemester
+            // ribbonPageGroup8
             // 
-            this.btnSemester.Caption = "Học Kỳ";
-            this.btnSemester.Id = 12;
-            this.btnSemester.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("barButtonItem2.ImageOptions.Image")));
-            this.btnSemester.ImageOptions.LargeImage = ((System.Drawing.Image)(resources.GetObject("barButtonItem2.ImageOptions.LargeImage")));
-            this.btnSemester.Name = "btnSemester";
-            this.btnSemester.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.btnSemester_ItemClick);
+            this.ribbonPageGroup8.ItemLinks.Add(this.btnTopicLesson);
+            this.ribbonPageGroup8.Name = "ribbonPageGroup8";
+            this.ribbonPageGroup8.Text = "Bài Giảng";
+            // 
+            // btnTopicLesson
+            // 
+            this.btnTopicLesson.Caption = "Quản Lý Bài Giảng";
+            this.btnTopicLesson.Id = 13;
+            this.btnTopicLesson.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("barButtonItem2.ImageOptions.Image")));
+            this.btnTopicLesson.ImageOptions.LargeImage = ((System.Drawing.Image)(resources.GetObject("barButtonItem2.ImageOptions.LargeImage")));
+            this.btnTopicLesson.Name = "btnTopicLesson";
+            this.btnTopicLesson.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.btnTopicLesson_ItemClick);
             // 
             // frmMain
             // 
@@ -332,5 +351,7 @@
         private DevExpress.XtraBars.BarButtonItem barButtonItem1;
         private DevExpress.XtraBars.Ribbon.RibbonPageGroup ribbonPageGroup7;
         private DevExpress.XtraBars.BarButtonItem btnSemester;
+        private DevExpress.XtraBars.BarButtonItem btnTopicLesson;
+        private DevExpress.XtraBars.Ribbon.RibbonPageGroup ribbonPageGroup8;
     }
 }

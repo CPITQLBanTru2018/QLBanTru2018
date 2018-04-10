@@ -33,6 +33,8 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Configuration" />
     <Reference Include="System.Core" />
     <Reference Include="System.Data.Linq" />
     <Reference Include="System.Xml.Linq" />
@@ -87,6 +89,7 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>QLHSSmartKids.dbml</DependentUpon>
     </Compile>
+    <Compile Include="ViewModel\ContractReportViewModel.cs" />
     <Compile Include="ViewModel\ContractViewModel.cs" />
     <Compile Include="ViewModel\Department_EmployeeViewModel.cs" />
     <Compile Include="ViewModel\EmployeeFullViewModel.cs" />
