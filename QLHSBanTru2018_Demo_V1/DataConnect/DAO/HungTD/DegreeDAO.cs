@@ -23,5 +23,9 @@ namespace DataConnect.DAO.HungTD
                          select d;
             return degree.ToList();
         }
+        public int Insert(Degree entity)
+        {
+            return 1;
+        }
     }
 }
