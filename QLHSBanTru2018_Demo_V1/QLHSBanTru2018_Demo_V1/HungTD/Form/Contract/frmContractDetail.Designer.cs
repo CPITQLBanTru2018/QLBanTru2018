@@ -55,6 +55,7 @@
             this.dtDateOfIssue = new DevExpress.XtraEditors.DateEdit();
             this.btnAdd = new DevExpress.XtraEditors.SimpleButton();
             this.txtPlaceOfIssue = new DevExpress.XtraEditors.TextEdit();
+            this.txtEmployeeID = new DevExpress.XtraEditors.TextEdit();
             this.layoutControlGroup1 = new DevExpress.XtraLayout.LayoutControlGroup();
             this.layoutControlItem13 = new DevExpress.XtraLayout.LayoutControlItem();
             this.layoutControlItem12 = new DevExpress.XtraLayout.LayoutControlItem();
@@ -78,13 +79,14 @@
             this.layoutControlItem21 = new DevExpress.XtraLayout.LayoutControlItem();
             this.layoutControlItem22 = new DevExpress.XtraLayout.LayoutControlItem();
             this.layoutControlItem23 = new DevExpress.XtraLayout.LayoutControlItem();
+            this.layoutControlItem14 = new DevExpress.XtraLayout.LayoutControlItem();
             this.layoutControlItem3 = new DevExpress.XtraLayout.LayoutControlItem();
             this.emptySpaceItem1 = new DevExpress.XtraLayout.EmptySpaceItem();
             this.emptySpaceItem2 = new DevExpress.XtraLayout.EmptySpaceItem();
             this.layoutControlItem6 = new DevExpress.XtraLayout.LayoutControlItem();
             this.layoutControlGroup3 = new DevExpress.XtraLayout.LayoutControlGroup();
-            this.txtEmployeeID = new DevExpress.XtraEditors.TextEdit();
-            this.layoutControlItem14 = new DevExpress.XtraLayout.LayoutControlItem();
+            this.btnPrint = new DevExpress.XtraEditors.SimpleButton();
+            this.layoutControlItem15 = new DevExpress.XtraLayout.LayoutControlItem();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControl1)).BeginInit();
             this.layoutControl1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.gcListEmployee)).BeginInit();
@@ -108,6 +110,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.dtDateOfIssue.Properties.CalendarTimeProperties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dtDateOfIssue.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtPlaceOfIssue.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtEmployeeID.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlGroup1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem13)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem12)).BeginInit();
@@ -131,13 +134,13 @@
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem21)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem22)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem23)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem14)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem3)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem6)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlGroup3)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.txtEmployeeID.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem14)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem15)).BeginInit();
             this.SuspendLayout();
             // 
             // layoutControl1
@@ -164,6 +167,7 @@
             this.layoutControl1.Controls.Add(this.btnAdd);
             this.layoutControl1.Controls.Add(this.txtPlaceOfIssue);
             this.layoutControl1.Controls.Add(this.txtEmployeeID);
+            this.layoutControl1.Controls.Add(this.btnPrint);
             this.layoutControl1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.layoutControl1.Location = new System.Drawing.Point(0, 0);
             this.layoutControl1.Name = "layoutControl1";
@@ -366,7 +370,7 @@
             this.txtFullName.Location = new System.Drawing.Point(232, 212);
             this.txtFullName.Name = "txtFullName";
             this.txtFullName.Properties.ReadOnly = true;
-            this.txtFullName.Size = new System.Drawing.Size(171, 20);
+            this.txtFullName.Size = new System.Drawing.Size(153, 20);
             this.txtFullName.StyleController = this.layoutControl1;
             this.txtFullName.TabIndex = 22;
             // 
@@ -450,6 +454,15 @@
             this.txtPlaceOfIssue.StyleController = this.layoutControl1;
             this.txtPlaceOfIssue.TabIndex = 27;
             // 
+            // txtEmployeeID
+            // 
+            this.txtEmployeeID.Location = new System.Drawing.Point(389, 212);
+            this.txtEmployeeID.Name = "txtEmployeeID";
+            this.txtEmployeeID.Properties.ReadOnly = true;
+            this.txtEmployeeID.Size = new System.Drawing.Size(68, 20);
+            this.txtEmployeeID.StyleController = this.layoutControl1;
+            this.txtEmployeeID.TabIndex = 29;
+            // 
             // layoutControlGroup1
             // 
             this.layoutControlGroup1.EnableIndentsWithoutBorders = DevExpress.Utils.DefaultBoolean.True;
@@ -463,7 +476,8 @@
             this.layoutControlGroup4,
             this.layoutControlItem3,
             this.emptySpaceItem1,
-            this.emptySpaceItem2});
+            this.emptySpaceItem2,
+            this.layoutControlItem15});
             this.layoutControlGroup1.Name = "layoutControlGroup1";
             this.layoutControlGroup1.Size = new System.Drawing.Size(784, 402);
             this.layoutControlGroup1.TextVisible = false;
@@ -647,7 +661,7 @@
             this.layoutControlItem18.Control = this.txtFullName;
             this.layoutControlItem18.Location = new System.Drawing.Point(116, 0);
             this.layoutControlItem18.Name = "layoutControlItem18";
-            this.layoutControlItem18.Size = new System.Drawing.Size(267, 24);
+            this.layoutControlItem18.Size = new System.Drawing.Size(249, 24);
             this.layoutControlItem18.Text = "Họ và tên";
             this.layoutControlItem18.TextSize = new System.Drawing.Size(89, 13);
             // 
@@ -696,6 +710,15 @@
             this.layoutControlItem23.Text = "Nơi cấp";
             this.layoutControlItem23.TextSize = new System.Drawing.Size(89, 13);
             // 
+            // layoutControlItem14
+            // 
+            this.layoutControlItem14.Control = this.txtEmployeeID;
+            this.layoutControlItem14.Location = new System.Drawing.Point(365, 0);
+            this.layoutControlItem14.Name = "layoutControlItem14";
+            this.layoutControlItem14.Size = new System.Drawing.Size(72, 24);
+            this.layoutControlItem14.TextSize = new System.Drawing.Size(0, 0);
+            this.layoutControlItem14.TextVisible = false;
+            // 
             // layoutControlItem3
             // 
             this.layoutControlItem3.Control = this.btnAdd;
@@ -716,9 +739,9 @@
             // emptySpaceItem2
             // 
             this.emptySpaceItem2.AllowHotTrack = false;
-            this.emptySpaceItem2.Location = new System.Drawing.Point(0, 356);
+            this.emptySpaceItem2.Location = new System.Drawing.Point(99, 356);
             this.emptySpaceItem2.Name = "emptySpaceItem2";
-            this.emptySpaceItem2.Size = new System.Drawing.Size(461, 26);
+            this.emptySpaceItem2.Size = new System.Drawing.Size(362, 26);
             this.emptySpaceItem2.TextSize = new System.Drawing.Size(0, 0);
             // 
             // layoutControlItem6
@@ -737,23 +760,27 @@
             this.layoutControlGroup3.OptionsItemText.TextToControlDistance = 5;
             this.layoutControlGroup3.Size = new System.Drawing.Size(339, 145);
             // 
-            // txtEmployeeID
+            // btnPrint
             // 
-            this.txtEmployeeID.Location = new System.Drawing.Point(407, 212);
-            this.txtEmployeeID.Name = "txtEmployeeID";
-            this.txtEmployeeID.Properties.ReadOnly = true;
-            this.txtEmployeeID.Size = new System.Drawing.Size(50, 20);
-            this.txtEmployeeID.StyleController = this.layoutControl1;
-            this.txtEmployeeID.TabIndex = 29;
+            this.btnPrint.Location = new System.Drawing.Point(12, 368);
+            this.btnPrint.Name = "btnPrint";
+            this.btnPrint.Size = new System.Drawing.Size(95, 22);
+            this.btnPrint.StyleController = this.layoutControl1;
+            this.btnPrint.TabIndex = 30;
+            this.btnPrint.Text = "In Hợp Đồng";
+            this.btnPrint.Click += new System.EventHandler(this.btnPrint_Click);
             // 
-            // layoutControlItem14
+            // layoutControlItem15
             // 
-            this.layoutControlItem14.Control = this.txtEmployeeID;
-            this.layoutControlItem14.Location = new System.Drawing.Point(383, 0);
-            this.layoutControlItem14.Name = "layoutControlItem14";
-            this.layoutControlItem14.Size = new System.Drawing.Size(54, 24);
-            this.layoutControlItem14.TextSize = new System.Drawing.Size(0, 0);
-            this.layoutControlItem14.TextVisible = false;
+            this.layoutControlItem15.Control = this.btnPrint;
+            this.layoutControlItem15.Location = new System.Drawing.Point(0, 356);
+            this.layoutControlItem15.MaxSize = new System.Drawing.Size(99, 26);
+            this.layoutControlItem15.MinSize = new System.Drawing.Size(99, 26);
+            this.layoutControlItem15.Name = "layoutControlItem15";
+            this.layoutControlItem15.Size = new System.Drawing.Size(99, 26);
+            this.layoutControlItem15.SizeConstraintsType = DevExpress.XtraLayout.SizeConstraintsType.Custom;
+            this.layoutControlItem15.TextSize = new System.Drawing.Size(0, 0);
+            this.layoutControlItem15.TextVisible = false;
             // 
             // frmContractDetail
             // 
@@ -791,6 +818,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.dtDateOfIssue.Properties.CalendarTimeProperties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dtDateOfIssue.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtPlaceOfIssue.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtEmployeeID.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlGroup1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem13)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem12)).EndInit();
@@ -814,13 +842,13 @@
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem21)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem22)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem23)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem14)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem3)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem6)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlGroup3)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.txtEmployeeID.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem14)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem15)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -884,5 +912,7 @@
         private DevExpress.XtraLayout.LayoutControlItem fileABC;
         private DevExpress.XtraEditors.TextEdit txtEmployeeID;
         private DevExpress.XtraLayout.LayoutControlItem layoutControlItem14;
+        private DevExpress.XtraEditors.SimpleButton btnPrint;
+        private DevExpress.XtraLayout.LayoutControlItem layoutControlItem15;
     }
 }

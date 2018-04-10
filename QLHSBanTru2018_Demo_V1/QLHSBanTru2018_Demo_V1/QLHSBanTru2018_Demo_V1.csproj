@@ -44,22 +44,32 @@
     <Reference Include="Bunifu_UI_v1.5.3">
       <HintPath>C:\Users\khico\Downloads\Bunifu_UI_v1.5.3.dll</HintPath>
     </Reference>
+    <Reference Include="Dapper, Version=1.50.4.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Dapper.1.50.4\lib\net451\Dapper.dll</HintPath>
+    </Reference>
     <Reference Include="DevExpress.BonusSkins.v17.2" />
+    <Reference Include="DevExpress.Charts.v17.2.Core, Version=17.2.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
     <Reference Include="DevExpress.Data.v17.2" />
     <Reference Include="DevExpress.Images.v17.2, Version=17.2.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
     <Reference Include="DevExpress.Office.v17.2.Core" />
     <Reference Include="DevExpress.Pdf.v17.2.Core, Version=17.2.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Reference Include="DevExpress.PivotGrid.v17.2.Core, Version=17.2.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
     <Reference Include="DevExpress.RichEdit.v17.2.Core" />
     <Reference Include="DevExpress.RichEdit.v17.2.Export" />
     <Reference Include="DevExpress.Printing.v17.2.Core" />
     <Reference Include="DevExpress.Utils.v17.2" />
+    <Reference Include="DevExpress.Utils.v17.2.UI, Version=17.2.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
     <Reference Include="DevExpress.Xpo.v17.2, Version=17.2.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
     <Reference Include="DevExpress.XtraBars.v17.2" />
     <Reference Include="DevExpress.Sparkline.v17.2.Core" />
+    <Reference Include="DevExpress.XtraCharts.v17.2, Version=17.2.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
     <Reference Include="DevExpress.XtraEditors.v17.2" />
+    <Reference Include="DevExpress.XtraGauges.v17.2.Core, Version=17.2.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
     <Reference Include="DevExpress.XtraGrid.v17.2, Version=17.2.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
     <Reference Include="DevExpress.XtraLayout.v17.2, Version=17.2.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
     <Reference Include="DevExpress.XtraPrinting.v17.2, Version=17.2.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Reference Include="DevExpress.XtraReports.v17.2, Version=17.2.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.XtraReports.v17.2.Extensions, Version=17.2.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
     <Reference Include="DevExpress.XtraRichEdit.v17.2, Version=17.2.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
     <Reference Include="Microsoft.Office.Interop.Excel1">
       <HintPath>C:\Program Files (x86)\Microsoft Visual Studio\Shared\Visual Studio Tools for Office\PIA\Office15\Microsoft.Office.Interop.Excel.dll</HintPath>
@@ -120,6 +130,12 @@
     </Compile>
     <Compile Include="HungTD\Form\Contract\frmContractList.Designer.cs">
       <DependentUpon>frmContractList.cs</DependentUpon>
+    </Compile>
+    <Compile Include="HungTD\Form\Contract\frmPrintContract.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="HungTD\Form\Contract\frmPrintContract.Designer.cs">
+      <DependentUpon>frmPrintContract.cs</DependentUpon>
     </Compile>
     <Compile Include="HungTD\Form\Course\frmCourseDetail.cs">
       <SubType>Form</SubType>
@@ -262,6 +278,12 @@
     <Compile Include="QLThuChi\DotThu\KeHoachThu\UsDotThuPhi.Designer.cs">
       <DependentUpon>UsDotThuPhi.cs</DependentUpon>
     </Compile>
+    <Compile Include="Reports\ContractReport.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Reports\ContractReport.Designer.cs">
+      <DependentUpon>ContractReport.cs</DependentUpon>
+    </Compile>
     <Compile Include="TienBao\frmStudent.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -291,6 +313,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="HungTD\Form\Contract\frmContractList.resx">
       <DependentUpon>frmContractList.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="HungTD\Form\Contract\frmPrintContract.resx">
+      <DependentUpon>frmPrintContract.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="HungTD\Form\Course\frmCourseDetail.resx">
       <DependentUpon>frmCourseDetail.cs</DependentUpon>
@@ -372,6 +397,9 @@
     <EmbeddedResource Include="QLThuChi\DotThu\KeHoachThu\UsDotThuPhi.resx">
       <DependentUpon>UsDotThuPhi.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Reports\ContractReport.resx">
+      <DependentUpon>ContractReport.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="TienBao\frmStudent.resx">
       <DependentUpon>frmStudent.cs</DependentUpon>
     </EmbeddedResource>
@@ -417,6 +445,7 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="HungTD\Form\History\" />
+    <Folder Include="Reports\ViewModels\" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\DataConnect\DataConnect.csproj">

@@ -10,6 +10,7 @@ using System.Windows.Forms;
 using DevExpress.XtraEditors;
 using DataConnect.DAO.HungTD;
 using QLHSBanTru2018_Demo_V1.HungTD.Form.Employee;
+using DataConnect.ViewModel;
 
 namespace QLHSBanTru2018_Demo_V1.HungTD.Form.Contract
 {
@@ -161,6 +162,18 @@ namespace QLHSBanTru2018_Demo_V1.HungTD.Form.Contract
         private void btnCancel_Click(object sender, EventArgs e)
         {
 
+        }
+
+        private void btnPrint_Click(object sender, EventArgs e)
+        {
+            if (contract != null)
+            {
+
+                frmPrintContract frmPC = new frmPrintContract();
+                ContractReportViewModel contractView = new ContractDAO().GetForReport(contract.ContractID);
+                frmPC.InitContract(contractView);
+                frmPC.ShowDialog();
+            }   
         }
     }
 }
