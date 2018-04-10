@@ -64,7 +64,12 @@ namespace QLHSBanTru2018_Demo_V1.QLThuChi.DotThu.KeHoachThu
 
 
             }
-            MessageBox.Show("" + PreferredDAO.PreferredIDList + "");
+            //MessageBox.Show("" + PreferredDAO.PreferredIDList + "");
+            this.Close();
+        }
+
+        private void bntHuy_Click(object sender, EventArgs e)
+        {
             this.Close();
         }
     }

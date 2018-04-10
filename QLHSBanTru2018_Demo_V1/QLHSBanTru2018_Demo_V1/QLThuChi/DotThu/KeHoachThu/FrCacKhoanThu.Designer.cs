@@ -310,6 +310,7 @@
             this.bntXoa.StyleController = this.layoutControl1;
             this.bntXoa.TabIndex = 1;
             this.bntXoa.Text = "Xóa";
+            this.bntXoa.Click += new System.EventHandler(this.bntXoa_Click);
             // 
             // bntSua
             // 
