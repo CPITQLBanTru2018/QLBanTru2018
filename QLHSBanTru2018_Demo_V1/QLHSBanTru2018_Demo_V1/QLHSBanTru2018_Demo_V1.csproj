@@ -71,6 +71,7 @@
     <Reference Include="DevExpress.XtraReports.v17.2, Version=17.2.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
     <Reference Include="DevExpress.XtraReports.v17.2.Extensions, Version=17.2.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
     <Reference Include="DevExpress.XtraRichEdit.v17.2, Version=17.2.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.XtraTreeList.v17.2, Version=17.2.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
     <Reference Include="Microsoft.Office.Interop.Excel1">
       <HintPath>C:\Program Files (x86)\Microsoft Visual Studio\Shared\Visual Studio Tools for Office\PIA\Office15\Microsoft.Office.Interop.Excel.dll</HintPath>
       <EmbedInteropTypes>True</EmbedInteropTypes>
@@ -215,6 +216,12 @@
     <Compile Include="HungTD\Form\Semester\frmSemesterList.Designer.cs">
       <DependentUpon>frmSemesterList.cs</DependentUpon>
     </Compile>
+    <Compile Include="HungTD\Form\TopicLesson\frmTopicLesson.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="HungTD\Form\TopicLesson\frmTopicLesson.Designer.cs">
+      <DependentUpon>frmTopicLesson.cs</DependentUpon>
+    </Compile>
     <Compile Include="HungTD\Form\WorkProgress\frmWorkProgressList.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -355,6 +362,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="HungTD\Form\Semester\frmSemesterList.resx">
       <DependentUpon>frmSemesterList.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="HungTD\Form\TopicLesson\frmTopicLesson.resx">
+      <DependentUpon>frmTopicLesson.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="HungTD\Form\WorkProgress\frmWorkProgressList.resx">
       <DependentUpon>frmWorkProgressList.cs</DependentUpon>
