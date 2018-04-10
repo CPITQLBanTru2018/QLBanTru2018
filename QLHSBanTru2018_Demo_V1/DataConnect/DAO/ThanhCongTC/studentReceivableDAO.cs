@@ -42,6 +42,7 @@ namespace DataConnect.DAO.ThanhCongTC
         Table<Student_Class> StdClass;
         Table<Student> STD;
         Table<Preferred> preferred;
+       
         
         public List<TCStudenViewModle> ListStudents()
         {
@@ -69,11 +70,15 @@ namespace DataConnect.DAO.ThanhCongTC
                         //Status=true
 
                     };
-            return a.ToList();
-        {
-
+                return a.ToList();
+           
         }
-      }
+        //public Link<TCStudenViewModle> listStudenReceivable()
+        //{
+        //    classs = dt.GetTable<Class>();
+
+        
+        //}
         
     }
 }

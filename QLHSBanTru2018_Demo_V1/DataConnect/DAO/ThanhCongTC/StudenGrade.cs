@@ -19,5 +19,11 @@ namespace DataConnect.DAO.ThanhCongTC
             Grade a = dt.Grades.FirstOrDefault(t => t.GradeID == makhoi);
             return a;
         }
+        public List<Student_Class>lookStudenbyGradeID(int GradeId)
+        {
+            Class a = dt.Classes.FirstOrDefault(t => t.GradeID == GradeId);
+            var b = dt.Student_Classes.Where(t => t.ClassID == a.ClassID);
+            return b.ToList();
+        }
     }
 }

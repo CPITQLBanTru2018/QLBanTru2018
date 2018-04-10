@@ -125,9 +125,29 @@ namespace QLHSBanTru2018_Demo_V1.QLThuChi
                         detail.GradeID = (int)gridView1.GetRowCellValue(i, gridView1.Columns["GradeID"]);
                         detail.PreferredID = gridView1.GetRowCellValue(i, gridView1.Columns["PreferredID"]).ToString();                      
                         int d = rbd.Insert(detail);
-                        if (d != 0)
+                        if (d!=0)
                         {
-                           
+                            //MessageBox.Show("" + d + "");
+                            StudenGrade gr = new StudenGrade();
+                            ReceivableDetail_StudentDAO st = new ReceivableDetail_StudentDAO();
+                            List<Student_Class> listClassID = gr.lookStudenbyGradeID((int)detail.GradeID);
+                            //int dem = listClassID.Count;
+                            //MessageBox.Show("" + dem + "");
+                            foreach (var j in listClassID)
+                            {
+                                ReceivableDetail_Student dt = new ReceivableDetail_Student();
+                                dt.ReceivableDetailID = d;
+                                dt.StudentID = j.StudentID;
+                                dt.Status = true;
+                                if (st.Insert(dt) == true)
+                                {
+
+                                }
+                                else
+                                {
+                                    MessageBox.Show("ban gi bi loi");
+                                }
+                            }
 
                         }
                         else
@@ -195,6 +215,11 @@ namespace QLHSBanTru2018_Demo_V1.QLThuChi
                 }
 
             }
+        }
+
+        private void txtTongtien_TextChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }
