@@ -9,6 +9,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using DevExpress.XtraEditors;
 using DataConnect.DAO.HungTD;
+using DataConnect.ViewModel;
 
 namespace QLHSBanTru2018_Demo_V1.HungTD.Form.TopicLession
 {
@@ -22,17 +23,37 @@ namespace QLHSBanTru2018_Demo_V1.HungTD.Form.TopicLession
         private void frmTopicLesson_Load(object sender, EventArgs e)
         {
             this.Dock = DockStyle.Fill;
-            FillGridControls();
+            FillCombobox();
         }
-        private void FillGridControls()
+        private void FillGridControls(int topicTypeID)
         {
-            gcTopicLesson.DataSource = new LessonDAO().FilterByTopicType(1);
+            gcTopicLesson.DataSource = new LessonDAO().FilterByTopicType(topicTypeID);
             
             BindingDetail();
         }
         private void BindingDetail()
         {
+            txtName.DataBindings.Clear();
+            txtName.DataBindings.Add(new Binding("Text", gcTopicLesson.DataSource, "Name"));
+            txtDescription.DataBindings.Clear();
+            txtDescription.DataBindings.Add(new Binding("Text", gcTopicLesson.DataSource, "Description"));
+        }
+        private void FillCombobox()
+        {
+            cbbTopicType.Items.Clear();
+            cbbTopicType.DataSource = new TopicTypeDAO().ListAll();
+            cbbTopicType.DisplayMember = "Name";
+            cbbTopicType.ValueMember = "TopicTypeID";
+        }
 
+        private void cbbTopicType_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            FillGridControls(int.Parse(cbbTopicType.SelectedIndex.ToString()));
+        }
+
+        private void btnEdit_Click(object sender, EventArgs e)
+        {
+            
         }
     }
 }

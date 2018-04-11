@@ -24,7 +24,7 @@ namespace DataConnect.DAO.HungTD
         public List<LessonViewModel> FilterByTopicType(int topicTypeID)
         {
             var model = from l in lessons
-                        where l.Status.Equals(true)
+                        where l.Status.Equals(true) && l.Topic.TopicTypeID.Equals(topicTypeID)
                         orderby l.TopicID, l.LessonID
                         select new LessonViewModel
                         {
@@ -32,6 +32,7 @@ namespace DataConnect.DAO.HungTD
                             Name = l.Name,
                             TopicID = l.TopicID,
                             TopicName = l.Topic.Name,
+                            Description = l.Description,
                             Status = l.Status
                         };
             return model.ToList();

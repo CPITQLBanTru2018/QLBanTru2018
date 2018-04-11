@@ -12,6 +12,7 @@ namespace DataConnect.ViewModel
         public string Name { get; set; }
         public int TopicID { get; set; }
         public string TopicName { get; set; }
+        public string Description { get; set; }
         public bool Status { get; set; }
     }
 }
