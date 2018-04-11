@@ -381,6 +381,8 @@
       <Column Name="LessonID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
       <Column Name="Name" Type="System.String" DbType="NVarChar(200) NOT NULL" CanBeNull="false" />
       <Column Name="TopicID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="Description" Type="System.String" DbType="NVarChar(500)" CanBeNull="true" />
+      <Column Name="DisplayOrder" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
       <Column Name="Status" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
       <Association Name="Lesson_Student_Lesson" Member="Student_Lessons" ThisKey="LessonID" OtherKey="LessonID" Type="Student_Lesson" />
       <Association Name="Topic_Lesson" Member="Topic" ThisKey="TopicID" OtherKey="TopicID" Type="Topic" IsForeignKey="true" />
@@ -596,6 +598,8 @@
       <Column Name="TopicID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
       <Column Name="Name" Type="System.String" DbType="NVarChar(200) NOT NULL" CanBeNull="false" />
       <Column Name="TopicTypeID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="Description" Type="System.String" DbType="NVarChar(500)" CanBeNull="true" />
+      <Column Name="DisplayOrder" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
       <Column Name="Status" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
       <Association Name="Topic_Lesson" Member="Lessons" ThisKey="TopicID" OtherKey="TopicID" Type="Lesson" />
       <Association Name="TopicType_Topic" Member="TopicType" ThisKey="TopicTypeID" OtherKey="TopicTypeID" Type="TopicType" IsForeignKey="true" />
@@ -605,6 +609,8 @@
     <Type Name="TopicType">
       <Column Name="TopicTypeID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
       <Column Name="Name" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="Description" Type="System.String" DbType="NVarChar(500)" CanBeNull="true" />
+      <Column Name="DisplayOrder" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
       <Column Name="Status" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
       <Association Name="TopicType_Topic" Member="Topics" ThisKey="TopicTypeID" OtherKey="TopicTypeID" Type="Topic" />
     </Type>

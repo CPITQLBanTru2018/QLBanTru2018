@@ -46,6 +46,11 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Common\LoginDetail.cs" />
+    <Compile Include="CPITQLHSBanTru2018DataSet.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>CPITQLHSBanTru2018DataSet.xsd</DependentUpon>
+    </Compile>
     <Compile Include="DAO\HungTD\ContractDAO.cs" />
     <Compile Include="DAO\HungTD\CourseDAO.cs" />
     <Compile Include="DAO\HungTD\DegreeDAO.cs" />
@@ -95,11 +100,23 @@
     <Compile Include="ViewModel\Department_EmployeeViewModel.cs" />
     <Compile Include="ViewModel\EmployeeFullViewModel.cs" />
     <Compile Include="ViewModel\FunctionViewModel.cs" />
+    <Compile Include="ViewModel\LessonViewModel.cs" />
     <Compile Include="ViewModel\SemesterViewModel.cs" />
     <Compile Include="ViewModel\StudentViewModel.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
+    <None Include="CPITQLHSBanTru2018DataSet.xsc">
+      <DependentUpon>CPITQLHSBanTru2018DataSet.xsd</DependentUpon>
+    </None>
+    <None Include="CPITQLHSBanTru2018DataSet.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>CPITQLHSBanTru2018DataSet.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="CPITQLHSBanTru2018DataSet.xss">
+      <DependentUpon>CPITQLHSBanTru2018DataSet.xsd</DependentUpon>
+    </None>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>

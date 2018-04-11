@@ -1,4 +1,5 @@
-﻿using System;
+﻿using DataConnect.ViewModel;
+using System;
 using System.Collections.Generic;
 using System.Data.Linq;
 using System.Linq;
@@ -20,9 +21,21 @@ namespace DataConnect.DAO.HungTD
         {
             return lessons.Where(x => x.Status.Equals(true)).ToList();
         }
-        public List<Lesson> FilterByTopicType(int topicTypeID)
+        public List<LessonViewModel> FilterByTopicType(int topicTypeID)
         {
-            return lessons.Where(x => x.Status.Equals(true) && x.Topic.TopicTypeID.Equals(topicTypeID)).ToList();
+            var model = from l in lessons
+                        where l.Status.Equals(true)
+                        orderby l.TopicID, l.LessonID
+                        select new LessonViewModel
+                        {
+                            LessonID = l.LessonID,
+                            Name = l.Name,
+                            TopicID = l.TopicID,
+                            TopicName = l.Topic.Name,
+                            Status = l.Status
+                        };
+            return model.ToList();
+
         }
         public List<Lesson> FilterByTopic(int topicID)
         {
