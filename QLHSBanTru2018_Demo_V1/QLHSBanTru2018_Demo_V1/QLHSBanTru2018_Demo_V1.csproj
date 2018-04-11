@@ -53,6 +53,7 @@
     <Reference Include="DevExpress.Images.v17.2, Version=17.2.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
     <Reference Include="DevExpress.Office.v17.2.Core" />
     <Reference Include="DevExpress.Pdf.v17.2.Core, Version=17.2.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Reference Include="DevExpress.Pdf.v17.2.Drawing, Version=17.2.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
     <Reference Include="DevExpress.PivotGrid.v17.2.Core, Version=17.2.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
     <Reference Include="DevExpress.RichEdit.v17.2.Core" />
     <Reference Include="DevExpress.RichEdit.v17.2.Export" />
@@ -67,6 +68,7 @@
     <Reference Include="DevExpress.XtraGauges.v17.2.Core, Version=17.2.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
     <Reference Include="DevExpress.XtraGrid.v17.2, Version=17.2.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
     <Reference Include="DevExpress.XtraLayout.v17.2, Version=17.2.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.XtraPdfViewer.v17.2, Version=17.2.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
     <Reference Include="DevExpress.XtraPrinting.v17.2, Version=17.2.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
     <Reference Include="DevExpress.XtraReports.v17.2, Version=17.2.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
     <Reference Include="DevExpress.XtraReports.v17.2.Extensions, Version=17.2.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
@@ -243,6 +245,12 @@
     <Compile Include="QLThuChi\DotThu\KeHoachThu\FrDoiTuongchinhsach.Designer.cs">
       <DependentUpon>FrDoiTuongchinhsach.cs</DependentUpon>
     </Compile>
+    <Compile Include="QLThuChi\DotThu\KeHoachThu\FrThanhToan.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="QLThuChi\DotThu\KeHoachThu\FrThanhToan.Designer.cs">
+      <DependentUpon>FrThanhToan.cs</DependentUpon>
+    </Compile>
     <Compile Include="QLThuChi\DotThu\MienGiam\FRDienMienGiam.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -385,6 +393,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="QLThuChi\DotThu\KeHoachThu\FrDoiTuongchinhsach.resx">
       <DependentUpon>FrDoiTuongchinhsach.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="QLThuChi\DotThu\KeHoachThu\FrThanhToan.resx">
+      <DependentUpon>FrThanhToan.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="QLThuChi\DotThu\MienGiam\FRDienMienGiam.resx">
       <DependentUpon>FRDienMienGiam.cs</DependentUpon>

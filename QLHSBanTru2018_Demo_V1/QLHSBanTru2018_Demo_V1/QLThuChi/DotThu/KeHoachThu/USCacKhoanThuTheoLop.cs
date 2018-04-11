@@ -9,6 +9,8 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using DevExpress.XtraEditors;
 using DataConnect.DAO.ThanhCongTC;
+using System.IO;
+using DataConnect;
 
 namespace QLHSBanTru2018_Demo_V1.QLThuChi
 {
@@ -67,6 +69,7 @@ namespace QLHSBanTru2018_Demo_V1.QLThuChi
                 LoadKhoihoc();
                 studentReceivableDAO.GradeID = (int)cbbKhoihoc.SelectedValue;
                 LoadLophoc();
+                //loadDSHS();
             }
             catch 
             {
@@ -90,6 +93,7 @@ namespace QLHSBanTru2018_Demo_V1.QLThuChi
                 LoadKhoihoc();
                 studentReceivableDAO.GradeID = (int)cbbKhoihoc.SelectedValue;
                 LoadLophoc();
+                loadDSHS();
             }
             catch 
             {
@@ -106,6 +110,7 @@ namespace QLHSBanTru2018_Demo_V1.QLThuChi
                 LoadKhoihoc();
                 studentReceivableDAO.GradeID = (int)cbbKhoihoc.SelectedValue;
                 LoadLophoc();
+                loadDSHS();
             }
             catch 
             {
@@ -120,6 +125,37 @@ namespace QLHSBanTru2018_Demo_V1.QLThuChi
             {
                 studentReceivableDAO.GradeID = (int)cbbKhoihoc.SelectedValue;
                 LoadLophoc();
+                loadDSHS();
+            }
+            catch 
+            {
+
+                
+            }
+        }
+        public void loadDSHS()
+        {
+            ClassStudentDAO dt = new ClassStudentDAO();
+            grDanhSachHocSinh.DataSource = dt.ListStudent((int)cbbLophoc.SelectedValue);
+        }
+        private void cbbLophoc_SelectionChangeCommitted(object sender, EventArgs e)
+        {
+            //studentReceivableDAO.ClassID = (int)cbbDotthu.SelectedValue;
+            loadDSHS();
+        }
+        private void gridView1_FocusedRowChanged(object sender, DevExpress.XtraGrid.Views.Base.FocusedRowChangedEventArgs e)
+        {
+            try
+            {
+                ClassStudentDAO dt = new ClassStudentDAO();
+                ClassStudentDAO.StudentID = (int)gridView1.GetRowCellValue(e.FocusedRowHandle, "StudentID");
+                Student a = dt.lookForStuden(ClassStudentDAO.StudentID);
+                txtTenhocsinh.Text = a.FirstName + " " + a.LastName;
+                txtNgaySinh.Text = a.Birthday.ToString();
+                txtDiachi.Text = a.AdressDetail;
+                MemoryStream mom = new MemoryStream(a.Image.ToArray());
+                Image b = Image.FromStream(mom);
+                pcAnhhocsinh.Image = b;
             }
             catch 
             {
@@ -128,13 +164,8 @@ namespace QLHSBanTru2018_Demo_V1.QLThuChi
             }
         }
 
-        private void cbbLophoc_SelectionChangeCommitted(object sender, EventArgs e)
-        {
-            studentReceivableDAO.ClassID = (int)cbbDotthu.SelectedValue;
-        }
-        private void gridView1_FocusedRowChanged(object sender, DevExpress.XtraGrid.Views.Base.FocusedRowChangedEventArgs e)
-        {
-            
-        }
+        
+
+      
     }
 }

@@ -65,6 +65,7 @@
     <Compile Include="DAO\HungTD\SemesterDAO.cs" />
     <Compile Include="DAO\HungTD\TopicDAO.cs" />
     <Compile Include="DAO\HungTD\TopicTypeDAO.cs" />
+    <Compile Include="DAO\ThanhCongTC\ClassStudentDAO.cs" />
     <Compile Include="DAO\ThanhCongTC\GradeDAO.cs" />
     <Compile Include="DAO\ThanhCongTC\PreferredDAO.cs" />
     <Compile Include="DAO\ThanhCongTC\ReceivableDetailDAO.cs" />

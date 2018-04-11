@@ -9,6 +9,7 @@ namespace DataConnect.DAO.ThanhCongTC
     public class ReceivableIDAO
     {
         QLHSSmartKidsDataContext dt = new QLHSSmartKidsDataContext();
+        public static int ReceivableID = 0;
         public int Insert(Receivable entity)
         {
             Receivable a = new Receivable();
