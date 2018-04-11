@@ -138,7 +138,7 @@ namespace QLHSBanTru2018_Demo_V1.QLThuChi
                                 ReceivableDetail_Student dt = new ReceivableDetail_Student();
                                 dt.ReceivableDetailID = d;
                                 dt.StudentID = j.StudentID;
-                                dt.Status = true;
+                                dt.Status = false;
                                 if (st.Insert(dt) == true)
                                 {
 

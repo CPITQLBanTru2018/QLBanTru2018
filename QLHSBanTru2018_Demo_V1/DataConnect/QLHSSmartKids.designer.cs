@@ -598,6 +598,8 @@ namespace DataConnect
 		
 		private EntitySet<Student> _Students;
 		
+		private EntitySet<Student_Class> _Student_Classes;
+		
 		private EntityRef<Grade> _Grade;
 		
     #region Extensibility Method Definitions
@@ -618,6 +620,7 @@ namespace DataConnect
 		{
 			this._Employee_Classes = new EntitySet<Employee_Class>(new Action<Employee_Class>(this.attach_Employee_Classes), new Action<Employee_Class>(this.detach_Employee_Classes));
 			this._Students = new EntitySet<Student>(new Action<Student>(this.attach_Students), new Action<Student>(this.detach_Students));
+			this._Student_Classes = new EntitySet<Student_Class>(new Action<Student_Class>(this.attach_Student_Classes), new Action<Student_Class>(this.detach_Student_Classes));
 			this._Grade = default(EntityRef<Grade>);
 			OnCreated();
 		}
@@ -732,6 +735,19 @@ namespace DataConnect
 			}
 		}
 		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Class_Student_Class", Storage="_Student_Classes", ThisKey="ClassID", OtherKey="ClassID")]
+		public EntitySet<Student_Class> Student_Classes
+		{
+			get
+			{
+				return this._Student_Classes;
+			}
+			set
+			{
+				this._Student_Classes.Assign(value);
+			}
+		}
+		
 		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Grade_Class", Storage="_Grade", ThisKey="GradeID", OtherKey="GradeID", IsForeignKey=true)]
 		public Grade Grade
 		{
@@ -805,6 +821,18 @@ namespace DataConnect
 		}
 		
 		private void detach_Students(Student entity)
+		{
+			this.SendPropertyChanging();
+			entity.Class = null;
+		}
+		
+		private void attach_Student_Classes(Student_Class entity)
+		{
+			this.SendPropertyChanging();
+			entity.Class = this;
+		}
+		
+		private void detach_Student_Classes(Student_Class entity)
 		{
 			this.SendPropertyChanging();
 			entity.Class = null;
@@ -11703,6 +11731,8 @@ namespace DataConnect
 		
 		private EntitySet<ReceivableDetail_Student> _ReceivableDetail_Students;
 		
+		private EntitySet<Student_Class> _Student_Classes;
+		
 		private EntitySet<Student_Lesson> _Student_Lessons;
 		
 		private EntitySet<StudentParent> _StudentParents;
@@ -11762,6 +11792,7 @@ namespace DataConnect
 			this._HealthExaminationDetails = new EntitySet<HealthExaminationDetail>(new Action<HealthExaminationDetail>(this.attach_HealthExaminationDetails), new Action<HealthExaminationDetail>(this.detach_HealthExaminationDetails));
 			this._HealthProblems = new EntitySet<HealthProblem>(new Action<HealthProblem>(this.attach_HealthProblems), new Action<HealthProblem>(this.detach_HealthProblems));
 			this._ReceivableDetail_Students = new EntitySet<ReceivableDetail_Student>(new Action<ReceivableDetail_Student>(this.attach_ReceivableDetail_Students), new Action<ReceivableDetail_Student>(this.detach_ReceivableDetail_Students));
+			this._Student_Classes = new EntitySet<Student_Class>(new Action<Student_Class>(this.attach_Student_Classes), new Action<Student_Class>(this.detach_Student_Classes));
 			this._Student_Lessons = new EntitySet<Student_Lesson>(new Action<Student_Lesson>(this.attach_Student_Lessons), new Action<Student_Lesson>(this.detach_Student_Lessons));
 			this._StudentParents = new EntitySet<StudentParent>(new Action<StudentParent>(this.attach_StudentParents), new Action<StudentParent>(this.detach_StudentParents));
 			this._Class = default(EntityRef<Class>);
@@ -12237,6 +12268,19 @@ namespace DataConnect
 			}
 		}
 		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Student_Student_Class", Storage="_Student_Classes", ThisKey="StudentID", OtherKey="StudentID")]
+		public EntitySet<Student_Class> Student_Classes
+		{
+			get
+			{
+				return this._Student_Classes;
+			}
+			set
+			{
+				this._Student_Classes.Assign(value);
+			}
+		}
+		
 		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Student_Student_Lesson", Storage="_Student_Lessons", ThisKey="StudentID", OtherKey="StudentID")]
 		public EntitySet<Student_Lesson> Student_Lessons
 		{
@@ -12377,6 +12421,18 @@ namespace DataConnect
 			entity.Student = null;
 		}
 		
+		private void attach_Student_Classes(Student_Class entity)
+		{
+			this.SendPropertyChanging();
+			entity.Student = this;
+		}
+		
+		private void detach_Student_Classes(Student_Class entity)
+		{
+			this.SendPropertyChanging();
+			entity.Student = null;
+		}
+		
 		private void attach_Student_Lessons(Student_Lesson entity)
 		{
 			this.SendPropertyChanging();
@@ -12416,6 +12472,10 @@ namespace DataConnect
 		
 		private bool _Status;
 		
+		private EntityRef<Class> _Class;
+		
+		private EntityRef<Student> _Student;
+		
     #region Extensibility Method Definitions
     partial void OnLoaded();
     partial void OnValidate(System.Data.Linq.ChangeAction action);
@@ -12432,6 +12492,8 @@ namespace DataConnect
 		
 		public Student_Class()
 		{
+			this._Class = default(EntityRef<Class>);
+			this._Student = default(EntityRef<Student>);
 			OnCreated();
 		}
 		
@@ -12446,6 +12508,10 @@ namespace DataConnect
 			{
 				if ((this._StudentID != value))
 				{
+					if (this._Student.HasLoadedOrAssignedValue)
+					{
+						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
+					}
 					this.OnStudentIDChanging(value);
 					this.SendPropertyChanging();
 					this._StudentID = value;
@@ -12466,6 +12532,10 @@ namespace DataConnect
 			{
 				if ((this._ClassID != value))
 				{
+					if (this._Class.HasLoadedOrAssignedValue)
+					{
+						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
+					}
 					this.OnClassIDChanging(value);
 					this.SendPropertyChanging();
 					this._ClassID = value;
@@ -12511,6 +12581,74 @@ namespace DataConnect
 					this._Status = value;
 					this.SendPropertyChanged("Status");
 					this.OnStatusChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Class_Student_Class", Storage="_Class", ThisKey="ClassID", OtherKey="ClassID", IsForeignKey=true)]
+		public Class Class
+		{
+			get
+			{
+				return this._Class.Entity;
+			}
+			set
+			{
+				Class previousValue = this._Class.Entity;
+				if (((previousValue != value) 
+							|| (this._Class.HasLoadedOrAssignedValue == false)))
+				{
+					this.SendPropertyChanging();
+					if ((previousValue != null))
+					{
+						this._Class.Entity = null;
+						previousValue.Student_Classes.Remove(this);
+					}
+					this._Class.Entity = value;
+					if ((value != null))
+					{
+						value.Student_Classes.Add(this);
+						this._ClassID = value.ClassID;
+					}
+					else
+					{
+						this._ClassID = default(int);
+					}
+					this.SendPropertyChanged("Class");
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Student_Student_Class", Storage="_Student", ThisKey="StudentID", OtherKey="StudentID", IsForeignKey=true)]
+		public Student Student
+		{
+			get
+			{
+				return this._Student.Entity;
+			}
+			set
+			{
+				Student previousValue = this._Student.Entity;
+				if (((previousValue != value) 
+							|| (this._Student.HasLoadedOrAssignedValue == false)))
+				{
+					this.SendPropertyChanging();
+					if ((previousValue != null))
+					{
+						this._Student.Entity = null;
+						previousValue.Student_Classes.Remove(this);
+					}
+					this._Student.Entity = value;
+					if ((value != null))
+					{
+						value.Student_Classes.Add(this);
+						this._StudentID = value.StudentID;
+					}
+					else
+					{
+						this._StudentID = default(int);
+					}
+					this.SendPropertyChanged("Student");
 				}
 			}
 		}
