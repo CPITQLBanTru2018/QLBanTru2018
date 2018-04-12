@@ -7,7 +7,6 @@
       <Column Name="Name" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
       <Column Name="Status" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
       <Association Name="Class_Employee_Class" Member="Employee_Classes" ThisKey="ClassID" OtherKey="ClassID" Type="Employee_Class" />
-      <Association Name="Class_Student" Member="Students" ThisKey="ClassID" OtherKey="ClassID" Type="Student" />
       <Association Name="Class_Student_Class" Member="Student_Classes" ThisKey="ClassID" OtherKey="ClassID" Type="Student_Class" />
       <Association Name="Grade_Class" Member="Grade" ThisKey="GradeID" OtherKey="GradeID" Type="Grade" IsForeignKey="true" />
     </Type>
@@ -537,7 +536,6 @@
       <Column Name="Hobby" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
       <Column Name="Talent" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
       <Column Name="DateStudy" Type="System.DateTime" DbType="Date NOT NULL" CanBeNull="false" />
-      <Column Name="ClassID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
       <Column Name="EthnicGroupID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
       <Column Name="ReligionID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
       <Column Name="BirthPlaceID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
@@ -554,7 +552,6 @@
       <Association Name="Student_Student_Class" Member="Student_Classes" ThisKey="StudentID" OtherKey="StudentID" Type="Student_Class" />
       <Association Name="Student_Student_Lesson" Member="Student_Lessons" ThisKey="StudentID" OtherKey="StudentID" Type="Student_Lesson" />
       <Association Name="Student_StudentParent" Member="StudentParents" ThisKey="StudentID" OtherKey="StudentID" Type="StudentParent" />
-      <Association Name="Class_Student" Member="Class" ThisKey="ClassID" OtherKey="ClassID" Type="Class" IsForeignKey="true" />
     </Type>
   </Table>
   <Table Name="dbo.Student_Class" Member="Student_Classes">

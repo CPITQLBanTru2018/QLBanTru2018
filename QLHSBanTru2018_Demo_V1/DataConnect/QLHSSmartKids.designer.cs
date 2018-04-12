@@ -596,8 +596,6 @@ namespace DataConnect
 		
 		private EntitySet<Employee_Class> _Employee_Classes;
 		
-		private EntitySet<Student> _Students;
-		
 		private EntitySet<Student_Class> _Student_Classes;
 		
 		private EntityRef<Grade> _Grade;
@@ -619,7 +617,6 @@ namespace DataConnect
 		public Class()
 		{
 			this._Employee_Classes = new EntitySet<Employee_Class>(new Action<Employee_Class>(this.attach_Employee_Classes), new Action<Employee_Class>(this.detach_Employee_Classes));
-			this._Students = new EntitySet<Student>(new Action<Student>(this.attach_Students), new Action<Student>(this.detach_Students));
 			this._Student_Classes = new EntitySet<Student_Class>(new Action<Student_Class>(this.attach_Student_Classes), new Action<Student_Class>(this.detach_Student_Classes));
 			this._Grade = default(EntityRef<Grade>);
 			OnCreated();
@@ -722,19 +719,6 @@ namespace DataConnect
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Class_Student", Storage="_Students", ThisKey="ClassID", OtherKey="ClassID")]
-		public EntitySet<Student> Students
-		{
-			get
-			{
-				return this._Students;
-			}
-			set
-			{
-				this._Students.Assign(value);
-			}
-		}
-		
 		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Class_Student_Class", Storage="_Student_Classes", ThisKey="ClassID", OtherKey="ClassID")]
 		public EntitySet<Student_Class> Student_Classes
 		{
@@ -809,18 +793,6 @@ namespace DataConnect
 		}
 		
 		private void detach_Employee_Classes(Employee_Class entity)
-		{
-			this.SendPropertyChanging();
-			entity.Class = null;
-		}
-		
-		private void attach_Students(Student entity)
-		{
-			this.SendPropertyChanging();
-			entity.Class = this;
-		}
-		
-		private void detach_Students(Student entity)
 		{
 			this.SendPropertyChanging();
 			entity.Class = null;
@@ -11751,8 +11723,6 @@ namespace DataConnect
 		
 		private System.DateTime _DateStudy;
 		
-		private int _ClassID;
-		
 		private int _EthnicGroupID;
 		
 		private int _ReligionID;
@@ -11785,8 +11755,6 @@ namespace DataConnect
 		
 		private EntitySet<StudentParent> _StudentParents;
 		
-		private EntityRef<Class> _Class;
-		
     #region Extensibility Method Definitions
     partial void OnLoaded();
     partial void OnValidate(System.Data.Linq.ChangeAction action);
@@ -11813,8 +11781,6 @@ namespace DataConnect
     partial void OnTalentChanged();
     partial void OnDateStudyChanging(System.DateTime value);
     partial void OnDateStudyChanged();
-    partial void OnClassIDChanging(int value);
-    partial void OnClassIDChanged();
     partial void OnEthnicGroupIDChanging(int value);
     partial void OnEthnicGroupIDChanged();
     partial void OnReligionIDChanging(int value);
@@ -11843,7 +11809,6 @@ namespace DataConnect
 			this._Student_Classes = new EntitySet<Student_Class>(new Action<Student_Class>(this.attach_Student_Classes), new Action<Student_Class>(this.detach_Student_Classes));
 			this._Student_Lessons = new EntitySet<Student_Lesson>(new Action<Student_Lesson>(this.attach_Student_Lessons), new Action<Student_Lesson>(this.detach_Student_Lessons));
 			this._StudentParents = new EntitySet<StudentParent>(new Action<StudentParent>(this.attach_StudentParents), new Action<StudentParent>(this.detach_StudentParents));
-			this._Class = default(EntityRef<Class>);
 			OnCreated();
 		}
 		
@@ -12063,30 +12028,6 @@ namespace DataConnect
 					this._DateStudy = value;
 					this.SendPropertyChanged("DateStudy");
 					this.OnDateStudyChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ClassID", DbType="Int NOT NULL")]
-		public int ClassID
-		{
-			get
-			{
-				return this._ClassID;
-			}
-			set
-			{
-				if ((this._ClassID != value))
-				{
-					if (this._Class.HasLoadedOrAssignedValue)
-					{
-						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
-					}
-					this.OnClassIDChanging(value);
-					this.SendPropertyChanging();
-					this._ClassID = value;
-					this.SendPropertyChanged("ClassID");
-					this.OnClassIDChanged();
 				}
 			}
 		}
@@ -12352,40 +12293,6 @@ namespace DataConnect
 			set
 			{
 				this._StudentParents.Assign(value);
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Class_Student", Storage="_Class", ThisKey="ClassID", OtherKey="ClassID", IsForeignKey=true)]
-		public Class Class
-		{
-			get
-			{
-				return this._Class.Entity;
-			}
-			set
-			{
-				Class previousValue = this._Class.Entity;
-				if (((previousValue != value) 
-							|| (this._Class.HasLoadedOrAssignedValue == false)))
-				{
-					this.SendPropertyChanging();
-					if ((previousValue != null))
-					{
-						this._Class.Entity = null;
-						previousValue.Students.Remove(this);
-					}
-					this._Class.Entity = value;
-					if ((value != null))
-					{
-						value.Students.Add(this);
-						this._ClassID = value.ClassID;
-					}
-					else
-					{
-						this._ClassID = default(int);
-					}
-					this.SendPropertyChanged("Class");
-				}
 			}
 		}
 		
