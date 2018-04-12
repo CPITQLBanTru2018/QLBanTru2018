@@ -35,9 +35,10 @@ namespace DataConnect.DAO.ThanhCongTC
             dt.SubmitChanges();
             return true;
         }
-        public List<ReceivableDetail_Student> ListReceivableDetail_Student()
+
+        public List<ReceivableDetail_Student> ListReceivableDetail_Student(int StudenID)
         {
-            var a = dt.ReceivableDetail_Students;
+            var a = dt.ReceivableDetail_Students.Where(t => t.StudentID == StudenID);
             return a.ToList();
         }
     }
