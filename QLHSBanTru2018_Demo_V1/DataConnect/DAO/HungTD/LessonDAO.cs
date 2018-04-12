@@ -33,6 +33,7 @@ namespace DataConnect.DAO.HungTD
                             TopicID = l.TopicID,
                             TopicName = l.Topic.Name,
                             Description = l.Description,
+                            TopicDescription = l.Topic.Description,
                             Status = l.Status
                         };
             return model.ToList();
@@ -45,6 +46,14 @@ namespace DataConnect.DAO.HungTD
         public List<Lesson> ListDeleted()
         {
             return lessons.Where(x => x.Status.Equals(false)).ToList();
+        }
+        public Lesson GetByID(int lessonID)
+        {
+            return lessons.Where(x => x.LessonID.Equals(lessonID)).FirstOrDefault();
+        }
+        public int GetTopicID(int lessonID)
+        {
+            return lessons.Where(x => x.LessonID.Equals(lessonID)).FirstOrDefault().TopicID;
         }
         public int Insert(Lesson entity)
         {
