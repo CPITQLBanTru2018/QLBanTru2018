@@ -20,13 +20,17 @@ namespace DataConnect.DAO.HungTD
         {
             return topics.Where(x => x.Status.Equals(true)).ToList();
         }
-        public List<Topic> FilterByTopicType(int topicTypeID)
+        public List<Topic> ListByTopicTypeID(int topicTypeID)
         {
             return topics.Where(x => x.Status.Equals(true) && x.TopicTypeID.Equals(topicTypeID)).ToList();
         }
         public List<Topic> ListDeleted()
         {
             return topics.Where(x => x.Status.Equals(false)).ToList();
+        }
+        public int GetTopicTypeID(int topicID)
+        {
+            return topics.Where(x => x.TopicID.Equals(topicID)).FirstOrDefault().TopicTypeID;
         }
         public int Insert(Topic entity)
         {
