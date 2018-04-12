@@ -21,7 +21,7 @@ namespace DataConnect.DAO.TienBao
         Table<Location> LocationTable;
         Table<Religion> ReligionTable;
         Table<Preferred> PreferredTable;
-       
+
 
         public List<Student> ListAll()
         {
@@ -30,15 +30,12 @@ namespace DataConnect.DAO.TienBao
                         select e;
             return query.ToList();
         }
-
         public void StudentCount()
         {
             StudentTable = db.GetTable<Student>();
             var query = (from e in StudentTable
-                        select e).Count();
-            
+                         select e).Count();
         }
-
         public List<StudentViewModel> ListStudentByClass(int ClassID)
         {
             StudentTable = db.GetTable<Student>();
@@ -52,37 +49,45 @@ namespace DataConnect.DAO.TienBao
             var query = from S in StudentTable
                         join SP in StudentParentTable
                         on S.StudentID equals SP.StudentID
+                        into OD
+                        from SP in OD.DefaultIfEmpty()
                         join SC in StudentClassTable
                         on S.StudentID equals SC.StudentID
                         join C in ClassTable
                         on SC.ClassID equals C.ClassID
                         join L in LocationTable
                         on S.LocationID equals L.LocationID
-                        where SC.ClassID == ClassID where S.Status == true
+                        where SC.ClassID == ClassID && S.Status == true
                         select new StudentViewModel
                         {
                             StudentID = S.StudentID,
                             StudentCode = S.StudentCode,
                             FirstName = S.FirstName,
                             LastName = S.LastName,
+                            HomeName = S.HomeName,
                             Birthday = S.Birthday,
+                            DateStudy = S.DateStudy,
                             Gender = S.Gender,
                             AdressDetail = S.AdressDetail,
+                            Hobby = S.Hobby,
+                            Talen = S.Talent,
                             FatherName = SP.FatherName,
                             FatherJob = SP.FatherJob,
                             MotherName = SP.MotherName,
                             MotherJob = SP.MotherJob,
+                            Password = SP.Password,
                             Image = S.Image == null ? null : S.Image.ToArray(),
                             Note = S.Note,
+                            StudentClassNote = SC.Note,
                             Status = S.Status,
                             LocationID = S.LocationID,
                             LocationDetail = new LocationDAO().GetFullNameLocaion(S.LocationID),
-                            ClassID = SC.ClassID
+                            ClassID = SC.ClassID,
+                            ClassName = C.Name
                         };
             List<StudentViewModel> list = query.ToList();
             return list;
         }
-
         public List<StudentViewModel> ListStudentLockByClass(int ClassID)
         {
             StudentTable = db.GetTable<Student>();
@@ -96,50 +101,57 @@ namespace DataConnect.DAO.TienBao
             var query = from S in StudentTable
                         join SP in StudentParentTable
                         on S.StudentID equals SP.StudentID
+                        into OD
+                        from SP in OD.DefaultIfEmpty()
                         join SC in StudentClassTable
                         on S.StudentID equals SC.StudentID
                         join C in ClassTable
                         on SC.ClassID equals C.ClassID
                         join L in LocationTable
                         on S.LocationID equals L.LocationID
-                        where SC.ClassID == ClassID
-                        where S.Status == false
+                        where SC.ClassID == ClassID && S.Status == false
                         select new StudentViewModel
                         {
                             StudentID = S.StudentID,
                             StudentCode = S.StudentCode,
                             FirstName = S.FirstName,
                             LastName = S.LastName,
+                            HomeName = S.HomeName,
                             Birthday = S.Birthday,
+                            DateStudy = S.DateStudy,
                             Gender = S.Gender,
                             AdressDetail = S.AdressDetail,
+                            Hobby = S.Hobby,
+                            Talen = S.Talent,
                             FatherName = SP.FatherName,
                             FatherJob = SP.FatherJob,
                             MotherName = SP.MotherName,
                             MotherJob = SP.MotherJob,
+                            Password = SP.Password,
                             Image = S.Image == null ? null : S.Image.ToArray(),
                             Note = S.Note,
+                            StudentClassNote = SC.Note,
                             Status = S.Status,
                             LocationID = S.LocationID,
                             LocationDetail = new LocationDAO().GetFullNameLocaion(S.LocationID),
-                            ClassID = SC.ClassID
+                            ClassID = SC.ClassID,
+                            ClassName = C.Name
                         };
             List<StudentViewModel> list = query.ToList();
             return list;
         }
-
-        public bool StudentInsert(Student entity)
+        public int StudentInsert(Student entity)
         {
             try
             {
                 StudentTable = db.GetTable<Student>();
                 StudentTable.InsertOnSubmit(entity);
                 db.SubmitChanges();
-                return true;
+                return entity.StudentID;
             }
             catch
             {
-                return false;
+                return 0;
             }
         }
 
@@ -152,7 +164,9 @@ namespace DataConnect.DAO.TienBao
                 model.StudentCode = entity.StudentCode;
                 model.FirstName = entity.FirstName;
                 model.LastName = entity.LastName;
+                model.HomeName = entity.HomeName;
                 model.Birthday = entity.Birthday;
+                model.DateStudy = entity.DateStudy;
                 model.Gender = entity.Gender;
                 model.Image = entity.Image;
                 model.Hobby = entity.Hobby;
@@ -165,35 +179,6 @@ namespace DataConnect.DAO.TienBao
                 model.Note = entity.Note;
                 model.Status = entity.Status;
 
-                db.SubmitChanges();
-                return true;
-            }
-            catch
-            {
-                return false;
-            }
-        }
-        public bool StudentEdit(Student entity)
-        {
-            try
-            {
-                StudentTable = db.GetTable<Student>();
-                Student obj = StudentTable.Single(x => x.StudentID == entity.StudentID);
-                obj.StudentCode = entity.StudentCode;
-                obj.FirstName = entity.FirstName;
-                obj.LastName = entity.LastName;
-                obj.Birthday = entity.Birthday;
-                obj.Gender = entity.Gender;
-                obj.Image = entity.Image;
-                obj.Hobby = entity.Hobby;
-                obj.Talent = entity.Talent;
-                obj.LocationID = entity.LocationID;
-                obj.AdressDetail = entity.AdressDetail;
-                obj.EthnicGroupID = entity.EthnicGroupID;
-                obj.ReligionID = entity.ReligionID;
-                obj.PreferredID = entity.PreferredID;
-                obj.Note = entity.Note;
-                obj.Status = entity.Status;
                 db.SubmitChanges();
                 return true;
             }
@@ -217,7 +202,6 @@ namespace DataConnect.DAO.TienBao
                 return false;
             }
         }
-
         public Student GetByID(int StudentID)
         {
             StudentTable = db.GetTable<Student>();

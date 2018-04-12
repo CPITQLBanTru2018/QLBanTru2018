@@ -16,7 +16,6 @@ namespace DataConnect.DAO.TienBao
             db = new QLHSSmartKidsDataContext();
             StudentParentsTable = db.GetTable<StudentParent>();
         }
-
         public List<StudentParent> ListParents(int StudentID)
         {
             Table<StudentParent> StudentParentsTable = db.GetTable<StudentParent>();
@@ -25,16 +24,6 @@ namespace DataConnect.DAO.TienBao
                         select p;
             return query.ToList();
         }
-        //public int GetParent(int StudentID)
-        //{
-        //    Table<StudentParent> StudentParentsTable = db.GetTable<StudentParent>();
-        //    var query = from p in StudentParentsTable
-        //                where p.StudentID.Equals(StudentID)
-        //                select p;
-        //    return (int)query.;
-
-        //}
-
         public StudentParent GetByID(int StudentID)
         {
             StudentParentsTable = db.GetTable<StudentParent>();
@@ -54,7 +43,6 @@ namespace DataConnect.DAO.TienBao
                 return false;
             }
         }
-
         public bool ParentsUpdate(StudentParent entity)
         {
             try
@@ -79,42 +67,12 @@ namespace DataConnect.DAO.TienBao
                 return false;
             }
         }
-        //public bool StudentEdit(Student entity)
-        //{
-        //    try
-        //    {
-        //        Student = db.GetTable<Student>();
-        //        Student obj = Student.Single(x => x.StudentID == entity.StudentID);
-        //        obj.StudentCode = entity.StudentCode;
-        //        obj.FirstName = entity.FirstName;
-        //        obj.LastName = entity.LastName;
-        //        obj.Birthday = entity.Birthday;
-        //        obj.Gender = entity.Gender;
-        //        obj.Image = entity.Image;
-        //        obj.Hobby = entity.Hobby;
-        //        obj.Talent = entity.Talent;
-        //        obj.LocationID = entity.LocationID;
-        //        obj.AdressDetail = entity.AdressDetail;
-        //        obj.EthnicGroupID = entity.EthnicGroupID;
-        //        obj.ReligionID = entity.ReligionID;
-        //        obj.PreferredID = entity.PreferredID;
-        //        obj.Note = entity.Note;
-        //        obj.Status = entity.Status;
-        //        db.SubmitChanges();
-        //        return true;
-        //    }
-        //    catch
-        //    {
-        //        return false;
-        //    }
-        //}
-
         public bool ParentsDelete(int StudentParentsID)
         {
             try
             {
                 StudentParentsTable = db.GetTable<StudentParent>();
-                StudentParent model = StudentParentsTable.SingleOrDefault(x => x.StudentID.Equals(StudentParentsID));
+                StudentParent model = StudentParentsTable.SingleOrDefault(x => x.StudentParentsID.Equals(StudentParentsID));
 
                 db.SubmitChanges();
                 return true;

@@ -18,16 +18,19 @@ using DevExpress.XtraGrid.Views.Grid;
 
 namespace QLHSBanTru2018_Demo_V1.TienBao
 {
-    public partial class frmStudentDetail : DevExpress.XtraEditors.XtraForm
+    public partial class frmAddStudent : DevExpress.XtraEditors.XtraForm
     {
         public int iFunction;
         public DataConnect.Student Student;
-        public DataConnect.StudentParent StudentParents;
         public DataConnect.Class Class;
         public DataConnect.Student_Class StudentClass;
+        public DataConnect.StudentParent studentparents;
+        StudentDAO m_StudentDAO = new StudentDAO();
+        StudentParentsDAO m_StudentParentsDAO = new StudentParentsDAO();
+        StudentClassDao m_StudentClassDAO = new StudentClassDao();
 
         #region System
-        public frmStudentDetail()
+        public frmAddStudent()
         {
             InitializeComponent();
         }
@@ -55,6 +58,7 @@ namespace QLHSBanTru2018_Demo_V1.TienBao
             cbbProvince.DisplayMember = "LocationName";
             cbbProvince.ValueMember = "LocationID";
             cbbProvince.SelectedIndex = 0;
+
         }
         private void LoadDistrictInfor(int provinceID)
         {
@@ -73,28 +77,21 @@ namespace QLHSBanTru2018_Demo_V1.TienBao
         #endregion
 
         #region Load DAO
-        private void UpdateHocSinh()
+        private void ThemHocSinh()
         {
             if (txtStudentCode.Text != "" &&
              txtFirstName.Text != "" &&
              txtLastName.Text != "" &&
-             txtHomeName.Text != "" &&
              dtBirthday.Text != "" &&
-             dtDateStudy.Text != "" &&
-             txtHobby.Text != "" &&
-             txtTalen.Text != "" &&
              txtAddressDetail.Text != "" &&
-             txtFatherName.Text != "" &&
-             dtFatherBirthday.Text != "" &&
-             txtFatherPhone.Text != "" &&
-             txtFatherJob.Text != "" &&
-             txtMotherName.Text != "" &&
-             txtMotherJob.Text != "" &&
-             txtMotherPhone.Text != "" &&
-             dtMotherBirthday.Text != "")
+             txtClassName.Text != "" &&
+             txtClassID.Text != "" &&
+             dtDateStudy.Text != "")
             {
                 DataConnect.Student entity = new DataConnect.Student();
                 DataConnect.StudentParent entity2 = new DataConnect.StudentParent();
+                DataConnect.Student_Class entity3 = new DataConnect.Student_Class();
+
                 entity.StudentCode = txtStudentCode.Text;
                 entity.FirstName = txtFirstName.Text;
                 entity.LastName = txtLastName.Text;
@@ -102,8 +99,6 @@ namespace QLHSBanTru2018_Demo_V1.TienBao
                 entity.Birthday = DateTime.Parse(dtBirthday.EditValue.ToString());
                 entity.DateStudy = DateTime.Parse(dtDateStudy.EditValue.ToString());
                 entity.Gender = cbbGender.Text == "Nữ" ? false : true;
-                entity.Hobby = txtHobby.Text;
-                entity.Talent = txtTalen.Text;
                 if (Stream() != null)
                 {
                     entity.Image = Stream().ToArray();
@@ -115,100 +110,60 @@ namespace QLHSBanTru2018_Demo_V1.TienBao
                 entity.Note = txtNote.Text;
                 entity.Status = chbStatus.Checked ? true : false;
 
-                entity2.FatherName = txtFatherName.Text;
-                entity2.FatherBirthday = DateTime.Parse(dtFatherBirthday.EditValue.ToString());
-                entity2.FatherJob = txtFatherJob.Text;
-                entity2.FatherPhone = txtFatherPhone.Text;
-                entity2.MotherName = txtMotherName.Text;
-                entity2.MotherBirthday = DateTime.Parse(dtMotherBirthday.EditValue.ToString());
-                entity2.MotherJob = txtMotherJob.Text;
-                entity2.MotherPhone = txtMotherPhone.Text;
-
-                StudentDAO m_StudentDAO = new StudentDAO();
-                StudentParentsDAO m_StudentParentsDAO = new StudentParentsDAO();
-
-                if (iFunction == 2)
+                if (iFunction == 1)
                 {
-                    entity.StudentID = Student.StudentID;
-                    if (m_StudentDAO.StudentUpdate(entity) == true && m_StudentParentsDAO.ParentsUpdate(entity2) == true)
+                    int NewstudentID = m_StudentDAO.StudentInsert(entity);
+
+                    if (NewstudentID > 0)
                     {
-                        XtraMessageBox.Show("Cập nhật thành công!", "Thông Báo");
-                        DialogResult = DialogResult.OK;
-                        this.Close();
+                        entity2.StudentID = NewstudentID;
+                        entity2.Password = MD5Hash.PasswordEncryptor.MD5Hash("12345");
+                        entity3.ClassID = int.Parse(txtClassID.Text);
+                        entity3.StudentID = NewstudentID;
+                        entity3.Status = chbStatus.Checked ? true : false;
+                        m_StudentParentsDAO.ParentsInsert(entity2);
+                        m_StudentClassDAO.StudentClassInsert(entity3);
+                        if (XtraMessageBox.Show("Bạn có muốn thêm thông tin khác ngay bây giờ? ", "Thêm học sinh thành công", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+                        {
+                            frmStudentDetail m_StudentDetail = new frmStudentDetail();
+                            m_StudentDetail.iFunction = 2;
+                            m_StudentDetail.Student = new StudentDAO().GetByID(NewstudentID);
+                            m_StudentDetail.StudentParents = new StudentParentsDAO().GetByID(NewstudentID);
+                            m_StudentDetail.Class = new ClassDAO().GetByClassID(int.Parse(txtClassID.Text));
+
+                            m_StudentDetail.ShowDialog();
+                        }
+
                     }
                     else
                     {
-                        XtraMessageBox.Show("Hệ thống đã xảy ra lỗi", "Thông Báo");
+                        XtraMessageBox.Show("Hệ thống đã xảy ra lỗi", "Thông Báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     }
                 }
             }
             else
             {
-                XtraMessageBox.Show("Mời bạn nhập đầy đủ thông tin!");
+                XtraMessageBox.Show("Mời bạn nhập đầy đủ thông tin!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
-        }
-        private void loadHocSinh()
-        {
-            txtStudentID.Text = Convert.ToString(Student.StudentID);
-            txtStudentCode.Text = Student.StudentCode;
-            txtFirstName.Text = Student.FirstName;
-            txtLastName.Text = Student.LastName;
-            txtHomeName.Text = Student.HomeName;
-            dtBirthday.EditValue = Student.Birthday;
-            dtDateStudy.EditValue = Student.DateStudy;
-            cbbGender.SelectedIndex = Student.Gender == true ? 0 : 1;
-            txtHobby.Text = Student.Hobby;
-            txtTalen.Text = Student.Talent;
-            txtAddressDetail.Text = Student.AdressDetail;
-            cbbEthnicGroup.SelectedValue = Student.EthnicGroupID;
-            cbbReligion.SelectedValue = Student.ReligionID;
-            txtFatherName.Text = StudentParents.FatherName;
-            txtFatherJob.Text = StudentParents.FatherJob;
-            txtFatherPhone.Text = StudentParents.FatherPhone;
-            dtFatherBirthday.EditValue = StudentParents.FatherBirthday;
-            txtMotherName.Text = StudentParents.MotherName;
-            txtMotherJob.Text = StudentParents.MotherJob;
-            txtMotherPhone.Text = StudentParents.MotherPhone;
-            dtMotherBirthday.EditValue = StudentParents.MotherBirthday;
-            txtClassName.Text = Class.Name;
-            cbbProvince.SelectedValue = new LocationDAO().GetLocationParent(new LocationDAO().GetLocationParent(Student.LocationID));
-            cbbDistrict.SelectedValue = new LocationDAO().GetLocationParent(Student.LocationID);
-            cbbWard.SelectedValue = Student.LocationID;
-            txtNote.Text = Student.Note;
-            chbStatus.Checked = Student.Status;
-            try
-            {
-                picImage.Image = ToImage(Student.Image.ToArray());
-            }
-            catch
-            { }
         }
         #endregion
 
-
         #region Event
-        private void frmStudentDetail_Load(object sender, EventArgs e)
+        private void frmAddStudent_Load(object sender, EventArgs e)
         {
             LoadEthnicGroupInfor();
             LoadReligionInfor();
             LoadProvinceInfor();
             cbbProvince_SelectedIndexChanged(sender, e);
             cbbDistrict_SelectedIndexChanged(sender, e);
-            if (iFunction == 2)
+            if (iFunction == 1)
             {
-                this.Text = "Cập nhật thông tin học sinh";
-                txtStudentID.Enabled = false;
+                this.Text = "Thêm mới học sinh";
+                txtClassName.Text = Class.Name;
+                txtClassID.Text = (Class.ClassID).ToString();
+                txtClassID.Enabled = false;
                 txtClassName.Enabled = false;
-                loadHocSinh();
-            }
-            else if (iFunction == 3)
-            {
-                this.Text = "Xem thông tin học sinh";
-                txtStudentID.Enabled = false;
-                txtClassName.Enabled = false;
-                btnLuu.Enabled = false;
-                btnXoa.Enabled = false;
-                loadHocSinh();
+                txtStudentCode.Focus();
             }
         }
         private void btnDong_Click(object sender, EventArgs e)
@@ -218,33 +173,20 @@ namespace QLHSBanTru2018_Demo_V1.TienBao
         }
         private void btnLuu_Click(object sender, EventArgs e)
         {
-            UpdateHocSinh();
-        }
-        private void btnXoaDuLieu_Click(object sender, EventArgs e)
-        {
-            if (XtraMessageBox.Show("Bạn muốn xóa học sinh ?", "Thông báo", MessageBoxButtons.YesNo, MessageBoxIcon.Error) == DialogResult.Yes)
-            {
-                new StudentDAO().StudentDelete(int.Parse(txtStudentID.Text));
-                this.Close();
-            }
-        }
-        private void btnThayAnh_Click(object sender, EventArgs e)
-        {
-            LoadImage();
-        }
-        private void MenuThayAnh_Click(object sender, EventArgs e)
-        {
-            LoadImage();
+            ThemHocSinh();
+            txtStudentCode.Focus();
+            txtStudentCode.Text = "";
+            txtFirstName.Text = "";
+            txtLastName.Text = "";
+            txtHomeName.Text = "";
+            dtBirthday.Text = "";
+            txtAddressDetail.Text = "";
+            dtDateStudy.Text = "";
+            txtNote.Text = "";
         }
         private void cbbProvince_SelectedIndexChanged(object sender, EventArgs e)
         {
-            try
-            {
-                LoadDistrictInfor(int.Parse(cbbProvince.SelectedValue.ToString()));
-                cbbDistrict.SelectedIndex = 0;
-            }
-            catch
-            { }
+
         }
         private void cbbDistrict_SelectedIndexChanged(object sender, EventArgs e)
         {
@@ -293,7 +235,5 @@ namespace QLHSBanTru2018_Demo_V1.TienBao
             }
         }
         #endregion
-
-
     }
 }
