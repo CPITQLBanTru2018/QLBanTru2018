@@ -10,9 +10,9 @@ namespace DataConnect.DAO.ThanhCongTC
     {
         QLHSSmartKidsDataContext dt = new QLHSSmartKidsDataContext();
         public static int StudentID = 0;
-        public List<Student> ListStudent(int ClassID)
+        public List<Student> ListStudent(int ClID)
         {
-            var a = dt.Student_Classes.Where(t => t.ClassID == ClassID);
+            var a = dt.Student_Classes.Where(t => t.ClassID == ClID);
             a.ToList();
             List<Student> ListStudent = new List<Student>();
             foreach (var i in a)
