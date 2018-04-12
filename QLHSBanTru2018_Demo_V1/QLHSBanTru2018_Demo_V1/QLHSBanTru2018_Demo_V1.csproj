@@ -134,6 +134,12 @@
     <Compile Include="HungTD\Form\Contract\frmContractList.Designer.cs">
       <DependentUpon>frmContractList.cs</DependentUpon>
     </Compile>
+    <Compile Include="HungTD\Form\Contract\frmFindEmployee.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="HungTD\Form\Contract\frmFindEmployee.Designer.cs">
+      <DependentUpon>frmFindEmployee.cs</DependentUpon>
+    </Compile>
     <Compile Include="HungTD\Form\Contract\frmPrintContract.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -334,6 +340,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="HungTD\Form\Contract\frmContractList.resx">
       <DependentUpon>frmContractList.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="HungTD\Form\Contract\frmFindEmployee.resx">
+      <DependentUpon>frmFindEmployee.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="HungTD\Form\Contract\frmPrintContract.resx">
       <DependentUpon>frmPrintContract.cs</DependentUpon>

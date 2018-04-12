@@ -128,7 +128,7 @@ namespace QLHSBanTru2018_Demo_V1.HungTD.Form.TopicLesson
             }
             else
             {
-                MessageBox.Show("Mời bạn nhập đầy đủ thôn tin đánh dấu *!", "Xin Lỗi!");
+                MessageBox.Show("Mời bạn nhập đầy đủ thông tin!", "Xin Lỗi!");
             }
         }
 

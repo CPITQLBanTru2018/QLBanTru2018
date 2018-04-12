@@ -55,10 +55,10 @@ namespace QLHSBanTru2018_Demo_V1.HungTD.Form.Contract
 
         private void btnAdd_Click(object sender, EventArgs e)
         {
-            frmContractDetail frmCD = new frmContractDetail();
-            frmCD.iFunction = 1;
-            frmCD.ShowDialog();
-            if (frmCD.DialogResult == DialogResult.OK)
+            frmFindEmployee frmFE = new frmFindEmployee();
+            frmFE.iFunction = 1;
+            frmFE.ShowDialog();
+            if (frmFE.DialogResult == DialogResult.OK)
                 FillGridControl();
         }
 

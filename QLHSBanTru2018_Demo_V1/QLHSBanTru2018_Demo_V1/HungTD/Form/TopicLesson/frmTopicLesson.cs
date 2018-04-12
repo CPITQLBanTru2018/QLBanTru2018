@@ -20,7 +20,7 @@ namespace QLHSBanTru2018_Demo_V1.HungTD.Form.TopicLession
         {
             InitializeComponent();
         }
-
+        int lessonID=0;
         private void frmTopicLesson_Load(object sender, EventArgs e)
         {
             this.Dock = DockStyle.Fill;
@@ -37,8 +37,6 @@ namespace QLHSBanTru2018_Demo_V1.HungTD.Form.TopicLession
             txtName.DataBindings.Add(new Binding("Text", gcTopicLesson.DataSource, "Name"));
             txtDescription.DataBindings.Clear();
             txtDescription.DataBindings.Add(new Binding("Text", gcTopicLesson.DataSource, "Description"));
-            txtLessonID.DataBindings.Clear();
-            txtLessonID.DataBindings.Add(new Binding("Text", gcTopicLesson.DataSource, "LessonID"));
             txtTopicDescription.DataBindings.Clear();
             txtTopicDescription.DataBindings.Add(new Binding("Text", gcTopicLesson.DataSource, "TopicDescription"));
         }
@@ -88,7 +86,16 @@ namespace QLHSBanTru2018_Demo_V1.HungTD.Form.TopicLession
         private void btnAdd_Click(object sender, EventArgs e)
         {
             frmTopicLessonDetail frmTLD = new frmTopicLessonDetail();
-            frmTLD.setLesson(int.Parse(txtLessonID.Text));
+            var rowHandle = view.FocusedRowHandle;
+            try
+            {
+                frmTLD.setLesson(lessonID = Convert.ToInt32(view.GetRowCellValue(rowHandle, "LessonID").ToString()));
+            }
+            catch
+            {
+                var rowChild = view.GetChildRowHandle(rowHandle, 0);
+                frmTLD.setLesson(lessonID = Convert.ToInt32(view.GetRowCellValue(rowChild, "LessonID").ToString()));
+            }
             frmTLD.setFunction(1);
             frmTLD.ShowDialog();
             if (frmTLD.DialogResult == DialogResult.OK)
@@ -99,7 +106,16 @@ namespace QLHSBanTru2018_Demo_V1.HungTD.Form.TopicLession
         private void btnEdit_Click(object sender, EventArgs e)
         {
             frmTopicLessonDetail frmTLD = new frmTopicLessonDetail();
-            frmTLD.setLesson(int.Parse(txtLessonID.Text));
+            var rowHandle = view.FocusedRowHandle;
+            try
+            {
+                frmTLD.setLesson(Convert.ToInt32(view.GetRowCellValue(rowHandle, "LessonID").ToString()));
+            }
+            catch
+            {
+                var rowChild = view.GetChildRowHandle(rowHandle,0);
+                frmTLD.setLesson(lessonID = Convert.ToInt32(view.GetRowCellValue(rowChild, "LessonID").ToString()));
+            }
             frmTLD.setFunction(2);
             frmTLD.ShowDialog();
             if (frmTLD.DialogResult == DialogResult.OK)
@@ -112,7 +128,8 @@ namespace QLHSBanTru2018_Demo_V1.HungTD.Form.TopicLession
             {
                 try
                 {
-                    new LessonDAO().Delete(int.Parse(txtLessonID.Text));
+                    var rowHandle = view.FocusedRowHandle;
+                    new LessonDAO().Delete(Convert.ToInt32(view.GetRowCellValue(rowHandle, "LessonID").ToString()));
                 }
                 catch
                 {
@@ -123,6 +140,16 @@ namespace QLHSBanTru2018_Demo_V1.HungTD.Form.TopicLession
                     FillCombobox();
                 }
             }
+        }
+
+        private void gcTopicLesson_FocusedViewChanged(object sender, DevExpress.XtraGrid.ViewFocusEventArgs e)
+        {
+
+        }
+
+        private void btnDetail_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }
