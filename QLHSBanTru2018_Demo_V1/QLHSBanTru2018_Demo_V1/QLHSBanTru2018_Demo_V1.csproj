@@ -224,6 +224,12 @@
     <Compile Include="HungTD\Form\Semester\frmSemesterList.Designer.cs">
       <DependentUpon>frmSemesterList.cs</DependentUpon>
     </Compile>
+    <Compile Include="HungTD\Form\TopicLesson\frmTopicDetail.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="HungTD\Form\TopicLesson\frmTopicDetail.Designer.cs">
+      <DependentUpon>frmTopicDetail.cs</DependentUpon>
+    </Compile>
     <Compile Include="HungTD\Form\TopicLesson\frmTopicLesson.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -385,6 +391,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="HungTD\Form\Semester\frmSemesterList.resx">
       <DependentUpon>frmSemesterList.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="HungTD\Form\TopicLesson\frmTopicDetail.resx">
+      <DependentUpon>frmTopicDetail.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="HungTD\Form\TopicLesson\frmTopicLesson.resx">
       <DependentUpon>frmTopicLesson.cs</DependentUpon>

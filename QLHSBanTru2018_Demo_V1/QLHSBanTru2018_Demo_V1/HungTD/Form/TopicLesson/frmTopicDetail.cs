@@ -8,33 +8,34 @@ using System.Linq;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using DevExpress.XtraEditors;
-using DataConnect.DAO.HungTD;
 using DataConnect;
+using DataConnect.DAO.HungTD;
 
 namespace QLHSBanTru2018_Demo_V1.HungTD.Form.TopicLesson
 {
-    public partial class frmTopicLessonDetail : DevExpress.XtraEditors.XtraForm
+    public partial class frmTopicDetail : DevExpress.XtraEditors.XtraForm
     {
-        Lesson lesson;
-        int iFunction = 0;
-        public void setLesson(int lessonID)
+        public int iFunction = 0;
+        public Topic topic;
+        public void setFunction(int function)
         {
-            lesson = new LessonDAO().GetByID(lessonID);
-        }
-        public void setFunction(int iFunction)
-        {
-            this.iFunction = iFunction;
+            this.iFunction = function;
         }
         public void setTitle(string title)
         {
             this.Text = title;
         }
-        public frmTopicLessonDetail()
+        public void setTopic(int lessonID)
+        {
+            int topicID = new LessonDAO().GetTopicID(lessonID);
+            this.topic = new TopicDAO().GetByTopicID(topicID);
+        }
+        public frmTopicDetail()
         {
             InitializeComponent();
         }
 
-        private void frmTopicLessonDetail_Load(object sender, EventArgs e)
+        private void frmTopicDetail_Load(object sender, EventArgs e)
         {
             FillTopicTypeID();
             FillDisplayOrder();
@@ -42,37 +43,19 @@ namespace QLHSBanTru2018_Demo_V1.HungTD.Form.TopicLesson
         }
         private void LoadDetail()
         {
-            cbbTopicTypeID.SelectedValue = new TopicDAO().GetTopicTypeID(new LessonDAO().GetTopicID(lesson.LessonID));
-            cbbTopicID.SelectedValue = new LessonDAO().GetTopicID(lesson.LessonID);
             if (iFunction == 2)
             {
-                txtName.Text = lesson.Name;
-                txtDescription.Text = lesson.Name;
-                cbbDisplayOrder.SelectedIndex = lesson.DisplayOrder - 1;
-                chkActive.Checked = lesson.Status;
+                txtName.Text = topic.Name;
+                txtDescription.Text = topic.Description;
+                cbbDisplayOrder.SelectedIndex = topic.DisplayOrder - 1;
+                chkActive.Checked = topic.Status;
             }
         }
         private void FillTopicTypeID()
         {
-            //Lứa tuổi
-            cbbTopicTypeID.DataSource = new TopicTypeDAO().ListAll();
-            cbbTopicTypeID.DisplayMember = "Name";
-            cbbTopicTypeID.ValueMember = "TopicTypeID";
-
-            try
-            {
-                FillTopicID(int.Parse(cbbTopicTypeID.SelectedValue.ToString()));
-            }
-            catch
-            {
-
-            }
-        }
-        private void FillTopicID(int topicTypeID)
-        {
-            cbbTopicID.DataSource = new TopicDAO().ListByTopicTypeID(topicTypeID);
-            cbbTopicID.DisplayMember = "Name";
-            cbbTopicID.ValueMember = "TopicID";
+            cbbTopicType.DataSource = new TopicTypeDAO().ListAll();
+            cbbTopicType.DisplayMember = "Name";
+            cbbTopicType.ValueMember = "TopicTypeID";
         }
         private void FillDisplayOrder()
         {
@@ -80,31 +63,19 @@ namespace QLHSBanTru2018_Demo_V1.HungTD.Form.TopicLesson
             cbbDisplayOrder.DataSource = DisplayDescription;
         }
 
-        private void cbbTopicTypeID_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            try
-            {
-                FillTopicID(int.Parse(cbbTopicTypeID.SelectedValue.ToString()));
-            }
-            catch
-            {
-
-            }
-        }
-
-        private void btnSave_Click(object sender, EventArgs e)
+        private void btnOK_Click(object sender, EventArgs e)
         {
             if (txtName.Text != "")
             {
-                Lesson entity = new Lesson();
+                Topic entity = new Topic();
                 entity.Name = txtName.Text;
-                entity.TopicID = int.Parse(cbbTopicID.SelectedValue.ToString());
+                entity.TopicTypeID = int.Parse(cbbTopicType.SelectedValue.ToString());
                 entity.Description = txtDescription.Text;
                 entity.DisplayOrder = int.Parse(cbbDisplayOrder.SelectedIndex.ToString()) + 1;
                 entity.Status = chkActive.Checked;
                 if (iFunction == 1)
                 {
-                    if (new LessonDAO().Insert(entity) > 0)
+                    if (new TopicDAO().Insert(entity) > 0)
                     {
                         MessageBox.Show("Thêm thành công!", "Thành công!");
                         DialogResult = DialogResult.OK;
@@ -117,8 +88,8 @@ namespace QLHSBanTru2018_Demo_V1.HungTD.Form.TopicLesson
                 }
                 else
                 {
-                    entity.LessonID = lesson.LessonID;
-                    if (new LessonDAO().Edit(entity) == true)
+                    entity.TopicID = topic.TopicID;
+                    if (new TopicDAO().Edit(entity) == true)
                     {
                         MessageBox.Show("Cập nhật công!", "Thành công!");
                         DialogResult = DialogResult.OK;
@@ -126,7 +97,7 @@ namespace QLHSBanTru2018_Demo_V1.HungTD.Form.TopicLesson
                     }
                     else
                     {
-                        MessageBox.Show("Hệ thống đã xảy ra lỗi", "Xin Lỗi!");
+                        MessageBox.Show("Hệ thống đã xảy ra lỗi", "Xin lỗi!");
                     }
                 }
             }

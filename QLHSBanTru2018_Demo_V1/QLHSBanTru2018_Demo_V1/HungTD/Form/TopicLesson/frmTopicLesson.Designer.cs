@@ -31,12 +31,17 @@
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmTopicLesson));
             this.layoutControl1 = new DevExpress.XtraLayout.LayoutControl();
+            this.btnAddTopic = new DevExpress.XtraEditors.SimpleButton();
             this.btnDetail = new System.Windows.Forms.Button();
             this.gcTopicLesson = new DevExpress.XtraGrid.GridControl();
             this.ContextMenuTrip = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.btnMenuAdd = new System.Windows.Forms.ToolStripMenuItem();
             this.btnMenuEdit = new System.Windows.Forms.ToolStripMenuItem();
             this.btnMenuDelete = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
+            this.btnMenuAddTopic = new System.Windows.Forms.ToolStripMenuItem();
+            this.btnMenuEditTopic = new System.Windows.Forms.ToolStripMenuItem();
+            this.btnMenuDeleteTopic = new System.Windows.Forms.ToolStripMenuItem();
             this.view = new DevExpress.XtraGrid.Views.Grid.GridView();
             this.colName = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colTopicName = new DevExpress.XtraGrid.Columns.GridColumn();
@@ -66,12 +71,10 @@
             this.layoutControlItem7 = new DevExpress.XtraLayout.LayoutControlItem();
             this.layoutControlItem5 = new DevExpress.XtraLayout.LayoutControlItem();
             this.layoutControlItem10 = new DevExpress.XtraLayout.LayoutControlItem();
-            this.btnAddTopic = new DevExpress.XtraEditors.SimpleButton();
             this.layoutControlItem11 = new DevExpress.XtraLayout.LayoutControlItem();
-            this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
-            this.btnMenuAddTopic = new System.Windows.Forms.ToolStripMenuItem();
-            this.btnMenuEditTopic = new System.Windows.Forms.ToolStripMenuItem();
-            this.btnMenuDeleteTopic = new System.Windows.Forms.ToolStripMenuItem();
+            this.btnEditTopic = new DevExpress.XtraEditors.SimpleButton();
+            this.layoutControlItem12 = new DevExpress.XtraLayout.LayoutControlItem();
+            this.emptySpaceItem4 = new DevExpress.XtraLayout.EmptySpaceItem();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControl1)).BeginInit();
             this.layoutControl1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.gcTopicLesson)).BeginInit();
@@ -99,10 +102,13 @@
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem5)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem10)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem11)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem12)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem4)).BeginInit();
             this.SuspendLayout();
             // 
             // layoutControl1
             // 
+            this.layoutControl1.Controls.Add(this.btnEditTopic);
             this.layoutControl1.Controls.Add(this.btnAddTopic);
             this.layoutControl1.Controls.Add(this.btnDetail);
             this.layoutControl1.Controls.Add(this.gcTopicLesson);
@@ -123,6 +129,17 @@
             this.layoutControl1.TabIndex = 0;
             this.layoutControl1.Text = "layoutControl1";
             // 
+            // btnAddTopic
+            // 
+            this.btnAddTopic.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("btnAddTopic.ImageOptions.Image")));
+            this.btnAddTopic.Location = new System.Drawing.Point(15, 41);
+            this.btnAddTopic.Name = "btnAddTopic";
+            this.btnAddTopic.Size = new System.Drawing.Size(131, 22);
+            this.btnAddTopic.StyleController = this.layoutControl1;
+            this.btnAddTopic.TabIndex = 19;
+            this.btnAddTopic.Text = "Thêm Chủ Đề";
+            this.btnAddTopic.Click += new System.EventHandler(this.btnAddTopic_Click);
+            // 
             // btnDetail
             // 
             this.btnDetail.Location = new System.Drawing.Point(723, 61);
@@ -136,10 +153,10 @@
             // gcTopicLesson
             // 
             this.gcTopicLesson.ContextMenuStrip = this.ContextMenuTrip;
-            this.gcTopicLesson.Location = new System.Drawing.Point(15, 41);
+            this.gcTopicLesson.Location = new System.Drawing.Point(15, 67);
             this.gcTopicLesson.MainView = this.view;
             this.gcTopicLesson.Name = "gcTopicLesson";
-            this.gcTopicLesson.Size = new System.Drawing.Size(506, 502);
+            this.gcTopicLesson.Size = new System.Drawing.Size(506, 476);
             this.gcTopicLesson.TabIndex = 14;
             this.gcTopicLesson.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.view});
@@ -156,28 +173,52 @@
             this.btnMenuEditTopic,
             this.btnMenuDeleteTopic});
             this.ContextMenuTrip.Name = "contextMenuStrip1";
-            this.ContextMenuTrip.Size = new System.Drawing.Size(181, 164);
+            this.ContextMenuTrip.Size = new System.Drawing.Size(159, 142);
             // 
             // btnMenuAdd
             // 
             this.btnMenuAdd.Name = "btnMenuAdd";
-            this.btnMenuAdd.Size = new System.Drawing.Size(180, 22);
+            this.btnMenuAdd.Size = new System.Drawing.Size(158, 22);
             this.btnMenuAdd.Text = "Thêm Bài Giảng";
             this.btnMenuAdd.Click += new System.EventHandler(this.btnMenuAdd_Click);
             // 
             // btnMenuEdit
             // 
             this.btnMenuEdit.Name = "btnMenuEdit";
-            this.btnMenuEdit.Size = new System.Drawing.Size(180, 22);
+            this.btnMenuEdit.Size = new System.Drawing.Size(158, 22);
             this.btnMenuEdit.Text = "Sửa Bài Giảng";
             this.btnMenuEdit.Click += new System.EventHandler(this.btnMenuEdit_Click);
             // 
             // btnMenuDelete
             // 
             this.btnMenuDelete.Name = "btnMenuDelete";
-            this.btnMenuDelete.Size = new System.Drawing.Size(180, 22);
+            this.btnMenuDelete.Size = new System.Drawing.Size(158, 22);
             this.btnMenuDelete.Text = "Xóa Bài Giảng";
             this.btnMenuDelete.Click += new System.EventHandler(this.btnMenuDelete_Click);
+            // 
+            // toolStripSeparator1
+            // 
+            this.toolStripSeparator1.Name = "toolStripSeparator1";
+            this.toolStripSeparator1.Size = new System.Drawing.Size(155, 6);
+            // 
+            // btnMenuAddTopic
+            // 
+            this.btnMenuAddTopic.Name = "btnMenuAddTopic";
+            this.btnMenuAddTopic.Size = new System.Drawing.Size(158, 22);
+            this.btnMenuAddTopic.Text = "Thêm Chủ Đề";
+            this.btnMenuAddTopic.Click += new System.EventHandler(this.btnMenuAddTopic_Click);
+            // 
+            // btnMenuEditTopic
+            // 
+            this.btnMenuEditTopic.Name = "btnMenuEditTopic";
+            this.btnMenuEditTopic.Size = new System.Drawing.Size(158, 22);
+            this.btnMenuEditTopic.Text = "Sửa Chủ Đề";
+            // 
+            // btnMenuDeleteTopic
+            // 
+            this.btnMenuDeleteTopic.Name = "btnMenuDeleteTopic";
+            this.btnMenuDeleteTopic.Size = new System.Drawing.Size(158, 22);
+            this.btnMenuDeleteTopic.Text = "Xóa Chủ Đề";
             // 
             // view
             // 
@@ -253,7 +294,7 @@
             // btnPrint
             // 
             this.btnPrint.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("btnPrint.ImageOptions.Image")));
-            this.btnPrint.Location = new System.Drawing.Point(382, 15);
+            this.btnPrint.Location = new System.Drawing.Point(285, 15);
             this.btnPrint.Name = "btnPrint";
             this.btnPrint.Size = new System.Drawing.Size(90, 22);
             this.btnPrint.StyleController = this.layoutControl1;
@@ -322,7 +363,9 @@
             this.layoutControlItem8,
             this.emptySpaceItem1,
             this.layoutControlGroup2,
-            this.layoutControlItem11});
+            this.layoutControlItem12,
+            this.layoutControlItem11,
+            this.emptySpaceItem4});
             this.Root1.Location = new System.Drawing.Point(0, 0);
             this.Root1.Name = "Root1";
             this.Root1.Padding = new DevExpress.XtraLayout.Utils.Padding(3, 3, 3, 3);
@@ -374,7 +417,7 @@
             // 
             this.layoutControlItem4.Control = this.btnPrint;
             this.layoutControlItem4.CustomizationFormText = "layoutControlItem4";
-            this.layoutControlItem4.Location = new System.Drawing.Point(367, 0);
+            this.layoutControlItem4.Location = new System.Drawing.Point(270, 0);
             this.layoutControlItem4.MaxSize = new System.Drawing.Size(94, 26);
             this.layoutControlItem4.MinSize = new System.Drawing.Size(94, 26);
             this.layoutControlItem4.Name = "layoutControlItem4";
@@ -387,9 +430,9 @@
             // 
             this.emptySpaceItem5.AllowHotTrack = false;
             this.emptySpaceItem5.CustomizationFormText = "emptySpaceItem5";
-            this.emptySpaceItem5.Location = new System.Drawing.Point(461, 0);
+            this.emptySpaceItem5.Location = new System.Drawing.Point(364, 0);
             this.emptySpaceItem5.Name = "emptySpaceItem5";
-            this.emptySpaceItem5.Size = new System.Drawing.Size(49, 26);
+            this.emptySpaceItem5.Size = new System.Drawing.Size(146, 26);
             this.emptySpaceItem5.TextSize = new System.Drawing.Size(0, 0);
             // 
             // layoutControlGroup3
@@ -447,9 +490,9 @@
             // layoutControlItem8
             // 
             this.layoutControlItem8.Control = this.gcTopicLesson;
-            this.layoutControlItem8.Location = new System.Drawing.Point(0, 26);
+            this.layoutControlItem8.Location = new System.Drawing.Point(0, 52);
             this.layoutControlItem8.Name = "layoutControlItem8";
-            this.layoutControlItem8.Size = new System.Drawing.Size(510, 506);
+            this.layoutControlItem8.Size = new System.Drawing.Size(510, 480);
             this.layoutControlItem8.TextSize = new System.Drawing.Size(0, 0);
             this.layoutControlItem8.TextVisible = false;
             // 
@@ -516,47 +559,48 @@
             this.layoutControlItem10.TextLocation = DevExpress.Utils.Locations.Top;
             this.layoutControlItem10.TextSize = new System.Drawing.Size(88, 13);
             // 
-            // btnAddTopic
-            // 
-            this.btnAddTopic.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("simpleButton1.ImageOptions.Image")));
-            this.btnAddTopic.Location = new System.Drawing.Point(285, 15);
-            this.btnAddTopic.Name = "btnAddTopic";
-            this.btnAddTopic.Size = new System.Drawing.Size(93, 22);
-            this.btnAddTopic.StyleController = this.layoutControl1;
-            this.btnAddTopic.TabIndex = 19;
-            this.btnAddTopic.Text = "Thêm Chủ Đề";
-            // 
             // layoutControlItem11
             // 
             this.layoutControlItem11.Control = this.btnAddTopic;
-            this.layoutControlItem11.Location = new System.Drawing.Point(270, 0);
+            this.layoutControlItem11.Location = new System.Drawing.Point(0, 26);
+            this.layoutControlItem11.MaxSize = new System.Drawing.Size(135, 26);
+            this.layoutControlItem11.MinSize = new System.Drawing.Size(135, 26);
             this.layoutControlItem11.Name = "layoutControlItem11";
-            this.layoutControlItem11.Size = new System.Drawing.Size(97, 26);
+            this.layoutControlItem11.Size = new System.Drawing.Size(135, 26);
+            this.layoutControlItem11.SizeConstraintsType = DevExpress.XtraLayout.SizeConstraintsType.Custom;
             this.layoutControlItem11.TextSize = new System.Drawing.Size(0, 0);
             this.layoutControlItem11.TextVisible = false;
             // 
-            // toolStripSeparator1
+            // btnEditTopic
             // 
-            this.toolStripSeparator1.Name = "toolStripSeparator1";
-            this.toolStripSeparator1.Size = new System.Drawing.Size(155, 6);
+            this.btnEditTopic.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("simpleButton1.ImageOptions.Image")));
+            this.btnEditTopic.Location = new System.Drawing.Point(150, 41);
+            this.btnEditTopic.Name = "btnEditTopic";
+            this.btnEditTopic.Size = new System.Drawing.Size(131, 22);
+            this.btnEditTopic.StyleController = this.layoutControl1;
+            this.btnEditTopic.TabIndex = 20;
+            this.btnEditTopic.Text = "Sửa Chủ Đề";
+            this.btnEditTopic.Click += new System.EventHandler(this.btnEditTopic_Click);
             // 
-            // btnMenuAddTopic
+            // layoutControlItem12
             // 
-            this.btnMenuAddTopic.Name = "btnMenuAddTopic";
-            this.btnMenuAddTopic.Size = new System.Drawing.Size(180, 22);
-            this.btnMenuAddTopic.Text = "Thêm Chủ Đề";
+            this.layoutControlItem12.Control = this.btnEditTopic;
+            this.layoutControlItem12.Location = new System.Drawing.Point(135, 26);
+            this.layoutControlItem12.MaxSize = new System.Drawing.Size(135, 26);
+            this.layoutControlItem12.MinSize = new System.Drawing.Size(135, 26);
+            this.layoutControlItem12.Name = "layoutControlItem12";
+            this.layoutControlItem12.Size = new System.Drawing.Size(135, 26);
+            this.layoutControlItem12.SizeConstraintsType = DevExpress.XtraLayout.SizeConstraintsType.Custom;
+            this.layoutControlItem12.TextSize = new System.Drawing.Size(0, 0);
+            this.layoutControlItem12.TextVisible = false;
             // 
-            // btnMenuEditTopic
+            // emptySpaceItem4
             // 
-            this.btnMenuEditTopic.Name = "btnMenuEditTopic";
-            this.btnMenuEditTopic.Size = new System.Drawing.Size(180, 22);
-            this.btnMenuEditTopic.Text = "Sửa Chủ Đề";
-            // 
-            // btnMenuDeleteTopic
-            // 
-            this.btnMenuDeleteTopic.Name = "btnMenuDeleteTopic";
-            this.btnMenuDeleteTopic.Size = new System.Drawing.Size(158, 22);
-            this.btnMenuDeleteTopic.Text = "Xóa Chủ Đề";
+            this.emptySpaceItem4.AllowHotTrack = false;
+            this.emptySpaceItem4.Location = new System.Drawing.Point(270, 26);
+            this.emptySpaceItem4.Name = "emptySpaceItem4";
+            this.emptySpaceItem4.Size = new System.Drawing.Size(240, 26);
+            this.emptySpaceItem4.TextSize = new System.Drawing.Size(0, 0);
             // 
             // frmTopicLesson
             // 
@@ -593,6 +637,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem5)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem10)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem11)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem12)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem4)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -641,5 +687,8 @@
         private System.Windows.Forms.ToolStripMenuItem btnMenuAddTopic;
         private System.Windows.Forms.ToolStripMenuItem btnMenuEditTopic;
         private System.Windows.Forms.ToolStripMenuItem btnMenuDeleteTopic;
+        private DevExpress.XtraEditors.SimpleButton btnEditTopic;
+        private DevExpress.XtraLayout.LayoutControlItem layoutControlItem12;
+        private DevExpress.XtraLayout.EmptySpaceItem emptySpaceItem4;
     }
 }
