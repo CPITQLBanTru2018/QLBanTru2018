@@ -11,6 +11,7 @@ using DevExpress.XtraEditors;
 using DataConnect.DAO.ThanhCongTC;
 using System.IO;
 using DataConnect;
+using QLHSBanTru2018_Demo_V1.QLThuChi.DotThu.KeHoachThu;
 
 namespace QLHSBanTru2018_Demo_V1.QLThuChi
 {
@@ -164,8 +165,15 @@ namespace QLHSBanTru2018_Demo_V1.QLThuChi
             }
         }
 
-        
+        private void cbbDotthu_SelectionChangeCommitted(object sender, EventArgs e)
+        {
+            ReceivableIDAO.ReceivableID = (int)cbbDotthu.SelectedValue;
+        }
 
-      
+        private void bntThanhToan_Click(object sender, EventArgs e)
+        {
+            FrThanhToan a = new FrThanhToan();
+            a.ShowDialog();
+        }
     }
 }

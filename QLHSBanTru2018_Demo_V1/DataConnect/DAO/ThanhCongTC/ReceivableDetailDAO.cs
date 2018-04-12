@@ -54,5 +54,10 @@ namespace DataConnect.DAO.ThanhCongTC
         }
         public static List<ReceivableDetail> ListDemoReceivableDetail = new List<ReceivableDetail>();
         public static ReceivableDetail DemoReceibavleDetail;
+        public ReceivableDetail ReceivableDetaiByStudenID(int ReceivableDetailID, int ReceivableId)
+        {
+            ReceivableDetail a = dt.ReceivableDetails.Where(t => t.ReceivableDetailID == ReceivableDetailID && t.ReceivableID == ReceivableId).FirstOrDefault();
+            return a;
+        }
     }
 }
