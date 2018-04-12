@@ -20,7 +20,7 @@ namespace QLHSBanTru2018_Demo_V1.HungTD.Form.TopicLession
         {
             InitializeComponent();
         }
-
+        int lessonID=0;
         private void frmTopicLesson_Load(object sender, EventArgs e)
         {
             this.Dock = DockStyle.Fill;
@@ -37,8 +37,6 @@ namespace QLHSBanTru2018_Demo_V1.HungTD.Form.TopicLession
             txtName.DataBindings.Add(new Binding("Text", gcTopicLesson.DataSource, "Name"));
             txtDescription.DataBindings.Clear();
             txtDescription.DataBindings.Add(new Binding("Text", gcTopicLesson.DataSource, "Description"));
-            txtLessonID.DataBindings.Clear();
-            txtLessonID.DataBindings.Add(new Binding("Text", gcTopicLesson.DataSource, "LessonID"));
             txtTopicDescription.DataBindings.Clear();
             txtTopicDescription.DataBindings.Add(new Binding("Text", gcTopicLesson.DataSource, "TopicDescription"));
         }
@@ -88,8 +86,18 @@ namespace QLHSBanTru2018_Demo_V1.HungTD.Form.TopicLession
         private void btnAdd_Click(object sender, EventArgs e)
         {
             frmTopicLessonDetail frmTLD = new frmTopicLessonDetail();
-            frmTLD.setLesson(int.Parse(txtLessonID.Text));
+            var rowHandle = view.FocusedRowHandle;
+            try
+            {
+                frmTLD.setLesson(lessonID = Convert.ToInt32(view.GetRowCellValue(rowHandle, "LessonID").ToString()));
+            }
+            catch
+            {
+                var rowChild = view.GetChildRowHandle(rowHandle, 0);
+                frmTLD.setLesson(lessonID = Convert.ToInt32(view.GetRowCellValue(rowChild, "LessonID").ToString()));
+            }
             frmTLD.setFunction(1);
+            frmTLD.setTitle("Thêm Mới Bài Giảng");
             frmTLD.ShowDialog();
             if (frmTLD.DialogResult == DialogResult.OK)
                 FillCombobox();
@@ -99,8 +107,18 @@ namespace QLHSBanTru2018_Demo_V1.HungTD.Form.TopicLession
         private void btnEdit_Click(object sender, EventArgs e)
         {
             frmTopicLessonDetail frmTLD = new frmTopicLessonDetail();
-            frmTLD.setLesson(int.Parse(txtLessonID.Text));
+            var rowHandle = view.FocusedRowHandle;
+            try
+            {
+                frmTLD.setLesson(Convert.ToInt32(view.GetRowCellValue(rowHandle, "LessonID").ToString()));
+            }
+            catch
+            {
+                var rowChild = view.GetChildRowHandle(rowHandle,0);
+                frmTLD.setLesson(lessonID = Convert.ToInt32(view.GetRowCellValue(rowChild, "LessonID").ToString()));
+            }
             frmTLD.setFunction(2);
+            frmTLD.setTitle("Chỉnh Sửa Bài Giảng");
             frmTLD.ShowDialog();
             if (frmTLD.DialogResult == DialogResult.OK)
                 FillCombobox();
@@ -112,7 +130,8 @@ namespace QLHSBanTru2018_Demo_V1.HungTD.Form.TopicLession
             {
                 try
                 {
-                    new LessonDAO().Delete(int.Parse(txtLessonID.Text));
+                    var rowHandle = view.FocusedRowHandle;
+                    new LessonDAO().Delete(Convert.ToInt32(view.GetRowCellValue(rowHandle, "LessonID").ToString()));
                 }
                 catch
                 {
@@ -123,6 +142,51 @@ namespace QLHSBanTru2018_Demo_V1.HungTD.Form.TopicLession
                     FillCombobox();
                 }
             }
+        }
+
+        private void gcTopicLesson_FocusedViewChanged(object sender, DevExpress.XtraGrid.ViewFocusEventArgs e)
+        {
+
+        }
+
+        private void btnDetail_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnAddTopic_Click(object sender, EventArgs e)
+        {
+            frmTopicDetail frmTD = new frmTopicDetail();
+            frmTD.setFunction(1);
+            frmTD.setTitle("Thêm Mới Chủ Đề");
+            frmTD.ShowDialog();
+            if (frmTD.DialogResult == DialogResult.OK)
+                FillCombobox();
+        }
+
+        private void btnMenuAddTopic_Click(object sender, EventArgs e)
+        {
+            btnAddTopic_Click(sender, e);
+        }
+
+        private void btnEditTopic_Click(object sender, EventArgs e)
+        {
+            frmTopicDetail frmTD = new frmTopicDetail();
+            frmTD.setFunction(2);
+            frmTD.setTitle("Cập Nhật Chủ Đề");
+            var rowHandle = view.FocusedRowHandle;
+            try
+            {
+                frmTD.setTopic(Convert.ToInt32(view.GetRowCellValue(rowHandle, "LessonID").ToString()));
+            }
+            catch
+            {
+                var rowChild = view.GetChildRowHandle(rowHandle, 0);
+                frmTD.setTopic(lessonID = Convert.ToInt32(view.GetRowCellValue(rowChild, "LessonID").ToString()));
+            }
+            frmTD.ShowDialog();
+            if (frmTD.DialogResult == DialogResult.OK)
+                FillCombobox();
         }
     }
 }

@@ -30,8 +30,7 @@ namespace QLHSBanTru2018_Demo_V1.HungTD.Form.Department
         #region Đổ dữ liệu vào GridControl
         private void FillGridControl()
         {
-            gcDepartmentList.DataSource = new DepartmentDAO().ListAll();
-            BindingDetail();
+
         }
 
         #endregion
@@ -47,12 +46,7 @@ namespace QLHSBanTru2018_Demo_V1.HungTD.Form.Department
 
         private void btnEdit_Click(object sender, EventArgs e)
         {
-            frmDepartmentDetail departmentDetail = new frmDepartmentDetail();
-            departmentDetail.Function = 2;
-            departmentDetail.department = new DepartmentDAO().GetByID(int.Parse(txtDepartmentID.Text));
-            departmentDetail.ShowDialog();
-            if (departmentDetail.DialogResult == DialogResult.OK)
-                FillGridControl();
+
         }
         private void testLoadEmployee()
         {
@@ -60,10 +54,7 @@ namespace QLHSBanTru2018_Demo_V1.HungTD.Form.Department
         }
         private void BindingDetail()
         {
-            txtName.DataBindings.Clear();
-            txtName.DataBindings.Add(new Binding("text", gcDepartmentList.DataSource, "Name"));
-            txtDepartmentID.DataBindings.Clear();
-            txtDepartmentID.DataBindings.Add(new Binding("text",gcDepartmentList.DataSource,"DepartmentID"));
+
         }
 
         private void txtName_TextChanged(object sender, EventArgs e)
@@ -80,18 +71,7 @@ namespace QLHSBanTru2018_Demo_V1.HungTD.Form.Department
 
         private void btnDelete_Click(object sender, EventArgs e)
         {
-            if (MessageBox.Show("Bạn có muốn xóa "+txtName.Text,"Thông báo",MessageBoxButtons.YesNo)==DialogResult.Yes)
-            {
-                if (new DepartmentDAO().Delete(int.Parse(txtDepartmentID.Text)) == true)
-                {
-                    MessageBox.Show("Xóa thành công!", "Thông báo");
-                }
-                else
-                {
-                    MessageBox.Show("Xin lỗi, đã xảy ra lỗi!", "Thông báo");
-                }
-                FillGridControl();
-            }
+
         }
     }
 }

@@ -32,6 +32,10 @@ namespace DataConnect.DAO.HungTD
         {
             return topics.Where(x => x.TopicID.Equals(topicID)).FirstOrDefault().TopicTypeID;
         }
+        public Topic GetByTopicID(int topicID)
+        {
+            return topics.Where(x => x.TopicID.Equals(topicID)).FirstOrDefault();
+        }
         public int Insert(Topic entity)
         {
             try
