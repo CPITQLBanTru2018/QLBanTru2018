@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmTopicLesson));
             this.layoutControl1 = new DevExpress.XtraLayout.LayoutControl();
             this.btnDetail = new System.Windows.Forms.Button();
@@ -57,6 +58,12 @@
             this.layoutControlItem5 = new DevExpress.XtraLayout.LayoutControlItem();
             this.layoutControlItem7 = new DevExpress.XtraLayout.LayoutControlItem();
             this.layoutControlItem8 = new DevExpress.XtraLayout.LayoutControlItem();
+            this.ContextMenuTrip = new System.Windows.Forms.ContextMenuStrip(this.components);
+            this.btnMenuAdd = new System.Windows.Forms.ToolStripMenuItem();
+            this.btnMenuEdit = new System.Windows.Forms.ToolStripMenuItem();
+            this.btnMenuDelete = new System.Windows.Forms.ToolStripMenuItem();
+            this.txtLessonID = new System.Windows.Forms.TextBox();
+            this.desLessonID = new DevExpress.XtraLayout.LayoutControlItem();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControl1)).BeginInit();
             this.layoutControl1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.gcTopicLesson)).BeginInit();
@@ -78,10 +85,13 @@
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem5)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem7)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem8)).BeginInit();
+            this.ContextMenuTrip.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.desLessonID)).BeginInit();
             this.SuspendLayout();
             // 
             // layoutControl1
             // 
+            this.layoutControl1.Controls.Add(this.txtLessonID);
             this.layoutControl1.Controls.Add(this.btnDetail);
             this.layoutControl1.Controls.Add(this.gcTopicLesson);
             this.layoutControl1.Controls.Add(this.btnAdd);
@@ -111,6 +121,7 @@
             // 
             // gcTopicLesson
             // 
+            this.gcTopicLesson.ContextMenuStrip = this.ContextMenuTrip;
             this.gcTopicLesson.Location = new System.Drawing.Point(15, 41);
             this.gcTopicLesson.MainView = this.view;
             this.gcTopicLesson.Name = "gcTopicLesson";
@@ -133,6 +144,7 @@
             this.view.OptionsBehavior.Editable = false;
             this.view.OptionsCustomization.AllowGroup = false;
             this.view.OptionsCustomization.AllowSort = false;
+            this.view.OptionsFind.AlwaysVisible = true;
             this.view.OptionsView.ShowChildrenInGroupPanel = true;
             this.view.OptionsView.ShowGroupPanel = false;
             this.view.SortInfo.AddRange(new DevExpress.XtraGrid.Columns.GridColumnSortInfo[] {
@@ -357,7 +369,8 @@
             this.layoutControlGroup4.Items.AddRange(new DevExpress.XtraLayout.BaseLayoutItem[] {
             this.emptySpaceItem1,
             this.layoutControlItem5,
-            this.layoutControlItem7});
+            this.layoutControlItem7,
+            this.desLessonID});
             this.layoutControlGroup4.Location = new System.Drawing.Point(486, 67);
             this.layoutControlGroup4.Name = "layoutControlGroup4";
             this.layoutControlGroup4.Size = new System.Drawing.Size(294, 465);
@@ -371,7 +384,7 @@
             this.emptySpaceItem1.MaxSize = new System.Drawing.Size(270, 0);
             this.emptySpaceItem1.MinSize = new System.Drawing.Size(270, 24);
             this.emptySpaceItem1.Name = "emptySpaceItem1";
-            this.emptySpaceItem1.Size = new System.Drawing.Size(270, 265);
+            this.emptySpaceItem1.Size = new System.Drawing.Size(270, 241);
             this.emptySpaceItem1.SizeConstraintsType = DevExpress.XtraLayout.SizeConstraintsType.Custom;
             this.emptySpaceItem1.TextSize = new System.Drawing.Size(0, 0);
             // 
@@ -404,6 +417,54 @@
             this.layoutControlItem8.TextSize = new System.Drawing.Size(0, 0);
             this.layoutControlItem8.TextVisible = false;
             // 
+            // ContextMenuTrip
+            // 
+            this.ContextMenuTrip.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.btnMenuAdd,
+            this.btnMenuEdit,
+            this.btnMenuDelete});
+            this.ContextMenuTrip.Name = "contextMenuStrip1";
+            this.ContextMenuTrip.Size = new System.Drawing.Size(159, 70);
+            // 
+            // btnMenuAdd
+            // 
+            this.btnMenuAdd.Image = global::QLHSBanTru2018_Demo_V1.Properties.Resources.Add;
+            this.btnMenuAdd.Name = "btnMenuAdd";
+            this.btnMenuAdd.Size = new System.Drawing.Size(158, 22);
+            this.btnMenuAdd.Text = "Thêm Bài Giảng";
+            this.btnMenuAdd.Click += new System.EventHandler(this.btnMenuAdd_Click);
+            // 
+            // btnMenuEdit
+            // 
+            this.btnMenuEdit.Image = global::QLHSBanTru2018_Demo_V1.Properties.Resources.Synchronize;
+            this.btnMenuEdit.Name = "btnMenuEdit";
+            this.btnMenuEdit.Size = new System.Drawing.Size(158, 22);
+            this.btnMenuEdit.Text = "Sửa Bài Giảng";
+            this.btnMenuEdit.Click += new System.EventHandler(this.btnMenuEdit_Click);
+            // 
+            // btnMenuDelete
+            // 
+            this.btnMenuDelete.Image = global::QLHSBanTru2018_Demo_V1.Properties.Resources.Remove;
+            this.btnMenuDelete.Name = "btnMenuDelete";
+            this.btnMenuDelete.Size = new System.Drawing.Size(158, 22);
+            this.btnMenuDelete.Text = "Xóa Bài Giảng";
+            this.btnMenuDelete.Click += new System.EventHandler(this.btnMenuDelete_Click);
+            // 
+            // txtLessonID
+            // 
+            this.txtLessonID.Location = new System.Drawing.Point(581, 511);
+            this.txtLessonID.Name = "txtLessonID";
+            this.txtLessonID.Size = new System.Drawing.Size(198, 20);
+            this.txtLessonID.TabIndex = 17;
+            // 
+            // desLessonID
+            // 
+            this.desLessonID.Control = this.txtLessonID;
+            this.desLessonID.Location = new System.Drawing.Point(0, 399);
+            this.desLessonID.Name = "desLessonID";
+            this.desLessonID.Size = new System.Drawing.Size(270, 24);
+            this.desLessonID.TextSize = new System.Drawing.Size(65, 13);
+            // 
             // frmTopicLesson
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -433,6 +494,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem5)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem7)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem8)).EndInit();
+            this.ContextMenuTrip.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.desLessonID)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -467,5 +530,11 @@
         private DevExpress.XtraEditors.MemoEdit txtDescription;
         private DevExpress.XtraEditors.MemoEdit txtName;
         private DevExpress.XtraLayout.LayoutControlItem layoutControlItem7;
+        private System.Windows.Forms.ContextMenuStrip ContextMenuTrip;
+        private System.Windows.Forms.ToolStripMenuItem btnMenuAdd;
+        private System.Windows.Forms.ToolStripMenuItem btnMenuEdit;
+        private System.Windows.Forms.ToolStripMenuItem btnMenuDelete;
+        private System.Windows.Forms.TextBox txtLessonID;
+        private DevExpress.XtraLayout.LayoutControlItem desLessonID;
     }
 }

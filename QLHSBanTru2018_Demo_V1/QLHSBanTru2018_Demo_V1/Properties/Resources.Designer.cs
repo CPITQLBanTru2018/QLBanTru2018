@@ -93,6 +93,16 @@ namespace QLHSBanTru2018_Demo_V1.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap Add {
+            get {
+                object obj = ResourceManager.GetObject("Add", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap backgroudLogin {
             get {
                 object obj = ResourceManager.GetObject("backgroudLogin", resourceCulture);
@@ -116,6 +126,26 @@ namespace QLHSBanTru2018_Demo_V1.Properties {
         internal static System.Drawing.Bitmap facebook_logos_PNG19751 {
             get {
                 object obj = ResourceManager.GetObject("facebook_logos_PNG19751", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Remove {
+            get {
+                object obj = ResourceManager.GetObject("Remove", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Synchronize {
+            get {
+                object obj = ResourceManager.GetObject("Synchronize", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

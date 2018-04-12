@@ -27,8 +27,7 @@ namespace QLHSBanTru2018_Demo_V1.HungTD.Form.TopicLession
         }
         private void FillGridControls(int topicTypeID)
         {
-            gcTopicLesson.DataSource = new LessonDAO().FilterByTopicType(topicTypeID);
-            
+            gcTopicLesson.DataSource = new LessonDAO().FilterByTopicType(topicTypeID);            
             BindingDetail();
         }
         private void BindingDetail()
@@ -37,6 +36,8 @@ namespace QLHSBanTru2018_Demo_V1.HungTD.Form.TopicLession
             txtName.DataBindings.Add(new Binding("Text", gcTopicLesson.DataSource, "Name"));
             txtDescription.DataBindings.Clear();
             txtDescription.DataBindings.Add(new Binding("Text", gcTopicLesson.DataSource, "Description"));
+            txtLessonID.DataBindings.Clear();
+            txtLessonID.DataBindings.Add(new Binding("Text", gcTopicLesson.DataSource, "LessonID"));
         }
         private void FillCombobox()
         {
@@ -48,12 +49,34 @@ namespace QLHSBanTru2018_Demo_V1.HungTD.Form.TopicLession
 
         private void cbbTopicType_SelectedIndexChanged(object sender, EventArgs e)
         {
-            FillGridControls(int.Parse(cbbTopicType.SelectedIndex.ToString()));
+            try
+            {
+                FillGridControls(int.Parse(cbbTopicType.SelectedValue.ToString()));
+            }
+            catch
+            {
+
+            }
         }
 
         private void btnEdit_Click(object sender, EventArgs e)
         {
             
+        }
+
+        private void btnMenuAdd_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnMenuEdit_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnMenuDelete_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

@@ -224,6 +224,12 @@
     <Compile Include="HungTD\Form\TopicLesson\frmTopicLesson.Designer.cs">
       <DependentUpon>frmTopicLesson.cs</DependentUpon>
     </Compile>
+    <Compile Include="HungTD\Form\TopicLesson\frmTopicLessonDetail.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="HungTD\Form\TopicLesson\frmTopicLessonDetail.Designer.cs">
+      <DependentUpon>frmTopicLessonDetail.cs</DependentUpon>
+    </Compile>
     <Compile Include="HungTD\Form\WorkProgress\frmWorkProgressList.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -374,6 +380,9 @@
     <EmbeddedResource Include="HungTD\Form\TopicLesson\frmTopicLesson.resx">
       <DependentUpon>frmTopicLesson.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="HungTD\Form\TopicLesson\frmTopicLessonDetail.resx">
+      <DependentUpon>frmTopicLessonDetail.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="HungTD\Form\WorkProgress\frmWorkProgressList.resx">
       <DependentUpon>frmWorkProgressList.cs</DependentUpon>
     </EmbeddedResource>
@@ -511,6 +520,15 @@
       <Isolated>False</Isolated>
       <EmbedInteropTypes>True</EmbedInteropTypes>
     </COMReference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Add.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Remove.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Synchronize.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it.
