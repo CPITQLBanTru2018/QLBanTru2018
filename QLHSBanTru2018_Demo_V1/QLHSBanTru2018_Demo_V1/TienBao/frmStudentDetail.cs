@@ -77,8 +77,7 @@ namespace QLHSBanTru2018_Demo_V1.TienBao
         {
             if (txtStudentCode.Text != "" &&
              txtFirstName.Text != "" &&
-             txtLastName.Text != "" &&
-             txtHomeName.Text != "" &&
+             txtLastName.Text != "" &&             
              dtBirthday.Text != "" &&
              dtDateStudy.Text != "" &&
              txtHobby.Text != "" &&
@@ -130,8 +129,10 @@ namespace QLHSBanTru2018_Demo_V1.TienBao
                 if (iFunction == 2)
                 {
                     entity.StudentID = Student.StudentID;
-                    if (m_StudentDAO.StudentUpdate(entity) == true && m_StudentParentsDAO.ParentsUpdate(entity2) == true)
+                    entity2.StudentParentsID = StudentParents.StudentParentsID;
+                    if (m_StudentDAO.StudentUpdate(entity) == true && m_StudentParentsDAO.ParentsUpdate(entity2) == true )
                     {
+                        
                         XtraMessageBox.Show("Cập nhật thành công!", "Thông Báo");
                         DialogResult = DialogResult.OK;
                         this.Close();

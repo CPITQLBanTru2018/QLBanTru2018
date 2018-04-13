@@ -15,6 +15,7 @@ using System.Drawing.Imaging;
 using DevExpress.XtraGrid.Views.Base;
 using DevExpress.XtraGrid.Columns;
 using DevExpress.XtraGrid.Views.Grid;
+using DevExpress.XtraSplashScreen;
 
 namespace QLHSBanTru2018_Demo_V1.TienBao
 {
@@ -335,12 +336,8 @@ namespace QLHSBanTru2018_Demo_V1.TienBao
 
 
         #region ======== Export =========
-        private void btnExport_Click(object sender, EventArgs e)
-        {
-            #region ============== Tạo đối tượng lưu tệp tin ==============           
-            #endregion ============== Tạo đối tượng lưu tệp tin ==============
-
-
+        private void Export()
+        {          
             #region ============== Khởi tạo excel ==============
             // Khởi tạo excel
             Microsoft.Office.Interop.Excel._Application app = new Microsoft.Office.Interop.Excel.Application();
@@ -384,7 +381,15 @@ namespace QLHSBanTru2018_Demo_V1.TienBao
                 worksheet.Cells[dong + 9, 3] = gridView1.GetRowCellValue(dong, gridView1.Columns["FirstName"]);
                 worksheet.Cells[dong + 9, 4] = gridView1.GetRowCellValue(dong, gridView1.Columns["LastName"]);
                 worksheet.Cells[dong + 9, 5] = gridView1.GetRowCellValue(dong, gridView1.Columns["Birthday"]);
-                worksheet.Cells[dong + 9, 6] = gridView1.GetRowCellValue(dong, gridView1.Columns["Gender"]);
+                if (gridView1.GetRowCellValue(dong, gridView1.Columns["Gender"]).ToString()=="True")
+                {
+                    worksheet.Cells[dong + 9, 6] = "Nam";
+                }
+                else
+                {
+                    worksheet.Cells[dong + 9, 6] = "Nữ";
+                }
+                //worksheet.Cells[dong + 9, 6] = gridView1.GetRowCellValue(dong, gridView1.Columns["Gender"]);
                 worksheet.Cells[dong + 9, 7] = gridView1.GetRowCellValue(dong, gridView1.Columns["LocationDetail"]);
                 worksheet.Cells[dong + 9, 8] = gridView1.GetRowCellValue(dong, gridView1.Columns["FatherName"]);
                 worksheet.Cells[dong + 9, 9] = gridView1.GetRowCellValue(dong, gridView1.Columns["FatherJob"]);
@@ -457,6 +462,12 @@ namespace QLHSBanTru2018_Demo_V1.TienBao
             worksheet.Range["I9", "I" + (dongData + 12)].HorizontalAlignment = 3; // 
             worksheet.Range["K9", "K" + (dongData + 12)].HorizontalAlignment = 3; //             
             #endregion ============= Căn chỉnh excel =============
+        }
+        private void btnExport_Click(object sender, EventArgs e)
+        {
+            SplashScreenManager.ShowForm(typeof(WaitForm));
+            Export();
+            SplashScreenManager.CloseForm();
         }
         #endregion ======== Export =========
     }

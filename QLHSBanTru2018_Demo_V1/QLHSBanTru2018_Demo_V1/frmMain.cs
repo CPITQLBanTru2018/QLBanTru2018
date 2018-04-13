@@ -95,6 +95,13 @@ namespace QLHSBanTru2018_Demo_V1
             pnControlsPanel.Controls.Add(m_Studentacc);
             m_Studentacc.Dock = DockStyle.Fill;
         }
+        private void btnImportExcel_ItemClick(object sender, ItemClickEventArgs e)
+        {
+            frmImportExcel m_frmImportExcel = new frmImportExcel();
+            pnControlsPanel.Controls.Clear();
+            pnControlsPanel.Controls.Add(m_frmImportExcel);
+            m_frmImportExcel.Dock = DockStyle.Fill;
+        }
         #endregion
 
         #region Vũ Đức Thiện

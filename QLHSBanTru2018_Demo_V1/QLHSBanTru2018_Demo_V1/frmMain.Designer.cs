@@ -41,13 +41,15 @@
             this.btnContractManager = new DevExpress.XtraBars.BarButtonItem();
             this.btnTTHocSinh = new DevExpress.XtraBars.BarButtonItem();
             this.btnTKHocSinh = new DevExpress.XtraBars.BarButtonItem();
-            this.barButtonItem1 = new DevExpress.XtraBars.BarButtonItem();
+            this.btnImportExcel = new DevExpress.XtraBars.BarButtonItem();
             this.btnSemester = new DevExpress.XtraBars.BarButtonItem();
+            this.btnTopicLesson = new DevExpress.XtraBars.BarButtonItem();
             this.ribbonPage1 = new DevExpress.XtraBars.Ribbon.RibbonPage();
             this.ribbonPageGroup1 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             this.ribbonPageGroup2 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             this.ribbonPageGroup4 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             this.ribbonPageGroup5 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
+            this.ribbonPageGroup8 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             this.ribbonPage2 = new DevExpress.XtraBars.Ribbon.RibbonPage();
             this.ribbonPageGroup3 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             this.ribbonPage3 = new DevExpress.XtraBars.Ribbon.RibbonPage();
@@ -56,8 +58,6 @@
             this.ribbonStatusBar = new DevExpress.XtraBars.Ribbon.RibbonStatusBar();
             this.defaultLookAndFeel1 = new DevExpress.LookAndFeel.DefaultLookAndFeel(this.components);
             this.pnControlsPanel = new System.Windows.Forms.Panel();
-            this.ribbonPageGroup8 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
-            this.btnTopicLesson = new DevExpress.XtraBars.BarButtonItem();
             ((System.ComponentModel.ISupportInitialize)(this.ribbon)).BeginInit();
             this.SuspendLayout();
             // 
@@ -76,7 +76,7 @@
             this.btnContractManager,
             this.btnTTHocSinh,
             this.btnTKHocSinh,
-            this.barButtonItem1,
+            this.btnImportExcel,
             this.btnSemester,
             this.btnTopicLesson});
             this.ribbon.Location = new System.Drawing.Point(0, 0);
@@ -179,13 +179,14 @@
             this.btnTKHocSinh.Name = "btnTKHocSinh";
             this.btnTKHocSinh.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.btnTKHocSinh_ItemClick);
             // 
-            // barButtonItem1
+            // btnImportExcel
             // 
-            this.barButtonItem1.Caption = "Nhập học sinh từ file Excel";
-            this.barButtonItem1.Id = 11;
-            this.barButtonItem1.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("barButtonItem1.ImageOptions.Image")));
-            this.barButtonItem1.ImageOptions.LargeImage = ((System.Drawing.Image)(resources.GetObject("barButtonItem1.ImageOptions.LargeImage")));
-            this.barButtonItem1.Name = "barButtonItem1";
+            this.btnImportExcel.Caption = "Nhập học sinh từ file Excel";
+            this.btnImportExcel.Id = 11;
+            this.btnImportExcel.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("barButtonItem1.ImageOptions.Image")));
+            this.btnImportExcel.ImageOptions.LargeImage = ((System.Drawing.Image)(resources.GetObject("barButtonItem1.ImageOptions.LargeImage")));
+            this.btnImportExcel.Name = "btnImportExcel";
+            this.btnImportExcel.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.btnImportExcel_ItemClick);
             // 
             // btnSemester
             // 
@@ -195,6 +196,15 @@
             this.btnSemester.ImageOptions.LargeImage = ((System.Drawing.Image)(resources.GetObject("btnSemester.ImageOptions.LargeImage")));
             this.btnSemester.Name = "btnSemester";
             this.btnSemester.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.btnSemester_ItemClick);
+            // 
+            // btnTopicLesson
+            // 
+            this.btnTopicLesson.Caption = "Quản Lý Bài Giảng";
+            this.btnTopicLesson.Id = 13;
+            this.btnTopicLesson.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("btnTopicLesson.ImageOptions.Image")));
+            this.btnTopicLesson.ImageOptions.LargeImage = ((System.Drawing.Image)(resources.GetObject("btnTopicLesson.ImageOptions.LargeImage")));
+            this.btnTopicLesson.Name = "btnTopicLesson";
+            this.btnTopicLesson.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.btnTopicLesson_ItemClick);
             // 
             // ribbonPage1
             // 
@@ -235,6 +245,12 @@
             this.ribbonPageGroup5.Name = "ribbonPageGroup5";
             this.ribbonPageGroup5.Text = "Hợp Đồng";
             // 
+            // ribbonPageGroup8
+            // 
+            this.ribbonPageGroup8.ItemLinks.Add(this.btnTopicLesson);
+            this.ribbonPageGroup8.Name = "ribbonPageGroup8";
+            this.ribbonPageGroup8.Text = "Bài Giảng";
+            // 
             // ribbonPage2
             // 
             this.ribbonPage2.Groups.AddRange(new DevExpress.XtraBars.Ribbon.RibbonPageGroup[] {
@@ -266,7 +282,7 @@
             // 
             // ribbonPageGroup7
             // 
-            this.ribbonPageGroup7.ItemLinks.Add(this.barButtonItem1);
+            this.ribbonPageGroup7.ItemLinks.Add(this.btnImportExcel);
             this.ribbonPageGroup7.Name = "ribbonPageGroup7";
             this.ribbonPageGroup7.Text = "Dữ liệu học sinh";
             // 
@@ -288,21 +304,6 @@
             this.pnControlsPanel.Name = "pnControlsPanel";
             this.pnControlsPanel.Size = new System.Drawing.Size(798, 432);
             this.pnControlsPanel.TabIndex = 3;
-            // 
-            // ribbonPageGroup8
-            // 
-            this.ribbonPageGroup8.ItemLinks.Add(this.btnTopicLesson);
-            this.ribbonPageGroup8.Name = "ribbonPageGroup8";
-            this.ribbonPageGroup8.Text = "Bài Giảng";
-            // 
-            // btnTopicLesson
-            // 
-            this.btnTopicLesson.Caption = "Quản Lý Bài Giảng";
-            this.btnTopicLesson.Id = 13;
-            this.btnTopicLesson.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("barButtonItem2.ImageOptions.Image")));
-            this.btnTopicLesson.ImageOptions.LargeImage = ((System.Drawing.Image)(resources.GetObject("barButtonItem2.ImageOptions.LargeImage")));
-            this.btnTopicLesson.Name = "btnTopicLesson";
-            this.btnTopicLesson.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.btnTopicLesson_ItemClick);
             // 
             // frmMain
             // 
@@ -348,7 +349,7 @@
         private DevExpress.XtraBars.Ribbon.RibbonPage ribbonPage3;
         private DevExpress.XtraBars.Ribbon.RibbonPageGroup ribbonPageGroup6;
         private DevExpress.XtraBars.BarButtonItem btnTKHocSinh;
-        private DevExpress.XtraBars.BarButtonItem barButtonItem1;
+        private DevExpress.XtraBars.BarButtonItem btnImportExcel;
         private DevExpress.XtraBars.Ribbon.RibbonPageGroup ribbonPageGroup7;
         private DevExpress.XtraBars.BarButtonItem btnSemester;
         private DevExpress.XtraBars.BarButtonItem btnTopicLesson;

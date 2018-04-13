@@ -318,6 +318,12 @@
     <Compile Include="TienBao\frmAddStudent.Designer.cs">
       <DependentUpon>frmAddStudent.cs</DependentUpon>
     </Compile>
+    <Compile Include="TienBao\frmImportExcel.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="TienBao\frmImportExcel.Designer.cs">
+      <DependentUpon>frmImportExcel.cs</DependentUpon>
+    </Compile>
     <Compile Include="TienBao\frmStudent.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -335,6 +341,12 @@
     </Compile>
     <Compile Include="TienBao\frmStudentDetail.Designer.cs">
       <DependentUpon>frmStudentDetail.cs</DependentUpon>
+    </Compile>
+    <Compile Include="TienBao\WaitForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="TienBao\WaitForm.Designer.cs">
+      <DependentUpon>WaitForm.cs</DependentUpon>
     </Compile>
     <EmbeddedResource Include="frmLogin.resx">
       <DependentUpon>frmLogin.cs</DependentUpon>
@@ -452,6 +464,9 @@
     <EmbeddedResource Include="TienBao\frmAddStudent.resx">
       <DependentUpon>frmAddStudent.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="TienBao\frmImportExcel.resx">
+      <DependentUpon>frmImportExcel.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="TienBao\frmStudent.resx">
       <DependentUpon>frmStudent.cs</DependentUpon>
     </EmbeddedResource>
@@ -460,6 +475,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="TienBao\frmStudentDetail.resx">
       <DependentUpon>frmStudentDetail.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="TienBao\WaitForm.resx">
+      <DependentUpon>WaitForm.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="App.config" />
     <None Include="packages.config" />
