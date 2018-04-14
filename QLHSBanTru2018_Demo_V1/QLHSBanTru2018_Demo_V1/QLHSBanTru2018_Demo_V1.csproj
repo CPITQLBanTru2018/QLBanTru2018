@@ -268,6 +268,12 @@
     <Compile Include="QLThuChi\DotThu\KeHoachThu\FrThanhToan.Designer.cs">
       <DependentUpon>FrThanhToan.cs</DependentUpon>
     </Compile>
+    <Compile Include="QLThuChi\DotThu\KeHoachThu\FRViewDoituongchinhsach.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="QLThuChi\DotThu\KeHoachThu\FRViewDoituongchinhsach.Designer.cs">
+      <DependentUpon>FRViewDoituongchinhsach.cs</DependentUpon>
+    </Compile>
     <Compile Include="QLThuChi\DotThu\MienGiam\FRDienMienGiam.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -440,6 +446,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="QLThuChi\DotThu\KeHoachThu\FrThanhToan.resx">
       <DependentUpon>FrThanhToan.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="QLThuChi\DotThu\KeHoachThu\FRViewDoituongchinhsach.resx">
+      <DependentUpon>FRViewDoituongchinhsach.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="QLThuChi\DotThu\MienGiam\FRDienMienGiam.resx">
       <DependentUpon>FRDienMienGiam.cs</DependentUpon>

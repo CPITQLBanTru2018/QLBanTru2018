@@ -10,6 +10,7 @@ using System.Windows.Forms;
 using DevExpress.XtraEditors;
 using DataConnect.DAO.ThanhCongTC;
 using DataConnect;
+using System.IO;
 
 namespace QLHSBanTru2018_Demo_V1.QLThuChi.DotThu.KeHoachThu
 {
@@ -71,9 +72,30 @@ namespace QLHSBanTru2018_Demo_V1.QLThuChi.DotThu.KeHoachThu
             txtTongSo.Text = b.ToString();
             txtConlai.Text = (b - a).ToString();          
         }
+        public void loadStuden()
+        {
+            try
+            {
+                ClassStudentDAO dt = new ClassStudentDAO();
+                Student a = new Student();
+                a = dt.lookForStuden(ClassStudentDAO.StudentID);
+                txtHoten.Text = a.FirstName + a.LastName;
+                txtNgaySinh.Text = a.Birthday.ToShortDateString();
+                txtDiachi.Text = a.AdressDetail;
+                MemoryStream mom = new MemoryStream(a.Image.ToArray());
+                Image img = Image.FromStream(mom);
+                pcAnhhocsinh.Image = img;
+            }
+            catch 
+            {
+
+               
+            }
+        }
         private void FrThanhToan_Load(object sender, EventArgs e)
         {
-            LoadKhoaPhi();           
+            LoadKhoaPhi();
+            loadStuden();
             checkKhoathu();
             loatGrKhoanPhi();
         }
@@ -133,6 +155,18 @@ namespace QLHSBanTru2018_Demo_V1.QLThuChi.DotThu.KeHoachThu
                 MessageBox.Show("Lỗi");
                 
             }
+        }
+
+        private void danhSáchMiễnGiảmToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            FRViewDoituongchinhsach a = new FRViewDoituongchinhsach();
+            a.ShowDialog();
+            
+        }
+
+        private void gridView1_FocusedRowChanged(object sender, DevExpress.XtraGrid.Views.Base.FocusedRowChangedEventArgs e)
+        {
+            studentReceivableDAO.PreferredID = gridView1.GetRowCellValue(e.FocusedRowHandle,"PreferredID").ToString();
         }
     }
 }

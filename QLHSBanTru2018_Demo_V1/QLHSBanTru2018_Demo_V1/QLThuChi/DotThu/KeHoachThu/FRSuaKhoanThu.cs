@@ -32,7 +32,7 @@ namespace QLHSBanTru2018_Demo_V1.QLThuChi
             StudenGrade dt = new StudenGrade();
             txtTenKhoanThu.Text = ReceivableDetailDAO.DemoReceibavleDetail.Name;
             txtMucThu.Text = ReceivableDetailDAO.DemoReceibavleDetail.Price.ToString();
-            txtTanso.Text = ReceivableDetailDAO.DemoReceibavleDetail.ToString();
+            txtTanso.Text = ReceivableDetailDAO.DemoReceibavleDetail.Frequency.ToString();
             cbbDonViThoiGian.Text = ReceivableDetailDAO.DemoReceibavleDetail.TimeUnits;
             txtDv.Text = cbbDonViThoiGian.Text;
             txtTongthu.Text = ReceivableDetailDAO.DemoReceibavleDetail.TotalPriceDetail.ToString();
@@ -136,10 +136,10 @@ namespace QLHSBanTru2018_Demo_V1.QLThuChi
 
         private void bntLuu_Click(object sender, EventArgs e)
         {
-            ReceivableDetailDAO.ListDemoReceivableDetail.RemoveAt(studentReceivableDAO.TherowFocust);
+           
             try
             {
-
+                ReceivableDetailDAO.ListDemoReceivableDetail.RemoveAt(studentReceivableDAO.TherowFocust);
                 ReceivableDetail a = new ReceivableDetail();
                 a.Name = txtTenKhoanThu.Text;
                 a.Price = decimal.Parse(txtMucThu.Text);
@@ -157,6 +157,7 @@ namespace QLHSBanTru2018_Demo_V1.QLThuChi
                     a.PreferredID = "";
                 }
                 ReceivableDetailDAO.ListDemoReceivableDetail.Add(a);
+                
                 this.Close();
             }
             catch
