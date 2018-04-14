@@ -8,6 +8,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using DevExpress.XtraEditors;
+using DataConnect.DAO.HungTD;
 
 namespace QLHSBanTru2018_Demo_V1.HungTD.Form.WorkProgress
 {
@@ -16,6 +17,16 @@ namespace QLHSBanTru2018_Demo_V1.HungTD.Form.WorkProgress
         public frmWorkProgressList()
         {
             InitializeComponent();
+        }
+
+        private void frmWorkProgressList_Load(object sender, EventArgs e)
+        {
+            this.Dock = DockStyle.Fill;
+            FillGridControls();
+        }
+        private void FillGridControls()
+        {
+            gcMain.DataSource = new DivisionDAO().ListAll();
         }
     }
 }

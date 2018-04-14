@@ -43,11 +43,13 @@
             this.btnTKHocSinh = new DevExpress.XtraBars.BarButtonItem();
             this.barButtonItem1 = new DevExpress.XtraBars.BarButtonItem();
             this.btnSemester = new DevExpress.XtraBars.BarButtonItem();
+            this.btnTopicLesson = new DevExpress.XtraBars.BarButtonItem();
             this.ribbonPage1 = new DevExpress.XtraBars.Ribbon.RibbonPage();
             this.ribbonPageGroup1 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             this.ribbonPageGroup2 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             this.ribbonPageGroup4 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             this.ribbonPageGroup5 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
+            this.ribbonPageGroup8 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             this.ribbonPage2 = new DevExpress.XtraBars.Ribbon.RibbonPage();
             this.ribbonPageGroup3 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             this.ribbonPage3 = new DevExpress.XtraBars.Ribbon.RibbonPage();
@@ -56,8 +58,7 @@
             this.ribbonStatusBar = new DevExpress.XtraBars.Ribbon.RibbonStatusBar();
             this.defaultLookAndFeel1 = new DevExpress.LookAndFeel.DefaultLookAndFeel(this.components);
             this.pnControlsPanel = new System.Windows.Forms.Panel();
-            this.ribbonPageGroup8 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
-            this.btnTopicLesson = new DevExpress.XtraBars.BarButtonItem();
+            this.btnWorkProgressList = new DevExpress.XtraBars.BarButtonItem();
             ((System.ComponentModel.ISupportInitialize)(this.ribbon)).BeginInit();
             this.SuspendLayout();
             // 
@@ -78,9 +79,10 @@
             this.btnTKHocSinh,
             this.barButtonItem1,
             this.btnSemester,
-            this.btnTopicLesson});
+            this.btnTopicLesson,
+            this.btnWorkProgressList});
             this.ribbon.Location = new System.Drawing.Point(0, 0);
-            this.ribbon.MaxItemId = 14;
+            this.ribbon.MaxItemId = 15;
             this.ribbon.Name = "ribbon";
             this.ribbon.Pages.AddRange(new DevExpress.XtraBars.Ribbon.RibbonPage[] {
             this.ribbonPage1,
@@ -196,6 +198,15 @@
             this.btnSemester.Name = "btnSemester";
             this.btnSemester.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.btnSemester_ItemClick);
             // 
+            // btnTopicLesson
+            // 
+            this.btnTopicLesson.Caption = "Quản Lý Bài Giảng";
+            this.btnTopicLesson.Id = 13;
+            this.btnTopicLesson.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("btnTopicLesson.ImageOptions.Image")));
+            this.btnTopicLesson.ImageOptions.LargeImage = ((System.Drawing.Image)(resources.GetObject("btnTopicLesson.ImageOptions.LargeImage")));
+            this.btnTopicLesson.Name = "btnTopicLesson";
+            this.btnTopicLesson.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.btnTopicLesson_ItemClick);
+            // 
             // ribbonPage1
             // 
             this.ribbonPage1.Groups.AddRange(new DevExpress.XtraBars.Ribbon.RibbonPageGroup[] {
@@ -220,6 +231,7 @@
             // 
             this.ribbonPageGroup2.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("ribbonPageGroup2.ImageOptions.Image")));
             this.ribbonPageGroup2.ItemLinks.Add(this.btnEmployeeManager);
+            this.ribbonPageGroup2.ItemLinks.Add(this.btnWorkProgressList);
             this.ribbonPageGroup2.Name = "ribbonPageGroup2";
             this.ribbonPageGroup2.Text = "Quản Lý Nhân Viên";
             // 
@@ -234,6 +246,12 @@
             this.ribbonPageGroup5.ItemLinks.Add(this.btnContractManager);
             this.ribbonPageGroup5.Name = "ribbonPageGroup5";
             this.ribbonPageGroup5.Text = "Hợp Đồng";
+            // 
+            // ribbonPageGroup8
+            // 
+            this.ribbonPageGroup8.ItemLinks.Add(this.btnTopicLesson);
+            this.ribbonPageGroup8.Name = "ribbonPageGroup8";
+            this.ribbonPageGroup8.Text = "Bài Giảng";
             // 
             // ribbonPage2
             // 
@@ -289,20 +307,14 @@
             this.pnControlsPanel.Size = new System.Drawing.Size(798, 432);
             this.pnControlsPanel.TabIndex = 3;
             // 
-            // ribbonPageGroup8
+            // btnWorkProgressList
             // 
-            this.ribbonPageGroup8.ItemLinks.Add(this.btnTopicLesson);
-            this.ribbonPageGroup8.Name = "ribbonPageGroup8";
-            this.ribbonPageGroup8.Text = "Bài Giảng";
-            // 
-            // btnTopicLesson
-            // 
-            this.btnTopicLesson.Caption = "Quản Lý Bài Giảng";
-            this.btnTopicLesson.Id = 13;
-            this.btnTopicLesson.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("barButtonItem2.ImageOptions.Image")));
-            this.btnTopicLesson.ImageOptions.LargeImage = ((System.Drawing.Image)(resources.GetObject("barButtonItem2.ImageOptions.LargeImage")));
-            this.btnTopicLesson.Name = "btnTopicLesson";
-            this.btnTopicLesson.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.btnTopicLesson_ItemClick);
+            this.btnWorkProgressList.Caption = "Quá Trình Công Tác";
+            this.btnWorkProgressList.Id = 14;
+            this.btnWorkProgressList.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("barButtonItem2.ImageOptions.Image")));
+            this.btnWorkProgressList.ImageOptions.LargeImage = ((System.Drawing.Image)(resources.GetObject("barButtonItem2.ImageOptions.LargeImage")));
+            this.btnWorkProgressList.Name = "btnWorkProgressList";
+            this.btnWorkProgressList.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.btnWorkProgressList_ItemClick);
             // 
             // frmMain
             // 
@@ -353,5 +365,6 @@
         private DevExpress.XtraBars.BarButtonItem btnSemester;
         private DevExpress.XtraBars.BarButtonItem btnTopicLesson;
         private DevExpress.XtraBars.Ribbon.RibbonPageGroup ribbonPageGroup8;
+        private DevExpress.XtraBars.BarButtonItem btnWorkProgressList;
     }
 }

@@ -18,6 +18,7 @@ using QLHSBanTru2018_Demo_V1.HungTD.Form.Contract;
 using QLHSBanTru2018_Demo_V1.TienBao;
 using QLHSBanTru2018_Demo_V1.HungTD.Form.Semester;
 using QLHSBanTru2018_Demo_V1.HungTD.Form.TopicLession;
+using QLHSBanTru2018_Demo_V1.HungTD.Form.WorkProgress;
 
 namespace QLHSBanTru2018_Demo_V1
 {
@@ -72,6 +73,11 @@ namespace QLHSBanTru2018_Demo_V1
             pnControlsPanel.Controls.Clear();
             pnControlsPanel.Controls.Add(new frmTopicLesson());
         }
+        private void btnWorkProgressList_ItemClick(object sender, ItemClickEventArgs e)
+        {
+            pnControlsPanel.Controls.Clear();
+            pnControlsPanel.Controls.Add(new frmWorkProgressList());
+        }
         #endregion
 
         #region Nguyễn Kiều Thành Công
@@ -117,6 +123,5 @@ namespace QLHSBanTru2018_Demo_V1
             a.Dock = DockStyle.Fill;
         }
 
-        
     }
 }
