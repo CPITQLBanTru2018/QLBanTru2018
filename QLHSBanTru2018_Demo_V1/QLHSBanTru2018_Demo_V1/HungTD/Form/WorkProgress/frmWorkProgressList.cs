@@ -28,5 +28,21 @@ namespace QLHSBanTru2018_Demo_V1.HungTD.Form.WorkProgress
         {
             gcMain.DataSource = new DivisionDAO().ListAll();
         }
+
+        private void btnAdd_Click(object sender, EventArgs e)
+        {
+            frmFindEmployee frmFE = new frmFindEmployee();
+            frmFE.ShowDialog();
+        }
+
+        private void btnEdit_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnDelete_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

@@ -39,6 +39,14 @@
             this.textEdit1 = new DevExpress.XtraEditors.TextEdit();
             this.gcMain = new DevExpress.XtraGrid.GridControl();
             this.gridView1 = new DevExpress.XtraGrid.Views.Grid.GridView();
+            this.colEmployeeFullName = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.colDepartmentName = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.colPositionName = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.colStartDate = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.colEndDate = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.colCreatedDate = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.colCreatedByFullName = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.colEmployeeID = new DevExpress.XtraGrid.Columns.GridColumn();
             this.layoutControlGroup1 = new DevExpress.XtraLayout.LayoutControlGroup();
             this.Root1 = new DevExpress.XtraLayout.LayoutControlGroup();
             this.layoutControlItem1 = new DevExpress.XtraLayout.LayoutControlItem();
@@ -53,14 +61,6 @@
             this.layoutControlItem5 = new DevExpress.XtraLayout.LayoutControlItem();
             this.layoutControlItem7 = new DevExpress.XtraLayout.LayoutControlItem();
             this.layoutControlItem8 = new DevExpress.XtraLayout.LayoutControlItem();
-            this.colEmployeeFullName = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.colDepartmentName = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.colPositionName = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.colStartDate = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.colEndDate = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.colCreatedDate = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.colCreatedByFullName = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.colEmployeeID = new DevExpress.XtraGrid.Columns.GridColumn();
             ((System.ComponentModel.ISupportInitialize)(this.textEdit2.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControl1)).BeginInit();
             this.layoutControl1.SuspendLayout();
@@ -119,6 +119,7 @@
             this.btnAdd.StyleController = this.layoutControl1;
             this.btnAdd.TabIndex = 4;
             this.btnAdd.Text = "Thêm";
+            this.btnAdd.Click += new System.EventHandler(this.btnAdd_Click);
             // 
             // btnEdit
             // 
@@ -129,6 +130,7 @@
             this.btnEdit.StyleController = this.layoutControl1;
             this.btnEdit.TabIndex = 5;
             this.btnEdit.Text = "Cập Nhật";
+            this.btnEdit.Click += new System.EventHandler(this.btnEdit_Click);
             // 
             // btnDelete
             // 
@@ -139,6 +141,7 @@
             this.btnDelete.StyleController = this.layoutControl1;
             this.btnDelete.TabIndex = 6;
             this.btnDelete.Text = "Xóa";
+            this.btnDelete.Click += new System.EventHandler(this.btnDelete_Click);
             // 
             // btnPrint
             // 
@@ -200,6 +203,85 @@
             this.gridView1.SortInfo.AddRange(new DevExpress.XtraGrid.Columns.GridColumnSortInfo[] {
             new DevExpress.XtraGrid.Columns.GridColumnSortInfo(this.colEmployeeID, DevExpress.Data.ColumnSortOrder.Ascending)});
             this.gridView1.VertScrollVisibility = DevExpress.XtraGrid.Views.Base.ScrollVisibility.Always;
+            // 
+            // colEmployeeFullName
+            // 
+            this.colEmployeeFullName.Caption = "Tên Nhân Viên";
+            this.colEmployeeFullName.FieldName = "EmployeeFullName";
+            this.colEmployeeFullName.MinWidth = 120;
+            this.colEmployeeFullName.Name = "colEmployeeFullName";
+            this.colEmployeeFullName.Visible = true;
+            this.colEmployeeFullName.VisibleIndex = 0;
+            this.colEmployeeFullName.Width = 120;
+            // 
+            // colDepartmentName
+            // 
+            this.colDepartmentName.Caption = "Phòng Công Tác";
+            this.colDepartmentName.FieldName = "DepartmentName";
+            this.colDepartmentName.MinWidth = 90;
+            this.colDepartmentName.Name = "colDepartmentName";
+            this.colDepartmentName.Visible = true;
+            this.colDepartmentName.VisibleIndex = 1;
+            this.colDepartmentName.Width = 90;
+            // 
+            // colPositionName
+            // 
+            this.colPositionName.Caption = "Chức Vụ";
+            this.colPositionName.FieldName = "PositionName";
+            this.colPositionName.MinWidth = 90;
+            this.colPositionName.Name = "colPositionName";
+            this.colPositionName.Visible = true;
+            this.colPositionName.VisibleIndex = 2;
+            this.colPositionName.Width = 90;
+            // 
+            // colStartDate
+            // 
+            this.colStartDate.Caption = "Ngày Bắt Đầu";
+            this.colStartDate.FieldName = "StartDate";
+            this.colStartDate.MinWidth = 90;
+            this.colStartDate.Name = "colStartDate";
+            this.colStartDate.Visible = true;
+            this.colStartDate.VisibleIndex = 3;
+            this.colStartDate.Width = 90;
+            // 
+            // colEndDate
+            // 
+            this.colEndDate.Caption = "Ngày Kết Thúc";
+            this.colEndDate.FieldName = "EndDate";
+            this.colEndDate.MinWidth = 90;
+            this.colEndDate.Name = "colEndDate";
+            this.colEndDate.Visible = true;
+            this.colEndDate.VisibleIndex = 4;
+            this.colEndDate.Width = 90;
+            // 
+            // colCreatedDate
+            // 
+            this.colCreatedDate.Caption = "Ngày Ký Kết";
+            this.colCreatedDate.FieldName = "CreatedDate";
+            this.colCreatedDate.MinWidth = 90;
+            this.colCreatedDate.Name = "colCreatedDate";
+            this.colCreatedDate.Visible = true;
+            this.colCreatedDate.VisibleIndex = 5;
+            this.colCreatedDate.Width = 90;
+            // 
+            // colCreatedByFullName
+            // 
+            this.colCreatedByFullName.Caption = "Người Ký Kết";
+            this.colCreatedByFullName.FieldName = "CreatedByFullName";
+            this.colCreatedByFullName.MinWidth = 120;
+            this.colCreatedByFullName.Name = "colCreatedByFullName";
+            this.colCreatedByFullName.Visible = true;
+            this.colCreatedByFullName.VisibleIndex = 6;
+            this.colCreatedByFullName.Width = 120;
+            // 
+            // colEmployeeID
+            // 
+            this.colEmployeeID.Caption = "Nhân Viên";
+            this.colEmployeeID.FieldName = "EmployeeFullName";
+            this.colEmployeeID.Name = "colEmployeeID";
+            this.colEmployeeID.Visible = true;
+            this.colEmployeeID.VisibleIndex = 0;
+            this.colEmployeeID.Width = 40;
             // 
             // layoutControlGroup1
             // 
@@ -368,85 +450,6 @@
             this.layoutControlItem8.Size = new System.Drawing.Size(506, 526);
             this.layoutControlItem8.TextSize = new System.Drawing.Size(0, 0);
             this.layoutControlItem8.TextVisible = false;
-            // 
-            // colEmployeeFullName
-            // 
-            this.colEmployeeFullName.Caption = "Tên Nhân Viên";
-            this.colEmployeeFullName.FieldName = "EmployeeFullName";
-            this.colEmployeeFullName.MinWidth = 120;
-            this.colEmployeeFullName.Name = "colEmployeeFullName";
-            this.colEmployeeFullName.Visible = true;
-            this.colEmployeeFullName.VisibleIndex = 0;
-            this.colEmployeeFullName.Width = 120;
-            // 
-            // colDepartmentName
-            // 
-            this.colDepartmentName.Caption = "Phòng Công Tác";
-            this.colDepartmentName.FieldName = "DepartmentName";
-            this.colDepartmentName.MinWidth = 90;
-            this.colDepartmentName.Name = "colDepartmentName";
-            this.colDepartmentName.Visible = true;
-            this.colDepartmentName.VisibleIndex = 1;
-            this.colDepartmentName.Width = 90;
-            // 
-            // colPositionName
-            // 
-            this.colPositionName.Caption = "Chức Vụ";
-            this.colPositionName.FieldName = "PositionName";
-            this.colPositionName.MinWidth = 90;
-            this.colPositionName.Name = "colPositionName";
-            this.colPositionName.Visible = true;
-            this.colPositionName.VisibleIndex = 2;
-            this.colPositionName.Width = 90;
-            // 
-            // colStartDate
-            // 
-            this.colStartDate.Caption = "Ngày Bắt Đầu";
-            this.colStartDate.FieldName = "StartDate";
-            this.colStartDate.MinWidth = 90;
-            this.colStartDate.Name = "colStartDate";
-            this.colStartDate.Visible = true;
-            this.colStartDate.VisibleIndex = 3;
-            this.colStartDate.Width = 90;
-            // 
-            // colEndDate
-            // 
-            this.colEndDate.Caption = "Ngày Kết Thúc";
-            this.colEndDate.FieldName = "EndDate";
-            this.colEndDate.MinWidth = 90;
-            this.colEndDate.Name = "colEndDate";
-            this.colEndDate.Visible = true;
-            this.colEndDate.VisibleIndex = 4;
-            this.colEndDate.Width = 90;
-            // 
-            // colCreatedDate
-            // 
-            this.colCreatedDate.Caption = "Ngày Ký Kết";
-            this.colCreatedDate.FieldName = "CreatedDate";
-            this.colCreatedDate.MinWidth = 90;
-            this.colCreatedDate.Name = "colCreatedDate";
-            this.colCreatedDate.Visible = true;
-            this.colCreatedDate.VisibleIndex = 5;
-            this.colCreatedDate.Width = 90;
-            // 
-            // colCreatedByFullName
-            // 
-            this.colCreatedByFullName.Caption = "Người Ký Kết";
-            this.colCreatedByFullName.FieldName = "CreatedByFullName";
-            this.colCreatedByFullName.MinWidth = 120;
-            this.colCreatedByFullName.Name = "colCreatedByFullName";
-            this.colCreatedByFullName.Visible = true;
-            this.colCreatedByFullName.VisibleIndex = 6;
-            this.colCreatedByFullName.Width = 120;
-            // 
-            // colEmployeeID
-            // 
-            this.colEmployeeID.Caption = "Nhân Viên";
-            this.colEmployeeID.FieldName = "EmployeeFullName";
-            this.colEmployeeID.Name = "colEmployeeID";
-            this.colEmployeeID.Visible = true;
-            this.colEmployeeID.VisibleIndex = 0;
-            this.colEmployeeID.Width = 40;
             // 
             // frmWorkProgressList
             // 
