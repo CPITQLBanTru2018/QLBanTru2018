@@ -241,6 +241,18 @@
     <Compile Include="HungTD\Form\TopicLesson\frmTopicLessonDetail.Designer.cs">
       <DependentUpon>frmTopicLessonDetail.cs</DependentUpon>
     </Compile>
+    <Compile Include="HungTD\Form\WorkProgress\frmDivisionDetail.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="HungTD\Form\WorkProgress\frmDivisionDetail.Designer.cs">
+      <DependentUpon>frmDivisionDetail.cs</DependentUpon>
+    </Compile>
+    <Compile Include="HungTD\Form\WorkProgress\frmFindEmployee.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="HungTD\Form\WorkProgress\frmFindEmployee.Designer.cs">
+      <DependentUpon>frmFindEmployee.cs</DependentUpon>
+    </Compile>
     <Compile Include="HungTD\Form\WorkProgress\frmWorkProgressList.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -423,6 +435,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="HungTD\Form\TopicLesson\frmTopicLessonDetail.resx">
       <DependentUpon>frmTopicLessonDetail.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="HungTD\Form\WorkProgress\frmDivisionDetail.resx">
+      <DependentUpon>frmDivisionDetail.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="HungTD\Form\WorkProgress\frmFindEmployee.resx">
+      <DependentUpon>frmFindEmployee.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="HungTD\Form\WorkProgress\frmWorkProgressList.resx">
       <DependentUpon>frmWorkProgressList.cs</DependentUpon>
