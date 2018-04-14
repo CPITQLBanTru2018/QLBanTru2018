@@ -58,10 +58,6 @@
             this.ribbonStatusBar = new DevExpress.XtraBars.Ribbon.RibbonStatusBar();
             this.defaultLookAndFeel1 = new DevExpress.LookAndFeel.DefaultLookAndFeel(this.components);
             this.pnControlsPanel = new System.Windows.Forms.Panel();
-<<<<<<< HEAD
-            this.btnWorkProgressList = new DevExpress.XtraBars.BarButtonItem();
-=======
->>>>>>> 60a2d517aeb872bac0e631610d59c94889255e8d
             ((System.ComponentModel.ISupportInitialize)(this.ribbon)).BeginInit();
             this.SuspendLayout();
             // 
@@ -82,10 +78,9 @@
             this.btnTKHocSinh,
             this.btnImportExcel,
             this.btnSemester,
-            this.btnTopicLesson,
-            this.btnWorkProgressList});
+            this.btnTopicLesson});
             this.ribbon.Location = new System.Drawing.Point(0, 0);
-            this.ribbon.MaxItemId = 15;
+            this.ribbon.MaxItemId = 14;
             this.ribbon.Name = "ribbon";
             this.ribbon.Pages.AddRange(new DevExpress.XtraBars.Ribbon.RibbonPage[] {
             this.ribbonPage1,
@@ -235,7 +230,6 @@
             // 
             this.ribbonPageGroup2.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("ribbonPageGroup2.ImageOptions.Image")));
             this.ribbonPageGroup2.ItemLinks.Add(this.btnEmployeeManager);
-            this.ribbonPageGroup2.ItemLinks.Add(this.btnWorkProgressList);
             this.ribbonPageGroup2.Name = "ribbonPageGroup2";
             this.ribbonPageGroup2.Text = "Quản Lý Nhân Viên";
             // 
@@ -311,18 +305,6 @@
             this.pnControlsPanel.Size = new System.Drawing.Size(798, 432);
             this.pnControlsPanel.TabIndex = 3;
             // 
-<<<<<<< HEAD
-            // btnWorkProgressList
-            // 
-            this.btnWorkProgressList.Caption = "Quá Trình Công Tác";
-            this.btnWorkProgressList.Id = 14;
-            this.btnWorkProgressList.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("barButtonItem2.ImageOptions.Image")));
-            this.btnWorkProgressList.ImageOptions.LargeImage = ((System.Drawing.Image)(resources.GetObject("barButtonItem2.ImageOptions.LargeImage")));
-            this.btnWorkProgressList.Name = "btnWorkProgressList";
-            this.btnWorkProgressList.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.btnWorkProgressList_ItemClick);
-            // 
-=======
->>>>>>> 60a2d517aeb872bac0e631610d59c94889255e8d
             // frmMain
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -372,6 +354,5 @@
         private DevExpress.XtraBars.BarButtonItem btnSemester;
         private DevExpress.XtraBars.BarButtonItem btnTopicLesson;
         private DevExpress.XtraBars.Ribbon.RibbonPageGroup ribbonPageGroup8;
-        private DevExpress.XtraBars.BarButtonItem btnWorkProgressList;
     }
 }
