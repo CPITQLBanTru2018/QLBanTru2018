@@ -82,6 +82,7 @@
     <Compile Include="DAO\ThanhCongTC\studentReceivableDAO.cs" />
     <Compile Include="DAO\ThanhCongTC\TCViewModle\TCStudenViewModle.cs" />
     <Compile Include="DAO\TienBao\ClassDAO.cs" />
+    <Compile Include="DAO\TienBao\StudentClassDao.cs" />
     <Compile Include="DAO\TienBao\StudentDAO.cs" />
     <Compile Include="DAO\TienBao\StudentParentsDAO.cs" />
     <Compile Include="Program.cs" />
