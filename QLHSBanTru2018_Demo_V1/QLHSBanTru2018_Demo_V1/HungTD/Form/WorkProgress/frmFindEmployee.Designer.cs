@@ -29,21 +29,21 @@
         private void InitializeComponent()
         {
             this.layoutControl1 = new DevExpress.XtraLayout.LayoutControl();
-            this.layoutControlGroup1 = new DevExpress.XtraLayout.LayoutControlGroup();
+            this.btnAdd = new DevExpress.XtraEditors.SimpleButton();
+            this.picImage = new DevExpress.XtraEditors.PictureEdit();
+            this.txtFullName = new DevExpress.XtraEditors.TextEdit();
+            this.txtUsername = new DevExpress.XtraEditors.TextEdit();
+            this.dtBirthday = new DevExpress.XtraEditors.DateEdit();
+            this.txtIdentityNumber = new DevExpress.XtraEditors.TextEdit();
+            this.dtDateOfIssue = new DevExpress.XtraEditors.DateEdit();
+            this.txtPlaceOfIssue = new DevExpress.XtraEditors.TextEdit();
+            this.btnContinue = new DevExpress.XtraEditors.SimpleButton();
+            this.btnEmployeeManager = new DevExpress.XtraEditors.SimpleButton();
             this.gcListEmployee = new DevExpress.XtraGrid.GridControl();
             this.gridView1 = new DevExpress.XtraGrid.Views.Grid.GridView();
             this.gridColumn1 = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.txtIdentityNumber = new DevExpress.XtraEditors.TextEdit();
-            this.dtDateOfIssue = new DevExpress.XtraEditors.DateEdit();
-            this.btnContinue = new DevExpress.XtraEditors.SimpleButton();
-            this.txtUsername = new DevExpress.XtraEditors.TextEdit();
-            this.txtFullName = new DevExpress.XtraEditors.TextEdit();
             this.btnEmployeeDetail = new DevExpress.XtraEditors.SimpleButton();
-            this.picImage = new DevExpress.XtraEditors.PictureEdit();
-            this.btnAdd = new DevExpress.XtraEditors.SimpleButton();
-            this.dtBirthday = new DevExpress.XtraEditors.DateEdit();
-            this.btnEmployeeManager = new DevExpress.XtraEditors.SimpleButton();
-            this.txtPlaceOfIssue = new DevExpress.XtraEditors.TextEdit();
+            this.layoutControlGroup1 = new DevExpress.XtraLayout.LayoutControlGroup();
             this.Root1 = new DevExpress.XtraLayout.LayoutControlGroup();
             this.layoutControlItem2 = new DevExpress.XtraLayout.LayoutControlItem();
             this.emptySpaceItem1 = new DevExpress.XtraLayout.EmptySpaceItem();
@@ -62,18 +62,18 @@
             this.layoutControlItem5 = new DevExpress.XtraLayout.LayoutControlItem();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControl1)).BeginInit();
             this.layoutControl1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.layoutControlGroup1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.gcListEmployee)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.gridView1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.picImage.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtFullName.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtUsername.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dtBirthday.Properties.CalendarTimeProperties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dtBirthday.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtIdentityNumber.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dtDateOfIssue.Properties.CalendarTimeProperties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dtDateOfIssue.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.txtUsername.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.txtFullName.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.picImage.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dtBirthday.Properties.CalendarTimeProperties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dtBirthday.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtPlaceOfIssue.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.gcListEmployee)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.gridView1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControlGroup1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.Root1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem1)).BeginInit();
@@ -115,23 +115,131 @@
             this.layoutControl1.TabIndex = 0;
             this.layoutControl1.Text = "layoutControl1";
             // 
-            // layoutControlGroup1
+            // btnAdd
             // 
-            this.layoutControlGroup1.EnableIndentsWithoutBorders = DevExpress.Utils.DefaultBoolean.True;
-            this.layoutControlGroup1.GroupBordersVisible = false;
-            this.layoutControlGroup1.Items.AddRange(new DevExpress.XtraLayout.BaseLayoutItem[] {
-            this.Root1});
-            this.layoutControlGroup1.Name = "Root";
-            this.layoutControlGroup1.Padding = new DevExpress.XtraLayout.Utils.Padding(0, 0, 0, 0);
-            this.layoutControlGroup1.Size = new System.Drawing.Size(712, 260);
-            this.layoutControlGroup1.TextVisible = false;
+            this.btnAdd.Location = new System.Drawing.Point(12, 12);
+            this.btnAdd.Name = "btnAdd";
+            this.btnAdd.Size = new System.Drawing.Size(100, 22);
+            this.btnAdd.StyleController = this.layoutControl1;
+            this.btnAdd.TabIndex = 30;
+            this.btnAdd.Text = "Thêm Mới";
+            this.btnAdd.Click += new System.EventHandler(this.btnAdd_Click_1);
+            // 
+            // picImage
+            // 
+            this.picImage.Cursor = System.Windows.Forms.Cursors.Default;
+            this.picImage.Location = new System.Drawing.Point(368, 68);
+            this.picImage.Name = "picImage";
+            this.picImage.Properties.ShowCameraMenuItem = DevExpress.XtraEditors.Controls.CameraMenuItemVisibility.Auto;
+            this.picImage.Properties.SizeMode = DevExpress.XtraEditors.Controls.PictureSizeMode.Stretch;
+            this.picImage.Size = new System.Drawing.Size(112, 140);
+            this.picImage.StyleController = this.layoutControl1;
+            this.picImage.TabIndex = 21;
+            // 
+            // txtFullName
+            // 
+            this.txtFullName.Location = new System.Drawing.Point(559, 68);
+            this.txtFullName.Name = "txtFullName";
+            this.txtFullName.Properties.ReadOnly = true;
+            this.txtFullName.Size = new System.Drawing.Size(129, 20);
+            this.txtFullName.StyleController = this.layoutControl1;
+            this.txtFullName.TabIndex = 22;
+            // 
+            // txtUsername
+            // 
+            this.txtUsername.Location = new System.Drawing.Point(559, 92);
+            this.txtUsername.Name = "txtUsername";
+            this.txtUsername.Properties.ReadOnly = true;
+            this.txtUsername.Size = new System.Drawing.Size(129, 20);
+            this.txtUsername.StyleController = this.layoutControl1;
+            this.txtUsername.TabIndex = 23;
+            // 
+            // dtBirthday
+            // 
+            this.dtBirthday.EditValue = null;
+            this.dtBirthday.Location = new System.Drawing.Point(559, 116);
+            this.dtBirthday.Name = "dtBirthday";
+            this.dtBirthday.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.dtBirthday.Properties.CalendarTimeProperties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.dtBirthday.Properties.DisplayFormat.FormatString = "";
+            this.dtBirthday.Properties.DisplayFormat.FormatType = DevExpress.Utils.FormatType.DateTime;
+            this.dtBirthday.Properties.EditFormat.FormatString = "";
+            this.dtBirthday.Properties.EditFormat.FormatType = DevExpress.Utils.FormatType.DateTime;
+            this.dtBirthday.Properties.Mask.EditMask = "";
+            this.dtBirthday.Properties.Mask.MaskType = DevExpress.XtraEditors.Mask.MaskType.None;
+            this.dtBirthday.Properties.ReadOnly = true;
+            this.dtBirthday.Properties.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.DisableTextEditor;
+            this.dtBirthday.Size = new System.Drawing.Size(129, 20);
+            this.dtBirthday.StyleController = this.layoutControl1;
+            this.dtBirthday.TabIndex = 24;
+            // 
+            // txtIdentityNumber
+            // 
+            this.txtIdentityNumber.Location = new System.Drawing.Point(559, 140);
+            this.txtIdentityNumber.Name = "txtIdentityNumber";
+            this.txtIdentityNumber.Properties.ReadOnly = true;
+            this.txtIdentityNumber.Size = new System.Drawing.Size(129, 20);
+            this.txtIdentityNumber.StyleController = this.layoutControl1;
+            this.txtIdentityNumber.TabIndex = 25;
+            // 
+            // dtDateOfIssue
+            // 
+            this.dtDateOfIssue.EditValue = null;
+            this.dtDateOfIssue.Location = new System.Drawing.Point(559, 164);
+            this.dtDateOfIssue.Name = "dtDateOfIssue";
+            this.dtDateOfIssue.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.dtDateOfIssue.Properties.CalendarTimeProperties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.dtDateOfIssue.Properties.DisplayFormat.FormatString = "";
+            this.dtDateOfIssue.Properties.DisplayFormat.FormatType = DevExpress.Utils.FormatType.DateTime;
+            this.dtDateOfIssue.Properties.EditFormat.FormatString = "";
+            this.dtDateOfIssue.Properties.EditFormat.FormatType = DevExpress.Utils.FormatType.DateTime;
+            this.dtDateOfIssue.Properties.Mask.EditMask = "";
+            this.dtDateOfIssue.Properties.Mask.MaskType = DevExpress.XtraEditors.Mask.MaskType.None;
+            this.dtDateOfIssue.Properties.ReadOnly = true;
+            this.dtDateOfIssue.Size = new System.Drawing.Size(129, 20);
+            this.dtDateOfIssue.StyleController = this.layoutControl1;
+            this.dtDateOfIssue.TabIndex = 26;
+            // 
+            // txtPlaceOfIssue
+            // 
+            this.txtPlaceOfIssue.Location = new System.Drawing.Point(559, 188);
+            this.txtPlaceOfIssue.Name = "txtPlaceOfIssue";
+            this.txtPlaceOfIssue.Properties.DisplayFormat.FormatType = DevExpress.Utils.FormatType.DateTime;
+            this.txtPlaceOfIssue.Properties.EditFormat.FormatType = DevExpress.Utils.FormatType.DateTime;
+            this.txtPlaceOfIssue.Properties.ReadOnly = true;
+            this.txtPlaceOfIssue.Size = new System.Drawing.Size(129, 20);
+            this.txtPlaceOfIssue.StyleController = this.layoutControl1;
+            this.txtPlaceOfIssue.TabIndex = 27;
+            // 
+            // btnContinue
+            // 
+            this.btnContinue.Location = new System.Drawing.Point(605, 224);
+            this.btnContinue.Name = "btnContinue";
+            this.btnContinue.Size = new System.Drawing.Size(95, 23);
+            this.btnContinue.StyleController = this.layoutControl1;
+            this.btnContinue.TabIndex = 31;
+            this.btnContinue.Text = "Tiếp Tục";
+            this.btnContinue.Click += new System.EventHandler(this.btnContinue_Click_1);
+            // 
+            // btnEmployeeManager
+            // 
+            this.btnEmployeeManager.Location = new System.Drawing.Point(12, 224);
+            this.btnEmployeeManager.Name = "btnEmployeeManager";
+            this.btnEmployeeManager.Size = new System.Drawing.Size(98, 22);
+            this.btnEmployeeManager.StyleController = this.layoutControl1;
+            this.btnEmployeeManager.TabIndex = 32;
+            this.btnEmployeeManager.Text = "Về Trang Quản Lý";
             // 
             // gcListEmployee
             // 
             this.gcListEmployee.Location = new System.Drawing.Point(12, 38);
             this.gcListEmployee.MainView = this.gridView1;
             this.gcListEmployee.Name = "gcListEmployee";
-            this.gcListEmployee.Size = new System.Drawing.Size(340, 183);
+            this.gcListEmployee.Size = new System.Drawing.Size(340, 182);
             this.gcListEmployee.TabIndex = 29;
             this.gcListEmployee.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gridView1});
@@ -155,132 +263,25 @@
             this.gridColumn1.Visible = true;
             this.gridColumn1.VisibleIndex = 0;
             // 
-            // txtIdentityNumber
-            // 
-            this.txtIdentityNumber.Location = new System.Drawing.Point(560, 141);
-            this.txtIdentityNumber.Name = "txtIdentityNumber";
-            this.txtIdentityNumber.Properties.ReadOnly = true;
-            this.txtIdentityNumber.Size = new System.Drawing.Size(128, 20);
-            this.txtIdentityNumber.StyleController = this.layoutControl1;
-            this.txtIdentityNumber.TabIndex = 25;
-            // 
-            // dtDateOfIssue
-            // 
-            this.dtDateOfIssue.EditValue = null;
-            this.dtDateOfIssue.Location = new System.Drawing.Point(560, 165);
-            this.dtDateOfIssue.Name = "dtDateOfIssue";
-            this.dtDateOfIssue.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-            this.dtDateOfIssue.Properties.CalendarTimeProperties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-            this.dtDateOfIssue.Properties.DisplayFormat.FormatString = "";
-            this.dtDateOfIssue.Properties.DisplayFormat.FormatType = DevExpress.Utils.FormatType.DateTime;
-            this.dtDateOfIssue.Properties.EditFormat.FormatString = "";
-            this.dtDateOfIssue.Properties.EditFormat.FormatType = DevExpress.Utils.FormatType.DateTime;
-            this.dtDateOfIssue.Properties.Mask.EditMask = "";
-            this.dtDateOfIssue.Properties.Mask.MaskType = DevExpress.XtraEditors.Mask.MaskType.None;
-            this.dtDateOfIssue.Properties.ReadOnly = true;
-            this.dtDateOfIssue.Size = new System.Drawing.Size(128, 20);
-            this.dtDateOfIssue.StyleController = this.layoutControl1;
-            this.dtDateOfIssue.TabIndex = 26;
-            // 
-            // btnContinue
-            // 
-            this.btnContinue.Location = new System.Drawing.Point(605, 225);
-            this.btnContinue.Name = "btnContinue";
-            this.btnContinue.Size = new System.Drawing.Size(95, 23);
-            this.btnContinue.StyleController = this.layoutControl1;
-            this.btnContinue.TabIndex = 31;
-            this.btnContinue.Text = "Tiếp Tục";
-            // 
-            // txtUsername
-            // 
-            this.txtUsername.Location = new System.Drawing.Point(560, 93);
-            this.txtUsername.Name = "txtUsername";
-            this.txtUsername.Properties.ReadOnly = true;
-            this.txtUsername.Size = new System.Drawing.Size(128, 20);
-            this.txtUsername.StyleController = this.layoutControl1;
-            this.txtUsername.TabIndex = 23;
-            // 
-            // txtFullName
-            // 
-            this.txtFullName.Location = new System.Drawing.Point(560, 69);
-            this.txtFullName.Name = "txtFullName";
-            this.txtFullName.Properties.ReadOnly = true;
-            this.txtFullName.Size = new System.Drawing.Size(128, 20);
-            this.txtFullName.StyleController = this.layoutControl1;
-            this.txtFullName.TabIndex = 22;
-            // 
             // btnEmployeeDetail
             // 
-            this.btnEmployeeDetail.Location = new System.Drawing.Point(114, 225);
+            this.btnEmployeeDetail.Location = new System.Drawing.Point(114, 224);
             this.btnEmployeeDetail.Name = "btnEmployeeDetail";
             this.btnEmployeeDetail.Size = new System.Drawing.Size(100, 22);
             this.btnEmployeeDetail.StyleController = this.layoutControl1;
             this.btnEmployeeDetail.TabIndex = 33;
             this.btnEmployeeDetail.Text = "Chi Tiết Nhân Viên";
             // 
-            // picImage
+            // layoutControlGroup1
             // 
-            this.picImage.Cursor = System.Windows.Forms.Cursors.Default;
-            this.picImage.Location = new System.Drawing.Point(368, 69);
-            this.picImage.Name = "picImage";
-            this.picImage.Properties.ShowCameraMenuItem = DevExpress.XtraEditors.Controls.CameraMenuItemVisibility.Auto;
-            this.picImage.Properties.SizeMode = DevExpress.XtraEditors.Controls.PictureSizeMode.Stretch;
-            this.picImage.Size = new System.Drawing.Size(112, 140);
-            this.picImage.StyleController = this.layoutControl1;
-            this.picImage.TabIndex = 21;
-            // 
-            // btnAdd
-            // 
-            this.btnAdd.Location = new System.Drawing.Point(12, 12);
-            this.btnAdd.Name = "btnAdd";
-            this.btnAdd.Size = new System.Drawing.Size(100, 22);
-            this.btnAdd.StyleController = this.layoutControl1;
-            this.btnAdd.TabIndex = 30;
-            this.btnAdd.Text = "Thêm Mới";
-            this.btnAdd.Click += new System.EventHandler(this.btnAdd_Click_1);
-            // 
-            // dtBirthday
-            // 
-            this.dtBirthday.EditValue = null;
-            this.dtBirthday.Location = new System.Drawing.Point(560, 117);
-            this.dtBirthday.Name = "dtBirthday";
-            this.dtBirthday.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-            this.dtBirthday.Properties.CalendarTimeProperties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-            this.dtBirthday.Properties.DisplayFormat.FormatString = "";
-            this.dtBirthday.Properties.DisplayFormat.FormatType = DevExpress.Utils.FormatType.DateTime;
-            this.dtBirthday.Properties.EditFormat.FormatString = "";
-            this.dtBirthday.Properties.EditFormat.FormatType = DevExpress.Utils.FormatType.DateTime;
-            this.dtBirthday.Properties.Mask.EditMask = "";
-            this.dtBirthday.Properties.Mask.MaskType = DevExpress.XtraEditors.Mask.MaskType.None;
-            this.dtBirthday.Properties.ReadOnly = true;
-            this.dtBirthday.Properties.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.DisableTextEditor;
-            this.dtBirthday.Size = new System.Drawing.Size(128, 20);
-            this.dtBirthday.StyleController = this.layoutControl1;
-            this.dtBirthday.TabIndex = 24;
-            // 
-            // btnEmployeeManager
-            // 
-            this.btnEmployeeManager.Location = new System.Drawing.Point(12, 225);
-            this.btnEmployeeManager.Name = "btnEmployeeManager";
-            this.btnEmployeeManager.Size = new System.Drawing.Size(98, 22);
-            this.btnEmployeeManager.StyleController = this.layoutControl1;
-            this.btnEmployeeManager.TabIndex = 32;
-            this.btnEmployeeManager.Text = "Về Trang Quản Lý";
-            // 
-            // txtPlaceOfIssue
-            // 
-            this.txtPlaceOfIssue.Location = new System.Drawing.Point(560, 189);
-            this.txtPlaceOfIssue.Name = "txtPlaceOfIssue";
-            this.txtPlaceOfIssue.Properties.DisplayFormat.FormatType = DevExpress.Utils.FormatType.DateTime;
-            this.txtPlaceOfIssue.Properties.EditFormat.FormatType = DevExpress.Utils.FormatType.DateTime;
-            this.txtPlaceOfIssue.Properties.ReadOnly = true;
-            this.txtPlaceOfIssue.Size = new System.Drawing.Size(128, 20);
-            this.txtPlaceOfIssue.StyleController = this.layoutControl1;
-            this.txtPlaceOfIssue.TabIndex = 27;
+            this.layoutControlGroup1.EnableIndentsWithoutBorders = DevExpress.Utils.DefaultBoolean.True;
+            this.layoutControlGroup1.GroupBordersVisible = false;
+            this.layoutControlGroup1.Items.AddRange(new DevExpress.XtraLayout.BaseLayoutItem[] {
+            this.Root1});
+            this.layoutControlGroup1.Name = "Root";
+            this.layoutControlGroup1.Padding = new DevExpress.XtraLayout.Utils.Padding(0, 0, 0, 0);
+            this.layoutControlGroup1.Size = new System.Drawing.Size(712, 260);
+            this.layoutControlGroup1.TextVisible = false;
             // 
             // Root1
             // 
@@ -313,7 +314,6 @@
             this.layoutControlItem2.Name = "layoutControlItem2";
             this.layoutControlItem2.Size = new System.Drawing.Size(104, 26);
             this.layoutControlItem2.SizeConstraintsType = DevExpress.XtraLayout.SizeConstraintsType.Custom;
-            this.layoutControlItem2.Text = "layoutControlItem2";
             this.layoutControlItem2.TextSize = new System.Drawing.Size(0, 0);
             this.layoutControlItem2.TextVisible = false;
             // 
@@ -324,7 +324,6 @@
             this.emptySpaceItem1.Location = new System.Drawing.Point(104, 0);
             this.emptySpaceItem1.Name = "emptySpaceItem1";
             this.emptySpaceItem1.Size = new System.Drawing.Size(588, 26);
-            this.emptySpaceItem1.Text = "emptySpaceItem1";
             this.emptySpaceItem1.TextSize = new System.Drawing.Size(0, 0);
             // 
             // layoutControlGroup4
@@ -340,7 +339,7 @@
             this.layoutControlItem23});
             this.layoutControlGroup4.Location = new System.Drawing.Point(344, 26);
             this.layoutControlGroup4.Name = "layoutControlGroup4";
-            this.layoutControlGroup4.Size = new System.Drawing.Size(348, 187);
+            this.layoutControlGroup4.Size = new System.Drawing.Size(348, 186);
             this.layoutControlGroup4.Text = "Thông Tin Nhân Viên";
             // 
             // layoutControlItem17
@@ -353,7 +352,6 @@
             this.layoutControlItem17.Name = "layoutControlItem17";
             this.layoutControlItem17.Size = new System.Drawing.Size(116, 144);
             this.layoutControlItem17.SizeConstraintsType = DevExpress.XtraLayout.SizeConstraintsType.Custom;
-            this.layoutControlItem17.Text = "layoutControlItem17";
             this.layoutControlItem17.TextSize = new System.Drawing.Size(0, 0);
             this.layoutControlItem17.TextVisible = false;
             // 
@@ -421,23 +419,21 @@
             // 
             this.emptySpaceItem3.AllowHotTrack = false;
             this.emptySpaceItem3.CustomizationFormText = "emptySpaceItem3";
-            this.emptySpaceItem3.Location = new System.Drawing.Point(206, 213);
+            this.emptySpaceItem3.Location = new System.Drawing.Point(206, 212);
             this.emptySpaceItem3.Name = "emptySpaceItem3";
-            this.emptySpaceItem3.Size = new System.Drawing.Size(387, 27);
-            this.emptySpaceItem3.Text = "emptySpaceItem3";
+            this.emptySpaceItem3.Size = new System.Drawing.Size(387, 28);
             this.emptySpaceItem3.TextSize = new System.Drawing.Size(0, 0);
             // 
             // layoutControlItem3
             // 
             this.layoutControlItem3.Control = this.btnContinue;
             this.layoutControlItem3.CustomizationFormText = "layoutControlItem3";
-            this.layoutControlItem3.Location = new System.Drawing.Point(593, 213);
+            this.layoutControlItem3.Location = new System.Drawing.Point(593, 212);
             this.layoutControlItem3.MaxSize = new System.Drawing.Size(99, 27);
             this.layoutControlItem3.MinSize = new System.Drawing.Size(99, 27);
             this.layoutControlItem3.Name = "layoutControlItem3";
-            this.layoutControlItem3.Size = new System.Drawing.Size(99, 27);
+            this.layoutControlItem3.Size = new System.Drawing.Size(99, 28);
             this.layoutControlItem3.SizeConstraintsType = DevExpress.XtraLayout.SizeConstraintsType.Custom;
-            this.layoutControlItem3.Text = "layoutControlItem3";
             this.layoutControlItem3.TextSize = new System.Drawing.Size(0, 0);
             this.layoutControlItem3.TextVisible = false;
             // 
@@ -445,10 +441,9 @@
             // 
             this.layoutControlItem4.Control = this.btnEmployeeManager;
             this.layoutControlItem4.CustomizationFormText = "layoutControlItem4";
-            this.layoutControlItem4.Location = new System.Drawing.Point(0, 213);
+            this.layoutControlItem4.Location = new System.Drawing.Point(0, 212);
             this.layoutControlItem4.Name = "layoutControlItem4";
-            this.layoutControlItem4.Size = new System.Drawing.Size(102, 27);
-            this.layoutControlItem4.Text = "layoutControlItem4";
+            this.layoutControlItem4.Size = new System.Drawing.Size(102, 28);
             this.layoutControlItem4.TextSize = new System.Drawing.Size(0, 0);
             this.layoutControlItem4.TextVisible = false;
             // 
@@ -458,8 +453,7 @@
             this.layoutControlItem1.CustomizationFormText = "layoutControlItem1";
             this.layoutControlItem1.Location = new System.Drawing.Point(0, 26);
             this.layoutControlItem1.Name = "layoutControlItem1";
-            this.layoutControlItem1.Size = new System.Drawing.Size(344, 187);
-            this.layoutControlItem1.Text = "layoutControlItem1";
+            this.layoutControlItem1.Size = new System.Drawing.Size(344, 186);
             this.layoutControlItem1.TextSize = new System.Drawing.Size(0, 0);
             this.layoutControlItem1.TextVisible = false;
             // 
@@ -467,10 +461,9 @@
             // 
             this.layoutControlItem5.Control = this.btnEmployeeDetail;
             this.layoutControlItem5.CustomizationFormText = "layoutControlItem5";
-            this.layoutControlItem5.Location = new System.Drawing.Point(102, 213);
+            this.layoutControlItem5.Location = new System.Drawing.Point(102, 212);
             this.layoutControlItem5.Name = "layoutControlItem5";
-            this.layoutControlItem5.Size = new System.Drawing.Size(104, 27);
-            this.layoutControlItem5.Text = "layoutControlItem5";
+            this.layoutControlItem5.Size = new System.Drawing.Size(104, 28);
             this.layoutControlItem5.TextSize = new System.Drawing.Size(0, 0);
             this.layoutControlItem5.TextVisible = false;
             // 
@@ -486,18 +479,18 @@
             this.Load += new System.EventHandler(this.frmFindEmployee_Load);
             ((System.ComponentModel.ISupportInitialize)(this.layoutControl1)).EndInit();
             this.layoutControl1.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.layoutControlGroup1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.gcListEmployee)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.gridView1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.picImage.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtFullName.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtUsername.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dtBirthday.Properties.CalendarTimeProperties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dtBirthday.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtIdentityNumber.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dtDateOfIssue.Properties.CalendarTimeProperties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dtDateOfIssue.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.txtUsername.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.txtFullName.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.picImage.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dtBirthday.Properties.CalendarTimeProperties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dtBirthday.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtPlaceOfIssue.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.gcListEmployee)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.gridView1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControlGroup1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.Root1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem1)).EndInit();
