@@ -26,6 +26,10 @@ namespace QLHSBanTru2018_Demo_V1.HungTD.Form.WorkProgress
         {
             this.employee = new EmployeeDAO().GetByID(employeeID);
         }
+        public void setDivision(int divisionID)
+        {
+            this.division = new DivisionDAO().GetByID(divisionID);
+        }
         public frmDivisionDetail()
         {
             InitializeComponent();
@@ -40,10 +44,11 @@ namespace QLHSBanTru2018_Demo_V1.HungTD.Form.WorkProgress
         }
         private void LoadDetail()
         {
+            txtName.Text = employee.FirstName + " " + employee.LastName;
             if (iFunction == 2 && division != null)
             {
-                cbbDepartment.SelectedItem = division.DepartmentID;
-                cbbPosition.SelectedItem = division.PositionID;
+                cbbDepartment.SelectedValue = division.DepartmentID;
+                cbbPosition.SelectedValue = division.PositionID;
                 dtStartDate.EditValue = division.StartDate;
                 dtEndDate.EditValue = division.EndDate;
                 dtCreatedDate.EditValue = division.CreatedDate;
@@ -68,6 +73,59 @@ namespace QLHSBanTru2018_Demo_V1.HungTD.Form.WorkProgress
             dtStartDate.EditValue = DateTime.Now;
             dtEndDate.EditValue = DateTime.Now;
             dtCreatedDate.EditValue = DateTime.Now;
+        }
+
+        private void btnSave_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                Division entity = new Division();
+                entity.EmployeeID = employee.EmployeeID;
+                entity.DepartmentID = int.Parse(cbbDepartment.SelectedValue.ToString());
+                entity.PositionID = int.Parse(cbbPosition.SelectedValue.ToString());
+                entity.StartDate = (DateTime)dtStartDate.EditValue;
+                entity.EndDate = (DateTime)dtEndDate.EditValue;
+                entity.CreatedDate = (DateTime)dtCreatedDate.EditValue;
+                entity.CreatedBy = 1;
+                entity.Note = txtNote.Text;
+                entity.Status = chkActive.Checked;
+                if (iFunction == 1)
+                {
+                    if (new DivisionDAO().Insert(entity) > 0)
+                    {
+                        MessageBox.Show("Thêm thành công quá trình làm việc!", "Thông Báo");
+                        DialogResult = DialogResult.OK;
+                        this.Close();
+                    }
+                    else
+                    {
+                        MessageBox.Show("Hệ thống đã xảy ra lỗi", "Xin lỗi!");
+                    }
+                }
+                else if (iFunction == 2)
+                {
+                    entity.DivisionID = division.DivisionID;
+                    if (new DivisionDAO().Edit(entity) == true)
+                    {
+                        MessageBox.Show("Cập nhật thành công quá trình làm việc", "Thông Báo");
+                        DialogResult = DialogResult.OK;
+                        this.Close();
+                    }
+                    else
+                    {
+                        MessageBox.Show("Hệ thống đã xảy ra lỗi", "Xin lỗi!");
+                    }
+                }
+            }
+            catch
+            {
+                MessageBox.Show("Hệ thống đã xảy ra lỗi", "Xin lỗi!");
+            }
+        }
+
+        private void btnCancel_Click(object sender, EventArgs e)
+        {
+            this.Hide();
         }
     }
 }

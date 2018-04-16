@@ -68,13 +68,16 @@ namespace QLHSBanTru2018_Demo_V1.HungTD.Form.WorkProgress
 
         private void btnContinue_Click_1(object sender, EventArgs e)
         {
-            this.Hide();
             frmDivisionDetail frmDD = new frmDivisionDetail();
             frmDD.setFunction(1);
             var rowHandle = gridView1.FocusedRowHandle;
             frmDD.setEmployee(Convert.ToInt32(gridView1.GetRowCellValue(rowHandle, "EmployeeID").ToString()));
             frmDD.ShowDialog();
-            this.Close();
+            if (frmDD.DialogResult == DialogResult.OK)
+            {
+                this.DialogResult = DialogResult.OK;
+                this.Close();
+            }
         }
     }
 }

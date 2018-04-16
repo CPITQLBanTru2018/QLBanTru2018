@@ -111,7 +111,7 @@
             this.layoutControl1.Name = "layoutControl1";
             this.layoutControl1.OptionsCustomizationForm.DesignTimeCustomizationFormPositionAndSize = new System.Drawing.Rectangle(1208, 40, 650, 400);
             this.layoutControl1.Root = this.layoutControlGroup1;
-            this.layoutControl1.Size = new System.Drawing.Size(712, 260);
+            this.layoutControl1.Size = new System.Drawing.Size(712, 261);
             this.layoutControl1.TabIndex = 0;
             this.layoutControl1.Text = "layoutControl1";
             // 
@@ -280,7 +280,7 @@
             this.Root1});
             this.layoutControlGroup1.Name = "Root";
             this.layoutControlGroup1.Padding = new DevExpress.XtraLayout.Utils.Padding(0, 0, 0, 0);
-            this.layoutControlGroup1.Size = new System.Drawing.Size(712, 260);
+            this.layoutControlGroup1.Size = new System.Drawing.Size(712, 261);
             this.layoutControlGroup1.TextVisible = false;
             // 
             // Root1
@@ -299,7 +299,7 @@
             this.layoutControlItem5});
             this.Root1.Location = new System.Drawing.Point(0, 0);
             this.Root1.Name = "Root1";
-            this.Root1.Size = new System.Drawing.Size(712, 260);
+            this.Root1.Size = new System.Drawing.Size(712, 261);
             this.Root1.Spacing = new DevExpress.XtraLayout.Utils.Padding(0, 0, 0, 0);
             this.Root1.Text = "Root";
             this.Root1.TextVisible = false;
@@ -421,7 +421,7 @@
             this.emptySpaceItem3.CustomizationFormText = "emptySpaceItem3";
             this.emptySpaceItem3.Location = new System.Drawing.Point(206, 212);
             this.emptySpaceItem3.Name = "emptySpaceItem3";
-            this.emptySpaceItem3.Size = new System.Drawing.Size(387, 28);
+            this.emptySpaceItem3.Size = new System.Drawing.Size(387, 29);
             this.emptySpaceItem3.TextSize = new System.Drawing.Size(0, 0);
             // 
             // layoutControlItem3
@@ -432,7 +432,7 @@
             this.layoutControlItem3.MaxSize = new System.Drawing.Size(99, 27);
             this.layoutControlItem3.MinSize = new System.Drawing.Size(99, 27);
             this.layoutControlItem3.Name = "layoutControlItem3";
-            this.layoutControlItem3.Size = new System.Drawing.Size(99, 28);
+            this.layoutControlItem3.Size = new System.Drawing.Size(99, 29);
             this.layoutControlItem3.SizeConstraintsType = DevExpress.XtraLayout.SizeConstraintsType.Custom;
             this.layoutControlItem3.TextSize = new System.Drawing.Size(0, 0);
             this.layoutControlItem3.TextVisible = false;
@@ -443,7 +443,7 @@
             this.layoutControlItem4.CustomizationFormText = "layoutControlItem4";
             this.layoutControlItem4.Location = new System.Drawing.Point(0, 212);
             this.layoutControlItem4.Name = "layoutControlItem4";
-            this.layoutControlItem4.Size = new System.Drawing.Size(102, 28);
+            this.layoutControlItem4.Size = new System.Drawing.Size(102, 29);
             this.layoutControlItem4.TextSize = new System.Drawing.Size(0, 0);
             this.layoutControlItem4.TextVisible = false;
             // 
@@ -463,7 +463,7 @@
             this.layoutControlItem5.CustomizationFormText = "layoutControlItem5";
             this.layoutControlItem5.Location = new System.Drawing.Point(102, 212);
             this.layoutControlItem5.Name = "layoutControlItem5";
-            this.layoutControlItem5.Size = new System.Drawing.Size(104, 28);
+            this.layoutControlItem5.Size = new System.Drawing.Size(104, 29);
             this.layoutControlItem5.TextSize = new System.Drawing.Size(0, 0);
             this.layoutControlItem5.TextVisible = false;
             // 
@@ -471,7 +471,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(712, 260);
+            this.ClientSize = new System.Drawing.Size(712, 261);
             this.Controls.Add(this.layoutControl1);
             this.Name = "frmFindEmployee";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;

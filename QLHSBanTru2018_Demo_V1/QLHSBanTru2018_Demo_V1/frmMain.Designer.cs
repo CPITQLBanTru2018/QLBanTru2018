@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmMain));
             this.ribbon = new DevExpress.XtraBars.Ribbon.RibbonControl();
             this.btnDepartment = new DevExpress.XtraBars.BarButtonItem();
@@ -43,6 +44,7 @@
             this.btnImportExcel = new DevExpress.XtraBars.BarButtonItem();
             this.btnSemester = new DevExpress.XtraBars.BarButtonItem();
             this.btnTopicLesson = new DevExpress.XtraBars.BarButtonItem();
+            this.btnWorkProgress = new DevExpress.XtraBars.BarButtonItem();
             this.ribbonPage1 = new DevExpress.XtraBars.Ribbon.RibbonPage();
             this.ribbonPageGroup1 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             this.ribbonPageGroup2 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
@@ -55,9 +57,10 @@
             this.ribbonPageGroup6 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             this.ribbonPageGroup7 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             this.ribbonStatusBar = new DevExpress.XtraBars.Ribbon.RibbonStatusBar();
-            this.defaultLookAndFeel1 = new DevExpress.LookAndFeel.DefaultLookAndFeel();
+            this.defaultLookAndFeel1 = new DevExpress.LookAndFeel.DefaultLookAndFeel(this.components);
             this.pnControlsPanel = new System.Windows.Forms.Panel();
-            this.btnWorkProgress = new DevExpress.XtraBars.BarButtonItem();
+            this.labNameLogin = new DevExpress.XtraBars.BarStaticItem();
+            this.labTitle = new DevExpress.XtraBars.BarStaticItem();
             ((System.ComponentModel.ISupportInitialize)(this.ribbon)).BeginInit();
             this.SuspendLayout();
             // 
@@ -79,9 +82,11 @@
             this.btnImportExcel,
             this.btnSemester,
             this.btnTopicLesson,
-            this.btnWorkProgress});
+            this.btnWorkProgress,
+            this.labNameLogin,
+            this.labTitle});
             this.ribbon.Location = new System.Drawing.Point(0, 0);
-            this.ribbon.MaxItemId = 15;
+            this.ribbon.MaxItemId = 17;
             this.ribbon.Name = "ribbon";
             this.ribbon.Pages.AddRange(new DevExpress.XtraBars.Ribbon.RibbonPage[] {
             this.ribbonPage1,
@@ -207,6 +212,15 @@
             this.btnTopicLesson.Name = "btnTopicLesson";
             this.btnTopicLesson.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.btnTopicLesson_ItemClick);
             // 
+            // btnWorkProgress
+            // 
+            this.btnWorkProgress.Caption = "Quá Trình Làm Việc";
+            this.btnWorkProgress.Id = 14;
+            this.btnWorkProgress.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("btnWorkProgress.ImageOptions.Image")));
+            this.btnWorkProgress.ImageOptions.LargeImage = ((System.Drawing.Image)(resources.GetObject("btnWorkProgress.ImageOptions.LargeImage")));
+            this.btnWorkProgress.Name = "btnWorkProgress";
+            this.btnWorkProgress.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.btnWorkProgress_ItemClick);
+            // 
             // ribbonPage1
             // 
             this.ribbonPage1.Groups.AddRange(new DevExpress.XtraBars.Ribbon.RibbonPageGroup[] {
@@ -290,6 +304,8 @@
             // 
             // ribbonStatusBar
             // 
+            this.ribbonStatusBar.ItemLinks.Add(this.labNameLogin);
+            this.ribbonStatusBar.ItemLinks.Add(this.labTitle);
             this.ribbonStatusBar.Location = new System.Drawing.Point(0, 578);
             this.ribbonStatusBar.Name = "ribbonStatusBar";
             this.ribbonStatusBar.Ribbon = this.ribbon;
@@ -307,14 +323,18 @@
             this.pnControlsPanel.Size = new System.Drawing.Size(798, 432);
             this.pnControlsPanel.TabIndex = 3;
             // 
-            // btnWorkProgress
+            // labNameLogin
             // 
-            this.btnWorkProgress.Caption = "Quá Trình Làm Việc";
-            this.btnWorkProgress.Id = 14;
-            this.btnWorkProgress.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("barButtonItem1.ImageOptions.Image")));
-            this.btnWorkProgress.ImageOptions.LargeImage = ((System.Drawing.Image)(resources.GetObject("barButtonItem1.ImageOptions.LargeImage")));
-            this.btnWorkProgress.Name = "btnWorkProgress";
-            this.btnWorkProgress.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.btnWorkProgress_ItemClick);
+            this.labNameLogin.Caption = "Người Đăng Nhập:";
+            this.labNameLogin.Id = 15;
+            this.labNameLogin.Name = "labNameLogin";
+            // 
+            // labTitle
+            // 
+            this.labTitle.Alignment = DevExpress.XtraBars.BarItemLinkAlignment.Right;
+            this.labTitle.Caption = "QUẢN LÝ PHÒNG BAN";
+            this.labTitle.Id = 16;
+            this.labTitle.Name = "labTitle";
             // 
             // frmMain
             // 
@@ -366,5 +386,7 @@
         private DevExpress.XtraBars.BarButtonItem btnTopicLesson;
         private DevExpress.XtraBars.Ribbon.RibbonPageGroup ribbonPageGroup8;
         private DevExpress.XtraBars.BarButtonItem btnWorkProgress;
+        private DevExpress.XtraBars.BarStaticItem labNameLogin;
+        private DevExpress.XtraBars.BarStaticItem labTitle;
     }
 }

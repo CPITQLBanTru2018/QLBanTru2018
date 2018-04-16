@@ -925,7 +925,7 @@
             this.Controls.Add(this.barDockControlBottom);
             this.Controls.Add(this.barDockControlTop);
             this.Name = "frmPrintContract";
-            this.Text = "frmPrintContract";
+            this.Text = "In Hợp Đồng";
             this.Load += new System.EventHandler(this.frmPrintContract_Load);
             ((System.ComponentModel.ISupportInitialize)(this.documentViewerBarManager1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.printPreviewRepositoryItemComboBox1)).EndInit();

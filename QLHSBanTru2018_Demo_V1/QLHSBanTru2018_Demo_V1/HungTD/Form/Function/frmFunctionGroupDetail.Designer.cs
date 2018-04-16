@@ -201,7 +201,7 @@
             this.ClientSize = new System.Drawing.Size(284, 122);
             this.Controls.Add(this.panelControl1);
             this.Name = "frmFunctionGroupDetail";
-            this.Text = "frmFunctionGroupDetail";
+            this.Text = "Chi Tiết Nhóm Chức Năng";
             this.Load += new System.EventHandler(this.frmFunctionGroupDetail_Load);
             ((System.ComponentModel.ISupportInitialize)(this.panelControl1)).EndInit();
             this.panelControl1.ResumeLayout(false);

@@ -30,11 +30,11 @@
         {
             this.gcFunctionList = new DevExpress.XtraGrid.GridControl();
             this.gridView1 = new DevExpress.XtraGrid.Views.Grid.GridView();
-            this.btnAdd = new DevExpress.XtraEditors.SimpleButton();
             this.colId = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colGroupName = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colFunctionName = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colNote = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.btnAdd = new DevExpress.XtraEditors.SimpleButton();
             ((System.ComponentModel.ISupportInitialize)(this.gcFunctionList)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridView1)).BeginInit();
             this.SuspendLayout();
@@ -59,15 +59,6 @@
             this.gridView1.GridControl = this.gcFunctionList;
             this.gridView1.Name = "gridView1";
             this.gridView1.OptionsView.ShowGroupPanel = false;
-            // 
-            // btnAdd
-            // 
-            this.btnAdd.Location = new System.Drawing.Point(401, 12);
-            this.btnAdd.Name = "btnAdd";
-            this.btnAdd.Size = new System.Drawing.Size(87, 23);
-            this.btnAdd.TabIndex = 1;
-            this.btnAdd.Text = "Thêm mới";
-            this.btnAdd.Click += new System.EventHandler(this.btnAdd_Click);
             // 
             // colId
             // 
@@ -105,6 +96,15 @@
             this.colNote.VisibleIndex = 3;
             this.colNote.Width = 545;
             // 
+            // btnAdd
+            // 
+            this.btnAdd.Location = new System.Drawing.Point(401, 12);
+            this.btnAdd.Name = "btnAdd";
+            this.btnAdd.Size = new System.Drawing.Size(87, 23);
+            this.btnAdd.TabIndex = 1;
+            this.btnAdd.Text = "Thêm mới";
+            this.btnAdd.Click += new System.EventHandler(this.btnAdd_Click);
+            // 
             // frmFunctionList
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -113,7 +113,7 @@
             this.Controls.Add(this.btnAdd);
             this.Controls.Add(this.gcFunctionList);
             this.Name = "frmFunctionList";
-            this.Text = "frmFunctionList";
+            this.Text = "Chức Năng";
             this.Load += new System.EventHandler(this.frmFunctionList_Load);
             ((System.ComponentModel.ISupportInitialize)(this.gcFunctionList)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridView1)).EndInit();

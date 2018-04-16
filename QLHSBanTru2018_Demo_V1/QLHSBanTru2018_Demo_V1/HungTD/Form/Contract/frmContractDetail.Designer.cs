@@ -362,6 +362,7 @@
             this.picImage.Properties.ShowCameraMenuItem = DevExpress.XtraEditors.Controls.CameraMenuItemVisibility.Auto;
             this.picImage.Properties.SizeMode = DevExpress.XtraEditors.Controls.PictureSizeMode.Stretch;
             this.picImage.Size = new System.Drawing.Size(112, 140);
+            this.picImage.StyleController = this.layoutControl1;
             this.picImage.TabIndex = 21;
             // 
             // txtFullName
@@ -370,6 +371,7 @@
             this.txtFullName.Name = "txtFullName";
             this.txtFullName.Properties.ReadOnly = true;
             this.txtFullName.Size = new System.Drawing.Size(153, 20);
+            this.txtFullName.StyleController = this.layoutControl1;
             this.txtFullName.TabIndex = 22;
             // 
             // txtUsername
@@ -378,6 +380,7 @@
             this.txtUsername.Name = "txtUsername";
             this.txtUsername.Properties.ReadOnly = true;
             this.txtUsername.Size = new System.Drawing.Size(225, 20);
+            this.txtUsername.StyleController = this.layoutControl1;
             this.txtUsername.TabIndex = 23;
             // 
             // dtBirthday
@@ -398,6 +401,7 @@
             this.dtBirthday.Properties.ReadOnly = true;
             this.dtBirthday.Properties.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.DisableTextEditor;
             this.dtBirthday.Size = new System.Drawing.Size(225, 20);
+            this.dtBirthday.StyleController = this.layoutControl1;
             this.dtBirthday.TabIndex = 24;
             // 
             // txtIdentityNumber
@@ -406,6 +410,7 @@
             this.txtIdentityNumber.Name = "txtIdentityNumber";
             this.txtIdentityNumber.Properties.ReadOnly = true;
             this.txtIdentityNumber.Size = new System.Drawing.Size(225, 20);
+            this.txtIdentityNumber.StyleController = this.layoutControl1;
             this.txtIdentityNumber.TabIndex = 25;
             // 
             // dtDateOfIssue
@@ -425,6 +430,7 @@
             this.dtDateOfIssue.Properties.Mask.MaskType = DevExpress.XtraEditors.Mask.MaskType.None;
             this.dtDateOfIssue.Properties.ReadOnly = true;
             this.dtDateOfIssue.Size = new System.Drawing.Size(225, 20);
+            this.dtDateOfIssue.StyleController = this.layoutControl1;
             this.dtDateOfIssue.TabIndex = 26;
             // 
             // btnAdd
@@ -445,6 +451,7 @@
             this.txtPlaceOfIssue.Properties.EditFormat.FormatType = DevExpress.Utils.FormatType.DateTime;
             this.txtPlaceOfIssue.Properties.ReadOnly = true;
             this.txtPlaceOfIssue.Size = new System.Drawing.Size(225, 20);
+            this.txtPlaceOfIssue.StyleController = this.layoutControl1;
             this.txtPlaceOfIssue.TabIndex = 27;
             // 
             // txtEmployeeID
@@ -453,6 +460,7 @@
             this.txtEmployeeID.Name = "txtEmployeeID";
             this.txtEmployeeID.Properties.ReadOnly = true;
             this.txtEmployeeID.Size = new System.Drawing.Size(68, 20);
+            this.txtEmployeeID.StyleController = this.layoutControl1;
             this.txtEmployeeID.TabIndex = 29;
             // 
             // btnPrint
@@ -785,7 +793,7 @@
             this.MinimizeBox = false;
             this.Name = "frmContractDetail";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
-            this.Text = "frmContractDetail";
+            this.Text = "Chi Tiết Hợp Đồng";
             this.Load += new System.EventHandler(this.frmContractDetail_Load);
             ((System.ComponentModel.ISupportInitialize)(this.layoutControl1)).EndInit();
             this.layoutControl1.ResumeLayout(false);

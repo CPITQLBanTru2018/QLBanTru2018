@@ -33,16 +33,78 @@ namespace QLHSBanTru2018_Demo_V1.HungTD.Form.WorkProgress
         {
             frmFindEmployee frmFE = new frmFindEmployee();
             frmFE.ShowDialog();
+            if (frmFE.DialogResult == DialogResult.OK)
+            {
+                FillGridControls();
+            }
         }
 
         private void btnEdit_Click(object sender, EventArgs e)
         {
-
+            frmDivisionDetail frmDD = new frmDivisionDetail();
+            frmDD.setFunction(2);
+            var rowHandle = gridView1.FocusedRowHandle;
+            try
+            {
+                frmDD.setEmployee(Convert.ToInt32(gridView1.GetRowCellValue(rowHandle, "EmployeeID").ToString()));
+                frmDD.setDivision(Convert.ToInt32(gridView1.GetRowCellValue(rowHandle, "DivisionID").ToString()));
+            }
+            catch
+            {
+                var rowChild = gridView1.GetChildRowHandle(rowHandle, 0);
+                frmDD.setEmployee(Convert.ToInt32(gridView1.GetRowCellValue(rowChild, "EmployeeID").ToString()));
+                frmDD.setDivision(Convert.ToInt32(gridView1.GetRowCellValue(rowChild, "DivisionID").ToString()));
+            }
+            frmDD.ShowDialog();
+            if(frmDD.DialogResult == DialogResult.OK)
+            {
+                FillGridControls();
+            }
         }
 
         private void btnDelete_Click(object sender, EventArgs e)
         {
+            var rowHandle = gridView1.FocusedRowHandle;
+            if (MessageBox.Show("Bạn có muốn xóa quá trình hoạt động này?", "Thông Báo", MessageBoxButtons.YesNo, MessageBoxIcon.Warning) == DialogResult.Yes)
+            {
+                try
+                {
+                    new DivisionDAO().Delete(Convert.ToInt32(gridView1.GetRowCellValue(rowHandle, "DivisionID").ToString()));
+                }
+                catch
+                {
+
+                }
+                finally
+                {
+                    FillGridControls();
+                }
+            }
+        }
+        private void btnViewDetail_Click(object sender, EventArgs e)
+        {
 
         }
+
+        private void btnMenuAdd_Click(object sender, EventArgs e)
+        {
+            btnAdd_Click(sender, e);
+        }
+
+        private void btnMenuEdit_Click(object sender, EventArgs e)
+        {
+            btnEdit_Click(sender, e);
+        }
+
+        private void btnMenuDelete_Click(object sender, EventArgs e)
+        {
+            btnDelete_Click(sender, e);
+        }
+
+        private void btnMenuViewDetail_Click(object sender, EventArgs e)
+        {
+            btnViewDetail_Click(sender, e);
+        }
+
     }
 }
