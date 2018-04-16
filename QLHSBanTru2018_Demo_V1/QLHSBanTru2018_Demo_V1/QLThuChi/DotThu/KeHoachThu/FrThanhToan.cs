@@ -98,6 +98,7 @@ namespace QLHSBanTru2018_Demo_V1.QLThuChi.DotThu.KeHoachThu
             loadStuden();
             checkKhoathu();
             loatGrKhoanPhi();
+            
         }
         private void gridView1_CellValueChanging(object sender, DevExpress.XtraGrid.Views.Base.CellValueChangedEventArgs e)
         {           
@@ -167,6 +168,37 @@ namespace QLHSBanTru2018_Demo_V1.QLThuChi.DotThu.KeHoachThu
         private void gridView1_FocusedRowChanged(object sender, DevExpress.XtraGrid.Views.Base.FocusedRowChangedEventArgs e)
         {
             studentReceivableDAO.PreferredID = gridView1.GetRowCellValue(e.FocusedRowHandle,"PreferredID").ToString();
+        }
+
+        private void gridView1_CustomUnboundColumnData(object sender, DevExpress.XtraGrid.Views.Base.CustomColumnDataEventArgs e)
+        {
+            studentReceivableDAO dt = new studentReceivableDAO();
+            PreferredDAO dc = new PreferredDAO();
+            int rowindex = e.ListSourceRowIndex;
+            decimal a = 0;
+            if (e.Column.FieldName != "miengiam") return;
+            int perferredID = dt.lookforPreferredID(ClassStudentDAO.StudentID);
+            List<string> b = new List<string>();
+            string mg = gridView1.GetListSourceRowCellValue(rowindex, "PreferredID").ToString();
+            decimal f =Convert.ToDecimal(gridView1.GetListSourceRowCellValue(rowindex, "TotalPriceDetail"));
+            for (int i = 0; i < (mg.Length- 1); i += 2)
+            {
+
+                string c = mg.Substring(i, 1);
+                b.Add(c);
+            }
+            foreach (var i in b)
+            {
+                if (int.Parse(i)==perferredID)
+                {
+                    float pr = dc.lookPreferredPercent(int.Parse(i));
+                    a = f - ((f * (decimal)pr) / 100);
+                    e.Value = a;
+                    break;
+                }
+                e.Value = f;
+            }
+            
         }
     }
 }

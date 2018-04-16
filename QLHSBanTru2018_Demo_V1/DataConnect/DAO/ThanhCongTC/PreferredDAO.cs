@@ -42,5 +42,18 @@ namespace DataConnect.DAO.ThanhCongTC
         }
         public static List<Preferred> ListDemoPreferred = new List<Preferred>();
         public static string PreferredIDList = "";
+        public float lookPreferredPercent(int perferredID)
+        {
+            if (perferredID==0)
+            {
+                return 100;
+            }
+            else
+            {
+                Preferred a = dt.Preferreds.FirstOrDefault(t => t.PreferredID == perferredID);
+                return (float)a.Percent;
+            }
+            
+        }
     }
 }

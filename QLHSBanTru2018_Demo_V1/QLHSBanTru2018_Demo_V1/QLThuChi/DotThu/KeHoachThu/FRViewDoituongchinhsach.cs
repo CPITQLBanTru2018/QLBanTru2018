@@ -20,16 +20,22 @@ namespace QLHSBanTru2018_Demo_V1.QLThuChi.DotThu.KeHoachThu
         }
         public void laodPreferred()
         {
-            for (int i = 0; i <= studentReceivableDAO.PreferredID.Length-2; i++)
+            List<string> b = new List<string>();
+            for (int i = 0; i < (studentReceivableDAO.PreferredID.Length - 1); i+=2)
             {
-                string a = studentReceivableDAO.PreferredID.Substring(i, i + 1);
-                i++;
-                MessageBox.Show("" + a + "");
+                
+                string a = studentReceivableDAO.PreferredID.Substring(i,1);
+                b.Add(a);
+                
+            }
+            foreach (var i in b )
+            {
+                MessageBox.Show("" + i + "");
             }
         }
         private void FRViewDoituongchinhsach_Load(object sender, EventArgs e)
         {
-            //laodPreferred();
+            laodPreferred();
         }
     }
 }

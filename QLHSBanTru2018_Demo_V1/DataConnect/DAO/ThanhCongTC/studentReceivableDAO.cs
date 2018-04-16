@@ -80,6 +80,19 @@ namespace DataConnect.DAO.ThanhCongTC
 
         
         //}
+        public int lookforPreferredID(int StudenID)
+        {
+            Student a = dt.Students.FirstOrDefault(t => t.StudentID == StudenID);
+            if (a.PreferredID==null)
+            {
+                return 0;
+            }
+            else
+            {
+                return (int)a.PreferredID;
+            }
+            
+        }
         
     }
 }
