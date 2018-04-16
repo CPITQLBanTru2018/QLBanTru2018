@@ -19,6 +19,8 @@ using QLHSBanTru2018_Demo_V1.TienBao;
 using QLHSBanTru2018_Demo_V1.HungTD.Form.Semester;
 using QLHSBanTru2018_Demo_V1.HungTD.Form.TopicLession;
 using QLHSBanTru2018_Demo_V1.HungTD.Form.WorkProgress;
+using QLHSBanTru2018_Demo_V1.DAO.HungTD;
+using QLHSBanTru2018_Demo_V1.Common;
 
 namespace QLHSBanTru2018_Demo_V1
 {
@@ -27,29 +29,34 @@ namespace QLHSBanTru2018_Demo_V1
         public frmMain()
         {
             InitializeComponent();
+            labNameLogin.Caption = "Nhân Viên Đăng Nhập: " + LoginDetail.LoginName;
         }
         #region Trần Đức Hùng
         private void btnDepartment_ItemClick(object sender, ItemClickEventArgs e)
         {
             pnControlsPanel.Controls.Clear();
             pnControlsPanel.Controls.Add(new frmDepartmentList());
+            labTitle.Caption = "QUẢN LÝ PHÒNG BAN";
         }
 
         private void btnEmployeeManager_ItemClick(object sender, ItemClickEventArgs e)
         {
             pnControlsPanel.Controls.Clear();
             pnControlsPanel.Controls.Add(new frmEmployeeList());
+            labTitle.Caption = "QUẢN LÝ NHÂN VIÊN";
         }
         private void btnPosition_ItemClick(object sender, ItemClickEventArgs e)
         {
             pnControlsPanel.Controls.Clear();
             pnControlsPanel.Controls.Add(new frmPositionList());
+            labTitle.Caption = "QUẢN LÝ CHỨC VỤ";
         }
 
         private void btnCourse_ItemClick(object sender, ItemClickEventArgs e)
         {
             pnControlsPanel.Controls.Clear();
             pnControlsPanel.Controls.Add(new frmCourseList());
+            labTitle.Caption = "QUẢN LÝ NĂM HỌC";
         }
 
         private void btnAddFunction_ItemClick(object sender, ItemClickEventArgs e)
@@ -61,22 +68,26 @@ namespace QLHSBanTru2018_Demo_V1
         {
             pnControlsPanel.Controls.Clear();
             pnControlsPanel.Controls.Add(new frmContractList());
+            labTitle.Caption = "QUẢN LÝ HỢP ĐỒNG";
         }
 
         private void btnSemester_ItemClick(object sender, ItemClickEventArgs e)
         {
             pnControlsPanel.Controls.Clear();
             pnControlsPanel.Controls.Add(new frmSemesterList());
+            labTitle.Caption = "QUẢN LÝ KỲ HỌC";
         }
         private void btnTopicLesson_ItemClick(object sender, ItemClickEventArgs e)
         {
             pnControlsPanel.Controls.Clear();
             pnControlsPanel.Controls.Add(new frmTopicLesson());
+            labTitle.Caption = "QUẢN LÝ BÀI GIẢNG";
         }
         private void btnWorkProgress_ItemClick(object sender, ItemClickEventArgs e)
         {
             pnControlsPanel.Controls.Clear();
             pnControlsPanel.Controls.Add(new frmWorkProgressList());
+            labTitle.Caption = "QUẢN LÝ QUÁ TRÌNH CÔNG TÁC";
         }
         #endregion
 
@@ -129,6 +140,5 @@ namespace QLHSBanTru2018_Demo_V1
             pnControlsPanel.Controls.Add(a);
             a.Dock = DockStyle.Fill;
         }
-
     }
 }

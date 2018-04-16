@@ -43,7 +43,7 @@ namespace DataConnect.DAO.HungTD
         }
         public Division GetByID(int divisionID)
         {
-            return divisions.Where(x => x.DepartmentID.Equals(divisionID)).FirstOrDefault();
+            return db.Divisions.SingleOrDefault(x => x.DivisionID == divisionID);
         }
         public int Insert(Division entity)
         {

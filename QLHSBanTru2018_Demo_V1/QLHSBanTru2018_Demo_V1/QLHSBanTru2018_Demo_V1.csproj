@@ -546,7 +546,6 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="HungTD\Form\History\" />
-    <Folder Include="Reports\ViewModels\" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\DataConnect\DataConnect.csproj">
