@@ -30,6 +30,7 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrDoiTuongchinhsach));
             this.layoutControl1 = new DevExpress.XtraLayout.LayoutControl();
+            this.bntHuy = new DevExpress.XtraEditors.SimpleButton();
             this.bntLuu = new DevExpress.XtraEditors.SimpleButton();
             this.panelControl1 = new DevExpress.XtraEditors.PanelControl();
             this.grDoituongchinhsach = new DevExpress.XtraGrid.GridControl();
@@ -38,7 +39,6 @@
             this.emptySpaceItem1 = new DevExpress.XtraLayout.EmptySpaceItem();
             this.layoutControlItem1 = new DevExpress.XtraLayout.LayoutControlItem();
             this.layoutControlItem3 = new DevExpress.XtraLayout.LayoutControlItem();
-            this.bntHuy = new DevExpress.XtraEditors.SimpleButton();
             this.layoutControlItem2 = new DevExpress.XtraLayout.LayoutControlItem();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControl1)).BeginInit();
             this.layoutControl1.SuspendLayout();
@@ -66,6 +66,16 @@
             this.layoutControl1.Size = new System.Drawing.Size(326, 302);
             this.layoutControl1.TabIndex = 1;
             this.layoutControl1.Text = "layoutControl1";
+            // 
+            // bntHuy
+            // 
+            this.bntHuy.Location = new System.Drawing.Point(143, 268);
+            this.bntHuy.Name = "bntHuy";
+            this.bntHuy.Size = new System.Drawing.Size(89, 22);
+            this.bntHuy.StyleController = this.layoutControl1;
+            this.bntHuy.TabIndex = 7;
+            this.bntHuy.Text = "Hủy";
+            this.bntHuy.Click += new System.EventHandler(this.bntHuy_Click);
             // 
             // bntLuu
             // 
@@ -140,16 +150,6 @@
             this.layoutControlItem3.Size = new System.Drawing.Size(82, 26);
             this.layoutControlItem3.TextSize = new System.Drawing.Size(0, 0);
             this.layoutControlItem3.TextVisible = false;
-            // 
-            // bntHuy
-            // 
-            this.bntHuy.Location = new System.Drawing.Point(143, 268);
-            this.bntHuy.Name = "bntHuy";
-            this.bntHuy.Size = new System.Drawing.Size(89, 22);
-            this.bntHuy.StyleController = this.layoutControl1;
-            this.bntHuy.TabIndex = 7;
-            this.bntHuy.Text = "Hủy";
-            this.bntHuy.Click += new System.EventHandler(this.bntHuy_Click);
             // 
             // layoutControlItem2
             // 
