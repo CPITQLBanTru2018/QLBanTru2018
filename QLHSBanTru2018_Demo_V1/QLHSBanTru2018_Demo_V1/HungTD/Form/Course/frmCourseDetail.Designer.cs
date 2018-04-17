@@ -36,6 +36,12 @@
             this.chbStatus = new DevExpress.XtraEditors.CheckEdit();
             this.btnCancel = new DevExpress.XtraEditors.SimpleButton();
             this.btnSave = new DevExpress.XtraEditors.SimpleButton();
+            this.txtKy1 = new DevExpress.XtraEditors.TextEdit();
+            this.dtKy2StartDate = new DevExpress.XtraEditors.DateEdit();
+            this.dtKy2EndDate = new DevExpress.XtraEditors.DateEdit();
+            this.txtKy2 = new DevExpress.XtraEditors.TextEdit();
+            this.dtKy1StartDate = new DevExpress.XtraEditors.DateEdit();
+            this.dtKy1EndDate = new DevExpress.XtraEditors.DateEdit();
             this.layoutControlGroup1 = new DevExpress.XtraLayout.LayoutControlGroup();
             this.layoutControlItem1 = new DevExpress.XtraLayout.LayoutControlItem();
             this.layoutControlItem2 = new DevExpress.XtraLayout.LayoutControlItem();
@@ -44,20 +50,14 @@
             this.layoutControlItem5 = new DevExpress.XtraLayout.LayoutControlItem();
             this.layoutControlItem6 = new DevExpress.XtraLayout.LayoutControlItem();
             this.emptySpaceItem1 = new DevExpress.XtraLayout.EmptySpaceItem();
-            this.txtKy1 = new DevExpress.XtraEditors.TextEdit();
-            this.layoutControlItem8 = new DevExpress.XtraLayout.LayoutControlItem();
-            this.dtKy2StartDate = new DevExpress.XtraEditors.DateEdit();
-            this.dtS1StartDate = new DevExpress.XtraLayout.LayoutControlItem();
-            this.dtKy2EndDate = new DevExpress.XtraEditors.DateEdit();
-            this.EndDate = new DevExpress.XtraLayout.LayoutControlItem();
-            this.txtKy2 = new DevExpress.XtraEditors.TextEdit();
-            this.layoutControlItem7 = new DevExpress.XtraLayout.LayoutControlItem();
-            this.dtKy1StartDate = new DevExpress.XtraEditors.DateEdit();
-            this.layoutControlItem9 = new DevExpress.XtraLayout.LayoutControlItem();
-            this.dtKy1EndDate = new DevExpress.XtraEditors.DateEdit();
-            this.layoutControlItem10 = new DevExpress.XtraLayout.LayoutControlItem();
             this.layoutControlGroup2 = new DevExpress.XtraLayout.LayoutControlGroup();
+            this.layoutControlItem8 = new DevExpress.XtraLayout.LayoutControlItem();
+            this.layoutControlItem9 = new DevExpress.XtraLayout.LayoutControlItem();
+            this.layoutControlItem10 = new DevExpress.XtraLayout.LayoutControlItem();
             this.layoutControlGroup3 = new DevExpress.XtraLayout.LayoutControlGroup();
+            this.layoutControlItem7 = new DevExpress.XtraLayout.LayoutControlItem();
+            this.dtS1StartDate = new DevExpress.XtraLayout.LayoutControlItem();
+            this.EndDate = new DevExpress.XtraLayout.LayoutControlItem();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControl1)).BeginInit();
             this.layoutControl1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.txtName.Properties)).BeginInit();
@@ -66,6 +66,16 @@
             ((System.ComponentModel.ISupportInitialize)(this.dtEndDate.Properties.CalendarTimeProperties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dtEndDate.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.chbStatus.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtKy1.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dtKy2StartDate.Properties.CalendarTimeProperties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dtKy2StartDate.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dtKy2EndDate.Properties.CalendarTimeProperties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dtKy2EndDate.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtKy2.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dtKy1StartDate.Properties.CalendarTimeProperties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dtKy1StartDate.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dtKy1EndDate.Properties.CalendarTimeProperties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dtKy1EndDate.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlGroup1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem2)).BeginInit();
@@ -74,24 +84,14 @@
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem5)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem6)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.txtKy1.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem8)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dtKy2StartDate.Properties.CalendarTimeProperties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dtKy2StartDate.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dtS1StartDate)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dtKy2EndDate.Properties.CalendarTimeProperties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dtKy2EndDate.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.EndDate)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.txtKy2.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem7)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dtKy1StartDate.Properties.CalendarTimeProperties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dtKy1StartDate.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem9)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dtKy1EndDate.Properties.CalendarTimeProperties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dtKy1EndDate.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem10)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlGroup2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem8)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem9)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem10)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlGroup3)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem7)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dtS1StartDate)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.EndDate)).BeginInit();
             this.SuspendLayout();
             // 
             // layoutControl1
@@ -185,6 +185,82 @@
             this.btnSave.Text = "Lưu";
             this.btnSave.Click += new System.EventHandler(this.btnSave_Click);
             // 
+            // txtKy1
+            // 
+            this.txtKy1.EditValue = "Kỳ 1 năm học";
+            this.txtKy1.Enabled = false;
+            this.txtKy1.Location = new System.Drawing.Point(24, 138);
+            this.txtKy1.Name = "txtKy1";
+            this.txtKy1.Size = new System.Drawing.Size(310, 20);
+            this.txtKy1.StyleController = this.layoutControl1;
+            this.txtKy1.TabIndex = 12;
+            // 
+            // dtKy2StartDate
+            // 
+            this.dtKy2StartDate.EditValue = null;
+            this.dtKy2StartDate.Enabled = false;
+            this.dtKy2StartDate.Location = new System.Drawing.Point(24, 253);
+            this.dtKy2StartDate.Name = "dtKy2StartDate";
+            this.dtKy2StartDate.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.dtKy2StartDate.Properties.CalendarTimeProperties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.dtKy2StartDate.Size = new System.Drawing.Size(142, 20);
+            this.dtKy2StartDate.StyleController = this.layoutControl1;
+            this.dtKy2StartDate.TabIndex = 13;
+            // 
+            // dtKy2EndDate
+            // 
+            this.dtKy2EndDate.EditValue = null;
+            this.dtKy2EndDate.Enabled = false;
+            this.dtKy2EndDate.Location = new System.Drawing.Point(193, 253);
+            this.dtKy2EndDate.Name = "dtKy2EndDate";
+            this.dtKy2EndDate.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.dtKy2EndDate.Properties.CalendarTimeProperties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.dtKy2EndDate.Size = new System.Drawing.Size(141, 20);
+            this.dtKy2EndDate.StyleController = this.layoutControl1;
+            this.dtKy2EndDate.TabIndex = 14;
+            // 
+            // txtKy2
+            // 
+            this.txtKy2.EditValue = "Kỳ 2 năm học";
+            this.txtKy2.Enabled = false;
+            this.txtKy2.Location = new System.Drawing.Point(24, 229);
+            this.txtKy2.Name = "txtKy2";
+            this.txtKy2.Size = new System.Drawing.Size(310, 20);
+            this.txtKy2.StyleController = this.layoutControl1;
+            this.txtKy2.TabIndex = 15;
+            // 
+            // dtKy1StartDate
+            // 
+            this.dtKy1StartDate.EditValue = null;
+            this.dtKy1StartDate.Enabled = false;
+            this.dtKy1StartDate.Location = new System.Drawing.Point(24, 162);
+            this.dtKy1StartDate.Name = "dtKy1StartDate";
+            this.dtKy1StartDate.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.dtKy1StartDate.Properties.CalendarTimeProperties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.dtKy1StartDate.Size = new System.Drawing.Size(142, 20);
+            this.dtKy1StartDate.StyleController = this.layoutControl1;
+            this.dtKy1StartDate.TabIndex = 16;
+            // 
+            // dtKy1EndDate
+            // 
+            this.dtKy1EndDate.EditValue = null;
+            this.dtKy1EndDate.Location = new System.Drawing.Point(193, 162);
+            this.dtKy1EndDate.Name = "dtKy1EndDate";
+            this.dtKy1EndDate.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.dtKy1EndDate.Properties.CalendarTimeProperties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.dtKy1EndDate.Size = new System.Drawing.Size(141, 20);
+            this.dtKy1EndDate.StyleController = this.layoutControl1;
+            this.dtKy1EndDate.TabIndex = 17;
+            this.dtKy1EndDate.EditValueChanged += new System.EventHandler(this.dtKy1EndDate_EditValueChanged);
+            // 
             // layoutControlGroup1
             // 
             this.layoutControlGroup1.EnableIndentsWithoutBorders = DevExpress.Utils.DefaultBoolean.True;
@@ -265,15 +341,16 @@
             this.emptySpaceItem1.Size = new System.Drawing.Size(122, 26);
             this.emptySpaceItem1.TextSize = new System.Drawing.Size(0, 0);
             // 
-            // txtKy1
+            // layoutControlGroup2
             // 
-            this.txtKy1.EditValue = "Kỳ 1 năm học";
-            this.txtKy1.Enabled = false;
-            this.txtKy1.Location = new System.Drawing.Point(24, 138);
-            this.txtKy1.Name = "txtKy1";
-            this.txtKy1.Size = new System.Drawing.Size(310, 20);
-            this.txtKy1.StyleController = this.layoutControl1;
-            this.txtKy1.TabIndex = 12;
+            this.layoutControlGroup2.Items.AddRange(new DevExpress.XtraLayout.BaseLayoutItem[] {
+            this.layoutControlItem8,
+            this.layoutControlItem9,
+            this.layoutControlItem10});
+            this.layoutControlGroup2.Location = new System.Drawing.Point(0, 95);
+            this.layoutControlGroup2.Name = "layoutControlGroup2";
+            this.layoutControlGroup2.Size = new System.Drawing.Size(338, 91);
+            this.layoutControlGroup2.Text = "Thông tin kỳ học thứ 1";
             // 
             // layoutControlItem8
             // 
@@ -285,87 +362,6 @@
             this.layoutControlItem8.TextSize = new System.Drawing.Size(0, 0);
             this.layoutControlItem8.TextVisible = false;
             // 
-            // dtKy2StartDate
-            // 
-            this.dtKy2StartDate.EditValue = null;
-            this.dtKy2StartDate.Enabled = false;
-            this.dtKy2StartDate.Location = new System.Drawing.Point(24, 253);
-            this.dtKy2StartDate.Name = "dtKy2StartDate";
-            this.dtKy2StartDate.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-            this.dtKy2StartDate.Properties.CalendarTimeProperties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-            this.dtKy2StartDate.Size = new System.Drawing.Size(142, 20);
-            this.dtKy2StartDate.StyleController = this.layoutControl1;
-            this.dtKy2StartDate.TabIndex = 13;
-            // 
-            // dtS1StartDate
-            // 
-            this.dtS1StartDate.Control = this.dtKy2StartDate;
-            this.dtS1StartDate.Location = new System.Drawing.Point(0, 24);
-            this.dtS1StartDate.Name = "dtS1StartDate";
-            this.dtS1StartDate.Size = new System.Drawing.Size(146, 24);
-            this.dtS1StartDate.TextSize = new System.Drawing.Size(0, 0);
-            this.dtS1StartDate.TextVisible = false;
-            // 
-            // dtKy2EndDate
-            // 
-            this.dtKy2EndDate.EditValue = null;
-            this.dtKy2EndDate.Enabled = false;
-            this.dtKy2EndDate.Location = new System.Drawing.Point(193, 253);
-            this.dtKy2EndDate.Name = "dtKy2EndDate";
-            this.dtKy2EndDate.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-            this.dtKy2EndDate.Properties.CalendarTimeProperties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-            this.dtKy2EndDate.Size = new System.Drawing.Size(141, 20);
-            this.dtKy2EndDate.StyleController = this.layoutControl1;
-            this.dtKy2EndDate.TabIndex = 14;
-            // 
-            // EndDate
-            // 
-            this.EndDate.Control = this.dtKy2EndDate;
-            this.EndDate.Location = new System.Drawing.Point(146, 24);
-            this.EndDate.Name = "EndDate";
-            this.EndDate.Size = new System.Drawing.Size(168, 24);
-            this.EndDate.Text = "đến";
-            this.EndDate.TextAlignMode = DevExpress.XtraLayout.TextAlignModeItem.AutoSize;
-            this.EndDate.TextSize = new System.Drawing.Size(18, 13);
-            this.EndDate.TextToControlDistance = 5;
-            // 
-            // txtKy2
-            // 
-            this.txtKy2.EditValue = "Kỳ 2 năm học";
-            this.txtKy2.Enabled = false;
-            this.txtKy2.Location = new System.Drawing.Point(24, 229);
-            this.txtKy2.Name = "txtKy2";
-            this.txtKy2.Size = new System.Drawing.Size(310, 20);
-            this.txtKy2.StyleController = this.layoutControl1;
-            this.txtKy2.TabIndex = 15;
-            // 
-            // layoutControlItem7
-            // 
-            this.layoutControlItem7.Control = this.txtKy2;
-            this.layoutControlItem7.Location = new System.Drawing.Point(0, 0);
-            this.layoutControlItem7.Name = "layoutControlItem7";
-            this.layoutControlItem7.Size = new System.Drawing.Size(314, 24);
-            this.layoutControlItem7.TextSize = new System.Drawing.Size(0, 0);
-            this.layoutControlItem7.TextVisible = false;
-            // 
-            // dtKy1StartDate
-            // 
-            this.dtKy1StartDate.EditValue = null;
-            this.dtKy1StartDate.Enabled = false;
-            this.dtKy1StartDate.Location = new System.Drawing.Point(24, 162);
-            this.dtKy1StartDate.Name = "dtKy1StartDate";
-            this.dtKy1StartDate.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-            this.dtKy1StartDate.Properties.CalendarTimeProperties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-            this.dtKy1StartDate.Size = new System.Drawing.Size(142, 20);
-            this.dtKy1StartDate.StyleController = this.layoutControl1;
-            this.dtKy1StartDate.TabIndex = 16;
-            // 
             // layoutControlItem9
             // 
             this.layoutControlItem9.Control = this.dtKy1StartDate;
@@ -374,20 +370,6 @@
             this.layoutControlItem9.Size = new System.Drawing.Size(146, 24);
             this.layoutControlItem9.TextSize = new System.Drawing.Size(0, 0);
             this.layoutControlItem9.TextVisible = false;
-            // 
-            // dtKy1EndDate
-            // 
-            this.dtKy1EndDate.EditValue = null;
-            this.dtKy1EndDate.Location = new System.Drawing.Point(193, 162);
-            this.dtKy1EndDate.Name = "dtKy1EndDate";
-            this.dtKy1EndDate.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-            this.dtKy1EndDate.Properties.CalendarTimeProperties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-            this.dtKy1EndDate.Size = new System.Drawing.Size(141, 20);
-            this.dtKy1EndDate.StyleController = this.layoutControl1;
-            this.dtKy1EndDate.TabIndex = 17;
-            this.dtKy1EndDate.EditValueChanged += new System.EventHandler(this.dtKy1EndDate_EditValueChanged);
             // 
             // layoutControlItem10
             // 
@@ -400,17 +382,6 @@
             this.layoutControlItem10.TextSize = new System.Drawing.Size(18, 13);
             this.layoutControlItem10.TextToControlDistance = 5;
             // 
-            // layoutControlGroup2
-            // 
-            this.layoutControlGroup2.Items.AddRange(new DevExpress.XtraLayout.BaseLayoutItem[] {
-            this.layoutControlItem8,
-            this.layoutControlItem9,
-            this.layoutControlItem10});
-            this.layoutControlGroup2.Location = new System.Drawing.Point(0, 95);
-            this.layoutControlGroup2.Name = "layoutControlGroup2";
-            this.layoutControlGroup2.Size = new System.Drawing.Size(338, 91);
-            this.layoutControlGroup2.Text = "Thông tin kỳ học thứ 1";
-            // 
             // layoutControlGroup3
             // 
             this.layoutControlGroup3.Items.AddRange(new DevExpress.XtraLayout.BaseLayoutItem[] {
@@ -421,6 +392,35 @@
             this.layoutControlGroup3.Name = "layoutControlGroup3";
             this.layoutControlGroup3.Size = new System.Drawing.Size(338, 91);
             this.layoutControlGroup3.Text = "Thông tin kỳ học thứ 2";
+            // 
+            // layoutControlItem7
+            // 
+            this.layoutControlItem7.Control = this.txtKy2;
+            this.layoutControlItem7.Location = new System.Drawing.Point(0, 0);
+            this.layoutControlItem7.Name = "layoutControlItem7";
+            this.layoutControlItem7.Size = new System.Drawing.Size(314, 24);
+            this.layoutControlItem7.TextSize = new System.Drawing.Size(0, 0);
+            this.layoutControlItem7.TextVisible = false;
+            // 
+            // dtS1StartDate
+            // 
+            this.dtS1StartDate.Control = this.dtKy2StartDate;
+            this.dtS1StartDate.Location = new System.Drawing.Point(0, 24);
+            this.dtS1StartDate.Name = "dtS1StartDate";
+            this.dtS1StartDate.Size = new System.Drawing.Size(146, 24);
+            this.dtS1StartDate.TextSize = new System.Drawing.Size(0, 0);
+            this.dtS1StartDate.TextVisible = false;
+            // 
+            // EndDate
+            // 
+            this.EndDate.Control = this.dtKy2EndDate;
+            this.EndDate.Location = new System.Drawing.Point(146, 24);
+            this.EndDate.Name = "EndDate";
+            this.EndDate.Size = new System.Drawing.Size(168, 24);
+            this.EndDate.Text = "đến";
+            this.EndDate.TextAlignMode = DevExpress.XtraLayout.TextAlignModeItem.AutoSize;
+            this.EndDate.TextSize = new System.Drawing.Size(18, 13);
+            this.EndDate.TextToControlDistance = 5;
             // 
             // frmCourseDetail
             // 
@@ -439,6 +439,16 @@
             ((System.ComponentModel.ISupportInitialize)(this.dtEndDate.Properties.CalendarTimeProperties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dtEndDate.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.chbStatus.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtKy1.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dtKy2StartDate.Properties.CalendarTimeProperties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dtKy2StartDate.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dtKy2EndDate.Properties.CalendarTimeProperties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dtKy2EndDate.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtKy2.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dtKy1StartDate.Properties.CalendarTimeProperties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dtKy1StartDate.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dtKy1EndDate.Properties.CalendarTimeProperties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dtKy1EndDate.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlGroup1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem2)).EndInit();
@@ -447,24 +457,14 @@
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem5)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem6)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.txtKy1.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem8)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dtKy2StartDate.Properties.CalendarTimeProperties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dtKy2StartDate.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dtS1StartDate)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dtKy2EndDate.Properties.CalendarTimeProperties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dtKy2EndDate.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.EndDate)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.txtKy2.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem7)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dtKy1StartDate.Properties.CalendarTimeProperties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dtKy1StartDate.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem9)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dtKy1EndDate.Properties.CalendarTimeProperties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dtKy1EndDate.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem10)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlGroup2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem8)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem9)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem10)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlGroup3)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem7)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dtS1StartDate)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.EndDate)).EndInit();
             this.ResumeLayout(false);
 
         }

@@ -30,27 +30,27 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FRViewDoituongchinhsach));
             this.layoutControl1 = new DevExpress.XtraLayout.LayoutControl();
-            this.layoutControlGroup1 = new DevExpress.XtraLayout.LayoutControlGroup();
-            this.emptySpaceItem2 = new DevExpress.XtraLayout.EmptySpaceItem();
-            this.simpleButton1 = new DevExpress.XtraEditors.SimpleButton();
-            this.layoutControlItem1 = new DevExpress.XtraLayout.LayoutControlItem();
             this.grDanhsachmiengian = new DevExpress.XtraGrid.GridControl();
             this.gridView1 = new DevExpress.XtraGrid.Views.Grid.GridView();
+            this.bntDong = new DevExpress.XtraEditors.SimpleButton();
+            this.layoutControlGroup1 = new DevExpress.XtraLayout.LayoutControlGroup();
+            this.emptySpaceItem2 = new DevExpress.XtraLayout.EmptySpaceItem();
+            this.layoutControlItem1 = new DevExpress.XtraLayout.LayoutControlItem();
             this.layoutControlItem2 = new DevExpress.XtraLayout.LayoutControlItem();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControl1)).BeginInit();
             this.layoutControl1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.grDanhsachmiengian)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.gridView1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlGroup1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.grDanhsachmiengian)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.gridView1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem2)).BeginInit();
             this.SuspendLayout();
             // 
             // layoutControl1
             // 
             this.layoutControl1.Controls.Add(this.grDanhsachmiengian);
-            this.layoutControl1.Controls.Add(this.simpleButton1);
+            this.layoutControl1.Controls.Add(this.bntDong);
             this.layoutControl1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.layoutControl1.Location = new System.Drawing.Point(0, 0);
             this.layoutControl1.Name = "layoutControl1";
@@ -59,6 +59,32 @@
             this.layoutControl1.Size = new System.Drawing.Size(350, 329);
             this.layoutControl1.TabIndex = 0;
             this.layoutControl1.Text = "layoutControl1";
+            // 
+            // grDanhsachmiengian
+            // 
+            this.grDanhsachmiengian.Location = new System.Drawing.Point(12, 12);
+            this.grDanhsachmiengian.MainView = this.gridView1;
+            this.grDanhsachmiengian.Name = "grDanhsachmiengian";
+            this.grDanhsachmiengian.Size = new System.Drawing.Size(326, 279);
+            this.grDanhsachmiengian.TabIndex = 5;
+            this.grDanhsachmiengian.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
+            this.gridView1});
+            // 
+            // gridView1
+            // 
+            this.gridView1.GridControl = this.grDanhsachmiengian;
+            this.gridView1.Name = "gridView1";
+            // 
+            // bntDong
+            // 
+            this.bntDong.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("simpleButton1.ImageOptions.Image")));
+            this.bntDong.Location = new System.Drawing.Point(262, 295);
+            this.bntDong.Name = "bntDong";
+            this.bntDong.Size = new System.Drawing.Size(76, 22);
+            this.bntDong.StyleController = this.layoutControl1;
+            this.bntDong.TabIndex = 4;
+            this.bntDong.Text = "Đóng";
+            this.bntDong.Click += new System.EventHandler(this.bntDong_Click);
             // 
             // layoutControlGroup1
             // 
@@ -80,39 +106,14 @@
             this.emptySpaceItem2.Size = new System.Drawing.Size(250, 26);
             this.emptySpaceItem2.TextSize = new System.Drawing.Size(0, 0);
             // 
-            // simpleButton1
-            // 
-            this.simpleButton1.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("simpleButton1.ImageOptions.Image")));
-            this.simpleButton1.Location = new System.Drawing.Point(262, 295);
-            this.simpleButton1.Name = "simpleButton1";
-            this.simpleButton1.Size = new System.Drawing.Size(76, 22);
-            this.simpleButton1.StyleController = this.layoutControl1;
-            this.simpleButton1.TabIndex = 4;
-            this.simpleButton1.Text = "Đóng";
-            // 
             // layoutControlItem1
             // 
-            this.layoutControlItem1.Control = this.simpleButton1;
+            this.layoutControlItem1.Control = this.bntDong;
             this.layoutControlItem1.Location = new System.Drawing.Point(250, 283);
             this.layoutControlItem1.Name = "layoutControlItem1";
             this.layoutControlItem1.Size = new System.Drawing.Size(80, 26);
             this.layoutControlItem1.TextSize = new System.Drawing.Size(0, 0);
             this.layoutControlItem1.TextVisible = false;
-            // 
-            // grDanhsachmiengian
-            // 
-            this.grDanhsachmiengian.Location = new System.Drawing.Point(12, 12);
-            this.grDanhsachmiengian.MainView = this.gridView1;
-            this.grDanhsachmiengian.Name = "grDanhsachmiengian";
-            this.grDanhsachmiengian.Size = new System.Drawing.Size(326, 279);
-            this.grDanhsachmiengian.TabIndex = 5;
-            this.grDanhsachmiengian.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
-            this.gridView1});
-            // 
-            // gridView1
-            // 
-            this.gridView1.GridControl = this.grDanhsachmiengian;
-            this.gridView1.Name = "gridView1";
             // 
             // layoutControlItem2
             // 
@@ -134,11 +135,11 @@
             this.Load += new System.EventHandler(this.FRViewDoituongchinhsach_Load);
             ((System.ComponentModel.ISupportInitialize)(this.layoutControl1)).EndInit();
             this.layoutControl1.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.grDanhsachmiengian)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.gridView1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlGroup1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.grDanhsachmiengian)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.gridView1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem2)).EndInit();
             this.ResumeLayout(false);
 
@@ -150,7 +151,7 @@
         private DevExpress.XtraLayout.LayoutControlGroup layoutControlGroup1;
         private DevExpress.XtraGrid.GridControl grDanhsachmiengian;
         private DevExpress.XtraGrid.Views.Grid.GridView gridView1;
-        private DevExpress.XtraEditors.SimpleButton simpleButton1;
+        private DevExpress.XtraEditors.SimpleButton bntDong;
         private DevExpress.XtraLayout.EmptySpaceItem emptySpaceItem2;
         private DevExpress.XtraLayout.LayoutControlItem layoutControlItem1;
         private DevExpress.XtraLayout.LayoutControlItem layoutControlItem2;

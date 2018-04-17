@@ -38,6 +38,14 @@
             this.cmbHocKy = new System.Windows.Forms.ComboBox();
             this.cmbNamHoc = new System.Windows.Forms.ComboBox();
             this.dgvHocSinh = new DevExpress.XtraGrid.GridControl();
+            this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
+            this.xemChiTiếtToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
+            this.thêmMớiToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.cậpNhậtToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.xóaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripSeparator2 = new System.Windows.Forms.ToolStripSeparator();
+            this.xuấtEXCELToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.gridView1 = new DevExpress.XtraGrid.Views.Grid.GridView();
             this.bandedGridColumn1 = new DevExpress.XtraGrid.Columns.GridColumn();
             this.bandedGridColumn2 = new DevExpress.XtraGrid.Columns.GridColumn();
@@ -106,18 +114,11 @@
             this.emptySpaceItem2 = new DevExpress.XtraLayout.EmptySpaceItem();
             this.LabelGender1 = new DevExpress.XtraLayout.LayoutControlItem();
             this.layoutControlItem16 = new DevExpress.XtraLayout.LayoutControlItem();
-            this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
-            this.xemChiTiếtToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
-            this.thêmMớiToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.cậpNhậtToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.xóaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.toolStripSeparator2 = new System.Windows.Forms.ToolStripSeparator();
-            this.xuấtEXCELToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.timer1 = new System.Windows.Forms.Timer(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.layoutControl1)).BeginInit();
             this.layoutControl1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvHocSinh)).BeginInit();
+            this.contextMenuStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.gridView1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtStudentCode.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtStudentID.Properties)).BeginInit();
@@ -165,7 +166,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.LabelGender1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem16)).BeginInit();
-            this.contextMenuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
             // splashScreenManager1
@@ -266,6 +266,69 @@
             this.dgvHocSinh.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gridView1});
             this.dgvHocSinh.Click += new System.EventHandler(this.dgvHocSinh_Click);
+            // 
+            // contextMenuStrip1
+            // 
+            this.contextMenuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.xemChiTiếtToolStripMenuItem,
+            this.toolStripSeparator1,
+            this.thêmMớiToolStripMenuItem,
+            this.cậpNhậtToolStripMenuItem,
+            this.xóaToolStripMenuItem,
+            this.toolStripSeparator2,
+            this.xuấtEXCELToolStripMenuItem});
+            this.contextMenuStrip1.Name = "contextMenuStrip1";
+            this.contextMenuStrip1.Size = new System.Drawing.Size(138, 126);
+            // 
+            // xemChiTiếtToolStripMenuItem
+            // 
+            this.xemChiTiếtToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("xemChiTiếtToolStripMenuItem.Image")));
+            this.xemChiTiếtToolStripMenuItem.Name = "xemChiTiếtToolStripMenuItem";
+            this.xemChiTiếtToolStripMenuItem.Size = new System.Drawing.Size(137, 22);
+            this.xemChiTiếtToolStripMenuItem.Text = "Xem chi tiết";
+            this.xemChiTiếtToolStripMenuItem.Click += new System.EventHandler(this.xemChiTiếtToolStripMenuItem_Click);
+            // 
+            // toolStripSeparator1
+            // 
+            this.toolStripSeparator1.Name = "toolStripSeparator1";
+            this.toolStripSeparator1.Size = new System.Drawing.Size(134, 6);
+            // 
+            // thêmMớiToolStripMenuItem
+            // 
+            this.thêmMớiToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("thêmMớiToolStripMenuItem.Image")));
+            this.thêmMớiToolStripMenuItem.Name = "thêmMớiToolStripMenuItem";
+            this.thêmMớiToolStripMenuItem.Size = new System.Drawing.Size(137, 22);
+            this.thêmMớiToolStripMenuItem.Text = "Thêm mới";
+            this.thêmMớiToolStripMenuItem.Click += new System.EventHandler(this.thêmMớiToolStripMenuItem_Click);
+            // 
+            // cậpNhậtToolStripMenuItem
+            // 
+            this.cậpNhậtToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("cậpNhậtToolStripMenuItem.Image")));
+            this.cậpNhậtToolStripMenuItem.Name = "cậpNhậtToolStripMenuItem";
+            this.cậpNhậtToolStripMenuItem.Size = new System.Drawing.Size(137, 22);
+            this.cậpNhậtToolStripMenuItem.Text = "Cập nhật";
+            this.cậpNhậtToolStripMenuItem.Click += new System.EventHandler(this.sửaToolStripMenuItem_Click);
+            // 
+            // xóaToolStripMenuItem
+            // 
+            this.xóaToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("xóaToolStripMenuItem.Image")));
+            this.xóaToolStripMenuItem.Name = "xóaToolStripMenuItem";
+            this.xóaToolStripMenuItem.Size = new System.Drawing.Size(137, 22);
+            this.xóaToolStripMenuItem.Text = "Xóa";
+            this.xóaToolStripMenuItem.Click += new System.EventHandler(this.xóaToolStripMenuItem_Click);
+            // 
+            // toolStripSeparator2
+            // 
+            this.toolStripSeparator2.Name = "toolStripSeparator2";
+            this.toolStripSeparator2.Size = new System.Drawing.Size(134, 6);
+            // 
+            // xuấtEXCELToolStripMenuItem
+            // 
+            this.xuấtEXCELToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("xuấtEXCELToolStripMenuItem.Image")));
+            this.xuấtEXCELToolStripMenuItem.Name = "xuấtEXCELToolStripMenuItem";
+            this.xuấtEXCELToolStripMenuItem.Size = new System.Drawing.Size(137, 22);
+            this.xuấtEXCELToolStripMenuItem.Text = "Xuất EXCEL";
+            this.xuấtEXCELToolStripMenuItem.Click += new System.EventHandler(this.btnExport_Click);
             // 
             // gridView1
             // 
@@ -994,69 +1057,6 @@
             this.layoutControlItem16.TextSize = new System.Drawing.Size(0, 0);
             this.layoutControlItem16.TextVisible = false;
             // 
-            // contextMenuStrip1
-            // 
-            this.contextMenuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.xemChiTiếtToolStripMenuItem,
-            this.toolStripSeparator1,
-            this.thêmMớiToolStripMenuItem,
-            this.cậpNhậtToolStripMenuItem,
-            this.xóaToolStripMenuItem,
-            this.toolStripSeparator2,
-            this.xuấtEXCELToolStripMenuItem});
-            this.contextMenuStrip1.Name = "contextMenuStrip1";
-            this.contextMenuStrip1.Size = new System.Drawing.Size(138, 126);
-            // 
-            // xemChiTiếtToolStripMenuItem
-            // 
-            this.xemChiTiếtToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("xemChiTiếtToolStripMenuItem.Image")));
-            this.xemChiTiếtToolStripMenuItem.Name = "xemChiTiếtToolStripMenuItem";
-            this.xemChiTiếtToolStripMenuItem.Size = new System.Drawing.Size(137, 22);
-            this.xemChiTiếtToolStripMenuItem.Text = "Xem chi tiết";
-            this.xemChiTiếtToolStripMenuItem.Click += new System.EventHandler(this.xemChiTiếtToolStripMenuItem_Click);
-            // 
-            // toolStripSeparator1
-            // 
-            this.toolStripSeparator1.Name = "toolStripSeparator1";
-            this.toolStripSeparator1.Size = new System.Drawing.Size(134, 6);
-            // 
-            // thêmMớiToolStripMenuItem
-            // 
-            this.thêmMớiToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("thêmMớiToolStripMenuItem.Image")));
-            this.thêmMớiToolStripMenuItem.Name = "thêmMớiToolStripMenuItem";
-            this.thêmMớiToolStripMenuItem.Size = new System.Drawing.Size(137, 22);
-            this.thêmMớiToolStripMenuItem.Text = "Thêm mới";
-            this.thêmMớiToolStripMenuItem.Click += new System.EventHandler(this.thêmMớiToolStripMenuItem_Click);
-            // 
-            // cậpNhậtToolStripMenuItem
-            // 
-            this.cậpNhậtToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("cậpNhậtToolStripMenuItem.Image")));
-            this.cậpNhậtToolStripMenuItem.Name = "cậpNhậtToolStripMenuItem";
-            this.cậpNhậtToolStripMenuItem.Size = new System.Drawing.Size(137, 22);
-            this.cậpNhậtToolStripMenuItem.Text = "Cập nhật";
-            this.cậpNhậtToolStripMenuItem.Click += new System.EventHandler(this.sửaToolStripMenuItem_Click);
-            // 
-            // xóaToolStripMenuItem
-            // 
-            this.xóaToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("xóaToolStripMenuItem.Image")));
-            this.xóaToolStripMenuItem.Name = "xóaToolStripMenuItem";
-            this.xóaToolStripMenuItem.Size = new System.Drawing.Size(137, 22);
-            this.xóaToolStripMenuItem.Text = "Xóa";
-            this.xóaToolStripMenuItem.Click += new System.EventHandler(this.xóaToolStripMenuItem_Click);
-            // 
-            // toolStripSeparator2
-            // 
-            this.toolStripSeparator2.Name = "toolStripSeparator2";
-            this.toolStripSeparator2.Size = new System.Drawing.Size(134, 6);
-            // 
-            // xuấtEXCELToolStripMenuItem
-            // 
-            this.xuấtEXCELToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("xuấtEXCELToolStripMenuItem.Image")));
-            this.xuấtEXCELToolStripMenuItem.Name = "xuấtEXCELToolStripMenuItem";
-            this.xuấtEXCELToolStripMenuItem.Size = new System.Drawing.Size(137, 22);
-            this.xuấtEXCELToolStripMenuItem.Text = "Xuất EXCEL";
-            this.xuấtEXCELToolStripMenuItem.Click += new System.EventHandler(this.btnExport_Click);
-            // 
             // timer1
             // 
             this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
@@ -1072,6 +1072,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.layoutControl1)).EndInit();
             this.layoutControl1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dgvHocSinh)).EndInit();
+            this.contextMenuStrip1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.gridView1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtStudentCode.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtStudentID.Properties)).EndInit();
@@ -1121,7 +1122,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.LabelGender1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem16)).EndInit();
-            this.contextMenuStrip1.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }

@@ -9,6 +9,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using DevExpress.XtraEditors;
 using DataConnect.DAO.ThanhCongTC;
+using DataConnect;
 
 namespace QLHSBanTru2018_Demo_V1.QLThuChi.DotThu.KeHoachThu
 {
@@ -28,14 +29,26 @@ namespace QLHSBanTru2018_Demo_V1.QLThuChi.DotThu.KeHoachThu
                 b.Add(a);
                 
             }
+            PreferredDAO dt = new PreferredDAO();
+            List<Preferred> c = new List<Preferred>();
             foreach (var i in b )
             {
-                MessageBox.Show("" + i + "");
+                Preferred e = dt.listPreferredByID(int.Parse(i));
+                if (e!=null)
+                {
+                    c.Add(e);
+                }
             }
+            grDanhsachmiengian.DataSource = c;
         }
         private void FRViewDoituongchinhsach_Load(object sender, EventArgs e)
         {
             laodPreferred();
+        }
+
+        private void bntDong_Click(object sender, EventArgs e)
+        {
+            this.Close();
         }
     }
 }

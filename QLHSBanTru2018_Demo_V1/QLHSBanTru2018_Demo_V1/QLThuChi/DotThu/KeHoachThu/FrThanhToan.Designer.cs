@@ -74,12 +74,12 @@
             this.gridColumn7 = new DevExpress.XtraGrid.Columns.GridColumn();
             this.gridColumn8 = new DevExpress.XtraGrid.Columns.GridColumn();
             this.gridColumn9 = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.gridColumn10 = new DevExpress.XtraGrid.Columns.GridColumn();
             this.layoutControlItem3 = new DevExpress.XtraLayout.LayoutControlItem();
             this.layoutControlGroup1 = new DevExpress.XtraLayout.LayoutControlGroup();
             this.layoutControlItem1 = new DevExpress.XtraLayout.LayoutControlItem();
             this.layoutControlItem4 = new DevExpress.XtraLayout.LayoutControlItem();
             this.layoutControlItem2 = new DevExpress.XtraLayout.LayoutControlItem();
-            this.gridColumn10 = new DevExpress.XtraGrid.Columns.GridColumn();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControl1)).BeginInit();
             this.layoutControl1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.panelControl2)).BeginInit();
@@ -348,6 +348,7 @@
             this.pcAnhhocsinh.Location = new System.Drawing.Point(12, 12);
             this.pcAnhhocsinh.Name = "pcAnhhocsinh";
             this.pcAnhhocsinh.Properties.ShowCameraMenuItem = DevExpress.XtraEditors.Controls.CameraMenuItemVisibility.Auto;
+            this.pcAnhhocsinh.Properties.SizeMode = DevExpress.XtraEditors.Controls.PictureSizeMode.Zoom;
             this.pcAnhhocsinh.Size = new System.Drawing.Size(192, 262);
             this.pcAnhhocsinh.StyleController = this.layoutControl3;
             this.pcAnhhocsinh.TabIndex = 4;
@@ -489,7 +490,7 @@
             // 
             // gridColumn4
             // 
-            this.gridColumn4.Caption = "Số ngày";
+            this.gridColumn4.Caption = "/Đơn vị";
             this.gridColumn4.FieldName = "Frequency";
             this.gridColumn4.Name = "gridColumn4";
             this.gridColumn4.Visible = true;
@@ -516,24 +517,27 @@
             this.gridColumn7.Caption = "Diện miễn giảm";
             this.gridColumn7.FieldName = "PreferredID";
             this.gridColumn7.Name = "gridColumn7";
-            this.gridColumn7.Visible = true;
-            this.gridColumn7.VisibleIndex = 6;
             // 
             // gridColumn8
             // 
             this.gridColumn8.Caption = "Mã khoản thu";
             this.gridColumn8.FieldName = "ReceivableDetailID";
             this.gridColumn8.Name = "gridColumn8";
-            this.gridColumn8.Visible = true;
-            this.gridColumn8.VisibleIndex = 7;
             // 
             // gridColumn9
             // 
             this.gridColumn9.Caption = "Mã đợt thu";
             this.gridColumn9.FieldName = "ReceivableID";
             this.gridColumn9.Name = "gridColumn9";
-            this.gridColumn9.Visible = true;
-            this.gridColumn9.VisibleIndex = 8;
+            // 
+            // gridColumn10
+            // 
+            this.gridColumn10.Caption = "Mức thu sau miễn giảm";
+            this.gridColumn10.FieldName = "miengiam";
+            this.gridColumn10.Name = "gridColumn10";
+            this.gridColumn10.UnboundType = DevExpress.Data.UnboundColumnType.Decimal;
+            this.gridColumn10.Visible = true;
+            this.gridColumn10.VisibleIndex = 6;
             // 
             // layoutControlItem3
             // 
@@ -581,15 +585,6 @@
             this.layoutControlItem2.Size = new System.Drawing.Size(711, 112);
             this.layoutControlItem2.TextSize = new System.Drawing.Size(0, 0);
             this.layoutControlItem2.TextVisible = false;
-            // 
-            // gridColumn10
-            // 
-            this.gridColumn10.Caption = "Mức thu sau miễn giảm";
-            this.gridColumn10.FieldName = "miengiam";
-            this.gridColumn10.Name = "gridColumn10";
-            this.gridColumn10.UnboundType = DevExpress.Data.UnboundColumnType.Decimal;
-            this.gridColumn10.Visible = true;
-            this.gridColumn10.VisibleIndex = 9;
             // 
             // FrThanhToan
             // 

@@ -62,11 +62,19 @@ namespace QLHSBanTru2018_Demo_V1.QLThuChi.DotThu.KeHoachThu
             decimal b=0;
             for (int i = 0; i < gridView1.RowCount; i++)
             {
-                if (gridView1.GetRowCellValue(i, gridView1.Columns["Status"]).ToString() == "True")
+                try
                 {
-                    a += (decimal)gridView1.GetRowCellValue(i, gridView1.Columns["TotalPriceDetail"]);
+                    if (gridView1.GetRowCellValue(i, gridView1.Columns["Status"]).ToString() == "True")
+                    {
+                        a += (decimal)gridView1.GetRowCellValue(i, gridView1.Columns["miengiam"]);
+                    }
+                    b += (decimal)gridView1.GetRowCellValue(i, gridView1.Columns["miengiam"]);
                 }
-                b+= (decimal)gridView1.GetRowCellValue(i, gridView1.Columns["TotalPriceDetail"]);
+                catch 
+                {
+
+                   
+                }
             }
             txtDathanhtoan.Text = a.ToString();
             txtTongSo.Text = b.ToString();
@@ -98,6 +106,10 @@ namespace QLHSBanTru2018_Demo_V1.QLThuChi.DotThu.KeHoachThu
             loadStuden();
             checkKhoathu();
             loatGrKhoanPhi();
+            if (txtConlai.Text=="0")
+            {
+                bntLuu.Enabled = false;
+            }
             
         }
         private void gridView1_CellValueChanging(object sender, DevExpress.XtraGrid.Views.Base.CellValueChangedEventArgs e)
@@ -132,6 +144,7 @@ namespace QLHSBanTru2018_Demo_V1.QLThuChi.DotThu.KeHoachThu
             try
             {
                 ReceivableDetail_StudentDAO dt = new ReceivableDetail_StudentDAO();
+                ReceivableIDAO dc = new ReceivableIDAO();
                 for (int i = 0; i < gridView1.RowCount; i++)
                 {
                     ReceivableDetail_Student a = new ReceivableDetail_Student();
@@ -187,17 +200,25 @@ namespace QLHSBanTru2018_Demo_V1.QLThuChi.DotThu.KeHoachThu
                 string c = mg.Substring(i, 1);
                 b.Add(c);
             }
-            foreach (var i in b)
+            if (b.Count==0)
             {
-                if (int.Parse(i)==perferredID)
-                {
-                    float pr = dc.lookPreferredPercent(int.Parse(i));
-                    a = f - ((f * (decimal)pr) / 100);
-                    e.Value = a;
-                    break;
-                }
                 e.Value = f;
             }
+            else
+            {
+                foreach (var i in b)
+                {
+                    if (int.Parse(i) == perferredID)
+                    {
+                        float pr = dc.lookPreferredPercent(int.Parse(i));
+                        a = f - ((f * (decimal)pr) / 100);
+                        e.Value = a;
+                        break;
+                    }
+                    e.Value = f;
+                }
+            }
+            
             
         }
     }

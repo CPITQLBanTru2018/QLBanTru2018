@@ -46,7 +46,7 @@ namespace DataConnect.DAO.ThanhCongTC
         }
         public List<Receivable> ListReceivable()
         {
-            var a = dt.Receivables;
+            var a = dt.Receivables.OrderByDescending(t=>t.ReceivableID);
             return a.ToList();
         }
     }

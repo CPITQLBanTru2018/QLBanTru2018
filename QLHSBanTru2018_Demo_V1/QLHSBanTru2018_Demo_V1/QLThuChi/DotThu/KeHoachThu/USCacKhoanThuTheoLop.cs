@@ -175,5 +175,39 @@ namespace QLHSBanTru2018_Demo_V1.QLThuChi
             FrThanhToan a = new FrThanhToan();
             a.ShowDialog();
         }
+
+        private void gridView1_CustomUnboundColumnData(object sender, DevExpress.XtraGrid.Views.Base.CustomColumnDataEventArgs e)
+        {
+
+            ReceivableDetail_StudentDAO dt = new ReceivableDetail_StudentDAO();
+            ReceivableDetailDAO dc = new ReceivableDetailDAO();
+            List<ReceivableDetail_Student> a = new List<ReceivableDetail_Student>();
+            List<ReceivableDetail> b = new List<ReceivableDetail>();
+            List<ReceivableDetail_Student> f = new List<ReceivableDetail_Student>();
+            int rowindex = e.ListSourceRowIndex;
+            a = dt.ListReceivableDetail_Student((int)gridView1.GetListSourceRowCellValue(rowindex, "StudentID"));
+            b = dc.ListReceivableDetail((int)cbbDotthu.SelectedValue);
+            foreach (var i in b)
+            {
+                foreach (var j in a)
+                {
+                    if (i.ReceivableDetailID==j.ReceivableDetailID)
+                    {
+                        f.Add(j);
+                    }
+                }
+            }
+            if (e.Column.FieldName != "tinhtrang") return;
+            foreach (var i in f)
+            {
+                //MessageBox.Show("" + i.ReceivableDetailID + " " + i.StudentID + " " + i.Status + "");
+                if (i.Status==false)
+                {
+                    e.Value = "Chưa hàn thành";
+                    break;
+                }
+                e.Value = "Đã hoàn thành";
+            }
+        }
     }
 }

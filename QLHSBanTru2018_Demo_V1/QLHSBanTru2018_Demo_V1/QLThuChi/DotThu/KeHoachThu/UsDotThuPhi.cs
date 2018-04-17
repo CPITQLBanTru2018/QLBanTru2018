@@ -9,6 +9,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using DevExpress.XtraEditors;
 using DataConnect.DAO.ThanhCongTC;
+using QLHSBanTru2018_Demo_V1.QLThuChi.DotThu.KeHoachThu;
 
 namespace QLHSBanTru2018_Demo_V1.QLThuChi
 {
@@ -59,6 +60,15 @@ namespace QLHSBanTru2018_Demo_V1.QLThuChi
             }
         }
 
-       
+        private void gridView2_FocusedRowChanged(object sender, DevExpress.XtraGrid.Views.Base.FocusedRowChangedEventArgs e)
+        {
+            studentReceivableDAO.PreferredID = gridView2.GetRowCellValue(e.FocusedRowHandle, "PreferredID").ToString();
+        }
+
+        private void danhSáchĐốiTượngMiễnGiảmToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            FRViewDoituongchinhsach a = new FRViewDoituongchinhsach();
+            a.ShowDialog();
+        }
     }
 }
