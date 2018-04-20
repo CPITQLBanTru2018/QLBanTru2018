@@ -286,6 +286,12 @@
     <Compile Include="QLThuChi\DotThu\KeHoachThu\FRViewDoituongchinhsach.Designer.cs">
       <DependentUpon>FRViewDoituongchinhsach.cs</DependentUpon>
     </Compile>
+    <Compile Include="QLThuChi\DotThu\KeHoachThu\SplashScreen1.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="QLThuChi\DotThu\KeHoachThu\SplashScreen1.Designer.cs">
+      <DependentUpon>SplashScreen1.cs</DependentUpon>
+    </Compile>
     <Compile Include="QLThuChi\DotThu\MienGiam\FRDienMienGiam.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -467,6 +473,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="QLThuChi\DotThu\KeHoachThu\FRViewDoituongchinhsach.resx">
       <DependentUpon>FRViewDoituongchinhsach.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="QLThuChi\DotThu\KeHoachThu\SplashScreen1.resx">
+      <DependentUpon>SplashScreen1.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="QLThuChi\DotThu\MienGiam\FRDienMienGiam.resx">
       <DependentUpon>FRDienMienGiam.cs</DependentUpon>

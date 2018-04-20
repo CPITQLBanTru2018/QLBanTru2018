@@ -12,6 +12,7 @@ using DataConnect.DAO.ThanhCongTC;
 using System.IO;
 using DataConnect;
 using QLHSBanTru2018_Demo_V1.QLThuChi.DotThu.KeHoachThu;
+using DevExpress.XtraSplashScreen;
 
 namespace QLHSBanTru2018_Demo_V1.QLThuChi
 {
@@ -21,6 +22,7 @@ namespace QLHSBanTru2018_Demo_V1.QLThuChi
         {
             InitializeComponent();
         }
+        #region ----------------danhsach---------------
         public void LoadNamhoc()
         {
             studentReceivableDAO dt = new studentReceivableDAO();
@@ -209,5 +211,107 @@ namespace QLHSBanTru2018_Demo_V1.QLThuChi
                 e.Value = "Đã hoàn thành";
             }
         }
+        #endregion danhsach
+        #region =======excell============
+        private void export()
+        {
+            
+             #region===========khởi tạo excel=====
+            //khởi tạo excell
+            Microsoft.Office.Interop.Excel._Application app = new Microsoft.Office.Interop.Excel.Application();
+            //khởi tạo workbook
+            Microsoft.Office.Interop.Excel._Workbook workbook = app.Workbooks.Add(Type.Missing);
+            //khởi tọa worksheet
+            Microsoft.Office.Interop.Excel._Worksheet worksheet = null;
+            worksheet = workbook.Sheets["Sheet1"];
+            worksheet = workbook.ActiveSheet;
+            worksheet.Name = "Danh sách hoc sinh";
+            app.Visible = true;//cho hiển thị excel
+            #endregion===========khởi tạo excel==========
+            #region ===========đổ dữ liệu vào sheet======
+            worksheet.Cells[1, 1] = "SỞ GIÁO DỤC VÀ ĐÀO TẠO HÀ NỘI";
+            worksheet.Cells[2, 1] = "TRƯỜNG MẦM NON HOA LINH";
+
+
+            worksheet.Cells[4, 1] = "DANH SÁCH HỌC SINH";
+            worksheet.Cells[5, 1] = "Năm học:" + cbbNamhoc.Text;
+            worksheet.Cells[6, 1] = "Khối:" + cbbKhoihoc.Text;
+            worksheet.Cells[7, 1] = "Lớp:" + cbbLophoc.Text;
+
+            worksheet.Cells[9, 1] = "STT";
+            worksheet.Cells[9, 2] = "Mã học sinh";
+            worksheet.Cells[9, 3] = "Họ";
+            worksheet.Cells[9, 4] = "Tên";
+            worksheet.Cells[9, 5] = "Ngày sinh";
+            worksheet.Cells[9, 6] = "Giới tính";
+            worksheet.Cells[9, 7] = "Địa chỉ";
+            worksheet.Cells[9, 8] = "Tình trạng";
+
+            //duyệt dết các dòng trong trong gridcontrol
+            for (int i = 0; i < gridView1.RowCount; i++)
+            {
+                worksheet.Cells[10 + i, 1] = i + 1;
+                worksheet.Cells[10 + i, 2] = gridView1.GetRowCellValue(i, gridView1.Columns["StudentCode"]);
+                worksheet.Cells[10 + i, 3] = gridView1.GetRowCellValue(i, gridView1.Columns["FirstName"]);
+                worksheet.Cells[10 + i, 4] = gridView1.GetRowCellValue(i, gridView1.Columns["LastName"]);
+                worksheet.Cells[10 + i, 5] = gridView1.GetRowCellValue(i, gridView1.Columns["Birthday"]);
+                if ((bool)gridView1.GetRowCellValue(i,gridView1.Columns["Gender"])==true)
+                {
+                    worksheet.Cells[10 + i, 6] = "Nam";
+                }
+                else
+                {
+                    worksheet.Cells[10 + i, 6] = "Nữ";
+                }
+                //worksheet.Cells[10 + i, 6] = gridView1.GetRowCellValue(i, gridView1.Columns["Gender"]);
+                worksheet.Cells[10 + i, 7] = gridView1.GetRowCellValue(i, gridView1.Columns["AdressDetail"]);
+                worksheet.Cells[10 + i, 8] = gridView1.GetRowCellValue(i, gridView1.Columns["tinhtrang"]);
+            }
+            int dongData = gridView1.RowCount;
+            worksheet.Cells[dongData + 13, 9] = "Hà Nội, ngày          tháng           năm            . ";
+            worksheet.Cells[dongData + 14, 9] = "HIỆU TRƯỞNG. ";
+            #endregion============đổ dữ liệu vào sheet=======
+            #region=====căn chỉnh======
+            //định dạng trang
+            worksheet.PageSetup.Orientation = Microsoft.Office.Interop.Excel.XlPageOrientation.xlPortrait; // Giấy dọc
+            worksheet.PageSetup.PaperSize = Microsoft.Office.Interop.Excel.XlPaperSize.xlPaperA4; // Loại giấy A4
+            worksheet.PageSetup.LeftMargin = 0;//can le trai
+            worksheet.PageSetup.TopMargin = 0;
+            worksheet.PageSetup.RightMargin = 0;
+            worksheet.PageSetup.BottomMargin = 0;
+            worksheet.PageSetup.CenterHorizontally = true;//can giua theo chieu ngang
+            //dinh dang cot
+            worksheet.Range["A1"].ColumnWidth = 3;
+            worksheet.Range["B1"].ColumnWidth = 13;
+            worksheet.Range["C1"].ColumnWidth = 13;
+            worksheet.Range["D1"].ColumnWidth = 8;
+            worksheet.Range["E1"].ColumnWidth = 13;
+            worksheet.Range["F1"].ColumnWidth = 10;
+            worksheet.Range["G1"].ColumnWidth = 28;
+            worksheet.Range["H1"].ColumnWidth = 14;
+            worksheet.Range["I1"].ColumnWidth = 11;
+            worksheet.Range["J1"].ColumnWidth = 14;
+            worksheet.Range["K1"].ColumnWidth = 11;
+            //dinh dang font chu
+            worksheet.Range["A1", "K100"].Font.Name = "Times New Roman";
+            worksheet.Range["A1", "K100"].Font.Size = 10; // size cho font chữ
+            worksheet.Range["A4", "K4"].Font.Size = 12; // Size tiêu đề lớn hơn chút
+            worksheet.Range["A1", "K2"].Font.Size = 16; // Size tiêu đề lớn hơn chút
+            worksheet.Range["A5", "K7"].Font.Size = 12;
+
+            worksheet.Range["A1", "C1"].MergeCells = true; // Nhập dòng tiêu đề
+            #endregion====căn chỉnh=====
+        }
+
+        #endregion======excell===========
+
+        private void bntXuatdanhsach_Click(object sender, EventArgs e)
+        {
+            SplashScreenManager.ShowForm(typeof(SplashScreen1));
+            export();
+            SplashScreenManager.CloseForm();
+        }
+
+       
     }
 }

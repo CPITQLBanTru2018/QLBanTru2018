@@ -77,7 +77,7 @@
             // 
             // bntDong
             // 
-            this.bntDong.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("simpleButton1.ImageOptions.Image")));
+            this.bntDong.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("bntDong.ImageOptions.Image")));
             this.bntDong.Location = new System.Drawing.Point(262, 295);
             this.bntDong.Name = "bntDong";
             this.bntDong.Size = new System.Drawing.Size(76, 22);

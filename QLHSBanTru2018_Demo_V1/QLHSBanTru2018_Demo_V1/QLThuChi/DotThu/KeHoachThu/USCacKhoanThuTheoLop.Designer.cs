@@ -28,10 +28,11 @@
         /// </summary>
         private void InitializeComponent()
         {
+            DevExpress.XtraSplashScreen.SplashScreenManager splashScreenManager1 = new DevExpress.XtraSplashScreen.SplashScreenManager(this, null, true, true, typeof(System.Windows.Forms.UserControl));
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(USCacKhoanThuTheoLop));
             this.layoutControl1 = new DevExpress.XtraLayout.LayoutControl();
             this.panelControl3 = new DevExpress.XtraEditors.PanelControl();
-            this.simpleButton1 = new DevExpress.XtraEditors.SimpleButton();
+            this.bntXuatdanhsach = new DevExpress.XtraEditors.SimpleButton();
             this.panelControl2 = new DevExpress.XtraEditors.PanelControl();
             this.label5 = new System.Windows.Forms.Label();
             this.cbbDotthu = new System.Windows.Forms.ComboBox();
@@ -124,6 +125,10 @@
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem6)).BeginInit();
             this.SuspendLayout();
             // 
+            // splashScreenManager1
+            // 
+            splashScreenManager1.ClosingDelay = 500;
+            // 
             // layoutControl1
             // 
             this.layoutControl1.Controls.Add(this.panelControl3);
@@ -142,20 +147,21 @@
             // 
             // panelControl3
             // 
-            this.panelControl3.Controls.Add(this.simpleButton1);
+            this.panelControl3.Controls.Add(this.bntXuatdanhsach);
             this.panelControl3.Location = new System.Drawing.Point(259, 12);
             this.panelControl3.Name = "panelControl3";
             this.panelControl3.Size = new System.Drawing.Size(607, 27);
             this.panelControl3.TabIndex = 12;
             // 
-            // simpleButton1
+            // bntXuatdanhsach
             // 
-            this.simpleButton1.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("simpleButton1.ImageOptions.Image")));
-            this.simpleButton1.Location = new System.Drawing.Point(2, 2);
-            this.simpleButton1.Name = "simpleButton1";
-            this.simpleButton1.Size = new System.Drawing.Size(105, 23);
-            this.simpleButton1.TabIndex = 0;
-            this.simpleButton1.Text = "Xuất danh sách";
+            this.bntXuatdanhsach.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("bntXuatdanhsach.ImageOptions.Image")));
+            this.bntXuatdanhsach.Location = new System.Drawing.Point(2, 2);
+            this.bntXuatdanhsach.Name = "bntXuatdanhsach";
+            this.bntXuatdanhsach.Size = new System.Drawing.Size(105, 23);
+            this.bntXuatdanhsach.TabIndex = 0;
+            this.bntXuatdanhsach.Text = "Xuất danh sách";
+            this.bntXuatdanhsach.Click += new System.EventHandler(this.bntXuatdanhsach_Click);
             // 
             // panelControl2
             // 
@@ -784,7 +790,7 @@
         private DevExpress.XtraLayout.LayoutControlGroup layoutControlGroup2;
         private DevExpress.XtraLayout.LayoutControlItem layoutControlItem3;
         private DevExpress.XtraEditors.PanelControl panelControl3;
-        private DevExpress.XtraEditors.SimpleButton simpleButton1;
+        private DevExpress.XtraEditors.SimpleButton bntXuatdanhsach;
         private System.Windows.Forms.TextBox txtDiachi;
         private System.Windows.Forms.TextBox txtNgaySinh;
         private System.Windows.Forms.TextBox txtTenhocsinh;
