@@ -59,7 +59,7 @@ namespace QLHSBanTru2018_Demo_V1.QLThuChi
             cbbDotthu.ValueMember = "ReceivableID";
             cbbDotthu.DisplayMember = "Name";
         }
-
+      
         private void USCacKhoanThuTheoLop_Load(object sender, EventArgs e)
         {
             try
@@ -246,10 +246,66 @@ namespace QLHSBanTru2018_Demo_V1.QLThuChi
             worksheet.Cells[9, 6] = "Giới tính";
             worksheet.Cells[9, 7] = "Địa chỉ";
             worksheet.Cells[9, 8] = "Tình trạng";
+            worksheet.Cells[9, 9] = "Tổng thu";
 
             //duyệt dết các dòng trong trong gridcontrol
             for (int i = 0; i < gridView1.RowCount; i++)
             {
+                #region ==== tinh tien hoc tung hoc sinh======
+                ReceivableDetail_StudentDAO dt = new ReceivableDetail_StudentDAO();
+                ReceivableDetailDAO dc = new ReceivableDetailDAO();
+                List<ReceivableDetail_Student> a = new List<ReceivableDetail_Student>();
+                List<ReceivableDetail> b = new List<ReceivableDetail>();
+                decimal tong = 0;
+                a = dt.ListReceivableDetail_Student((int)gridView1.GetRowCellValue(i, gridView1.Columns["StudentID"]));
+                foreach (var j in a)
+                {
+                    ReceivableDetail c = new ReceivableDetail();
+                    c = dc.ReceivableDetaiByStudenID(j.ReceivableDetailID, (int)cbbDotthu.SelectedValue);
+                    if (c != null)
+                    {
+                        tong += (decimal)c.TotalPriceDetail;
+                        b.Add(c);
+                    }
+
+                }
+
+
+                foreach (var j in b)
+                {
+                    string mg = j.PreferredID;
+                    List<string> b1 = new List<string>();
+                    int perferredID = (int)gridView1.GetRowCellValue(i, gridView1.Columns["PreferredID"]);
+                    for (int sj = 0; sj < (mg.Length - 1); sj += 2)
+                    {
+
+                        string c = mg.Substring(sj, 1);
+                        b1.Add(c);
+                    }
+                    if (b1.Count == 0)
+                    {
+                        worksheet.Cells[10 + i, 9] = tong;
+                    }
+                    else
+                    {
+                        foreach (var k in b1)
+                        {
+                            if (int.Parse(k) == perferredID)
+                            {
+                                PreferredDAO dv = new PreferredDAO();
+                                float pr = dv.lookPreferredPercent(perferredID);
+                                tong = tong - (((decimal)j.TotalPriceDetail * (decimal)pr) / 100);
+                                worksheet.Cells[10 + i, 9] = tong;
+                                break;
+                            }
+                            worksheet.Cells[10 + i, 9] = tong;
+                        }
+                    }
+                }
+
+                //  grDanhsachkhoanthu.DataSource = b;
+                #endregion ==== tinh tien hoc tung hoc sinh====
+                #region---- thong tin hoc sinh----
                 worksheet.Cells[10 + i, 1] = i + 1;
                 worksheet.Cells[10 + i, 2] = gridView1.GetRowCellValue(i, gridView1.Columns["StudentCode"]);
                 worksheet.Cells[10 + i, 3] = gridView1.GetRowCellValue(i, gridView1.Columns["FirstName"]);
@@ -266,10 +322,11 @@ namespace QLHSBanTru2018_Demo_V1.QLThuChi
                 //worksheet.Cells[10 + i, 6] = gridView1.GetRowCellValue(i, gridView1.Columns["Gender"]);
                 worksheet.Cells[10 + i, 7] = gridView1.GetRowCellValue(i, gridView1.Columns["AdressDetail"]);
                 worksheet.Cells[10 + i, 8] = gridView1.GetRowCellValue(i, gridView1.Columns["tinhtrang"]);
+                #endregion---thong tin hoc sinh------
             }
             int dongData = gridView1.RowCount;
-            worksheet.Cells[dongData + 13, 9] = "Hà Nội, ngày          tháng           năm            . ";
-            worksheet.Cells[dongData + 14, 9] = "HIỆU TRƯỞNG. ";
+            worksheet.Cells[dongData + 13, 8] = "Hà Nội, ngày          tháng           năm            . ";
+            worksheet.Cells[dongData + 14, 8] = "HIỆU TRƯỞNG. ";
             #endregion============đổ dữ liệu vào sheet=======
             #region=====căn chỉnh======
             //định dạng trang
@@ -299,7 +356,25 @@ namespace QLHSBanTru2018_Demo_V1.QLThuChi
             worksheet.Range["A1", "K2"].Font.Size = 16; // Size tiêu đề lớn hơn chút
             worksheet.Range["A5", "K7"].Font.Size = 12;
 
-            worksheet.Range["A1", "C1"].MergeCells = true; // Nhập dòng tiêu đề
+            worksheet.Range["A1", "I1"].MergeCells = true; // Nhập dòng tiêu đề
+            worksheet.Range["A2", "I2"].MergeCells = true;
+            worksheet.Range["A4", "I4"].MergeCells = true;
+            worksheet.Range["A5", "I5"].MergeCells = true;
+            worksheet.Range["A6", "I6"].MergeCells = true;
+            worksheet.Range["A7", "I7"].MergeCells = true;
+
+            worksheet.Range["A1", "K7"].Font.Bold = true;//to dam tieu de
+            worksheet.Range["A9", "K9"].Font.Bold = true;//to dam ten cot
+
+            worksheet.Range["A9", "I" + (dongData + 9)].Borders.LineStyle = 1;//ke vien bang
+
+            worksheet.Range["A3", "A9"].HorizontalAlignment = 3; // Căn giữa tiêu đề bảng
+            worksheet.Range["A8", "K8"].HorizontalAlignment = 3; // Tiêu đề cột bảng căn giữa
+            worksheet.Range["A4", "K4"].HorizontalAlignment = 3;
+            worksheet.Range["A5", "K5"].HorizontalAlignment = 3;
+            worksheet.Range["A6", "K6"].HorizontalAlignment = 3;
+
+
             #endregion====căn chỉnh=====
         }
 
@@ -312,6 +387,12 @@ namespace QLHSBanTru2018_Demo_V1.QLThuChi
             SplashScreenManager.CloseForm();
         }
 
-       
+        private void gridView1_RowCellStyle(object sender, DevExpress.XtraGrid.Views.Grid.RowCellStyleEventArgs e)
+        {
+            if (e.RowHandle%2==0)
+            {
+                e.Appearance.BackColor = Color.FromArgb(245, 245, 245);
+            }
+        }
     }
 }
