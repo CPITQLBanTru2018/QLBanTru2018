@@ -149,6 +149,15 @@ namespace QLHSBanTru2018_Demo_V1.TienBao
         #endregion
 
         #region Event
+        public string StudentCode { get; set; }
+        public string FirstName { get; set; }
+        public string LastName { get; set; }
+        public string HomeName { get; set; }
+        public DateTime? Birthday { get; set; }
+        public DateTime? DateStudy { get; set; }
+        public bool? Gender { get; set; }
+        public string AdressDetail { get; set; }
+        public string Note { get; set; }
         private void frmAddStudent_Load(object sender, EventArgs e)
         {
             LoadEthnicGroupInfor();
@@ -164,6 +173,23 @@ namespace QLHSBanTru2018_Demo_V1.TienBao
                 txtClassID.Enabled = false;
                 txtClassName.Enabled = false;
                 txtStudentCode.Focus();
+            }
+            else if (iFunction == 2)
+            {
+                this.Text = "Thêm mới học sinh";
+                txtClassName.Text = Class.Name;
+                txtClassID.Text = (Class.ClassID).ToString();
+                txtClassID.Enabled = false;
+                txtClassName.Enabled = false;
+                txtStudentCode.Focus();
+                txtStudentCode.Text = StudentCode;
+                txtFirstName.Text = FirstName;
+                txtLastName.Text = LastName;
+                txtHomeName.Text = HomeName;
+                //Birthday = DateTime.Parse(dtBirthday.EditValue.ToString());
+                //DateStudy = DateTime.Parse(dtDateStudy.EditValue.ToString());
+                txtAddressDetail.Text = AdressDetail;
+                txtNote.Text = Note;
             }
         }
         private void btnDong_Click(object sender, EventArgs e)
@@ -186,14 +212,20 @@ namespace QLHSBanTru2018_Demo_V1.TienBao
         }
         private void cbbProvince_SelectedIndexChanged(object sender, EventArgs e)
         {
-
+            try
+            {
+                LoadDistrictInfor(int.Parse(cbbProvince.SelectedValue.ToString()));
+                
+            }
+            catch
+            { }
         }
         private void cbbDistrict_SelectedIndexChanged(object sender, EventArgs e)
         {
             try
             {
                 LoadWardInfor(int.Parse(cbbDistrict.SelectedValue.ToString()));
-                cbbWard.SelectedIndex = 0;
+                
             }
             catch
             { }
