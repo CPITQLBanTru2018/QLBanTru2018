@@ -26,7 +26,12 @@ namespace DataConnect.DAO.ThanhCongTC
         }
         public List<Semester> ListSemester()
         {
-            var a = dt.Semesters.Where(t => t.CourseID == CourseID);
+            var a = dt.Semesters.Where(t => t.CourseID == CourseID).OrderByDescending(j => j.SemesterID);
+            return a.ToList();
+        }
+        public List<Semester>ListSemesterByID(int CourseID)
+        {
+            var a = dt.Semesters.Where(t => t.CourseID == CourseID).OrderByDescending(t => t.SemesterID);
             return a.ToList();
         }
         public List<Grade> ListGrade()

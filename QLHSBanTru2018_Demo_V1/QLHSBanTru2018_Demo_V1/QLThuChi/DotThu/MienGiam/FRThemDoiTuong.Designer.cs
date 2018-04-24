@@ -187,7 +187,7 @@
             this.ClientSize = new System.Drawing.Size(311, 113);
             this.Controls.Add(this.layoutControl1);
             this.Name = "FRThemDoiTuong";
-            this.Text = "FRThemDoiTuong";
+            this.Text = "Thêm đối tượng ";
             ((System.ComponentModel.ISupportInitialize)(this.layoutControl1)).EndInit();
             this.layoutControl1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.panelControl1)).EndInit();

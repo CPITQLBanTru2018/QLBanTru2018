@@ -31,6 +31,7 @@
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmTopicLesson));
             this.layoutControl1 = new DevExpress.XtraLayout.LayoutControl();
+            this.btnEditTopic = new DevExpress.XtraEditors.SimpleButton();
             this.btnAddTopic = new DevExpress.XtraEditors.SimpleButton();
             this.btnDetail = new System.Windows.Forms.Button();
             this.gcTopicLesson = new DevExpress.XtraGrid.GridControl();
@@ -71,9 +72,8 @@
             this.layoutControlItem7 = new DevExpress.XtraLayout.LayoutControlItem();
             this.layoutControlItem5 = new DevExpress.XtraLayout.LayoutControlItem();
             this.layoutControlItem10 = new DevExpress.XtraLayout.LayoutControlItem();
-            this.layoutControlItem11 = new DevExpress.XtraLayout.LayoutControlItem();
-            this.btnEditTopic = new DevExpress.XtraEditors.SimpleButton();
             this.layoutControlItem12 = new DevExpress.XtraLayout.LayoutControlItem();
+            this.layoutControlItem11 = new DevExpress.XtraLayout.LayoutControlItem();
             this.emptySpaceItem4 = new DevExpress.XtraLayout.EmptySpaceItem();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControl1)).BeginInit();
             this.layoutControl1.SuspendLayout();
@@ -101,8 +101,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem7)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem5)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem10)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem11)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem12)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem11)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem4)).BeginInit();
             this.SuspendLayout();
             // 
@@ -129,6 +129,17 @@
             this.layoutControl1.TabIndex = 0;
             this.layoutControl1.Text = "layoutControl1";
             // 
+            // btnEditTopic
+            // 
+            this.btnEditTopic.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("btnEditTopic.ImageOptions.Image")));
+            this.btnEditTopic.Location = new System.Drawing.Point(150, 41);
+            this.btnEditTopic.Name = "btnEditTopic";
+            this.btnEditTopic.Size = new System.Drawing.Size(131, 22);
+            this.btnEditTopic.StyleController = this.layoutControl1;
+            this.btnEditTopic.TabIndex = 20;
+            this.btnEditTopic.Text = "Sửa Chủ Đề";
+            this.btnEditTopic.Click += new System.EventHandler(this.btnEditTopic_Click);
+            // 
             // btnAddTopic
             // 
             this.btnAddTopic.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("btnAddTopic.ImageOptions.Image")));
@@ -142,7 +153,7 @@
             // 
             // btnDetail
             // 
-            this.btnDetail.Location = new System.Drawing.Point(723, 61);
+            this.btnDetail.Location = new System.Drawing.Point(723, 62);
             this.btnDetail.Name = "btnDetail";
             this.btnDetail.Size = new System.Drawing.Size(56, 21);
             this.btnDetail.TabIndex = 15;
@@ -305,7 +316,7 @@
             // 
             this.cbbTopicType.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbbTopicType.FormattingEnabled = true;
-            this.cbbTopicType.Location = new System.Drawing.Point(537, 61);
+            this.cbbTopicType.Location = new System.Drawing.Point(537, 62);
             this.cbbTopicType.Name = "cbbTopicType";
             this.cbbTopicType.Size = new System.Drawing.Size(182, 21);
             this.cbbTopicType.TabIndex = 9;
@@ -313,7 +324,7 @@
             // 
             // txtDescription
             // 
-            this.txtDescription.Location = new System.Drawing.Point(537, 229);
+            this.txtDescription.Location = new System.Drawing.Point(537, 230);
             this.txtDescription.Name = "txtDescription";
             this.txtDescription.Properties.ReadOnly = true;
             this.txtDescription.Size = new System.Drawing.Size(242, 47);
@@ -322,7 +333,7 @@
             // 
             // txtName
             // 
-            this.txtName.Location = new System.Drawing.Point(537, 164);
+            this.txtName.Location = new System.Drawing.Point(537, 165);
             this.txtName.Name = "txtName";
             this.txtName.Properties.ReadOnly = true;
             this.txtName.Size = new System.Drawing.Size(242, 45);
@@ -331,7 +342,7 @@
             // 
             // txtTopicDescription
             // 
-            this.txtTopicDescription.Location = new System.Drawing.Point(537, 296);
+            this.txtTopicDescription.Location = new System.Drawing.Point(537, 297);
             this.txtTopicDescription.Name = "txtTopicDescription";
             this.txtTopicDescription.Properties.ReadOnly = true;
             this.txtTopicDescription.Size = new System.Drawing.Size(242, 42);
@@ -464,7 +475,7 @@
             this.emptySpaceItem2.AllowHotTrack = false;
             this.emptySpaceItem2.Location = new System.Drawing.Point(0, 41);
             this.emptySpaceItem2.Name = "emptySpaceItem2";
-            this.emptySpaceItem2.Size = new System.Drawing.Size(246, 20);
+            this.emptySpaceItem2.Size = new System.Drawing.Size(246, 19);
             this.emptySpaceItem2.TextSize = new System.Drawing.Size(0, 0);
             // 
             // layoutControlItem9
@@ -500,11 +511,11 @@
             // 
             this.emptySpaceItem1.AllowHotTrack = false;
             this.emptySpaceItem1.CustomizationFormText = "emptySpaceItem1";
-            this.emptySpaceItem1.Location = new System.Drawing.Point(510, 339);
+            this.emptySpaceItem1.Location = new System.Drawing.Point(510, 340);
             this.emptySpaceItem1.MaxSize = new System.Drawing.Size(270, 0);
             this.emptySpaceItem1.MinSize = new System.Drawing.Size(270, 24);
             this.emptySpaceItem1.Name = "emptySpaceItem1";
-            this.emptySpaceItem1.Size = new System.Drawing.Size(270, 193);
+            this.emptySpaceItem1.Size = new System.Drawing.Size(270, 192);
             this.emptySpaceItem1.SizeConstraintsType = DevExpress.XtraLayout.SizeConstraintsType.Custom;
             this.emptySpaceItem1.TextSize = new System.Drawing.Size(0, 0);
             // 
@@ -516,7 +527,7 @@
             this.layoutControlItem10});
             this.layoutControlGroup2.Location = new System.Drawing.Point(510, 103);
             this.layoutControlGroup2.Name = "layoutControlGroup2";
-            this.layoutControlGroup2.Size = new System.Drawing.Size(270, 236);
+            this.layoutControlGroup2.Size = new System.Drawing.Size(270, 237);
             this.layoutControlGroup2.Text = "Thông Tin Bài Giảng";
             // 
             // layoutControlItem7
@@ -559,29 +570,6 @@
             this.layoutControlItem10.TextLocation = DevExpress.Utils.Locations.Top;
             this.layoutControlItem10.TextSize = new System.Drawing.Size(88, 13);
             // 
-            // layoutControlItem11
-            // 
-            this.layoutControlItem11.Control = this.btnAddTopic;
-            this.layoutControlItem11.Location = new System.Drawing.Point(0, 26);
-            this.layoutControlItem11.MaxSize = new System.Drawing.Size(135, 26);
-            this.layoutControlItem11.MinSize = new System.Drawing.Size(135, 26);
-            this.layoutControlItem11.Name = "layoutControlItem11";
-            this.layoutControlItem11.Size = new System.Drawing.Size(135, 26);
-            this.layoutControlItem11.SizeConstraintsType = DevExpress.XtraLayout.SizeConstraintsType.Custom;
-            this.layoutControlItem11.TextSize = new System.Drawing.Size(0, 0);
-            this.layoutControlItem11.TextVisible = false;
-            // 
-            // btnEditTopic
-            // 
-            this.btnEditTopic.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("simpleButton1.ImageOptions.Image")));
-            this.btnEditTopic.Location = new System.Drawing.Point(150, 41);
-            this.btnEditTopic.Name = "btnEditTopic";
-            this.btnEditTopic.Size = new System.Drawing.Size(131, 22);
-            this.btnEditTopic.StyleController = this.layoutControl1;
-            this.btnEditTopic.TabIndex = 20;
-            this.btnEditTopic.Text = "Sửa Chủ Đề";
-            this.btnEditTopic.Click += new System.EventHandler(this.btnEditTopic_Click);
-            // 
             // layoutControlItem12
             // 
             this.layoutControlItem12.Control = this.btnEditTopic;
@@ -593,6 +581,18 @@
             this.layoutControlItem12.SizeConstraintsType = DevExpress.XtraLayout.SizeConstraintsType.Custom;
             this.layoutControlItem12.TextSize = new System.Drawing.Size(0, 0);
             this.layoutControlItem12.TextVisible = false;
+            // 
+            // layoutControlItem11
+            // 
+            this.layoutControlItem11.Control = this.btnAddTopic;
+            this.layoutControlItem11.Location = new System.Drawing.Point(0, 26);
+            this.layoutControlItem11.MaxSize = new System.Drawing.Size(135, 26);
+            this.layoutControlItem11.MinSize = new System.Drawing.Size(135, 26);
+            this.layoutControlItem11.Name = "layoutControlItem11";
+            this.layoutControlItem11.Size = new System.Drawing.Size(135, 26);
+            this.layoutControlItem11.SizeConstraintsType = DevExpress.XtraLayout.SizeConstraintsType.Custom;
+            this.layoutControlItem11.TextSize = new System.Drawing.Size(0, 0);
+            this.layoutControlItem11.TextVisible = false;
             // 
             // emptySpaceItem4
             // 
@@ -636,8 +636,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem7)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem5)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem10)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem11)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem12)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem11)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem4)).EndInit();
             this.ResumeLayout(false);
 

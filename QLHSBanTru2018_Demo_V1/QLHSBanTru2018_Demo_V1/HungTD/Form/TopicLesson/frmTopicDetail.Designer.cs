@@ -107,7 +107,7 @@
             // 
             this.cbbDisplayOrder.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbbDisplayOrder.FormattingEnabled = true;
-            this.cbbDisplayOrder.Location = new System.Drawing.Point(114, 153);
+            this.cbbDisplayOrder.Location = new System.Drawing.Point(114, 154);
             this.cbbDisplayOrder.Name = "cbbDisplayOrder";
             this.cbbDisplayOrder.Size = new System.Drawing.Size(138, 21);
             this.cbbDisplayOrder.TabIndex = 7;
@@ -116,7 +116,7 @@
             // 
             this.cbbTopicType.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbbTopicType.FormattingEnabled = true;
-            this.cbbTopicType.Location = new System.Drawing.Point(114, 80);
+            this.cbbTopicType.Location = new System.Drawing.Point(114, 81);
             this.cbbTopicType.Name = "cbbTopicType";
             this.cbbTopicType.Size = new System.Drawing.Size(346, 21);
             this.cbbTopicType.TabIndex = 5;
@@ -132,7 +132,7 @@
             // chkActive
             // 
             this.chkActive.EditValue = true;
-            this.chkActive.Location = new System.Drawing.Point(114, 178);
+            this.chkActive.Location = new System.Drawing.Point(114, 179);
             this.chkActive.Name = "chkActive";
             this.chkActive.Properties.Caption = "Kích hoạt";
             this.chkActive.Size = new System.Drawing.Size(346, 19);
@@ -152,7 +152,7 @@
             // 
             // txtDescription
             // 
-            this.txtDescription.Location = new System.Drawing.Point(114, 105);
+            this.txtDescription.Location = new System.Drawing.Point(114, 106);
             this.txtDescription.Name = "txtDescription";
             this.txtDescription.Size = new System.Drawing.Size(346, 44);
             this.txtDescription.StyleController = this.layoutControl1;
@@ -160,7 +160,7 @@
             // 
             // txtName
             // 
-            this.txtName.Location = new System.Drawing.Point(114, 42);
+            this.txtName.Location = new System.Drawing.Point(114, 43);
             this.txtName.Name = "txtName";
             this.txtName.Size = new System.Drawing.Size(346, 34);
             this.txtName.StyleController = this.layoutControl1;
@@ -270,7 +270,7 @@
             this.emptySpaceItem2.AllowHotTrack = false;
             this.emptySpaceItem2.Location = new System.Drawing.Point(0, 159);
             this.emptySpaceItem2.Name = "emptySpaceItem2";
-            this.emptySpaceItem2.Size = new System.Drawing.Size(440, 14);
+            this.emptySpaceItem2.Size = new System.Drawing.Size(440, 13);
             this.emptySpaceItem2.TextSize = new System.Drawing.Size(0, 0);
             // 
             // layoutControlItem2

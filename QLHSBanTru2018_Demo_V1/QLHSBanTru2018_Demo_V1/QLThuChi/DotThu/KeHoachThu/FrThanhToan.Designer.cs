@@ -459,6 +459,7 @@
             this.gridView1.GridControl = this.grDanhsachkhoanthu;
             this.gridView1.Name = "gridView1";
             this.gridView1.OptionsView.ShowAutoFilterRow = true;
+            this.gridView1.RowCellStyle += new DevExpress.XtraGrid.Views.Grid.RowCellStyleEventHandler(this.gridView1_RowCellStyle);
             this.gridView1.FocusedRowChanged += new DevExpress.XtraGrid.Views.Base.FocusedRowChangedEventHandler(this.gridView1_FocusedRowChanged);
             this.gridView1.CellValueChanging += new DevExpress.XtraGrid.Views.Base.CellValueChangedEventHandler(this.gridView1_CellValueChanging);
             this.gridView1.CustomUnboundColumnData += new DevExpress.XtraGrid.Views.Base.CustomColumnDataEventHandler(this.gridView1_CustomUnboundColumnData);
@@ -593,7 +594,7 @@
             this.ClientSize = new System.Drawing.Size(955, 445);
             this.Controls.Add(this.layoutControl1);
             this.Name = "FrThanhToan";
-            this.Text = "FrThanhToan";
+            this.Text = "Thanh toán";
             this.Load += new System.EventHandler(this.FrThanhToan_Load);
             ((System.ComponentModel.ISupportInitialize)(this.layoutControl1)).EndInit();
             this.layoutControl1.ResumeLayout(false);

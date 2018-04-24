@@ -55,7 +55,7 @@ namespace QLHSBanTru2018_Demo_V1.QLThuChi
         public void laodDotthu()
         {
             ReceivableIDAO dt = new ReceivableIDAO();
-            cbbDotthu.DataSource = dt.ListReceivable();
+            cbbDotthu.DataSource = dt.ListReceivable((int)cbbHocky.SelectedValue, (int)cbbHocky.SelectedValue);
             cbbDotthu.ValueMember = "ReceivableID";
             cbbDotthu.DisplayMember = "Name";
         }
@@ -64,7 +64,7 @@ namespace QLHSBanTru2018_Demo_V1.QLThuChi
         {
             try
             {
-                laodDotthu();
+                //laodDotthu();
                 LoadNamhoc();
                 studentReceivableDAO.CourseID = (int)cbbNamhoc.SelectedValue;
                 LoadHocky();
@@ -109,6 +109,7 @@ namespace QLHSBanTru2018_Demo_V1.QLThuChi
         {
             try
             {
+                laodDotthu();
                 studentReceivableDAO.SemesterID = (int)cbbHocky.SelectedValue;
                 LoadKhoihoc();
                 studentReceivableDAO.GradeID = (int)cbbKhoihoc.SelectedValue;
@@ -170,6 +171,7 @@ namespace QLHSBanTru2018_Demo_V1.QLThuChi
         private void cbbDotthu_SelectionChangeCommitted(object sender, EventArgs e)
         {
             ReceivableIDAO.ReceivableID = (int)cbbDotthu.SelectedValue;
+            loadDSHS();
         }
 
         private void bntThanhToan_Click(object sender, EventArgs e)
@@ -180,35 +182,42 @@ namespace QLHSBanTru2018_Demo_V1.QLThuChi
 
         private void gridView1_CustomUnboundColumnData(object sender, DevExpress.XtraGrid.Views.Base.CustomColumnDataEventArgs e)
         {
-
-            ReceivableDetail_StudentDAO dt = new ReceivableDetail_StudentDAO();
-            ReceivableDetailDAO dc = new ReceivableDetailDAO();
-            List<ReceivableDetail_Student> a = new List<ReceivableDetail_Student>();
-            List<ReceivableDetail> b = new List<ReceivableDetail>();
-            List<ReceivableDetail_Student> f = new List<ReceivableDetail_Student>();
-            int rowindex = e.ListSourceRowIndex;
-            a = dt.ListReceivableDetail_Student((int)gridView1.GetListSourceRowCellValue(rowindex, "StudentID"));
-            b = dc.ListReceivableDetail((int)cbbDotthu.SelectedValue);
-            foreach (var i in b)
+            try
             {
-                foreach (var j in a)
+                ReceivableDetail_StudentDAO dt = new ReceivableDetail_StudentDAO();
+                ReceivableDetailDAO dc = new ReceivableDetailDAO();
+                List<ReceivableDetail_Student> a = new List<ReceivableDetail_Student>();
+                List<ReceivableDetail> b = new List<ReceivableDetail>();
+                List<ReceivableDetail_Student> f = new List<ReceivableDetail_Student>();
+                int rowindex = e.ListSourceRowIndex;
+                a = dt.ListReceivableDetail_Student((int)gridView1.GetListSourceRowCellValue(rowindex, "StudentID"));
+                b = dc.ListReceivableDetail((int)cbbDotthu.SelectedValue);
+                foreach (var i in b)
                 {
-                    if (i.ReceivableDetailID==j.ReceivableDetailID)
+                    foreach (var j in a)
                     {
-                        f.Add(j);
+                        if (i.ReceivableDetailID == j.ReceivableDetailID)
+                        {
+                            f.Add(j);
+                        }
                     }
                 }
-            }
-            if (e.Column.FieldName != "tinhtrang") return;
-            foreach (var i in f)
-            {
-                //MessageBox.Show("" + i.ReceivableDetailID + " " + i.StudentID + " " + i.Status + "");
-                if (i.Status==false)
+                if (e.Column.FieldName != "tinhtrang") return;
+                foreach (var i in f)
                 {
-                    e.Value = "Chưa hàn thành";
-                    break;
+                    //MessageBox.Show("" + i.ReceivableDetailID + " " + i.StudentID + " " + i.Status + "");
+                    if (i.Status == false)
+                    {
+                        e.Value = "Chưa hàn thành";
+                        break;
+                    }
+                    e.Value = "Đã hoàn thành";
                 }
-                e.Value = "Đã hoàn thành";
+            }
+            catch 
+            {
+
+                
             }
         }
         #endregion danhsach

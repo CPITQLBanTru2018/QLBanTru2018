@@ -14,12 +14,12 @@ namespace DataConnect.DAO.ThanhCongTC
         {
             Receivable a = new Receivable();
             a.Name = entity.Name;
-            a.TotalPrice = entity.TotalPrice;
+            a.SemesterID = entity.SemesterID;
             a.StartDate = entity.StartDate;
             a.EndDate = entity.EndDate;
             a.CreatedDate = entity.CreatedDate;
             a.Status = entity.Status;
-            //a.RevenueID = entity.RevenueID;
+            a.CourseID = entity.CourseID;
             dt.Receivables.InsertOnSubmit(a);
             dt.SubmitChanges();
             return a.ReceivableID;
@@ -28,12 +28,12 @@ namespace DataConnect.DAO.ThanhCongTC
         {
             Receivable a = dt.Receivables.Where(t => t.ReceivableID == entity.ReceivableID).FirstOrDefault();
             a.Name = entity.Name;
-            a.TotalPrice = entity.TotalPrice;
+            a.SemesterID = entity.SemesterID;
             a.StartDate = entity.StartDate;
             a.EndDate = entity.EndDate;
             a.CreatedDate = entity.CreatedDate;
             a.Status = entity.Status;
-            //a.RevenueID = entity.RevenueID;
+            a.CourseID = entity.CourseID;
             dt.SubmitChanges();
             return true;
         }
@@ -44,9 +44,9 @@ namespace DataConnect.DAO.ThanhCongTC
             dt.SubmitChanges();
             return true;
         }
-        public List<Receivable> ListReceivable()
+        public List<Receivable> ListReceivable(int courseId,int semesterID)
         {
-            var a = dt.Receivables.OrderByDescending(t=>t.ReceivableID);
+            var a = dt.Receivables.Where(t=>t.CourseID==courseId&&t.SemesterID==semesterID).OrderByDescending(t=>t.ReceivableID);
             return a.ToList();
         }
     }
