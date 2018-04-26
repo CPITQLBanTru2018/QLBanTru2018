@@ -63,6 +63,8 @@
     <Compile Include="DAO\HungTD\FunctionGroupDAO.cs" />
     <Compile Include="DAO\HungTD\GradeDAO.cs" />
     <Compile Include="DAO\HungTD\HistoryDAO.cs" />
+    <Compile Include="DAO\HungTD\IngredientDAO.cs" />
+    <Compile Include="DAO\HungTD\IngredientTypeDAO.cs" />
     <Compile Include="DAO\HungTD\LessonDAO.cs" />
     <Compile Include="DAO\HungTD\LocationDAO.cs" />
     <Compile Include="DAO\HungTD\LoginDAO.cs" />
@@ -103,6 +105,8 @@
     <Compile Include="ViewModel\DivisionViewModel.cs" />
     <Compile Include="ViewModel\EmployeeFullViewModel.cs" />
     <Compile Include="ViewModel\FunctionViewModel.cs" />
+    <Compile Include="ViewModel\IngredientTypeViewModel.cs" />
+    <Compile Include="ViewModel\IngredientViewModel.cs" />
     <Compile Include="ViewModel\LessonViewModel.cs" />
     <Compile Include="ViewModel\SemesterViewModel.cs" />
     <Compile Include="ViewModel\StudentViewModel.cs" />

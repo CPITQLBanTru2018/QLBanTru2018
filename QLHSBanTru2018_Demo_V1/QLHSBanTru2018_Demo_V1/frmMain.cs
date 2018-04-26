@@ -21,6 +21,7 @@ using QLHSBanTru2018_Demo_V1.HungTD.Form.TopicLession;
 using QLHSBanTru2018_Demo_V1.HungTD.Form.WorkProgress;
 using QLHSBanTru2018_Demo_V1.DAO.HungTD;
 using QLHSBanTru2018_Demo_V1.Common;
+using QLHSBanTru2018_Demo_V1.HungTD.Form.Ingredient;
 
 namespace QLHSBanTru2018_Demo_V1
 {
@@ -89,6 +90,18 @@ namespace QLHSBanTru2018_Demo_V1
             pnControlsPanel.Controls.Add(new frmWorkProgressList());
             labTitle.Caption = "QUẢN LÝ QUÁ TRÌNH CÔNG TÁC";
         }
+        private void btnIngredientType_ItemClick(object sender, ItemClickEventArgs e)
+        {
+            pnControlsPanel.Controls.Clear();
+            pnControlsPanel.Controls.Add(new frmIngredientType());
+            labTitle.Caption = "QUẢN LÝ LOẠI THỰC PHẨM";
+        }
+        private void btnIngredient_ItemClick(object sender, ItemClickEventArgs e)
+        {
+            pnControlsPanel.Controls.Clear();
+            pnControlsPanel.Controls.Add(new frmIngredient());
+            labTitle.Caption = "QUẢN LÝ THỰC PHẨM";
+        }
         #endregion
 
         #region Nguyễn Kiều Thành Công
@@ -140,5 +153,6 @@ namespace QLHSBanTru2018_Demo_V1
             pnControlsPanel.Controls.Add(a);
             a.Dock = DockStyle.Fill;
         }
+
     }
 }

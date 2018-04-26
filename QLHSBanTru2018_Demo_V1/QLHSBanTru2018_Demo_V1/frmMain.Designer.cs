@@ -45,6 +45,8 @@
             this.btnSemester = new DevExpress.XtraBars.BarButtonItem();
             this.btnTopicLesson = new DevExpress.XtraBars.BarButtonItem();
             this.btnWorkProgress = new DevExpress.XtraBars.BarButtonItem();
+            this.labNameLogin = new DevExpress.XtraBars.BarStaticItem();
+            this.labTitle = new DevExpress.XtraBars.BarStaticItem();
             this.ribbonPage1 = new DevExpress.XtraBars.Ribbon.RibbonPage();
             this.ribbonPageGroup1 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             this.ribbonPageGroup2 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
@@ -59,8 +61,10 @@
             this.ribbonStatusBar = new DevExpress.XtraBars.Ribbon.RibbonStatusBar();
             this.defaultLookAndFeel1 = new DevExpress.LookAndFeel.DefaultLookAndFeel(this.components);
             this.pnControlsPanel = new System.Windows.Forms.Panel();
-            this.labNameLogin = new DevExpress.XtraBars.BarStaticItem();
-            this.labTitle = new DevExpress.XtraBars.BarStaticItem();
+            this.ribbonPage4 = new DevExpress.XtraBars.Ribbon.RibbonPage();
+            this.ribbonPageGroup9 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
+            this.btnIngredientType = new DevExpress.XtraBars.BarButtonItem();
+            this.btnIngredient = new DevExpress.XtraBars.BarButtonItem();
             ((System.ComponentModel.ISupportInitialize)(this.ribbon)).BeginInit();
             this.SuspendLayout();
             // 
@@ -84,12 +88,15 @@
             this.btnTopicLesson,
             this.btnWorkProgress,
             this.labNameLogin,
-            this.labTitle});
+            this.labTitle,
+            this.btnIngredientType,
+            this.btnIngredient});
             this.ribbon.Location = new System.Drawing.Point(0, 0);
-            this.ribbon.MaxItemId = 17;
+            this.ribbon.MaxItemId = 19;
             this.ribbon.Name = "ribbon";
             this.ribbon.Pages.AddRange(new DevExpress.XtraBars.Ribbon.RibbonPage[] {
             this.ribbonPage1,
+            this.ribbonPage4,
             this.ribbonPage2,
             this.ribbonPage3});
             this.ribbon.Size = new System.Drawing.Size(798, 146);
@@ -221,6 +228,19 @@
             this.btnWorkProgress.Name = "btnWorkProgress";
             this.btnWorkProgress.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.btnWorkProgress_ItemClick);
             // 
+            // labNameLogin
+            // 
+            this.labNameLogin.Caption = "Người Đăng Nhập:";
+            this.labNameLogin.Id = 15;
+            this.labNameLogin.Name = "labNameLogin";
+            // 
+            // labTitle
+            // 
+            this.labTitle.Alignment = DevExpress.XtraBars.BarItemLinkAlignment.Right;
+            this.labTitle.Caption = "QUẢN LÝ PHÒNG BAN";
+            this.labTitle.Id = 16;
+            this.labTitle.Name = "labTitle";
+            // 
             // ribbonPage1
             // 
             this.ribbonPage1.Groups.AddRange(new DevExpress.XtraBars.Ribbon.RibbonPageGroup[] {
@@ -323,18 +343,37 @@
             this.pnControlsPanel.Size = new System.Drawing.Size(798, 432);
             this.pnControlsPanel.TabIndex = 3;
             // 
-            // labNameLogin
+            // ribbonPage4
             // 
-            this.labNameLogin.Caption = "Người Đăng Nhập:";
-            this.labNameLogin.Id = 15;
-            this.labNameLogin.Name = "labNameLogin";
+            this.ribbonPage4.Groups.AddRange(new DevExpress.XtraBars.Ribbon.RibbonPageGroup[] {
+            this.ribbonPageGroup9});
+            this.ribbonPage4.Name = "ribbonPage4";
+            this.ribbonPage4.Text = "Thực Phẩm - Dinh Dưỡng";
             // 
-            // labTitle
+            // ribbonPageGroup9
             // 
-            this.labTitle.Alignment = DevExpress.XtraBars.BarItemLinkAlignment.Right;
-            this.labTitle.Caption = "QUẢN LÝ PHÒNG BAN";
-            this.labTitle.Id = 16;
-            this.labTitle.Name = "labTitle";
+            this.ribbonPageGroup9.ItemLinks.Add(this.btnIngredientType);
+            this.ribbonPageGroup9.ItemLinks.Add(this.btnIngredient);
+            this.ribbonPageGroup9.Name = "ribbonPageGroup9";
+            this.ribbonPageGroup9.Text = "Thực Phẩm";
+            // 
+            // btnIngredientType
+            // 
+            this.btnIngredientType.Caption = "Loại Thực Phẩm";
+            this.btnIngredientType.Id = 17;
+            this.btnIngredientType.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("btnIngredientType.ImageOptions.Image")));
+            this.btnIngredientType.ImageOptions.LargeImage = ((System.Drawing.Image)(resources.GetObject("btnIngredientType.ImageOptions.LargeImage")));
+            this.btnIngredientType.Name = "btnIngredientType";
+            this.btnIngredientType.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.btnIngredientType_ItemClick);
+            // 
+            // btnIngredient
+            // 
+            this.btnIngredient.Caption = "Thực Phẩm";
+            this.btnIngredient.Id = 18;
+            this.btnIngredient.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("barButtonItem1.ImageOptions.Image")));
+            this.btnIngredient.ImageOptions.LargeImage = ((System.Drawing.Image)(resources.GetObject("barButtonItem1.ImageOptions.LargeImage")));
+            this.btnIngredient.Name = "btnIngredient";
+            this.btnIngredient.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.btnIngredient_ItemClick);
             // 
             // frmMain
             // 
@@ -388,5 +427,9 @@
         private DevExpress.XtraBars.BarButtonItem btnWorkProgress;
         private DevExpress.XtraBars.BarStaticItem labNameLogin;
         private DevExpress.XtraBars.BarStaticItem labTitle;
+        private DevExpress.XtraBars.BarButtonItem btnIngredientType;
+        private DevExpress.XtraBars.Ribbon.RibbonPage ribbonPage4;
+        private DevExpress.XtraBars.Ribbon.RibbonPageGroup ribbonPageGroup9;
+        private DevExpress.XtraBars.BarButtonItem btnIngredient;
     }
 }

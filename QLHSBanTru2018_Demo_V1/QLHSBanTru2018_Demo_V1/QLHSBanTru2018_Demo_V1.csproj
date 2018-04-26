@@ -199,6 +199,30 @@
     <Compile Include="HungTD\Form\Function\frmFunctionList.Designer.cs">
       <DependentUpon>frmFunctionList.cs</DependentUpon>
     </Compile>
+    <Compile Include="HungTD\Form\Ingredient\frmIngredient.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="HungTD\Form\Ingredient\frmIngredient.Designer.cs">
+      <DependentUpon>frmIngredient.cs</DependentUpon>
+    </Compile>
+    <Compile Include="HungTD\Form\Ingredient\frmIngredientDetail.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="HungTD\Form\Ingredient\frmIngredientDetail.Designer.cs">
+      <DependentUpon>frmIngredientDetail.cs</DependentUpon>
+    </Compile>
+    <Compile Include="HungTD\Form\Ingredient\frmIngredientType.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="HungTD\Form\Ingredient\frmIngredientType.Designer.cs">
+      <DependentUpon>frmIngredientType.cs</DependentUpon>
+    </Compile>
+    <Compile Include="HungTD\Form\Ingredient\frmIngredientTypeDetail.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="HungTD\Form\Ingredient\frmIngredientTypeDetail.Designer.cs">
+      <DependentUpon>frmIngredientTypeDetail.cs</DependentUpon>
+    </Compile>
     <Compile Include="HungTD\Form\NewFolder1\frmABC.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -414,6 +438,18 @@
     </EmbeddedResource>
     <EmbeddedResource Include="HungTD\Form\Function\frmFunctionList.resx">
       <DependentUpon>frmFunctionList.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="HungTD\Form\Ingredient\frmIngredient.resx">
+      <DependentUpon>frmIngredient.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="HungTD\Form\Ingredient\frmIngredientDetail.resx">
+      <DependentUpon>frmIngredientDetail.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="HungTD\Form\Ingredient\frmIngredientType.resx">
+      <DependentUpon>frmIngredientType.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="HungTD\Form\Ingredient\frmIngredientTypeDetail.resx">
+      <DependentUpon>frmIngredientTypeDetail.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="HungTD\Form\NewFolder1\frmABC.resx">
       <DependentUpon>frmABC.cs</DependentUpon>

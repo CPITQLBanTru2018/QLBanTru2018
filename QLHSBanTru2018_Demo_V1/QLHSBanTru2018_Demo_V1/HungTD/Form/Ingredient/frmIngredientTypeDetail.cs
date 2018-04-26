@@ -8,27 +8,36 @@ using System.Linq;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using DevExpress.XtraEditors;
+using DataConnect;
 using DataConnect.DAO.HungTD;
 
-namespace QLHSBanTru2018_Demo_V1.HungTD.Form.Department
+namespace QLHSBanTru2018_Demo_V1.HungTD.Form.Ingredient
 {
-    public partial class frmDepartmentDetail : DevExpress.XtraEditors.XtraForm
+    public partial class frmIngredientTypeDetail : DevExpress.XtraEditors.XtraForm
     {
-        public int Function = 0;
-        public DataConnect.Department department;
-        public frmDepartmentDetail()
+        int iFunction = 0;
+        IngredientType ingredientType;
+        public void setFunction(int iFunction)
+        {
+            this.iFunction = iFunction;
+        }
+        public void setIngredientType(int ingredientTypeID)
+        {
+            this.ingredientType = new IngredientTypeDAO().GetByID(ingredientTypeID);
+        }
+        public frmIngredientTypeDetail()
         {
             InitializeComponent();
         }
 
-        private void frmDepartmentDetail_Load(object sender, EventArgs e)
+        private void frmIngredientTypeDetail_Load(object sender, EventArgs e)
         {
-            if (Function == 2)
+            if (iFunction == 2)
             {
                 try
                 {
-                    txtName.Text = department.Name;
-                    chbStatus.Checked = department.Status == true ? true : false;
+                    txtName.Text = ingredientType.Name;
+                    chkActive.Checked = ingredientType.Status;
                 }
                 catch
                 {
@@ -39,14 +48,14 @@ namespace QLHSBanTru2018_Demo_V1.HungTD.Form.Department
 
         private void btnSave_Click(object sender, EventArgs e)
         {
-            if (txtName.Text!="")
+            if (txtName.Text != "")
             {
-                DataConnect.Department entity = new DataConnect.Department();
+                IngredientType entity = new IngredientType();
                 entity.Name = txtName.Text;
-                entity.Status = chbStatus.Checked == true ? true : false;
-                if (Function == 1)
+                entity.Status = chkActive.Checked;
+                if (iFunction == 1)
                 {
-                    if (new DepartmentDAO().Insert(entity) == true)
+                    if(new IngredientTypeDAO().Insert(entity) > 0)
                     {
                         DialogResult = DialogResult.OK;
                         this.Close();
@@ -55,11 +64,10 @@ namespace QLHSBanTru2018_Demo_V1.HungTD.Form.Department
                     {
                         MessageBox.Show("Đã xảy ra lỗi khi thực hiện chức năng!", "Thông Báo");
                     }
-                }
-                else if (Function == 2)
+                }else if (iFunction == 2)
                 {
-                    entity.DepartmentID = department.DepartmentID;
-                    if (new DepartmentDAO().Edit(entity) == true)
+                    entity.IngredientTypeID = ingredientType.IngredientTypeID;
+                    if(new IngredientTypeDAO().Edit(entity) == true)
                     {
                         DialogResult = DialogResult.OK;
                         this.Close();
@@ -72,9 +80,10 @@ namespace QLHSBanTru2018_Demo_V1.HungTD.Form.Department
             }
             else
             {
-                MessageBox.Show("Mời bạn nhập đầy đủ thông tin!", "Thông Báo");
+                MessageBox.Show("Mời bạn nhập đầy đủ thông tin!","Thông Báo");
             }
         }
+
         private void btnCancel_Click(object sender, EventArgs e)
         {
             this.Close();
