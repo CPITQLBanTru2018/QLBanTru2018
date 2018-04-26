@@ -467,13 +467,14 @@
     <Type Name="Receivable">
       <Column Name="ReceivableID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
       <Column Name="Name" Type="System.String" DbType="NVarChar(100) NOT NULL" CanBeNull="false" />
-      <Column Name="TotalPrice" Type="System.Decimal" DbType="Decimal(18,0) NOT NULL" CanBeNull="false" />
       <Column Name="StartDate" Type="System.DateTime" DbType="DateTime NOT NULL" CanBeNull="false" />
       <Column Name="EndDate" Type="System.DateTime" DbType="DateTime NOT NULL" CanBeNull="false" />
       <Column Name="CreatedDate" Type="System.DateTime" DbType="DateTime NOT NULL" CanBeNull="false" />
       <Column Name="Status" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
       <Column Name="RevenueID" Type="System.Int32" DbType="Int" CanBeNull="true" />
       <Column Name="PreferredID" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="CourseID" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="SemesterID" Type="System.Int32" DbType="Int" CanBeNull="true" />
       <Association Name="Receivable_ReceivableDetail" Member="ReceivableDetails" ThisKey="ReceivableID" OtherKey="ReceivableID" Type="ReceivableDetail" />
     </Type>
   </Table>

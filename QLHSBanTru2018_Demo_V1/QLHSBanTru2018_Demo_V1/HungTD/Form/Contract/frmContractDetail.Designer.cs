@@ -181,7 +181,7 @@
             this.gcListEmployee.Location = new System.Drawing.Point(12, 38);
             this.gcListEmployee.MainView = this.gridView1;
             this.gcListEmployee.Name = "gcListEmployee";
-            this.gcListEmployee.Size = new System.Drawing.Size(457, 140);
+            this.gcListEmployee.Size = new System.Drawing.Size(457, 139);
             this.gcListEmployee.TabIndex = 20;
             this.gcListEmployee.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gridView1});
@@ -253,7 +253,7 @@
             // dtCreatedDate
             // 
             this.dtCreatedDate.EditValue = null;
-            this.dtCreatedDate.Location = new System.Drawing.Point(577, 188);
+            this.dtCreatedDate.Location = new System.Drawing.Point(577, 189);
             this.dtCreatedDate.Name = "dtCreatedDate";
             this.dtCreatedDate.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
@@ -266,7 +266,7 @@
             // cbbCreatedBy
             // 
             this.cbbCreatedBy.FormattingEnabled = true;
-            this.cbbCreatedBy.Location = new System.Drawing.Point(577, 163);
+            this.cbbCreatedBy.Location = new System.Drawing.Point(577, 164);
             this.cbbCreatedBy.Name = "cbbCreatedBy";
             this.cbbCreatedBy.Size = new System.Drawing.Size(183, 21);
             this.cbbCreatedBy.TabIndex = 10;
@@ -278,7 +278,7 @@
             this.cbbTimeType.Items.AddRange(new object[] {
             "Có thời hạn",
             "Không thời hạn"});
-            this.cbbTimeType.Location = new System.Drawing.Point(577, 66);
+            this.cbbTimeType.Location = new System.Drawing.Point(577, 67);
             this.cbbTimeType.Name = "cbbTimeType";
             this.cbbTimeType.Size = new System.Drawing.Size(183, 21);
             this.cbbTimeType.TabIndex = 5;
@@ -286,7 +286,7 @@
             // 
             // txtContractType
             // 
-            this.txtContractType.Location = new System.Drawing.Point(577, 42);
+            this.txtContractType.Location = new System.Drawing.Point(577, 43);
             this.txtContractType.Name = "txtContractType";
             this.txtContractType.Size = new System.Drawing.Size(183, 20);
             this.txtContractType.StyleController = this.layoutControl1;
@@ -294,7 +294,7 @@
             // 
             // txtPayRate
             // 
-            this.txtPayRate.Location = new System.Drawing.Point(577, 91);
+            this.txtPayRate.Location = new System.Drawing.Point(577, 92);
             this.txtPayRate.Name = "txtPayRate";
             this.txtPayRate.Properties.Mask.EditMask = "n";
             this.txtPayRate.Properties.Mask.MaskType = DevExpress.XtraEditors.Mask.MaskType.Numeric;
@@ -305,7 +305,7 @@
             // dtStartDate
             // 
             this.dtStartDate.EditValue = null;
-            this.dtStartDate.Location = new System.Drawing.Point(577, 115);
+            this.dtStartDate.Location = new System.Drawing.Point(577, 116);
             this.dtStartDate.Name = "dtStartDate";
             this.dtStartDate.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
@@ -318,7 +318,7 @@
             // dtEndDate
             // 
             this.dtEndDate.EditValue = null;
-            this.dtEndDate.Location = new System.Drawing.Point(577, 139);
+            this.dtEndDate.Location = new System.Drawing.Point(577, 140);
             this.dtEndDate.Name = "dtEndDate";
             this.dtEndDate.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
@@ -330,7 +330,7 @@
             // 
             // txtAttachedFile
             // 
-            this.txtAttachedFile.Location = new System.Drawing.Point(577, 212);
+            this.txtAttachedFile.Location = new System.Drawing.Point(577, 213);
             this.txtAttachedFile.Name = "txtAttachedFile";
             this.txtAttachedFile.Size = new System.Drawing.Size(183, 20);
             this.txtAttachedFile.StyleController = this.layoutControl1;
@@ -338,9 +338,9 @@
             // 
             // txtNote
             // 
-            this.txtNote.Location = new System.Drawing.Point(577, 236);
+            this.txtNote.Location = new System.Drawing.Point(577, 237);
             this.txtNote.Name = "txtNote";
-            this.txtNote.Size = new System.Drawing.Size(183, 116);
+            this.txtNote.Size = new System.Drawing.Size(183, 115);
             this.txtNote.StyleController = this.layoutControl1;
             this.txtNote.TabIndex = 13;
             // 
@@ -625,7 +625,7 @@
             this.layoutControlItem10.Control = this.txtNote;
             this.layoutControlItem10.Location = new System.Drawing.Point(0, 194);
             this.layoutControlItem10.Name = "layoutControlItem10";
-            this.layoutControlItem10.Size = new System.Drawing.Size(279, 120);
+            this.layoutControlItem10.Size = new System.Drawing.Size(279, 119);
             this.layoutControlItem10.Text = "Ghi chú";
             this.layoutControlItem10.TextSize = new System.Drawing.Size(89, 13);
             // 
@@ -634,7 +634,7 @@
             this.layoutControlItem16.Control = this.gcListEmployee;
             this.layoutControlItem16.Location = new System.Drawing.Point(0, 26);
             this.layoutControlItem16.Name = "layoutControlItem16";
-            this.layoutControlItem16.Size = new System.Drawing.Size(461, 144);
+            this.layoutControlItem16.Size = new System.Drawing.Size(461, 143);
             this.layoutControlItem16.TextSize = new System.Drawing.Size(0, 0);
             this.layoutControlItem16.TextVisible = false;
             // 
@@ -649,9 +649,9 @@
             this.layoutControlItem22,
             this.layoutControlItem23,
             this.layoutControlItem14});
-            this.layoutControlGroup4.Location = new System.Drawing.Point(0, 170);
+            this.layoutControlGroup4.Location = new System.Drawing.Point(0, 169);
             this.layoutControlGroup4.Name = "layoutControlGroup4";
-            this.layoutControlGroup4.Size = new System.Drawing.Size(461, 186);
+            this.layoutControlGroup4.Size = new System.Drawing.Size(461, 187);
             this.layoutControlGroup4.Text = "Thông Tin Nhân Viên";
             // 
             // layoutControlItem17

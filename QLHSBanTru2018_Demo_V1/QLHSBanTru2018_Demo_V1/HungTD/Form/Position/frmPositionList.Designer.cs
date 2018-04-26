@@ -46,8 +46,8 @@
             this.cardView1 = new DevExpress.XtraGrid.Views.Card.CardView();
             this.colLayoutLastName = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colFirtName = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.tileView1 = new DevExpress.XtraGrid.Views.Tile.TileView();
             this.gcEmployee = new DevExpress.XtraGrid.GridControl();
+            this.tileView1 = new DevExpress.XtraGrid.Views.Tile.TileView();
             this.txtName = new System.Windows.Forms.MaskedTextBox();
             this.txtPositionID = new System.Windows.Forms.MaskedTextBox();
             this.btnAdd = new DevExpress.XtraEditors.SimpleButton();
@@ -61,20 +61,20 @@
             this.colLayoutFullName = new DevExpress.XtraGrid.Columns.TileViewColumn();
             this.colLayoutPhoto = new DevExpress.XtraGrid.Columns.TileViewColumn();
             this.pcLeft = new DevExpress.XtraEditors.PanelControl();
+            this.gcPositionList = new DevExpress.XtraGrid.GridControl();
             this.gridView1 = new DevExpress.XtraGrid.Views.Grid.GridView();
             this.colSTT = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colName = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colStatus = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.gcPositionList = new DevExpress.XtraGrid.GridControl();
             ((System.ComponentModel.ISupportInitialize)(this.cardView1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.tileView1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gcEmployee)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.tileView1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pcMenu)).BeginInit();
             this.pcMenu.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pcLeft)).BeginInit();
             this.pcLeft.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.gridView1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gcPositionList)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.gridView1)).BeginInit();
             this.SuspendLayout();
             // 
             // cardView1
@@ -100,6 +100,20 @@
             this.colFirtName.Name = "colFirtName";
             this.colFirtName.Visible = true;
             this.colFirtName.VisibleIndex = 1;
+            // 
+            // gcEmployee
+            // 
+            this.gcEmployee.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.gcEmployee.Location = new System.Drawing.Point(484, 30);
+            this.gcEmployee.MainView = this.tileView1;
+            this.gcEmployee.Name = "gcEmployee";
+            this.gcEmployee.Size = new System.Drawing.Size(319, 523);
+            this.gcEmployee.TabIndex = 7;
+            this.gcEmployee.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
+            this.tileView1,
+            this.cardView1});
             // 
             // tileView1
             // 
@@ -195,20 +209,6 @@
             this.tileView1.TileTemplate.Add(tileViewItemElement9);
             this.tileView1.TileTemplate.Add(tileViewItemElement10);
             this.tileView1.TileTemplate.Add(tileViewItemElement11);
-            // 
-            // gcEmployee
-            // 
-            this.gcEmployee.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.gcEmployee.Location = new System.Drawing.Point(484, 30);
-            this.gcEmployee.MainView = this.tileView1;
-            this.gcEmployee.Name = "gcEmployee";
-            this.gcEmployee.Size = new System.Drawing.Size(319, 523);
-            this.gcEmployee.TabIndex = 7;
-            this.gcEmployee.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
-            this.tileView1,
-            this.cardView1});
             // 
             // txtName
             // 
@@ -334,6 +334,17 @@
             this.pcLeft.Size = new System.Drawing.Size(392, 552);
             this.pcLeft.TabIndex = 4;
             // 
+            // gcPositionList
+            // 
+            this.gcPositionList.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.gcPositionList.Location = new System.Drawing.Point(2, 2);
+            this.gcPositionList.MainView = this.gridView1;
+            this.gcPositionList.Name = "gcPositionList";
+            this.gcPositionList.Size = new System.Drawing.Size(388, 548);
+            this.gcPositionList.TabIndex = 0;
+            this.gcPositionList.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
+            this.gridView1});
+            // 
             // gridView1
             // 
             this.gridView1.Columns.AddRange(new DevExpress.XtraGrid.Columns.GridColumn[] {
@@ -385,17 +396,6 @@
             this.colStatus.VisibleIndex = 2;
             this.colStatus.Width = 199;
             // 
-            // gcPositionList
-            // 
-            this.gcPositionList.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.gcPositionList.Location = new System.Drawing.Point(2, 2);
-            this.gcPositionList.MainView = this.gridView1;
-            this.gcPositionList.Name = "gcPositionList";
-            this.gcPositionList.Size = new System.Drawing.Size(388, 548);
-            this.gcPositionList.TabIndex = 0;
-            this.gcPositionList.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
-            this.gridView1});
-            // 
             // frmPositionList
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -409,14 +409,14 @@
             this.Size = new System.Drawing.Size(806, 558);
             this.Load += new System.EventHandler(this.frmPositionList_Load);
             ((System.ComponentModel.ISupportInitialize)(this.cardView1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.tileView1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.gcEmployee)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.tileView1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pcMenu)).EndInit();
             this.pcMenu.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.pcLeft)).EndInit();
             this.pcLeft.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.gridView1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.gcPositionList)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.gridView1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 

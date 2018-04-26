@@ -74,10 +74,6 @@
     <Reference Include="DevExpress.XtraReports.v17.2.Extensions, Version=17.2.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
     <Reference Include="DevExpress.XtraRichEdit.v17.2, Version=17.2.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
     <Reference Include="DevExpress.XtraTreeList.v17.2, Version=17.2.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
-    <Reference Include="Microsoft.Office.Interop.Excel1">
-      <HintPath>C:\Program Files (x86)\Microsoft Visual Studio\Shared\Visual Studio Tools for Office\PIA\Office14\Microsoft.Office.Interop.Excel.dll</HintPath>
-      <EmbedInteropTypes>True</EmbedInteropTypes>
-    </Reference>
     <Reference Include="Microsoft.VisualBasic" />
     <Reference Include="PresentationCore" />
     <Reference Include="System" />
@@ -310,6 +306,12 @@
     <Compile Include="QLThuChi\DotThu\KeHoachThu\FRViewDoituongchinhsach.Designer.cs">
       <DependentUpon>FRViewDoituongchinhsach.cs</DependentUpon>
     </Compile>
+    <Compile Include="QLThuChi\DotThu\KeHoachThu\SplashScreen1.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="QLThuChi\DotThu\KeHoachThu\SplashScreen1.Designer.cs">
+      <DependentUpon>SplashScreen1.cs</DependentUpon>
+    </Compile>
     <Compile Include="QLThuChi\DotThu\MienGiam\FRDienMienGiam.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -503,6 +505,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="QLThuChi\DotThu\KeHoachThu\FRViewDoituongchinhsach.resx">
       <DependentUpon>FRViewDoituongchinhsach.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="QLThuChi\DotThu\KeHoachThu\SplashScreen1.resx">
+      <DependentUpon>SplashScreen1.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="QLThuChi\DotThu\MienGiam\FRDienMienGiam.resx">
       <DependentUpon>FRDienMienGiam.cs</DependentUpon>

@@ -9,6 +9,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using DevExpress.XtraEditors;
 using DataConnect.DAO.ThanhCongTC;
+using DataConnect;
 
 namespace QLHSBanTru2018_Demo_V1.QLThuChi.DotThu.KeHoachThu
 {
@@ -20,16 +21,42 @@ namespace QLHSBanTru2018_Demo_V1.QLThuChi.DotThu.KeHoachThu
         }
         public void laodPreferred()
         {
-            for (int i = 0; i <= studentReceivableDAO.PreferredID.Length-2; i++)
+            List<string> b = new List<string>();
+            for (int i = 0; i < (studentReceivableDAO.PreferredID.Length - 1); i+=2)
             {
-                string a = studentReceivableDAO.PreferredID.Substring(i, i + 1);
-                i++;
-                MessageBox.Show("" + a + "");
+                
+                string a = studentReceivableDAO.PreferredID.Substring(i,1);
+                b.Add(a);
+                
             }
+            PreferredDAO dt = new PreferredDAO();
+            List<Preferred> c = new List<Preferred>();
+            foreach (var i in b )
+            {
+                Preferred e = dt.listPreferredByID(int.Parse(i));
+                if (e!=null)
+                {
+                    c.Add(e);
+                }
+            }
+            grDanhsachmiengian.DataSource = c;
         }
         private void FRViewDoituongchinhsach_Load(object sender, EventArgs e)
         {
-            //laodPreferred();
+            laodPreferred();
+        }
+
+        private void bntDong_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
+
+        private void gridView1_RowCellStyle(object sender, DevExpress.XtraGrid.Views.Grid.RowCellStyleEventArgs e)
+        {
+            if (e.RowHandle % 2 == 0)
+            {
+                e.Appearance.BackColor = Color.FromArgb(245, 245, 245);
+            }
         }
     }
 }

@@ -56,7 +56,7 @@ namespace QLHSBanTru2018_Demo_V1.QLThuChi
             {
                 Tong += float.Parse(gridView1.GetRowCellValue(i, gridView1.Columns["Price"]).ToString());
             }
-            txtTongtien.Text = Tong.ToString()+"đ";
+            //txtTongtien.Text = Tong.ToString()+"đ";
 
         }
 
@@ -88,81 +88,105 @@ namespace QLHSBanTru2018_Demo_V1.QLThuChi
 
         }
 
+        public void LoadNamhoc()
+        {
+            studentReceivableDAO dt = new studentReceivableDAO();
+            cbbNamhoc.DataSource = dt.ListCourse();
+            cbbNamhoc.ValueMember = "CourseID";
+            cbbNamhoc.DisplayMember = "Name";
+        }
+        public void LoadHocky()
+        {
+            studentReceivableDAO dt = new studentReceivableDAO();
+            cbbHocky.DataSource = dt.ListSemesterByID((int)cbbNamhoc.SelectedValue);
+            cbbHocky.ValueMember = "SemesterID";
+            cbbHocky.DisplayMember = "Name";
+        }
         private void FrThietLapKeHoachThu_Load(object sender, EventArgs e)
         {
-
+            LoadNamhoc();
+            //LoadHocky();
         }
 
         private void bntKhoitao_Click(object sender, EventArgs e)
         {
-            try
+            if (txtTendotthu.Text=="")
             {
-                string a = txtTongtien.Text;
-                a = a.Trim();
-                a = a.Substring(0, a.LastIndexOf("đ"));
-                ReceivableIDAO rb = new ReceivableIDAO();
-                ReceivableDetailDAO rbd = new ReceivableDetailDAO();
-                Receivable rbdt = new Receivable();
-                rbdt.Name = txtTendotthu.Text;
-                rbdt.TotalPrice = decimal.Parse(a);
-                rbdt.StartDate = dtNgaybatdau.Value;
-                rbdt.EndDate = dtNgayketthuc.Value;
-                rbdt.CreatedDate = dtNgaykhoitao.Value;
-                rbdt.Status = false;
-                int c = rb.Insert(rbdt);
-                if (c != 0)
+                MessageBox.Show("Bạn cần nhập đủ thông tin đợt thu");
+            }
+            else
+            {
+                if (cbbHocky.Text=="")
                 {
-                    ReceivableDetail detail = new ReceivableDetail();
-                    for (int i = 0; i < gridView1.RowCount; i++)
+                    try
                     {
-                        detail.Name = gridView1.GetRowCellValue(i, gridView1.Columns["Name"]).ToString();
-                        detail.ReceivableID = c;
-                        detail.Price = decimal.Parse(a);
-                        detail.Status = false;
-                        detail.TimeUnits = gridView1.GetRowCellValue(i, gridView1.Columns["TimeUnits"]).ToString();
-                        detail.Frequency = (int)gridView1.GetRowCellValue(i, gridView1.Columns["Frequency"]);
-                        detail.TotalPriceDetail = (decimal)gridView1.GetRowCellValue(i, gridView1.Columns["TotalPriceDetail"]);
-                        detail.GradeID = (int)gridView1.GetRowCellValue(i, gridView1.Columns["GradeID"]);
-                        detail.PreferredID = gridView1.GetRowCellValue(i, gridView1.Columns["PreferredID"]).ToString();                      
-                        int d = rbd.Insert(detail);
-                        if (d!=0)
+
+                        ReceivableIDAO rb = new ReceivableIDAO();
+                        ReceivableDetailDAO rbd = new ReceivableDetailDAO();
+                        Receivable rbdt = new Receivable();
+                        rbdt.Name = txtTendotthu.Text;
+                        rbdt.CourseID = (int)cbbNamhoc.SelectedValue;
+                        rbdt.SemesterID = (int)cbbHocky.SelectedValue;
+                        rbdt.StartDate = dtNgaybatdau.Value;
+                        rbdt.EndDate = dtNgayketthuc.Value;
+                        rbdt.CreatedDate = dtNgaykhoitao.Value;
+                        rbdt.Status = false;
+                        int c = rb.Insert(rbdt);
+                        if (c != 0)
                         {
-                            //MessageBox.Show("" + d + "");
-                            StudenGrade gr = new StudenGrade();
-                            ReceivableDetail_StudentDAO st = new ReceivableDetail_StudentDAO();
-                            List<Student_Class> listClassID = gr.lookStudenbyGradeID((int)detail.GradeID);
-                            //int dem = listClassID.Count;
-                            //MessageBox.Show("" + dem + "");
-                            foreach (var j in listClassID)
+                            ReceivableDetail detail = new ReceivableDetail();
+                            for (int i = 0; i < gridView1.RowCount; i++)
                             {
-                                ReceivableDetail_Student dt = new ReceivableDetail_Student();
-                                dt.ReceivableDetailID = d;
-                                dt.StudentID = j.StudentID;
-                                dt.Status = false;
-                                if (st.Insert(dt) == true)
+                                detail.Name = gridView1.GetRowCellValue(i, gridView1.Columns["Name"]).ToString();
+                                detail.ReceivableID = c;
+                                detail.Price = (decimal)gridView1.GetRowCellValue(i, gridView1.Columns["Price"]);
+                                detail.Status = false;
+                                detail.TimeUnits = gridView1.GetRowCellValue(i, gridView1.Columns["TimeUnits"]).ToString();
+                                detail.Frequency = (int)gridView1.GetRowCellValue(i, gridView1.Columns["Frequency"]);
+                                detail.TotalPriceDetail = (decimal)gridView1.GetRowCellValue(i, gridView1.Columns["TotalPriceDetail"]);
+                                detail.GradeID = (int)gridView1.GetRowCellValue(i, gridView1.Columns["GradeID"]);
+                                detail.PreferredID = gridView1.GetRowCellValue(i, gridView1.Columns["PreferredID"]).ToString();
+                                int d = rbd.Insert(detail);
+                                if (d != 0)
                                 {
+                                    //MessageBox.Show("" + d + "");
+                                    StudenGrade gr = new StudenGrade();
+                                    ReceivableDetail_StudentDAO st = new ReceivableDetail_StudentDAO();
+                                    List<Student_Class> listClassID = gr.lookStudenbyGradeID((int)detail.GradeID);
+                                    //int dem = listClassID.Count;
+                                    //MessageBox.Show("" + dem + "");
+                                    foreach (var j in listClassID)
+                                    {
+                                        ReceivableDetail_Student dt = new ReceivableDetail_Student();
+                                        dt.ReceivableDetailID = d;
+                                        dt.StudentID = j.StudentID;
+                                        dt.Status = false;
+                                        if (st.Insert(dt) == true)
+                                        {
+
+                                        }
+                                        else
+                                        {
+                                            MessageBox.Show("ban gi bi loi");
+                                        }
+                                    }
 
                                 }
                                 else
                                 {
-                                    MessageBox.Show("ban gi bi loi");
+                                    MessageBox.Show("Ban ghi " + i + " bi loi");
                                 }
                             }
-
-                        }
-                        else
-                        {
-                            MessageBox.Show("Ban ghi " + i + " bi loi");
+                            MessageBox.Show("Khoi tao hoan tat");
+                            this.Close();
                         }
                     }
-                    MessageBox.Show("Khoi tao hoan tat");
-                    this.Close();
+                    catch
+                    {
+                        MessageBox.Show("Loi");
+
+                    }
                 }
-            }
-            catch 
-            {
-                MessageBox.Show("Loi");
-                
             }
         }
 
@@ -220,6 +244,19 @@ namespace QLHSBanTru2018_Demo_V1.QLThuChi
         private void txtTongtien_TextChanged(object sender, EventArgs e)
         {
 
+        }
+
+        private void gridView1_RowCellStyle(object sender, DevExpress.XtraGrid.Views.Grid.RowCellStyleEventArgs e)
+        {
+            if (e.RowHandle % 2 == 0)
+            {
+                e.Appearance.BackColor = Color.FromArgb(245, 245, 245);
+            }
+        }
+
+        private void cbbNamhoc_SelectionChangeCommitted(object sender, EventArgs e)
+        {
+            LoadHocky();
         }
     }
 }

@@ -97,5 +97,13 @@ namespace QLHSBanTru2018_Demo_V1.QLThuChi
             }
             loadMiengiam();
         }
+
+        private void gridView1_RowCellStyle(object sender, DevExpress.XtraGrid.Views.Grid.RowCellStyleEventArgs e)
+        {
+            if (e.RowHandle % 2 == 0)
+            {
+                e.Appearance.BackColor = Color.FromArgb(245, 245, 245);
+            }
+        }
     }
 }

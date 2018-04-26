@@ -41,5 +41,10 @@ namespace DataConnect.DAO.ThanhCongTC
             var a = dt.ReceivableDetail_Students.Where(t => t.StudentID == StudenID);
             return a.ToList();
         }
+        public ReceivableDetail_Student loockReceivableDEtail_StudentByID(ReceivableDetail_Student a)
+        {
+            ReceivableDetail_Student b = dt.ReceivableDetail_Students.FirstOrDefault(t => t.StudentID == a.StudentID && t.ReceivableDetailID == a.ReceivableDetailID);
+            return a;
+        }
     }
 }

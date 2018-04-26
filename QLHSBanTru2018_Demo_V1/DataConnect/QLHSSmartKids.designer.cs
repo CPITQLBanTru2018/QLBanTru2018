@@ -10454,8 +10454,6 @@ namespace DataConnect
 		
 		private string _Name;
 		
-		private decimal _TotalPrice;
-		
 		private System.DateTime _StartDate;
 		
 		private System.DateTime _EndDate;
@@ -10468,6 +10466,10 @@ namespace DataConnect
 		
 		private System.Nullable<int> _PreferredID;
 		
+		private System.Nullable<int> _CourseID;
+		
+		private System.Nullable<int> _SemesterID;
+		
 		private EntitySet<ReceivableDetail> _ReceivableDetails;
 		
     #region Extensibility Method Definitions
@@ -10478,8 +10480,6 @@ namespace DataConnect
     partial void OnReceivableIDChanged();
     partial void OnNameChanging(string value);
     partial void OnNameChanged();
-    partial void OnTotalPriceChanging(decimal value);
-    partial void OnTotalPriceChanged();
     partial void OnStartDateChanging(System.DateTime value);
     partial void OnStartDateChanged();
     partial void OnEndDateChanging(System.DateTime value);
@@ -10492,6 +10492,10 @@ namespace DataConnect
     partial void OnRevenueIDChanged();
     partial void OnPreferredIDChanging(System.Nullable<int> value);
     partial void OnPreferredIDChanged();
+    partial void OnCourseIDChanging(System.Nullable<int> value);
+    partial void OnCourseIDChanged();
+    partial void OnSemesterIDChanging(System.Nullable<int> value);
+    partial void OnSemesterIDChanged();
     #endregion
 		
 		public Receivable()
@@ -10536,26 +10540,6 @@ namespace DataConnect
 					this._Name = value;
 					this.SendPropertyChanged("Name");
 					this.OnNameChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_TotalPrice", DbType="Decimal(18,0) NOT NULL")]
-		public decimal TotalPrice
-		{
-			get
-			{
-				return this._TotalPrice;
-			}
-			set
-			{
-				if ((this._TotalPrice != value))
-				{
-					this.OnTotalPriceChanging(value);
-					this.SendPropertyChanging();
-					this._TotalPrice = value;
-					this.SendPropertyChanged("TotalPrice");
-					this.OnTotalPriceChanged();
 				}
 			}
 		}
@@ -10676,6 +10660,46 @@ namespace DataConnect
 					this._PreferredID = value;
 					this.SendPropertyChanged("PreferredID");
 					this.OnPreferredIDChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CourseID", DbType="Int")]
+		public System.Nullable<int> CourseID
+		{
+			get
+			{
+				return this._CourseID;
+			}
+			set
+			{
+				if ((this._CourseID != value))
+				{
+					this.OnCourseIDChanging(value);
+					this.SendPropertyChanging();
+					this._CourseID = value;
+					this.SendPropertyChanged("CourseID");
+					this.OnCourseIDChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_SemesterID", DbType="Int")]
+		public System.Nullable<int> SemesterID
+		{
+			get
+			{
+				return this._SemesterID;
+			}
+			set
+			{
+				if ((this._SemesterID != value))
+				{
+					this.OnSemesterIDChanging(value);
+					this.SendPropertyChanging();
+					this._SemesterID = value;
+					this.SendPropertyChanged("SemesterID");
+					this.OnSemesterIDChanged();
 				}
 			}
 		}

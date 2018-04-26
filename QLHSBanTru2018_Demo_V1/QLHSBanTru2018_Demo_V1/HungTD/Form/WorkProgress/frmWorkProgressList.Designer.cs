@@ -39,6 +39,12 @@
             this.comboBox1 = new System.Windows.Forms.ComboBox();
             this.textEdit1 = new DevExpress.XtraEditors.TextEdit();
             this.gcMain = new DevExpress.XtraGrid.GridControl();
+            this.cmsMenu = new System.Windows.Forms.ContextMenuStrip(this.components);
+            this.btnMenuAdd = new System.Windows.Forms.ToolStripMenuItem();
+            this.btnMenuEdit = new System.Windows.Forms.ToolStripMenuItem();
+            this.btnMenuDelete = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
+            this.btnMenuViewDetail = new System.Windows.Forms.ToolStripMenuItem();
             this.gridView1 = new DevExpress.XtraGrid.Views.Grid.GridView();
             this.colEmployeeFullName = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colDepartmentName = new DevExpress.XtraGrid.Columns.GridColumn();
@@ -64,17 +70,12 @@
             this.layoutControlItem8 = new DevExpress.XtraLayout.LayoutControlItem();
             this.emptySpaceItem2 = new DevExpress.XtraLayout.EmptySpaceItem();
             this.layoutControlItem9 = new DevExpress.XtraLayout.LayoutControlItem();
-            this.cmsMenu = new System.Windows.Forms.ContextMenuStrip(this.components);
-            this.btnMenuAdd = new System.Windows.Forms.ToolStripMenuItem();
-            this.btnMenuEdit = new System.Windows.Forms.ToolStripMenuItem();
-            this.btnMenuDelete = new System.Windows.Forms.ToolStripMenuItem();
-            this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
-            this.btnMenuViewDetail = new System.Windows.Forms.ToolStripMenuItem();
             ((System.ComponentModel.ISupportInitialize)(this.textEdit2.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControl1)).BeginInit();
             this.layoutControl1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.textEdit1.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gcMain)).BeginInit();
+            this.cmsMenu.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.gridView1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlGroup1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.Root1)).BeginInit();
@@ -91,12 +92,11 @@
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem8)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem9)).BeginInit();
-            this.cmsMenu.SuspendLayout();
             this.SuspendLayout();
             // 
             // textEdit2
             // 
-            this.textEdit2.Location = new System.Drawing.Point(627, 126);
+            this.textEdit2.Location = new System.Drawing.Point(627, 128);
             this.textEdit2.Name = "textEdit2";
             this.textEdit2.Size = new System.Drawing.Size(162, 20);
             this.textEdit2.StyleController = this.layoutControl1;
@@ -169,14 +169,14 @@
             // 
             this.comboBox1.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Location = new System.Drawing.Point(627, 35);
+            this.comboBox1.Location = new System.Drawing.Point(627, 36);
             this.comboBox1.Name = "comboBox1";
             this.comboBox1.Size = new System.Drawing.Size(162, 21);
             this.comboBox1.TabIndex = 9;
             // 
             // textEdit1
             // 
-            this.textEdit1.Location = new System.Drawing.Point(627, 102);
+            this.textEdit1.Location = new System.Drawing.Point(627, 104);
             this.textEdit1.Name = "textEdit1";
             this.textEdit1.Size = new System.Drawing.Size(162, 20);
             this.textEdit1.StyleController = this.layoutControl1;
@@ -192,6 +192,50 @@
             this.gcMain.TabIndex = 12;
             this.gcMain.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gridView1});
+            // 
+            // cmsMenu
+            // 
+            this.cmsMenu.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.btnMenuAdd,
+            this.btnMenuEdit,
+            this.btnMenuDelete,
+            this.toolStripSeparator1,
+            this.btnMenuViewDetail});
+            this.cmsMenu.Name = "cmsMenu";
+            this.cmsMenu.Size = new System.Drawing.Size(143, 98);
+            // 
+            // btnMenuAdd
+            // 
+            this.btnMenuAdd.Name = "btnMenuAdd";
+            this.btnMenuAdd.Size = new System.Drawing.Size(142, 22);
+            this.btnMenuAdd.Text = "Thêm Mới";
+            this.btnMenuAdd.Click += new System.EventHandler(this.btnMenuAdd_Click);
+            // 
+            // btnMenuEdit
+            // 
+            this.btnMenuEdit.Name = "btnMenuEdit";
+            this.btnMenuEdit.Size = new System.Drawing.Size(142, 22);
+            this.btnMenuEdit.Text = "Chính Sửa";
+            this.btnMenuEdit.Click += new System.EventHandler(this.btnMenuEdit_Click);
+            // 
+            // btnMenuDelete
+            // 
+            this.btnMenuDelete.Name = "btnMenuDelete";
+            this.btnMenuDelete.Size = new System.Drawing.Size(142, 22);
+            this.btnMenuDelete.Text = "Xóa";
+            this.btnMenuDelete.Click += new System.EventHandler(this.btnMenuDelete_Click);
+            // 
+            // toolStripSeparator1
+            // 
+            this.toolStripSeparator1.Name = "toolStripSeparator1";
+            this.toolStripSeparator1.Size = new System.Drawing.Size(139, 6);
+            // 
+            // btnMenuViewDetail
+            // 
+            this.btnMenuViewDetail.Name = "btnMenuViewDetail";
+            this.btnMenuViewDetail.Size = new System.Drawing.Size(142, 22);
+            this.btnMenuViewDetail.Text = "Xem Chi Tiết";
+            this.btnMenuViewDetail.Click += new System.EventHandler(this.btnMenuViewDetail_Click);
             // 
             // gridView1
             // 
@@ -400,7 +444,7 @@
             this.layoutControlItem6});
             this.layoutControlGroup3.Location = new System.Drawing.Point(506, 0);
             this.layoutControlGroup3.Name = "layoutControlGroup3";
-            this.layoutControlGroup3.Size = new System.Drawing.Size(294, 67);
+            this.layoutControlGroup3.Size = new System.Drawing.Size(294, 68);
             this.layoutControlGroup3.Text = "Lọc Thông Tin";
             // 
             // layoutControlItem6
@@ -420,9 +464,9 @@
             this.emptySpaceItem1,
             this.layoutControlItem5,
             this.layoutControlItem7});
-            this.layoutControlGroup4.Location = new System.Drawing.Point(506, 67);
+            this.layoutControlGroup4.Location = new System.Drawing.Point(506, 68);
             this.layoutControlGroup4.Name = "layoutControlGroup4";
-            this.layoutControlGroup4.Size = new System.Drawing.Size(294, 485);
+            this.layoutControlGroup4.Size = new System.Drawing.Size(294, 484);
             this.layoutControlGroup4.Text = "Thông Tin ABC";
             // 
             // emptySpaceItem1
@@ -433,7 +477,7 @@
             this.emptySpaceItem1.MaxSize = new System.Drawing.Size(270, 0);
             this.emptySpaceItem1.MinSize = new System.Drawing.Size(270, 24);
             this.emptySpaceItem1.Name = "emptySpaceItem1";
-            this.emptySpaceItem1.Size = new System.Drawing.Size(270, 395);
+            this.emptySpaceItem1.Size = new System.Drawing.Size(270, 393);
             this.emptySpaceItem1.SizeConstraintsType = DevExpress.XtraLayout.SizeConstraintsType.Custom;
             this.emptySpaceItem1.TextSize = new System.Drawing.Size(0, 0);
             // 
@@ -487,50 +531,6 @@
             this.layoutControlItem9.TextSize = new System.Drawing.Size(0, 0);
             this.layoutControlItem9.TextVisible = false;
             // 
-            // cmsMenu
-            // 
-            this.cmsMenu.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.btnMenuAdd,
-            this.btnMenuEdit,
-            this.btnMenuDelete,
-            this.toolStripSeparator1,
-            this.btnMenuViewDetail});
-            this.cmsMenu.Name = "cmsMenu";
-            this.cmsMenu.Size = new System.Drawing.Size(143, 98);
-            // 
-            // btnMenuAdd
-            // 
-            this.btnMenuAdd.Name = "btnMenuAdd";
-            this.btnMenuAdd.Size = new System.Drawing.Size(142, 22);
-            this.btnMenuAdd.Text = "Thêm Mới";
-            this.btnMenuAdd.Click += new System.EventHandler(this.btnMenuAdd_Click);
-            // 
-            // btnMenuEdit
-            // 
-            this.btnMenuEdit.Name = "btnMenuEdit";
-            this.btnMenuEdit.Size = new System.Drawing.Size(142, 22);
-            this.btnMenuEdit.Text = "Chính Sửa";
-            this.btnMenuEdit.Click += new System.EventHandler(this.btnMenuEdit_Click);
-            // 
-            // btnMenuDelete
-            // 
-            this.btnMenuDelete.Name = "btnMenuDelete";
-            this.btnMenuDelete.Size = new System.Drawing.Size(142, 22);
-            this.btnMenuDelete.Text = "Xóa";
-            this.btnMenuDelete.Click += new System.EventHandler(this.btnMenuDelete_Click);
-            // 
-            // toolStripSeparator1
-            // 
-            this.toolStripSeparator1.Name = "toolStripSeparator1";
-            this.toolStripSeparator1.Size = new System.Drawing.Size(139, 6);
-            // 
-            // btnMenuViewDetail
-            // 
-            this.btnMenuViewDetail.Name = "btnMenuViewDetail";
-            this.btnMenuViewDetail.Size = new System.Drawing.Size(142, 22);
-            this.btnMenuViewDetail.Text = "Xem Chi Tiết";
-            this.btnMenuViewDetail.Click += new System.EventHandler(this.btnMenuViewDetail_Click);
-            // 
             // frmWorkProgressList
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -544,6 +544,7 @@
             this.layoutControl1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.textEdit1.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.gcMain)).EndInit();
+            this.cmsMenu.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.gridView1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlGroup1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.Root1)).EndInit();
@@ -560,7 +561,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem8)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem9)).EndInit();
-            this.cmsMenu.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
