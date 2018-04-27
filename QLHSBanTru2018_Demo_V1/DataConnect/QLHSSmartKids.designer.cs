@@ -10329,10 +10329,6 @@ namespace DataConnect
 		
 		private bool _Status;
 		
-		private System.Nullable<int> _RevenueID;
-		
-		private System.Nullable<int> _PreferredID;
-		
 		private System.Nullable<int> _CourseID;
 		
 		private System.Nullable<int> _SemesterID;
@@ -10355,10 +10351,6 @@ namespace DataConnect
     partial void OnCreatedDateChanged();
     partial void OnStatusChanging(bool value);
     partial void OnStatusChanged();
-    partial void OnRevenueIDChanging(System.Nullable<int> value);
-    partial void OnRevenueIDChanged();
-    partial void OnPreferredIDChanging(System.Nullable<int> value);
-    partial void OnPreferredIDChanged();
     partial void OnCourseIDChanging(System.Nullable<int> value);
     partial void OnCourseIDChanged();
     partial void OnSemesterIDChanging(System.Nullable<int> value);
@@ -10487,46 +10479,6 @@ namespace DataConnect
 					this._Status = value;
 					this.SendPropertyChanged("Status");
 					this.OnStatusChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_RevenueID", DbType="Int")]
-		public System.Nullable<int> RevenueID
-		{
-			get
-			{
-				return this._RevenueID;
-			}
-			set
-			{
-				if ((this._RevenueID != value))
-				{
-					this.OnRevenueIDChanging(value);
-					this.SendPropertyChanging();
-					this._RevenueID = value;
-					this.SendPropertyChanged("RevenueID");
-					this.OnRevenueIDChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_PreferredID", DbType="Int")]
-		public System.Nullable<int> PreferredID
-		{
-			get
-			{
-				return this._PreferredID;
-			}
-			set
-			{
-				if ((this._PreferredID != value))
-				{
-					this.OnPreferredIDChanging(value);
-					this.SendPropertyChanging();
-					this._PreferredID = value;
-					this.SendPropertyChanged("PreferredID");
-					this.OnPreferredIDChanged();
 				}
 			}
 		}

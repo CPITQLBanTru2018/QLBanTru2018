@@ -328,18 +328,21 @@
             this.gridColumn1.Caption = "Mã khoảng thu";
             this.gridColumn1.FieldName = "ReceivableDetailID";
             this.gridColumn1.Name = "gridColumn1";
+            this.gridColumn1.OptionsColumn.AllowEdit = false;
             // 
             // gridColumn2
             // 
             this.gridColumn2.Caption = "Mã đợt thu";
             this.gridColumn2.FieldName = "ReceivableID";
             this.gridColumn2.Name = "gridColumn2";
+            this.gridColumn2.OptionsColumn.AllowEdit = false;
             // 
             // gridColumn3
             // 
             this.gridColumn3.Caption = "Tê khoản thu";
             this.gridColumn3.FieldName = "Name";
             this.gridColumn3.Name = "gridColumn3";
+            this.gridColumn3.OptionsColumn.AllowEdit = false;
             this.gridColumn3.Visible = true;
             this.gridColumn3.VisibleIndex = 0;
             // 
@@ -348,6 +351,7 @@
             this.gridColumn4.Caption = "Mức thu";
             this.gridColumn4.FieldName = "Price";
             this.gridColumn4.Name = "gridColumn4";
+            this.gridColumn4.OptionsColumn.AllowEdit = false;
             this.gridColumn4.Visible = true;
             this.gridColumn4.VisibleIndex = 1;
             // 
@@ -356,6 +360,7 @@
             this.gridColumn5.Caption = "Đơn vị ";
             this.gridColumn5.FieldName = "TimeUnits";
             this.gridColumn5.Name = "gridColumn5";
+            this.gridColumn5.OptionsColumn.AllowEdit = false;
             this.gridColumn5.Visible = true;
             this.gridColumn5.VisibleIndex = 2;
             // 
@@ -364,6 +369,7 @@
             this.gridColumn6.Caption = "Số lượng";
             this.gridColumn6.FieldName = "Frequency";
             this.gridColumn6.Name = "gridColumn6";
+            this.gridColumn6.OptionsColumn.AllowEdit = false;
             this.gridColumn6.Visible = true;
             this.gridColumn6.VisibleIndex = 3;
             // 
@@ -372,12 +378,14 @@
             this.gridColumn7.Caption = "Trạng thái";
             this.gridColumn7.FieldName = "Status";
             this.gridColumn7.Name = "gridColumn7";
+            this.gridColumn7.OptionsColumn.AllowEdit = false;
             // 
             // gridColumn8
             // 
             this.gridColumn8.Caption = "Tổng";
             this.gridColumn8.FieldName = "TotalPriceDetail";
             this.gridColumn8.Name = "gridColumn8";
+            this.gridColumn8.OptionsColumn.AllowEdit = false;
             this.gridColumn8.Visible = true;
             this.gridColumn8.VisibleIndex = 4;
             // 
@@ -386,12 +394,14 @@
             this.gridColumn9.Caption = "Mã khối";
             this.gridColumn9.FieldName = "GradeID";
             this.gridColumn9.Name = "gridColumn9";
+            this.gridColumn9.OptionsColumn.AllowEdit = false;
             // 
             // gridColumn10
             // 
             this.gridColumn10.Caption = "Mã miễn giảm";
             this.gridColumn10.FieldName = "PreferredID";
             this.gridColumn10.Name = "gridColumn10";
+            this.gridColumn10.OptionsColumn.AllowEdit = false;
             // 
             // bntKhoitao
             // 

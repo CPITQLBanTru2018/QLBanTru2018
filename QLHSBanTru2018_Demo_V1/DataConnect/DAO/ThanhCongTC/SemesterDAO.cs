@@ -10,7 +10,7 @@ namespace DataConnect.DAO.ThanhCongTC
     public class SemesterDAO
     {
         QLHSSmartKidsDataContext dt = new QLHSSmartKidsDataContext();
-        Table<Preferred> preferred;
+        
         public List<Semester> ListSemester()
         {
             Table<Semester> tableSemester;

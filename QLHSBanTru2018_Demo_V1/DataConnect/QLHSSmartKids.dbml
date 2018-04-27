@@ -465,8 +465,6 @@
       <Column Name="EndDate" Type="System.DateTime" DbType="DateTime NOT NULL" CanBeNull="false" />
       <Column Name="CreatedDate" Type="System.DateTime" DbType="DateTime NOT NULL" CanBeNull="false" />
       <Column Name="Status" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
-      <Column Name="RevenueID" Type="System.Int32" DbType="Int" CanBeNull="true" />
-      <Column Name="PreferredID" Type="System.Int32" DbType="Int" CanBeNull="true" />
       <Column Name="CourseID" Type="System.Int32" DbType="Int" CanBeNull="true" />
       <Column Name="SemesterID" Type="System.Int32" DbType="Int" CanBeNull="true" />
       <Association Name="Receivable_ReceivableDetail" Member="ReceivableDetails" ThisKey="ReceivableID" OtherKey="ReceivableID" Type="ReceivableDetail" />
