@@ -352,6 +352,8 @@
             // 
             // bandedGridColumn1
             // 
+            this.bandedGridColumn1.AppearanceHeader.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.bandedGridColumn1.AppearanceHeader.Options.UseFont = true;
             this.bandedGridColumn1.AppearanceHeader.Options.UseTextOptions = true;
             this.bandedGridColumn1.AppearanceHeader.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
             this.bandedGridColumn1.Caption = "ID";
@@ -363,6 +365,8 @@
             // 
             // bandedGridColumn2
             // 
+            this.bandedGridColumn2.AppearanceHeader.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.bandedGridColumn2.AppearanceHeader.Options.UseFont = true;
             this.bandedGridColumn2.AppearanceHeader.Options.UseTextOptions = true;
             this.bandedGridColumn2.AppearanceHeader.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
             this.bandedGridColumn2.Caption = "Mã học sinh";
@@ -374,6 +378,8 @@
             // 
             // colFirstName
             // 
+            this.colFirstName.AppearanceHeader.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.colFirstName.AppearanceHeader.Options.UseFont = true;
             this.colFirstName.AppearanceHeader.Options.UseTextOptions = true;
             this.colFirstName.AppearanceHeader.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
             this.colFirstName.Caption = "Họ đệm";
@@ -385,6 +391,8 @@
             // 
             // colLastName
             // 
+            this.colLastName.AppearanceHeader.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.colLastName.AppearanceHeader.Options.UseFont = true;
             this.colLastName.AppearanceHeader.Options.UseTextOptions = true;
             this.colLastName.AppearanceHeader.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
             this.colLastName.Caption = "Tên";
@@ -395,6 +403,8 @@
             // 
             // colBirthday
             // 
+            this.colBirthday.AppearanceHeader.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.colBirthday.AppearanceHeader.Options.UseFont = true;
             this.colBirthday.AppearanceHeader.Options.UseTextOptions = true;
             this.colBirthday.AppearanceHeader.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
             this.colBirthday.Caption = "Ngày sinh";
@@ -408,6 +418,8 @@
             // 
             // colGender
             // 
+            this.colGender.AppearanceHeader.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.colGender.AppearanceHeader.Options.UseFont = true;
             this.colGender.AppearanceHeader.Options.UseTextOptions = true;
             this.colGender.AppearanceHeader.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
             this.colGender.Caption = "Giới tính";
@@ -421,6 +433,8 @@
             // 
             // colLocationDetail
             // 
+            this.colLocationDetail.AppearanceHeader.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.colLocationDetail.AppearanceHeader.Options.UseFont = true;
             this.colLocationDetail.AppearanceHeader.Options.UseTextOptions = true;
             this.colLocationDetail.AppearanceHeader.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
             this.colLocationDetail.Caption = "Địa chỉ";
@@ -432,6 +446,8 @@
             // 
             // colFatherName
             // 
+            this.colFatherName.AppearanceHeader.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.colFatherName.AppearanceHeader.Options.UseFont = true;
             this.colFatherName.AppearanceHeader.Options.UseTextOptions = true;
             this.colFatherName.AppearanceHeader.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
             this.colFatherName.Caption = "Họ tên cha";
@@ -443,6 +459,8 @@
             // 
             // colFatherJob
             // 
+            this.colFatherJob.AppearanceHeader.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.colFatherJob.AppearanceHeader.Options.UseFont = true;
             this.colFatherJob.AppearanceHeader.Options.UseTextOptions = true;
             this.colFatherJob.AppearanceHeader.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
             this.colFatherJob.Caption = "Nghề nghiệp";
@@ -454,6 +472,8 @@
             // 
             // colMotherName
             // 
+            this.colMotherName.AppearanceHeader.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.colMotherName.AppearanceHeader.Options.UseFont = true;
             this.colMotherName.AppearanceHeader.Options.UseTextOptions = true;
             this.colMotherName.AppearanceHeader.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
             this.colMotherName.Caption = "Họ tên mẹ";
@@ -465,6 +485,8 @@
             // 
             // colMotherJob
             // 
+            this.colMotherJob.AppearanceHeader.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.colMotherJob.AppearanceHeader.Options.UseFont = true;
             this.colMotherJob.AppearanceHeader.Options.UseTextOptions = true;
             this.colMotherJob.AppearanceHeader.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
             this.colMotherJob.Caption = "Nghề nghiệp";

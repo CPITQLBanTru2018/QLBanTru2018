@@ -366,6 +366,24 @@
     <Compile Include="TienBao\frmAddStudent.Designer.cs">
       <DependentUpon>frmAddStudent.cs</DependentUpon>
     </Compile>
+    <Compile Include="TienBao\frmHealthExamination.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="TienBao\frmHealthExamination.Designer.cs">
+      <DependentUpon>frmHealthExamination.cs</DependentUpon>
+    </Compile>
+    <Compile Include="TienBao\frmHealthProblem.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="TienBao\frmHealthProblem.Designer.cs">
+      <DependentUpon>frmHealthProblem.cs</DependentUpon>
+    </Compile>
+    <Compile Include="TienBao\frmHealthProblemDetail.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="TienBao\frmHealthProblemDetail.Designer.cs">
+      <DependentUpon>frmHealthProblemDetail.cs</DependentUpon>
+    </Compile>
     <Compile Include="TienBao\frmImportExcel.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -535,6 +553,15 @@
     </EmbeddedResource>
     <EmbeddedResource Include="TienBao\frmAddStudent.resx">
       <DependentUpon>frmAddStudent.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="TienBao\frmHealthExamination.resx">
+      <DependentUpon>frmHealthExamination.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="TienBao\frmHealthProblem.resx">
+      <DependentUpon>frmHealthProblem.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="TienBao\frmHealthProblemDetail.resx">
+      <DependentUpon>frmHealthProblemDetail.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="TienBao\frmImportExcel.resx">
       <DependentUpon>frmImportExcel.cs</DependentUpon>

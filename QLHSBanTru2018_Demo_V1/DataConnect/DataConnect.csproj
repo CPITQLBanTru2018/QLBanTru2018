@@ -84,6 +84,8 @@
     <Compile Include="DAO\ThanhCongTC\studentReceivableDAO.cs" />
     <Compile Include="DAO\ThanhCongTC\TCViewModle\TCStudenViewModle.cs" />
     <Compile Include="DAO\TienBao\ClassDAO.cs" />
+    <Compile Include="DAO\TienBao\HealthExaminationDAO.cs" />
+    <Compile Include="DAO\TienBao\HealthProblemDAO.cs" />
     <Compile Include="DAO\TienBao\StudentClassDao.cs" />
     <Compile Include="DAO\TienBao\StudentDAO.cs" />
     <Compile Include="DAO\TienBao\StudentParentsDAO.cs" />
@@ -105,6 +107,8 @@
     <Compile Include="ViewModel\DivisionViewModel.cs" />
     <Compile Include="ViewModel\EmployeeFullViewModel.cs" />
     <Compile Include="ViewModel\FunctionViewModel.cs" />
+    <Compile Include="ViewModel\HealthExaminationViewModel.cs" />
+    <Compile Include="ViewModel\HealthProblemViewModel.cs" />
     <Compile Include="ViewModel\IngredientTypeViewModel.cs" />
     <Compile Include="ViewModel\IngredientViewModel.cs" />
     <Compile Include="ViewModel\LessonViewModel.cs" />
