@@ -80,11 +80,7 @@ namespace QLHSBanTru2018_Demo_V1.QLThuChi
                
             }
         }
-        public void LoadDSLop()
-        {
-            studentReceivableDAO dt = new studentReceivableDAO();
-            grDanhSachHocSinh.DataSource = dt.ListStudents();
-        }
+        
 
         private void cbbNamhoc_SelectionChangeCommitted(object sender, EventArgs e)
         {
@@ -96,7 +92,7 @@ namespace QLHSBanTru2018_Demo_V1.QLThuChi
                 LoadKhoihoc();
                 studentReceivableDAO.GradeID = (int)cbbKhoihoc.SelectedValue;
                 LoadLophoc();
-                loadDSHS();
+                //loadDSHS();
             }
             catch 
             {
@@ -114,7 +110,7 @@ namespace QLHSBanTru2018_Demo_V1.QLThuChi
                 LoadKhoihoc();
                 studentReceivableDAO.GradeID = (int)cbbKhoihoc.SelectedValue;
                 LoadLophoc();
-                loadDSHS();
+                //loadDSHS();
             }
             catch 
             {
@@ -130,6 +126,7 @@ namespace QLHSBanTru2018_Demo_V1.QLThuChi
                 studentReceivableDAO.GradeID = (int)cbbKhoihoc.SelectedValue;
                 LoadLophoc();
                 loadDSHS();
+                this.Refresh();
             }
             catch 
             {
@@ -140,12 +137,13 @@ namespace QLHSBanTru2018_Demo_V1.QLThuChi
         public void loadDSHS()
         {
             ClassStudentDAO dt = new ClassStudentDAO();
-            grDanhSachHocSinh.DataSource = dt.ListStudent((int)cbbLophoc.SelectedValue);
+            grDanhSachHocSinh.DataSource = dt.listviewSD((int)cbbLophoc.SelectedValue);
         }
         private void cbbLophoc_SelectionChangeCommitted(object sender, EventArgs e)
         {
             //studentReceivableDAO.ClassID = (int)cbbDotthu.SelectedValue;
             loadDSHS();
+            this.Refresh();
         }
         private void gridView1_FocusedRowChanged(object sender, DevExpress.XtraGrid.Views.Base.FocusedRowChangedEventArgs e)
         {
@@ -155,7 +153,7 @@ namespace QLHSBanTru2018_Demo_V1.QLThuChi
                 ClassStudentDAO.StudentID = (int)gridView1.GetRowCellValue(e.FocusedRowHandle, "StudentID");
                 Student a = dt.lookForStuden(ClassStudentDAO.StudentID);
                 txtTenhocsinh.Text = a.FirstName + " " + a.LastName;
-                txtNgaySinh.Text = a.Birthday.ToString();
+                txtNgaySinh.Text = a.Birthday.ToShortDateString();
                 txtDiachi.Text = a.AdressDetail;
                 MemoryStream mom = new MemoryStream(a.Image.ToArray());
                 Image b = Image.FromStream(mom);
@@ -172,14 +170,15 @@ namespace QLHSBanTru2018_Demo_V1.QLThuChi
         {
             ReceivableIDAO.ReceivableID = (int)cbbDotthu.SelectedValue;
             loadDSHS();
+            
         }
 
         private void bntThanhToan_Click(object sender, EventArgs e)
         {
             FrThanhToan a = new FrThanhToan();
             a.ShowDialog();
+            this.Refresh();
         }
-
         private void gridView1_CustomUnboundColumnData(object sender, DevExpress.XtraGrid.Views.Base.CustomColumnDataEventArgs e)
         {
             try
@@ -205,14 +204,15 @@ namespace QLHSBanTru2018_Demo_V1.QLThuChi
                 if (e.Column.FieldName != "tinhtrang") return;
                 foreach (var i in f)
                 {
-                    //MessageBox.Show("" + i.ReceivableDetailID + " " + i.StudentID + " " + i.Status + "");
                     if (i.Status == false)
                     {
-                        e.Value = "Chưa hàn thành";
+                        e.Value = "Chưa hoàn thành";
                         break;
                     }
                     e.Value = "Đã hoàn thành";
                 }
+                
+                
             }
             catch 
             {

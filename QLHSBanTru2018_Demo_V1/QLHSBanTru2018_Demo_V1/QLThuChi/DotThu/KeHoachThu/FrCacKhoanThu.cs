@@ -120,7 +120,7 @@ namespace QLHSBanTru2018_Demo_V1.QLThuChi
                 {
                     try
                     {
-
+                        // thêm đợt thu
                         ReceivableIDAO rb = new ReceivableIDAO();
                         ReceivableDetailDAO rbd = new ReceivableDetailDAO();
                         Receivable rbdt = new Receivable();
@@ -132,6 +132,7 @@ namespace QLHSBanTru2018_Demo_V1.QLThuChi
                         rbdt.CreatedDate = dtNgaykhoitao.Value;
                         rbdt.Status = false;
                         int c = rb.Insert(rbdt);
+                        // thêm khoản thu
                         if (c != 0)
                         {
                             ReceivableDetail detail = new ReceivableDetail();
@@ -149,25 +150,26 @@ namespace QLHSBanTru2018_Demo_V1.QLThuChi
                                 int d = rbd.Insert(detail);
                                 if (d != 0)
                                 {
-                                    //MessageBox.Show("" + d + "");
+                                    //thêm khoản thu học cho học sinh theo lớp hiện hành
                                     StudenGrade gr = new StudenGrade();
                                     ReceivableDetail_StudentDAO st = new ReceivableDetail_StudentDAO();
                                     List<Student_Class> listClassID = gr.lookStudenbyGradeID((int)detail.GradeID);
-                                    //int dem = listClassID.Count;
-                                    //MessageBox.Show("" + dem + "");
                                     foreach (var j in listClassID)
                                     {
-                                        ReceivableDetail_Student dt = new ReceivableDetail_Student();
-                                        dt.ReceivableDetailID = d;
-                                        dt.StudentID = j.StudentID;
-                                        dt.Status = false;
-                                        if (st.Insert(dt) == true)
+                                        if (j.Status==true)
                                         {
+                                            ReceivableDetail_Student dt = new ReceivableDetail_Student();
+                                            dt.ReceivableDetailID = d;
+                                            dt.StudentID = j.StudentID;
+                                            dt.Status = false;
+                                            if (st.Insert(dt) == true)
+                                            {
 
-                                        }
-                                        else
-                                        {
-                                            MessageBox.Show("ban gi bi loi");
+                                            }
+                                            else
+                                            {
+                                                MessageBox.Show("ban gi bi loi");
+                                            }
                                         }
                                     }
 
