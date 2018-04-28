@@ -150,7 +150,7 @@ namespace QLHSBanTru2018_Demo_V1.TienBao
         }
         private void btnHuy_Click(object sender, EventArgs e)
         {
-            if (XtraMessageBox.Show("Bạn muốn đóng trang này ?", "Thông báo", MessageBoxButtons.YesNo, MessageBoxIcon.Warning) == DialogResult.Yes)
+            if (XtraMessageBox.Show("Bạn muốn đóng trang này ?", "Thông báo", MessageBoxButtons.OKCancel, MessageBoxIcon.Warning) == DialogResult.OK)
             { this.Close(); }
         }
         #endregion

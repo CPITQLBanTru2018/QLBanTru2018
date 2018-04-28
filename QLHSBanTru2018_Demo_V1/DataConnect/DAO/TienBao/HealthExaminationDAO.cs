@@ -21,8 +21,7 @@ namespace DataConnect.DAO.TienBao
           
             HealthExamTable = db.GetTable<HealthExamination>();
             
-            var query = from hex in HealthExamTable                        
-                        where hex.Status == true
+            var query = from hex in HealthExamTable                                                
                         select new HealthExaminationViewModel
                         {
                             HealthExaminationID = hex.HealthExaminationID,

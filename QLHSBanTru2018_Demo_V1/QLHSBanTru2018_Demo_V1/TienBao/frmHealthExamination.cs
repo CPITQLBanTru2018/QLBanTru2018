@@ -41,6 +41,8 @@ namespace QLHSBanTru2018_Demo_V1.TienBao
         }
         private void BindingDetail()
         {
+            txtHealthExamID.DataBindings.Clear();
+            txtHealthExamID.DataBindings.Add(new Binding("text", dgvHealthExamination.DataSource, "HealthExaminationID"));
             txtNameExam.DataBindings.Clear();
             txtNameExam.DataBindings.Add(new Binding("text", dgvHealthExamination.DataSource, "NameExamination"));
             txtPlaceExam.DataBindings.Clear();
@@ -84,38 +86,61 @@ namespace QLHSBanTru2018_Demo_V1.TienBao
             if (i == 2)
             {
                 if (chbStatusTrue.Checked == false)
+                {
                     chbStatusFalse.Checked = true;
-              
+                }             
                 timer1.Stop();
                 i = 0;
             }
         }
         private void frmHealthExamination_Load(object sender, EventArgs e)
         {
-            this.Dock = DockStyle.Fill;
-            btnCapNhat.Enabled = false;
+            this.Dock = DockStyle.Fill;           
             FillGridControl();
         }
         private void btnThem_Click(object sender, EventArgs e)
         {
-
+            frmAddHealthExamination m_frmAddHealthExamination = new frmAddHealthExamination();
+            m_frmAddHealthExamination.iFunction = 1;
+            m_frmAddHealthExamination.ShowDialog();
+            if (m_frmAddHealthExamination.DialogResult == DialogResult.OK)
+            {
+                FillGridControl();
+            }
         }
-
-        private void btnXoa_Click(object sender, EventArgs e)
-        {
-
-        }
-
         private void btnCapNhat_Click(object sender, EventArgs e)
         {
-
+            frmAddHealthExamination m_frmAddHealthExamination = new frmAddHealthExamination();
+            m_frmAddHealthExamination.iFunction = 2;
+            m_frmAddHealthExamination.m_HealthExamTable = new HealthExaminationDAO().GetByID(int.Parse(txtHealthExamID.Text));
+            m_frmAddHealthExamination.ShowDialog();
+            if (m_frmAddHealthExamination.DialogResult == DialogResult.OK)
+            {
+                FillGridControl();
+            }
         }
         private void btnupdate_ButtonClick(object sender, DevExpress.XtraEditors.Controls.ButtonPressedEventArgs e)
         {
-
+            frmAddHealthExamination m_frmAddHealthExamination = new frmAddHealthExamination();
+            m_frmAddHealthExamination.iFunction = 2;
+            m_frmAddHealthExamination.m_HealthExamTable = new HealthExaminationDAO().GetByID(int.Parse(txtHealthExamID.Text));
+            m_frmAddHealthExamination.ShowDialog();
+            if (m_frmAddHealthExamination.DialogResult == DialogResult.OK)
+            {
+                FillGridControl();
+            }
         }
-
-
+        private void btnXoa_Click(object sender, EventArgs e)
+        {
+            if (XtraMessageBox.Show("Bạn muốn ngừng sử dụng đợt khám sức khỏe này?", "Thông báo", MessageBoxButtons.YesNo, MessageBoxIcon.Warning) == DialogResult.Yes)
+            {               
+                new HealthExaminationDAO().HealthExamDelete(int.Parse(txtHealthExamID.Text));
+                if (XtraMessageBox.Show(" Khóa đợt khám sức khỏe thành công", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information) == DialogResult.OK)
+                {
+                    FillGridControl();
+                }
+            }
+        }
         #endregion
 
        
