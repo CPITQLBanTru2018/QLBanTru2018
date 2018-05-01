@@ -88,27 +88,27 @@ namespace QLHSBanTru2018_Demo_V1.HungTD.Form.Ingredient
                     entity.Name = txtName.Text;
                     entity.IngredientTypeID = int.Parse(cbbIngredientTypeID.SelectedValue.ToString());
                     entity.Unit = txtUnit.Text;
-                    entity.QuantityOfUnit = int.Parse(txtQuantityOfUnit.Text);
+                    entity.QuantityOfUnit = float.Parse(txtQuantityOfUnit.Text);
                     entity.Status = chkStatus.Checked;
 
-                    entity.Kcal = int.Parse(txtKcal.Text);
-                    entity.Protein = int.Parse(txtProtein.Text);
-                    entity.Fat = int.Parse(txtFat.Text);
-                    entity.Glucose = int.Parse(txtGlucose.Text);
-                    entity.Fiber = int.Parse(txtFiber.Text);
-                    entity.Canxi = int.Parse(txtCanxi.Text);
-                    entity.Iron = int.Parse(txtIron.Text);
-                    entity.Photpho = int.Parse(txtPhotpho.Text);
-                    entity.Kali = int.Parse(txtKali.Text);
-                    entity.Natri = int.Parse(txtNatri.Text);
-                    entity.VitaminA = int.Parse(txtVitaminA.Text);
-                    entity.VitaminB1 = int.Parse(txtVitaminB1.Text);
-                    entity.VitaminC = int.Parse(txtVitaminC.Text);
-                    entity.AxitFolic = int.Parse(txtAxitFolic.Text);
-                    entity.Cholesterol = int.Parse(txtCholesterol.Text);
+                    entity.Kcal = float.Parse(txtKcal.Text);
+                    entity.Protein = float.Parse(txtProtein.Text);
+                    entity.Fat = float.Parse(txtFat.Text);
+                    entity.Glucose = float.Parse(txtGlucose.Text);
+                    entity.Fiber = float.Parse(txtFiber.Text);
+                    entity.Canxi = float.Parse(txtCanxi.Text);
+                    entity.Iron = float.Parse(txtIron.Text);
+                    entity.Photpho = float.Parse(txtPhotpho.Text);
+                    entity.Kali = float.Parse(txtKali.Text);
+                    entity.Natri = float.Parse(txtNatri.Text);
+                    entity.VitaminA = float.Parse(txtVitaminA.Text);
+                    entity.VitaminB1 = float.Parse(txtVitaminB1.Text);
+                    entity.VitaminC = float.Parse(txtVitaminC.Text);
+                    entity.AxitFolic = float.Parse(txtAxitFolic.Text);
+                    entity.Cholesterol = float.Parse(txtCholesterol.Text);
                     if (iFunction == 1)
                     {
-                        if(new IngredientDAO().Insert(entity) > 0)
+                        if (new IngredientDAO().Insert(entity) > 0)
                         {
                             MessageBox.Show("Thêm thành công!", "Thành công!");
                             DialogResult = DialogResult.OK;
@@ -122,7 +122,7 @@ namespace QLHSBanTru2018_Demo_V1.HungTD.Form.Ingredient
                     else if (iFunction == 2)
                     {
                         entity.IngredientID = ingredient.IngredientID;
-                        if(new IngredientDAO().Edit(entity) == true)
+                        if (new IngredientDAO().Edit(entity) == true)
                         {
                             MessageBox.Show("Cập nhật công!", "Thành công!");
                             DialogResult = DialogResult.OK;
@@ -148,6 +148,11 @@ namespace QLHSBanTru2018_Demo_V1.HungTD.Form.Ingredient
         private void btnCancel_Click(object sender, EventArgs e)
         {
             this.Close();
+        }
+
+        private void txtUnit_EditValueChanged(object sender, EventArgs e)
+        {
+            labUnit.Text = "(" + txtUnit.Text + ")";
         }
     }
 }

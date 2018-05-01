@@ -31,7 +31,13 @@ namespace QLHSBanTru2018_Demo_V1.HungTD.Form.Ingredient
 
         private void btnAdd_Click(object sender, EventArgs e)
         {
-
+            frmIngredientDetail frmID = new frmIngredientDetail();
+            frmID.setFunction(1);
+            frmID.ShowDialog();
+            if (frmID.DialogResult == DialogResult.OK)
+            {
+                FillGridControl();
+            }
         }
     }
 }
