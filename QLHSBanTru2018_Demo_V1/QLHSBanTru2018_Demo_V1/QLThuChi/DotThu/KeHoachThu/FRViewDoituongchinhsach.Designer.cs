@@ -32,15 +32,15 @@
             this.layoutControl1 = new DevExpress.XtraLayout.LayoutControl();
             this.grDanhsachmiengian = new DevExpress.XtraGrid.GridControl();
             this.gridView1 = new DevExpress.XtraGrid.Views.Grid.GridView();
+            this.gridColumn1 = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.gridColumn2 = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.gridColumn3 = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.gridColumn4 = new DevExpress.XtraGrid.Columns.GridColumn();
             this.bntDong = new DevExpress.XtraEditors.SimpleButton();
             this.layoutControlGroup1 = new DevExpress.XtraLayout.LayoutControlGroup();
             this.emptySpaceItem2 = new DevExpress.XtraLayout.EmptySpaceItem();
             this.layoutControlItem1 = new DevExpress.XtraLayout.LayoutControlItem();
             this.layoutControlItem2 = new DevExpress.XtraLayout.LayoutControlItem();
-            this.gridColumn1 = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.gridColumn2 = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.gridColumn3 = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.gridColumn4 = new DevExpress.XtraGrid.Columns.GridColumn();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControl1)).BeginInit();
             this.layoutControl1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.grDanhsachmiengian)).BeginInit();
@@ -85,6 +85,44 @@
             this.gridView1.Name = "gridView1";
             this.gridView1.OptionsView.ShowGroupPanel = false;
             this.gridView1.RowCellStyle += new DevExpress.XtraGrid.Views.Grid.RowCellStyleEventHandler(this.gridView1_RowCellStyle);
+            // 
+            // gridColumn1
+            // 
+            this.gridColumn1.Caption = "Mã miễn giảm";
+            this.gridColumn1.FieldName = "PreferredID";
+            this.gridColumn1.Name = "gridColumn1";
+            this.gridColumn1.OptionsColumn.AllowEdit = false;
+            this.gridColumn1.Width = 172;
+            // 
+            // gridColumn2
+            // 
+            this.gridColumn2.Caption = "Đối tượng miễn giảm";
+            this.gridColumn2.FieldName = "Name";
+            this.gridColumn2.Name = "gridColumn2";
+            this.gridColumn2.OptionsColumn.AllowEdit = false;
+            this.gridColumn2.Visible = true;
+            this.gridColumn2.VisibleIndex = 0;
+            this.gridColumn2.Width = 413;
+            // 
+            // gridColumn3
+            // 
+            this.gridColumn3.Caption = "Chọn";
+            this.gridColumn3.FieldName = "Status";
+            this.gridColumn3.Name = "gridColumn3";
+            this.gridColumn3.OptionsColumn.AllowEdit = false;
+            this.gridColumn3.Visible = true;
+            this.gridColumn3.VisibleIndex = 2;
+            this.gridColumn3.Width = 55;
+            // 
+            // gridColumn4
+            // 
+            this.gridColumn4.Caption = "Tỉ lệ miễn giảm";
+            this.gridColumn4.FieldName = "Percent";
+            this.gridColumn4.Name = "gridColumn4";
+            this.gridColumn4.OptionsColumn.AllowEdit = false;
+            this.gridColumn4.Visible = true;
+            this.gridColumn4.VisibleIndex = 1;
+            this.gridColumn4.Width = 221;
             // 
             // bntDong
             // 
@@ -134,40 +172,6 @@
             this.layoutControlItem2.Size = new System.Drawing.Size(330, 283);
             this.layoutControlItem2.TextSize = new System.Drawing.Size(0, 0);
             this.layoutControlItem2.TextVisible = false;
-            // 
-            // gridColumn1
-            // 
-            this.gridColumn1.Caption = "Mã miễn giảm";
-            this.gridColumn1.FieldName = "PreferredID";
-            this.gridColumn1.Name = "gridColumn1";
-            this.gridColumn1.Width = 172;
-            // 
-            // gridColumn2
-            // 
-            this.gridColumn2.Caption = "Đối tượng miễn giảm";
-            this.gridColumn2.FieldName = "Name";
-            this.gridColumn2.Name = "gridColumn2";
-            this.gridColumn2.Visible = true;
-            this.gridColumn2.VisibleIndex = 0;
-            this.gridColumn2.Width = 413;
-            // 
-            // gridColumn3
-            // 
-            this.gridColumn3.Caption = "Chọn";
-            this.gridColumn3.FieldName = "Status";
-            this.gridColumn3.Name = "gridColumn3";
-            this.gridColumn3.Visible = true;
-            this.gridColumn3.VisibleIndex = 2;
-            this.gridColumn3.Width = 55;
-            // 
-            // gridColumn4
-            // 
-            this.gridColumn4.Caption = "Tỉ lệ miễn giảm";
-            this.gridColumn4.FieldName = "Percent";
-            this.gridColumn4.Name = "gridColumn4";
-            this.gridColumn4.Visible = true;
-            this.gridColumn4.VisibleIndex = 1;
-            this.gridColumn4.Width = 221;
             // 
             // FRViewDoituongchinhsach
             // 

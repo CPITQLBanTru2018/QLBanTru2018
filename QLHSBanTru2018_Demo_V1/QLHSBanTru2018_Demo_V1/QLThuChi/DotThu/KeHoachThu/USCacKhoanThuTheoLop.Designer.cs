@@ -71,7 +71,6 @@
             this.gridColumn5 = new DevExpress.XtraGrid.Columns.GridColumn();
             this.gridColumn6 = new DevExpress.XtraGrid.Columns.GridColumn();
             this.gridColumn7 = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.gridColumn8 = new DevExpress.XtraGrid.Columns.GridColumn();
             this.gridColumn9 = new DevExpress.XtraGrid.Columns.GridColumn();
             this.gridColumn10 = new DevExpress.XtraGrid.Columns.GridColumn();
             this.gridColumn11 = new DevExpress.XtraGrid.Columns.GridColumn();
@@ -473,7 +472,6 @@
             this.gridColumn5,
             this.gridColumn6,
             this.gridColumn7,
-            this.gridColumn8,
             this.gridColumn9,
             this.gridColumn10,
             this.gridColumn11,
@@ -499,70 +497,71 @@
             this.gridColumn1.Caption = "Mã học sinh";
             this.gridColumn1.FieldName = "StudentID";
             this.gridColumn1.Name = "gridColumn1";
+            this.gridColumn1.OptionsColumn.AllowEdit = false;
             // 
             // gridColumn2
             // 
             this.gridColumn2.Caption = "Mã học sinh";
             this.gridColumn2.FieldName = "StudentCode";
             this.gridColumn2.Name = "gridColumn2";
+            this.gridColumn2.OptionsColumn.AllowEdit = false;
             this.gridColumn2.Visible = true;
             this.gridColumn2.VisibleIndex = 0;
-            this.gridColumn2.Width = 72;
+            this.gridColumn2.Width = 95;
             // 
             // gridColumn3
             // 
             this.gridColumn3.Caption = "Họ";
             this.gridColumn3.FieldName = "FirstName";
             this.gridColumn3.Name = "gridColumn3";
+            this.gridColumn3.OptionsColumn.AllowEdit = false;
             this.gridColumn3.Visible = true;
             this.gridColumn3.VisibleIndex = 1;
-            this.gridColumn3.Width = 100;
+            this.gridColumn3.Width = 132;
             // 
             // gridColumn4
             // 
             this.gridColumn4.Caption = "Tên";
             this.gridColumn4.FieldName = "LastName";
             this.gridColumn4.Name = "gridColumn4";
+            this.gridColumn4.OptionsColumn.AllowEdit = false;
             this.gridColumn4.Visible = true;
             this.gridColumn4.VisibleIndex = 2;
-            this.gridColumn4.Width = 82;
+            this.gridColumn4.Width = 108;
             // 
             // gridColumn5
             // 
             this.gridColumn5.Caption = "Tên tại nhà";
             this.gridColumn5.FieldName = "HomeName";
             this.gridColumn5.Name = "gridColumn5";
+            this.gridColumn5.OptionsColumn.AllowEdit = false;
             // 
             // gridColumn6
             // 
             this.gridColumn6.Caption = "Ngày sinh";
             this.gridColumn6.FieldName = "Birthday";
             this.gridColumn6.Name = "gridColumn6";
+            this.gridColumn6.OptionsColumn.AllowEdit = false;
             this.gridColumn6.Visible = true;
             this.gridColumn6.VisibleIndex = 3;
-            this.gridColumn6.Width = 86;
+            this.gridColumn6.Width = 113;
             // 
             // gridColumn7
             // 
             this.gridColumn7.Caption = "Giới tính";
             this.gridColumn7.FieldName = "Gender";
             this.gridColumn7.Name = "gridColumn7";
+            this.gridColumn7.OptionsColumn.AllowEdit = false;
             this.gridColumn7.Visible = true;
             this.gridColumn7.VisibleIndex = 4;
-            this.gridColumn7.Width = 52;
-            // 
-            // gridColumn8
-            // 
-            this.gridColumn8.Caption = "Ảnh";
-            this.gridColumn8.FieldName = "Image";
-            this.gridColumn8.Name = "gridColumn8";
-            this.gridColumn8.Width = 81;
+            this.gridColumn7.Width = 68;
             // 
             // gridColumn9
             // 
             this.gridColumn9.Caption = "Sở thích";
             this.gridColumn9.FieldName = "Hobby";
             this.gridColumn9.Name = "gridColumn9";
+            this.gridColumn9.OptionsColumn.AllowEdit = false;
             this.gridColumn9.Width = 54;
             // 
             // gridColumn10
@@ -570,6 +569,7 @@
             this.gridColumn10.Caption = "Năng khiếu";
             this.gridColumn10.FieldName = "Talent";
             this.gridColumn10.Name = "gridColumn10";
+            this.gridColumn10.OptionsColumn.AllowEdit = false;
             this.gridColumn10.Width = 111;
             // 
             // gridColumn11
@@ -577,15 +577,17 @@
             this.gridColumn11.Caption = "Ngày nhập học";
             this.gridColumn11.FieldName = "DateStudy";
             this.gridColumn11.Name = "gridColumn11";
+            this.gridColumn11.OptionsColumn.AllowEdit = false;
             this.gridColumn11.Visible = true;
             this.gridColumn11.VisibleIndex = 5;
-            this.gridColumn11.Width = 79;
+            this.gridColumn11.Width = 111;
             // 
             // gridColumn12
             // 
             this.gridColumn12.Caption = "Mã dân tộc";
             this.gridColumn12.FieldName = "EthnicGroupID";
             this.gridColumn12.Name = "gridColumn12";
+            this.gridColumn12.OptionsColumn.AllowEdit = false;
             this.gridColumn12.Width = 65;
             // 
             // gridColumn13
@@ -593,6 +595,7 @@
             this.gridColumn13.Caption = "Mã tôn giáo";
             this.gridColumn13.FieldName = "ReligionID";
             this.gridColumn13.Name = "gridColumn13";
+            this.gridColumn13.OptionsColumn.AllowEdit = false;
             this.gridColumn13.Width = 70;
             // 
             // gridColumn14
@@ -600,6 +603,7 @@
             this.gridColumn14.Caption = "Mã nơi sinh";
             this.gridColumn14.FieldName = "BirthPlaceID";
             this.gridColumn14.Name = "gridColumn14";
+            this.gridColumn14.OptionsColumn.AllowEdit = false;
             this.gridColumn14.Width = 94;
             // 
             // gridColumn15
@@ -607,6 +611,7 @@
             this.gridColumn15.Caption = "Mã vùng miền";
             this.gridColumn15.FieldName = "LocationID";
             this.gridColumn15.Name = "gridColumn15";
+            this.gridColumn15.OptionsColumn.AllowEdit = false;
             this.gridColumn15.Width = 79;
             // 
             // gridColumn16
@@ -614,15 +619,17 @@
             this.gridColumn16.Caption = "Địa chỉ";
             this.gridColumn16.FieldName = "AdressDetail";
             this.gridColumn16.Name = "gridColumn16";
+            this.gridColumn16.OptionsColumn.AllowEdit = false;
             this.gridColumn16.Visible = true;
             this.gridColumn16.VisibleIndex = 6;
-            this.gridColumn16.Width = 137;
+            this.gridColumn16.Width = 194;
             // 
             // gridColumn17
             // 
             this.gridColumn17.Caption = "Mã miễn giảm";
             this.gridColumn17.FieldName = "PreferredID";
             this.gridColumn17.Name = "gridColumn17";
+            this.gridColumn17.OptionsColumn.AllowEdit = false;
             this.gridColumn17.Width = 81;
             // 
             // gridColumn18
@@ -630,6 +637,7 @@
             this.gridColumn18.Caption = "Ghi chú";
             this.gridColumn18.FieldName = "Note";
             this.gridColumn18.Name = "gridColumn18";
+            this.gridColumn18.OptionsColumn.AllowEdit = false;
             this.gridColumn18.Width = 47;
             // 
             // gridColumn19
@@ -637,6 +645,7 @@
             this.gridColumn19.Caption = "Tình trạng";
             this.gridColumn19.FieldName = "Status";
             this.gridColumn19.Name = "gridColumn19";
+            this.gridColumn19.OptionsColumn.AllowEdit = false;
             this.gridColumn19.Width = 100;
             // 
             // gridColumn20
@@ -644,10 +653,10 @@
             this.gridColumn20.Caption = "Tình trạng";
             this.gridColumn20.FieldName = "tinhtrang";
             this.gridColumn20.Name = "gridColumn20";
+            this.gridColumn20.OptionsColumn.AllowEdit = false;
             this.gridColumn20.UnboundType = DevExpress.Data.UnboundColumnType.String;
             this.gridColumn20.Visible = true;
             this.gridColumn20.VisibleIndex = 7;
-            this.gridColumn20.Width = 81;
             // 
             // layoutControlGroup1
             // 
@@ -809,7 +818,6 @@
         private DevExpress.XtraGrid.Columns.GridColumn gridColumn5;
         private DevExpress.XtraGrid.Columns.GridColumn gridColumn6;
         private DevExpress.XtraGrid.Columns.GridColumn gridColumn7;
-        private DevExpress.XtraGrid.Columns.GridColumn gridColumn8;
         private DevExpress.XtraGrid.Columns.GridColumn gridColumn9;
         private DevExpress.XtraGrid.Columns.GridColumn gridColumn10;
         private DevExpress.XtraGrid.Columns.GridColumn gridColumn11;

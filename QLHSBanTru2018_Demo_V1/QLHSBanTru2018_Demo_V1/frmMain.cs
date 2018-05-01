@@ -132,6 +132,26 @@ namespace QLHSBanTru2018_Demo_V1
             pnControlsPanel.Controls.Add(m_frmImportExcel);
             m_frmImportExcel.Dock = DockStyle.Fill;
         }
+        private void btnHealthProblem_ItemClick(object sender, ItemClickEventArgs e)
+        {
+            frmHealthProblem m_frmHealthProblem = new frmHealthProblem();
+            pnControlsPanel.Controls.Clear();
+            pnControlsPanel.Controls.Add(m_frmHealthProblem);
+            m_frmHealthProblem.Dock = DockStyle.Fill;
+        }
+
+        private void btnCanDo_ItemClick(object sender, ItemClickEventArgs e)
+        {
+
+        }
+
+        private void btnHealthExam_ItemClick(object sender, ItemClickEventArgs e)
+        {
+            frmHealthExamination m_frmHealthExam = new frmHealthExamination();
+            pnControlsPanel.Controls.Clear();
+            pnControlsPanel.Controls.Add(m_frmHealthExam);
+            m_frmHealthExam.Dock = DockStyle.Fill;
+        }
         #endregion
 
         #region Vũ Đức Thiện
@@ -154,5 +174,6 @@ namespace QLHSBanTru2018_Demo_V1
             a.Dock = DockStyle.Fill;
         }
 
+       
     }
 }
