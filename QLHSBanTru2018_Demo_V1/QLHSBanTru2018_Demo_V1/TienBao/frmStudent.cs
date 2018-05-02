@@ -107,36 +107,8 @@ namespace QLHSBanTru2018_Demo_V1.TienBao
             txtMotherJob.DataBindings.Clear();
             txtMotherJob.DataBindings.Add(new Binding("text", dgvHocSinh.DataSource, "MotherJob"));
         }
-        void Defaule()
-        {
-            cmbNamHoc.Text = "";
-            cmbHocKy.Text = "";
-            cmbKhoiLop.Text = "";
-            cmbLopHoc.Text = "";
-            btnXem.Enabled = false;
-            btnThem.Enabled = false;
-            btnSua.Enabled = false;
-            btnXoa.Enabled = false;
-            btnXuatExcel.Enabled = false;
-            xemChiTiếtToolStripMenuItem.Enabled = false;
-            thêmMớiToolStripMenuItem.Enabled = false;
-            cậpNhậtToolStripMenuItem.Enabled = false;
-            xóaToolStripMenuItem.Enabled = false;
-            xuấtEXCELToolStripMenuItem.Enabled = false;
-        }
-        void Enable()
-        {
-            btnXem.Enabled = true;
-            btnThem.Enabled = true;
-            btnSua.Enabled = true;
-            btnXoa.Enabled = true;
-            btnXuatExcel.Enabled = true;
-            xemChiTiếtToolStripMenuItem.Enabled = true;
-            thêmMớiToolStripMenuItem.Enabled = true;
-            cậpNhậtToolStripMenuItem.Enabled = true;
-            xóaToolStripMenuItem.Enabled = true;
-            xuấtEXCELToolStripMenuItem.Enabled = true;
-        }
+        
+        
         int i = 0;
         private void timer1_Tick(object sender, EventArgs e)
         {
@@ -155,10 +127,12 @@ namespace QLHSBanTru2018_Demo_V1.TienBao
 
 
         #region Event
+        
+
         private void frmStudent_Load(object sender, EventArgs e)
         {
             this.Dock = DockStyle.Fill;
-            Defaule();
+           
         }
         private void dgvHocSinh_Click(object sender, EventArgs e)
         {
@@ -175,7 +149,7 @@ namespace QLHSBanTru2018_Demo_V1.TienBao
         private void cmbNamHoc_Click(object sender, EventArgs e)
         {
             LoadCourseInfor();
-            Enable();
+           
         }
         private void cmbNamHoc_SelectedIndexChanged(object sender, EventArgs e)
         {
@@ -207,8 +181,7 @@ namespace QLHSBanTru2018_Demo_V1.TienBao
             { }
         }
         private void btnHuy_Click(object sender, EventArgs e)
-        {
-            Defaule();
+        {            
             try
             {
                 FillGridControl(0);
@@ -218,70 +191,110 @@ namespace QLHSBanTru2018_Demo_V1.TienBao
         }
         private void btnTimKiem_Click(object sender, EventArgs e)
         {
-
-            if (radDangHoc.Checked == true)
+            if (cmbLopHoc.SelectedValue  == null)
             {
-                try
-                {
-                    FillGridControl(int.Parse(cmbLopHoc.SelectedValue.ToString()));
-                }
-                catch
-                { }
-            } 
+                XtraMessageBox.Show("Vui lòng chọn lớp học ", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }
             else
             {
-                try
+                if (radDangHoc.Checked == true)
                 {
-                    FillStudentLock(int.Parse(cmbLopHoc.SelectedValue.ToString()));
+                    try
+                    {
+                        FillGridControl(int.Parse(cmbLopHoc.SelectedValue.ToString()));
+                    }
+                    catch
+                    { }
                 }
-                catch
-                { }
-            }                                 
+                else
+                {
+                    try
+                    {
+                        FillStudentLock(int.Parse(cmbLopHoc.SelectedValue.ToString()));
+                    }
+                    catch
+                    { }
+                }
+            }
+                                            
         }
         private void btnThem_Click(object sender, EventArgs e)
         {
-            frmAddStudent m_AddStudent = new frmAddStudent();
-            m_AddStudent.iFunction = 1;
-            m_AddStudent.Class = new ClassDAO().GetByClassID(int.Parse(cmbLopHoc.SelectedValue.ToString()));
-            m_AddStudent.ShowDialog();
-            if (m_AddStudent.DialogResult == DialogResult.OK)
+            if(cmbLopHoc.SelectedValue == null)
             {
-                FillGridControl(int.Parse(cmbLopHoc.SelectedValue.ToString()));
+                XtraMessageBox.Show("Vui lòng chọn lớp học ", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);               
             }
+            else
+            {
+                frmAddStudent m_AddStudent = new frmAddStudent();
+                m_AddStudent.iFunction = 1;
+                m_AddStudent.Class = new ClassDAO().GetByClassID(int.Parse(cmbLopHoc.SelectedValue.ToString()));
+                m_AddStudent.ShowDialog();
+                if (m_AddStudent.DialogResult == DialogResult.OK)
+                {
+                    FillGridControl(int.Parse(cmbLopHoc.SelectedValue.ToString()));
+                }
+            }
+            
         }
         private void btnSua_Click(object sender, EventArgs e)
         {
-            frmStudentDetail m_StudentDetail = new frmStudentDetail();
-            m_StudentDetail.iFunction = 2;
-            m_StudentDetail.Student = new StudentDAO().GetByID(int.Parse(txtStudentID.Text));
-            m_StudentDetail.StudentParents = new StudentParentsDAO().GetByID(int.Parse(txtStudentID.Text));
-            m_StudentDetail.Class = new ClassDAO().GetByClassID(int.Parse(cmbLopHoc.SelectedValue.ToString()));
-            m_StudentDetail.ShowDialog();
-            if (m_StudentDetail.DialogResult == DialogResult.OK)
+            if (txtStudentID.Text == null)
             {
-                FillGridControl(int.Parse(cmbLopHoc.SelectedValue.ToString()));
+                XtraMessageBox.Show("Vui lòng chọn học sinh cần xem", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
+            else
+            {
+                frmStudentDetail m_StudentDetail = new frmStudentDetail();
+                m_StudentDetail.iFunction = 2;
+                m_StudentDetail.Student = new StudentDAO().GetByID(int.Parse(txtStudentID.Text));
+                m_StudentDetail.StudentParents = new StudentParentsDAO().GetByID(int.Parse(txtStudentID.Text));
+                m_StudentDetail.Class = new ClassDAO().GetByClassID(int.Parse(cmbLopHoc.SelectedValue.ToString()));
+                m_StudentDetail.ShowDialog();
+                if (m_StudentDetail.DialogResult == DialogResult.OK)
+                {
+                    FillGridControl(int.Parse(cmbLopHoc.SelectedValue.ToString()));
+                }
+            }
+            
         }   
         private void btnXemChiTiet_Click(object sender, EventArgs e)
         {
-            frmStudentDetail m_StudentDetail = new frmStudentDetail();
-            m_StudentDetail.iFunction = 3;
-            m_StudentDetail.Student = new StudentDAO().GetByID(int.Parse(txtStudentID.Text));
-            m_StudentDetail.StudentParents = new StudentParentsDAO().GetByID(int.Parse(txtStudentID.Text));
-            m_StudentDetail.Class = new ClassDAO().GetByClassID(int.Parse(cmbLopHoc.SelectedValue.ToString()));
-            m_StudentDetail.ShowDialog();
-            if (m_StudentDetail.DialogResult == DialogResult.OK)
+          
+            if (txtStudentID.Text.Length == 0 )
             {
-                FillGridControl(int.Parse(cmbLopHoc.SelectedValue.ToString()));
+                XtraMessageBox.Show("Vui lòng chọn học sinh cần xem", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
+            else
+            {
+                frmStudentDetail m_StudentDetail = new frmStudentDetail();
+                m_StudentDetail.iFunction = 3;
+                m_StudentDetail.Student = new StudentDAO().GetByID(int.Parse(txtStudentID.Text));
+                m_StudentDetail.StudentParents = new StudentParentsDAO().GetByID(int.Parse(txtStudentID.Text));
+                m_StudentDetail.Class = new ClassDAO().GetByClassID(int.Parse(cmbLopHoc.SelectedValue.ToString()));
+                m_StudentDetail.ShowDialog();
+                if (m_StudentDetail.DialogResult == DialogResult.OK)
+                {
+                    FillGridControl(int.Parse(cmbLopHoc.SelectedValue.ToString()));
+                }
+            }
+           
         }
         private void btnXoa_Click(object sender, EventArgs e)
         {
-            if (XtraMessageBox.Show("Bạn muốn xóa học sinh ?", "Thông báo", MessageBoxButtons.YesNo, MessageBoxIcon.Warning) == DialogResult.Yes)
+            if (txtStudentID.Text.Length == 0)
             {
-                new StudentDAO().StudentDelete(int.Parse(txtStudentID.Text));
-                FillGridControl(int.Parse(cmbLopHoc.SelectedValue.ToString()));
+                XtraMessageBox.Show("Vui lòng chọn học sinh cần xóa", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
+            else
+            {
+                if (XtraMessageBox.Show("Bạn muốn xóa học sinh ?", "Thông báo", MessageBoxButtons.YesNo, MessageBoxIcon.Warning) == DialogResult.Yes)
+                {
+                    new StudentDAO().StudentDelete(int.Parse(txtStudentID.Text));
+                    FillGridControl(int.Parse(cmbLopHoc.SelectedValue.ToString()));
+                }
+            }
+          
         }
         #endregion
 
@@ -289,47 +302,76 @@ namespace QLHSBanTru2018_Demo_V1.TienBao
         #region ========== ContextMenu ============
         private void xemChiTiếtToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            frmStudentDetail m_StudentDetail = new frmStudentDetail();
-            m_StudentDetail.iFunction = 3;
-            m_StudentDetail.Student = new StudentDAO().GetByID(int.Parse(txtStudentID.Text));
-            m_StudentDetail.StudentParents = new StudentParentsDAO().GetByID(int.Parse(txtStudentID.Text));
-            m_StudentDetail.Class = new ClassDAO().GetByClassID(int.Parse(cmbLopHoc.SelectedValue.ToString()));
-            m_StudentDetail.ShowDialog();
-            if (m_StudentDetail.DialogResult == DialogResult.OK)
+            if (txtStudentID.Text == null)
             {
-                FillGridControl(int.Parse(cmbLopHoc.SelectedValue.ToString()));
+                XtraMessageBox.Show("Vui lòng chọn học sinh cần xem", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }
+            else
+            {
+                frmStudentDetail m_StudentDetail = new frmStudentDetail();
+                m_StudentDetail.iFunction = 3;
+                m_StudentDetail.Student = new StudentDAO().GetByID(int.Parse(txtStudentID.Text));
+                m_StudentDetail.StudentParents = new StudentParentsDAO().GetByID(int.Parse(txtStudentID.Text));
+                m_StudentDetail.Class = new ClassDAO().GetByClassID(int.Parse(cmbLopHoc.SelectedValue.ToString()));
+                m_StudentDetail.ShowDialog();
+                if (m_StudentDetail.DialogResult == DialogResult.OK)
+                {
+                    FillGridControl(int.Parse(cmbLopHoc.SelectedValue.ToString()));
+                }
             }
         }
         private void thêmMớiToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            frmAddStudent m_AddStudent = new frmAddStudent();
-            m_AddStudent.iFunction = 1;
-            m_AddStudent.Class = new ClassDAO().GetByClassID(int.Parse(cmbLopHoc.SelectedValue.ToString()));
-            m_AddStudent.ShowDialog();
-            if (m_AddStudent.DialogResult == DialogResult.OK)
+            if (cmbLopHoc.SelectedValue == null)
             {
-                FillGridControl(int.Parse(cmbLopHoc.SelectedValue.ToString()));
+                XtraMessageBox.Show("Vui lòng chọn lớp học ", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }
+            else
+            {
+                frmAddStudent m_AddStudent = new frmAddStudent();
+                m_AddStudent.iFunction = 1;
+                m_AddStudent.Class = new ClassDAO().GetByClassID(int.Parse(cmbLopHoc.SelectedValue.ToString()));
+                m_AddStudent.ShowDialog();
+                if (m_AddStudent.DialogResult == DialogResult.OK)
+                {
+                    FillGridControl(int.Parse(cmbLopHoc.SelectedValue.ToString()));
+                }
             }
         }
         private void sửaToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            frmStudentDetail m_StudentDetail = new frmStudentDetail();
-            m_StudentDetail.iFunction = 2;
-            m_StudentDetail.Student = new StudentDAO().GetByID(int.Parse(txtStudentID.Text));
-            m_StudentDetail.StudentParents = new StudentParentsDAO().GetByID(int.Parse(txtStudentID.Text));
-            m_StudentDetail.Class = new ClassDAO().GetByClassID(int.Parse(cmbLopHoc.SelectedValue.ToString()));
-            m_StudentDetail.ShowDialog();
-            if (m_StudentDetail.DialogResult == DialogResult.OK)
+            if (txtStudentID.Text == null)
             {
-                FillGridControl(int.Parse(cmbLopHoc.SelectedValue.ToString()));
+                XtraMessageBox.Show("Vui lòng chọn học sinh cần xem", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
+            else
+            {
+                frmStudentDetail m_StudentDetail = new frmStudentDetail();
+                m_StudentDetail.iFunction = 2;
+                m_StudentDetail.Student = new StudentDAO().GetByID(int.Parse(txtStudentID.Text));
+                m_StudentDetail.StudentParents = new StudentParentsDAO().GetByID(int.Parse(txtStudentID.Text));
+                m_StudentDetail.Class = new ClassDAO().GetByClassID(int.Parse(cmbLopHoc.SelectedValue.ToString()));
+                m_StudentDetail.ShowDialog();
+                if (m_StudentDetail.DialogResult == DialogResult.OK)
+                {
+                    FillGridControl(int.Parse(cmbLopHoc.SelectedValue.ToString()));
+                }
+            }
+
         }
         private void xóaToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            if (XtraMessageBox.Show("Bạn muốn xóa học sinh ?", "Thông báo", MessageBoxButtons.YesNo, MessageBoxIcon.Warning) == DialogResult.Yes)
+            if (txtStudentID.Text.Length == 0)
             {
-                new StudentDAO().StudentDelete(int.Parse(txtStudentID.Text));
-                FillGridControl(int.Parse(cmbLopHoc.SelectedValue.ToString()));
+                XtraMessageBox.Show("Vui lòng chọn học sinh cần xóa", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }
+            else
+            {
+                if (XtraMessageBox.Show("Bạn muốn xóa học sinh ?", "Thông báo", MessageBoxButtons.YesNo, MessageBoxIcon.Warning) == DialogResult.Yes)
+                {
+                    new StudentDAO().StudentDelete(int.Parse(txtStudentID.Text));
+                    FillGridControl(int.Parse(cmbLopHoc.SelectedValue.ToString()));
+                }
             }
         }
         #endregion ========== ContextMenu ============
@@ -465,9 +507,17 @@ namespace QLHSBanTru2018_Demo_V1.TienBao
         }
         private void btnExport_Click(object sender, EventArgs e)
         {
-            SplashScreenManager.ShowForm(typeof(WaitForm));
-            Export();
-            SplashScreenManager.CloseForm();
+            if (cmbLopHoc.SelectedValue == null)
+            {
+                XtraMessageBox.Show("Vui lòng chọn lớp học ", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }
+            else
+            {
+                SplashScreenManager.ShowForm(typeof(WaitForm));
+                Export();
+                SplashScreenManager.CloseForm();
+            }
+       
         }
         #endregion ======== Export =========
     }

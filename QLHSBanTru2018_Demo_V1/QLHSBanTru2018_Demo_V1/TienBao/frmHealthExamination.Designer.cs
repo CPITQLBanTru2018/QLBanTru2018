@@ -38,9 +38,6 @@
             this.layoutControl1 = new DevExpress.XtraLayout.LayoutControl();
             this.dgvHealthExamination = new DevExpress.XtraGrid.GridControl();
             this.bandedGridView1 = new DevExpress.XtraGrid.Views.BandedGrid.BandedGridView();
-            this.gridBand3 = new DevExpress.XtraGrid.Views.BandedGrid.GridBand();
-            this.colCapnhat = new DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn();
-            this.btnupdate = new DevExpress.XtraEditors.Repository.RepositoryItemButtonEdit();
             this.gridBand2 = new DevExpress.XtraGrid.Views.BandedGrid.GridBand();
             this.colDateStart = new DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn();
             this.colName = new DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn();
@@ -57,6 +54,7 @@
             this.bandedGridColumn2 = new DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn();
             this.bandedGridColumn5 = new DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn();
             this.bandedGridColumn3 = new DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn();
+            this.gridBand3 = new DevExpress.XtraGrid.Views.BandedGrid.GridBand();
             this.btnThem = new DevExpress.XtraEditors.SimpleButton();
             this.btnXoa = new DevExpress.XtraEditors.SimpleButton();
             this.btnCapNhat = new DevExpress.XtraEditors.SimpleButton();
@@ -105,11 +103,12 @@
             this.layoutControlItem19 = new DevExpress.XtraLayout.LayoutControlItem();
             this.emptySpaceItem2 = new DevExpress.XtraLayout.EmptySpaceItem();
             this.timer1 = new System.Windows.Forms.Timer(this.components);
+            this.bandedGridColumn6 = new DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn();
+            this.repositoryItemButtonEdit1 = new DevExpress.XtraEditors.Repository.RepositoryItemButtonEdit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControl1)).BeginInit();
             this.layoutControl1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvHealthExamination)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.bandedGridView1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.btnupdate)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtNameExam.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtPlaceExam.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dtDateExam.Properties.CalendarTimeProperties)).BeginInit();
@@ -153,6 +152,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.simpleLabelItem1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem19)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.repositoryItemButtonEdit1)).BeginInit();
             this.SuspendLayout();
             // 
             // layoutControl1
@@ -192,7 +192,7 @@
             this.dgvHealthExamination.MainView = this.bandedGridView1;
             this.dgvHealthExamination.Name = "dgvHealthExamination";
             this.dgvHealthExamination.RepositoryItems.AddRange(new DevExpress.XtraEditors.Repository.RepositoryItem[] {
-            this.btnupdate});
+            this.repositoryItemButtonEdit1});
             this.dgvHealthExamination.Size = new System.Drawing.Size(791, 481);
             this.dgvHealthExamination.TabIndex = 15;
             this.dgvHealthExamination.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
@@ -201,11 +201,10 @@
             // bandedGridView1
             // 
             this.bandedGridView1.Bands.AddRange(new DevExpress.XtraGrid.Views.BandedGrid.GridBand[] {
-            this.gridBand3,
             this.gridBand2,
-            this.gridBand1});
+            this.gridBand1,
+            this.gridBand3});
             this.bandedGridView1.Columns.AddRange(new DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn[] {
-            this.colCapnhat,
             this.colDateStart,
             this.colName,
             this.colPlace,
@@ -219,38 +218,12 @@
             this.bandedGridColumn1,
             this.bandedGridColumn2,
             this.bandedGridColumn3,
-            this.bandedGridColumn5});
+            this.bandedGridColumn5,
+            this.bandedGridColumn6});
             this.bandedGridView1.GridControl = this.dgvHealthExamination;
             this.bandedGridView1.Name = "bandedGridView1";
             this.bandedGridView1.OptionsFind.AlwaysVisible = true;
             this.bandedGridView1.OptionsView.ShowGroupPanel = false;
-            // 
-            // gridBand3
-            // 
-            this.gridBand3.Columns.Add(this.colCapnhat);
-            this.gridBand3.Name = "gridBand3";
-            this.gridBand3.VisibleIndex = 0;
-            this.gridBand3.Width = 40;
-            // 
-            // colCapnhat
-            // 
-            this.colCapnhat.AppearanceHeader.Options.UseTextOptions = true;
-            this.colCapnhat.AppearanceHeader.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
-            this.colCapnhat.ColumnEdit = this.btnupdate;
-            this.colCapnhat.Name = "colCapnhat";
-            this.colCapnhat.OptionsColumn.AllowEdit = false;
-            this.colCapnhat.Visible = true;
-            this.colCapnhat.Width = 40;
-            // 
-            // btnupdate
-            // 
-            this.btnupdate.AutoHeight = false;
-            editorButtonImageOptions1.Image = ((System.Drawing.Image)(resources.GetObject("editorButtonImageOptions1.Image")));
-            this.btnupdate.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Glyph, "", -1, true, true, false, editorButtonImageOptions1, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject1, serializableAppearanceObject2, serializableAppearanceObject3, serializableAppearanceObject4, "", null, null, DevExpress.Utils.ToolTipAnchor.Default)});
-            this.btnupdate.Name = "btnupdate";
-            this.btnupdate.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.HideTextEditor;
-            this.btnupdate.ButtonClick += new DevExpress.XtraEditors.Controls.ButtonPressedEventHandler(this.btnupdate_ButtonClick);
             // 
             // gridBand2
             // 
@@ -261,8 +234,8 @@
             this.gridBand2.Columns.Add(this.colName);
             this.gridBand2.Columns.Add(this.colPlace);
             this.gridBand2.Name = "gridBand2";
-            this.gridBand2.VisibleIndex = 1;
-            this.gridBand2.Width = 341;
+            this.gridBand2.VisibleIndex = 0;
+            this.gridBand2.Width = 261;
             // 
             // colDateStart
             // 
@@ -273,7 +246,7 @@
             this.colDateStart.Name = "colDateStart";
             this.colDateStart.OptionsColumn.AllowEdit = false;
             this.colDateStart.Visible = true;
-            this.colDateStart.Width = 102;
+            this.colDateStart.Width = 78;
             // 
             // colName
             // 
@@ -284,7 +257,7 @@
             this.colName.Name = "colName";
             this.colName.OptionsColumn.AllowEdit = false;
             this.colName.Visible = true;
-            this.colName.Width = 106;
+            this.colName.Width = 81;
             // 
             // colPlace
             // 
@@ -295,7 +268,7 @@
             this.colPlace.Name = "colPlace";
             this.colPlace.OptionsColumn.AllowEdit = false;
             this.colPlace.Visible = true;
-            this.colPlace.Width = 133;
+            this.colPlace.Width = 102;
             // 
             // gridBand1
             // 
@@ -314,8 +287,8 @@
             this.gridBand1.Columns.Add(this.bandedGridColumn5);
             this.gridBand1.Columns.Add(this.bandedGridColumn3);
             this.gridBand1.Name = "gridBand1";
-            this.gridBand1.VisibleIndex = 2;
-            this.gridBand1.Width = 628;
+            this.gridBand1.VisibleIndex = 1;
+            this.gridBand1.Width = 438;
             // 
             // colHeight
             // 
@@ -326,7 +299,7 @@
             this.colHeight.Name = "colHeight";
             this.colHeight.OptionsColumn.AllowEdit = false;
             this.colHeight.Visible = true;
-            this.colHeight.Width = 52;
+            this.colHeight.Width = 34;
             // 
             // colWeight
             // 
@@ -337,7 +310,7 @@
             this.colWeight.Name = "colWeight";
             this.colWeight.OptionsColumn.AllowEdit = false;
             this.colWeight.Visible = true;
-            this.colWeight.Width = 49;
+            this.colWeight.Width = 33;
             // 
             // gridColumn7
             // 
@@ -348,7 +321,7 @@
             this.gridColumn7.Name = "gridColumn7";
             this.gridColumn7.OptionsColumn.AllowEdit = false;
             this.gridColumn7.Visible = true;
-            this.gridColumn7.Width = 31;
+            this.gridColumn7.Width = 20;
             // 
             // gridColumn8
             // 
@@ -359,7 +332,7 @@
             this.gridColumn8.Name = "gridColumn8";
             this.gridColumn8.OptionsColumn.AllowEdit = false;
             this.gridColumn8.Visible = true;
-            this.gridColumn8.Width = 56;
+            this.gridColumn8.Width = 37;
             // 
             // gridColumn9
             // 
@@ -370,7 +343,7 @@
             this.gridColumn9.Name = "gridColumn9";
             this.gridColumn9.OptionsColumn.AllowEdit = false;
             this.gridColumn9.Visible = true;
-            this.gridColumn9.Width = 49;
+            this.gridColumn9.Width = 33;
             // 
             // gridColumn10
             // 
@@ -381,7 +354,7 @@
             this.gridColumn10.Name = "gridColumn10";
             this.gridColumn10.OptionsColumn.AllowEdit = false;
             this.gridColumn10.Visible = true;
-            this.gridColumn10.Width = 55;
+            this.gridColumn10.Width = 37;
             // 
             // bandedGridColumn4
             // 
@@ -392,7 +365,7 @@
             this.bandedGridColumn4.Name = "bandedGridColumn4";
             this.bandedGridColumn4.OptionsColumn.AllowEdit = false;
             this.bandedGridColumn4.Visible = true;
-            this.bandedGridColumn4.Width = 64;
+            this.bandedGridColumn4.Width = 44;
             // 
             // bandedGridColumn1
             // 
@@ -403,7 +376,7 @@
             this.bandedGridColumn1.Name = "bandedGridColumn1";
             this.bandedGridColumn1.OptionsColumn.AllowEdit = false;
             this.bandedGridColumn1.Visible = true;
-            this.bandedGridColumn1.Width = 66;
+            this.bandedGridColumn1.Width = 45;
             // 
             // bandedGridColumn2
             // 
@@ -414,7 +387,7 @@
             this.bandedGridColumn2.Name = "bandedGridColumn2";
             this.bandedGridColumn2.OptionsColumn.AllowEdit = false;
             this.bandedGridColumn2.Visible = true;
-            this.bandedGridColumn2.Width = 59;
+            this.bandedGridColumn2.Width = 40;
             // 
             // bandedGridColumn5
             // 
@@ -425,7 +398,7 @@
             this.bandedGridColumn5.Name = "bandedGridColumn5";
             this.bandedGridColumn5.OptionsColumn.AllowEdit = false;
             this.bandedGridColumn5.Visible = true;
-            this.bandedGridColumn5.Width = 43;
+            this.bandedGridColumn5.Width = 28;
             // 
             // bandedGridColumn3
             // 
@@ -436,7 +409,13 @@
             this.bandedGridColumn3.Name = "bandedGridColumn3";
             this.bandedGridColumn3.OptionsColumn.AllowEdit = false;
             this.bandedGridColumn3.Visible = true;
-            this.bandedGridColumn3.Width = 104;
+            this.bandedGridColumn3.Width = 87;
+            // 
+            // gridBand3
+            // 
+            this.gridBand3.Name = "gridBand3";
+            this.gridBand3.VisibleIndex = 2;
+            this.gridBand3.Width = 74;
             // 
             // btnThem
             // 
@@ -473,7 +452,7 @@
             // 
             // txtNameExam
             // 
-            this.txtNameExam.Location = new System.Drawing.Point(887, 67);
+            this.txtNameExam.Location = new System.Drawing.Point(887, 66);
             this.txtNameExam.Name = "txtNameExam";
             this.txtNameExam.Size = new System.Drawing.Size(134, 20);
             this.txtNameExam.StyleController = this.layoutControl1;
@@ -481,7 +460,7 @@
             // 
             // txtPlaceExam
             // 
-            this.txtPlaceExam.Location = new System.Drawing.Point(887, 91);
+            this.txtPlaceExam.Location = new System.Drawing.Point(887, 90);
             this.txtPlaceExam.Name = "txtPlaceExam";
             this.txtPlaceExam.Size = new System.Drawing.Size(134, 20);
             this.txtPlaceExam.StyleController = this.layoutControl1;
@@ -490,7 +469,7 @@
             // dtDateExam
             // 
             this.dtDateExam.EditValue = null;
-            this.dtDateExam.Location = new System.Drawing.Point(887, 115);
+            this.dtDateExam.Location = new System.Drawing.Point(887, 114);
             this.dtDateExam.Name = "dtDateExam";
             this.dtDateExam.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
@@ -502,7 +481,7 @@
             // 
             // chbWeight
             // 
-            this.chbWeight.Location = new System.Drawing.Point(831, 245);
+            this.chbWeight.Location = new System.Drawing.Point(831, 244);
             this.chbWeight.Name = "chbWeight";
             this.chbWeight.Properties.Caption = "Chiều cao";
             this.chbWeight.Size = new System.Drawing.Size(96, 19);
@@ -511,7 +490,7 @@
             // 
             // chbHeight
             // 
-            this.chbHeight.Location = new System.Drawing.Point(831, 268);
+            this.chbHeight.Location = new System.Drawing.Point(831, 267);
             this.chbHeight.Name = "chbHeight";
             this.chbHeight.Properties.Caption = "Cân nặng";
             this.chbHeight.Size = new System.Drawing.Size(96, 19);
@@ -520,7 +499,7 @@
             // 
             // chbEyes
             // 
-            this.chbEyes.Location = new System.Drawing.Point(831, 291);
+            this.chbEyes.Location = new System.Drawing.Point(831, 290);
             this.chbEyes.Name = "chbEyes";
             this.chbEyes.Properties.Caption = "Mắt";
             this.chbEyes.Size = new System.Drawing.Size(96, 19);
@@ -529,7 +508,7 @@
             // 
             // chbDermatology
             // 
-            this.chbDermatology.Location = new System.Drawing.Point(931, 245);
+            this.chbDermatology.Location = new System.Drawing.Point(931, 244);
             this.chbDermatology.Name = "chbDermatology";
             this.chbDermatology.Properties.Caption = "Da liễu";
             this.chbDermatology.Size = new System.Drawing.Size(78, 19);
@@ -538,7 +517,7 @@
             // 
             // chbBoneMuscle
             // 
-            this.chbBoneMuscle.Location = new System.Drawing.Point(831, 360);
+            this.chbBoneMuscle.Location = new System.Drawing.Point(831, 359);
             this.chbBoneMuscle.Name = "chbBoneMuscle";
             this.chbBoneMuscle.Properties.Caption = "Cơ xương";
             this.chbBoneMuscle.Size = new System.Drawing.Size(178, 19);
@@ -547,7 +526,7 @@
             // 
             // chbInternalMedicine
             // 
-            this.chbInternalMedicine.Location = new System.Drawing.Point(931, 268);
+            this.chbInternalMedicine.Location = new System.Drawing.Point(931, 267);
             this.chbInternalMedicine.Name = "chbInternalMedicine";
             this.chbInternalMedicine.Properties.Caption = "Nộikhoa";
             this.chbInternalMedicine.Size = new System.Drawing.Size(78, 19);
@@ -556,7 +535,7 @@
             // 
             // chbENT
             // 
-            this.chbENT.Location = new System.Drawing.Point(831, 314);
+            this.chbENT.Location = new System.Drawing.Point(831, 313);
             this.chbENT.Name = "chbENT";
             this.chbENT.Properties.Caption = "Tai - mũi - họng";
             this.chbENT.Size = new System.Drawing.Size(96, 19);
@@ -565,7 +544,7 @@
             // 
             // chbSurgery
             // 
-            this.chbSurgery.Location = new System.Drawing.Point(931, 291);
+            this.chbSurgery.Location = new System.Drawing.Point(931, 290);
             this.chbSurgery.Name = "chbSurgery";
             this.chbSurgery.Properties.Caption = "Ngoại khoa";
             this.chbSurgery.Size = new System.Drawing.Size(78, 19);
@@ -574,7 +553,7 @@
             // 
             // chbOral
             // 
-            this.chbOral.Location = new System.Drawing.Point(831, 337);
+            this.chbOral.Location = new System.Drawing.Point(831, 336);
             this.chbOral.Name = "chbOral";
             this.chbOral.Properties.Caption = "Răng - miệng";
             this.chbOral.Size = new System.Drawing.Size(96, 19);
@@ -583,7 +562,7 @@
             // 
             // chbNerve
             // 
-            this.chbNerve.Location = new System.Drawing.Point(931, 314);
+            this.chbNerve.Location = new System.Drawing.Point(931, 313);
             this.chbNerve.Name = "chbNerve";
             this.chbNerve.Properties.Caption = "Nội tiết";
             this.chbNerve.Size = new System.Drawing.Size(78, 19);
@@ -592,7 +571,7 @@
             // 
             // chbEndocrine
             // 
-            this.chbEndocrine.Location = new System.Drawing.Point(931, 337);
+            this.chbEndocrine.Location = new System.Drawing.Point(931, 336);
             this.chbEndocrine.Name = "chbEndocrine";
             this.chbEndocrine.Properties.Caption = "Thần kinh";
             this.chbEndocrine.Size = new System.Drawing.Size(78, 19);
@@ -604,7 +583,7 @@
             this.panel2.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.panel2.Controls.Add(this.chbStatusFalse);
             this.panel2.Controls.Add(this.chbStatusTrue);
-            this.panel2.Location = new System.Drawing.Point(887, 139);
+            this.panel2.Location = new System.Drawing.Point(887, 138);
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(134, 56);
             this.panel2.TabIndex = 68;
@@ -633,7 +612,7 @@
             // 
             // txtHealthExamID
             // 
-            this.txtHealthExamID.Location = new System.Drawing.Point(887, 43);
+            this.txtHealthExamID.Location = new System.Drawing.Point(887, 42);
             this.txtHealthExamID.Name = "txtHealthExamID";
             this.txtHealthExamID.Size = new System.Drawing.Size(134, 20);
             this.txtHealthExamID.StyleController = this.layoutControl1;
@@ -742,7 +721,7 @@
             this.emptySpaceItem1.AllowHotTrack = false;
             this.emptySpaceItem1.Location = new System.Drawing.Point(0, 352);
             this.emptySpaceItem1.Name = "emptySpaceItem1";
-            this.emptySpaceItem1.Size = new System.Drawing.Size(206, 116);
+            this.emptySpaceItem1.Size = new System.Drawing.Size(206, 117);
             this.emptySpaceItem1.TextSize = new System.Drawing.Size(0, 0);
             // 
             // LabelGender
@@ -933,6 +912,23 @@
             // 
             this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
             // 
+            // bandedGridColumn6
+            // 
+            this.bandedGridColumn6.Caption = "bandedGridColumn6";
+            this.bandedGridColumn6.ColumnEdit = this.repositoryItemButtonEdit1;
+            this.bandedGridColumn6.Name = "bandedGridColumn6";
+            this.bandedGridColumn6.Visible = true;
+            // 
+            // repositoryItemButtonEdit1
+            // 
+            this.repositoryItemButtonEdit1.AutoHeight = false;
+            editorButtonImageOptions1.Image = ((System.Drawing.Image)(resources.GetObject("editorButtonImageOptions1.Image")));
+            this.repositoryItemButtonEdit1.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Glyph, "", -1, true, true, false, editorButtonImageOptions1, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject1, serializableAppearanceObject2, serializableAppearanceObject3, serializableAppearanceObject4, "", null, null, DevExpress.Utils.ToolTipAnchor.Default)});
+            this.repositoryItemButtonEdit1.Name = "repositoryItemButtonEdit1";
+            this.repositoryItemButtonEdit1.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.HideTextEditor;
+            this.repositoryItemButtonEdit1.ButtonClick += new DevExpress.XtraEditors.Controls.ButtonPressedEventHandler(this.btnupdate_ButtonClick);
+            // 
             // frmHealthExamination
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -945,7 +941,6 @@
             this.layoutControl1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dgvHealthExamination)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.bandedGridView1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.btnupdate)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtNameExam.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtPlaceExam.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dtDateExam.Properties.CalendarTimeProperties)).EndInit();
@@ -990,6 +985,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.simpleLabelItem1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem19)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.repositoryItemButtonEdit1)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -1001,8 +997,6 @@
         private DevExpress.XtraGrid.GridControl dgvHealthExamination;
         private DevExpress.XtraGrid.Views.BandedGrid.BandedGridView bandedGridView1;
         private DevExpress.XtraGrid.Views.BandedGrid.GridBand gridBand3;
-        private DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn colCapnhat;
-        private DevExpress.XtraEditors.Repository.RepositoryItemButtonEdit btnupdate;
         private DevExpress.XtraGrid.Views.BandedGrid.GridBand gridBand2;
         private DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn colDateStart;
         private DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn colName;
@@ -1061,10 +1055,12 @@
         private DevExpress.XtraLayout.LayoutControlItem LabelGender;
         private DevExpress.XtraLayout.LayoutControlGroup layoutControlGroup2;
         private DevExpress.XtraLayout.LayoutControlItem layoutControlItem10;
-        private System.Windows.Forms.Timer timer1;
         private DevExpress.XtraEditors.TextEdit txtHealthExamID;
         private DevExpress.XtraLayout.LayoutControlItem layoutControlItem19;
         private System.Windows.Forms.RadioButton chbStatusFalse;
         private System.Windows.Forms.RadioButton chbStatusTrue;
+        private System.Windows.Forms.Timer timer1;
+        private DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn bandedGridColumn6;
+        private DevExpress.XtraEditors.Repository.RepositoryItemButtonEdit repositoryItemButtonEdit1;
     }
 }

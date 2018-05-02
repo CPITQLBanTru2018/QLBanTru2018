@@ -52,6 +52,12 @@
             this.btnHealthProblem = new DevExpress.XtraBars.BarButtonItem();
             this.btnCanDo = new DevExpress.XtraBars.BarButtonItem();
             this.btnHealthExam = new DevExpress.XtraBars.BarButtonItem();
+            this.barSubItem1 = new DevExpress.XtraBars.BarSubItem();
+            this.barButtonItem1 = new DevExpress.XtraBars.BarButtonItem();
+            this.barButtonItem2 = new DevExpress.XtraBars.BarButtonItem();
+            this.btnHealth = new DevExpress.XtraBars.BarSubItem();
+            this.btnHealthExamination = new DevExpress.XtraBars.BarButtonItem();
+            this.btnHealthExaminationDetail = new DevExpress.XtraBars.BarButtonItem();
             this.ribbonPage1 = new DevExpress.XtraBars.Ribbon.RibbonPage();
             this.ribbonPageGroup1 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             this.ribbonPageGroup2 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
@@ -68,12 +74,6 @@
             this.ribbonStatusBar = new DevExpress.XtraBars.Ribbon.RibbonStatusBar();
             this.defaultLookAndFeel1 = new DevExpress.LookAndFeel.DefaultLookAndFeel(this.components);
             this.pnControlsPanel = new System.Windows.Forms.Panel();
-            this.barSubItem1 = new DevExpress.XtraBars.BarSubItem();
-            this.barButtonItem1 = new DevExpress.XtraBars.BarButtonItem();
-            this.barButtonItem2 = new DevExpress.XtraBars.BarButtonItem();
-            this.btnHealth = new DevExpress.XtraBars.BarSubItem();
-            this.btnHealthExamination = new DevExpress.XtraBars.BarButtonItem();
-            this.btnHealthExaminationDetail = new DevExpress.XtraBars.BarButtonItem();
             ((System.ComponentModel.ISupportInitialize)(this.ribbon)).BeginInit();
             this.SuspendLayout();
             // 
@@ -307,6 +307,57 @@
             this.btnHealthExam.Name = "btnHealthExam";
             this.btnHealthExam.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.btnHealthExam_ItemClick);
             // 
+            // barSubItem1
+            // 
+            this.barSubItem1.Caption = "Khám sức khỏe định kỳ";
+            this.barSubItem1.Id = 22;
+            this.barSubItem1.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("barSubItem1.ImageOptions.Image")));
+            this.barSubItem1.ImageOptions.LargeImage = ((System.Drawing.Image)(resources.GetObject("barSubItem1.ImageOptions.LargeImage")));
+            this.barSubItem1.LinksPersistInfo.AddRange(new DevExpress.XtraBars.LinkPersistInfo[] {
+            new DevExpress.XtraBars.LinkPersistInfo(this.barButtonItem1)});
+            this.barSubItem1.Name = "barSubItem1";
+            // 
+            // barButtonItem1
+            // 
+            this.barButtonItem1.Caption = "Đợt khám sức khỏe";
+            this.barButtonItem1.Id = 23;
+            this.barButtonItem1.Name = "barButtonItem1";
+            // 
+            // barButtonItem2
+            // 
+            this.barButtonItem2.Caption = "barButtonItem2";
+            this.barButtonItem2.Id = 24;
+            this.barButtonItem2.Name = "barButtonItem2";
+            // 
+            // btnHealth
+            // 
+            this.btnHealth.Caption = "Khám sức khỏe định kỳ";
+            this.btnHealth.Id = 25;
+            this.btnHealth.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("btnHealth.ImageOptions.Image")));
+            this.btnHealth.ImageOptions.LargeImage = ((System.Drawing.Image)(resources.GetObject("btnHealth.ImageOptions.LargeImage")));
+            this.btnHealth.LinksPersistInfo.AddRange(new DevExpress.XtraBars.LinkPersistInfo[] {
+            new DevExpress.XtraBars.LinkPersistInfo(this.btnHealthExamination),
+            new DevExpress.XtraBars.LinkPersistInfo(this.btnHealthExaminationDetail)});
+            this.btnHealth.Name = "btnHealth";
+            // 
+            // btnHealthExamination
+            // 
+            this.btnHealthExamination.Caption = "Đợt khám sức khỏe";
+            this.btnHealthExamination.Id = 26;
+            this.btnHealthExamination.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("btnHealthExamination.ImageOptions.Image")));
+            this.btnHealthExamination.ImageOptions.LargeImage = ((System.Drawing.Image)(resources.GetObject("btnHealthExamination.ImageOptions.LargeImage")));
+            this.btnHealthExamination.Name = "btnHealthExamination";
+            this.btnHealthExamination.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.btnHealthExam_ItemClick);
+            // 
+            // btnHealthExaminationDetail
+            // 
+            this.btnHealthExaminationDetail.Caption = "Kết quả khám sức khỏe";
+            this.btnHealthExaminationDetail.Id = 27;
+            this.btnHealthExaminationDetail.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("btnHealthExaminationDetail.ImageOptions.Image")));
+            this.btnHealthExaminationDetail.ImageOptions.LargeImage = ((System.Drawing.Image)(resources.GetObject("btnHealthExaminationDetail.ImageOptions.LargeImage")));
+            this.btnHealthExaminationDetail.Name = "btnHealthExaminationDetail";
+            this.btnHealthExaminationDetail.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.btnHealthExaminationDetail_ItemClick);
+            // 
             // ribbonPage1
             // 
             this.ribbonPage1.Groups.AddRange(new DevExpress.XtraBars.Ribbon.RibbonPageGroup[] {
@@ -425,56 +476,6 @@
             this.pnControlsPanel.Name = "pnControlsPanel";
             this.pnControlsPanel.Size = new System.Drawing.Size(798, 432);
             this.pnControlsPanel.TabIndex = 3;
-            // 
-            // barSubItem1
-            // 
-            this.barSubItem1.Caption = "Khám sức khỏe định kỳ";
-            this.barSubItem1.Id = 22;
-            this.barSubItem1.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("barSubItem1.ImageOptions.Image")));
-            this.barSubItem1.ImageOptions.LargeImage = ((System.Drawing.Image)(resources.GetObject("barSubItem1.ImageOptions.LargeImage")));
-            this.barSubItem1.LinksPersistInfo.AddRange(new DevExpress.XtraBars.LinkPersistInfo[] {
-            new DevExpress.XtraBars.LinkPersistInfo(this.barButtonItem1)});
-            this.barSubItem1.Name = "barSubItem1";
-            // 
-            // barButtonItem1
-            // 
-            this.barButtonItem1.Caption = "Đợt khám sức khỏe";
-            this.barButtonItem1.Id = 23;
-            this.barButtonItem1.Name = "barButtonItem1";
-            // 
-            // barButtonItem2
-            // 
-            this.barButtonItem2.Caption = "barButtonItem2";
-            this.barButtonItem2.Id = 24;
-            this.barButtonItem2.Name = "barButtonItem2";
-            // 
-            // btnHealth
-            // 
-            this.btnHealth.Caption = "Khám sức khỏe định kỳ";
-            this.btnHealth.Id = 25;
-            this.btnHealth.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("barSubItem2.ImageOptions.Image")));
-            this.btnHealth.ImageOptions.LargeImage = ((System.Drawing.Image)(resources.GetObject("barSubItem2.ImageOptions.LargeImage")));
-            this.btnHealth.LinksPersistInfo.AddRange(new DevExpress.XtraBars.LinkPersistInfo[] {
-            new DevExpress.XtraBars.LinkPersistInfo(this.btnHealthExamination),
-            new DevExpress.XtraBars.LinkPersistInfo(this.btnHealthExaminationDetail)});
-            this.btnHealth.Name = "btnHealth";
-            // 
-            // btnHealthExamination
-            // 
-            this.btnHealthExamination.Caption = "Đợt khám sức khỏe";
-            this.btnHealthExamination.Id = 26;
-            this.btnHealthExamination.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("btnHealthExamination.ImageOptions.Image")));
-            this.btnHealthExamination.ImageOptions.LargeImage = ((System.Drawing.Image)(resources.GetObject("btnHealthExamination.ImageOptions.LargeImage")));
-            this.btnHealthExamination.Name = "btnHealthExamination";
-            this.btnHealthExamination.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.btnHealthExam_ItemClick);
-            // 
-            // btnHealthExaminationDetail
-            // 
-            this.btnHealthExaminationDetail.Caption = "Kết quả khám sức khỏe";
-            this.btnHealthExaminationDetail.Id = 27;
-            this.btnHealthExaminationDetail.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("barButtonItem4.ImageOptions.Image")));
-            this.btnHealthExaminationDetail.ImageOptions.LargeImage = ((System.Drawing.Image)(resources.GetObject("barButtonItem4.ImageOptions.LargeImage")));
-            this.btnHealthExaminationDetail.Name = "btnHealthExaminationDetail";
             // 
             // frmMain
             // 

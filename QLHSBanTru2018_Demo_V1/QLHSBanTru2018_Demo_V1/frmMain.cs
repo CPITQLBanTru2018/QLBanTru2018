@@ -152,6 +152,13 @@ namespace QLHSBanTru2018_Demo_V1
             pnControlsPanel.Controls.Add(m_frmHealthExam);
             m_frmHealthExam.Dock = DockStyle.Fill;
         }
+        private void btnHealthExaminationDetail_ItemClick(object sender, ItemClickEventArgs e)
+        {
+            frmHealthExaminationDetail m_frmHealthExamDetail = new frmHealthExaminationDetail();
+            pnControlsPanel.Controls.Clear();
+            pnControlsPanel.Controls.Add(m_frmHealthExamDetail);
+            m_frmHealthExamDetail.Dock = DockStyle.Fill;
+        }
         #endregion
 
         #region Vũ Đức Thiện

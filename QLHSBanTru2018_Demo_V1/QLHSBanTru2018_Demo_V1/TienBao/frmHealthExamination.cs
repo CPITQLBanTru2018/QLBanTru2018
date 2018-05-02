@@ -110,14 +110,22 @@ namespace QLHSBanTru2018_Demo_V1.TienBao
         }
         private void btnCapNhat_Click(object sender, EventArgs e)
         {
-            frmAddHealthExamination m_frmAddHealthExamination = new frmAddHealthExamination();
-            m_frmAddHealthExamination.iFunction = 2;
-            m_frmAddHealthExamination.m_HealthExamTable = new HealthExaminationDAO().GetByID(int.Parse(txtHealthExamID.Text));
-            m_frmAddHealthExamination.ShowDialog();
-            if (m_frmAddHealthExamination.DialogResult == DialogResult.OK)
+            if (txtHealthExamID.Text.Length == 0)
             {
-                FillGridControl();
+                XtraMessageBox.Show("Vui lòng chọn đợt khám cần cập nhật", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
+            else
+            {
+                frmAddHealthExamination m_frmAddHealthExamination = new frmAddHealthExamination();
+                m_frmAddHealthExamination.iFunction = 2;
+                m_frmAddHealthExamination.m_HealthExamTable = new HealthExaminationDAO().GetByID(int.Parse(txtHealthExamID.Text));
+                m_frmAddHealthExamination.ShowDialog();
+                if (m_frmAddHealthExamination.DialogResult == DialogResult.OK)
+                {
+                    FillGridControl();
+                }
+            }
+            
         }
         private void btnupdate_ButtonClick(object sender, DevExpress.XtraEditors.Controls.ButtonPressedEventArgs e)
         {
@@ -132,17 +140,24 @@ namespace QLHSBanTru2018_Demo_V1.TienBao
         }
         private void btnXoa_Click(object sender, EventArgs e)
         {
-            if (XtraMessageBox.Show("Bạn muốn ngừng sử dụng đợt khám sức khỏe này?", "Thông báo", MessageBoxButtons.YesNo, MessageBoxIcon.Warning) == DialogResult.Yes)
-            {               
-                new HealthExaminationDAO().HealthExamDelete(int.Parse(txtHealthExamID.Text));
-                if (XtraMessageBox.Show(" Khóa đợt khám sức khỏe thành công", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information) == DialogResult.OK)
+            if (txtHealthExamID.Text.Length == 0)
+            {
+                XtraMessageBox.Show("Vui lòng chọn đợt khám cần cập nhật", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }
+            else
+            {
+                if (XtraMessageBox.Show("Bạn muốn ngừng sử dụng đợt khám sức khỏe này?", "Thông báo", MessageBoxButtons.YesNo, MessageBoxIcon.Warning) == DialogResult.Yes)
                 {
-                    FillGridControl();
+                    new HealthExaminationDAO().HealthExamDelete(int.Parse(txtHealthExamID.Text));
+                    if (XtraMessageBox.Show(" Khóa đợt khám sức khỏe thành công", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information) == DialogResult.OK)
+                    {
+                        FillGridControl();
+                    }
                 }
             }
+            
         }
-        #endregion
 
-       
+        #endregion
     }
 }

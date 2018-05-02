@@ -378,6 +378,12 @@
     <Compile Include="TienBao\frmHealthExamination.Designer.cs">
       <DependentUpon>frmHealthExamination.cs</DependentUpon>
     </Compile>
+    <Compile Include="TienBao\frmHealthExaminationDetail.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="TienBao\frmHealthExaminationDetail.Designer.cs">
+      <DependentUpon>frmHealthExaminationDetail.cs</DependentUpon>
+    </Compile>
     <Compile Include="TienBao\frmHealthProblem.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -565,6 +571,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="TienBao\frmHealthExamination.resx">
       <DependentUpon>frmHealthExamination.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="TienBao\frmHealthExaminationDetail.resx">
+      <DependentUpon>frmHealthExaminationDetail.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="TienBao\frmHealthProblem.resx">
       <DependentUpon>frmHealthProblem.cs</DependentUpon>
