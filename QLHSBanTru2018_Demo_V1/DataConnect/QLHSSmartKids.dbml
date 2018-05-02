@@ -13,13 +13,13 @@
   </Table>
   <Table Name="dbo.WeeklyTask" Member="WeeklyTasks">
     <Type Name="WeeklyTask">
-      <Column Name="WeeklyTaskID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="WeeklyTaskID" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="MonthlyTaskID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
       <Column Name="Allowed" Type="System.Int32" DbType="Int" CanBeNull="true" />
       <Column Name="NotAllowed" Type="System.Int32" DbType="Int" CanBeNull="true" />
       <Column Name="Total" Type="System.Int32" DbType="Int" CanBeNull="true" />
       <Column Name="Comment" Type="System.String" DbType="NVarChar(200)" CanBeNull="true" />
       <Column Name="Page" Type="System.String" DbType="NChar(10)" CanBeNull="true" />
-      <Association Name="WeeklyTask_DailyTask" Member="DailyTasks" ThisKey="WeeklyTaskID" OtherKey="WeeklyTaskID" Type="DailyTask" />
     </Type>
   </Table>
   <Table Name="dbo.Contract" Member="Contracts">
@@ -92,13 +92,11 @@
     <Type Name="DailyTask">
       <Column Name="DailyTaskID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
       <Column Name="StudentID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
-      <Column Name="WeeklyTaskID" Type="System.Int32" DbType="Int" CanBeNull="true" />
-      <Column Name="MonthlyTaskID" Type="System.Int32" DbType="Int" CanBeNull="true" />
-      <Column Name="DateTask" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="WeeklyTaskID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="MonthlyTaskID" Type="System.String" DbType="NChar(20) NOT NULL" CanBeNull="false" />
+      <Column Name="DateTask" Type="System.String" DbType="NChar(20) NOT NULL" CanBeNull="false" />
       <Column Name="Present" Type="System.String" DbType="NVarChar(20)" CanBeNull="true" />
       <Column Name="Reason" Type="System.String" DbType="NVarChar(200)" CanBeNull="true" />
-      <Association Name="WeeklyTask_DailyTask" Member="WeeklyTask" ThisKey="WeeklyTaskID" OtherKey="WeeklyTaskID" Type="WeeklyTask" IsForeignKey="true" />
-      <Association Name="PhysicalMonthlyTask_DailyTask" Member="PhysicalMonthlyTask" ThisKey="MonthlyTaskID" OtherKey="PhysicalMonthlyTaskID" Type="PhysicalMonthlyTask" IsForeignKey="true" />
       <Association Name="Student_DailyTask" Member="Student" ThisKey="StudentID" OtherKey="StudentID" Type="Student" IsForeignKey="true" />
     </Type>
   </Table>
@@ -369,6 +367,34 @@
       <Association Name="IngredientType_Ingredient" Member="Ingredients" ThisKey="IngredientTypeID" OtherKey="IngredientTypeID" Type="Ingredient" />
     </Type>
   </Table>
+  <Table Name="dbo.Invoice" Member="Invoices">
+    <Type Name="Invoice">
+      <Column Name="InvoiceID" Type="System.Guid" DbType="UniqueIdentifier NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="CreatedDate" Type="System.DateTime" DbType="Date NOT NULL" CanBeNull="false" />
+      <Column Name="EmployeeID" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="NameMoneyReceive" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="PhoneNumber" Type="System.String" DbType="Char(11)" CanBeNull="true" />
+      <Column Name="AdressDetail" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
+      <Column Name="TotalPrice" Type="System.Decimal" DbType="Decimal(18,0)" CanBeNull="true" />
+      <Column Name="SpendSpeciesID" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="Status" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Association Name="Invoice_InvoiceDetail" Member="InvoiceDetails" ThisKey="InvoiceID" OtherKey="InvoiceID" Type="InvoiceDetail" />
+      <Association Name="SpendSpecy_Invoice" Member="SpendSpecy" ThisKey="SpendSpeciesID" OtherKey="SpendSpeciesID" Type="SpendSpecy" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.InvoiceDetail" Member="InvoiceDetails">
+    <Type Name="InvoiceDetail">
+      <Column Name="InvoiceDetailID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="InvoiceID" Type="System.Guid" DbType="UniqueIdentifier NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="NameInvoiceDetail" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="Price" Type="System.Decimal" DbType="Decimal(18,0)" CanBeNull="true" />
+      <Column Name="Unit" Type="System.String" DbType="NVarChar(10)" CanBeNull="true" />
+      <Column Name="Amount" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="TotalPriceDetail" Type="System.Decimal" DbType="Decimal(18,0)" CanBeNull="true" />
+      <Column Name="Status" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Association Name="Invoice_InvoiceDetail" Member="Invoice" ThisKey="InvoiceID" OtherKey="InvoiceID" Type="Invoice" IsForeignKey="true" />
+    </Type>
+  </Table>
   <Table Name="dbo.Lesson" Member="Lessons">
     <Type Name="Lesson">
       <Column Name="LessonID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
@@ -438,7 +464,6 @@
       <Column Name="HeightRating" Type="System.String" DbType="NVarChar(100) NOT NULL" CanBeNull="false" />
       <Column Name="WeightRating" Type="System.String" DbType="NVarChar(100) NOT NULL" CanBeNull="false" />
       <Column Name="Status" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
-      <Association Name="PhysicalMonthlyTask_DailyTask" Member="DailyTasks" ThisKey="PhysicalMonthlyTaskID" OtherKey="MonthlyTaskID" Type="DailyTask" />
     </Type>
   </Table>
   <Table Name="dbo.Position" Member="Positions">
@@ -514,6 +539,15 @@
       <Column Name="Status" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
       <Association Name="Semester_Grade" Member="Grades" ThisKey="SemesterID" OtherKey="SemesterID" Type="Grade" />
       <Association Name="Course_Semester" Member="Course" ThisKey="CourseID" OtherKey="CourseID" Type="Course" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.SpendSpecies" Member="SpendSpecies">
+    <Type Name="SpendSpecy">
+      <Column Name="SpendSpeciesID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="Name" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="CreatedDate" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="Status" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Association Name="SpendSpecy_Invoice" Member="Invoices" ThisKey="SpendSpeciesID" OtherKey="SpendSpeciesID" Type="Invoice" />
     </Type>
   </Table>
   <Table Name="dbo.Student" Member="Students">

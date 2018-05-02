@@ -111,6 +111,12 @@ namespace DataConnect
     partial void InsertIngredientType(IngredientType instance);
     partial void UpdateIngredientType(IngredientType instance);
     partial void DeleteIngredientType(IngredientType instance);
+    partial void InsertInvoice(Invoice instance);
+    partial void UpdateInvoice(Invoice instance);
+    partial void DeleteInvoice(Invoice instance);
+    partial void InsertInvoiceDetail(InvoiceDetail instance);
+    partial void UpdateInvoiceDetail(InvoiceDetail instance);
+    partial void DeleteInvoiceDetail(InvoiceDetail instance);
     partial void InsertLesson(Lesson instance);
     partial void UpdateLesson(Lesson instance);
     partial void DeleteLesson(Lesson instance);
@@ -150,6 +156,9 @@ namespace DataConnect
     partial void InsertSemester(Semester instance);
     partial void UpdateSemester(Semester instance);
     partial void DeleteSemester(Semester instance);
+    partial void InsertSpendSpecy(SpendSpecy instance);
+    partial void UpdateSpendSpecy(SpendSpecy instance);
+    partial void DeleteSpendSpecy(SpendSpecy instance);
     partial void InsertStudent(Student instance);
     partial void UpdateStudent(Student instance);
     partial void DeleteStudent(Student instance);
@@ -422,6 +431,22 @@ namespace DataConnect
 			}
 		}
 		
+		public System.Data.Linq.Table<Invoice> Invoices
+		{
+			get
+			{
+				return this.GetTable<Invoice>();
+			}
+		}
+		
+		public System.Data.Linq.Table<InvoiceDetail> InvoiceDetails
+		{
+			get
+			{
+				return this.GetTable<InvoiceDetail>();
+			}
+		}
+		
 		public System.Data.Linq.Table<Lesson> Lessons
 		{
 			get
@@ -523,6 +548,14 @@ namespace DataConnect
 			get
 			{
 				return this.GetTable<Semester>();
+			}
+		}
+		
+		public System.Data.Linq.Table<SpendSpecy> SpendSpecies
+		{
+			get
+			{
+				return this.GetTable<SpendSpecy>();
 			}
 		}
 		
@@ -830,6 +863,8 @@ namespace DataConnect
 		
 		private int _WeeklyTaskID;
 		
+		private int _MonthlyTaskID;
+		
 		private System.Nullable<int> _Allowed;
 		
 		private System.Nullable<int> _NotAllowed;
@@ -840,14 +875,14 @@ namespace DataConnect
 		
 		private string _Page;
 		
-		private EntitySet<DailyTask> _DailyTasks;
-		
     #region Extensibility Method Definitions
     partial void OnLoaded();
     partial void OnValidate(System.Data.Linq.ChangeAction action);
     partial void OnCreated();
     partial void OnWeeklyTaskIDChanging(int value);
     partial void OnWeeklyTaskIDChanged();
+    partial void OnMonthlyTaskIDChanging(int value);
+    partial void OnMonthlyTaskIDChanged();
     partial void OnAllowedChanging(System.Nullable<int> value);
     partial void OnAllowedChanged();
     partial void OnNotAllowedChanging(System.Nullable<int> value);
@@ -862,11 +897,10 @@ namespace DataConnect
 		
 		public WeeklyTask()
 		{
-			this._DailyTasks = new EntitySet<DailyTask>(new Action<DailyTask>(this.attach_DailyTasks), new Action<DailyTask>(this.detach_DailyTasks));
 			OnCreated();
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_WeeklyTaskID", AutoSync=AutoSync.OnInsert, DbType="Int NOT NULL IDENTITY", IsPrimaryKey=true, IsDbGenerated=true)]
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_WeeklyTaskID", DbType="Int NOT NULL", IsPrimaryKey=true)]
 		public int WeeklyTaskID
 		{
 			get
@@ -882,6 +916,26 @@ namespace DataConnect
 					this._WeeklyTaskID = value;
 					this.SendPropertyChanged("WeeklyTaskID");
 					this.OnWeeklyTaskIDChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_MonthlyTaskID", DbType="Int NOT NULL")]
+		public int MonthlyTaskID
+		{
+			get
+			{
+				return this._MonthlyTaskID;
+			}
+			set
+			{
+				if ((this._MonthlyTaskID != value))
+				{
+					this.OnMonthlyTaskIDChanging(value);
+					this.SendPropertyChanging();
+					this._MonthlyTaskID = value;
+					this.SendPropertyChanged("MonthlyTaskID");
+					this.OnMonthlyTaskIDChanged();
 				}
 			}
 		}
@@ -986,19 +1040,6 @@ namespace DataConnect
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="WeeklyTask_DailyTask", Storage="_DailyTasks", ThisKey="WeeklyTaskID", OtherKey="WeeklyTaskID")]
-		public EntitySet<DailyTask> DailyTasks
-		{
-			get
-			{
-				return this._DailyTasks;
-			}
-			set
-			{
-				this._DailyTasks.Assign(value);
-			}
-		}
-		
 		public event PropertyChangingEventHandler PropertyChanging;
 		
 		public event PropertyChangedEventHandler PropertyChanged;
@@ -1017,18 +1058,6 @@ namespace DataConnect
 			{
 				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
 			}
-		}
-		
-		private void attach_DailyTasks(DailyTask entity)
-		{
-			this.SendPropertyChanging();
-			entity.WeeklyTask = this;
-		}
-		
-		private void detach_DailyTasks(DailyTask entity)
-		{
-			this.SendPropertyChanging();
-			entity.WeeklyTask = null;
 		}
 	}
 	
@@ -2484,19 +2513,15 @@ namespace DataConnect
 		
 		private int _StudentID;
 		
-		private System.Nullable<int> _WeeklyTaskID;
+		private int _WeeklyTaskID;
 		
-		private System.Nullable<int> _MonthlyTaskID;
+		private string _MonthlyTaskID;
 		
-		private System.Nullable<System.DateTime> _DateTask;
+		private string _DateTask;
 		
 		private string _Present;
 		
 		private string _Reason;
-		
-		private EntityRef<WeeklyTask> _WeeklyTask;
-		
-		private EntityRef<PhysicalMonthlyTask> _PhysicalMonthlyTask;
 		
 		private EntityRef<Student> _Student;
 		
@@ -2508,11 +2533,11 @@ namespace DataConnect
     partial void OnDailyTaskIDChanged();
     partial void OnStudentIDChanging(int value);
     partial void OnStudentIDChanged();
-    partial void OnWeeklyTaskIDChanging(System.Nullable<int> value);
+    partial void OnWeeklyTaskIDChanging(int value);
     partial void OnWeeklyTaskIDChanged();
-    partial void OnMonthlyTaskIDChanging(System.Nullable<int> value);
+    partial void OnMonthlyTaskIDChanging(string value);
     partial void OnMonthlyTaskIDChanged();
-    partial void OnDateTaskChanging(System.Nullable<System.DateTime> value);
+    partial void OnDateTaskChanging(string value);
     partial void OnDateTaskChanged();
     partial void OnPresentChanging(string value);
     partial void OnPresentChanged();
@@ -2522,8 +2547,6 @@ namespace DataConnect
 		
 		public DailyTask()
 		{
-			this._WeeklyTask = default(EntityRef<WeeklyTask>);
-			this._PhysicalMonthlyTask = default(EntityRef<PhysicalMonthlyTask>);
 			this._Student = default(EntityRef<Student>);
 			OnCreated();
 		}
@@ -2572,8 +2595,8 @@ namespace DataConnect
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_WeeklyTaskID", DbType="Int")]
-		public System.Nullable<int> WeeklyTaskID
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_WeeklyTaskID", DbType="Int NOT NULL")]
+		public int WeeklyTaskID
 		{
 			get
 			{
@@ -2583,10 +2606,6 @@ namespace DataConnect
 			{
 				if ((this._WeeklyTaskID != value))
 				{
-					if (this._WeeklyTask.HasLoadedOrAssignedValue)
-					{
-						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
-					}
 					this.OnWeeklyTaskIDChanging(value);
 					this.SendPropertyChanging();
 					this._WeeklyTaskID = value;
@@ -2596,8 +2615,8 @@ namespace DataConnect
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_MonthlyTaskID", DbType="Int")]
-		public System.Nullable<int> MonthlyTaskID
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_MonthlyTaskID", DbType="NChar(20) NOT NULL", CanBeNull=false)]
+		public string MonthlyTaskID
 		{
 			get
 			{
@@ -2607,10 +2626,6 @@ namespace DataConnect
 			{
 				if ((this._MonthlyTaskID != value))
 				{
-					if (this._PhysicalMonthlyTask.HasLoadedOrAssignedValue)
-					{
-						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
-					}
 					this.OnMonthlyTaskIDChanging(value);
 					this.SendPropertyChanging();
 					this._MonthlyTaskID = value;
@@ -2620,8 +2635,8 @@ namespace DataConnect
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_DateTask", DbType="DateTime")]
-		public System.Nullable<System.DateTime> DateTask
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_DateTask", DbType="NChar(20) NOT NULL", CanBeNull=false)]
+		public string DateTask
 		{
 			get
 			{
@@ -2676,74 +2691,6 @@ namespace DataConnect
 					this._Reason = value;
 					this.SendPropertyChanged("Reason");
 					this.OnReasonChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="WeeklyTask_DailyTask", Storage="_WeeklyTask", ThisKey="WeeklyTaskID", OtherKey="WeeklyTaskID", IsForeignKey=true)]
-		public WeeklyTask WeeklyTask
-		{
-			get
-			{
-				return this._WeeklyTask.Entity;
-			}
-			set
-			{
-				WeeklyTask previousValue = this._WeeklyTask.Entity;
-				if (((previousValue != value) 
-							|| (this._WeeklyTask.HasLoadedOrAssignedValue == false)))
-				{
-					this.SendPropertyChanging();
-					if ((previousValue != null))
-					{
-						this._WeeklyTask.Entity = null;
-						previousValue.DailyTasks.Remove(this);
-					}
-					this._WeeklyTask.Entity = value;
-					if ((value != null))
-					{
-						value.DailyTasks.Add(this);
-						this._WeeklyTaskID = value.WeeklyTaskID;
-					}
-					else
-					{
-						this._WeeklyTaskID = default(Nullable<int>);
-					}
-					this.SendPropertyChanged("WeeklyTask");
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="PhysicalMonthlyTask_DailyTask", Storage="_PhysicalMonthlyTask", ThisKey="MonthlyTaskID", OtherKey="PhysicalMonthlyTaskID", IsForeignKey=true)]
-		public PhysicalMonthlyTask PhysicalMonthlyTask
-		{
-			get
-			{
-				return this._PhysicalMonthlyTask.Entity;
-			}
-			set
-			{
-				PhysicalMonthlyTask previousValue = this._PhysicalMonthlyTask.Entity;
-				if (((previousValue != value) 
-							|| (this._PhysicalMonthlyTask.HasLoadedOrAssignedValue == false)))
-				{
-					this.SendPropertyChanging();
-					if ((previousValue != null))
-					{
-						this._PhysicalMonthlyTask.Entity = null;
-						previousValue.DailyTasks.Remove(this);
-					}
-					this._PhysicalMonthlyTask.Entity = value;
-					if ((value != null))
-					{
-						value.DailyTasks.Add(this);
-						this._MonthlyTaskID = value.PhysicalMonthlyTaskID;
-					}
-					else
-					{
-						this._MonthlyTaskID = default(Nullable<int>);
-					}
-					this.SendPropertyChanged("PhysicalMonthlyTask");
 				}
 			}
 		}
@@ -8588,6 +8535,600 @@ namespace DataConnect
 		}
 	}
 	
+	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.Invoice")]
+	public partial class Invoice : INotifyPropertyChanging, INotifyPropertyChanged
+	{
+		
+		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
+		
+		private System.Guid _InvoiceID;
+		
+		private System.DateTime _CreatedDate;
+		
+		private System.Nullable<int> _EmployeeID;
+		
+		private string _NameMoneyReceive;
+		
+		private string _PhoneNumber;
+		
+		private string _AdressDetail;
+		
+		private System.Nullable<decimal> _TotalPrice;
+		
+		private System.Nullable<int> _SpendSpeciesID;
+		
+		private System.Nullable<bool> _Status;
+		
+		private EntitySet<InvoiceDetail> _InvoiceDetails;
+		
+		private EntityRef<SpendSpecy> _SpendSpecy;
+		
+    #region Extensibility Method Definitions
+    partial void OnLoaded();
+    partial void OnValidate(System.Data.Linq.ChangeAction action);
+    partial void OnCreated();
+    partial void OnInvoiceIDChanging(System.Guid value);
+    partial void OnInvoiceIDChanged();
+    partial void OnCreatedDateChanging(System.DateTime value);
+    partial void OnCreatedDateChanged();
+    partial void OnEmployeeIDChanging(System.Nullable<int> value);
+    partial void OnEmployeeIDChanged();
+    partial void OnNameMoneyReceiveChanging(string value);
+    partial void OnNameMoneyReceiveChanged();
+    partial void OnPhoneNumberChanging(string value);
+    partial void OnPhoneNumberChanged();
+    partial void OnAdressDetailChanging(string value);
+    partial void OnAdressDetailChanged();
+    partial void OnTotalPriceChanging(System.Nullable<decimal> value);
+    partial void OnTotalPriceChanged();
+    partial void OnSpendSpeciesIDChanging(System.Nullable<int> value);
+    partial void OnSpendSpeciesIDChanged();
+    partial void OnStatusChanging(System.Nullable<bool> value);
+    partial void OnStatusChanged();
+    #endregion
+		
+		public Invoice()
+		{
+			this._InvoiceDetails = new EntitySet<InvoiceDetail>(new Action<InvoiceDetail>(this.attach_InvoiceDetails), new Action<InvoiceDetail>(this.detach_InvoiceDetails));
+			this._SpendSpecy = default(EntityRef<SpendSpecy>);
+			OnCreated();
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_InvoiceID", DbType="UniqueIdentifier NOT NULL", IsPrimaryKey=true)]
+		public System.Guid InvoiceID
+		{
+			get
+			{
+				return this._InvoiceID;
+			}
+			set
+			{
+				if ((this._InvoiceID != value))
+				{
+					this.OnInvoiceIDChanging(value);
+					this.SendPropertyChanging();
+					this._InvoiceID = value;
+					this.SendPropertyChanged("InvoiceID");
+					this.OnInvoiceIDChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CreatedDate", DbType="Date NOT NULL")]
+		public System.DateTime CreatedDate
+		{
+			get
+			{
+				return this._CreatedDate;
+			}
+			set
+			{
+				if ((this._CreatedDate != value))
+				{
+					this.OnCreatedDateChanging(value);
+					this.SendPropertyChanging();
+					this._CreatedDate = value;
+					this.SendPropertyChanged("CreatedDate");
+					this.OnCreatedDateChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_EmployeeID", DbType="Int")]
+		public System.Nullable<int> EmployeeID
+		{
+			get
+			{
+				return this._EmployeeID;
+			}
+			set
+			{
+				if ((this._EmployeeID != value))
+				{
+					this.OnEmployeeIDChanging(value);
+					this.SendPropertyChanging();
+					this._EmployeeID = value;
+					this.SendPropertyChanged("EmployeeID");
+					this.OnEmployeeIDChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_NameMoneyReceive", DbType="NVarChar(50)")]
+		public string NameMoneyReceive
+		{
+			get
+			{
+				return this._NameMoneyReceive;
+			}
+			set
+			{
+				if ((this._NameMoneyReceive != value))
+				{
+					this.OnNameMoneyReceiveChanging(value);
+					this.SendPropertyChanging();
+					this._NameMoneyReceive = value;
+					this.SendPropertyChanged("NameMoneyReceive");
+					this.OnNameMoneyReceiveChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_PhoneNumber", DbType="Char(11)")]
+		public string PhoneNumber
+		{
+			get
+			{
+				return this._PhoneNumber;
+			}
+			set
+			{
+				if ((this._PhoneNumber != value))
+				{
+					this.OnPhoneNumberChanging(value);
+					this.SendPropertyChanging();
+					this._PhoneNumber = value;
+					this.SendPropertyChanged("PhoneNumber");
+					this.OnPhoneNumberChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_AdressDetail", DbType="NVarChar(100)")]
+		public string AdressDetail
+		{
+			get
+			{
+				return this._AdressDetail;
+			}
+			set
+			{
+				if ((this._AdressDetail != value))
+				{
+					this.OnAdressDetailChanging(value);
+					this.SendPropertyChanging();
+					this._AdressDetail = value;
+					this.SendPropertyChanged("AdressDetail");
+					this.OnAdressDetailChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_TotalPrice", DbType="Decimal(18,0)")]
+		public System.Nullable<decimal> TotalPrice
+		{
+			get
+			{
+				return this._TotalPrice;
+			}
+			set
+			{
+				if ((this._TotalPrice != value))
+				{
+					this.OnTotalPriceChanging(value);
+					this.SendPropertyChanging();
+					this._TotalPrice = value;
+					this.SendPropertyChanged("TotalPrice");
+					this.OnTotalPriceChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_SpendSpeciesID", DbType="Int")]
+		public System.Nullable<int> SpendSpeciesID
+		{
+			get
+			{
+				return this._SpendSpeciesID;
+			}
+			set
+			{
+				if ((this._SpendSpeciesID != value))
+				{
+					if (this._SpendSpecy.HasLoadedOrAssignedValue)
+					{
+						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
+					}
+					this.OnSpendSpeciesIDChanging(value);
+					this.SendPropertyChanging();
+					this._SpendSpeciesID = value;
+					this.SendPropertyChanged("SpendSpeciesID");
+					this.OnSpendSpeciesIDChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Status", DbType="Bit")]
+		public System.Nullable<bool> Status
+		{
+			get
+			{
+				return this._Status;
+			}
+			set
+			{
+				if ((this._Status != value))
+				{
+					this.OnStatusChanging(value);
+					this.SendPropertyChanging();
+					this._Status = value;
+					this.SendPropertyChanged("Status");
+					this.OnStatusChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Invoice_InvoiceDetail", Storage="_InvoiceDetails", ThisKey="InvoiceID", OtherKey="InvoiceID")]
+		public EntitySet<InvoiceDetail> InvoiceDetails
+		{
+			get
+			{
+				return this._InvoiceDetails;
+			}
+			set
+			{
+				this._InvoiceDetails.Assign(value);
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="SpendSpecy_Invoice", Storage="_SpendSpecy", ThisKey="SpendSpeciesID", OtherKey="SpendSpeciesID", IsForeignKey=true)]
+		public SpendSpecy SpendSpecy
+		{
+			get
+			{
+				return this._SpendSpecy.Entity;
+			}
+			set
+			{
+				SpendSpecy previousValue = this._SpendSpecy.Entity;
+				if (((previousValue != value) 
+							|| (this._SpendSpecy.HasLoadedOrAssignedValue == false)))
+				{
+					this.SendPropertyChanging();
+					if ((previousValue != null))
+					{
+						this._SpendSpecy.Entity = null;
+						previousValue.Invoices.Remove(this);
+					}
+					this._SpendSpecy.Entity = value;
+					if ((value != null))
+					{
+						value.Invoices.Add(this);
+						this._SpendSpeciesID = value.SpendSpeciesID;
+					}
+					else
+					{
+						this._SpendSpeciesID = default(Nullable<int>);
+					}
+					this.SendPropertyChanged("SpendSpecy");
+				}
+			}
+		}
+		
+		public event PropertyChangingEventHandler PropertyChanging;
+		
+		public event PropertyChangedEventHandler PropertyChanged;
+		
+		protected virtual void SendPropertyChanging()
+		{
+			if ((this.PropertyChanging != null))
+			{
+				this.PropertyChanging(this, emptyChangingEventArgs);
+			}
+		}
+		
+		protected virtual void SendPropertyChanged(String propertyName)
+		{
+			if ((this.PropertyChanged != null))
+			{
+				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
+			}
+		}
+		
+		private void attach_InvoiceDetails(InvoiceDetail entity)
+		{
+			this.SendPropertyChanging();
+			entity.Invoice = this;
+		}
+		
+		private void detach_InvoiceDetails(InvoiceDetail entity)
+		{
+			this.SendPropertyChanging();
+			entity.Invoice = null;
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.InvoiceDetail")]
+	public partial class InvoiceDetail : INotifyPropertyChanging, INotifyPropertyChanged
+	{
+		
+		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
+		
+		private int _InvoiceDetailID;
+		
+		private System.Guid _InvoiceID;
+		
+		private string _NameInvoiceDetail;
+		
+		private System.Nullable<decimal> _Price;
+		
+		private string _Unit;
+		
+		private System.Nullable<int> _Amount;
+		
+		private System.Nullable<decimal> _TotalPriceDetail;
+		
+		private System.Nullable<bool> _Status;
+		
+		private EntityRef<Invoice> _Invoice;
+		
+    #region Extensibility Method Definitions
+    partial void OnLoaded();
+    partial void OnValidate(System.Data.Linq.ChangeAction action);
+    partial void OnCreated();
+    partial void OnInvoiceDetailIDChanging(int value);
+    partial void OnInvoiceDetailIDChanged();
+    partial void OnInvoiceIDChanging(System.Guid value);
+    partial void OnInvoiceIDChanged();
+    partial void OnNameInvoiceDetailChanging(string value);
+    partial void OnNameInvoiceDetailChanged();
+    partial void OnPriceChanging(System.Nullable<decimal> value);
+    partial void OnPriceChanged();
+    partial void OnUnitChanging(string value);
+    partial void OnUnitChanged();
+    partial void OnAmountChanging(System.Nullable<int> value);
+    partial void OnAmountChanged();
+    partial void OnTotalPriceDetailChanging(System.Nullable<decimal> value);
+    partial void OnTotalPriceDetailChanged();
+    partial void OnStatusChanging(System.Nullable<bool> value);
+    partial void OnStatusChanged();
+    #endregion
+		
+		public InvoiceDetail()
+		{
+			this._Invoice = default(EntityRef<Invoice>);
+			OnCreated();
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_InvoiceDetailID", AutoSync=AutoSync.OnInsert, DbType="Int NOT NULL IDENTITY", IsPrimaryKey=true, IsDbGenerated=true)]
+		public int InvoiceDetailID
+		{
+			get
+			{
+				return this._InvoiceDetailID;
+			}
+			set
+			{
+				if ((this._InvoiceDetailID != value))
+				{
+					this.OnInvoiceDetailIDChanging(value);
+					this.SendPropertyChanging();
+					this._InvoiceDetailID = value;
+					this.SendPropertyChanged("InvoiceDetailID");
+					this.OnInvoiceDetailIDChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_InvoiceID", DbType="UniqueIdentifier NOT NULL", IsPrimaryKey=true)]
+		public System.Guid InvoiceID
+		{
+			get
+			{
+				return this._InvoiceID;
+			}
+			set
+			{
+				if ((this._InvoiceID != value))
+				{
+					if (this._Invoice.HasLoadedOrAssignedValue)
+					{
+						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
+					}
+					this.OnInvoiceIDChanging(value);
+					this.SendPropertyChanging();
+					this._InvoiceID = value;
+					this.SendPropertyChanged("InvoiceID");
+					this.OnInvoiceIDChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_NameInvoiceDetail", DbType="NVarChar(50)")]
+		public string NameInvoiceDetail
+		{
+			get
+			{
+				return this._NameInvoiceDetail;
+			}
+			set
+			{
+				if ((this._NameInvoiceDetail != value))
+				{
+					this.OnNameInvoiceDetailChanging(value);
+					this.SendPropertyChanging();
+					this._NameInvoiceDetail = value;
+					this.SendPropertyChanged("NameInvoiceDetail");
+					this.OnNameInvoiceDetailChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Price", DbType="Decimal(18,0)")]
+		public System.Nullable<decimal> Price
+		{
+			get
+			{
+				return this._Price;
+			}
+			set
+			{
+				if ((this._Price != value))
+				{
+					this.OnPriceChanging(value);
+					this.SendPropertyChanging();
+					this._Price = value;
+					this.SendPropertyChanged("Price");
+					this.OnPriceChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Unit", DbType="NVarChar(10)")]
+		public string Unit
+		{
+			get
+			{
+				return this._Unit;
+			}
+			set
+			{
+				if ((this._Unit != value))
+				{
+					this.OnUnitChanging(value);
+					this.SendPropertyChanging();
+					this._Unit = value;
+					this.SendPropertyChanged("Unit");
+					this.OnUnitChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Amount", DbType="Int")]
+		public System.Nullable<int> Amount
+		{
+			get
+			{
+				return this._Amount;
+			}
+			set
+			{
+				if ((this._Amount != value))
+				{
+					this.OnAmountChanging(value);
+					this.SendPropertyChanging();
+					this._Amount = value;
+					this.SendPropertyChanged("Amount");
+					this.OnAmountChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_TotalPriceDetail", DbType="Decimal(18,0)")]
+		public System.Nullable<decimal> TotalPriceDetail
+		{
+			get
+			{
+				return this._TotalPriceDetail;
+			}
+			set
+			{
+				if ((this._TotalPriceDetail != value))
+				{
+					this.OnTotalPriceDetailChanging(value);
+					this.SendPropertyChanging();
+					this._TotalPriceDetail = value;
+					this.SendPropertyChanged("TotalPriceDetail");
+					this.OnTotalPriceDetailChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Status", DbType="Bit")]
+		public System.Nullable<bool> Status
+		{
+			get
+			{
+				return this._Status;
+			}
+			set
+			{
+				if ((this._Status != value))
+				{
+					this.OnStatusChanging(value);
+					this.SendPropertyChanging();
+					this._Status = value;
+					this.SendPropertyChanged("Status");
+					this.OnStatusChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Invoice_InvoiceDetail", Storage="_Invoice", ThisKey="InvoiceID", OtherKey="InvoiceID", IsForeignKey=true)]
+		public Invoice Invoice
+		{
+			get
+			{
+				return this._Invoice.Entity;
+			}
+			set
+			{
+				Invoice previousValue = this._Invoice.Entity;
+				if (((previousValue != value) 
+							|| (this._Invoice.HasLoadedOrAssignedValue == false)))
+				{
+					this.SendPropertyChanging();
+					if ((previousValue != null))
+					{
+						this._Invoice.Entity = null;
+						previousValue.InvoiceDetails.Remove(this);
+					}
+					this._Invoice.Entity = value;
+					if ((value != null))
+					{
+						value.InvoiceDetails.Add(this);
+						this._InvoiceID = value.InvoiceID;
+					}
+					else
+					{
+						this._InvoiceID = default(System.Guid);
+					}
+					this.SendPropertyChanged("Invoice");
+				}
+			}
+		}
+		
+		public event PropertyChangingEventHandler PropertyChanging;
+		
+		public event PropertyChangedEventHandler PropertyChanged;
+		
+		protected virtual void SendPropertyChanging()
+		{
+			if ((this.PropertyChanging != null))
+			{
+				this.PropertyChanging(this, emptyChangingEventArgs);
+			}
+		}
+		
+		protected virtual void SendPropertyChanged(String propertyName)
+		{
+			if ((this.PropertyChanged != null))
+			{
+				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
+			}
+		}
+	}
+	
 	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.Lesson")]
 	public partial class Lesson : INotifyPropertyChanging, INotifyPropertyChanged
 	{
@@ -9803,8 +10344,6 @@ namespace DataConnect
 		
 		private bool _Status;
 		
-		private EntitySet<DailyTask> _DailyTasks;
-		
     #region Extensibility Method Definitions
     partial void OnLoaded();
     partial void OnValidate(System.Data.Linq.ChangeAction action);
@@ -9829,7 +10368,6 @@ namespace DataConnect
 		
 		public PhysicalMonthlyTask()
 		{
-			this._DailyTasks = new EntitySet<DailyTask>(new Action<DailyTask>(this.attach_DailyTasks), new Action<DailyTask>(this.detach_DailyTasks));
 			OnCreated();
 		}
 		
@@ -9993,19 +10531,6 @@ namespace DataConnect
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="PhysicalMonthlyTask_DailyTask", Storage="_DailyTasks", ThisKey="PhysicalMonthlyTaskID", OtherKey="MonthlyTaskID")]
-		public EntitySet<DailyTask> DailyTasks
-		{
-			get
-			{
-				return this._DailyTasks;
-			}
-			set
-			{
-				this._DailyTasks.Assign(value);
-			}
-		}
-		
 		public event PropertyChangingEventHandler PropertyChanging;
 		
 		public event PropertyChangedEventHandler PropertyChanged;
@@ -10024,18 +10549,6 @@ namespace DataConnect
 			{
 				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
 			}
-		}
-		
-		private void attach_DailyTasks(DailyTask entity)
-		{
-			this.SendPropertyChanging();
-			entity.PhysicalMonthlyTask = this;
-		}
-		
-		private void detach_DailyTasks(DailyTask entity)
-		{
-			this.SendPropertyChanging();
-			entity.PhysicalMonthlyTask = null;
 		}
 	}
 	
@@ -11535,6 +12048,168 @@ namespace DataConnect
 		{
 			this.SendPropertyChanging();
 			entity.Semester = null;
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.SpendSpecies")]
+	public partial class SpendSpecy : INotifyPropertyChanging, INotifyPropertyChanged
+	{
+		
+		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
+		
+		private int _SpendSpeciesID;
+		
+		private string _Name;
+		
+		private System.Nullable<System.DateTime> _CreatedDate;
+		
+		private System.Nullable<bool> _Status;
+		
+		private EntitySet<Invoice> _Invoices;
+		
+    #region Extensibility Method Definitions
+    partial void OnLoaded();
+    partial void OnValidate(System.Data.Linq.ChangeAction action);
+    partial void OnCreated();
+    partial void OnSpendSpeciesIDChanging(int value);
+    partial void OnSpendSpeciesIDChanged();
+    partial void OnNameChanging(string value);
+    partial void OnNameChanged();
+    partial void OnCreatedDateChanging(System.Nullable<System.DateTime> value);
+    partial void OnCreatedDateChanged();
+    partial void OnStatusChanging(System.Nullable<bool> value);
+    partial void OnStatusChanged();
+    #endregion
+		
+		public SpendSpecy()
+		{
+			this._Invoices = new EntitySet<Invoice>(new Action<Invoice>(this.attach_Invoices), new Action<Invoice>(this.detach_Invoices));
+			OnCreated();
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_SpendSpeciesID", AutoSync=AutoSync.OnInsert, DbType="Int NOT NULL IDENTITY", IsPrimaryKey=true, IsDbGenerated=true)]
+		public int SpendSpeciesID
+		{
+			get
+			{
+				return this._SpendSpeciesID;
+			}
+			set
+			{
+				if ((this._SpendSpeciesID != value))
+				{
+					this.OnSpendSpeciesIDChanging(value);
+					this.SendPropertyChanging();
+					this._SpendSpeciesID = value;
+					this.SendPropertyChanged("SpendSpeciesID");
+					this.OnSpendSpeciesIDChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Name", DbType="NVarChar(50)")]
+		public string Name
+		{
+			get
+			{
+				return this._Name;
+			}
+			set
+			{
+				if ((this._Name != value))
+				{
+					this.OnNameChanging(value);
+					this.SendPropertyChanging();
+					this._Name = value;
+					this.SendPropertyChanged("Name");
+					this.OnNameChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CreatedDate", DbType="DateTime")]
+		public System.Nullable<System.DateTime> CreatedDate
+		{
+			get
+			{
+				return this._CreatedDate;
+			}
+			set
+			{
+				if ((this._CreatedDate != value))
+				{
+					this.OnCreatedDateChanging(value);
+					this.SendPropertyChanging();
+					this._CreatedDate = value;
+					this.SendPropertyChanged("CreatedDate");
+					this.OnCreatedDateChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Status", DbType="Bit")]
+		public System.Nullable<bool> Status
+		{
+			get
+			{
+				return this._Status;
+			}
+			set
+			{
+				if ((this._Status != value))
+				{
+					this.OnStatusChanging(value);
+					this.SendPropertyChanging();
+					this._Status = value;
+					this.SendPropertyChanged("Status");
+					this.OnStatusChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="SpendSpecy_Invoice", Storage="_Invoices", ThisKey="SpendSpeciesID", OtherKey="SpendSpeciesID")]
+		public EntitySet<Invoice> Invoices
+		{
+			get
+			{
+				return this._Invoices;
+			}
+			set
+			{
+				this._Invoices.Assign(value);
+			}
+		}
+		
+		public event PropertyChangingEventHandler PropertyChanging;
+		
+		public event PropertyChangedEventHandler PropertyChanged;
+		
+		protected virtual void SendPropertyChanging()
+		{
+			if ((this.PropertyChanging != null))
+			{
+				this.PropertyChanging(this, emptyChangingEventArgs);
+			}
+		}
+		
+		protected virtual void SendPropertyChanged(String propertyName)
+		{
+			if ((this.PropertyChanged != null))
+			{
+				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
+			}
+		}
+		
+		private void attach_Invoices(Invoice entity)
+		{
+			this.SendPropertyChanging();
+			entity.SpendSpecy = this;
+		}
+		
+		private void detach_Invoices(Invoice entity)
+		{
+			this.SendPropertyChanging();
+			entity.SpendSpecy = null;
 		}
 	}
 	
