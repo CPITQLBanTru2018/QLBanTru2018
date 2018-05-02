@@ -370,6 +370,8 @@
   <Table Name="dbo.Invoice" Member="Invoices">
     <Type Name="Invoice">
       <Column Name="InvoiceID" Type="System.Guid" DbType="UniqueIdentifier NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="CourseID" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="SemesterID" Type="System.Int32" DbType="Int" CanBeNull="true" />
       <Column Name="CreatedDate" Type="System.DateTime" DbType="Date NOT NULL" CanBeNull="false" />
       <Column Name="EmployeeID" Type="System.Int32" DbType="Int" CanBeNull="true" />
       <Column Name="NameMoneyReceive" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
@@ -377,6 +379,7 @@
       <Column Name="AdressDetail" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
       <Column Name="TotalPrice" Type="System.Decimal" DbType="Decimal(18,0)" CanBeNull="true" />
       <Column Name="SpendSpeciesID" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="Note" Type="System.String" DbType="NText" CanBeNull="true" UpdateCheck="Never" />
       <Column Name="Status" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
       <Association Name="Invoice_InvoiceDetail" Member="InvoiceDetails" ThisKey="InvoiceID" OtherKey="InvoiceID" Type="InvoiceDetail" />
       <Association Name="SpendSpecy_Invoice" Member="SpendSpecy" ThisKey="SpendSpeciesID" OtherKey="SpendSpeciesID" Type="SpendSpecy" IsForeignKey="true" />
@@ -391,6 +394,7 @@
       <Column Name="Unit" Type="System.String" DbType="NVarChar(10)" CanBeNull="true" />
       <Column Name="Amount" Type="System.Int32" DbType="Int" CanBeNull="true" />
       <Column Name="TotalPriceDetail" Type="System.Decimal" DbType="Decimal(18,0)" CanBeNull="true" />
+      <Column Name="Note" Type="System.String" DbType="NText" CanBeNull="true" UpdateCheck="Never" />
       <Column Name="Status" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
       <Association Name="Invoice_InvoiceDetail" Member="Invoice" ThisKey="InvoiceID" OtherKey="InvoiceID" Type="Invoice" IsForeignKey="true" />
     </Type>

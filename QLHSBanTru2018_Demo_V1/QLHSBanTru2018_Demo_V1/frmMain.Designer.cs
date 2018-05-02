@@ -74,6 +74,9 @@
             this.ribbonStatusBar = new DevExpress.XtraBars.Ribbon.RibbonStatusBar();
             this.defaultLookAndFeel1 = new DevExpress.LookAndFeel.DefaultLookAndFeel(this.components);
             this.pnControlsPanel = new System.Windows.Forms.Panel();
+            this.ribbonPageGroup10 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
+            this.barButtonItem3 = new DevExpress.XtraBars.BarButtonItem();
+            this.barButtonItem4 = new DevExpress.XtraBars.BarButtonItem();
             ((System.ComponentModel.ISupportInitialize)(this.ribbon)).BeginInit();
             this.SuspendLayout();
             // 
@@ -108,9 +111,11 @@
             this.barButtonItem2,
             this.btnHealth,
             this.btnHealthExamination,
-            this.btnHealthExaminationDetail});
+            this.btnHealthExaminationDetail,
+            this.barButtonItem3,
+            this.barButtonItem4});
             this.ribbon.Location = new System.Drawing.Point(0, 0);
-            this.ribbon.MaxItemId = 28;
+            this.ribbon.MaxItemId = 30;
             this.ribbon.Name = "ribbon";
             this.ribbon.Pages.AddRange(new DevExpress.XtraBars.Ribbon.RibbonPage[] {
             this.ribbonPage1,
@@ -421,7 +426,8 @@
             // ribbonPage2
             // 
             this.ribbonPage2.Groups.AddRange(new DevExpress.XtraBars.Ribbon.RibbonPageGroup[] {
-            this.ribbonPageGroup3});
+            this.ribbonPageGroup3,
+            this.ribbonPageGroup10});
             this.ribbonPage2.Name = "ribbonPage2";
             this.ribbonPage2.Text = "Thu Chi";
             // 
@@ -476,6 +482,25 @@
             this.pnControlsPanel.Name = "pnControlsPanel";
             this.pnControlsPanel.Size = new System.Drawing.Size(798, 432);
             this.pnControlsPanel.TabIndex = 3;
+            // 
+            // ribbonPageGroup10
+            // 
+            this.ribbonPageGroup10.ItemLinks.Add(this.barButtonItem3);
+            this.ribbonPageGroup10.ItemLinks.Add(this.barButtonItem4);
+            this.ribbonPageGroup10.Name = "ribbonPageGroup10";
+            this.ribbonPageGroup10.Text = "Chi tiêu";
+            // 
+            // barButtonItem3
+            // 
+            this.barButtonItem3.Caption = "Các khoản chi";
+            this.barButtonItem3.Id = 28;
+            this.barButtonItem3.Name = "barButtonItem3";
+            // 
+            // barButtonItem4
+            // 
+            this.barButtonItem4.Caption = "barButtonItem4";
+            this.barButtonItem4.Id = 29;
+            this.barButtonItem4.Name = "barButtonItem4";
             // 
             // frmMain
             // 
@@ -542,5 +567,8 @@
         private DevExpress.XtraBars.BarSubItem btnHealth;
         private DevExpress.XtraBars.BarButtonItem btnHealthExamination;
         private DevExpress.XtraBars.BarButtonItem btnHealthExaminationDetail;
+        private DevExpress.XtraBars.BarButtonItem barButtonItem3;
+        private DevExpress.XtraBars.BarButtonItem barButtonItem4;
+        private DevExpress.XtraBars.Ribbon.RibbonPageGroup ribbonPageGroup10;
     }
 }

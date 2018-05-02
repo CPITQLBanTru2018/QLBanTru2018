@@ -8543,6 +8543,10 @@ namespace DataConnect
 		
 		private System.Guid _InvoiceID;
 		
+		private System.Nullable<int> _CourseID;
+		
+		private System.Nullable<int> _SemesterID;
+		
 		private System.DateTime _CreatedDate;
 		
 		private System.Nullable<int> _EmployeeID;
@@ -8557,6 +8561,8 @@ namespace DataConnect
 		
 		private System.Nullable<int> _SpendSpeciesID;
 		
+		private string _Note;
+		
 		private System.Nullable<bool> _Status;
 		
 		private EntitySet<InvoiceDetail> _InvoiceDetails;
@@ -8569,6 +8575,10 @@ namespace DataConnect
     partial void OnCreated();
     partial void OnInvoiceIDChanging(System.Guid value);
     partial void OnInvoiceIDChanged();
+    partial void OnCourseIDChanging(System.Nullable<int> value);
+    partial void OnCourseIDChanged();
+    partial void OnSemesterIDChanging(System.Nullable<int> value);
+    partial void OnSemesterIDChanged();
     partial void OnCreatedDateChanging(System.DateTime value);
     partial void OnCreatedDateChanged();
     partial void OnEmployeeIDChanging(System.Nullable<int> value);
@@ -8583,6 +8593,8 @@ namespace DataConnect
     partial void OnTotalPriceChanged();
     partial void OnSpendSpeciesIDChanging(System.Nullable<int> value);
     partial void OnSpendSpeciesIDChanged();
+    partial void OnNoteChanging(string value);
+    partial void OnNoteChanged();
     partial void OnStatusChanging(System.Nullable<bool> value);
     partial void OnStatusChanged();
     #endregion
@@ -8610,6 +8622,46 @@ namespace DataConnect
 					this._InvoiceID = value;
 					this.SendPropertyChanged("InvoiceID");
 					this.OnInvoiceIDChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CourseID", DbType="Int")]
+		public System.Nullable<int> CourseID
+		{
+			get
+			{
+				return this._CourseID;
+			}
+			set
+			{
+				if ((this._CourseID != value))
+				{
+					this.OnCourseIDChanging(value);
+					this.SendPropertyChanging();
+					this._CourseID = value;
+					this.SendPropertyChanged("CourseID");
+					this.OnCourseIDChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_SemesterID", DbType="Int")]
+		public System.Nullable<int> SemesterID
+		{
+			get
+			{
+				return this._SemesterID;
+			}
+			set
+			{
+				if ((this._SemesterID != value))
+				{
+					this.OnSemesterIDChanging(value);
+					this.SendPropertyChanging();
+					this._SemesterID = value;
+					this.SendPropertyChanged("SemesterID");
+					this.OnSemesterIDChanged();
 				}
 			}
 		}
@@ -8758,6 +8810,26 @@ namespace DataConnect
 			}
 		}
 		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Note", DbType="NText", UpdateCheck=UpdateCheck.Never)]
+		public string Note
+		{
+			get
+			{
+				return this._Note;
+			}
+			set
+			{
+				if ((this._Note != value))
+				{
+					this.OnNoteChanging(value);
+					this.SendPropertyChanging();
+					this._Note = value;
+					this.SendPropertyChanged("Note");
+					this.OnNoteChanged();
+				}
+			}
+		}
+		
 		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Status", DbType="Bit")]
 		public System.Nullable<bool> Status
 		{
@@ -8878,6 +8950,8 @@ namespace DataConnect
 		
 		private System.Nullable<decimal> _TotalPriceDetail;
 		
+		private string _Note;
+		
 		private System.Nullable<bool> _Status;
 		
 		private EntityRef<Invoice> _Invoice;
@@ -8900,6 +8974,8 @@ namespace DataConnect
     partial void OnAmountChanged();
     partial void OnTotalPriceDetailChanging(System.Nullable<decimal> value);
     partial void OnTotalPriceDetailChanged();
+    partial void OnNoteChanging(string value);
+    partial void OnNoteChanged();
     partial void OnStatusChanging(System.Nullable<bool> value);
     partial void OnStatusChanged();
     #endregion
@@ -9050,6 +9126,26 @@ namespace DataConnect
 					this._TotalPriceDetail = value;
 					this.SendPropertyChanged("TotalPriceDetail");
 					this.OnTotalPriceDetailChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Note", DbType="NText", UpdateCheck=UpdateCheck.Never)]
+		public string Note
+		{
+			get
+			{
+				return this._Note;
+			}
+			set
+			{
+				if ((this._Note != value))
+				{
+					this.OnNoteChanging(value);
+					this.SendPropertyChanging();
+					this._Note = value;
+					this.SendPropertyChanged("Note");
+					this.OnNoteChanged();
 				}
 			}
 		}
