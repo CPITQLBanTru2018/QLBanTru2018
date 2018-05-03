@@ -58,6 +58,8 @@
             this.btnHealth = new DevExpress.XtraBars.BarSubItem();
             this.btnHealthExamination = new DevExpress.XtraBars.BarButtonItem();
             this.btnHealthExaminationDetail = new DevExpress.XtraBars.BarButtonItem();
+            this.bntCackhoanchi = new DevExpress.XtraBars.BarButtonItem();
+            this.barButtonItem4 = new DevExpress.XtraBars.BarButtonItem();
             this.ribbonPage1 = new DevExpress.XtraBars.Ribbon.RibbonPage();
             this.ribbonPageGroup1 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             this.ribbonPageGroup2 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
@@ -68,15 +70,13 @@
             this.ribbonPageGroup9 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             this.ribbonPage2 = new DevExpress.XtraBars.Ribbon.RibbonPage();
             this.ribbonPageGroup3 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
+            this.ribbonPageGroup10 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             this.ribbonPage3 = new DevExpress.XtraBars.Ribbon.RibbonPage();
             this.ribbonPageGroup6 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             this.ribbonPageGroup7 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             this.ribbonStatusBar = new DevExpress.XtraBars.Ribbon.RibbonStatusBar();
             this.defaultLookAndFeel1 = new DevExpress.LookAndFeel.DefaultLookAndFeel(this.components);
             this.pnControlsPanel = new System.Windows.Forms.Panel();
-            this.ribbonPageGroup10 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
-            this.barButtonItem3 = new DevExpress.XtraBars.BarButtonItem();
-            this.barButtonItem4 = new DevExpress.XtraBars.BarButtonItem();
             ((System.ComponentModel.ISupportInitialize)(this.ribbon)).BeginInit();
             this.SuspendLayout();
             // 
@@ -112,7 +112,7 @@
             this.btnHealth,
             this.btnHealthExamination,
             this.btnHealthExaminationDetail,
-            this.barButtonItem3,
+            this.bntCackhoanchi,
             this.barButtonItem4});
             this.ribbon.Location = new System.Drawing.Point(0, 0);
             this.ribbon.MaxItemId = 30;
@@ -363,6 +363,19 @@
             this.btnHealthExaminationDetail.Name = "btnHealthExaminationDetail";
             this.btnHealthExaminationDetail.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.btnHealthExaminationDetail_ItemClick);
             // 
+            // bntCackhoanchi
+            // 
+            this.bntCackhoanchi.Caption = "Các khoản chi";
+            this.bntCackhoanchi.Id = 28;
+            this.bntCackhoanchi.Name = "bntCackhoanchi";
+            this.bntCackhoanchi.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.bntCackhoanchi_ItemClick);
+            // 
+            // barButtonItem4
+            // 
+            this.barButtonItem4.Caption = "barButtonItem4";
+            this.barButtonItem4.Id = 29;
+            this.barButtonItem4.Name = "barButtonItem4";
+            // 
             // ribbonPage1
             // 
             this.ribbonPage1.Groups.AddRange(new DevExpress.XtraBars.Ribbon.RibbonPageGroup[] {
@@ -438,6 +451,13 @@
             this.ribbonPageGroup3.Name = "ribbonPageGroup3";
             this.ribbonPageGroup3.Text = "Khoản thu - đợt thu";
             // 
+            // ribbonPageGroup10
+            // 
+            this.ribbonPageGroup10.ItemLinks.Add(this.bntCackhoanchi);
+            this.ribbonPageGroup10.ItemLinks.Add(this.barButtonItem4);
+            this.ribbonPageGroup10.Name = "ribbonPageGroup10";
+            this.ribbonPageGroup10.Text = "Chi tiêu";
+            // 
             // ribbonPage3
             // 
             this.ribbonPage3.Groups.AddRange(new DevExpress.XtraBars.Ribbon.RibbonPageGroup[] {
@@ -482,25 +502,6 @@
             this.pnControlsPanel.Name = "pnControlsPanel";
             this.pnControlsPanel.Size = new System.Drawing.Size(798, 432);
             this.pnControlsPanel.TabIndex = 3;
-            // 
-            // ribbonPageGroup10
-            // 
-            this.ribbonPageGroup10.ItemLinks.Add(this.barButtonItem3);
-            this.ribbonPageGroup10.ItemLinks.Add(this.barButtonItem4);
-            this.ribbonPageGroup10.Name = "ribbonPageGroup10";
-            this.ribbonPageGroup10.Text = "Chi tiêu";
-            // 
-            // barButtonItem3
-            // 
-            this.barButtonItem3.Caption = "Các khoản chi";
-            this.barButtonItem3.Id = 28;
-            this.barButtonItem3.Name = "barButtonItem3";
-            // 
-            // barButtonItem4
-            // 
-            this.barButtonItem4.Caption = "barButtonItem4";
-            this.barButtonItem4.Id = 29;
-            this.barButtonItem4.Name = "barButtonItem4";
             // 
             // frmMain
             // 
@@ -567,7 +568,7 @@
         private DevExpress.XtraBars.BarSubItem btnHealth;
         private DevExpress.XtraBars.BarButtonItem btnHealthExamination;
         private DevExpress.XtraBars.BarButtonItem btnHealthExaminationDetail;
-        private DevExpress.XtraBars.BarButtonItem barButtonItem3;
+        private DevExpress.XtraBars.BarButtonItem bntCackhoanchi;
         private DevExpress.XtraBars.BarButtonItem barButtonItem4;
         private DevExpress.XtraBars.Ribbon.RibbonPageGroup ribbonPageGroup10;
     }
