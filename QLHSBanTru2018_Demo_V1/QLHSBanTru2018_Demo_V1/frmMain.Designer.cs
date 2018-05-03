@@ -59,7 +59,7 @@
             this.btnHealthExamination = new DevExpress.XtraBars.BarButtonItem();
             this.btnHealthExaminationDetail = new DevExpress.XtraBars.BarButtonItem();
             this.bntCackhoanchi = new DevExpress.XtraBars.BarButtonItem();
-            this.barButtonItem4 = new DevExpress.XtraBars.BarButtonItem();
+            this.btnLoaichi = new DevExpress.XtraBars.BarButtonItem();
             this.ribbonPage1 = new DevExpress.XtraBars.Ribbon.RibbonPage();
             this.ribbonPageGroup1 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             this.ribbonPageGroup2 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
@@ -113,7 +113,7 @@
             this.btnHealthExamination,
             this.btnHealthExaminationDetail,
             this.bntCackhoanchi,
-            this.barButtonItem4});
+            this.btnLoaichi});
             this.ribbon.Location = new System.Drawing.Point(0, 0);
             this.ribbon.MaxItemId = 30;
             this.ribbon.Name = "ribbon";
@@ -367,14 +367,18 @@
             // 
             this.bntCackhoanchi.Caption = "Các khoản chi";
             this.bntCackhoanchi.Id = 28;
+            this.bntCackhoanchi.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("bntCackhoanchi.ImageOptions.Image")));
+            this.bntCackhoanchi.ImageOptions.LargeImage = ((System.Drawing.Image)(resources.GetObject("bntCackhoanchi.ImageOptions.LargeImage")));
             this.bntCackhoanchi.Name = "bntCackhoanchi";
             this.bntCackhoanchi.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.bntCackhoanchi_ItemClick);
             // 
-            // barButtonItem4
+            // btnLoaichi
             // 
-            this.barButtonItem4.Caption = "barButtonItem4";
-            this.barButtonItem4.Id = 29;
-            this.barButtonItem4.Name = "barButtonItem4";
+            this.btnLoaichi.Caption = "Các loại chi";
+            this.btnLoaichi.Id = 29;
+            this.btnLoaichi.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("barButtonItem4.ImageOptions.Image")));
+            this.btnLoaichi.ImageOptions.LargeImage = ((System.Drawing.Image)(resources.GetObject("barButtonItem4.ImageOptions.LargeImage")));
+            this.btnLoaichi.Name = "btnLoaichi";
             // 
             // ribbonPage1
             // 
@@ -454,7 +458,7 @@
             // ribbonPageGroup10
             // 
             this.ribbonPageGroup10.ItemLinks.Add(this.bntCackhoanchi);
-            this.ribbonPageGroup10.ItemLinks.Add(this.barButtonItem4);
+            this.ribbonPageGroup10.ItemLinks.Add(this.btnLoaichi);
             this.ribbonPageGroup10.Name = "ribbonPageGroup10";
             this.ribbonPageGroup10.Text = "Chi tiêu";
             // 
@@ -569,7 +573,7 @@
         private DevExpress.XtraBars.BarButtonItem btnHealthExamination;
         private DevExpress.XtraBars.BarButtonItem btnHealthExaminationDetail;
         private DevExpress.XtraBars.BarButtonItem bntCackhoanchi;
-        private DevExpress.XtraBars.BarButtonItem barButtonItem4;
+        private DevExpress.XtraBars.BarButtonItem btnLoaichi;
         private DevExpress.XtraBars.Ribbon.RibbonPageGroup ribbonPageGroup10;
     }
 }
