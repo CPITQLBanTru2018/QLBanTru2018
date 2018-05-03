@@ -7774,6 +7774,8 @@ namespace DataConnect
 		
 		private double _QuantityOfUnit;
 		
+		private decimal _PriceOfUnit;
+		
 		private double _Kcal;
 		
 		private double _Protein;
@@ -7826,6 +7828,8 @@ namespace DataConnect
     partial void OnUnitChanged();
     partial void OnQuantityOfUnitChanging(double value);
     partial void OnQuantityOfUnitChanged();
+    partial void OnPriceOfUnitChanging(decimal value);
+    partial void OnPriceOfUnitChanged();
     partial void OnKcalChanging(double value);
     partial void OnKcalChanged();
     partial void OnProteinChanging(double value);
@@ -7968,6 +7972,26 @@ namespace DataConnect
 					this._QuantityOfUnit = value;
 					this.SendPropertyChanged("QuantityOfUnit");
 					this.OnQuantityOfUnitChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_PriceOfUnit", DbType="Decimal(18,0) NOT NULL")]
+		public decimal PriceOfUnit
+		{
+			get
+			{
+				return this._PriceOfUnit;
+			}
+			set
+			{
+				if ((this._PriceOfUnit != value))
+				{
+					this.OnPriceOfUnitChanging(value);
+					this.SendPropertyChanging();
+					this._PriceOfUnit = value;
+					this.SendPropertyChanged("PriceOfUnit");
+					this.OnPriceOfUnitChanged();
 				}
 			}
 		}

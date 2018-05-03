@@ -22,13 +22,24 @@ namespace DataConnect.DAO.HungTD
             var model = from i in ingredients
                         select new IngredientViewModel
                         {
+                            IngredientID = i.IngredientID,
+                            Name = i.Name,
+                            IngredientTypeID = i.IngredientTypeID,
+                            IngredientName = i.IngredientType.Name,
+                            Unit = i.Unit,
+                            PriceOfUnit = i.QuantityOfUnit,
 
                         };
             return model.ToList();
         }
-        public List<Ingredient> ListAllActive()
+        public List<IngredientViewModel> ListAllActive()
         {
-            return ingredients.Where(x => x.Status.Equals(true)).ToList();
+            var model = from i in ingredients
+                        select new IngredientViewModel
+                        {
+
+                        };
+            return model.ToList();
         }
         public Ingredient GetByID(int ingredientID)
         {

@@ -338,6 +338,7 @@
       <Column Name="IngredientTypeID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
       <Column Name="Unit" Type="System.String" DbType="NVarChar(10) NOT NULL" CanBeNull="false" />
       <Column Name="QuantityOfUnit" Type="System.Double" DbType="Float NOT NULL" CanBeNull="false" />
+      <Column Name="PriceOfUnit" Type="System.Decimal" DbType="Decimal(18,0) NOT NULL" CanBeNull="false" />
       <Column Name="Kcal" Type="System.Double" DbType="Float NOT NULL" CanBeNull="false" />
       <Column Name="Protein" Type="System.Double" DbType="Float NOT NULL" CanBeNull="false" />
       <Column Name="Fat" Type="System.Double" DbType="Float NOT NULL" CanBeNull="false" />
