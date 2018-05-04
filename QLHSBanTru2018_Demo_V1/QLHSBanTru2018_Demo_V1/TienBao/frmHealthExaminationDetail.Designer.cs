@@ -62,8 +62,8 @@
             this.layoutControlItem5 = new DevExpress.XtraLayout.LayoutControlItem();
             this.simpleLabelItem1 = new DevExpress.XtraLayout.SimpleLabelItem();
             this.layoutControlItem6 = new DevExpress.XtraLayout.LayoutControlItem();
-            this.layoutControlItem7 = new DevExpress.XtraLayout.LayoutControlItem();
             this.layoutControlItem8 = new DevExpress.XtraLayout.LayoutControlItem();
+            this.layoutControlItem7 = new DevExpress.XtraLayout.LayoutControlItem();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControl1)).BeginInit();
             this.layoutControl1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvHealthDetail)).BeginInit();
@@ -78,8 +78,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem5)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.simpleLabelItem1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem6)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem7)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem8)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem7)).BeginInit();
             this.SuspendLayout();
             // 
             // layoutControl1
@@ -250,7 +250,7 @@
             this.gridColumn8.AppearanceHeader.Options.UseFont = true;
             this.gridColumn8.AppearanceHeader.Options.UseTextOptions = true;
             this.gridColumn8.AppearanceHeader.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
-            this.gridColumn8.Caption = "Nhập kết quả";
+            this.gridColumn8.Caption = "Chỉnh sửa";
             this.gridColumn8.ColumnEdit = this.btnNhapkq;
             this.gridColumn8.Name = "gridColumn8";
             this.gridColumn8.Visible = true;
@@ -305,7 +305,7 @@
             // btnXemchitiet
             // 
             this.btnXemchitiet.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("btnXemchitiet.ImageOptions.Image")));
-            this.btnXemchitiet.Location = new System.Drawing.Point(12, 267);
+            this.btnXemchitiet.Location = new System.Drawing.Point(12, 225);
             this.btnXemchitiet.Name = "btnXemchitiet";
             this.btnXemchitiet.Size = new System.Drawing.Size(163, 38);
             this.btnXemchitiet.StyleController = this.layoutControl1;
@@ -316,7 +316,7 @@
             // btnDanhsach
             // 
             this.btnDanhsach.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("btnDanhsach.ImageOptions.Image")));
-            this.btnDanhsach.Location = new System.Drawing.Point(12, 225);
+            this.btnDanhsach.Location = new System.Drawing.Point(12, 267);
             this.btnDanhsach.Name = "btnDanhsach";
             this.btnDanhsach.Size = new System.Drawing.Size(163, 38);
             this.btnDanhsach.StyleController = this.layoutControl1;
@@ -337,8 +337,8 @@
             this.layoutControlItem5,
             this.simpleLabelItem1,
             this.layoutControlItem6,
-            this.layoutControlItem7,
-            this.layoutControlItem8});
+            this.layoutControlItem8,
+            this.layoutControlItem7});
             this.layoutControlGroup1.Name = "Root";
             this.layoutControlGroup1.Size = new System.Drawing.Size(1047, 516);
             this.layoutControlGroup1.TextVisible = false;
@@ -431,23 +431,23 @@
             this.layoutControlItem6.TextSize = new System.Drawing.Size(0, 0);
             this.layoutControlItem6.TextVisible = false;
             // 
-            // layoutControlItem7
-            // 
-            this.layoutControlItem7.Control = this.btnXemchitiet;
-            this.layoutControlItem7.Location = new System.Drawing.Point(0, 255);
-            this.layoutControlItem7.Name = "layoutControlItem7";
-            this.layoutControlItem7.Size = new System.Drawing.Size(167, 42);
-            this.layoutControlItem7.TextSize = new System.Drawing.Size(0, 0);
-            this.layoutControlItem7.TextVisible = false;
-            // 
             // layoutControlItem8
             // 
             this.layoutControlItem8.Control = this.btnDanhsach;
-            this.layoutControlItem8.Location = new System.Drawing.Point(0, 213);
+            this.layoutControlItem8.Location = new System.Drawing.Point(0, 255);
             this.layoutControlItem8.Name = "layoutControlItem8";
             this.layoutControlItem8.Size = new System.Drawing.Size(167, 42);
             this.layoutControlItem8.TextSize = new System.Drawing.Size(0, 0);
             this.layoutControlItem8.TextVisible = false;
+            // 
+            // layoutControlItem7
+            // 
+            this.layoutControlItem7.Control = this.btnXemchitiet;
+            this.layoutControlItem7.Location = new System.Drawing.Point(0, 213);
+            this.layoutControlItem7.Name = "layoutControlItem7";
+            this.layoutControlItem7.Size = new System.Drawing.Size(167, 42);
+            this.layoutControlItem7.TextSize = new System.Drawing.Size(0, 0);
+            this.layoutControlItem7.TextVisible = false;
             // 
             // frmHealthExaminationDetail
             // 
@@ -471,8 +471,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem5)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.simpleLabelItem1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem6)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem7)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem8)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem7)).EndInit();
             this.ResumeLayout(false);
 
         }

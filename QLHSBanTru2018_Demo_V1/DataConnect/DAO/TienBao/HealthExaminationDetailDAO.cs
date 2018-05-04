@@ -163,7 +163,7 @@ namespace DataConnect.DAO.TienBao
                 return false;
             }
         }
-        public bool HealthProblemUpdate(HealthExaminationDetail entity)
+        public bool HealthDetailUpdate(HealthExaminationDetail entity)
         {
             try
             {

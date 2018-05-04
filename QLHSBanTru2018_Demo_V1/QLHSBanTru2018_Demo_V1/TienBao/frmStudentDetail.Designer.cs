@@ -279,15 +279,15 @@
             // 
             this.txtHobby.Location = new System.Drawing.Point(667, 100);
             this.txtHobby.Name = "txtHobby";
-            this.txtHobby.Size = new System.Drawing.Size(331, 66);
+            this.txtHobby.Size = new System.Drawing.Size(331, 48);
             this.txtHobby.StyleController = this.layoutControl1;
             this.txtHobby.TabIndex = 50;
             // 
             // txtTalen
             // 
-            this.txtTalen.Location = new System.Drawing.Point(667, 170);
+            this.txtTalen.Location = new System.Drawing.Point(667, 152);
             this.txtTalen.Name = "txtTalen";
-            this.txtTalen.Size = new System.Drawing.Size(331, 46);
+            this.txtTalen.Size = new System.Drawing.Size(331, 64);
             this.txtTalen.StyleController = this.layoutControl1;
             this.txtTalen.TabIndex = 51;
             // 
@@ -658,7 +658,7 @@
             this.layoutControlItem15.CustomizationFormText = "Sở thích/thói quen";
             this.layoutControlItem15.Location = new System.Drawing.Point(0, 24);
             this.layoutControlItem15.Name = "layoutControlItem15";
-            this.layoutControlItem15.Size = new System.Drawing.Size(426, 70);
+            this.layoutControlItem15.Size = new System.Drawing.Size(426, 52);
             this.layoutControlItem15.Text = "Sở thích/thói quen";
             this.layoutControlItem15.TextSize = new System.Drawing.Size(88, 13);
             // 
@@ -666,9 +666,9 @@
             // 
             this.layoutControlItem16.Control = this.txtTalen;
             this.layoutControlItem16.CustomizationFormText = "Năng khiếu";
-            this.layoutControlItem16.Location = new System.Drawing.Point(0, 94);
+            this.layoutControlItem16.Location = new System.Drawing.Point(0, 76);
             this.layoutControlItem16.Name = "layoutControlItem16";
-            this.layoutControlItem16.Size = new System.Drawing.Size(426, 50);
+            this.layoutControlItem16.Size = new System.Drawing.Size(426, 68);
             this.layoutControlItem16.Text = "Năng khiếu";
             this.layoutControlItem16.TextSize = new System.Drawing.Size(88, 13);
             // 
@@ -926,7 +926,10 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1034, 595);
             this.Controls.Add(this.layoutControl1);
+            this.MaximizeBox = false;
+            this.MinimizeBox = false;
             this.Name = "frmStudentDetail";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Thông tin chi tiết";
             this.Load += new System.EventHandler(this.frmStudentDetail_Load);
             ((System.ComponentModel.ISupportInitialize)(this.layoutControl1)).EndInit();

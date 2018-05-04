@@ -103,7 +103,7 @@ namespace QLHSBanTru2018_Demo_V1.TienBao
         private void frmHealthExaminationDetail_Load(object sender, EventArgs e)
         {
             this.Dock = DockStyle.Fill;
-            dgvHealthDetail.Text = "Chưa có dữ liệu";
+            
         }
         private void cmbHealthExam_Click(object sender, EventArgs e)
         {
@@ -173,7 +173,18 @@ namespace QLHSBanTru2018_Demo_V1.TienBao
             }
             else
             {
-                Danhsach(int.Parse(cmbLopHoc.SelectedValue.ToString()));
+                frmNewHealthExamDetail m_frmNewHealth = new frmNewHealthExamDetail();
+             
+                m_frmNewHealth.iFunction = 1;
+                m_frmNewHealth.healthExamination = new HealthExaminationDAO().GetByID(int.Parse(cmbHealthExam.SelectedValue.ToString()));
+                m_frmNewHealth.Class = new ClassDAO().GetByClassID(int.Parse(cmbLopHoc.SelectedValue.ToString()));
+                m_frmNewHealth.ShowDialog();
+                if (m_frmNewHealth.DialogResult == DialogResult.OK)
+                {
+                    FillGridControl(int.Parse(cmbLopHoc.SelectedValue.ToString()), int.Parse(cmbHealthExam.SelectedValue.ToString()));
+                }
+
+               
             }
            
         }

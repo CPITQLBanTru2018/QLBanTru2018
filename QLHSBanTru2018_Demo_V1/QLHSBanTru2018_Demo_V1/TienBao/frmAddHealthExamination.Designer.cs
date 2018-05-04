@@ -28,29 +28,30 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmAddHealthExamination));
             this.layoutControl1 = new DevExpress.XtraLayout.LayoutControl();
-            this.layoutControlGroup1 = new DevExpress.XtraLayout.LayoutControlGroup();
-            this.chbEyes = new DevExpress.XtraEditors.CheckEdit();
-            this.chbHeight = new DevExpress.XtraEditors.CheckEdit();
-            this.chbDermatology = new DevExpress.XtraEditors.CheckEdit();
-            this.dtDateExam = new DevExpress.XtraEditors.DateEdit();
-            this.chbNerve = new DevExpress.XtraEditors.CheckEdit();
-            this.chbOral = new DevExpress.XtraEditors.CheckEdit();
-            this.chbEndocrine = new DevExpress.XtraEditors.CheckEdit();
             this.txtNameExam = new DevExpress.XtraEditors.TextEdit();
             this.txtPlaceExam = new DevExpress.XtraEditors.TextEdit();
-            this.chbSurgery = new DevExpress.XtraEditors.CheckEdit();
-            this.chbENT = new DevExpress.XtraEditors.CheckEdit();
-            this.chbBoneMuscle = new DevExpress.XtraEditors.CheckEdit();
-            this.chbInternalMedicine = new DevExpress.XtraEditors.CheckEdit();
+            this.dtDateExam = new DevExpress.XtraEditors.DateEdit();
             this.chbWeight = new DevExpress.XtraEditors.CheckEdit();
+            this.chbHeight = new DevExpress.XtraEditors.CheckEdit();
+            this.chbEyes = new DevExpress.XtraEditors.CheckEdit();
+            this.chbENT = new DevExpress.XtraEditors.CheckEdit();
+            this.chbOral = new DevExpress.XtraEditors.CheckEdit();
+            this.chbBoneMuscle = new DevExpress.XtraEditors.CheckEdit();
+            this.chbDermatology = new DevExpress.XtraEditors.CheckEdit();
+            this.chbInternalMedicine = new DevExpress.XtraEditors.CheckEdit();
+            this.chbSurgery = new DevExpress.XtraEditors.CheckEdit();
+            this.chbNerve = new DevExpress.XtraEditors.CheckEdit();
+            this.chbEndocrine = new DevExpress.XtraEditors.CheckEdit();
+            this.btnLuu = new DevExpress.XtraEditors.SimpleButton();
+            this.btnHuy = new DevExpress.XtraEditors.SimpleButton();
+            this.chbStatus = new DevExpress.XtraEditors.CheckEdit();
+            this.layoutControlGroup1 = new DevExpress.XtraLayout.LayoutControlGroup();
             this.layoutControlGroup4 = new DevExpress.XtraLayout.LayoutControlGroup();
             this.layoutControlItem2 = new DevExpress.XtraLayout.LayoutControlItem();
             this.layoutControlItem3 = new DevExpress.XtraLayout.LayoutControlItem();
             this.layoutControlItem4 = new DevExpress.XtraLayout.LayoutControlItem();
-            this.emptySpaceItem1 = new DevExpress.XtraLayout.EmptySpaceItem();
             this.layoutControlGroup3 = new DevExpress.XtraLayout.LayoutControlGroup();
             this.layoutControlItem5 = new DevExpress.XtraLayout.LayoutControlItem();
             this.layoutControlItem6 = new DevExpress.XtraLayout.LayoutControlItem();
@@ -64,36 +65,34 @@
             this.layoutControlItem17 = new DevExpress.XtraLayout.LayoutControlItem();
             this.layoutControlItem18 = new DevExpress.XtraLayout.LayoutControlItem();
             this.simpleLabelItem1 = new DevExpress.XtraLayout.SimpleLabelItem();
-            this.btnLuu = new DevExpress.XtraEditors.SimpleButton();
             this.layoutControlItem1 = new DevExpress.XtraLayout.LayoutControlItem();
-            this.btnHuy = new DevExpress.XtraEditors.SimpleButton();
             this.layoutControlItem13 = new DevExpress.XtraLayout.LayoutControlItem();
-            this.timer1 = new System.Windows.Forms.Timer(this.components);
-            this.chbStatus = new DevExpress.XtraEditors.CheckEdit();
+            this.emptySpaceItem1 = new DevExpress.XtraLayout.EmptySpaceItem();
             this.ItemForStatus = new DevExpress.XtraLayout.LayoutControlItem();
+            this.timer1 = new System.Windows.Forms.Timer();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControl1)).BeginInit();
             this.layoutControl1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.layoutControlGroup1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.chbEyes.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.chbHeight.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.chbDermatology.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dtDateExam.Properties.CalendarTimeProperties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dtDateExam.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.chbNerve.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.chbOral.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.chbEndocrine.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtNameExam.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtPlaceExam.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.chbSurgery.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.chbENT.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.chbBoneMuscle.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.chbInternalMedicine.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dtDateExam.Properties.CalendarTimeProperties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dtDateExam.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.chbWeight.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.chbHeight.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.chbEyes.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.chbENT.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.chbOral.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.chbBoneMuscle.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.chbDermatology.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.chbInternalMedicine.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.chbSurgery.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.chbNerve.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.chbEndocrine.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.chbStatus.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControlGroup1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlGroup4)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem3)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem4)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlGroup3)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem5)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem6)).BeginInit();
@@ -109,7 +108,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.simpleLabelItem1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem13)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.chbStatus.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.ItemForStatus)).BeginInit();
             this.SuspendLayout();
             // 
@@ -141,6 +140,167 @@
             this.layoutControl1.TabIndex = 0;
             this.layoutControl1.Text = "layoutControl1";
             // 
+            // txtNameExam
+            // 
+            this.txtNameExam.Location = new System.Drawing.Point(92, 42);
+            this.txtNameExam.Name = "txtNameExam";
+            this.txtNameExam.Size = new System.Drawing.Size(347, 20);
+            this.txtNameExam.StyleController = this.layoutControl1;
+            this.txtNameExam.TabIndex = 77;
+            // 
+            // txtPlaceExam
+            // 
+            this.txtPlaceExam.Location = new System.Drawing.Point(92, 66);
+            this.txtPlaceExam.Name = "txtPlaceExam";
+            this.txtPlaceExam.Size = new System.Drawing.Size(347, 20);
+            this.txtPlaceExam.StyleController = this.layoutControl1;
+            this.txtPlaceExam.TabIndex = 78;
+            // 
+            // dtDateExam
+            // 
+            this.dtDateExam.EditValue = null;
+            this.dtDateExam.Location = new System.Drawing.Point(92, 90);
+            this.dtDateExam.Name = "dtDateExam";
+            this.dtDateExam.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.dtDateExam.Properties.CalendarTimeProperties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.dtDateExam.Size = new System.Drawing.Size(347, 20);
+            this.dtDateExam.StyleController = this.layoutControl1;
+            this.dtDateExam.TabIndex = 79;
+            // 
+            // chbWeight
+            // 
+            this.chbWeight.Location = new System.Drawing.Point(36, 160);
+            this.chbWeight.Name = "chbWeight";
+            this.chbWeight.Properties.Caption = "Chiều cao";
+            this.chbWeight.Size = new System.Drawing.Size(213, 19);
+            this.chbWeight.StyleController = this.layoutControl1;
+            this.chbWeight.TabIndex = 80;
+            // 
+            // chbHeight
+            // 
+            this.chbHeight.Location = new System.Drawing.Point(36, 183);
+            this.chbHeight.Name = "chbHeight";
+            this.chbHeight.Properties.Caption = "Cân nặng";
+            this.chbHeight.Size = new System.Drawing.Size(213, 19);
+            this.chbHeight.StyleController = this.layoutControl1;
+            this.chbHeight.TabIndex = 80;
+            // 
+            // chbEyes
+            // 
+            this.chbEyes.Location = new System.Drawing.Point(36, 206);
+            this.chbEyes.Name = "chbEyes";
+            this.chbEyes.Properties.Caption = "Mắt";
+            this.chbEyes.Size = new System.Drawing.Size(213, 19);
+            this.chbEyes.StyleController = this.layoutControl1;
+            this.chbEyes.TabIndex = 80;
+            // 
+            // chbENT
+            // 
+            this.chbENT.Location = new System.Drawing.Point(36, 229);
+            this.chbENT.Name = "chbENT";
+            this.chbENT.Properties.Caption = "Tai - mũi - họng";
+            this.chbENT.Size = new System.Drawing.Size(213, 19);
+            this.chbENT.StyleController = this.layoutControl1;
+            this.chbENT.TabIndex = 80;
+            // 
+            // chbOral
+            // 
+            this.chbOral.Location = new System.Drawing.Point(36, 252);
+            this.chbOral.Name = "chbOral";
+            this.chbOral.Properties.Caption = "Răng - miệng";
+            this.chbOral.Size = new System.Drawing.Size(213, 19);
+            this.chbOral.StyleController = this.layoutControl1;
+            this.chbOral.TabIndex = 80;
+            // 
+            // chbBoneMuscle
+            // 
+            this.chbBoneMuscle.Location = new System.Drawing.Point(36, 275);
+            this.chbBoneMuscle.Name = "chbBoneMuscle";
+            this.chbBoneMuscle.Properties.Caption = "Cơ xương";
+            this.chbBoneMuscle.Size = new System.Drawing.Size(391, 19);
+            this.chbBoneMuscle.StyleController = this.layoutControl1;
+            this.chbBoneMuscle.TabIndex = 80;
+            // 
+            // chbDermatology
+            // 
+            this.chbDermatology.Location = new System.Drawing.Point(253, 160);
+            this.chbDermatology.Name = "chbDermatology";
+            this.chbDermatology.Properties.Caption = "Da liễu";
+            this.chbDermatology.Size = new System.Drawing.Size(174, 19);
+            this.chbDermatology.StyleController = this.layoutControl1;
+            this.chbDermatology.TabIndex = 80;
+            // 
+            // chbInternalMedicine
+            // 
+            this.chbInternalMedicine.Location = new System.Drawing.Point(253, 183);
+            this.chbInternalMedicine.Name = "chbInternalMedicine";
+            this.chbInternalMedicine.Properties.Caption = "Nộikhoa";
+            this.chbInternalMedicine.Size = new System.Drawing.Size(174, 19);
+            this.chbInternalMedicine.StyleController = this.layoutControl1;
+            this.chbInternalMedicine.TabIndex = 80;
+            // 
+            // chbSurgery
+            // 
+            this.chbSurgery.Location = new System.Drawing.Point(253, 206);
+            this.chbSurgery.Name = "chbSurgery";
+            this.chbSurgery.Properties.Caption = "Ngoại khoa";
+            this.chbSurgery.Size = new System.Drawing.Size(174, 19);
+            this.chbSurgery.StyleController = this.layoutControl1;
+            this.chbSurgery.TabIndex = 80;
+            // 
+            // chbNerve
+            // 
+            this.chbNerve.Location = new System.Drawing.Point(253, 229);
+            this.chbNerve.Name = "chbNerve";
+            this.chbNerve.Properties.Caption = "Nội tiết";
+            this.chbNerve.Size = new System.Drawing.Size(174, 19);
+            this.chbNerve.StyleController = this.layoutControl1;
+            this.chbNerve.TabIndex = 80;
+            // 
+            // chbEndocrine
+            // 
+            this.chbEndocrine.Location = new System.Drawing.Point(253, 252);
+            this.chbEndocrine.Name = "chbEndocrine";
+            this.chbEndocrine.Properties.Caption = "Thần kinh";
+            this.chbEndocrine.Size = new System.Drawing.Size(174, 19);
+            this.chbEndocrine.StyleController = this.layoutControl1;
+            this.chbEndocrine.TabIndex = 80;
+            // 
+            // btnLuu
+            // 
+            this.btnLuu.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("btnLuu.ImageOptions.Image")));
+            this.btnLuu.Location = new System.Drawing.Point(217, 333);
+            this.btnLuu.Name = "btnLuu";
+            this.btnLuu.Size = new System.Drawing.Size(108, 38);
+            this.btnLuu.StyleController = this.layoutControl1;
+            this.btnLuu.TabIndex = 81;
+            this.btnLuu.Text = "Lưu";
+            this.btnLuu.Click += new System.EventHandler(this.btnSave_Click);
+            // 
+            // btnHuy
+            // 
+            this.btnHuy.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("btnHuy.ImageOptions.Image")));
+            this.btnHuy.Location = new System.Drawing.Point(329, 333);
+            this.btnHuy.Name = "btnHuy";
+            this.btnHuy.Size = new System.Drawing.Size(110, 38);
+            this.btnHuy.StyleController = this.layoutControl1;
+            this.btnHuy.TabIndex = 82;
+            this.btnHuy.Text = "Hủy";
+            this.btnHuy.Click += new System.EventHandler(this.btnHuy_Click);
+            // 
+            // chbStatus
+            // 
+            this.chbStatus.EditValue = true;
+            this.chbStatus.Location = new System.Drawing.Point(92, 310);
+            this.chbStatus.Name = "chbStatus";
+            this.chbStatus.Properties.Caption = "Đang sử dụng";
+            this.chbStatus.Properties.GlyphAlignment = DevExpress.Utils.HorzAlignment.Default;
+            this.chbStatus.Size = new System.Drawing.Size(347, 19);
+            this.chbStatus.StyleController = this.layoutControl1;
+            this.chbStatus.TabIndex = 22;
+            // 
             // layoutControlGroup1
             // 
             this.layoutControlGroup1.EnableIndentsWithoutBorders = DevExpress.Utils.DefaultBoolean.True;
@@ -150,134 +310,6 @@
             this.layoutControlGroup1.Name = "Root";
             this.layoutControlGroup1.Size = new System.Drawing.Size(463, 399);
             this.layoutControlGroup1.TextVisible = false;
-            // 
-            // chbEyes
-            // 
-            this.chbEyes.Location = new System.Drawing.Point(36, 207);
-            this.chbEyes.Name = "chbEyes";
-            this.chbEyes.Properties.Caption = "Mắt";
-            this.chbEyes.Size = new System.Drawing.Size(213, 19);
-            this.chbEyes.StyleController = this.layoutControl1;
-            this.chbEyes.TabIndex = 80;
-            // 
-            // chbHeight
-            // 
-            this.chbHeight.Location = new System.Drawing.Point(36, 184);
-            this.chbHeight.Name = "chbHeight";
-            this.chbHeight.Properties.Caption = "Cân nặng";
-            this.chbHeight.Size = new System.Drawing.Size(213, 19);
-            this.chbHeight.StyleController = this.layoutControl1;
-            this.chbHeight.TabIndex = 80;
-            // 
-            // chbDermatology
-            // 
-            this.chbDermatology.Location = new System.Drawing.Point(253, 161);
-            this.chbDermatology.Name = "chbDermatology";
-            this.chbDermatology.Properties.Caption = "Da liễu";
-            this.chbDermatology.Size = new System.Drawing.Size(174, 19);
-            this.chbDermatology.StyleController = this.layoutControl1;
-            this.chbDermatology.TabIndex = 80;
-            // 
-            // dtDateExam
-            // 
-            this.dtDateExam.EditValue = null;
-            this.dtDateExam.Location = new System.Drawing.Point(93, 91);
-            this.dtDateExam.Name = "dtDateExam";
-            this.dtDateExam.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-            this.dtDateExam.Properties.CalendarTimeProperties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-            this.dtDateExam.Size = new System.Drawing.Size(346, 20);
-            this.dtDateExam.StyleController = this.layoutControl1;
-            this.dtDateExam.TabIndex = 79;
-            // 
-            // chbNerve
-            // 
-            this.chbNerve.Location = new System.Drawing.Point(253, 230);
-            this.chbNerve.Name = "chbNerve";
-            this.chbNerve.Properties.Caption = "Nội tiết";
-            this.chbNerve.Size = new System.Drawing.Size(174, 19);
-            this.chbNerve.StyleController = this.layoutControl1;
-            this.chbNerve.TabIndex = 80;
-            // 
-            // chbOral
-            // 
-            this.chbOral.Location = new System.Drawing.Point(36, 253);
-            this.chbOral.Name = "chbOral";
-            this.chbOral.Properties.Caption = "Răng - miệng";
-            this.chbOral.Size = new System.Drawing.Size(213, 19);
-            this.chbOral.StyleController = this.layoutControl1;
-            this.chbOral.TabIndex = 80;
-            // 
-            // chbEndocrine
-            // 
-            this.chbEndocrine.Location = new System.Drawing.Point(253, 253);
-            this.chbEndocrine.Name = "chbEndocrine";
-            this.chbEndocrine.Properties.Caption = "Thần kinh";
-            this.chbEndocrine.Size = new System.Drawing.Size(174, 19);
-            this.chbEndocrine.StyleController = this.layoutControl1;
-            this.chbEndocrine.TabIndex = 80;
-            // 
-            // txtNameExam
-            // 
-            this.txtNameExam.Location = new System.Drawing.Point(93, 43);
-            this.txtNameExam.Name = "txtNameExam";
-            this.txtNameExam.Size = new System.Drawing.Size(346, 20);
-            this.txtNameExam.StyleController = this.layoutControl1;
-            this.txtNameExam.TabIndex = 77;
-            // 
-            // txtPlaceExam
-            // 
-            this.txtPlaceExam.Location = new System.Drawing.Point(93, 67);
-            this.txtPlaceExam.Name = "txtPlaceExam";
-            this.txtPlaceExam.Size = new System.Drawing.Size(346, 20);
-            this.txtPlaceExam.StyleController = this.layoutControl1;
-            this.txtPlaceExam.TabIndex = 78;
-            // 
-            // chbSurgery
-            // 
-            this.chbSurgery.Location = new System.Drawing.Point(253, 207);
-            this.chbSurgery.Name = "chbSurgery";
-            this.chbSurgery.Properties.Caption = "Ngoại khoa";
-            this.chbSurgery.Size = new System.Drawing.Size(174, 19);
-            this.chbSurgery.StyleController = this.layoutControl1;
-            this.chbSurgery.TabIndex = 80;
-            // 
-            // chbENT
-            // 
-            this.chbENT.Location = new System.Drawing.Point(36, 230);
-            this.chbENT.Name = "chbENT";
-            this.chbENT.Properties.Caption = "Tai - mũi - họng";
-            this.chbENT.Size = new System.Drawing.Size(213, 19);
-            this.chbENT.StyleController = this.layoutControl1;
-            this.chbENT.TabIndex = 80;
-            // 
-            // chbBoneMuscle
-            // 
-            this.chbBoneMuscle.Location = new System.Drawing.Point(36, 276);
-            this.chbBoneMuscle.Name = "chbBoneMuscle";
-            this.chbBoneMuscle.Properties.Caption = "Cơ xương";
-            this.chbBoneMuscle.Size = new System.Drawing.Size(391, 19);
-            this.chbBoneMuscle.StyleController = this.layoutControl1;
-            this.chbBoneMuscle.TabIndex = 80;
-            // 
-            // chbInternalMedicine
-            // 
-            this.chbInternalMedicine.Location = new System.Drawing.Point(253, 184);
-            this.chbInternalMedicine.Name = "chbInternalMedicine";
-            this.chbInternalMedicine.Properties.Caption = "Nộikhoa";
-            this.chbInternalMedicine.Size = new System.Drawing.Size(174, 19);
-            this.chbInternalMedicine.StyleController = this.layoutControl1;
-            this.chbInternalMedicine.TabIndex = 80;
-            // 
-            // chbWeight
-            // 
-            this.chbWeight.Location = new System.Drawing.Point(36, 161);
-            this.chbWeight.Name = "chbWeight";
-            this.chbWeight.Properties.Caption = "Chiều cao";
-            this.chbWeight.Size = new System.Drawing.Size(213, 19);
-            this.chbWeight.StyleController = this.layoutControl1;
-            this.chbWeight.TabIndex = 80;
             // 
             // layoutControlGroup4
             // 
@@ -327,16 +359,6 @@
             this.layoutControlItem4.Text = "Ngày khám";
             this.layoutControlItem4.TextSize = new System.Drawing.Size(65, 13);
             // 
-            // emptySpaceItem1
-            // 
-            this.emptySpaceItem1.AllowHotTrack = false;
-            this.emptySpaceItem1.CustomizationFormText = "emptySpaceItem1";
-            this.emptySpaceItem1.Location = new System.Drawing.Point(0, 291);
-            this.emptySpaceItem1.Name = "emptySpaceItem1";
-            this.emptySpaceItem1.Size = new System.Drawing.Size(193, 45);
-            this.emptySpaceItem1.Text = "emptySpaceItem1";
-            this.emptySpaceItem1.TextSize = new System.Drawing.Size(0, 0);
-            // 
             // layoutControlGroup3
             // 
             this.layoutControlGroup3.CustomizationFormText = "layoutControlGroup2";
@@ -365,7 +387,6 @@
             this.layoutControlItem5.Location = new System.Drawing.Point(0, 0);
             this.layoutControlItem5.Name = "layoutControlItem5";
             this.layoutControlItem5.Size = new System.Drawing.Size(217, 23);
-            this.layoutControlItem5.Text = "layoutControlItem5";
             this.layoutControlItem5.TextSize = new System.Drawing.Size(0, 0);
             this.layoutControlItem5.TextVisible = false;
             // 
@@ -497,56 +518,32 @@
             this.simpleLabelItem1.TextAlignMode = DevExpress.XtraLayout.TextAlignModeItem.CustomSize;
             this.simpleLabelItem1.TextSize = new System.Drawing.Size(50, 30);
             // 
-            // btnLuu
-            // 
-            this.btnLuu.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("simpleButton1.ImageOptions.Image")));
-            this.btnLuu.Location = new System.Drawing.Point(217, 334);
-            this.btnLuu.Name = "btnLuu";
-            this.btnLuu.Size = new System.Drawing.Size(108, 36);
-            this.btnLuu.StyleController = this.layoutControl1;
-            this.btnLuu.TabIndex = 81;
-            this.btnLuu.Text = "Lưu";
-            this.btnLuu.Click += new System.EventHandler(this.btnSave_Click);
-            // 
             // layoutControlItem1
             // 
             this.layoutControlItem1.Control = this.btnLuu;
             this.layoutControlItem1.Location = new System.Drawing.Point(193, 291);
             this.layoutControlItem1.Name = "layoutControlItem1";
-            this.layoutControlItem1.Size = new System.Drawing.Size(112, 45);
+            this.layoutControlItem1.Size = new System.Drawing.Size(112, 46);
             this.layoutControlItem1.TextSize = new System.Drawing.Size(0, 0);
             this.layoutControlItem1.TextVisible = false;
-            // 
-            // btnHuy
-            // 
-            this.btnHuy.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("simpleButton2.ImageOptions.Image")));
-            this.btnHuy.Location = new System.Drawing.Point(329, 334);
-            this.btnHuy.Name = "btnHuy";
-            this.btnHuy.Size = new System.Drawing.Size(110, 36);
-            this.btnHuy.StyleController = this.layoutControl1;
-            this.btnHuy.TabIndex = 82;
-            this.btnHuy.Text = "Hủy";
-            this.btnHuy.Click += new System.EventHandler(this.btnHuy_Click);
             // 
             // layoutControlItem13
             // 
             this.layoutControlItem13.Control = this.btnHuy;
             this.layoutControlItem13.Location = new System.Drawing.Point(305, 291);
             this.layoutControlItem13.Name = "layoutControlItem13";
-            this.layoutControlItem13.Size = new System.Drawing.Size(114, 45);
+            this.layoutControlItem13.Size = new System.Drawing.Size(114, 46);
             this.layoutControlItem13.TextSize = new System.Drawing.Size(0, 0);
             this.layoutControlItem13.TextVisible = false;
             // 
-            // chbStatus
+            // emptySpaceItem1
             // 
-            this.chbStatus.EditValue = true;
-            this.chbStatus.Location = new System.Drawing.Point(93, 311);
-            this.chbStatus.Name = "chbStatus";
-            this.chbStatus.Properties.Caption = "Đang sử dụng";
-            this.chbStatus.Properties.GlyphAlignment = DevExpress.Utils.HorzAlignment.Default;
-            this.chbStatus.Size = new System.Drawing.Size(346, 19);
-            this.chbStatus.StyleController = this.layoutControl1;
-            this.chbStatus.TabIndex = 22;
+            this.emptySpaceItem1.AllowHotTrack = false;
+            this.emptySpaceItem1.CustomizationFormText = "emptySpaceItem1";
+            this.emptySpaceItem1.Location = new System.Drawing.Point(0, 291);
+            this.emptySpaceItem1.Name = "emptySpaceItem1";
+            this.emptySpaceItem1.Size = new System.Drawing.Size(193, 46);
+            this.emptySpaceItem1.TextSize = new System.Drawing.Size(0, 0);
             // 
             // ItemForStatus
             // 
@@ -566,31 +563,34 @@
             this.ClientSize = new System.Drawing.Size(463, 399);
             this.Controls.Add(this.layoutControl1);
             this.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.MaximizeBox = false;
+            this.MinimizeBox = false;
             this.Name = "frmAddHealthExamination";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Load += new System.EventHandler(this.frmAddHealthExamination_Load);
             ((System.ComponentModel.ISupportInitialize)(this.layoutControl1)).EndInit();
             this.layoutControl1.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.layoutControlGroup1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.chbEyes.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.chbHeight.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.chbDermatology.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dtDateExam.Properties.CalendarTimeProperties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dtDateExam.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.chbNerve.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.chbOral.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.chbEndocrine.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtNameExam.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtPlaceExam.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.chbSurgery.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.chbENT.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.chbBoneMuscle.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.chbInternalMedicine.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dtDateExam.Properties.CalendarTimeProperties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dtDateExam.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.chbWeight.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.chbHeight.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.chbEyes.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.chbENT.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.chbOral.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.chbBoneMuscle.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.chbDermatology.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.chbInternalMedicine.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.chbSurgery.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.chbNerve.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.chbEndocrine.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.chbStatus.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControlGroup1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlGroup4)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem3)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem4)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlGroup3)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem5)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem6)).EndInit();
@@ -606,7 +606,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.simpleLabelItem1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem13)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.chbStatus.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.ItemForStatus)).EndInit();
             this.ResumeLayout(false);
 

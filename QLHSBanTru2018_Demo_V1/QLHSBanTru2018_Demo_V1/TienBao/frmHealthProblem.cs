@@ -44,11 +44,11 @@ namespace QLHSBanTru2018_Demo_V1.TienBao
         private void frmHealthProblem_Load(object sender, EventArgs e)
         {
             this.Dock = DockStyle.Fill;
-            btnCapNhat.Enabled = false;
+            
         }
         private void btnXem_Click(object sender, EventArgs e)
         {
-            btnCapNhat.Enabled = true;
+            
             try
             {
                 FillGridControl();
@@ -68,16 +68,24 @@ namespace QLHSBanTru2018_Demo_V1.TienBao
         }
         private void btnCapNhat_Click(object sender, EventArgs e)
         {
-            int dong = gridView1.FocusedRowHandle;
-            string HealthProblemID = gridView1.GetRowCellValue(dong, gridView1.Columns["HealthProblemID"]).ToString();
-            frmHealthProblemDetail m_frmHealthProblem = new frmHealthProblemDetail();
-            m_frmHealthProblem.iFunction = 2;
-            m_frmHealthProblem.m_HealthProblem = new HealthProblemDAO().GetByID(int.Parse(HealthProblemID.ToString()));
-            m_frmHealthProblem.ShowDialog();
-            if (m_frmHealthProblem.DialogResult == DialogResult.OK)
+            if(gridView1.GetFocusedRowCellValue("HealthProblemID") == null)
             {
-                FillGridControl();
+                XtraMessageBox.Show("Vui lòng chọn sự cố cần cập nhật", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning );
             }
+            else
+            {
+                int dong = gridView1.FocusedRowHandle;
+                string HealthProblemID = gridView1.GetRowCellValue(dong, gridView1.Columns["HealthProblemID"]).ToString();
+                frmHealthProblemDetail m_frmHealthProblem = new frmHealthProblemDetail();
+                m_frmHealthProblem.iFunction = 2;
+                m_frmHealthProblem.m_HealthProblem = new HealthProblemDAO().GetByID(int.Parse(HealthProblemID.ToString()));
+                m_frmHealthProblem.ShowDialog();
+                if (m_frmHealthProblem.DialogResult == DialogResult.OK)
+                {
+                    FillGridControl();
+                }
+            }
+          
         }
         private void btnUpdate_ButtonClick(object sender, DevExpress.XtraEditors.Controls.ButtonPressedEventArgs e)
         {
@@ -94,16 +102,24 @@ namespace QLHSBanTru2018_Demo_V1.TienBao
         }
         private void btnXoa_Click(object sender, EventArgs e)
         {
-            if (XtraMessageBox.Show("Bạn muốn xóa sự cố y tế ?", "Thông báo", MessageBoxButtons.YesNo, MessageBoxIcon.Warning) == DialogResult.Yes)
+            if (gridView1.GetFocusedRowCellValue("HealthProblemID") == null)
             {
-                int dong = gridView1.FocusedRowHandle;
-                string HealthProblemID = gridView1.GetRowCellValue(dong, gridView1.Columns["HealthProblemID"]).ToString();
-                new HealthProblemDAO().HealthProblemDelete(int.Parse(HealthProblemID.ToString()));
-                if (XtraMessageBox.Show(" Xóa sự cố thành công", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information) == DialogResult.OK)
-                {
-                    FillGridControl();
-                }               
+                XtraMessageBox.Show("Vui lòng chọn sự cố cần xóa", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
+            else
+            {
+                if (XtraMessageBox.Show("Bạn muốn xóa sự cố y tế ?", "Thông báo", MessageBoxButtons.YesNo, MessageBoxIcon.Warning) == DialogResult.Yes)
+                {
+                    int dong = gridView1.FocusedRowHandle;
+                    string HealthProblemID = gridView1.GetRowCellValue(dong, gridView1.Columns["HealthProblemID"]).ToString();
+                    new HealthProblemDAO().HealthProblemDelete(int.Parse(HealthProblemID.ToString()));
+                    if (XtraMessageBox.Show(" Xóa sự cố thành công", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information) == DialogResult.OK)
+                    {
+                        FillGridControl();
+                    }
+                }
+            }
+           
         }
         #endregion
 
