@@ -22,6 +22,7 @@ using QLHSBanTru2018_Demo_V1.HungTD.Form.WorkProgress;
 using QLHSBanTru2018_Demo_V1.DAO.HungTD;
 using QLHSBanTru2018_Demo_V1.Common;
 using QLHSBanTru2018_Demo_V1.HungTD.Form.Ingredient;
+using QLHSBanTru2018_Demo_V1.QLThuChi.ChiTieu;
 
 namespace QLHSBanTru2018_Demo_V1
 {
@@ -105,6 +106,29 @@ namespace QLHSBanTru2018_Demo_V1
         #endregion
 
         #region Nguyễn Kiều Thành Công
+        private void bntDotThu_ItemClick(object sender, ItemClickEventArgs e)
+        {
+            UsDotThuPhi a = new UsDotThuPhi();
+            pnControlsPanel.Controls.Clear();
+            pnControlsPanel.Controls.Add(a);
+            a.Dock = DockStyle.Fill;
+        }
+
+        private void bntThuTheoLop_ItemClick(object sender, ItemClickEventArgs e)
+        {
+            USCacKhoanThuTheoLop a = new USCacKhoanThuTheoLop();
+            pnControlsPanel.Controls.Clear();
+            pnControlsPanel.Controls.Add(a);
+            a.Dock = DockStyle.Fill;
+        }
+
+        private void bntCackhoanchi_ItemClick(object sender, ItemClickEventArgs e)
+        {
+            UsKhoanChi a = new UsKhoanChi();
+            pnControlsPanel.Controls.Clear();
+            pnControlsPanel.Controls.Add(a);
+            a.Dock = DockStyle.Fill;
+        }
 
         #endregion
 
@@ -164,22 +188,6 @@ namespace QLHSBanTru2018_Demo_V1
         #region Vũ Đức Thiện
 
         #endregion
-
-        private void bntDotThu_ItemClick(object sender, ItemClickEventArgs e)
-        {
-            UsDotThuPhi a = new UsDotThuPhi();
-            pnControlsPanel.Controls.Clear();
-            pnControlsPanel.Controls.Add(a);
-            a.Dock = DockStyle.Fill;
-        }
-
-        private void bntThuTheoLop_ItemClick(object sender, ItemClickEventArgs e)
-        {
-            USCacKhoanThuTheoLop a = new USCacKhoanThuTheoLop();
-            pnControlsPanel.Controls.Clear();
-            pnControlsPanel.Controls.Add(a);
-            a.Dock = DockStyle.Fill;
-        }
 
        
     }

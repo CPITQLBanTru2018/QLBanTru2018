@@ -73,15 +73,18 @@
     <Compile Include="DAO\HungTD\SemesterDAO.cs" />
     <Compile Include="DAO\HungTD\TopicDAO.cs" />
     <Compile Include="DAO\HungTD\TopicTypeDAO.cs" />
-    <Compile Include="DAO\ThanhCongTC\ClassStudentDAO.cs" />
-    <Compile Include="DAO\ThanhCongTC\GradeDAO.cs" />
-    <Compile Include="DAO\ThanhCongTC\PreferredDAO.cs" />
-    <Compile Include="DAO\ThanhCongTC\ReceivableDetailDAO.cs" />
-    <Compile Include="DAO\ThanhCongTC\ReceivableDetail_StudentDAO.cs" />
-    <Compile Include="DAO\ThanhCongTC\ReceivableIDAO.cs" />
-    <Compile Include="DAO\ThanhCongTC\SemesterDAO.cs" />
-    <Compile Include="DAO\ThanhCongTC\StudenGrade.cs" />
-    <Compile Include="DAO\ThanhCongTC\studentReceivableDAO.cs" />
+    <Compile Include="DAO\ThanhCongTC\ChiTieu\InvoiceDAO.cs" />
+    <Compile Include="DAO\ThanhCongTC\ChiTieu\InvoiceDetailDAO.cs" />
+    <Compile Include="DAO\ThanhCongTC\ChiTieu\SpendSpeciesDAO.cs" />
+    <Compile Include="DAO\ThanhCongTC\KhoanThu\ClassStudentDAO.cs" />
+    <Compile Include="DAO\ThanhCongTC\KhoanThu\GradeDAO.cs" />
+    <Compile Include="DAO\ThanhCongTC\KhoanThu\PreferredDAO.cs" />
+    <Compile Include="DAO\ThanhCongTC\KhoanThu\ReceivableDetailDAO.cs" />
+    <Compile Include="DAO\ThanhCongTC\KhoanThu\ReceivableDetail_StudentDAO.cs" />
+    <Compile Include="DAO\ThanhCongTC\KhoanThu\ReceivableIDAO.cs" />
+    <Compile Include="DAO\ThanhCongTC\KhoanThu\SemesterDAO.cs" />
+    <Compile Include="DAO\ThanhCongTC\KhoanThu\StudenGrade.cs" />
+    <Compile Include="DAO\ThanhCongTC\KhoanThu\studentReceivableDAO.cs" />
     <Compile Include="DAO\ThanhCongTC\TCViewModle\TCStudentViewModle.cs" />
     <Compile Include="DAO\TienBao\ClassDAO.cs" />
     <Compile Include="DAO\TienBao\HealthExaminationDAO.cs" />
@@ -148,5 +151,6 @@
       <DependentUpon>QLHSSmartKids.dbml</DependentUpon>
     </None>
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

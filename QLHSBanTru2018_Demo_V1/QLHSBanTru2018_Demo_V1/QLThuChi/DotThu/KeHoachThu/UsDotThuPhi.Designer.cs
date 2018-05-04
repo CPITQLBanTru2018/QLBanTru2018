@@ -290,6 +290,7 @@
             this.grChiTietDotThu.Location = new System.Drawing.Point(243, 135);
             this.grChiTietDotThu.MainView = this.gridView2;
             this.grChiTietDotThu.Name = "grChiTietDotThu";
+            this.grChiTietDotThu.ShowOnlyPredefinedDetails = true;
             this.grChiTietDotThu.Size = new System.Drawing.Size(651, 386);
             this.grChiTietDotThu.TabIndex = 9;
             this.grChiTietDotThu.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
@@ -419,6 +420,7 @@
             this.grDotThu.Location = new System.Drawing.Point(12, 63);
             this.grDotThu.MainView = this.gridView1;
             this.grDotThu.Name = "grDotThu";
+            this.grDotThu.ShowOnlyPredefinedDetails = true;
             this.grDotThu.Size = new System.Drawing.Size(227, 458);
             this.grDotThu.TabIndex = 8;
             this.grDotThu.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
