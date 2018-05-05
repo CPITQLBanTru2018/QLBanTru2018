@@ -42,7 +42,7 @@
   <ItemGroup>
     <Reference Include="Accessibility" />
     <Reference Include="Bunifu_UI_v1.5.3">
-      <HintPath>F:\PHANMEM\Lập trình thiết kế\DLL\Bunifu_UI_v1.5.3.dll</HintPath>
+      <HintPath>C:\Users\khico\Downloads\Bunifu_UI_v1.5.3.dll</HintPath>
     </Reference>
     <Reference Include="Dapper, Version=1.50.4.0, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\packages\Dapper.1.50.4\lib\net451\Dapper.dll</HintPath>
@@ -292,10 +292,10 @@
     <Compile Include="QLThuChi\ChiTieu\FrChiTietHoaDon.Designer.cs">
       <DependentUpon>FrChiTietHoaDon.cs</DependentUpon>
     </Compile>
-    <Compile Include="QLThuChi\ChiTieu\FrLoaiChi.cs">
+    <Compile Include="QLThuChi\ChiTieu\LoaiChi\FrLoaiChi.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="QLThuChi\ChiTieu\FrLoaiChi.Designer.cs">
+    <Compile Include="QLThuChi\ChiTieu\LoaiChi\FrLoaiChi.Designer.cs">
       <DependentUpon>FrLoaiChi.cs</DependentUpon>
     </Compile>
     <Compile Include="QLThuChi\ChiTieu\FrThemkhoanchi.cs">
@@ -303,6 +303,18 @@
     </Compile>
     <Compile Include="QLThuChi\ChiTieu\FrThemkhoanchi.Designer.cs">
       <DependentUpon>FrThemkhoanchi.cs</DependentUpon>
+    </Compile>
+    <Compile Include="QLThuChi\ChiTieu\LoaiChi\FrThemLoaiChi.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="QLThuChi\ChiTieu\LoaiChi\FrThemLoaiChi.Designer.cs">
+      <DependentUpon>FrThemLoaiChi.cs</DependentUpon>
+    </Compile>
+    <Compile Include="QLThuChi\ChiTieu\LoaiChi\FrSuaLoaiChi.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="QLThuChi\ChiTieu\LoaiChi\FrSuaLoaiChi.Designer.cs">
+      <DependentUpon>FrSuaLoaiChi.cs</DependentUpon>
     </Compile>
     <Compile Include="QLThuChi\ChiTieu\UsKhoanChi.cs">
       <SubType>UserControl</SubType>
@@ -567,11 +579,17 @@
     <EmbeddedResource Include="QLThuChi\ChiTieu\FrChiTietHoaDon.resx">
       <DependentUpon>FrChiTietHoaDon.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="QLThuChi\ChiTieu\FrLoaiChi.resx">
+    <EmbeddedResource Include="QLThuChi\ChiTieu\LoaiChi\FrLoaiChi.resx">
       <DependentUpon>FrLoaiChi.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="QLThuChi\ChiTieu\FrThemkhoanchi.resx">
       <DependentUpon>FrThemkhoanchi.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="QLThuChi\ChiTieu\LoaiChi\FrThemLoaiChi.resx">
+      <DependentUpon>FrThemLoaiChi.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="QLThuChi\ChiTieu\LoaiChi\FrSuaLoaiChi.resx">
+      <DependentUpon>FrSuaLoaiChi.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="QLThuChi\ChiTieu\UsKhoanChi.resx">
       <DependentUpon>UsKhoanChi.cs</DependentUpon>

@@ -60,6 +60,7 @@
             this.btnHealthExaminationDetail = new DevExpress.XtraBars.BarButtonItem();
             this.bntCackhoanchi = new DevExpress.XtraBars.BarButtonItem();
             this.btnLoaichi = new DevExpress.XtraBars.BarButtonItem();
+            this.btnDanhMucChiTieu = new DevExpress.XtraBars.BarButtonItem();
             this.ribbonPage1 = new DevExpress.XtraBars.Ribbon.RibbonPage();
             this.ribbonPageGroup1 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             this.ribbonPageGroup2 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
@@ -113,9 +114,10 @@
             this.btnHealthExamination,
             this.btnHealthExaminationDetail,
             this.bntCackhoanchi,
-            this.btnLoaichi});
+            this.btnLoaichi,
+            this.btnDanhMucChiTieu});
             this.ribbon.Location = new System.Drawing.Point(0, 0);
-            this.ribbon.MaxItemId = 30;
+            this.ribbon.MaxItemId = 31;
             this.ribbon.Name = "ribbon";
             this.ribbon.Pages.AddRange(new DevExpress.XtraBars.Ribbon.RibbonPage[] {
             this.ribbonPage1,
@@ -376,9 +378,18 @@
             // 
             this.btnLoaichi.Caption = "Các loại chi";
             this.btnLoaichi.Id = 29;
-            this.btnLoaichi.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("barButtonItem4.ImageOptions.Image")));
-            this.btnLoaichi.ImageOptions.LargeImage = ((System.Drawing.Image)(resources.GetObject("barButtonItem4.ImageOptions.LargeImage")));
+            this.btnLoaichi.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("btnLoaichi.ImageOptions.Image")));
+            this.btnLoaichi.ImageOptions.LargeImage = ((System.Drawing.Image)(resources.GetObject("btnLoaichi.ImageOptions.LargeImage")));
             this.btnLoaichi.Name = "btnLoaichi";
+            // 
+            // btnDanhMucChiTieu
+            // 
+            this.btnDanhMucChiTieu.Caption = "Danh mục chi tiêu";
+            this.btnDanhMucChiTieu.Id = 30;
+            this.btnDanhMucChiTieu.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("btnDanhMucChiTieu.ImageOptions.Image")));
+            this.btnDanhMucChiTieu.ImageOptions.LargeImage = ((System.Drawing.Image)(resources.GetObject("btnDanhMucChiTieu.ImageOptions.LargeImage")));
+            this.btnDanhMucChiTieu.Name = "btnDanhMucChiTieu";
+            this.btnDanhMucChiTieu.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.btnDanhMucChiTieu_ItemClick);
             // 
             // ribbonPage1
             // 
@@ -459,6 +470,7 @@
             // 
             this.ribbonPageGroup10.ItemLinks.Add(this.bntCackhoanchi);
             this.ribbonPageGroup10.ItemLinks.Add(this.btnLoaichi);
+            this.ribbonPageGroup10.ItemLinks.Add(this.btnDanhMucChiTieu);
             this.ribbonPageGroup10.Name = "ribbonPageGroup10";
             this.ribbonPageGroup10.Text = "Chi tiêu";
             // 
@@ -575,5 +587,6 @@
         private DevExpress.XtraBars.BarButtonItem bntCackhoanchi;
         private DevExpress.XtraBars.BarButtonItem btnLoaichi;
         private DevExpress.XtraBars.Ribbon.RibbonPageGroup ribbonPageGroup10;
+        private DevExpress.XtraBars.BarButtonItem btnDanhMucChiTieu;
     }
 }

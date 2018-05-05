@@ -105,7 +105,7 @@ namespace QLHSBanTru2018_Demo_V1
         }
         #endregion
 
-        #region Nguyễn Kiều Thành Công
+        #region s2s2s2s2 Nguyễn Kiều Thành Công s2s2s2
         private void bntDotThu_ItemClick(object sender, ItemClickEventArgs e)
         {
             UsDotThuPhi a = new UsDotThuPhi();
@@ -128,6 +128,11 @@ namespace QLHSBanTru2018_Demo_V1
             pnControlsPanel.Controls.Clear();
             pnControlsPanel.Controls.Add(a);
             a.Dock = DockStyle.Fill;
+        }
+        private void btnDanhMucChiTieu_ItemClick(object sender, ItemClickEventArgs e)
+        {
+            FrLoaiChi a = new FrLoaiChi();
+            a.ShowDialog();
         }
 
         #endregion
@@ -183,12 +188,13 @@ namespace QLHSBanTru2018_Demo_V1
             pnControlsPanel.Controls.Add(m_frmHealthExamDetail);
             m_frmHealthExamDetail.Dock = DockStyle.Fill;
         }
+
         #endregion
 
         #region Vũ Đức Thiện
 
         #endregion
 
-       
+        
     }
 }

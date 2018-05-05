@@ -14,6 +14,7 @@ namespace DataConnect.DAO.ThanhCongTC.ChiTieu
             SpendSpecy a = new SpendSpecy();
             a.Name = entity.Name;
             a.CreatedDate = entity.CreatedDate;
+            a.Note = entity.Note;
             a.Status = false;
             dt.SpendSpecies.InsertOnSubmit(a);
             dt.SubmitChanges();
@@ -25,6 +26,7 @@ namespace DataConnect.DAO.ThanhCongTC.ChiTieu
             a = dt.SpendSpecies.Where(t => t.SpendSpeciesID == spendSpecy.SpendSpeciesID).FirstOrDefault();
             a.Name = spendSpecy.Name;
             a.CreatedDate = spendSpecy.CreatedDate;
+            a.Note = spendSpecy.Note;
             a.Status = spendSpecy.Status;
             dt.SubmitChanges();
             return true;
@@ -37,5 +39,13 @@ namespace DataConnect.DAO.ThanhCongTC.ChiTieu
             dt.SubmitChanges();
             return true;
         }
+        public List<SpendSpecy> ListSpendSpecy()
+        {
+            var a = dt.SpendSpecies;
+            return a.ToList();
+        }
+        #region doi tuong
+        public static SpendSpecy spend;
+        #endregion
     }
 }

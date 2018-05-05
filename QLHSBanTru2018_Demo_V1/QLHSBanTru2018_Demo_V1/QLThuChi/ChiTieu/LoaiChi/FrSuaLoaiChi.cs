@@ -9,13 +9,18 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using DevExpress.XtraEditors;
 
-namespace QLHSBanTru2018_Demo_V1.QLThuChi.ChiTieu
+namespace QLHSBanTru2018_Demo_V1.QLThuChi.ChiTieu.LoaiChi
 {
-    public partial class FrLoaiChi : DevExpress.XtraEditors.XtraForm
+    public partial class FrSuaLoaiChi : DevExpress.XtraEditors.XtraForm
     {
-        public FrLoaiChi()
+        public FrSuaLoaiChi()
         {
             InitializeComponent();
+        }
+
+        private void btnHuy_Click(object sender, EventArgs e)
+        {
+            this.Close();
         }
     }
 }
