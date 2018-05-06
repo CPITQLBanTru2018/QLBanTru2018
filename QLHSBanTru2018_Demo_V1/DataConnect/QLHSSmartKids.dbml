@@ -479,14 +479,6 @@
       <Association Name="Position_Division" Member="Divisions" ThisKey="PositionID" OtherKey="PositionID" Type="Division" />
     </Type>
   </Table>
-  <Table Name="dbo.Preferred" Member="Preferreds">
-    <Type Name="Preferred">
-      <Column Name="PreferredID" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
-      <Column Name="Name" Type="System.String" DbType="NVarChar(100) NOT NULL" CanBeNull="false" />
-      <Column Name="Status" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
-      <Column Name="[Percent]" Member="Percent" Type="System.Double" DbType="Float" CanBeNull="true" />
-    </Type>
-  </Table>
   <Table Name="dbo.Receivable" Member="Receivables">
     <Type Name="Receivable">
       <Column Name="ReceivableID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
@@ -576,6 +568,8 @@
       <Association Name="Student_Student_Lesson" Member="Student_Lessons" ThisKey="StudentID" OtherKey="StudentID" Type="Student_Lesson" />
       <Association Name="Student_StudentParent" Member="StudentParents" ThisKey="StudentID" OtherKey="StudentID" Type="StudentParent" />
       <Association Name="Student_TrackingUpLate" Member="TrackingUpLates" ThisKey="StudentID" OtherKey="StudentID" Type="TrackingUpLate" />
+      <Association Name="Student_PhysicalAssessmentDetail" Member="PhysicalAssessmentDetails" ThisKey="StudentID" OtherKey="StudentID" Type="PhysicalAssessmentDetail" />
+      <Association Name="Preferred_Student" Member="Preferred" ThisKey="PreferredID" OtherKey="PreferredID" Type="Preferred" IsForeignKey="true" />
     </Type>
   </Table>
   <Table Name="dbo.Student_Class" Member="Student_Classes">
@@ -670,6 +664,41 @@
       <Column Name="Note" Type="System.String" DbType="NText" CanBeNull="true" UpdateCheck="Never" />
       <Column Name="Status" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
       <Association Name="SpendSpecy_Invoice" Member="Invoices" ThisKey="SpendSpeciesID" OtherKey="SpendSpeciesID" Type="Invoice" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Preferred" Member="Preferreds">
+    <Type Name="Preferred">
+      <Column Name="PreferredID" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="Name" Type="System.String" DbType="NVarChar(100) NOT NULL" CanBeNull="false" />
+      <Column Name="Status" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
+      <Column Name="[Percent]" Member="Percent" Type="System.Double" DbType="Float" CanBeNull="true" />
+      <Association Name="Preferred_Student" Member="Students" ThisKey="PreferredID" OtherKey="PreferredID" Type="Student" />
+    </Type>
+  </Table>
+  <Table Name="dbo.PhysicalAssessment" Member="PhysicalAssessments">
+    <Type Name="PhysicalAssessment">
+      <Column Name="PhysicalAssessmentID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="Date" Type="System.DateTime" DbType="DateTime NOT NULL" CanBeNull="false" />
+      <Column Name="Name" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="Note" Type="System.String" DbType="NVarChar(200)" CanBeNull="true" />
+      <Column Name="Status" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
+      <Association Name="PhysicalAssessment_PhysicalAssessmentDetail" Member="PhysicalAssessmentDetails" ThisKey="PhysicalAssessmentID" OtherKey="PhysicalAssessmentID" Type="PhysicalAssessmentDetail" />
+    </Type>
+  </Table>
+  <Table Name="dbo.PhysicalAssessmentDetail" Member="PhysicalAssessmentDetails">
+    <Type Name="PhysicalAssessmentDetail">
+      <Column Name="PhysicalAssessmentDeailID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="PhysicalAssessmentID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="StudentID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="Height" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="Weight" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="HeightRating" Type="System.String" DbType="NVarChar(100) NOT NULL" CanBeNull="false" />
+      <Column Name="WeightRating" Type="System.String" DbType="NVarChar(100) NOT NULL" CanBeNull="false" />
+      <Column Name="OtherRating" Type="System.String" DbType="NVarChar(200)" CanBeNull="true" />
+      <Column Name="Note" Type="System.String" DbType="NVarChar(200)" CanBeNull="true" />
+      <Column Name="Status" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
+      <Association Name="PhysicalAssessment_PhysicalAssessmentDetail" Member="PhysicalAssessment" ThisKey="PhysicalAssessmentID" OtherKey="PhysicalAssessmentID" Type="PhysicalAssessment" IsForeignKey="true" />
+      <Association Name="Student_PhysicalAssessmentDetail" Member="Student" ThisKey="StudentID" OtherKey="StudentID" Type="Student" IsForeignKey="true" />
     </Type>
   </Table>
 </Database>
