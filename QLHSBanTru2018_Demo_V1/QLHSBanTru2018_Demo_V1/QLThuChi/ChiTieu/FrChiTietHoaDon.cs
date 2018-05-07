@@ -8,6 +8,8 @@ using System.Linq;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using DevExpress.XtraEditors;
+using DataConnect;
+using DataConnect.DAO.ThanhCongTC.ChiTieu;
 
 namespace QLHSBanTru2018_Demo_V1.QLThuChi.ChiTieu
 {
@@ -17,7 +19,12 @@ namespace QLHSBanTru2018_Demo_V1.QLThuChi.ChiTieu
         {
             InitializeComponent();
         }
-
+        #region hàm đính kèm
+        public void TinhThanhTien()
+        {
+            txtThanhtien.Text = (decimal.Parse(txtDongia.Text) * (int)nudSoluong.Value).ToString();
+        }
+        #endregion
         private void FrChiTietHoaDon_Load(object sender, EventArgs e)
         {
 
@@ -26,6 +33,30 @@ namespace QLHSBanTru2018_Demo_V1.QLThuChi.ChiTieu
         private void btnHuy_Click(object sender, EventArgs e)
         {
             this.Close();
+        }
+
+        private void btnLuu_Click(object sender, EventArgs e)
+        {
+            InvoiceDetail dt = new InvoiceDetail();
+            dt.NameInvoiceDetail = txtTenchitiet.Text;
+            dt.Price = decimal.Parse(txtDongia.Text);
+            dt.Unit = txtDonvi.Text;
+            dt.Amount = (int)nudSoluong.Value;
+            dt.TotalPriceDetail = decimal.Parse(txtThanhtien.Text);
+            dt.Note = txtGhichu.Text;
+            dt.Status = false;
+            InvoiceDetailDAO.listDemoInvoiceDetail.Add(dt);
+            this.Close();
+        }
+
+        private void txtDongia_TextChanged(object sender, EventArgs e)
+        {
+            TinhThanhTien();
+        }
+
+        private void nudSoluong_ValueChanged(object sender, EventArgs e)
+        {
+            TinhThanhTien();
         }
     }
 }

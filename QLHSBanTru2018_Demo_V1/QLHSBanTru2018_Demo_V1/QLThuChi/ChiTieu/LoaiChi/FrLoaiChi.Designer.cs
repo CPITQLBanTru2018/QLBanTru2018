@@ -105,6 +105,7 @@
             this.btnXoa.StyleController = this.layoutControl1;
             this.btnXoa.TabIndex = 8;
             this.btnXoa.Text = "Xóa danh mục";
+            this.btnXoa.Click += new System.EventHandler(this.btnXoa_Click);
             // 
             // btnSua
             // 
@@ -115,6 +116,7 @@
             this.btnSua.StyleController = this.layoutControl1;
             this.btnSua.TabIndex = 7;
             this.btnSua.Text = "Sửa danh mục";
+            this.btnSua.Click += new System.EventHandler(this.btnSua_Click);
             // 
             // btnThem
             // 

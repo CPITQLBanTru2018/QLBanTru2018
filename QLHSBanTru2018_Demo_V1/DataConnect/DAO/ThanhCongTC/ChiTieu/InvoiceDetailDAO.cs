@@ -19,6 +19,7 @@ namespace DataConnect.DAO.ThanhCongTC.ChiTieu
             a.Amount = invoiceDetail.Amount;
             a.TotalPriceDetail = invoiceDetail.TotalPriceDetail;
             a.Note = invoiceDetail.Note;
+            a.Status = false;
             dt.InvoiceDetails.InsertOnSubmit(a);
             dt.SubmitChanges();
             return true;
@@ -33,6 +34,7 @@ namespace DataConnect.DAO.ThanhCongTC.ChiTieu
             a.Amount = invoiceDetail.Amount;
             a.TotalPriceDetail = invoiceDetail.TotalPriceDetail;
             a.Note = invoiceDetail.Note;
+            a.Status = invoiceDetail.Status;
             dt.SubmitChanges();
             return true;
         }
@@ -44,5 +46,8 @@ namespace DataConnect.DAO.ThanhCongTC.ChiTieu
             dt.SubmitChanges();
             return true;
         }
+        public static List<InvoiceDetail> listDemoInvoiceDetail = new List<InvoiceDetail>();
+        public static int Therowfocust = 0;
+        public static InvoiceDetail DemoInvoiceDetail = new InvoiceDetail();
     }
 }

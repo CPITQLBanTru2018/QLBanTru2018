@@ -51,13 +51,6 @@ namespace QLHSBanTru2018_Demo_V1.QLThuChi
                 }
 
             }
-            float Tong = 0;
-            for (int i = 0; i < gridView1.RowCount; i++)
-            {
-                Tong += float.Parse(gridView1.GetRowCellValue(i, gridView1.Columns["Price"]).ToString());
-            }
-            //txtTongtien.Text = Tong.ToString()+"đ";
-
         }
 
         private void bntSua_Click(object sender, EventArgs e)

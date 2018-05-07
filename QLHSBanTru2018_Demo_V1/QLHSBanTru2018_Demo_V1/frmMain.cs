@@ -134,7 +134,16 @@ namespace QLHSBanTru2018_Demo_V1
             FrLoaiChi a = new FrLoaiChi();
             a.ShowDialog();
         }
-
+        private void btnLoaichi_ItemClick(object sender, ItemClickEventArgs e)
+        {
+            FrLoaiChi a = new FrLoaiChi();
+            a.ShowDialog();
+        }
+        private void btnDoituongchinhsach_ItemClick(object sender, ItemClickEventArgs e)
+        {
+            FRDienMienGiam a = new FRDienMienGiam();
+            a.ShowDialog();
+        }
         #endregion
 
         #region Nguyễn Tiến Bảo
@@ -188,6 +197,8 @@ namespace QLHSBanTru2018_Demo_V1
             pnControlsPanel.Controls.Add(m_frmHealthExamDetail);
             m_frmHealthExamDetail.Dock = DockStyle.Fill;
         }
+
+
 
         #endregion
 

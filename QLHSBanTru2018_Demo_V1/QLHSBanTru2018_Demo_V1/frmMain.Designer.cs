@@ -78,6 +78,7 @@
             this.ribbonStatusBar = new DevExpress.XtraBars.Ribbon.RibbonStatusBar();
             this.defaultLookAndFeel1 = new DevExpress.LookAndFeel.DefaultLookAndFeel(this.components);
             this.pnControlsPanel = new System.Windows.Forms.Panel();
+            this.btnDoituongchinhsach = new DevExpress.XtraBars.BarButtonItem();
             ((System.ComponentModel.ISupportInitialize)(this.ribbon)).BeginInit();
             this.SuspendLayout();
             // 
@@ -115,9 +116,10 @@
             this.btnHealthExaminationDetail,
             this.bntCackhoanchi,
             this.btnLoaichi,
-            this.btnDanhMucChiTieu});
+            this.btnDanhMucChiTieu,
+            this.btnDoituongchinhsach});
             this.ribbon.Location = new System.Drawing.Point(0, 0);
-            this.ribbon.MaxItemId = 31;
+            this.ribbon.MaxItemId = 32;
             this.ribbon.Name = "ribbon";
             this.ribbon.Pages.AddRange(new DevExpress.XtraBars.Ribbon.RibbonPage[] {
             this.ribbonPage1,
@@ -381,6 +383,7 @@
             this.btnLoaichi.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("btnLoaichi.ImageOptions.Image")));
             this.btnLoaichi.ImageOptions.LargeImage = ((System.Drawing.Image)(resources.GetObject("btnLoaichi.ImageOptions.LargeImage")));
             this.btnLoaichi.Name = "btnLoaichi";
+            this.btnLoaichi.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.btnLoaichi_ItemClick);
             // 
             // btnDanhMucChiTieu
             // 
@@ -463,6 +466,7 @@
             // 
             this.ribbonPageGroup3.ItemLinks.Add(this.bntDotThu);
             this.ribbonPageGroup3.ItemLinks.Add(this.bntThuTheoLop);
+            this.ribbonPageGroup3.ItemLinks.Add(this.btnDoituongchinhsach);
             this.ribbonPageGroup3.Name = "ribbonPageGroup3";
             this.ribbonPageGroup3.Text = "Khoản thu - đợt thu";
             // 
@@ -518,6 +522,15 @@
             this.pnControlsPanel.Name = "pnControlsPanel";
             this.pnControlsPanel.Size = new System.Drawing.Size(798, 432);
             this.pnControlsPanel.TabIndex = 3;
+            // 
+            // btnDoituongchinhsach
+            // 
+            this.btnDoituongchinhsach.Caption = "Đối tượng chính sách";
+            this.btnDoituongchinhsach.Id = 31;
+            this.btnDoituongchinhsach.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("btnDoituongchinhsach.ImageOptions.Image")));
+            this.btnDoituongchinhsach.ImageOptions.LargeImage = ((System.Drawing.Image)(resources.GetObject("btnDoituongchinhsach.ImageOptions.LargeImage")));
+            this.btnDoituongchinhsach.Name = "btnDoituongchinhsach";
+            this.btnDoituongchinhsach.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.btnDoituongchinhsach_ItemClick);
             // 
             // frmMain
             // 
@@ -588,5 +601,6 @@
         private DevExpress.XtraBars.BarButtonItem btnLoaichi;
         private DevExpress.XtraBars.Ribbon.RibbonPageGroup ribbonPageGroup10;
         private DevExpress.XtraBars.BarButtonItem btnDanhMucChiTieu;
+        private DevExpress.XtraBars.BarButtonItem btnDoituongchinhsach;
     }
 }

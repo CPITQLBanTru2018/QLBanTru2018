@@ -292,6 +292,12 @@
     <Compile Include="QLThuChi\ChiTieu\FrChiTietHoaDon.Designer.cs">
       <DependentUpon>FrChiTietHoaDon.cs</DependentUpon>
     </Compile>
+    <Compile Include="QLThuChi\ChiTieu\FrSuaChiTietHoaDon.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="QLThuChi\ChiTieu\FrSuaChiTietHoaDon.Designer.cs">
+      <DependentUpon>FrSuaChiTietHoaDon.cs</DependentUpon>
+    </Compile>
     <Compile Include="QLThuChi\ChiTieu\LoaiChi\FrLoaiChi.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -578,6 +584,9 @@
     </Compile>
     <EmbeddedResource Include="QLThuChi\ChiTieu\FrChiTietHoaDon.resx">
       <DependentUpon>FrChiTietHoaDon.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="QLThuChi\ChiTieu\FrSuaChiTietHoaDon.resx">
+      <DependentUpon>FrSuaChiTietHoaDon.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="QLThuChi\ChiTieu\LoaiChi\FrLoaiChi.resx">
       <DependentUpon>FrLoaiChi.cs</DependentUpon>
