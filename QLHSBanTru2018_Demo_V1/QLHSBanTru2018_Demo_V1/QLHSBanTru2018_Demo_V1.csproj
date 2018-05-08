@@ -68,6 +68,7 @@
     <Reference Include="DevExpress.XtraGauges.v17.2.Core, Version=17.2.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
     <Reference Include="DevExpress.XtraGrid.v17.2, Version=17.2.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
     <Reference Include="DevExpress.XtraLayout.v17.2, Version=17.2.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.XtraNavBar.v17.2, Version=17.2.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
     <Reference Include="DevExpress.XtraPdfViewer.v17.2, Version=17.2.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
     <Reference Include="DevExpress.XtraPrinting.v17.2, Version=17.2.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
     <Reference Include="DevExpress.XtraReports.v17.2, Version=17.2.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
@@ -454,6 +455,12 @@
     <Compile Include="TienBao\frmNewHealthExamDetail.Designer.cs">
       <DependentUpon>frmNewHealthExamDetail.cs</DependentUpon>
     </Compile>
+    <Compile Include="TienBao\frmPhysicalAssessment.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="TienBao\frmPhysicalAssessment.Designer.cs">
+      <DependentUpon>frmPhysicalAssessment.cs</DependentUpon>
+    </Compile>
     <Compile Include="TienBao\frmStudent.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -659,6 +666,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="TienBao\frmNewHealthExamDetail.resx">
       <DependentUpon>frmNewHealthExamDetail.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="TienBao\frmPhysicalAssessment.resx">
+      <DependentUpon>frmPhysicalAssessment.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="TienBao\frmStudent.resx">
       <DependentUpon>frmStudent.cs</DependentUpon>

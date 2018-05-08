@@ -28,17 +28,16 @@
         /// </summary>
         private void InitializeComponent()
         {
-            DevExpress.XtraEditors.Controls.EditorButtonImageOptions editorButtonImageOptions1 = new DevExpress.XtraEditors.Controls.EditorButtonImageOptions();
+            DevExpress.XtraEditors.Controls.EditorButtonImageOptions editorButtonImageOptions3 = new DevExpress.XtraEditors.Controls.EditorButtonImageOptions();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmHealthExaminationDetail));
-            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject1 = new DevExpress.Utils.SerializableAppearanceObject();
-            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject2 = new DevExpress.Utils.SerializableAppearanceObject();
-            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject3 = new DevExpress.Utils.SerializableAppearanceObject();
-            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject4 = new DevExpress.Utils.SerializableAppearanceObject();
+            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject9 = new DevExpress.Utils.SerializableAppearanceObject();
+            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject10 = new DevExpress.Utils.SerializableAppearanceObject();
+            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject11 = new DevExpress.Utils.SerializableAppearanceObject();
+            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject12 = new DevExpress.Utils.SerializableAppearanceObject();
             this.layoutControl1 = new DevExpress.XtraLayout.LayoutControl();
             this.cmbHealthExam = new System.Windows.Forms.ComboBox();
             this.dgvHealthDetail = new DevExpress.XtraGrid.GridControl();
             this.gridView1 = new DevExpress.XtraGrid.Views.Grid.GridView();
-            this.colSTT = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colStudentName = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colStudentCode = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colClass = new DevExpress.XtraGrid.Columns.GridColumn();
@@ -134,7 +133,6 @@
             // 
             this.gridView1.ColumnPanelRowHeight = 2;
             this.gridView1.Columns.AddRange(new DevExpress.XtraGrid.Columns.GridColumn[] {
-            this.colSTT,
             this.colStudentName,
             this.colStudentCode,
             this.colClass,
@@ -145,20 +143,8 @@
             this.gridView1.GridControl = this.dgvHealthDetail;
             this.gridView1.Name = "gridView1";
             this.gridView1.OptionsView.ShowGroupPanel = false;
-            // 
-            // colSTT
-            // 
-            this.colSTT.AppearanceHeader.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Bold);
-            this.colSTT.AppearanceHeader.Options.UseFont = true;
-            this.colSTT.AppearanceHeader.Options.UseTextOptions = true;
-            this.colSTT.AppearanceHeader.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
-            this.colSTT.Caption = "STT";
-            this.colSTT.Name = "colSTT";
-            this.colSTT.OptionsColumn.AllowEdit = false;
-            this.colSTT.OptionsColumn.AllowMerge = DevExpress.Utils.DefaultBoolean.False;
-            this.colSTT.Visible = true;
-            this.colSTT.VisibleIndex = 0;
-            this.colSTT.Width = 39;
+            this.gridView1.CustomDrawRowIndicator += new DevExpress.XtraGrid.Views.Grid.RowIndicatorCustomDrawEventHandler(this.gridView1_CustomDrawRowIndicator);
+            this.gridView1.RowCountChanged += new System.EventHandler(this.gridView1_RowCountChanged);
             // 
             // colStudentName
             // 
@@ -171,7 +157,7 @@
             this.colStudentName.Name = "colStudentName";
             this.colStudentName.OptionsColumn.AllowEdit = false;
             this.colStudentName.Visible = true;
-            this.colStudentName.VisibleIndex = 1;
+            this.colStudentName.VisibleIndex = 0;
             this.colStudentName.Width = 119;
             // 
             // colStudentCode
@@ -185,7 +171,7 @@
             this.colStudentCode.Name = "colStudentCode";
             this.colStudentCode.OptionsColumn.AllowEdit = false;
             this.colStudentCode.Visible = true;
-            this.colStudentCode.VisibleIndex = 2;
+            this.colStudentCode.VisibleIndex = 1;
             this.colStudentCode.Width = 95;
             // 
             // colClass
@@ -199,7 +185,7 @@
             this.colClass.Name = "colClass";
             this.colClass.OptionsColumn.AllowEdit = false;
             this.colClass.Visible = true;
-            this.colClass.VisibleIndex = 3;
+            this.colClass.VisibleIndex = 2;
             this.colClass.Width = 68;
             // 
             // gridColumn5
@@ -213,7 +199,7 @@
             this.gridColumn5.Name = "gridColumn5";
             this.gridColumn5.OptionsColumn.AllowEdit = false;
             this.gridColumn5.Visible = true;
-            this.gridColumn5.VisibleIndex = 4;
+            this.gridColumn5.VisibleIndex = 3;
             this.gridColumn5.Width = 87;
             // 
             // gridColumn6
@@ -227,7 +213,7 @@
             this.gridColumn6.Name = "gridColumn6";
             this.gridColumn6.OptionsColumn.AllowEdit = false;
             this.gridColumn6.Visible = true;
-            this.gridColumn6.VisibleIndex = 5;
+            this.gridColumn6.VisibleIndex = 4;
             this.gridColumn6.Width = 131;
             // 
             // gridColumn7
@@ -241,7 +227,7 @@
             this.gridColumn7.Name = "gridColumn7";
             this.gridColumn7.OptionsColumn.AllowEdit = false;
             this.gridColumn7.Visible = true;
-            this.gridColumn7.VisibleIndex = 6;
+            this.gridColumn7.VisibleIndex = 5;
             this.gridColumn7.Width = 56;
             // 
             // gridColumn8
@@ -254,15 +240,15 @@
             this.gridColumn8.ColumnEdit = this.btnNhapkq;
             this.gridColumn8.Name = "gridColumn8";
             this.gridColumn8.Visible = true;
-            this.gridColumn8.VisibleIndex = 7;
+            this.gridColumn8.VisibleIndex = 6;
             this.gridColumn8.Width = 97;
             // 
             // btnNhapkq
             // 
             this.btnNhapkq.AutoHeight = false;
-            editorButtonImageOptions1.Image = ((System.Drawing.Image)(resources.GetObject("editorButtonImageOptions1.Image")));
+            editorButtonImageOptions3.Image = ((System.Drawing.Image)(resources.GetObject("editorButtonImageOptions3.Image")));
             this.btnNhapkq.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Glyph, "", -1, true, true, false, editorButtonImageOptions1, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject1, serializableAppearanceObject2, serializableAppearanceObject3, serializableAppearanceObject4, "", null, null, DevExpress.Utils.ToolTipAnchor.Default)});
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Glyph, "", -1, true, true, false, editorButtonImageOptions3, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject9, serializableAppearanceObject10, serializableAppearanceObject11, serializableAppearanceObject12, "", null, null, DevExpress.Utils.ToolTipAnchor.Default)});
             this.btnNhapkq.Name = "btnNhapkq";
             this.btnNhapkq.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.HideTextEditor;
             // 
@@ -498,7 +484,6 @@
         private DevExpress.XtraLayout.SimpleLabelItem simpleLabelItem1;
         private DevExpress.XtraLayout.LayoutControlItem layoutControlItem6;
         private DevExpress.XtraLayout.LayoutControlItem layoutControlItem7;
-        private DevExpress.XtraGrid.Columns.GridColumn colSTT;
         private DevExpress.XtraGrid.Columns.GridColumn colStudentName;
         private DevExpress.XtraGrid.Columns.GridColumn colStudentCode;
         private DevExpress.XtraGrid.Columns.GridColumn colClass;
