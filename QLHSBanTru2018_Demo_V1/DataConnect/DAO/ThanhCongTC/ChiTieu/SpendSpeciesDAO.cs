@@ -15,7 +15,7 @@ namespace DataConnect.DAO.ThanhCongTC.ChiTieu
             a.Name = entity.Name;
             a.CreatedDate = entity.CreatedDate;
             a.Note = entity.Note;
-            a.Status = false;
+            a.Status = true;
             dt.SpendSpecies.InsertOnSubmit(a);
             dt.SubmitChanges();
             return true;
@@ -45,7 +45,7 @@ namespace DataConnect.DAO.ThanhCongTC.ChiTieu
             return a.ToList();
         }
         #region doi tuong
-        public static SpendSpecy spend;
+        public static SpendSpecy spend = new SpendSpecy();
         #endregion
     }
 }

@@ -100,6 +100,9 @@
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
       <DependentUpon>Settings.settings</DependentUpon>
     </Compile>
+    <Compile Include="QLHSSmartKids.cs">
+      <DependentUpon>QLHSSmartKids.dbml</DependentUpon>
+    </Compile>
     <Compile Include="QLHSSmartKids.designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>

@@ -38,6 +38,7 @@ namespace QLHSBanTru2018_Demo_V1.QLThuChi.ChiTieu
         {
             FrThemLoaiChi a = new FrThemLoaiChi();
             a.ShowDialog();
+            laodCacloaichi();
         }
 
         private void FrLoaiChi_Load(object sender, EventArgs e)
@@ -50,15 +51,38 @@ namespace QLHSBanTru2018_Demo_V1.QLThuChi.ChiTieu
             try
             {
                 SpendSpeciesDAO.spend.SpendSpeciesID = (int)gridView1.GetRowCellValue(e.FocusedRowHandle, "SpendSpeciesID");
-                //SpendSpeciesDAO.spend.Name = (int)gridView1.GetRowCellValue(e.FocusedRowHandle, "SpendSpeciesID").ToString();
-                //SpendSpeciesDAO.spend.CreatedDate = (int)gridView1.GetRowCellValue(e.FocusedRowHandle, "SpendSpeciesID");
-                //SpendSpeciesDAO.spend.Note = (int)gridView1.GetRowCellValue(e.FocusedRowHandle, "SpendSpeciesID");
-                //SpendSpeciesDAO.spend.Status = (int)gridView1.GetRowCellValue(e.FocusedRowHandle, "SpendSpeciesID");
+                SpendSpeciesDAO.spend.Name = gridView1.GetRowCellValue(e.FocusedRowHandle, "Name").ToString();
+                SpendSpeciesDAO.spend.CreatedDate = (DateTime)gridView1.GetRowCellValue(e.FocusedRowHandle, "CreatedDate");
+                SpendSpeciesDAO.spend.Note = gridView1.GetRowCellValue(e.FocusedRowHandle, "Note").ToString();
+                SpendSpeciesDAO.spend.Status = (bool)gridView1.GetRowCellValue(e.FocusedRowHandle, "Status");
             }
             catch 
             {
 
                 
+            }
+        }
+
+        private void btnSua_Click(object sender, EventArgs e)
+        {
+            FrSuaLoaiChi a = new FrSuaLoaiChi();
+            a.ShowDialog();
+            laodCacloaichi();
+        }
+
+        private void btnXoa_Click(object sender, EventArgs e)
+        {
+            SpendSpeciesDAO dt = new SpendSpeciesDAO();
+            if (MessageBox.Show("Bạn có muốn xóa danh mục " + SpendSpeciesDAO.spend.Name + "","Cảnh báo", MessageBoxButtons.YesNo, MessageBoxIcon.Error)==DialogResult.Yes)
+            {
+                if (dt.Remove(SpendSpeciesDAO.spend)==true)
+                {
+                    MessageBox.Show("Xóa thành công");
+                }
+                else
+                {
+                    MessageBox.Show("Không thể xóa ");
+                }
             }
         }
     }

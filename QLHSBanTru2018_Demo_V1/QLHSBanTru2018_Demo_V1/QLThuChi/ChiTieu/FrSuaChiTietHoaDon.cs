@@ -8,14 +8,14 @@ using System.Linq;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using DevExpress.XtraEditors;
-using DataConnect;
 using DataConnect.DAO.ThanhCongTC.ChiTieu;
+using DataConnect;
 
 namespace QLHSBanTru2018_Demo_V1.QLThuChi.ChiTieu
 {
-    public partial class FrChiTietHoaDon : DevExpress.XtraEditors.XtraForm
+    public partial class FrSuaChiTietHoaDon : DevExpress.XtraEditors.XtraForm
     {
-        public FrChiTietHoaDon()
+        public FrSuaChiTietHoaDon()
         {
             InitializeComponent();
         }
@@ -25,18 +25,35 @@ namespace QLHSBanTru2018_Demo_V1.QLThuChi.ChiTieu
             txtThanhtien.Text = (decimal.Parse(txtDongia.Text) * (int)nudSoluong.Value).ToString();
         }
         #endregion
-        private void FrChiTietHoaDon_Load(object sender, EventArgs e)
-        {
-
-        }
 
         private void btnHuy_Click(object sender, EventArgs e)
         {
             this.Close();
         }
 
+        private void txtTenchitiet_TextChanged(object sender, EventArgs e)
+        {
+            TinhThanhTien();
+        }
+
+        private void nudSoluong_ValueChanged(object sender, EventArgs e)
+        {
+            TinhThanhTien();
+        }
+
+        private void FrSuaChiTietHoaDon_Load(object sender, EventArgs e)
+        {
+            txtTenchitiet.Text = InvoiceDetailDAO.DemoInvoiceDetail.NameInvoiceDetail;
+            txtDongia.Text = InvoiceDetailDAO.DemoInvoiceDetail.Price.ToString();
+            txtDonvi.Text = InvoiceDetailDAO.DemoInvoiceDetail.Unit;
+            nudSoluong.Value = (int)InvoiceDetailDAO.DemoInvoiceDetail.Amount;
+            txtThanhtien.Text = InvoiceDetailDAO.DemoInvoiceDetail.TotalPriceDetail.ToString();
+            txtGhichu.Text = InvoiceDetailDAO.DemoInvoiceDetail.Note;
+        }
+
         private void btnLuu_Click(object sender, EventArgs e)
         {
+            InvoiceDetailDAO.listDemoInvoiceDetail.RemoveAt(InvoiceDetailDAO.Therowfocust);
             InvoiceDetail dt = new InvoiceDetail();
             dt.NameInvoiceDetail = txtTenchitiet.Text;
             dt.Price = decimal.Parse(txtDongia.Text);
@@ -47,16 +64,6 @@ namespace QLHSBanTru2018_Demo_V1.QLThuChi.ChiTieu
             dt.Status = false;
             InvoiceDetailDAO.listDemoInvoiceDetail.Add(dt);
             this.Close();
-        }
-
-        private void txtDongia_TextChanged(object sender, EventArgs e)
-        {
-            TinhThanhTien();
-        }
-
-        private void nudSoluong_ValueChanged(object sender, EventArgs e)
-        {
-            TinhThanhTien();
         }
     }
 }
