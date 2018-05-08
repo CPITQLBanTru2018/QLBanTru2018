@@ -46,6 +46,11 @@ namespace DataConnect.DAO.ThanhCongTC.ChiTieu
             dt.SubmitChanges();
             return true;
         }
+        public List<InvoiceDetail> ListInvoiceDetail(System.Guid InvoiceID)
+        {
+            var a = dt.InvoiceDetails.Where(t => t.InvoiceID == InvoiceID);
+            return a.ToList();
+        }
         public static List<InvoiceDetail> listDemoInvoiceDetail = new List<InvoiceDetail>();
         public static int Therowfocust = 0;
         public static InvoiceDetail DemoInvoiceDetail = new InvoiceDetail();

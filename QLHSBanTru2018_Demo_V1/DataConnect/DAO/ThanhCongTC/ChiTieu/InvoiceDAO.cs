@@ -12,6 +12,7 @@ namespace DataConnect.DAO.ThanhCongTC.ChiTieu
         public System.Guid Insert(Invoice invoice)
         {
             Invoice a = new Invoice();
+            a.InvoiceID = System.Guid.NewGuid();
             a.CreatedDate = invoice.CreatedDate;
             a.CourseID = invoice.CourseID;
             a.SemesterID = invoice.SemesterID;
@@ -52,6 +53,11 @@ namespace DataConnect.DAO.ThanhCongTC.ChiTieu
             dt.Invoices.DeleteOnSubmit(a);
             dt.SubmitChanges();
             return true;
+        }
+        public List<Invoice>ListInvoice(int CourseID,int SemesterID)
+        {
+            var a = dt.Invoices.Where(t => t.CourseID == CourseID && t.SemesterID == SemesterID);
+            return a.ToList();
         }
     }
 }
