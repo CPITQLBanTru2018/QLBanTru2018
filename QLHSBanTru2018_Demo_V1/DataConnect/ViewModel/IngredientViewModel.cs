@@ -11,9 +11,10 @@ namespace DataConnect.ViewModel
         public int IngredientID { get; set; }
         public string Name { get; set; }
         public int IngredientTypeID { get; set; }
-        public string IngredientName { get; set; }
+        public string IngredientTypeName { get; set; }
         public string Unit { get; set; }
-        public double PriceOfUnit { get; set; }
+        public decimal PriceOfUnit { get; set; }
+        public double QuantityOfUnit { get; set; }
         public double Kcal { get; set; }
         public double Protein { get; set; }
         public double Fat { get; set; }
@@ -21,7 +22,7 @@ namespace DataConnect.ViewModel
         public double Fiber { get; set; }
         public double Canxi { get; set; }
         public double Iron { get; set; }
-        public double Photphto { get; set; }
+        public double Photpho { get; set; }
         public double Kali { get; set; }
         public double Natri { get; set; }
         public double VitaminA { get; set; }
@@ -30,5 +31,6 @@ namespace DataConnect.ViewModel
         public double AxitFolic { get; set; }
         public double Cholesterol { get; set; }
         public bool Status { get; set; }
+        public string StringStatus { get; set; }
     }
 }

@@ -61,6 +61,7 @@
             this.bntCackhoanchi = new DevExpress.XtraBars.BarButtonItem();
             this.btnLoaichi = new DevExpress.XtraBars.BarButtonItem();
             this.btnDanhMucChiTieu = new DevExpress.XtraBars.BarButtonItem();
+            this.btnDoituongchinhsach = new DevExpress.XtraBars.BarButtonItem();
             this.ribbonPage1 = new DevExpress.XtraBars.Ribbon.RibbonPage();
             this.ribbonPageGroup1 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             this.ribbonPageGroup2 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
@@ -78,7 +79,6 @@
             this.ribbonStatusBar = new DevExpress.XtraBars.Ribbon.RibbonStatusBar();
             this.defaultLookAndFeel1 = new DevExpress.LookAndFeel.DefaultLookAndFeel(this.components);
             this.pnControlsPanel = new System.Windows.Forms.Panel();
-            this.btnDoituongchinhsach = new DevExpress.XtraBars.BarButtonItem();
             ((System.ComponentModel.ISupportInitialize)(this.ribbon)).BeginInit();
             this.SuspendLayout();
             // 
@@ -126,7 +126,7 @@
             this.ribbonPage4,
             this.ribbonPage2,
             this.ribbonPage3});
-            this.ribbon.Size = new System.Drawing.Size(798, 146);
+            this.ribbon.Size = new System.Drawing.Size(1364, 146);
             this.ribbon.StatusBar = this.ribbonStatusBar;
             // 
             // btnDepartment
@@ -394,6 +394,15 @@
             this.btnDanhMucChiTieu.Name = "btnDanhMucChiTieu";
             this.btnDanhMucChiTieu.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.btnDanhMucChiTieu_ItemClick);
             // 
+            // btnDoituongchinhsach
+            // 
+            this.btnDoituongchinhsach.Caption = "Đối tượng chính sách";
+            this.btnDoituongchinhsach.Id = 31;
+            this.btnDoituongchinhsach.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("btnDoituongchinhsach.ImageOptions.Image")));
+            this.btnDoituongchinhsach.ImageOptions.LargeImage = ((System.Drawing.Image)(resources.GetObject("btnDoituongchinhsach.ImageOptions.LargeImage")));
+            this.btnDoituongchinhsach.Name = "btnDoituongchinhsach";
+            this.btnDoituongchinhsach.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.btnDoituongchinhsach_ItemClick);
+            // 
             // ribbonPage1
             // 
             this.ribbonPage1.Groups.AddRange(new DevExpress.XtraBars.Ribbon.RibbonPageGroup[] {
@@ -506,10 +515,10 @@
             // 
             this.ribbonStatusBar.ItemLinks.Add(this.labNameLogin);
             this.ribbonStatusBar.ItemLinks.Add(this.labTitle);
-            this.ribbonStatusBar.Location = new System.Drawing.Point(0, 578);
+            this.ribbonStatusBar.Location = new System.Drawing.Point(0, 746);
             this.ribbonStatusBar.Name = "ribbonStatusBar";
             this.ribbonStatusBar.Ribbon = this.ribbon;
-            this.ribbonStatusBar.Size = new System.Drawing.Size(798, 21);
+            this.ribbonStatusBar.Size = new System.Drawing.Size(1364, 21);
             // 
             // defaultLookAndFeel1
             // 
@@ -520,23 +529,14 @@
             this.pnControlsPanel.Dock = System.Windows.Forms.DockStyle.Fill;
             this.pnControlsPanel.Location = new System.Drawing.Point(0, 146);
             this.pnControlsPanel.Name = "pnControlsPanel";
-            this.pnControlsPanel.Size = new System.Drawing.Size(798, 432);
+            this.pnControlsPanel.Size = new System.Drawing.Size(1364, 600);
             this.pnControlsPanel.TabIndex = 3;
-            // 
-            // btnDoituongchinhsach
-            // 
-            this.btnDoituongchinhsach.Caption = "Đối tượng chính sách";
-            this.btnDoituongchinhsach.Id = 31;
-            this.btnDoituongchinhsach.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("btnDoituongchinhsach.ImageOptions.Image")));
-            this.btnDoituongchinhsach.ImageOptions.LargeImage = ((System.Drawing.Image)(resources.GetObject("btnDoituongchinhsach.ImageOptions.LargeImage")));
-            this.btnDoituongchinhsach.Name = "btnDoituongchinhsach";
-            this.btnDoituongchinhsach.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.btnDoituongchinhsach_ItemClick);
             // 
             // frmMain
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(798, 599);
+            this.ClientSize = new System.Drawing.Size(1364, 767);
             this.Controls.Add(this.pnControlsPanel);
             this.Controls.Add(this.ribbonStatusBar);
             this.Controls.Add(this.ribbon);
