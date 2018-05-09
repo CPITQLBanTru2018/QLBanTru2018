@@ -180,7 +180,10 @@ namespace QLHSBanTru2018_Demo_V1
 
         private void btnCanDo_ItemClick(object sender, ItemClickEventArgs e)
         {
-
+            frmPhysicalAssessment m_frmPhysicalAssessment = new frmPhysicalAssessment();
+            pnControlsPanel.Controls.Clear();
+            pnControlsPanel.Controls.Add(m_frmPhysicalAssessment);
+            m_frmPhysicalAssessment.Dock = DockStyle.Fill;
         }
 
         private void btnHealthExam_ItemClick(object sender, ItemClickEventArgs e)

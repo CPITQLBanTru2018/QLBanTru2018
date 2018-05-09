@@ -46,6 +46,8 @@ namespace QLHSBanTru2018_Demo_V1.QLThuChi
         {
             //LoadDataDotThu();
             LoadNamhoc();
+            LoadHocky();
+            LoadDataDotThu();
         }
 
         private void bntThietLapKeHoachThu_Click(object sender, EventArgs e)
