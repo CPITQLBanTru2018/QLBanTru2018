@@ -10,6 +10,9 @@ using System.Windows.Forms;
 using DevExpress.XtraEditors;
 using DataConnect.DAO.ThanhCongTC;
 using DataConnect.DAO.ThanhCongTC.ChiTieu;
+using DataConnect.DAO.HungTD;
+using DataConnect;
+using QLHSBanTru2018_Demo_V1.QLThuChi.ChiTieu.LoaiChi;
 
 namespace QLHSBanTru2018_Demo_V1.QLThuChi.ChiTieu
 {
@@ -97,6 +100,9 @@ namespace QLHSBanTru2018_Demo_V1.QLThuChi.ChiTieu
                 txtDiaChi.Text = gridView1.GetRowCellValue(e.FocusedRowHandle, "AdressDetail").ToString();
                 txtSDT.Text = gridView1.GetRowCellValue(e.FocusedRowHandle, "PhoneNumber").ToString();
                 txtGhichu.Text = gridView1.GetRowCellValue(e.FocusedRowHandle, "Note").ToString();
+                EmployeeDAO dt = new EmployeeDAO();
+                Employee a = dt.GetByID((int)gridView1.GetRowCellValue(e.FocusedRowHandle, "EmployeeID"));
+                txtNguoiTao.Text = a.FirstName.ToString()+a.LastName.ToString();
                 //laod chi tiết hóa đơn
                 LoadChiTietHoaDon();
             }
@@ -105,6 +111,33 @@ namespace QLHSBanTru2018_Demo_V1.QLThuChi.ChiTieu
 
                 
             }
+        }
+
+        private void gridView2_FocusedRowChanged(object sender, DevExpress.XtraGrid.Views.Base.FocusedRowChangedEventArgs e)
+        {
+            try
+            {
+                InvoiceDetailDAO.DemoInvoiceDetail.InvoiceDetailID = (int)gridView2.GetRowCellValue(e.FocusedRowHandle, "InvoiceDetailID");
+                InvoiceDetailDAO.DemoInvoiceDetail.InvoiceID = System.Guid.Parse(txtMaHoaDon.Text);
+                InvoiceDetailDAO.DemoInvoiceDetail.NameInvoiceDetail = gridView2.GetRowCellValue(e.FocusedRowHandle, "NameInvoiceDetail").ToString();
+                InvoiceDetailDAO.DemoInvoiceDetail.Price = (decimal)gridView2.GetRowCellValue(e.FocusedRowHandle, "Price");
+                InvoiceDetailDAO.DemoInvoiceDetail.Unit = gridView2.GetRowCellValue(e.FocusedRowHandle, "Unit").ToString();
+                InvoiceDetailDAO.DemoInvoiceDetail.Amount = (int)gridView2.GetRowCellValue(e.FocusedRowHandle, "Amount");
+                InvoiceDetailDAO.DemoInvoiceDetail.TotalPriceDetail = (decimal)gridView2.GetRowCellValue(e.FocusedRowHandle, "TotalPriceDetail");
+                InvoiceDetailDAO.DemoInvoiceDetail.Note = gridView2.GetRowCellValue(e.FocusedRowHandle, "Note").ToString();
+                InvoiceDetailDAO.DemoInvoiceDetail.Status = (bool)gridView2.GetRowCellValue(e.FocusedRowHandle, "Status");
+            }
+            catch 
+            {
+
+             
+            }
+        }
+
+        private void chiTiếtToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            FrViewInvoiceDetail a = new FrViewInvoiceDetail();
+            a.ShowDialog();
         }
     }
 }

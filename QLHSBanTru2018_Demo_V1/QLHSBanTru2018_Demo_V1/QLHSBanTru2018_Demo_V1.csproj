@@ -287,16 +287,16 @@
     <Compile Include="MD5Hash\PasswordEncryptor.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="QLThuChi\ChiTieu\FrChiTietHoaDon.cs">
+    <Compile Include="QLThuChi\ChiTieu\KhoanChi\FrChiTietHoaDon.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="QLThuChi\ChiTieu\FrChiTietHoaDon.Designer.cs">
+    <Compile Include="QLThuChi\ChiTieu\KhoanChi\FrChiTietHoaDon.Designer.cs">
       <DependentUpon>FrChiTietHoaDon.cs</DependentUpon>
     </Compile>
-    <Compile Include="QLThuChi\ChiTieu\FrSuaChiTietHoaDon.cs">
+    <Compile Include="QLThuChi\ChiTieu\KhoanChi\FrSuaChiTietHoaDon.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="QLThuChi\ChiTieu\FrSuaChiTietHoaDon.Designer.cs">
+    <Compile Include="QLThuChi\ChiTieu\KhoanChi\FrSuaChiTietHoaDon.Designer.cs">
       <DependentUpon>FrSuaChiTietHoaDon.cs</DependentUpon>
     </Compile>
     <Compile Include="QLThuChi\ChiTieu\LoaiChi\FrLoaiChi.cs">
@@ -305,10 +305,10 @@
     <Compile Include="QLThuChi\ChiTieu\LoaiChi\FrLoaiChi.Designer.cs">
       <DependentUpon>FrLoaiChi.cs</DependentUpon>
     </Compile>
-    <Compile Include="QLThuChi\ChiTieu\FrThemkhoanchi.cs">
+    <Compile Include="QLThuChi\ChiTieu\KhoanChi\FrThemkhoanchi.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="QLThuChi\ChiTieu\FrThemkhoanchi.Designer.cs">
+    <Compile Include="QLThuChi\ChiTieu\KhoanChi\FrThemkhoanchi.Designer.cs">
       <DependentUpon>FrThemkhoanchi.cs</DependentUpon>
     </Compile>
     <Compile Include="QLThuChi\ChiTieu\LoaiChi\FrThemLoaiChi.cs">
@@ -323,10 +323,16 @@
     <Compile Include="QLThuChi\ChiTieu\LoaiChi\FrSuaLoaiChi.Designer.cs">
       <DependentUpon>FrSuaLoaiChi.cs</DependentUpon>
     </Compile>
-    <Compile Include="QLThuChi\ChiTieu\UsKhoanChi.cs">
+    <Compile Include="QLThuChi\ChiTieu\KhoanChi\FrViewInvoiceDetail.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="QLThuChi\ChiTieu\KhoanChi\FrViewInvoiceDetail.Designer.cs">
+      <DependentUpon>FrViewInvoiceDetail.cs</DependentUpon>
+    </Compile>
+    <Compile Include="QLThuChi\ChiTieu\KhoanChi\UsKhoanChi.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="QLThuChi\ChiTieu\UsKhoanChi.Designer.cs">
+    <Compile Include="QLThuChi\ChiTieu\KhoanChi\UsKhoanChi.Designer.cs">
       <DependentUpon>UsKhoanChi.cs</DependentUpon>
     </Compile>
     <Compile Include="QLThuChi\DotThu\KeHoachThu\FrCacKhoanThu.cs">
@@ -589,16 +595,16 @@
       <DependentUpon>Resources.resx</DependentUpon>
       <DesignTime>True</DesignTime>
     </Compile>
-    <EmbeddedResource Include="QLThuChi\ChiTieu\FrChiTietHoaDon.resx">
+    <EmbeddedResource Include="QLThuChi\ChiTieu\KhoanChi\FrChiTietHoaDon.resx">
       <DependentUpon>FrChiTietHoaDon.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="QLThuChi\ChiTieu\FrSuaChiTietHoaDon.resx">
+    <EmbeddedResource Include="QLThuChi\ChiTieu\KhoanChi\FrSuaChiTietHoaDon.resx">
       <DependentUpon>FrSuaChiTietHoaDon.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="QLThuChi\ChiTieu\LoaiChi\FrLoaiChi.resx">
       <DependentUpon>FrLoaiChi.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="QLThuChi\ChiTieu\FrThemkhoanchi.resx">
+    <EmbeddedResource Include="QLThuChi\ChiTieu\KhoanChi\FrThemkhoanchi.resx">
       <DependentUpon>FrThemkhoanchi.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="QLThuChi\ChiTieu\LoaiChi\FrThemLoaiChi.resx">
@@ -607,7 +613,10 @@
     <EmbeddedResource Include="QLThuChi\ChiTieu\LoaiChi\FrSuaLoaiChi.resx">
       <DependentUpon>FrSuaLoaiChi.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="QLThuChi\ChiTieu\UsKhoanChi.resx">
+    <EmbeddedResource Include="QLThuChi\ChiTieu\KhoanChi\FrViewInvoiceDetail.resx">
+      <DependentUpon>FrViewInvoiceDetail.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="QLThuChi\ChiTieu\KhoanChi\UsKhoanChi.resx">
       <DependentUpon>UsKhoanChi.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="QLThuChi\DotThu\KeHoachThu\FrCacKhoanThu.resx">

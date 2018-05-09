@@ -20,7 +20,7 @@ namespace QLHSBanTru2018_Demo_V1.QLThuChi.DotThu.KeHoachThu
         {
             InitializeComponent();
         }
-        public void LoadKhoaPhi()
+        public void LoadKhoanPhi()
         {
             ReceivableDetail_StudentDAO dt = new ReceivableDetail_StudentDAO();
             ReceivableDetailDAO dc = new ReceivableDetailDAO();
@@ -102,15 +102,15 @@ namespace QLHSBanTru2018_Demo_V1.QLThuChi.DotThu.KeHoachThu
         }
         private void FrThanhToan_Load(object sender, EventArgs e)
         {
-            LoadKhoaPhi();
+            LoadKhoanPhi();
             loadStuden();
             checkKhoathu();
             loatGrKhoanPhi();
-            if (txtConlai.Text=="0")
+            if (txtConlai.Text == "0")
             {
                 bntLuu.Enabled = false;
             }
-            
+
         }
         private void gridView1_CellValueChanging(object sender, DevExpress.XtraGrid.Views.Base.CellValueChangedEventArgs e)
         {           

@@ -234,7 +234,7 @@ namespace QLHSBanTru2018_Demo_V1.TienBao
 
                 }
             }
-            catch (Exception ex)
+            catch 
             {
             }
         }

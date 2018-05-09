@@ -11,6 +11,7 @@ using DevExpress.XtraEditors;
 using DataConnect.DAO.ThanhCongTC;
 using DataConnect.DAO.ThanhCongTC.ChiTieu;
 using DataConnect;
+using QLHSBanTru2018_Demo_V1.Common;
 
 namespace QLHSBanTru2018_Demo_V1.QLThuChi.ChiTieu
 {
@@ -106,7 +107,7 @@ namespace QLHSBanTru2018_Demo_V1.QLThuChi.ChiTieu
                 a.CourseID = (int)cbbNamhoc.SelectedValue;
                 a.SemesterID = (int)cbbHocky.SelectedValue;
                 a.CreatedDate = DateTime.Now;
-                //a.EmployeeID= tham khảo hàm hàm hùng
+                a.EmployeeID = LoginDetail.LoginID;
                 a.NameMoneyReceive = txtHoten.Text;
                 a.PhoneNumber = txtSDT.Text;
                 a.AdressDetail = txtDiachi.Text;
