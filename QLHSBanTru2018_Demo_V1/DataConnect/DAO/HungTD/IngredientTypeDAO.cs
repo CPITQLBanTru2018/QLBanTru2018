@@ -30,11 +30,16 @@ namespace DataConnect.DAO.HungTD
                             StatusString = it.Status == true ? "Kích Hoạt" : "Khóa",
                             CountChild = 0
                         };
-            foreach(var item in model)
+            List<IngredientTypeViewModel> listModel = model.ToList();
+            for(int i = 0; i < listModel.Count(); i++)
             {
-                item.CountChild = ingredients.Where(x => x.IngredientTypeID.Equals(item.IngredientTypeID)).Count();
+                listModel[i].CountChild = ingredients.Where(x => x.IngredientTypeID.Equals(listModel[i].IngredientTypeID)).Count();
             }
-            return model.ToList();
+            return listModel;
+        }
+        private void countChild(IngredientTypeViewModel obj, int count)
+        {
+            obj.CountChild = count;
         }
         public List<IngredientType> ListAllActive()
         {

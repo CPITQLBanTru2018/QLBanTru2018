@@ -9,6 +9,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using DevExpress.XtraEditors;
 using DataConnect.DAO.HungTD;
+using DevExpress.XtraBars;
 
 namespace QLHSBanTru2018_Demo_V1.HungTD.Form.Ingredient
 {
@@ -31,7 +32,12 @@ namespace QLHSBanTru2018_Demo_V1.HungTD.Form.Ingredient
         }
         private void BindingDetail()
         {
-
+            txtName.DataBindings.Clear();
+            txtName.DataBindings.Add("Text", gcMain.DataSource, "Name");
+            txtCount.DataBindings.Clear();
+            txtCount.DataBindings.Add("Text", gcMain.DataSource, "CountChild");
+            chkStatus.DataBindings.Clear();
+            chkStatus.DataBindings.Add("Checked", gcMain.DataSource, "Status");
         }
 
         private void btnAdd_Click(object sender, EventArgs e)
@@ -64,7 +70,7 @@ namespace QLHSBanTru2018_Demo_V1.HungTD.Form.Ingredient
             {
                 try
                 {
-                    new LessonDAO().Delete(Convert.ToInt32(gridView1.GetRowCellValue(rowHandle, "IngredientTypeID").ToString()));
+                    new IngredientTypeDAO().Delete(Convert.ToInt32(gridView1.GetRowCellValue(rowHandle, "IngredientTypeID").ToString()));
                 }
                 catch
                 {
@@ -80,6 +86,12 @@ namespace QLHSBanTru2018_Demo_V1.HungTD.Form.Ingredient
         private void btnPrint_Click(object sender, EventArgs e)
         {
 
+        }
+
+        private void btnIngredientTypeDetail_ButtonClick(object sender, DevExpress.XtraEditors.Controls.ButtonPressedEventArgs e)
+        {
+            this.Controls.Clear();
+            this.Controls.Add(new frmIngredient());
         }
     }
 }

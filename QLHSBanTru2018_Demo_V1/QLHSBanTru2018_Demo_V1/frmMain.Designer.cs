@@ -559,7 +559,6 @@
         private DevExpress.XtraBars.Ribbon.RibbonStatusBar ribbonStatusBar;
         private DevExpress.LookAndFeel.DefaultLookAndFeel defaultLookAndFeel1;
         private DevExpress.XtraBars.BarButtonItem btnDepartment;
-        private System.Windows.Forms.Panel pnControlsPanel;
         private DevExpress.XtraBars.BarButtonItem btnEmployeeManager;
         private DevExpress.XtraBars.Ribbon.RibbonPageGroup ribbonPageGroup2;
         private DevExpress.XtraBars.BarButtonItem btnPosition;
@@ -583,7 +582,6 @@
         private DevExpress.XtraBars.Ribbon.RibbonPageGroup ribbonPageGroup8;
         private DevExpress.XtraBars.BarButtonItem btnWorkProgress;
         private DevExpress.XtraBars.BarStaticItem labNameLogin;
-        private DevExpress.XtraBars.BarStaticItem labTitle;
         private DevExpress.XtraBars.BarButtonItem btnIngredientType;
         private DevExpress.XtraBars.Ribbon.RibbonPage ribbonPage4;
         private DevExpress.XtraBars.Ribbon.RibbonPageGroup ribbonPageGroup9;
@@ -602,5 +600,7 @@
         private DevExpress.XtraBars.Ribbon.RibbonPageGroup ribbonPageGroup10;
         private DevExpress.XtraBars.BarButtonItem btnDanhMucChiTieu;
         private DevExpress.XtraBars.BarButtonItem btnDoituongchinhsach;
+        public System.Windows.Forms.Panel pnControlsPanel;
+        public DevExpress.XtraBars.BarStaticItem labTitle;
     }
 }

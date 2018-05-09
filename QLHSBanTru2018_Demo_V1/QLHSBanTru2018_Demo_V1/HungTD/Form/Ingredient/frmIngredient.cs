@@ -79,6 +79,7 @@ namespace QLHSBanTru2018_Demo_V1.HungTD.Form.Ingredient
             frmIngredientDetail frmID = new frmIngredientDetail();
             frmID.setFunction(1);
             frmID.ShowDialog();
+            frmID.setTitle("Thêm Mới Thực Phẩm");
             if (frmID.DialogResult == DialogResult.OK)
             {
                 FillGridControl();
@@ -99,8 +100,7 @@ namespace QLHSBanTru2018_Demo_V1.HungTD.Form.Ingredient
                 frmID.setIngredient(Convert.ToInt32(gridView1.GetRowCellValue(rowChildHand, "IngredientID").ToString()));
             }
             frmID.setFunction(2);
-            frmID.setTitle("Chỉnh Sửa Thực Phẩm");
-            //setIngredient
+            frmID.setTitle("Cập Nhật Thực Phẩm");
             frmID.ShowDialog();
             if (frmID.DialogResult == DialogResult.OK)
             {
@@ -122,8 +122,7 @@ namespace QLHSBanTru2018_Demo_V1.HungTD.Form.Ingredient
                 frmUQ.setIngredient(Convert.ToInt32(gridView1.GetRowCellValue(rowChildHand, "IngredientID").ToString()));
             }
             frmUQ.setFunction(1);
-            frmUQ.setTitle("Chỉnh Sửa Thực Phẩm");
-            //setIngredient
+            frmUQ.setTitle("Nhập Thực Phẩm");
             frmUQ.ShowDialog();
             if (frmUQ.DialogResult == DialogResult.OK)
             {
@@ -145,7 +144,7 @@ namespace QLHSBanTru2018_Demo_V1.HungTD.Form.Ingredient
                 frmUQ.setIngredient(Convert.ToInt32(gridView1.GetRowCellValue(rowChildHand, "IngredientID").ToString()));
             }
             frmUQ.setFunction(2);
-            frmUQ.setTitle("Chỉnh Sửa Thực Phẩm");
+            frmUQ.setTitle("Xuất Thực Phẩm");
             //setIngredient
             frmUQ.ShowDialog();
             if (frmUQ.DialogResult == DialogResult.OK)
@@ -158,6 +157,23 @@ namespace QLHSBanTru2018_Demo_V1.HungTD.Form.Ingredient
         {
             labUnit1.Text = "(vnđ/" + txtUnit.Text + ")";
             labUnit2.Text = "(" + txtUnit.Text + ")";
+        }
+
+        private void btnDelete_Click(object sender, EventArgs e)
+        {
+            if (MessageBox.Show("Bạn có muốn xóa nguyên liệu " + txtName.Text, "Thông Báo", MessageBoxButtons.YesNo, MessageBoxIcon.Warning) == DialogResult.Yes)
+            {
+                try
+                {
+                    var rowHandle = gridView1.FocusedRowHandle;
+                    new IngredientDAO().Delete(Convert.ToInt32(gridView1.GetRowCellValue(rowHandle, "IngredientID").ToString()));
+                    FillGridControl();
+                }
+                catch
+                {
+
+                }
+            }
         }
     }
 }
