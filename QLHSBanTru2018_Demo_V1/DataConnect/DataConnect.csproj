@@ -55,6 +55,7 @@
     <Compile Include="DAO\HungTD\CourseDAO.cs" />
     <Compile Include="DAO\HungTD\DegreeDAO.cs" />
     <Compile Include="DAO\HungTD\DepartmentDAO.cs" />
+    <Compile Include="DAO\HungTD\DishDAO.cs" />
     <Compile Include="DAO\HungTD\DivisionDAO.cs" />
     <Compile Include="DAO\HungTD\EmployeeDAO.cs" />
     <Compile Include="DAO\HungTD\EthenicGroupDAO.cs" />
@@ -111,6 +112,7 @@
     <Compile Include="ViewModel\ContractReportViewModel.cs" />
     <Compile Include="ViewModel\ContractViewModel.cs" />
     <Compile Include="ViewModel\Department_EmployeeViewModel.cs" />
+    <Compile Include="ViewModel\DishViewModel.cs" />
     <Compile Include="ViewModel\DivisionViewModel.cs" />
     <Compile Include="ViewModel\EmployeeFullViewModel.cs" />
     <Compile Include="ViewModel\FunctionViewModel.cs" />

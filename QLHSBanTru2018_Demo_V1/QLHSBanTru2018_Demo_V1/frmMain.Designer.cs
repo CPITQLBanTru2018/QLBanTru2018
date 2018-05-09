@@ -79,6 +79,8 @@
             this.ribbonStatusBar = new DevExpress.XtraBars.Ribbon.RibbonStatusBar();
             this.defaultLookAndFeel1 = new DevExpress.LookAndFeel.DefaultLookAndFeel(this.components);
             this.pnControlsPanel = new System.Windows.Forms.Panel();
+            this.ribbonPageGroup11 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
+            this.btnDishManager = new DevExpress.XtraBars.BarButtonItem();
             ((System.ComponentModel.ISupportInitialize)(this.ribbon)).BeginInit();
             this.SuspendLayout();
             // 
@@ -117,9 +119,10 @@
             this.bntCackhoanchi,
             this.btnLoaichi,
             this.btnDanhMucChiTieu,
-            this.btnDoituongchinhsach});
+            this.btnDoituongchinhsach,
+            this.btnDishManager});
             this.ribbon.Location = new System.Drawing.Point(0, 0);
-            this.ribbon.MaxItemId = 32;
+            this.ribbon.MaxItemId = 33;
             this.ribbon.Name = "ribbon";
             this.ribbon.Pages.AddRange(new DevExpress.XtraBars.Ribbon.RibbonPage[] {
             this.ribbonPage1,
@@ -452,7 +455,8 @@
             // ribbonPage4
             // 
             this.ribbonPage4.Groups.AddRange(new DevExpress.XtraBars.Ribbon.RibbonPageGroup[] {
-            this.ribbonPageGroup9});
+            this.ribbonPageGroup9,
+            this.ribbonPageGroup11});
             this.ribbonPage4.Name = "ribbonPage4";
             this.ribbonPage4.Text = "Thực Phẩm - Dinh Dưỡng";
             // 
@@ -532,6 +536,21 @@
             this.pnControlsPanel.Size = new System.Drawing.Size(1364, 600);
             this.pnControlsPanel.TabIndex = 3;
             // 
+            // ribbonPageGroup11
+            // 
+            this.ribbonPageGroup11.ItemLinks.Add(this.btnDishManager);
+            this.ribbonPageGroup11.Name = "ribbonPageGroup11";
+            this.ribbonPageGroup11.Text = "Món Ăn";
+            // 
+            // btnDishManager
+            // 
+            this.btnDishManager.Caption = "Quản Lý Món Ăn";
+            this.btnDishManager.Id = 32;
+            this.btnDishManager.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("barButtonItem3.ImageOptions.Image")));
+            this.btnDishManager.ImageOptions.LargeImage = ((System.Drawing.Image)(resources.GetObject("barButtonItem3.ImageOptions.LargeImage")));
+            this.btnDishManager.Name = "btnDishManager";
+            this.btnDishManager.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.btnDishManager_ItemClick);
+            // 
             // frmMain
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -602,5 +621,7 @@
         private DevExpress.XtraBars.BarButtonItem btnDoituongchinhsach;
         public System.Windows.Forms.Panel pnControlsPanel;
         public DevExpress.XtraBars.BarStaticItem labTitle;
+        private DevExpress.XtraBars.BarButtonItem btnDishManager;
+        private DevExpress.XtraBars.Ribbon.RibbonPageGroup ribbonPageGroup11;
     }
 }
