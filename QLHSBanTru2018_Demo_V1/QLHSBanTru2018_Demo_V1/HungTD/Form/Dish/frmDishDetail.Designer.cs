@@ -32,8 +32,9 @@
             this.tabInformation = new DevExpress.XtraTab.XtraTabControl();
             this.tabPage1 = new DevExpress.XtraTab.XtraTabPage();
             this.layoutControl2 = new DevExpress.XtraLayout.LayoutControl();
+            this.cbbIngredientType = new System.Windows.Forms.ComboBox();
             this.panel1 = new System.Windows.Forms.Panel();
-            this.gridControl1 = new DevExpress.XtraGrid.GridControl();
+            this.gcLeft = new DevExpress.XtraGrid.GridControl();
             this.gridView1 = new DevExpress.XtraGrid.Views.Grid.GridView();
             this.colName = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colAdd = new DevExpress.XtraGrid.Columns.GridColumn();
@@ -41,14 +42,13 @@
             this.layoutControlGroup2 = new DevExpress.XtraLayout.LayoutControlGroup();
             this.layoutControlItem3 = new DevExpress.XtraLayout.LayoutControlItem();
             this.layoutControlItem4 = new DevExpress.XtraLayout.LayoutControlItem();
+            this.layoutControlItem5 = new DevExpress.XtraLayout.LayoutControlItem();
             this.tabPage2 = new DevExpress.XtraTab.XtraTabPage();
             this.btnNext = new DevExpress.XtraEditors.SimpleButton();
             this.layoutControlGroup1 = new DevExpress.XtraLayout.LayoutControlGroup();
             this.layoutControlItem1 = new DevExpress.XtraLayout.LayoutControlItem();
             this.layoutControlItem2 = new DevExpress.XtraLayout.LayoutControlItem();
             this.emptySpaceItem1 = new DevExpress.XtraLayout.EmptySpaceItem();
-            this.comboBox1 = new System.Windows.Forms.ComboBox();
-            this.layoutControlItem5 = new DevExpress.XtraLayout.LayoutControlItem();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControl1)).BeginInit();
             this.layoutControl1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.tabInformation)).BeginInit();
@@ -56,17 +56,17 @@
             this.tabPage1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControl2)).BeginInit();
             this.layoutControl2.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.gridControl1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.gcLeft)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridView1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.btnAdd)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlGroup2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem3)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem4)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem5)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlGroup1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem5)).BeginInit();
             this.SuspendLayout();
             // 
             // layoutControl1
@@ -103,9 +103,9 @@
             // 
             // layoutControl2
             // 
-            this.layoutControl2.Controls.Add(this.comboBox1);
+            this.layoutControl2.Controls.Add(this.cbbIngredientType);
             this.layoutControl2.Controls.Add(this.panel1);
-            this.layoutControl2.Controls.Add(this.gridControl1);
+            this.layoutControl2.Controls.Add(this.gcLeft);
             this.layoutControl2.Dock = System.Windows.Forms.DockStyle.Fill;
             this.layoutControl2.Location = new System.Drawing.Point(5, 5);
             this.layoutControl2.Name = "layoutControl2";
@@ -114,6 +114,15 @@
             this.layoutControl2.TabIndex = 0;
             this.layoutControl2.Text = "layoutControl2";
             // 
+            // cbbIngredientType
+            // 
+            this.cbbIngredientType.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cbbIngredientType.FormattingEnabled = true;
+            this.cbbIngredientType.Location = new System.Drawing.Point(108, 12);
+            this.cbbIngredientType.Name = "cbbIngredientType";
+            this.cbbIngredientType.Size = new System.Drawing.Size(192, 21);
+            this.cbbIngredientType.TabIndex = 6;
+            // 
             // panel1
             // 
             this.panel1.Location = new System.Drawing.Point(304, 12);
@@ -121,16 +130,16 @@
             this.panel1.Size = new System.Drawing.Size(278, 232);
             this.panel1.TabIndex = 5;
             // 
-            // gridControl1
+            // gcLeft
             // 
-            this.gridControl1.Location = new System.Drawing.Point(12, 37);
-            this.gridControl1.MainView = this.gridView1;
-            this.gridControl1.Name = "gridControl1";
-            this.gridControl1.RepositoryItems.AddRange(new DevExpress.XtraEditors.Repository.RepositoryItem[] {
+            this.gcLeft.Location = new System.Drawing.Point(12, 37);
+            this.gcLeft.MainView = this.gridView1;
+            this.gcLeft.Name = "gcLeft";
+            this.gcLeft.RepositoryItems.AddRange(new DevExpress.XtraEditors.Repository.RepositoryItem[] {
             this.btnAdd});
-            this.gridControl1.Size = new System.Drawing.Size(288, 207);
-            this.gridControl1.TabIndex = 4;
-            this.gridControl1.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
+            this.gcLeft.Size = new System.Drawing.Size(288, 207);
+            this.gcLeft.TabIndex = 4;
+            this.gcLeft.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gridView1});
             // 
             // gridView1
@@ -138,7 +147,7 @@
             this.gridView1.Columns.AddRange(new DevExpress.XtraGrid.Columns.GridColumn[] {
             this.colName,
             this.colAdd});
-            this.gridView1.GridControl = this.gridControl1;
+            this.gridView1.GridControl = this.gcLeft;
             this.gridView1.Name = "gridView1";
             this.gridView1.OptionsFind.AlwaysVisible = true;
             this.gridView1.OptionsView.ShowColumnHeaders = false;
@@ -184,7 +193,7 @@
             // 
             // layoutControlItem3
             // 
-            this.layoutControlItem3.Control = this.gridControl1;
+            this.layoutControlItem3.Control = this.gcLeft;
             this.layoutControlItem3.Location = new System.Drawing.Point(0, 25);
             this.layoutControlItem3.Name = "layoutControlItem3";
             this.layoutControlItem3.Size = new System.Drawing.Size(292, 211);
@@ -199,6 +208,15 @@
             this.layoutControlItem4.Size = new System.Drawing.Size(282, 236);
             this.layoutControlItem4.TextSize = new System.Drawing.Size(0, 0);
             this.layoutControlItem4.TextVisible = false;
+            // 
+            // layoutControlItem5
+            // 
+            this.layoutControlItem5.Control = this.cbbIngredientType;
+            this.layoutControlItem5.Location = new System.Drawing.Point(0, 0);
+            this.layoutControlItem5.Name = "layoutControlItem5";
+            this.layoutControlItem5.Size = new System.Drawing.Size(292, 25);
+            this.layoutControlItem5.Text = "Nhóm Nguyên Liệu:";
+            this.layoutControlItem5.TextSize = new System.Drawing.Size(93, 13);
             // 
             // tabPage2
             // 
@@ -254,24 +272,6 @@
             this.emptySpaceItem1.Size = new System.Drawing.Size(306, 26);
             this.emptySpaceItem1.TextSize = new System.Drawing.Size(0, 0);
             // 
-            // comboBox1
-            // 
-            this.comboBox1.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Location = new System.Drawing.Point(108, 12);
-            this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(192, 21);
-            this.comboBox1.TabIndex = 6;
-            // 
-            // layoutControlItem5
-            // 
-            this.layoutControlItem5.Control = this.comboBox1;
-            this.layoutControlItem5.Location = new System.Drawing.Point(0, 0);
-            this.layoutControlItem5.Name = "layoutControlItem5";
-            this.layoutControlItem5.Size = new System.Drawing.Size(292, 25);
-            this.layoutControlItem5.Text = "Nhóm Nguyên Liệu:";
-            this.layoutControlItem5.TextSize = new System.Drawing.Size(93, 13);
-            // 
             // frmDishDetail
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -289,17 +289,17 @@
             this.tabPage1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.layoutControl2)).EndInit();
             this.layoutControl2.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.gridControl1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.gcLeft)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridView1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.btnAdd)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlGroup2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem3)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem4)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem5)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlGroup1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem5)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -318,14 +318,14 @@
         private DevExpress.XtraLayout.LayoutControl layoutControl2;
         private DevExpress.XtraLayout.LayoutControlGroup layoutControlGroup2;
         private System.Windows.Forms.Panel panel1;
-        private DevExpress.XtraGrid.GridControl gridControl1;
+        private DevExpress.XtraGrid.GridControl gcLeft;
         private DevExpress.XtraGrid.Views.Grid.GridView gridView1;
         private DevExpress.XtraGrid.Columns.GridColumn colName;
         private DevExpress.XtraGrid.Columns.GridColumn colAdd;
         private DevExpress.XtraEditors.Repository.RepositoryItemButtonEdit btnAdd;
         private DevExpress.XtraLayout.LayoutControlItem layoutControlItem3;
         private DevExpress.XtraLayout.LayoutControlItem layoutControlItem4;
-        private System.Windows.Forms.ComboBox comboBox1;
+        private System.Windows.Forms.ComboBox cbbIngredientType;
         private DevExpress.XtraLayout.LayoutControlItem layoutControlItem5;
     }
 }
