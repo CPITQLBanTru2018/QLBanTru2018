@@ -25,5 +25,38 @@ namespace DataConnect.DAO.HungTD
         {
             return dishes.FirstOrDefault(x => x.DishID.Equals(dishID));
         }
+        public int Insert(Dish dishEntity, List<DishDetail> listDishDetailEntity)
+        {
+            try
+            {
+                dishes.InsertOnSubmit(dishEntity);
+                db.SubmitChanges();
+                if (new DishDetailDAO().InsertList(listDishDetailEntity))
+                {
+                    return dishEntity.DishID; ;
+                }
+                else
+                {
+                    return 0;
+                }
+            }
+            catch
+            {
+                return 0;
+            }
+        }
+        public bool Delete(int dishID)
+        {
+            try
+            {
+                Dish obj = dishes.FirstOrDefault(x => x.DishID.Equals(dishID));
+                dishes.DeleteOnSubmit(obj);
+                return true;
+            }
+            catch
+            {
+                return false;
+            }
+        }
     }
 }

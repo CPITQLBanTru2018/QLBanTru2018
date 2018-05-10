@@ -38,5 +38,10 @@ namespace QLHSBanTru2018_Demo_V1.HungTD.Form.Dish
         {
 
         }
+
+        private void btnNext_Click(object sender, EventArgs e)
+        {
+            tabInformation.SelectedTabPage = tabPage2;
+        }
     }
 }
