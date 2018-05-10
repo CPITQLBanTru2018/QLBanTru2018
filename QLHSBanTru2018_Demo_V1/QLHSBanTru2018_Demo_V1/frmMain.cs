@@ -21,6 +21,8 @@ using QLHSBanTru2018_Demo_V1.HungTD.Form.TopicLession;
 using QLHSBanTru2018_Demo_V1.HungTD.Form.WorkProgress;
 using QLHSBanTru2018_Demo_V1.DAO.HungTD;
 using QLHSBanTru2018_Demo_V1.Common;
+using QLHSBanTru2018_Demo_V1.Thien;
+
 
 namespace QLHSBanTru2018_Demo_V1
 {
@@ -122,7 +124,23 @@ namespace QLHSBanTru2018_Demo_V1
         #endregion
 
         #region Vũ Đức Thiện
+        private void btnDiemDanhHS_ItemClick(object sender, ItemClickEventArgs e)
+        {
+            DiemDanhHS a = new DiemDanhHS();
+            a.ShowDialog();
+        }
 
+        private void btnNhanXet_ItemClick(object sender, ItemClickEventArgs e)
+        {
+            NhanXetHangTuan a = new NhanXetHangTuan();
+            a.ShowDialog();
+        }
+
+        private void btnTheodoidenmuon_ItemClick(object sender, ItemClickEventArgs e)
+        {
+            TheoDoiDenMuon a = new TheoDoiDenMuon();
+            a.ShowDialog();
+        }
         #endregion
 
         private void bntDotThu_ItemClick(object sender, ItemClickEventArgs e)
@@ -139,6 +157,11 @@ namespace QLHSBanTru2018_Demo_V1
             pnControlsPanel.Controls.Clear();
             pnControlsPanel.Controls.Add(a);
             a.Dock = DockStyle.Fill;
+        }
+
+        private void ribbon_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

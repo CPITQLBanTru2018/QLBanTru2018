@@ -45,6 +45,9 @@
             this.btnSemester = new DevExpress.XtraBars.BarButtonItem();
             this.btnTopicLesson = new DevExpress.XtraBars.BarButtonItem();
             this.btnWorkProgress = new DevExpress.XtraBars.BarButtonItem();
+            this.labNameLogin = new DevExpress.XtraBars.BarStaticItem();
+            this.labTitle = new DevExpress.XtraBars.BarStaticItem();
+            this.btnDiemDanhHS = new DevExpress.XtraBars.BarButtonItem();
             this.ribbonPage1 = new DevExpress.XtraBars.Ribbon.RibbonPage();
             this.ribbonPageGroup1 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             this.ribbonPageGroup2 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
@@ -59,8 +62,12 @@
             this.ribbonStatusBar = new DevExpress.XtraBars.Ribbon.RibbonStatusBar();
             this.defaultLookAndFeel1 = new DevExpress.LookAndFeel.DefaultLookAndFeel(this.components);
             this.pnControlsPanel = new System.Windows.Forms.Panel();
-            this.labNameLogin = new DevExpress.XtraBars.BarStaticItem();
-            this.labTitle = new DevExpress.XtraBars.BarStaticItem();
+            this.btnNhanXet = new DevExpress.XtraBars.BarButtonItem();
+            this.btnTheodoidenmuon = new DevExpress.XtraBars.BarButtonItem();
+            this.ribbonPageGroup9 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
+            this.btnDiemDanh = new DevExpress.XtraBars.BarButtonItem();
+            this.btnTheoDoi = new DevExpress.XtraBars.BarButtonItem();
+            this.btnNhanXetHangTuan = new DevExpress.XtraBars.BarButtonItem();
             ((System.ComponentModel.ISupportInitialize)(this.ribbon)).BeginInit();
             this.SuspendLayout();
             // 
@@ -84,9 +91,15 @@
             this.btnTopicLesson,
             this.btnWorkProgress,
             this.labNameLogin,
-            this.labTitle});
+            this.labTitle,
+            this.btnDiemDanhHS,
+            this.btnNhanXet,
+            this.btnTheodoidenmuon,
+            this.btnDiemDanh,
+            this.btnTheoDoi,
+            this.btnNhanXetHangTuan});
             this.ribbon.Location = new System.Drawing.Point(0, 0);
-            this.ribbon.MaxItemId = 17;
+            this.ribbon.MaxItemId = 23;
             this.ribbon.Name = "ribbon";
             this.ribbon.Pages.AddRange(new DevExpress.XtraBars.Ribbon.RibbonPage[] {
             this.ribbonPage1,
@@ -94,6 +107,7 @@
             this.ribbonPage3});
             this.ribbon.Size = new System.Drawing.Size(798, 146);
             this.ribbon.StatusBar = this.ribbonStatusBar;
+            this.ribbon.Click += new System.EventHandler(this.ribbon_Click);
             // 
             // btnDepartment
             // 
@@ -221,6 +235,28 @@
             this.btnWorkProgress.Name = "btnWorkProgress";
             this.btnWorkProgress.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.btnWorkProgress_ItemClick);
             // 
+            // labNameLogin
+            // 
+            this.labNameLogin.Caption = "Người Đăng Nhập:";
+            this.labNameLogin.Id = 15;
+            this.labNameLogin.Name = "labNameLogin";
+            // 
+            // labTitle
+            // 
+            this.labTitle.Alignment = DevExpress.XtraBars.BarItemLinkAlignment.Right;
+            this.labTitle.Caption = "QUẢN LÝ PHÒNG BAN";
+            this.labTitle.Id = 16;
+            this.labTitle.Name = "labTitle";
+            // 
+            // btnDiemDanhHS
+            // 
+            this.btnDiemDanhHS.Caption = "Điểm Danh HS";
+            this.btnDiemDanhHS.Id = 17;
+            this.btnDiemDanhHS.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("barButtonItem1.ImageOptions.Image")));
+            this.btnDiemDanhHS.ImageOptions.LargeImage = ((System.Drawing.Image)(resources.GetObject("barButtonItem1.ImageOptions.LargeImage")));
+            this.btnDiemDanhHS.Name = "btnDiemDanhHS";
+            this.btnDiemDanhHS.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.btnDiemDanhHS_ItemClick);
+            // 
             // ribbonPage1
             // 
             this.ribbonPage1.Groups.AddRange(new DevExpress.XtraBars.Ribbon.RibbonPageGroup[] {
@@ -285,7 +321,8 @@
             // 
             this.ribbonPage3.Groups.AddRange(new DevExpress.XtraBars.Ribbon.RibbonPageGroup[] {
             this.ribbonPageGroup6,
-            this.ribbonPageGroup7});
+            this.ribbonPageGroup7,
+            this.ribbonPageGroup9});
             this.ribbonPage3.Name = "ribbonPage3";
             this.ribbonPage3.Text = "Học Sinh";
             // 
@@ -323,18 +360,52 @@
             this.pnControlsPanel.Size = new System.Drawing.Size(798, 432);
             this.pnControlsPanel.TabIndex = 3;
             // 
-            // labNameLogin
+            // btnNhanXet
             // 
-            this.labNameLogin.Caption = "Người Đăng Nhập:";
-            this.labNameLogin.Id = 15;
-            this.labNameLogin.Name = "labNameLogin";
+            this.btnNhanXet.Caption = "Nhận xét hàng tuần";
+            this.btnNhanXet.Id = 18;
+            this.btnNhanXet.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("barButtonItem2.ImageOptions.Image")));
+            this.btnNhanXet.ImageOptions.LargeImage = ((System.Drawing.Image)(resources.GetObject("barButtonItem2.ImageOptions.LargeImage")));
+            this.btnNhanXet.Name = "btnNhanXet";
+            this.btnNhanXet.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.btnNhanXet_ItemClick);
             // 
-            // labTitle
+            // btnTheodoidenmuon
             // 
-            this.labTitle.Alignment = DevExpress.XtraBars.BarItemLinkAlignment.Right;
-            this.labTitle.Caption = "QUẢN LÝ PHÒNG BAN";
-            this.labTitle.Id = 16;
-            this.labTitle.Name = "labTitle";
+            this.btnTheodoidenmuon.Caption = "Theo dõi đến muộn";
+            this.btnTheodoidenmuon.Id = 19;
+            this.btnTheodoidenmuon.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("barButtonItem1.ImageOptions.Image1")));
+            this.btnTheodoidenmuon.ImageOptions.LargeImage = ((System.Drawing.Image)(resources.GetObject("barButtonItem1.ImageOptions.LargeImage1")));
+            this.btnTheodoidenmuon.Name = "btnTheodoidenmuon";
+            this.btnTheodoidenmuon.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.btnTheodoidenmuon_ItemClick);
+            // 
+            // ribbonPageGroup9
+            // 
+            this.ribbonPageGroup9.ItemLinks.Add(this.btnDiemDanh);
+            this.ribbonPageGroup9.ItemLinks.Add(this.btnTheoDoi);
+            this.ribbonPageGroup9.ItemLinks.Add(this.btnNhanXetHangTuan);
+            this.ribbonPageGroup9.Name = "ribbonPageGroup9";
+            this.ribbonPageGroup9.Text = "ribbonPageGroup9";
+            // 
+            // btnDiemDanh
+            // 
+            this.btnDiemDanh.Caption = "Điểm Danh HS";
+            this.btnDiemDanh.Id = 20;
+            this.btnDiemDanh.Name = "btnDiemDanh";
+            this.btnDiemDanh.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.btnDiemDanhHS_ItemClick);
+            // 
+            // btnTheoDoi
+            // 
+            this.btnTheoDoi.Caption = "Theo Dõi Đến Muộn";
+            this.btnTheoDoi.Id = 21;
+            this.btnTheoDoi.Name = "btnTheoDoi";
+            this.btnTheoDoi.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.btnTheodoidenmuon_ItemClick);
+            // 
+            // btnNhanXetHangTuan
+            // 
+            this.btnNhanXetHangTuan.Caption = "Nhận Xét Hàng Tuần";
+            this.btnNhanXetHangTuan.Id = 22;
+            this.btnNhanXetHangTuan.Name = "btnNhanXetHangTuan";
+            this.btnNhanXetHangTuan.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.btnNhanXet_ItemClick);
             // 
             // frmMain
             // 
@@ -388,5 +459,12 @@
         private DevExpress.XtraBars.BarButtonItem btnWorkProgress;
         private DevExpress.XtraBars.BarStaticItem labNameLogin;
         private DevExpress.XtraBars.BarStaticItem labTitle;
+        private DevExpress.XtraBars.BarButtonItem btnDiemDanhHS;
+        private DevExpress.XtraBars.BarButtonItem btnNhanXet;
+        private DevExpress.XtraBars.BarButtonItem btnTheodoidenmuon;
+        private DevExpress.XtraBars.BarButtonItem btnDiemDanh;
+        private DevExpress.XtraBars.Ribbon.RibbonPageGroup ribbonPageGroup9;
+        private DevExpress.XtraBars.BarButtonItem btnTheoDoi;
+        private DevExpress.XtraBars.BarButtonItem btnNhanXetHangTuan;
     }
 }
