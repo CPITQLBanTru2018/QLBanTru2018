@@ -21,8 +21,14 @@ using QLHSBanTru2018_Demo_V1.HungTD.Form.TopicLession;
 using QLHSBanTru2018_Demo_V1.HungTD.Form.WorkProgress;
 using QLHSBanTru2018_Demo_V1.DAO.HungTD;
 using QLHSBanTru2018_Demo_V1.Common;
+<<<<<<< HEAD
 using QLHSBanTru2018_Demo_V1.Thien;
 
+=======
+using QLHSBanTru2018_Demo_V1.HungTD.Form.Ingredient;
+using QLHSBanTru2018_Demo_V1.QLThuChi.ChiTieu;
+using QLHSBanTru2018_Demo_V1.HungTD.Form.Dish;
+>>>>>>> 4cec8ea2f9a4271cc83276a295e5be679bc61287
 
 namespace QLHSBanTru2018_Demo_V1
 {
@@ -91,10 +97,66 @@ namespace QLHSBanTru2018_Demo_V1
             pnControlsPanel.Controls.Add(new frmWorkProgressList());
             labTitle.Caption = "QUẢN LÝ QUÁ TRÌNH CÔNG TÁC";
         }
+        private void btnIngredientType_ItemClick(object sender, ItemClickEventArgs e)
+        {
+            pnControlsPanel.Controls.Clear();
+            pnControlsPanel.Controls.Add(new frmIngredientType());
+            labTitle.Caption = "QUẢN LÝ LOẠI THỰC PHẨM";
+        }
+        private void btnIngredient_ItemClick(object sender, ItemClickEventArgs e)
+        {
+            pnControlsPanel.Controls.Clear();
+            pnControlsPanel.Controls.Add(new frmIngredient());
+            labTitle.Caption = "QUẢN LÝ THỰC PHẨM";
+        }
+
+        private void btnDishManager_ItemClick(object sender, ItemClickEventArgs e)
+        {
+            pnControlsPanel.Controls.Clear();
+            pnControlsPanel.Controls.Add(new frmDish());
+            labTitle.Caption = "QUẢN LÝ MÓN ĂN";
+        }
         #endregion
 
-        #region Nguyễn Kiều Thành Công
+        #region s2s2s2s2 Nguyễn Kiều Thành Công s2s2s2
+        private void bntDotThu_ItemClick(object sender, ItemClickEventArgs e)
+        {
+            UsDotThuPhi a = new UsDotThuPhi();
+            pnControlsPanel.Controls.Clear();
+            pnControlsPanel.Controls.Add(a);
+            a.Dock = DockStyle.Fill;
+        }
 
+        private void bntThuTheoLop_ItemClick(object sender, ItemClickEventArgs e)
+        {
+            USCacKhoanThuTheoLop a = new USCacKhoanThuTheoLop();
+            pnControlsPanel.Controls.Clear();
+            pnControlsPanel.Controls.Add(a);
+            a.Dock = DockStyle.Fill;
+        }
+
+        private void bntCackhoanchi_ItemClick(object sender, ItemClickEventArgs e)
+        {
+            UsKhoanChi a = new UsKhoanChi();
+            pnControlsPanel.Controls.Clear();
+            pnControlsPanel.Controls.Add(a);
+            a.Dock = DockStyle.Fill;
+        }
+        private void btnDanhMucChiTieu_ItemClick(object sender, ItemClickEventArgs e)
+        {
+            FrLoaiChi a = new FrLoaiChi();
+            a.ShowDialog();
+        }
+        private void btnLoaichi_ItemClick(object sender, ItemClickEventArgs e)
+        {
+            FrLoaiChi a = new FrLoaiChi();
+            a.ShowDialog();
+        }
+        private void btnDoituongchinhsach_ItemClick(object sender, ItemClickEventArgs e)
+        {
+            FRDienMienGiam a = new FRDienMienGiam();
+            a.ShowDialog();
+        }
         #endregion
 
         #region Nguyễn Tiến Bảo
@@ -121,6 +183,7 @@ namespace QLHSBanTru2018_Demo_V1
             pnControlsPanel.Controls.Add(m_frmImportExcel);
             m_frmImportExcel.Dock = DockStyle.Fill;
         }
+<<<<<<< HEAD
         #endregion
 
         #region Vũ Đức Thiện
@@ -142,26 +205,54 @@ namespace QLHSBanTru2018_Demo_V1
             a.ShowDialog();
         }
         #endregion
-
-        private void bntDotThu_ItemClick(object sender, ItemClickEventArgs e)
+=======
+        private void btnHealthProblem_ItemClick(object sender, ItemClickEventArgs e)
         {
-            UsDotThuPhi a = new UsDotThuPhi();
+            frmHealthProblem m_frmHealthProblem = new frmHealthProblem();
             pnControlsPanel.Controls.Clear();
-            pnControlsPanel.Controls.Add(a);
-            a.Dock = DockStyle.Fill;
+            pnControlsPanel.Controls.Add(m_frmHealthProblem);
+            m_frmHealthProblem.Dock = DockStyle.Fill;
+        }
+>>>>>>> 4cec8ea2f9a4271cc83276a295e5be679bc61287
+
+        private void btnCanDo_ItemClick(object sender, ItemClickEventArgs e)
+        {
+            frmPhysicalAssessment m_frmPhysicalAssessment = new frmPhysicalAssessment();
+            pnControlsPanel.Controls.Clear();
+            pnControlsPanel.Controls.Add(m_frmPhysicalAssessment);
+            m_frmPhysicalAssessment.Dock = DockStyle.Fill;
         }
 
-        private void bntThuTheoLop_ItemClick(object sender, ItemClickEventArgs e)
+        private void btnHealthExam_ItemClick(object sender, ItemClickEventArgs e)
         {
-            USCacKhoanThuTheoLop a = new USCacKhoanThuTheoLop();
+            frmHealthExamination m_frmHealthExam = new frmHealthExamination();
             pnControlsPanel.Controls.Clear();
-            pnControlsPanel.Controls.Add(a);
-            a.Dock = DockStyle.Fill;
+            pnControlsPanel.Controls.Add(m_frmHealthExam);
+            m_frmHealthExam.Dock = DockStyle.Fill;
         }
+<<<<<<< HEAD
 
         private void ribbon_Click(object sender, EventArgs e)
         {
 
         }
+=======
+        private void btnHealthExaminationDetail_ItemClick(object sender, ItemClickEventArgs e)
+        {
+            frmHealthExaminationDetail m_frmHealthExamDetail = new frmHealthExaminationDetail();
+            pnControlsPanel.Controls.Clear();
+            pnControlsPanel.Controls.Add(m_frmHealthExamDetail);
+            m_frmHealthExamDetail.Dock = DockStyle.Fill;
+        }
+
+
+
+
+        #endregion
+
+        #region Vũ Đức Thiện
+
+        #endregion
+>>>>>>> 4cec8ea2f9a4271cc83276a295e5be679bc61287
     }
 }

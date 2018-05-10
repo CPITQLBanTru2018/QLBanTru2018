@@ -28,9 +28,8 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FTaoKhoanThu));
-            this.defaultLookAndFeel1 = new DevExpress.LookAndFeel.DefaultLookAndFeel(this.components);
+            this.defaultLookAndFeel1 = new DevExpress.LookAndFeel.DefaultLookAndFeel();
             this.label1 = new System.Windows.Forms.Label();
             this.txtTenKhoanThu = new System.Windows.Forms.TextBox();
             this.label4 = new System.Windows.Forms.Label();
@@ -46,11 +45,12 @@
             this.cbbNamhoc = new System.Windows.Forms.ComboBox();
             this.label7 = new System.Windows.Forms.Label();
             this.cbbKhoihoc = new System.Windows.Forms.ComboBox();
-            this.bntHuy = new DevExpress.XtraEditors.SimpleButton();
-            this.bntLuu = new DevExpress.XtraEditors.SimpleButton();
             this.txtTongthu = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
             this.txtDv = new System.Windows.Forms.TextBox();
+            this.cbHoanLai = new System.Windows.Forms.CheckBox();
+            this.bntHuy = new DevExpress.XtraEditors.SimpleButton();
+            this.bntLuu = new DevExpress.XtraEditors.SimpleButton();
             ((System.ComponentModel.ISupportInitialize)(this.cbDoituongchinhsach.Properties)).BeginInit();
             this.SuspendLayout();
             // 
@@ -213,26 +213,6 @@
             this.cbbKhoihoc.Size = new System.Drawing.Size(228, 21);
             this.cbbKhoihoc.TabIndex = 38;
             // 
-            // bntHuy
-            // 
-            this.bntHuy.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("bntHuy.ImageOptions.Image")));
-            this.bntHuy.Location = new System.Drawing.Point(247, 240);
-            this.bntHuy.Name = "bntHuy";
-            this.bntHuy.Size = new System.Drawing.Size(75, 23);
-            this.bntHuy.TabIndex = 4;
-            this.bntHuy.Text = "Hủy";
-            this.bntHuy.Click += new System.EventHandler(this.bntHuy_Click);
-            // 
-            // bntLuu
-            // 
-            this.bntLuu.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("bntLuu.ImageOptions.Image")));
-            this.bntLuu.Location = new System.Drawing.Point(157, 240);
-            this.bntLuu.Name = "bntLuu";
-            this.bntLuu.Size = new System.Drawing.Size(75, 23);
-            this.bntLuu.TabIndex = 2;
-            this.bntLuu.Text = "Lưu";
-            this.bntLuu.Click += new System.EventHandler(this.bntLuu_Click);
-            // 
             // txtTongthu
             // 
             this.txtTongthu.Enabled = false;
@@ -260,6 +240,36 @@
             this.txtDv.TabIndex = 46;
             this.txtDv.Text = "Ngày";
             // 
+            // cbHoanLai
+            // 
+            this.cbHoanLai.AutoSize = true;
+            this.cbHoanLai.Location = new System.Drawing.Point(94, 120);
+            this.cbHoanLai.Name = "cbHoanLai";
+            this.cbHoanLai.Size = new System.Drawing.Size(148, 17);
+            this.cbHoanLai.TabIndex = 47;
+            this.cbHoanLai.Text = "Hoàn lại những ngày nghỉ";
+            this.cbHoanLai.UseVisualStyleBackColor = true;
+            // 
+            // bntHuy
+            // 
+            this.bntHuy.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("bntHuy.ImageOptions.Image")));
+            this.bntHuy.Location = new System.Drawing.Point(247, 240);
+            this.bntHuy.Name = "bntHuy";
+            this.bntHuy.Size = new System.Drawing.Size(75, 23);
+            this.bntHuy.TabIndex = 4;
+            this.bntHuy.Text = "Hủy";
+            this.bntHuy.Click += new System.EventHandler(this.bntHuy_Click);
+            // 
+            // bntLuu
+            // 
+            this.bntLuu.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("bntLuu.ImageOptions.Image")));
+            this.bntLuu.Location = new System.Drawing.Point(157, 240);
+            this.bntLuu.Name = "bntLuu";
+            this.bntLuu.Size = new System.Drawing.Size(75, 23);
+            this.bntLuu.TabIndex = 2;
+            this.bntLuu.Text = "Lưu";
+            this.bntLuu.Click += new System.EventHandler(this.bntLuu_Click);
+            // 
             // FTaoKhoanThu
             // 
             this.Appearance.BackColor = System.Drawing.Color.White;
@@ -267,6 +277,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(327, 267);
+            this.Controls.Add(this.cbHoanLai);
             this.Controls.Add(this.txtDv);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.txtTongthu);
@@ -319,5 +330,6 @@
         private System.Windows.Forms.TextBox txtTongthu;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.TextBox txtDv;
+        private System.Windows.Forms.CheckBox cbHoanLai;
     }
 }

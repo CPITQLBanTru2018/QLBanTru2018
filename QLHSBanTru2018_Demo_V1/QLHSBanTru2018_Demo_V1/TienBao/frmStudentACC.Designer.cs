@@ -217,6 +217,8 @@
             // 
             // colID
             // 
+            this.colID.AppearanceHeader.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.colID.AppearanceHeader.Options.UseFont = true;
             this.colID.AppearanceHeader.Options.UseTextOptions = true;
             this.colID.AppearanceHeader.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
             this.colID.Caption = "ID";
@@ -228,6 +230,8 @@
             // 
             // colStudentCode
             // 
+            this.colStudentCode.AppearanceHeader.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.colStudentCode.AppearanceHeader.Options.UseFont = true;
             this.colStudentCode.AppearanceHeader.Options.UseTextOptions = true;
             this.colStudentCode.AppearanceHeader.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
             this.colStudentCode.Caption = "Mã học sinh";
@@ -239,6 +243,10 @@
             // 
             // colPassword
             // 
+            this.colPassword.AppearanceHeader.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.colPassword.AppearanceHeader.Options.UseFont = true;
+            this.colPassword.AppearanceHeader.Options.UseTextOptions = true;
+            this.colPassword.AppearanceHeader.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
             this.colPassword.Caption = "Mật khẩu";
             this.colPassword.FieldName = "Password";
             this.colPassword.Name = "colPassword";
@@ -248,6 +256,8 @@
             // 
             // colFirstName
             // 
+            this.colFirstName.AppearanceHeader.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.colFirstName.AppearanceHeader.Options.UseFont = true;
             this.colFirstName.AppearanceHeader.Options.UseTextOptions = true;
             this.colFirstName.AppearanceHeader.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
             this.colFirstName.Caption = "Họ đệm";
@@ -259,6 +269,8 @@
             // 
             // colLastName
             // 
+            this.colLastName.AppearanceHeader.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.colLastName.AppearanceHeader.Options.UseFont = true;
             this.colLastName.AppearanceHeader.Options.UseTextOptions = true;
             this.colLastName.AppearanceHeader.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
             this.colLastName.Caption = "Tên";
@@ -270,6 +282,8 @@
             // 
             // colBirthday
             // 
+            this.colBirthday.AppearanceHeader.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.colBirthday.AppearanceHeader.Options.UseFont = true;
             this.colBirthday.AppearanceHeader.Options.UseTextOptions = true;
             this.colBirthday.AppearanceHeader.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
             this.colBirthday.Caption = "Ngày sinh";
@@ -283,6 +297,8 @@
             // 
             // colGender
             // 
+            this.colGender.AppearanceHeader.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.colGender.AppearanceHeader.Options.UseFont = true;
             this.colGender.AppearanceHeader.Options.UseTextOptions = true;
             this.colGender.AppearanceHeader.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
             this.colGender.Caption = "Giới tính";
@@ -296,6 +312,10 @@
             // 
             // colClass
             // 
+            this.colClass.AppearanceHeader.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.colClass.AppearanceHeader.Options.UseFont = true;
+            this.colClass.AppearanceHeader.Options.UseTextOptions = true;
+            this.colClass.AppearanceHeader.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
             this.colClass.Caption = "Lớp học";
             this.colClass.FieldName = "ClassName";
             this.colClass.Name = "colClass";
@@ -305,6 +325,10 @@
             // 
             // colNote
             // 
+            this.colNote.AppearanceHeader.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.colNote.AppearanceHeader.Options.UseFont = true;
+            this.colNote.AppearanceHeader.Options.UseTextOptions = true;
+            this.colNote.AppearanceHeader.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
             this.colNote.Caption = "Ghi chú";
             this.colNote.FieldName = "Note";
             this.colNote.Name = "colNote";

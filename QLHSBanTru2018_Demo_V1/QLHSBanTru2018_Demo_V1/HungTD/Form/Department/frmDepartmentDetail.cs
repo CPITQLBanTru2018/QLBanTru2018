@@ -39,33 +39,40 @@ namespace QLHSBanTru2018_Demo_V1.HungTD.Form.Department
 
         private void btnSave_Click(object sender, EventArgs e)
         {
-            DataConnect.Department entity = new DataConnect.Department();
-            entity.Name = txtName.Text;
-            entity.Status = chbStatus.Checked == true ? true : false;
-            if (Function == 1)
+            if (txtName.Text!="")
             {
-                if(new DepartmentDAO().Insert(entity) == true)
+                DataConnect.Department entity = new DataConnect.Department();
+                entity.Name = txtName.Text;
+                entity.Status = chbStatus.Checked == true ? true : false;
+                if (Function == 1)
                 {
-                    DialogResult = DialogResult.OK;
-                    this.Close();
+                    if (new DepartmentDAO().Insert(entity) == true)
+                    {
+                        DialogResult = DialogResult.OK;
+                        this.Close();
+                    }
+                    else
+                    {
+                        MessageBox.Show("Đã xảy ra lỗi khi thực hiện chức năng!", "Thông Báo");
+                    }
                 }
-                else
+                else if (Function == 2)
                 {
-
+                    entity.DepartmentID = department.DepartmentID;
+                    if (new DepartmentDAO().Edit(entity) == true)
+                    {
+                        DialogResult = DialogResult.OK;
+                        this.Close();
+                    }
+                    else
+                    {
+                        MessageBox.Show("Đã xảy ra lỗi khi thực hiện chức năng!", "Thông Báo");
+                    }
                 }
             }
-            else if (Function == 2)
+            else
             {
-                entity.DepartmentID = department.DepartmentID;
-                if (new DepartmentDAO().Edit(entity) == true)
-                {
-                    DialogResult = DialogResult.OK;
-                    this.Close();
-                }
-                else
-                {
-
-                }
+                MessageBox.Show("Mời bạn nhập đầy đủ thông tin!", "Thông Báo");
             }
         }
         private void btnCancel_Click(object sender, EventArgs e)

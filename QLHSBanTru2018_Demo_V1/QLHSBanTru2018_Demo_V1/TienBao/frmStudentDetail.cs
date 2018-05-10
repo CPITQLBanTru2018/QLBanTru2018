@@ -208,7 +208,7 @@ namespace QLHSBanTru2018_Demo_V1.TienBao
                 txtStudentID.Enabled = false;
                 txtClassName.Enabled = false;
                 btnLuu.Enabled = false;
-                btnXoa.Enabled = false;
+               
                 loadHocSinh();
             }
         }

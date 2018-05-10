@@ -20,7 +20,7 @@ namespace QLHSBanTru2018_Demo_V1.QLThuChi.DotThu.KeHoachThu
         {
             InitializeComponent();
         }
-        public void LoadKhoaPhi()
+        public void LoadKhoanPhi()
         {
             ReceivableDetail_StudentDAO dt = new ReceivableDetail_StudentDAO();
             ReceivableDetailDAO dc = new ReceivableDetailDAO();
@@ -102,15 +102,15 @@ namespace QLHSBanTru2018_Demo_V1.QLThuChi.DotThu.KeHoachThu
         }
         private void FrThanhToan_Load(object sender, EventArgs e)
         {
-            LoadKhoaPhi();
             loadStuden();
+            LoadKhoanPhi();
             checkKhoathu();
             loatGrKhoanPhi();
-            if (txtConlai.Text=="0")
+            if (txtConlai.Text == "0")
             {
                 bntLuu.Enabled = false;
             }
-            
+
         }
         private void gridView1_CellValueChanging(object sender, DevExpress.XtraGrid.Views.Base.CellValueChangedEventArgs e)
         {           
@@ -191,6 +191,10 @@ namespace QLHSBanTru2018_Demo_V1.QLThuChi.DotThu.KeHoachThu
             decimal a = 0;
             if (e.Column.FieldName != "miengiam") return;
             int perferredID = dt.lookforPreferredID(ClassStudentDAO.StudentID);
+            if (perferredID==null)
+            {
+                e.Value = 0;
+            }
             List<string> b = new List<string>();
             string mg = gridView1.GetListSourceRowCellValue(rowindex, "PreferredID").ToString();
             decimal f =Convert.ToDecimal(gridView1.GetListSourceRowCellValue(rowindex, "TotalPriceDetail"));

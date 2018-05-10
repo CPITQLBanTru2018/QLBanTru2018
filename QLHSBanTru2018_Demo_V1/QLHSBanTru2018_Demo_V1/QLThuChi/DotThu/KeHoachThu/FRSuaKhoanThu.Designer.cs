@@ -28,9 +28,8 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FRSuaKhoanThu));
-            this.defaultLookAndFeel1 = new DevExpress.LookAndFeel.DefaultLookAndFeel(this.components);
+            this.defaultLookAndFeel1 = new DevExpress.LookAndFeel.DefaultLookAndFeel();
             this.txtDv = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
             this.txtTongthu = new System.Windows.Forms.TextBox();
@@ -47,10 +46,11 @@
             this.label8 = new System.Windows.Forms.Label();
             this.txtMucThu = new System.Windows.Forms.TextBox();
             this.label4 = new System.Windows.Forms.Label();
-            this.bntHuy = new DevExpress.XtraEditors.SimpleButton();
-            this.bntLuu = new DevExpress.XtraEditors.SimpleButton();
             this.txtTenKhoanThu = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
+            this.cbHoanLai = new System.Windows.Forms.CheckBox();
+            this.bntHuy = new DevExpress.XtraEditors.SimpleButton();
+            this.bntLuu = new DevExpress.XtraEditors.SimpleButton();
             ((System.ComponentModel.ISupportInitialize)(this.cbDoituongchinhsach.Properties)).BeginInit();
             this.SuspendLayout();
             // 
@@ -224,6 +224,32 @@
             this.label4.TabIndex = 51;
             this.label4.Text = "Mức thu";
             // 
+            // txtTenKhoanThu
+            // 
+            this.txtTenKhoanThu.Location = new System.Drawing.Point(87, 4);
+            this.txtTenKhoanThu.Name = "txtTenKhoanThu";
+            this.txtTenKhoanThu.Size = new System.Drawing.Size(228, 21);
+            this.txtTenKhoanThu.TabIndex = 48;
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(5, 7);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(76, 13);
+            this.label1.TabIndex = 47;
+            this.label1.Text = "Tên khoản thu";
+            // 
+            // cbHoanLai
+            // 
+            this.cbHoanLai.AutoSize = true;
+            this.cbHoanLai.Location = new System.Drawing.Point(87, 113);
+            this.cbHoanLai.Name = "cbHoanLai";
+            this.cbHoanLai.Size = new System.Drawing.Size(148, 17);
+            this.cbHoanLai.TabIndex = 67;
+            this.cbHoanLai.Text = "Hoàn lại những ngày nghỉ";
+            this.cbHoanLai.UseVisualStyleBackColor = true;
+            // 
             // bntHuy
             // 
             this.bntHuy.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("bntHuy.ImageOptions.Image")));
@@ -244,22 +270,6 @@
             this.bntLuu.Text = "Lưu";
             this.bntLuu.Click += new System.EventHandler(this.bntLuu_Click);
             // 
-            // txtTenKhoanThu
-            // 
-            this.txtTenKhoanThu.Location = new System.Drawing.Point(87, 4);
-            this.txtTenKhoanThu.Name = "txtTenKhoanThu";
-            this.txtTenKhoanThu.Size = new System.Drawing.Size(228, 21);
-            this.txtTenKhoanThu.TabIndex = 48;
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(5, 7);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(76, 13);
-            this.label1.TabIndex = 47;
-            this.label1.Text = "Tên khoản thu";
-            // 
             // FRSuaKhoanThu
             // 
             this.Appearance.BackColor = System.Drawing.Color.White;
@@ -267,6 +277,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(319, 258);
+            this.Controls.Add(this.cbHoanLai);
             this.Controls.Add(this.txtDv);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.txtTongthu);
@@ -318,5 +329,6 @@
         private DevExpress.XtraEditors.SimpleButton bntLuu;
         private System.Windows.Forms.TextBox txtTenKhoanThu;
         private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.CheckBox cbHoanLai;
     }
 }

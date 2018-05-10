@@ -46,6 +46,8 @@ namespace QLHSBanTru2018_Demo_V1.QLThuChi
         {
             //LoadDataDotThu();
             LoadNamhoc();
+            LoadHocky();
+            LoadDataDotThu();
         }
 
         private void bntThietLapKeHoachThu_Click(object sender, EventArgs e)
@@ -98,11 +100,20 @@ namespace QLHSBanTru2018_Demo_V1.QLThuChi
         private void cbbNamhoc_SelectionChangeCommitted(object sender, EventArgs e)
         {
             LoadHocky();
+            LoadDataDotThu();
         }
 
         private void cbbHocky_SelectionChangeCommitted(object sender, EventArgs e)
         {
             LoadDataDotThu();
+        }
+
+        private void gridView1_RowCellStyle(object sender, DevExpress.XtraGrid.Views.Grid.RowCellStyleEventArgs e)
+        {
+            if (e.RowHandle % 2 == 0)
+            {
+                e.Appearance.BackColor = Color.FromArgb(245, 245, 245);
+            }
         }
     }
 }

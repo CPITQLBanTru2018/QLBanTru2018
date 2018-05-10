@@ -469,6 +469,7 @@
             this.gridColumn1.Caption = "Tên khoản thu";
             this.gridColumn1.FieldName = "Name";
             this.gridColumn1.Name = "gridColumn1";
+            this.gridColumn1.OptionsColumn.AllowEdit = false;
             this.gridColumn1.Visible = true;
             this.gridColumn1.VisibleIndex = 0;
             // 
@@ -478,6 +479,7 @@
             this.gridColumn2.DisplayFormat.FormatString = "VND";
             this.gridColumn2.FieldName = "Price";
             this.gridColumn2.Name = "gridColumn2";
+            this.gridColumn2.OptionsColumn.AllowEdit = false;
             this.gridColumn2.Visible = true;
             this.gridColumn2.VisibleIndex = 1;
             // 
@@ -486,6 +488,7 @@
             this.gridColumn3.Caption = "Đơn vị ";
             this.gridColumn3.FieldName = "TimeUnits";
             this.gridColumn3.Name = "gridColumn3";
+            this.gridColumn3.OptionsColumn.AllowEdit = false;
             this.gridColumn3.Visible = true;
             this.gridColumn3.VisibleIndex = 2;
             // 
@@ -494,6 +497,7 @@
             this.gridColumn4.Caption = "/Đơn vị";
             this.gridColumn4.FieldName = "Frequency";
             this.gridColumn4.Name = "gridColumn4";
+            this.gridColumn4.OptionsColumn.AllowEdit = false;
             this.gridColumn4.Visible = true;
             this.gridColumn4.VisibleIndex = 3;
             // 
@@ -510,6 +514,7 @@
             this.gridColumn6.Caption = "Tổng thu";
             this.gridColumn6.FieldName = "TotalPriceDetail";
             this.gridColumn6.Name = "gridColumn6";
+            this.gridColumn6.OptionsColumn.AllowEdit = false;
             this.gridColumn6.Visible = true;
             this.gridColumn6.VisibleIndex = 5;
             // 
@@ -518,24 +523,28 @@
             this.gridColumn7.Caption = "Diện miễn giảm";
             this.gridColumn7.FieldName = "PreferredID";
             this.gridColumn7.Name = "gridColumn7";
+            this.gridColumn7.OptionsColumn.AllowEdit = false;
             // 
             // gridColumn8
             // 
             this.gridColumn8.Caption = "Mã khoản thu";
             this.gridColumn8.FieldName = "ReceivableDetailID";
             this.gridColumn8.Name = "gridColumn8";
+            this.gridColumn8.OptionsColumn.AllowEdit = false;
             // 
             // gridColumn9
             // 
             this.gridColumn9.Caption = "Mã đợt thu";
             this.gridColumn9.FieldName = "ReceivableID";
             this.gridColumn9.Name = "gridColumn9";
+            this.gridColumn9.OptionsColumn.AllowEdit = false;
             // 
             // gridColumn10
             // 
             this.gridColumn10.Caption = "Mức thu sau miễn giảm";
             this.gridColumn10.FieldName = "miengiam";
             this.gridColumn10.Name = "gridColumn10";
+            this.gridColumn10.OptionsColumn.AllowEdit = false;
             this.gridColumn10.UnboundType = DevExpress.Data.UnboundColumnType.Decimal;
             this.gridColumn10.Visible = true;
             this.gridColumn10.VisibleIndex = 6;

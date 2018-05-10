@@ -55,6 +55,8 @@
     <Compile Include="DAO\HungTD\CourseDAO.cs" />
     <Compile Include="DAO\HungTD\DegreeDAO.cs" />
     <Compile Include="DAO\HungTD\DepartmentDAO.cs" />
+    <Compile Include="DAO\HungTD\DishDAO.cs" />
+    <Compile Include="DAO\HungTD\DishDetailDAO.cs" />
     <Compile Include="DAO\HungTD\DivisionDAO.cs" />
     <Compile Include="DAO\HungTD\EmployeeDAO.cs" />
     <Compile Include="DAO\HungTD\EthenicGroupDAO.cs" />
@@ -63,6 +65,8 @@
     <Compile Include="DAO\HungTD\FunctionGroupDAO.cs" />
     <Compile Include="DAO\HungTD\GradeDAO.cs" />
     <Compile Include="DAO\HungTD\HistoryDAO.cs" />
+    <Compile Include="DAO\HungTD\IngredientDAO.cs" />
+    <Compile Include="DAO\HungTD\IngredientTypeDAO.cs" />
     <Compile Include="DAO\HungTD\LessonDAO.cs" />
     <Compile Include="DAO\HungTD\LocationDAO.cs" />
     <Compile Include="DAO\HungTD\LoginDAO.cs" />
@@ -71,17 +75,28 @@
     <Compile Include="DAO\HungTD\SemesterDAO.cs" />
     <Compile Include="DAO\HungTD\TopicDAO.cs" />
     <Compile Include="DAO\HungTD\TopicTypeDAO.cs" />
-    <Compile Include="DAO\ThanhCongTC\ClassStudentDAO.cs" />
-    <Compile Include="DAO\ThanhCongTC\GradeDAO.cs" />
-    <Compile Include="DAO\ThanhCongTC\PreferredDAO.cs" />
-    <Compile Include="DAO\ThanhCongTC\ReceivableDetailDAO.cs" />
-    <Compile Include="DAO\ThanhCongTC\ReceivableDetail_StudentDAO.cs" />
-    <Compile Include="DAO\ThanhCongTC\ReceivableIDAO.cs" />
-    <Compile Include="DAO\ThanhCongTC\SemesterDAO.cs" />
-    <Compile Include="DAO\ThanhCongTC\StudenGrade.cs" />
-    <Compile Include="DAO\ThanhCongTC\studentReceivableDAO.cs" />
-    <Compile Include="DAO\ThanhCongTC\TCViewModle\TCStudenViewModle.cs" />
+    <Compile Include="DAO\ThanhCongTC\ChiTieuThucPham\OrderDAOcs.cs" />
+    <Compile Include="DAO\ThanhCongTC\ChiTieuThucPham\TCIngredientRequestDAO.cs" />
+    <Compile Include="DAO\ThanhCongTC\ChiTieuThucPham\TCIngredientRequestDetailDAO.cs" />
+    <Compile Include="DAO\ThanhCongTC\ChiTieu\InvoiceDAO.cs" />
+    <Compile Include="DAO\ThanhCongTC\ChiTieu\InvoiceDetailDAO.cs" />
+    <Compile Include="DAO\ThanhCongTC\ChiTieu\SpendSpeciesDAO.cs" />
+    <Compile Include="DAO\ThanhCongTC\KhoanThu\ClassStudentDAO.cs" />
+    <Compile Include="DAO\ThanhCongTC\KhoanThu\GradeDAO.cs" />
+    <Compile Include="DAO\ThanhCongTC\KhoanThu\PreferredDAO.cs" />
+    <Compile Include="DAO\ThanhCongTC\KhoanThu\ReceivableDetailDAO.cs" />
+    <Compile Include="DAO\ThanhCongTC\KhoanThu\ReceivableDetail_StudentDAO.cs" />
+    <Compile Include="DAO\ThanhCongTC\KhoanThu\ReceivableIDAO.cs" />
+    <Compile Include="DAO\ThanhCongTC\KhoanThu\SemesterDAO.cs" />
+    <Compile Include="DAO\ThanhCongTC\KhoanThu\StudenGrade.cs" />
+    <Compile Include="DAO\ThanhCongTC\KhoanThu\studentReceivableDAO.cs" />
+    <Compile Include="DAO\ThanhCongTC\TCViewModle\TCStudentViewModle.cs" />
     <Compile Include="DAO\TienBao\ClassDAO.cs" />
+    <Compile Include="DAO\TienBao\HealthExaminationDAO.cs" />
+    <Compile Include="DAO\TienBao\HealthExaminationDetailDAO.cs" />
+    <Compile Include="DAO\TienBao\HealthProblemDAO.cs" />
+    <Compile Include="DAO\TienBao\PhysicalAssessmentDAO.cs" />
+    <Compile Include="DAO\TienBao\PhysicalAssessmentDetailDAO.cs" />
     <Compile Include="DAO\TienBao\StudentClassDao.cs" />
     <Compile Include="DAO\TienBao\StudentDAO.cs" />
     <Compile Include="DAO\TienBao\StudentParentsDAO.cs" />
@@ -92,6 +107,9 @@
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
       <DependentUpon>Settings.settings</DependentUpon>
     </Compile>
+    <Compile Include="QLHSSmartKids.cs">
+      <DependentUpon>QLHSSmartKids.dbml</DependentUpon>
+    </Compile>
     <Compile Include="QLHSSmartKids.designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -100,10 +118,17 @@
     <Compile Include="ViewModel\ContractReportViewModel.cs" />
     <Compile Include="ViewModel\ContractViewModel.cs" />
     <Compile Include="ViewModel\Department_EmployeeViewModel.cs" />
+    <Compile Include="ViewModel\DishViewModel.cs" />
     <Compile Include="ViewModel\DivisionViewModel.cs" />
     <Compile Include="ViewModel\EmployeeFullViewModel.cs" />
     <Compile Include="ViewModel\FunctionViewModel.cs" />
+    <Compile Include="ViewModel\HealthExaminationDetailViewModel.cs" />
+    <Compile Include="ViewModel\HealthExaminationViewModel.cs" />
+    <Compile Include="ViewModel\HealthProblemViewModel.cs" />
+    <Compile Include="ViewModel\IngredientTypeViewModel.cs" />
+    <Compile Include="ViewModel\IngredientViewModel.cs" />
     <Compile Include="ViewModel\LessonViewModel.cs" />
+    <Compile Include="ViewModel\PhysicalAssessmentViewModel.cs" />
     <Compile Include="ViewModel\SemesterViewModel.cs" />
     <Compile Include="ViewModel\StudentViewModel.cs" />
   </ItemGroup>
@@ -138,5 +163,6 @@
       <DependentUpon>QLHSSmartKids.dbml</DependentUpon>
     </None>
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

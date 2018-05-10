@@ -213,9 +213,9 @@
             // 
             this.labError.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.labError.ForeColor = System.Drawing.Color.Red;
-            this.labError.Location = new System.Drawing.Point(838, 486);
+            this.labError.Location = new System.Drawing.Point(838, 485);
             this.labError.Name = "labError";
-            this.labError.Size = new System.Drawing.Size(174, 29);
+            this.labError.Size = new System.Drawing.Size(174, 30);
             this.labError.TabIndex = 78;
             this.labError.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
@@ -352,6 +352,8 @@
             // 
             // bandedGridColumn1
             // 
+            this.bandedGridColumn1.AppearanceHeader.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.bandedGridColumn1.AppearanceHeader.Options.UseFont = true;
             this.bandedGridColumn1.AppearanceHeader.Options.UseTextOptions = true;
             this.bandedGridColumn1.AppearanceHeader.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
             this.bandedGridColumn1.Caption = "ID";
@@ -363,6 +365,8 @@
             // 
             // bandedGridColumn2
             // 
+            this.bandedGridColumn2.AppearanceHeader.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.bandedGridColumn2.AppearanceHeader.Options.UseFont = true;
             this.bandedGridColumn2.AppearanceHeader.Options.UseTextOptions = true;
             this.bandedGridColumn2.AppearanceHeader.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
             this.bandedGridColumn2.Caption = "Mã học sinh";
@@ -374,6 +378,8 @@
             // 
             // colFirstName
             // 
+            this.colFirstName.AppearanceHeader.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.colFirstName.AppearanceHeader.Options.UseFont = true;
             this.colFirstName.AppearanceHeader.Options.UseTextOptions = true;
             this.colFirstName.AppearanceHeader.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
             this.colFirstName.Caption = "Họ đệm";
@@ -385,6 +391,8 @@
             // 
             // colLastName
             // 
+            this.colLastName.AppearanceHeader.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.colLastName.AppearanceHeader.Options.UseFont = true;
             this.colLastName.AppearanceHeader.Options.UseTextOptions = true;
             this.colLastName.AppearanceHeader.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
             this.colLastName.Caption = "Tên";
@@ -395,6 +403,8 @@
             // 
             // colBirthday
             // 
+            this.colBirthday.AppearanceHeader.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.colBirthday.AppearanceHeader.Options.UseFont = true;
             this.colBirthday.AppearanceHeader.Options.UseTextOptions = true;
             this.colBirthday.AppearanceHeader.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
             this.colBirthday.Caption = "Ngày sinh";
@@ -408,6 +418,8 @@
             // 
             // colGender
             // 
+            this.colGender.AppearanceHeader.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.colGender.AppearanceHeader.Options.UseFont = true;
             this.colGender.AppearanceHeader.Options.UseTextOptions = true;
             this.colGender.AppearanceHeader.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
             this.colGender.Caption = "Giới tính";
@@ -421,6 +433,8 @@
             // 
             // colLocationDetail
             // 
+            this.colLocationDetail.AppearanceHeader.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.colLocationDetail.AppearanceHeader.Options.UseFont = true;
             this.colLocationDetail.AppearanceHeader.Options.UseTextOptions = true;
             this.colLocationDetail.AppearanceHeader.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
             this.colLocationDetail.Caption = "Địa chỉ";
@@ -432,6 +446,8 @@
             // 
             // colFatherName
             // 
+            this.colFatherName.AppearanceHeader.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.colFatherName.AppearanceHeader.Options.UseFont = true;
             this.colFatherName.AppearanceHeader.Options.UseTextOptions = true;
             this.colFatherName.AppearanceHeader.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
             this.colFatherName.Caption = "Họ tên cha";
@@ -443,6 +459,8 @@
             // 
             // colFatherJob
             // 
+            this.colFatherJob.AppearanceHeader.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.colFatherJob.AppearanceHeader.Options.UseFont = true;
             this.colFatherJob.AppearanceHeader.Options.UseTextOptions = true;
             this.colFatherJob.AppearanceHeader.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
             this.colFatherJob.Caption = "Nghề nghiệp";
@@ -454,6 +472,8 @@
             // 
             // colMotherName
             // 
+            this.colMotherName.AppearanceHeader.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.colMotherName.AppearanceHeader.Options.UseFont = true;
             this.colMotherName.AppearanceHeader.Options.UseTextOptions = true;
             this.colMotherName.AppearanceHeader.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
             this.colMotherName.Caption = "Họ tên mẹ";
@@ -465,6 +485,8 @@
             // 
             // colMotherJob
             // 
+            this.colMotherJob.AppearanceHeader.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.colMotherJob.AppearanceHeader.Options.UseFont = true;
             this.colMotherJob.AppearanceHeader.Options.UseTextOptions = true;
             this.colMotherJob.AppearanceHeader.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
             this.colMotherJob.Caption = "Nghề nghiệp";
@@ -476,7 +498,7 @@
             // 
             // txtStudentCode
             // 
-            this.txtStudentCode.Location = new System.Drawing.Point(908, 185);
+            this.txtStudentCode.Location = new System.Drawing.Point(908, 184);
             this.txtStudentCode.Name = "txtStudentCode";
             this.txtStudentCode.Size = new System.Drawing.Size(50, 20);
             this.txtStudentCode.StyleController = this.layoutControl1;
@@ -484,7 +506,7 @@
             // 
             // txtStudentID
             // 
-            this.txtStudentID.Location = new System.Drawing.Point(962, 185);
+            this.txtStudentID.Location = new System.Drawing.Point(962, 184);
             this.txtStudentID.Name = "txtStudentID";
             this.txtStudentID.Size = new System.Drawing.Size(50, 20);
             this.txtStudentID.StyleController = this.layoutControl1;
@@ -492,7 +514,7 @@
             // 
             // txtFirstName
             // 
-            this.txtFirstName.Location = new System.Drawing.Point(908, 209);
+            this.txtFirstName.Location = new System.Drawing.Point(908, 208);
             this.txtFirstName.Name = "txtFirstName";
             this.txtFirstName.Size = new System.Drawing.Size(50, 20);
             this.txtFirstName.StyleController = this.layoutControl1;
@@ -500,7 +522,7 @@
             // 
             // txtLastName
             // 
-            this.txtLastName.Location = new System.Drawing.Point(962, 209);
+            this.txtLastName.Location = new System.Drawing.Point(962, 208);
             this.txtLastName.Name = "txtLastName";
             this.txtLastName.Size = new System.Drawing.Size(50, 20);
             this.txtLastName.StyleController = this.layoutControl1;
@@ -508,7 +530,7 @@
             // 
             // txtFatherName
             // 
-            this.txtFatherName.Location = new System.Drawing.Point(908, 390);
+            this.txtFatherName.Location = new System.Drawing.Point(908, 389);
             this.txtFatherName.Name = "txtFatherName";
             this.txtFatherName.Size = new System.Drawing.Size(104, 20);
             this.txtFatherName.StyleController = this.layoutControl1;
@@ -516,7 +538,7 @@
             // 
             // txtFatherJob
             // 
-            this.txtFatherJob.Location = new System.Drawing.Point(908, 414);
+            this.txtFatherJob.Location = new System.Drawing.Point(908, 413);
             this.txtFatherJob.Name = "txtFatherJob";
             this.txtFatherJob.Size = new System.Drawing.Size(104, 20);
             this.txtFatherJob.StyleController = this.layoutControl1;
@@ -524,7 +546,7 @@
             // 
             // txtMotherName
             // 
-            this.txtMotherName.Location = new System.Drawing.Point(908, 438);
+            this.txtMotherName.Location = new System.Drawing.Point(908, 437);
             this.txtMotherName.Name = "txtMotherName";
             this.txtMotherName.Size = new System.Drawing.Size(104, 20);
             this.txtMotherName.StyleController = this.layoutControl1;
@@ -612,9 +634,9 @@
             this.panel2.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.panel2.Controls.Add(this.radFemale);
             this.panel2.Controls.Add(this.radMale);
-            this.panel2.Location = new System.Drawing.Point(908, 257);
+            this.panel2.Location = new System.Drawing.Point(908, 256);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(104, 30);
+            this.panel2.Size = new System.Drawing.Size(104, 31);
             this.panel2.TabIndex = 68;
             // 
             // radFemale
@@ -674,7 +696,7 @@
             // picImage
             // 
             this.picImage.Cursor = System.Windows.Forms.Cursors.Default;
-            this.picImage.Location = new System.Drawing.Point(838, 43);
+            this.picImage.Location = new System.Drawing.Point(838, 42);
             this.picImage.Name = "picImage";
             this.picImage.Properties.ShowCameraMenuItem = DevExpress.XtraEditors.Controls.CameraMenuItemVisibility.Auto;
             this.picImage.Size = new System.Drawing.Size(174, 138);
@@ -684,7 +706,7 @@
             // dtBirthday
             // 
             this.dtBirthday.EditValue = null;
-            this.dtBirthday.Location = new System.Drawing.Point(908, 233);
+            this.dtBirthday.Location = new System.Drawing.Point(908, 232);
             this.dtBirthday.Name = "dtBirthday";
             this.dtBirthday.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
@@ -704,7 +726,7 @@
             // 
             // txtMotherJob
             // 
-            this.txtMotherJob.Location = new System.Drawing.Point(908, 462);
+            this.txtMotherJob.Location = new System.Drawing.Point(908, 461);
             this.txtMotherJob.Name = "txtMotherJob";
             this.txtMotherJob.Size = new System.Drawing.Size(104, 20);
             this.txtMotherJob.StyleController = this.layoutControl1;
@@ -780,7 +802,7 @@
             this.LabelGender.CustomizationFormText = "Giới tính";
             this.LabelGender.Location = new System.Drawing.Point(0, 214);
             this.LabelGender.Name = "LabelGender";
-            this.LabelGender.Size = new System.Drawing.Size(178, 34);
+            this.LabelGender.Size = new System.Drawing.Size(178, 35);
             this.LabelGender.Text = "Giới tính";
             this.LabelGender.TextSize = new System.Drawing.Size(67, 13);
             // 
@@ -829,7 +851,7 @@
             // layoutControlItem9
             // 
             this.layoutControlItem9.Control = this.txtAddressDetail;
-            this.layoutControlItem9.Location = new System.Drawing.Point(0, 248);
+            this.layoutControlItem9.Location = new System.Drawing.Point(0, 249);
             this.layoutControlItem9.Name = "layoutControlItem9";
             this.layoutControlItem9.Size = new System.Drawing.Size(178, 56);
             this.layoutControlItem9.Text = "Chi tiết địa chỉ";
@@ -894,7 +916,7 @@
             // emptySpaceItem3
             // 
             this.emptySpaceItem3.AllowHotTrack = false;
-            this.emptySpaceItem3.Location = new System.Drawing.Point(0, 129);
+            this.emptySpaceItem3.Location = new System.Drawing.Point(0, 130);
             this.emptySpaceItem3.Name = "emptySpaceItem3";
             this.emptySpaceItem3.Size = new System.Drawing.Size(178, 15);
             this.emptySpaceItem3.TextSize = new System.Drawing.Size(0, 0);
@@ -904,7 +926,7 @@
             this.layoutControlItem24.Control = this.labError;
             this.layoutControlItem24.Location = new System.Drawing.Point(0, 96);
             this.layoutControlItem24.Name = "layoutControlItem24";
-            this.layoutControlItem24.Size = new System.Drawing.Size(178, 33);
+            this.layoutControlItem24.Size = new System.Drawing.Size(178, 34);
             this.layoutControlItem24.TextSize = new System.Drawing.Size(0, 0);
             this.layoutControlItem24.TextVisible = false;
             // 

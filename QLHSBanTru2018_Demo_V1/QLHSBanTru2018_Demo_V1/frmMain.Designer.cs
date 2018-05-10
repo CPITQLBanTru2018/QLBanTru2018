@@ -28,7 +28,6 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmMain));
             this.ribbon = new DevExpress.XtraBars.Ribbon.RibbonControl();
             this.btnDepartment = new DevExpress.XtraBars.BarButtonItem();
@@ -47,27 +46,55 @@
             this.btnWorkProgress = new DevExpress.XtraBars.BarButtonItem();
             this.labNameLogin = new DevExpress.XtraBars.BarStaticItem();
             this.labTitle = new DevExpress.XtraBars.BarStaticItem();
+<<<<<<< HEAD
             this.btnDiemDanhHS = new DevExpress.XtraBars.BarButtonItem();
+=======
+            this.btnIngredientType = new DevExpress.XtraBars.BarButtonItem();
+            this.btnIngredient = new DevExpress.XtraBars.BarButtonItem();
+            this.btnHealthProblem = new DevExpress.XtraBars.BarButtonItem();
+            this.btnCanDo = new DevExpress.XtraBars.BarButtonItem();
+            this.btnHealthExam = new DevExpress.XtraBars.BarButtonItem();
+            this.barSubItem1 = new DevExpress.XtraBars.BarSubItem();
+            this.barButtonItem1 = new DevExpress.XtraBars.BarButtonItem();
+            this.barButtonItem2 = new DevExpress.XtraBars.BarButtonItem();
+            this.btnHealth = new DevExpress.XtraBars.BarSubItem();
+            this.btnHealthExamination = new DevExpress.XtraBars.BarButtonItem();
+            this.btnHealthExaminationDetail = new DevExpress.XtraBars.BarButtonItem();
+            this.bntCackhoanchi = new DevExpress.XtraBars.BarButtonItem();
+            this.btnLoaichi = new DevExpress.XtraBars.BarButtonItem();
+            this.btnDanhMucChiTieu = new DevExpress.XtraBars.BarButtonItem();
+            this.btnDoituongchinhsach = new DevExpress.XtraBars.BarButtonItem();
+            this.btnDishManager = new DevExpress.XtraBars.BarButtonItem();
+            this.btnChiThucPham = new DevExpress.XtraBars.BarButtonItem();
+>>>>>>> 4cec8ea2f9a4271cc83276a295e5be679bc61287
             this.ribbonPage1 = new DevExpress.XtraBars.Ribbon.RibbonPage();
             this.ribbonPageGroup1 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             this.ribbonPageGroup2 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             this.ribbonPageGroup4 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             this.ribbonPageGroup5 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             this.ribbonPageGroup8 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
+            this.ribbonPage4 = new DevExpress.XtraBars.Ribbon.RibbonPage();
+            this.ribbonPageGroup9 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
+            this.ribbonPageGroup11 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             this.ribbonPage2 = new DevExpress.XtraBars.Ribbon.RibbonPage();
             this.ribbonPageGroup3 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
+            this.ribbonPageGroup10 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             this.ribbonPage3 = new DevExpress.XtraBars.Ribbon.RibbonPage();
             this.ribbonPageGroup6 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             this.ribbonPageGroup7 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             this.ribbonStatusBar = new DevExpress.XtraBars.Ribbon.RibbonStatusBar();
-            this.defaultLookAndFeel1 = new DevExpress.LookAndFeel.DefaultLookAndFeel(this.components);
+            this.defaultLookAndFeel1 = new DevExpress.LookAndFeel.DefaultLookAndFeel();
             this.pnControlsPanel = new System.Windows.Forms.Panel();
+<<<<<<< HEAD
             this.btnNhanXet = new DevExpress.XtraBars.BarButtonItem();
             this.btnTheodoidenmuon = new DevExpress.XtraBars.BarButtonItem();
             this.ribbonPageGroup9 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             this.btnDiemDanh = new DevExpress.XtraBars.BarButtonItem();
             this.btnTheoDoi = new DevExpress.XtraBars.BarButtonItem();
             this.btnNhanXetHangTuan = new DevExpress.XtraBars.BarButtonItem();
+=======
+            this.ribbonPageGroup12 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
+>>>>>>> 4cec8ea2f9a4271cc83276a295e5be679bc61287
             ((System.ComponentModel.ISupportInitialize)(this.ribbon)).BeginInit();
             this.SuspendLayout();
             // 
@@ -92,6 +119,7 @@
             this.btnWorkProgress,
             this.labNameLogin,
             this.labTitle,
+<<<<<<< HEAD
             this.btnDiemDanhHS,
             this.btnNhanXet,
             this.btnTheodoidenmuon,
@@ -100,12 +128,34 @@
             this.btnNhanXetHangTuan});
             this.ribbon.Location = new System.Drawing.Point(0, 0);
             this.ribbon.MaxItemId = 23;
+=======
+            this.btnIngredientType,
+            this.btnIngredient,
+            this.btnHealthProblem,
+            this.btnCanDo,
+            this.btnHealthExam,
+            this.barSubItem1,
+            this.barButtonItem1,
+            this.barButtonItem2,
+            this.btnHealth,
+            this.btnHealthExamination,
+            this.btnHealthExaminationDetail,
+            this.bntCackhoanchi,
+            this.btnLoaichi,
+            this.btnDanhMucChiTieu,
+            this.btnDoituongchinhsach,
+            this.btnDishManager,
+            this.btnChiThucPham});
+            this.ribbon.Location = new System.Drawing.Point(0, 0);
+            this.ribbon.MaxItemId = 34;
+>>>>>>> 4cec8ea2f9a4271cc83276a295e5be679bc61287
             this.ribbon.Name = "ribbon";
             this.ribbon.Pages.AddRange(new DevExpress.XtraBars.Ribbon.RibbonPage[] {
             this.ribbonPage1,
+            this.ribbonPage4,
             this.ribbonPage2,
             this.ribbonPage3});
-            this.ribbon.Size = new System.Drawing.Size(798, 146);
+            this.ribbon.Size = new System.Drawing.Size(1364, 146);
             this.ribbon.StatusBar = this.ribbonStatusBar;
             this.ribbon.Click += new System.EventHandler(this.ribbon_Click);
             // 
@@ -248,6 +298,7 @@
             this.labTitle.Id = 16;
             this.labTitle.Name = "labTitle";
             // 
+<<<<<<< HEAD
             // btnDiemDanhHS
             // 
             this.btnDiemDanhHS.Caption = "Điểm Danh HS";
@@ -256,6 +307,158 @@
             this.btnDiemDanhHS.ImageOptions.LargeImage = ((System.Drawing.Image)(resources.GetObject("barButtonItem1.ImageOptions.LargeImage")));
             this.btnDiemDanhHS.Name = "btnDiemDanhHS";
             this.btnDiemDanhHS.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.btnDiemDanhHS_ItemClick);
+=======
+            // btnIngredientType
+            // 
+            this.btnIngredientType.Caption = "Loại Thực Phẩm";
+            this.btnIngredientType.Id = 17;
+            this.btnIngredientType.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("btnIngredientType.ImageOptions.Image")));
+            this.btnIngredientType.ImageOptions.LargeImage = ((System.Drawing.Image)(resources.GetObject("btnIngredientType.ImageOptions.LargeImage")));
+            this.btnIngredientType.Name = "btnIngredientType";
+            this.btnIngredientType.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.btnIngredientType_ItemClick);
+            // 
+            // btnIngredient
+            // 
+            this.btnIngredient.Caption = "Thực Phẩm";
+            this.btnIngredient.Id = 18;
+            this.btnIngredient.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("btnIngredient.ImageOptions.Image")));
+            this.btnIngredient.ImageOptions.LargeImage = ((System.Drawing.Image)(resources.GetObject("btnIngredient.ImageOptions.LargeImage")));
+            this.btnIngredient.Name = "btnIngredient";
+            this.btnIngredient.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.btnIngredient_ItemClick);
+            // 
+            // btnHealthProblem
+            // 
+            this.btnHealthProblem.Caption = "Sự cố y tế";
+            this.btnHealthProblem.Id = 19;
+            this.btnHealthProblem.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("btnHealthProblem.ImageOptions.Image")));
+            this.btnHealthProblem.ImageOptions.LargeImage = ((System.Drawing.Image)(resources.GetObject("btnHealthProblem.ImageOptions.LargeImage")));
+            this.btnHealthProblem.LargeWidth = 70;
+            this.btnHealthProblem.Name = "btnHealthProblem";
+            this.btnHealthProblem.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.btnHealthProblem_ItemClick);
+            // 
+            // btnCanDo
+            // 
+            this.btnCanDo.Caption = "Thông tin cân đo";
+            this.btnCanDo.Id = 20;
+            this.btnCanDo.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("btnCanDo.ImageOptions.Image")));
+            this.btnCanDo.ImageOptions.LargeImage = ((System.Drawing.Image)(resources.GetObject("btnCanDo.ImageOptions.LargeImage")));
+            this.btnCanDo.Name = "btnCanDo";
+            this.btnCanDo.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.btnCanDo_ItemClick);
+            // 
+            // btnHealthExam
+            // 
+            this.btnHealthExam.ActAsDropDown = true;
+            this.btnHealthExam.ButtonStyle = DevExpress.XtraBars.BarButtonStyle.DropDown;
+            this.btnHealthExam.Caption = "Khám sức khỏe định kỳ";
+            this.btnHealthExam.Id = 21;
+            this.btnHealthExam.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("btnHealthExam.ImageOptions.Image")));
+            this.btnHealthExam.ImageOptions.LargeImage = ((System.Drawing.Image)(resources.GetObject("btnHealthExam.ImageOptions.LargeImage")));
+            this.btnHealthExam.Name = "btnHealthExam";
+            this.btnHealthExam.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.btnHealthExam_ItemClick);
+            // 
+            // barSubItem1
+            // 
+            this.barSubItem1.Caption = "Khám sức khỏe định kỳ";
+            this.barSubItem1.Id = 22;
+            this.barSubItem1.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("barSubItem1.ImageOptions.Image")));
+            this.barSubItem1.ImageOptions.LargeImage = ((System.Drawing.Image)(resources.GetObject("barSubItem1.ImageOptions.LargeImage")));
+            this.barSubItem1.LinksPersistInfo.AddRange(new DevExpress.XtraBars.LinkPersistInfo[] {
+            new DevExpress.XtraBars.LinkPersistInfo(this.barButtonItem1)});
+            this.barSubItem1.Name = "barSubItem1";
+            // 
+            // barButtonItem1
+            // 
+            this.barButtonItem1.Caption = "Đợt khám sức khỏe";
+            this.barButtonItem1.Id = 23;
+            this.barButtonItem1.Name = "barButtonItem1";
+            // 
+            // barButtonItem2
+            // 
+            this.barButtonItem2.Caption = "barButtonItem2";
+            this.barButtonItem2.Id = 24;
+            this.barButtonItem2.Name = "barButtonItem2";
+            // 
+            // btnHealth
+            // 
+            this.btnHealth.Caption = "Khám sức khỏe định kỳ";
+            this.btnHealth.Id = 25;
+            this.btnHealth.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("btnHealth.ImageOptions.Image")));
+            this.btnHealth.ImageOptions.LargeImage = ((System.Drawing.Image)(resources.GetObject("btnHealth.ImageOptions.LargeImage")));
+            this.btnHealth.LinksPersistInfo.AddRange(new DevExpress.XtraBars.LinkPersistInfo[] {
+            new DevExpress.XtraBars.LinkPersistInfo(this.btnHealthExamination),
+            new DevExpress.XtraBars.LinkPersistInfo(this.btnHealthExaminationDetail)});
+            this.btnHealth.Name = "btnHealth";
+            // 
+            // btnHealthExamination
+            // 
+            this.btnHealthExamination.Caption = "Đợt khám sức khỏe";
+            this.btnHealthExamination.Id = 26;
+            this.btnHealthExamination.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("btnHealthExamination.ImageOptions.Image")));
+            this.btnHealthExamination.ImageOptions.LargeImage = ((System.Drawing.Image)(resources.GetObject("btnHealthExamination.ImageOptions.LargeImage")));
+            this.btnHealthExamination.Name = "btnHealthExamination";
+            this.btnHealthExamination.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.btnHealthExam_ItemClick);
+            // 
+            // btnHealthExaminationDetail
+            // 
+            this.btnHealthExaminationDetail.Caption = "Kết quả khám sức khỏe";
+            this.btnHealthExaminationDetail.Id = 27;
+            this.btnHealthExaminationDetail.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("btnHealthExaminationDetail.ImageOptions.Image")));
+            this.btnHealthExaminationDetail.ImageOptions.LargeImage = ((System.Drawing.Image)(resources.GetObject("btnHealthExaminationDetail.ImageOptions.LargeImage")));
+            this.btnHealthExaminationDetail.Name = "btnHealthExaminationDetail";
+            this.btnHealthExaminationDetail.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.btnHealthExaminationDetail_ItemClick);
+            // 
+            // bntCackhoanchi
+            // 
+            this.bntCackhoanchi.Caption = "Các khoản chi";
+            this.bntCackhoanchi.Id = 28;
+            this.bntCackhoanchi.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("bntCackhoanchi.ImageOptions.Image")));
+            this.bntCackhoanchi.ImageOptions.LargeImage = ((System.Drawing.Image)(resources.GetObject("bntCackhoanchi.ImageOptions.LargeImage")));
+            this.bntCackhoanchi.Name = "bntCackhoanchi";
+            this.bntCackhoanchi.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.bntCackhoanchi_ItemClick);
+            // 
+            // btnLoaichi
+            // 
+            this.btnLoaichi.Caption = "Các loại chi";
+            this.btnLoaichi.Id = 29;
+            this.btnLoaichi.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("btnLoaichi.ImageOptions.Image")));
+            this.btnLoaichi.ImageOptions.LargeImage = ((System.Drawing.Image)(resources.GetObject("btnLoaichi.ImageOptions.LargeImage")));
+            this.btnLoaichi.Name = "btnLoaichi";
+            this.btnLoaichi.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.btnLoaichi_ItemClick);
+            // 
+            // btnDanhMucChiTieu
+            // 
+            this.btnDanhMucChiTieu.Caption = "Danh mục chi tiêu";
+            this.btnDanhMucChiTieu.Id = 30;
+            this.btnDanhMucChiTieu.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("btnDanhMucChiTieu.ImageOptions.Image")));
+            this.btnDanhMucChiTieu.ImageOptions.LargeImage = ((System.Drawing.Image)(resources.GetObject("btnDanhMucChiTieu.ImageOptions.LargeImage")));
+            this.btnDanhMucChiTieu.Name = "btnDanhMucChiTieu";
+            this.btnDanhMucChiTieu.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.btnDanhMucChiTieu_ItemClick);
+            // 
+            // btnDoituongchinhsach
+            // 
+            this.btnDoituongchinhsach.Caption = "Đối tượng chính sách";
+            this.btnDoituongchinhsach.Id = 31;
+            this.btnDoituongchinhsach.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("btnDoituongchinhsach.ImageOptions.Image")));
+            this.btnDoituongchinhsach.ImageOptions.LargeImage = ((System.Drawing.Image)(resources.GetObject("btnDoituongchinhsach.ImageOptions.LargeImage")));
+            this.btnDoituongchinhsach.Name = "btnDoituongchinhsach";
+            this.btnDoituongchinhsach.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.btnDoituongchinhsach_ItemClick);
+            // 
+            // btnDishManager
+            // 
+            this.btnDishManager.Caption = "Quản Lý Món Ăn";
+            this.btnDishManager.Id = 32;
+            this.btnDishManager.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("btnDishManager.ImageOptions.Image")));
+            this.btnDishManager.ImageOptions.LargeImage = ((System.Drawing.Image)(resources.GetObject("btnDishManager.ImageOptions.LargeImage")));
+            this.btnDishManager.Name = "btnDishManager";
+            this.btnDishManager.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.btnDishManager_ItemClick);
+            // 
+            // btnChiThucPham
+            // 
+            this.btnChiThucPham.Caption = "Chi thực phẩm";
+            this.btnChiThucPham.Id = 33;
+            this.btnChiThucPham.ImageOptions.LargeImage = global::QLHSBanTru2018_Demo_V1.Properties.Resources.Steak_icon;
+            this.btnChiThucPham.Name = "btnChiThucPham";
+>>>>>>> 4cec8ea2f9a4271cc83276a295e5be679bc61287
             // 
             // ribbonPage1
             // 
@@ -303,10 +506,33 @@
             this.ribbonPageGroup8.Name = "ribbonPageGroup8";
             this.ribbonPageGroup8.Text = "Bài Giảng";
             // 
+            // ribbonPage4
+            // 
+            this.ribbonPage4.Groups.AddRange(new DevExpress.XtraBars.Ribbon.RibbonPageGroup[] {
+            this.ribbonPageGroup9,
+            this.ribbonPageGroup11});
+            this.ribbonPage4.Name = "ribbonPage4";
+            this.ribbonPage4.Text = "Thực Phẩm - Dinh Dưỡng";
+            // 
+            // ribbonPageGroup9
+            // 
+            this.ribbonPageGroup9.ItemLinks.Add(this.btnIngredientType);
+            this.ribbonPageGroup9.ItemLinks.Add(this.btnIngredient);
+            this.ribbonPageGroup9.Name = "ribbonPageGroup9";
+            this.ribbonPageGroup9.Text = "Thực Phẩm";
+            // 
+            // ribbonPageGroup11
+            // 
+            this.ribbonPageGroup11.ItemLinks.Add(this.btnDishManager);
+            this.ribbonPageGroup11.Name = "ribbonPageGroup11";
+            this.ribbonPageGroup11.Text = "Món Ăn";
+            // 
             // ribbonPage2
             // 
             this.ribbonPage2.Groups.AddRange(new DevExpress.XtraBars.Ribbon.RibbonPageGroup[] {
-            this.ribbonPageGroup3});
+            this.ribbonPageGroup3,
+            this.ribbonPageGroup10,
+            this.ribbonPageGroup12});
             this.ribbonPage2.Name = "ribbonPage2";
             this.ribbonPage2.Text = "Thu Chi";
             // 
@@ -314,8 +540,17 @@
             // 
             this.ribbonPageGroup3.ItemLinks.Add(this.bntDotThu);
             this.ribbonPageGroup3.ItemLinks.Add(this.bntThuTheoLop);
+            this.ribbonPageGroup3.ItemLinks.Add(this.btnDoituongchinhsach);
             this.ribbonPageGroup3.Name = "ribbonPageGroup3";
             this.ribbonPageGroup3.Text = "Khoản thu - đợt thu";
+            // 
+            // ribbonPageGroup10
+            // 
+            this.ribbonPageGroup10.ItemLinks.Add(this.bntCackhoanchi);
+            this.ribbonPageGroup10.ItemLinks.Add(this.btnLoaichi);
+            this.ribbonPageGroup10.ItemLinks.Add(this.btnDanhMucChiTieu);
+            this.ribbonPageGroup10.Name = "ribbonPageGroup10";
+            this.ribbonPageGroup10.Text = "Chi tiêu";
             // 
             // ribbonPage3
             // 
@@ -330,23 +565,26 @@
             // 
             this.ribbonPageGroup6.ItemLinks.Add(this.btnTTHocSinh);
             this.ribbonPageGroup6.ItemLinks.Add(this.btnTKHocSinh);
+            this.ribbonPageGroup6.ItemLinks.Add(this.btnImportExcel);
             this.ribbonPageGroup6.Name = "ribbonPageGroup6";
             this.ribbonPageGroup6.Text = "Quản lý hồ sơ học sinh";
             // 
             // ribbonPageGroup7
             // 
-            this.ribbonPageGroup7.ItemLinks.Add(this.btnImportExcel);
+            this.ribbonPageGroup7.ItemLinks.Add(this.btnHealthProblem);
+            this.ribbonPageGroup7.ItemLinks.Add(this.btnCanDo);
+            this.ribbonPageGroup7.ItemLinks.Add(this.btnHealth);
             this.ribbonPageGroup7.Name = "ribbonPageGroup7";
-            this.ribbonPageGroup7.Text = "Dữ liệu học sinh";
+            this.ribbonPageGroup7.Text = "Sức khỏe - y tế";
             // 
             // ribbonStatusBar
             // 
             this.ribbonStatusBar.ItemLinks.Add(this.labNameLogin);
             this.ribbonStatusBar.ItemLinks.Add(this.labTitle);
-            this.ribbonStatusBar.Location = new System.Drawing.Point(0, 578);
+            this.ribbonStatusBar.Location = new System.Drawing.Point(0, 746);
             this.ribbonStatusBar.Name = "ribbonStatusBar";
             this.ribbonStatusBar.Ribbon = this.ribbon;
-            this.ribbonStatusBar.Size = new System.Drawing.Size(798, 21);
+            this.ribbonStatusBar.Size = new System.Drawing.Size(1364, 21);
             // 
             // defaultLookAndFeel1
             // 
@@ -357,9 +595,10 @@
             this.pnControlsPanel.Dock = System.Windows.Forms.DockStyle.Fill;
             this.pnControlsPanel.Location = new System.Drawing.Point(0, 146);
             this.pnControlsPanel.Name = "pnControlsPanel";
-            this.pnControlsPanel.Size = new System.Drawing.Size(798, 432);
+            this.pnControlsPanel.Size = new System.Drawing.Size(1364, 600);
             this.pnControlsPanel.TabIndex = 3;
             // 
+<<<<<<< HEAD
             // btnNhanXet
             // 
             this.btnNhanXet.Caption = "Nhận xét hàng tuần";
@@ -406,12 +645,19 @@
             this.btnNhanXetHangTuan.Id = 22;
             this.btnNhanXetHangTuan.Name = "btnNhanXetHangTuan";
             this.btnNhanXetHangTuan.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.btnNhanXet_ItemClick);
+=======
+            // ribbonPageGroup12
+            // 
+            this.ribbonPageGroup12.ItemLinks.Add(this.btnChiThucPham);
+            this.ribbonPageGroup12.Name = "ribbonPageGroup12";
+            this.ribbonPageGroup12.Text = "Chi tiêu thực phẩm";
+>>>>>>> 4cec8ea2f9a4271cc83276a295e5be679bc61287
             // 
             // frmMain
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(798, 599);
+            this.ClientSize = new System.Drawing.Size(1364, 767);
             this.Controls.Add(this.pnControlsPanel);
             this.Controls.Add(this.ribbonStatusBar);
             this.Controls.Add(this.ribbon);
@@ -434,7 +680,6 @@
         private DevExpress.XtraBars.Ribbon.RibbonStatusBar ribbonStatusBar;
         private DevExpress.LookAndFeel.DefaultLookAndFeel defaultLookAndFeel1;
         private DevExpress.XtraBars.BarButtonItem btnDepartment;
-        private System.Windows.Forms.Panel pnControlsPanel;
         private DevExpress.XtraBars.BarButtonItem btnEmployeeManager;
         private DevExpress.XtraBars.Ribbon.RibbonPageGroup ribbonPageGroup2;
         private DevExpress.XtraBars.BarButtonItem btnPosition;
@@ -458,6 +703,7 @@
         private DevExpress.XtraBars.Ribbon.RibbonPageGroup ribbonPageGroup8;
         private DevExpress.XtraBars.BarButtonItem btnWorkProgress;
         private DevExpress.XtraBars.BarStaticItem labNameLogin;
+<<<<<<< HEAD
         private DevExpress.XtraBars.BarStaticItem labTitle;
         private DevExpress.XtraBars.BarButtonItem btnDiemDanhHS;
         private DevExpress.XtraBars.BarButtonItem btnNhanXet;
@@ -466,5 +712,31 @@
         private DevExpress.XtraBars.Ribbon.RibbonPageGroup ribbonPageGroup9;
         private DevExpress.XtraBars.BarButtonItem btnTheoDoi;
         private DevExpress.XtraBars.BarButtonItem btnNhanXetHangTuan;
+=======
+        private DevExpress.XtraBars.BarButtonItem btnIngredientType;
+        private DevExpress.XtraBars.Ribbon.RibbonPage ribbonPage4;
+        private DevExpress.XtraBars.Ribbon.RibbonPageGroup ribbonPageGroup9;
+        private DevExpress.XtraBars.BarButtonItem btnIngredient;
+        private DevExpress.XtraBars.BarButtonItem btnHealthProblem;
+        private DevExpress.XtraBars.BarButtonItem btnCanDo;
+        private DevExpress.XtraBars.BarButtonItem btnHealthExam;
+        private DevExpress.XtraBars.BarSubItem barSubItem1;
+        private DevExpress.XtraBars.BarButtonItem barButtonItem1;
+        private DevExpress.XtraBars.BarButtonItem barButtonItem2;
+        private DevExpress.XtraBars.BarSubItem btnHealth;
+        private DevExpress.XtraBars.BarButtonItem btnHealthExamination;
+        private DevExpress.XtraBars.BarButtonItem btnHealthExaminationDetail;
+        private DevExpress.XtraBars.BarButtonItem bntCackhoanchi;
+        private DevExpress.XtraBars.BarButtonItem btnLoaichi;
+        private DevExpress.XtraBars.Ribbon.RibbonPageGroup ribbonPageGroup10;
+        private DevExpress.XtraBars.BarButtonItem btnDanhMucChiTieu;
+        private DevExpress.XtraBars.BarButtonItem btnDoituongchinhsach;
+        public System.Windows.Forms.Panel pnControlsPanel;
+        public DevExpress.XtraBars.BarStaticItem labTitle;
+        private DevExpress.XtraBars.BarButtonItem btnDishManager;
+        private DevExpress.XtraBars.Ribbon.RibbonPageGroup ribbonPageGroup11;
+        private DevExpress.XtraBars.BarButtonItem btnChiThucPham;
+        private DevExpress.XtraBars.Ribbon.RibbonPageGroup ribbonPageGroup12;
+>>>>>>> 4cec8ea2f9a4271cc83276a295e5be679bc61287
     }
 }

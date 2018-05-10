@@ -51,13 +51,6 @@ namespace QLHSBanTru2018_Demo_V1.QLThuChi
                 }
 
             }
-            float Tong = 0;
-            for (int i = 0; i < gridView1.RowCount; i++)
-            {
-                Tong += float.Parse(gridView1.GetRowCellValue(i, gridView1.Columns["Price"]).ToString());
-            }
-            //txtTongtien.Text = Tong.ToString()+"đ";
-
         }
 
         private void bntSua_Click(object sender, EventArgs e)
@@ -85,7 +78,27 @@ namespace QLHSBanTru2018_Demo_V1.QLThuChi
                 }
 
             }
+            // đưa trỏ chuột về dòng đầu tiên
+            try
+            {
+                ReceivableDetail a = new ReceivableDetail();
+                a.Name = gridView1.GetRowCellValue(0, "Name").ToString();
+                a.Price = decimal.Parse(gridView1.GetRowCellValue(0, "Price").ToString());
+                a.Status = true;
+                a.TimeUnits = gridView1.GetRowCellValue(0, "TimeUnits").ToString();
+                a.Frequency = int.Parse(gridView1.GetRowCellValue(0, "Frequency").ToString());
+                a.TotalPriceDetail = decimal.Parse(gridView1.GetRowCellValue(0, "TotalPriceDetail").ToString());
+                a.GradeID = (int)gridView1.GetRowCellValue(0, "GradeID");
+                a.Feedback = (bool)gridView1.GetRowCellValue(0, "Feedback");
+                a.PreferredID = gridView1.GetRowCellValue(0, "PreferredID").ToString();
+                PreferredDAO.PreferredIDList = gridView1.GetRowCellValue(0, "PreferredID").ToString();
+                ReceivableDetailDAO.DemoReceibavleDetail = a;
+            }
+            catch 
+            {
 
+                
+            }
         }
 
         public void LoadNamhoc()
@@ -116,11 +129,11 @@ namespace QLHSBanTru2018_Demo_V1.QLThuChi
             }
             else
             {
-                if (cbbHocky.Text=="")
+                if (cbbHocky.Text!="")
                 {
                     try
                     {
-
+                        // thêm đợt thu
                         ReceivableIDAO rb = new ReceivableIDAO();
                         ReceivableDetailDAO rbd = new ReceivableDetailDAO();
                         Receivable rbdt = new Receivable();
@@ -130,8 +143,10 @@ namespace QLHSBanTru2018_Demo_V1.QLThuChi
                         rbdt.StartDate = dtNgaybatdau.Value;
                         rbdt.EndDate = dtNgayketthuc.Value;
                         rbdt.CreatedDate = dtNgaykhoitao.Value;
+                        rbdt.Note = txtGhiChu.Text;
                         rbdt.Status = false;
                         int c = rb.Insert(rbdt);
+                        // thêm khoản thu
                         if (c != 0)
                         {
                             ReceivableDetail detail = new ReceivableDetail();
@@ -145,29 +160,31 @@ namespace QLHSBanTru2018_Demo_V1.QLThuChi
                                 detail.Frequency = (int)gridView1.GetRowCellValue(i, gridView1.Columns["Frequency"]);
                                 detail.TotalPriceDetail = (decimal)gridView1.GetRowCellValue(i, gridView1.Columns["TotalPriceDetail"]);
                                 detail.GradeID = (int)gridView1.GetRowCellValue(i, gridView1.Columns["GradeID"]);
+                                detail.Feedback = (bool)gridView1.GetRowCellValue(i, gridView1.Columns["Feedback"]);
                                 detail.PreferredID = gridView1.GetRowCellValue(i, gridView1.Columns["PreferredID"]).ToString();
                                 int d = rbd.Insert(detail);
                                 if (d != 0)
                                 {
-                                    //MessageBox.Show("" + d + "");
+                                    //thêm khoản thu học cho học sinh theo lớp hiện hành
                                     StudenGrade gr = new StudenGrade();
                                     ReceivableDetail_StudentDAO st = new ReceivableDetail_StudentDAO();
                                     List<Student_Class> listClassID = gr.lookStudenbyGradeID((int)detail.GradeID);
-                                    //int dem = listClassID.Count;
-                                    //MessageBox.Show("" + dem + "");
                                     foreach (var j in listClassID)
                                     {
-                                        ReceivableDetail_Student dt = new ReceivableDetail_Student();
-                                        dt.ReceivableDetailID = d;
-                                        dt.StudentID = j.StudentID;
-                                        dt.Status = false;
-                                        if (st.Insert(dt) == true)
+                                        if (j.Status==true)
                                         {
+                                            ReceivableDetail_Student dt = new ReceivableDetail_Student();
+                                            dt.ReceivableDetailID = d;
+                                            dt.StudentID = j.StudentID;
+                                            dt.Status = false;
+                                            if (st.Insert(dt) == true)
+                                            {
 
-                                        }
-                                        else
-                                        {
-                                            MessageBox.Show("ban gi bi loi");
+                                            }
+                                            else
+                                            {
+                                                MessageBox.Show("ban gi bi loi");
+                                            }
                                         }
                                     }
 
@@ -208,6 +225,7 @@ namespace QLHSBanTru2018_Demo_V1.QLThuChi
                 a.Frequency = int.Parse(gridView1.GetRowCellValue(e.FocusedRowHandle, "Frequency").ToString());
                 a.TotalPriceDetail = decimal.Parse(gridView1.GetRowCellValue(e.FocusedRowHandle, "TotalPriceDetail").ToString());
                 a.GradeID = (int)gridView1.GetRowCellValue(e.FocusedRowHandle, "GradeID");
+                a.Feedback = (bool)gridView1.GetRowCellValue(e.FocusedRowHandle, "Feedback");
                 a.PreferredID = gridView1.GetRowCellValue(e.FocusedRowHandle, "PreferredID").ToString();
                 PreferredDAO.PreferredIDList = gridView1.GetRowCellValue(e.FocusedRowHandle, "PreferredID").ToString();
                 ReceivableDetailDAO.DemoReceibavleDetail = a;

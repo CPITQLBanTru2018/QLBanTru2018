@@ -43,17 +43,30 @@ namespace QLHSBanTru2018_Demo_V1.QLThuChi.DotThu.MienGiam
                 try
                 {
                     Preferred a = new Preferred();
+                    a.PreferredID=(int)gridView1.GetRowCellValue(i, gridView1.Columns["PreferredID"]);
                     a.Name = gridView1.GetRowCellValue(i, gridView1.Columns["Name"]).ToString();
                     a.Status =bool.Parse(gridView1.GetRowCellValue(i, gridView1.Columns["Status"]).ToString());
                     a.Percent = float.Parse(gridView1.GetRowCellValue(i, gridView1.Columns["Percent"]).ToString());
-                    dt.Edit(a);
+                    if (dt.Edit(a)==true)
+                    {
+                       
+                        
+                    }
+                    else
+                    {
+                        MessageBox.Show("Bản ghi "+i+" lỗi");
+                        break;
+                        
+                    }
                 }
                 catch 
                 {
 
                     
                 }
+               
             }
+            this.Close();
         }
 
         private void gridView1_RowCellStyle(object sender, DevExpress.XtraGrid.Views.Grid.RowCellStyleEventArgs e)
