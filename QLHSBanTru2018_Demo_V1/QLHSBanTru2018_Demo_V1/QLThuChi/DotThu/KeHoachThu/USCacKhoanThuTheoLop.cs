@@ -33,22 +33,21 @@ namespace QLHSBanTru2018_Demo_V1.QLThuChi
         public void LoadHocky()
         {
             studentReceivableDAO dt = new studentReceivableDAO();
-            cbbHocky.DataSource = dt.ListSemester();
+            cbbHocky.DataSource = dt.ListSemesterByID((int)cbbNamhoc.SelectedValue);
             cbbHocky.ValueMember = "SemesterID";
             cbbHocky.DisplayMember = "Name";
         }
         public void LoadKhoihoc()
         {
             studentReceivableDAO dt = new studentReceivableDAO();
-            cbbKhoihoc.DataSource = dt.ListGrade();
+            cbbKhoihoc.DataSource = dt.ListGradeByID((int)cbbHocky.SelectedValue);
             cbbKhoihoc.ValueMember = "GradeID";
             cbbKhoihoc.DisplayMember = "Name";
         }
         public void LoadLophoc()
         {
             studentReceivableDAO dt = new studentReceivableDAO();
-            //grDanhSachLopHoc.DataSource = dt.ListClass();
-            cbbLophoc.DataSource = dt.ListClass();
+            cbbLophoc.DataSource = dt.ListClassByID((int)cbbKhoihoc.SelectedValue);
             cbbLophoc.ValueMember = "ClassID";
             cbbLophoc.DisplayMember = "Name";
         }
@@ -59,20 +58,24 @@ namespace QLHSBanTru2018_Demo_V1.QLThuChi
             cbbDotthu.ValueMember = "ReceivableID";
             cbbDotthu.DisplayMember = "Name";
         }
-      
+        public void loadDSHS()
+        {
+            ClassStudentDAO dt = new ClassStudentDAO();
+            grDanhSachHocSinh.DataSource = dt.listviewSD((int)cbbLophoc.SelectedValue,(int)cbbDotthu.SelectedValue);
+        }
+
         private void USCacKhoanThuTheoLop_Load(object sender, EventArgs e)
         {
             try
             {
-                //laodDotthu();
-                LoadNamhoc();
-                studentReceivableDAO.CourseID = (int)cbbNamhoc.SelectedValue;
+                
+                LoadNamhoc();                
                 LoadHocky();
-                studentReceivableDAO.SemesterID = (int)cbbHocky.SelectedValue;
-                LoadKhoihoc();
-                studentReceivableDAO.GradeID = (int)cbbKhoihoc.SelectedValue;
+                laodDotthu();
+                LoadKhoihoc();             
                 LoadLophoc();
-                //loadDSHS();
+                loadDSHS();
+                ReceivableIDAO.ReceivableID = (int)cbbDotthu.SelectedValue;
             }
             catch 
             {
@@ -86,13 +89,11 @@ namespace QLHSBanTru2018_Demo_V1.QLThuChi
         {
             try
             {
-                studentReceivableDAO.CourseID = (int)cbbNamhoc.SelectedValue;
                 LoadHocky();
-                studentReceivableDAO.SemesterID = (int)cbbHocky.SelectedValue;
+                laodDotthu();
                 LoadKhoihoc();
-                studentReceivableDAO.GradeID = (int)cbbKhoihoc.SelectedValue;
                 LoadLophoc();
-                //loadDSHS();
+                loadDSHS();
             }
             catch 
             {
@@ -106,11 +107,9 @@ namespace QLHSBanTru2018_Demo_V1.QLThuChi
             try
             {
                 laodDotthu();
-                studentReceivableDAO.SemesterID = (int)cbbHocky.SelectedValue;
                 LoadKhoihoc();
-                studentReceivableDAO.GradeID = (int)cbbKhoihoc.SelectedValue;
                 LoadLophoc();
-                //loadDSHS();
+                loadDSHS();
             }
             catch 
             {
@@ -123,7 +122,7 @@ namespace QLHSBanTru2018_Demo_V1.QLThuChi
         {
             try
             {
-                studentReceivableDAO.GradeID = (int)cbbKhoihoc.SelectedValue;
+                LoadKhoihoc();
                 LoadLophoc();
                 loadDSHS();
                 this.Refresh();
@@ -134,11 +133,7 @@ namespace QLHSBanTru2018_Demo_V1.QLThuChi
                 
             }
         }
-        public void loadDSHS()
-        {
-            ClassStudentDAO dt = new ClassStudentDAO();
-            grDanhSachHocSinh.DataSource = dt.listviewSD((int)cbbLophoc.SelectedValue);
-        }
+       
         private void cbbLophoc_SelectionChangeCommitted(object sender, EventArgs e)
         {
             //studentReceivableDAO.ClassID = (int)cbbDotthu.SelectedValue;

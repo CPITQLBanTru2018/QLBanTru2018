@@ -61,6 +61,7 @@
             this.bntCackhoanchi = new DevExpress.XtraBars.BarButtonItem();
             this.btnLoaichi = new DevExpress.XtraBars.BarButtonItem();
             this.btnDanhMucChiTieu = new DevExpress.XtraBars.BarButtonItem();
+            this.btnDoituongchinhsach = new DevExpress.XtraBars.BarButtonItem();
             this.ribbonPage1 = new DevExpress.XtraBars.Ribbon.RibbonPage();
             this.ribbonPageGroup1 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             this.ribbonPageGroup2 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
@@ -78,7 +79,8 @@
             this.ribbonStatusBar = new DevExpress.XtraBars.Ribbon.RibbonStatusBar();
             this.defaultLookAndFeel1 = new DevExpress.LookAndFeel.DefaultLookAndFeel(this.components);
             this.pnControlsPanel = new System.Windows.Forms.Panel();
-            this.btnDoituongchinhsach = new DevExpress.XtraBars.BarButtonItem();
+            this.ribbonPageGroup11 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
+            this.btnDishManager = new DevExpress.XtraBars.BarButtonItem();
             ((System.ComponentModel.ISupportInitialize)(this.ribbon)).BeginInit();
             this.SuspendLayout();
             // 
@@ -117,16 +119,17 @@
             this.bntCackhoanchi,
             this.btnLoaichi,
             this.btnDanhMucChiTieu,
-            this.btnDoituongchinhsach});
+            this.btnDoituongchinhsach,
+            this.btnDishManager});
             this.ribbon.Location = new System.Drawing.Point(0, 0);
-            this.ribbon.MaxItemId = 32;
+            this.ribbon.MaxItemId = 33;
             this.ribbon.Name = "ribbon";
             this.ribbon.Pages.AddRange(new DevExpress.XtraBars.Ribbon.RibbonPage[] {
             this.ribbonPage1,
             this.ribbonPage4,
             this.ribbonPage2,
             this.ribbonPage3});
-            this.ribbon.Size = new System.Drawing.Size(798, 146);
+            this.ribbon.Size = new System.Drawing.Size(1364, 146);
             this.ribbon.StatusBar = this.ribbonStatusBar;
             // 
             // btnDepartment
@@ -394,6 +397,15 @@
             this.btnDanhMucChiTieu.Name = "btnDanhMucChiTieu";
             this.btnDanhMucChiTieu.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.btnDanhMucChiTieu_ItemClick);
             // 
+            // btnDoituongchinhsach
+            // 
+            this.btnDoituongchinhsach.Caption = "Đối tượng chính sách";
+            this.btnDoituongchinhsach.Id = 31;
+            this.btnDoituongchinhsach.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("btnDoituongchinhsach.ImageOptions.Image")));
+            this.btnDoituongchinhsach.ImageOptions.LargeImage = ((System.Drawing.Image)(resources.GetObject("btnDoituongchinhsach.ImageOptions.LargeImage")));
+            this.btnDoituongchinhsach.Name = "btnDoituongchinhsach";
+            this.btnDoituongchinhsach.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.btnDoituongchinhsach_ItemClick);
+            // 
             // ribbonPage1
             // 
             this.ribbonPage1.Groups.AddRange(new DevExpress.XtraBars.Ribbon.RibbonPageGroup[] {
@@ -443,7 +455,8 @@
             // ribbonPage4
             // 
             this.ribbonPage4.Groups.AddRange(new DevExpress.XtraBars.Ribbon.RibbonPageGroup[] {
-            this.ribbonPageGroup9});
+            this.ribbonPageGroup9,
+            this.ribbonPageGroup11});
             this.ribbonPage4.Name = "ribbonPage4";
             this.ribbonPage4.Text = "Thực Phẩm - Dinh Dưỡng";
             // 
@@ -506,10 +519,10 @@
             // 
             this.ribbonStatusBar.ItemLinks.Add(this.labNameLogin);
             this.ribbonStatusBar.ItemLinks.Add(this.labTitle);
-            this.ribbonStatusBar.Location = new System.Drawing.Point(0, 578);
+            this.ribbonStatusBar.Location = new System.Drawing.Point(0, 746);
             this.ribbonStatusBar.Name = "ribbonStatusBar";
             this.ribbonStatusBar.Ribbon = this.ribbon;
-            this.ribbonStatusBar.Size = new System.Drawing.Size(798, 21);
+            this.ribbonStatusBar.Size = new System.Drawing.Size(1364, 21);
             // 
             // defaultLookAndFeel1
             // 
@@ -520,23 +533,29 @@
             this.pnControlsPanel.Dock = System.Windows.Forms.DockStyle.Fill;
             this.pnControlsPanel.Location = new System.Drawing.Point(0, 146);
             this.pnControlsPanel.Name = "pnControlsPanel";
-            this.pnControlsPanel.Size = new System.Drawing.Size(798, 432);
+            this.pnControlsPanel.Size = new System.Drawing.Size(1364, 600);
             this.pnControlsPanel.TabIndex = 3;
             // 
-            // btnDoituongchinhsach
+            // ribbonPageGroup11
             // 
-            this.btnDoituongchinhsach.Caption = "Đối tượng chính sách";
-            this.btnDoituongchinhsach.Id = 31;
-            this.btnDoituongchinhsach.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("btnDoituongchinhsach.ImageOptions.Image")));
-            this.btnDoituongchinhsach.ImageOptions.LargeImage = ((System.Drawing.Image)(resources.GetObject("btnDoituongchinhsach.ImageOptions.LargeImage")));
-            this.btnDoituongchinhsach.Name = "btnDoituongchinhsach";
-            this.btnDoituongchinhsach.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.btnDoituongchinhsach_ItemClick);
+            this.ribbonPageGroup11.ItemLinks.Add(this.btnDishManager);
+            this.ribbonPageGroup11.Name = "ribbonPageGroup11";
+            this.ribbonPageGroup11.Text = "Món Ăn";
+            // 
+            // btnDishManager
+            // 
+            this.btnDishManager.Caption = "Quản Lý Món Ăn";
+            this.btnDishManager.Id = 32;
+            this.btnDishManager.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("barButtonItem3.ImageOptions.Image")));
+            this.btnDishManager.ImageOptions.LargeImage = ((System.Drawing.Image)(resources.GetObject("barButtonItem3.ImageOptions.LargeImage")));
+            this.btnDishManager.Name = "btnDishManager";
+            this.btnDishManager.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.btnDishManager_ItemClick);
             // 
             // frmMain
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(798, 599);
+            this.ClientSize = new System.Drawing.Size(1364, 767);
             this.Controls.Add(this.pnControlsPanel);
             this.Controls.Add(this.ribbonStatusBar);
             this.Controls.Add(this.ribbon);
@@ -559,7 +578,6 @@
         private DevExpress.XtraBars.Ribbon.RibbonStatusBar ribbonStatusBar;
         private DevExpress.LookAndFeel.DefaultLookAndFeel defaultLookAndFeel1;
         private DevExpress.XtraBars.BarButtonItem btnDepartment;
-        private System.Windows.Forms.Panel pnControlsPanel;
         private DevExpress.XtraBars.BarButtonItem btnEmployeeManager;
         private DevExpress.XtraBars.Ribbon.RibbonPageGroup ribbonPageGroup2;
         private DevExpress.XtraBars.BarButtonItem btnPosition;
@@ -583,7 +601,6 @@
         private DevExpress.XtraBars.Ribbon.RibbonPageGroup ribbonPageGroup8;
         private DevExpress.XtraBars.BarButtonItem btnWorkProgress;
         private DevExpress.XtraBars.BarStaticItem labNameLogin;
-        private DevExpress.XtraBars.BarStaticItem labTitle;
         private DevExpress.XtraBars.BarButtonItem btnIngredientType;
         private DevExpress.XtraBars.Ribbon.RibbonPage ribbonPage4;
         private DevExpress.XtraBars.Ribbon.RibbonPageGroup ribbonPageGroup9;
@@ -602,5 +619,9 @@
         private DevExpress.XtraBars.Ribbon.RibbonPageGroup ribbonPageGroup10;
         private DevExpress.XtraBars.BarButtonItem btnDanhMucChiTieu;
         private DevExpress.XtraBars.BarButtonItem btnDoituongchinhsach;
+        public System.Windows.Forms.Panel pnControlsPanel;
+        public DevExpress.XtraBars.BarStaticItem labTitle;
+        private DevExpress.XtraBars.BarButtonItem btnDishManager;
+        private DevExpress.XtraBars.Ribbon.RibbonPageGroup ribbonPageGroup11;
     }
 }

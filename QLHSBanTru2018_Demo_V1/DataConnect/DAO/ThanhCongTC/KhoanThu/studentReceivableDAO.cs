@@ -34,14 +34,14 @@ namespace DataConnect.DAO.ThanhCongTC
             var a = dt.Semesters.Where(t => t.CourseID == CourseID).OrderByDescending(t => t.SemesterID);
             return a.ToList();
         }
-        public List<Grade> ListGrade()
+        public List<Grade> ListGradeByID(int Mahocky)
         {
-            var a = dt.Grades.Where(t => t.SemesterID == studentReceivableDAO.SemesterID);
+            var a = dt.Grades.Where(t => t.SemesterID == Mahocky);
             return a.ToList();
         }
-        public List<Class> ListClass()
+        public List<Class> ListClassByID(int Makhoi)
         {
-            var a = dt.Classes.Where(t => t.GradeID == GradeID);
+            var a = dt.Classes.Where(t => t.GradeID == Makhoi);
             return a.ToList();
         }
         

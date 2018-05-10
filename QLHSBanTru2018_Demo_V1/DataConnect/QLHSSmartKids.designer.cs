@@ -60,9 +60,6 @@ namespace DataConnect
     partial void InsertDepartment(Department instance);
     partial void UpdateDepartment(Department instance);
     partial void DeleteDepartment(Department instance);
-    partial void InsertDish(Dish instance);
-    partial void UpdateDish(Dish instance);
-    partial void DeleteDish(Dish instance);
     partial void InsertDishDetail(DishDetail instance);
     partial void UpdateDishDetail(DishDetail instance);
     partial void DeleteDishDetail(DishDetail instance);
@@ -132,12 +129,21 @@ namespace DataConnect
     partial void InsertOrderDetail(OrderDetail instance);
     partial void UpdateOrderDetail(OrderDetail instance);
     partial void DeleteOrderDetail(OrderDetail instance);
+    partial void InsertPhysicalAssessment(PhysicalAssessment instance);
+    partial void UpdatePhysicalAssessment(PhysicalAssessment instance);
+    partial void DeletePhysicalAssessment(PhysicalAssessment instance);
+    partial void InsertPhysicalAssessmentDetail(PhysicalAssessmentDetail instance);
+    partial void UpdatePhysicalAssessmentDetail(PhysicalAssessmentDetail instance);
+    partial void DeletePhysicalAssessmentDetail(PhysicalAssessmentDetail instance);
     partial void InsertPhysicalMonthlyTask(PhysicalMonthlyTask instance);
     partial void UpdatePhysicalMonthlyTask(PhysicalMonthlyTask instance);
     partial void DeletePhysicalMonthlyTask(PhysicalMonthlyTask instance);
     partial void InsertPosition(Position instance);
     partial void UpdatePosition(Position instance);
     partial void DeletePosition(Position instance);
+    partial void InsertPreferred(Preferred instance);
+    partial void UpdatePreferred(Preferred instance);
+    partial void DeletePreferred(Preferred instance);
     partial void InsertReceivable(Receivable instance);
     partial void UpdateReceivable(Receivable instance);
     partial void DeleteReceivable(Receivable instance);
@@ -153,6 +159,9 @@ namespace DataConnect
     partial void InsertSemester(Semester instance);
     partial void UpdateSemester(Semester instance);
     partial void DeleteSemester(Semester instance);
+    partial void InsertSpendSpecy(SpendSpecy instance);
+    partial void UpdateSpendSpecy(SpendSpecy instance);
+    partial void DeleteSpendSpecy(SpendSpecy instance);
     partial void InsertStudent(Student instance);
     partial void UpdateStudent(Student instance);
     partial void DeleteStudent(Student instance);
@@ -177,18 +186,9 @@ namespace DataConnect
     partial void InsertWeeklyMenu(WeeklyMenu instance);
     partial void UpdateWeeklyMenu(WeeklyMenu instance);
     partial void DeleteWeeklyMenu(WeeklyMenu instance);
-    partial void InsertSpendSpecy(SpendSpecy instance);
-    partial void UpdateSpendSpecy(SpendSpecy instance);
-    partial void DeleteSpendSpecy(SpendSpecy instance);
-    partial void InsertPreferred(Preferred instance);
-    partial void UpdatePreferred(Preferred instance);
-    partial void DeletePreferred(Preferred instance);
-    partial void InsertPhysicalAssessment(PhysicalAssessment instance);
-    partial void UpdatePhysicalAssessment(PhysicalAssessment instance);
-    partial void DeletePhysicalAssessment(PhysicalAssessment instance);
-    partial void InsertPhysicalAssessmentDetail(PhysicalAssessmentDetail instance);
-    partial void UpdatePhysicalAssessmentDetail(PhysicalAssessmentDetail instance);
-    partial void DeletePhysicalAssessmentDetail(PhysicalAssessmentDetail instance);
+    partial void InsertDish(Dish instance);
+    partial void UpdateDish(Dish instance);
+    partial void DeleteDish(Dish instance);
     #endregion
 		
 		public QLHSSmartKidsDataContext() : 
@@ -298,14 +298,6 @@ namespace DataConnect
 			get
 			{
 				return this.GetTable<Department>();
-			}
-		}
-		
-		public System.Data.Linq.Table<Dish> Dishes
-		{
-			get
-			{
-				return this.GetTable<Dish>();
 			}
 		}
 		
@@ -493,6 +485,22 @@ namespace DataConnect
 			}
 		}
 		
+		public System.Data.Linq.Table<PhysicalAssessment> PhysicalAssessments
+		{
+			get
+			{
+				return this.GetTable<PhysicalAssessment>();
+			}
+		}
+		
+		public System.Data.Linq.Table<PhysicalAssessmentDetail> PhysicalAssessmentDetails
+		{
+			get
+			{
+				return this.GetTable<PhysicalAssessmentDetail>();
+			}
+		}
+		
 		public System.Data.Linq.Table<PhysicalMonthlyTask> PhysicalMonthlyTasks
 		{
 			get
@@ -506,6 +514,14 @@ namespace DataConnect
 			get
 			{
 				return this.GetTable<Position>();
+			}
+		}
+		
+		public System.Data.Linq.Table<Preferred> Preferreds
+		{
+			get
+			{
+				return this.GetTable<Preferred>();
 			}
 		}
 		
@@ -546,6 +562,14 @@ namespace DataConnect
 			get
 			{
 				return this.GetTable<Semester>();
+			}
+		}
+		
+		public System.Data.Linq.Table<SpendSpecy> SpendSpecies
+		{
+			get
+			{
+				return this.GetTable<SpendSpecy>();
 			}
 		}
 		
@@ -613,35 +637,11 @@ namespace DataConnect
 			}
 		}
 		
-		public System.Data.Linq.Table<SpendSpecy> SpendSpecies
+		public System.Data.Linq.Table<Dish> Dishes
 		{
 			get
 			{
-				return this.GetTable<SpendSpecy>();
-			}
-		}
-		
-		public System.Data.Linq.Table<Preferred> Preferreds
-		{
-			get
-			{
-				return this.GetTable<Preferred>();
-			}
-		}
-		
-		public System.Data.Linq.Table<PhysicalAssessment> PhysicalAssessments
-		{
-			get
-			{
-				return this.GetTable<PhysicalAssessment>();
-			}
-		}
-		
-		public System.Data.Linq.Table<PhysicalAssessmentDetail> PhysicalAssessmentDetails
-		{
-			get
-			{
-				return this.GetTable<PhysicalAssessmentDetail>();
+				return this.GetTable<Dish>();
 			}
 		}
 	}
@@ -883,9 +883,13 @@ namespace DataConnect
 		
 		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
 		
+		private int _Number;
+		
+		private int _StudentID;
+		
 		private int _WeeklyTaskID;
 		
-		private int _MonthlyTaskID;
+		private string _MonthlyTaskID;
 		
 		private System.Nullable<int> _Allowed;
 		
@@ -895,15 +899,21 @@ namespace DataConnect
 		
 		private string _Comment;
 		
-		private string _Page;
+		private string _Pages;
+		
+		private EntityRef<Student> _Student;
 		
     #region Extensibility Method Definitions
     partial void OnLoaded();
     partial void OnValidate(System.Data.Linq.ChangeAction action);
     partial void OnCreated();
+    partial void OnNumberChanging(int value);
+    partial void OnNumberChanged();
+    partial void OnStudentIDChanging(int value);
+    partial void OnStudentIDChanged();
     partial void OnWeeklyTaskIDChanging(int value);
     partial void OnWeeklyTaskIDChanged();
-    partial void OnMonthlyTaskIDChanging(int value);
+    partial void OnMonthlyTaskIDChanging(string value);
     partial void OnMonthlyTaskIDChanged();
     partial void OnAllowedChanging(System.Nullable<int> value);
     partial void OnAllowedChanged();
@@ -913,16 +923,61 @@ namespace DataConnect
     partial void OnTotalChanged();
     partial void OnCommentChanging(string value);
     partial void OnCommentChanged();
-    partial void OnPageChanging(string value);
-    partial void OnPageChanged();
+    partial void OnPagesChanging(string value);
+    partial void OnPagesChanged();
     #endregion
 		
 		public WeeklyTask()
 		{
+			this._Student = default(EntityRef<Student>);
 			OnCreated();
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_WeeklyTaskID", DbType="Int NOT NULL", IsPrimaryKey=true)]
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Number", AutoSync=AutoSync.OnInsert, DbType="Int NOT NULL IDENTITY", IsPrimaryKey=true, IsDbGenerated=true)]
+		public int Number
+		{
+			get
+			{
+				return this._Number;
+			}
+			set
+			{
+				if ((this._Number != value))
+				{
+					this.OnNumberChanging(value);
+					this.SendPropertyChanging();
+					this._Number = value;
+					this.SendPropertyChanged("Number");
+					this.OnNumberChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_StudentID", DbType="Int NOT NULL")]
+		public int StudentID
+		{
+			get
+			{
+				return this._StudentID;
+			}
+			set
+			{
+				if ((this._StudentID != value))
+				{
+					if (this._Student.HasLoadedOrAssignedValue)
+					{
+						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
+					}
+					this.OnStudentIDChanging(value);
+					this.SendPropertyChanging();
+					this._StudentID = value;
+					this.SendPropertyChanged("StudentID");
+					this.OnStudentIDChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_WeeklyTaskID", DbType="Int NOT NULL")]
 		public int WeeklyTaskID
 		{
 			get
@@ -942,8 +997,8 @@ namespace DataConnect
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_MonthlyTaskID", DbType="Int NOT NULL")]
-		public int MonthlyTaskID
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_MonthlyTaskID", DbType="NChar(20) NOT NULL", CanBeNull=false)]
+		public string MonthlyTaskID
 		{
 			get
 			{
@@ -1042,22 +1097,56 @@ namespace DataConnect
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Page", DbType="NChar(10)")]
-		public string Page
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Pages", DbType="NChar(10)")]
+		public string Pages
 		{
 			get
 			{
-				return this._Page;
+				return this._Pages;
 			}
 			set
 			{
-				if ((this._Page != value))
+				if ((this._Pages != value))
 				{
-					this.OnPageChanging(value);
+					this.OnPagesChanging(value);
 					this.SendPropertyChanging();
-					this._Page = value;
-					this.SendPropertyChanged("Page");
-					this.OnPageChanged();
+					this._Pages = value;
+					this.SendPropertyChanged("Pages");
+					this.OnPagesChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Student_WeeklyTask", Storage="_Student", ThisKey="StudentID", OtherKey="StudentID", IsForeignKey=true)]
+		public Student Student
+		{
+			get
+			{
+				return this._Student.Entity;
+			}
+			set
+			{
+				Student previousValue = this._Student.Entity;
+				if (((previousValue != value) 
+							|| (this._Student.HasLoadedOrAssignedValue == false)))
+				{
+					this.SendPropertyChanging();
+					if ((previousValue != null))
+					{
+						this._Student.Entity = null;
+						previousValue.WeeklyTasks.Remove(this);
+					}
+					this._Student.Entity = value;
+					if ((value != null))
+					{
+						value.WeeklyTasks.Add(this);
+						this._StudentID = value.StudentID;
+					}
+					else
+					{
+						this._StudentID = default(int);
+					}
+					this.SendPropertyChanged("Student");
 				}
 			}
 		}
@@ -1509,6 +1598,8 @@ namespace DataConnect
 		
 		private EntitySet<CourseTask> _CourseTasks;
 		
+		private EntitySet<Invoice> _Invoices;
+		
 		private EntitySet<Semester> _Semesters;
 		
     #region Extensibility Method Definitions
@@ -1530,6 +1621,7 @@ namespace DataConnect
 		public Course()
 		{
 			this._CourseTasks = new EntitySet<CourseTask>(new Action<CourseTask>(this.attach_CourseTasks), new Action<CourseTask>(this.detach_CourseTasks));
+			this._Invoices = new EntitySet<Invoice>(new Action<Invoice>(this.attach_Invoices), new Action<Invoice>(this.detach_Invoices));
 			this._Semesters = new EntitySet<Semester>(new Action<Semester>(this.attach_Semesters), new Action<Semester>(this.detach_Semesters));
 			OnCreated();
 		}
@@ -1647,6 +1739,19 @@ namespace DataConnect
 			}
 		}
 		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Course_Invoice", Storage="_Invoices", ThisKey="CourseID", OtherKey="CourseID")]
+		public EntitySet<Invoice> Invoices
+		{
+			get
+			{
+				return this._Invoices;
+			}
+			set
+			{
+				this._Invoices.Assign(value);
+			}
+		}
+		
 		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Course_Semester", Storage="_Semesters", ThisKey="CourseID", OtherKey="CourseID")]
 		public EntitySet<Semester> Semesters
 		{
@@ -1687,6 +1792,18 @@ namespace DataConnect
 		}
 		
 		private void detach_CourseTasks(CourseTask entity)
+		{
+			this.SendPropertyChanging();
+			entity.Course = null;
+		}
+		
+		private void attach_Invoices(Invoice entity)
+		{
+			this.SendPropertyChanging();
+			entity.Course = this;
+		}
+		
+		private void detach_Invoices(Invoice entity)
 		{
 			this.SendPropertyChanging();
 			entity.Course = null;
@@ -2276,8 +2393,6 @@ namespace DataConnect
 		
 		private int _DailyMenuID;
 		
-		private int _MealID;
-		
 		private int _DishID;
 		
 		private bool _Status;
@@ -2286,16 +2401,12 @@ namespace DataConnect
 		
 		private EntityRef<Dish> _Dish;
 		
-		private EntityRef<Meal> _Meal;
-		
     #region Extensibility Method Definitions
     partial void OnLoaded();
     partial void OnValidate(System.Data.Linq.ChangeAction action);
     partial void OnCreated();
     partial void OnDailyMenuIDChanging(int value);
     partial void OnDailyMenuIDChanged();
-    partial void OnMealIDChanging(int value);
-    partial void OnMealIDChanged();
     partial void OnDishIDChanging(int value);
     partial void OnDishIDChanged();
     partial void OnStatusChanging(bool value);
@@ -2306,7 +2417,6 @@ namespace DataConnect
 		{
 			this._DailyMenu = default(EntityRef<DailyMenu>);
 			this._Dish = default(EntityRef<Dish>);
-			this._Meal = default(EntityRef<Meal>);
 			OnCreated();
 		}
 		
@@ -2330,30 +2440,6 @@ namespace DataConnect
 					this._DailyMenuID = value;
 					this.SendPropertyChanged("DailyMenuID");
 					this.OnDailyMenuIDChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_MealID", DbType="Int NOT NULL", IsPrimaryKey=true)]
-		public int MealID
-		{
-			get
-			{
-				return this._MealID;
-			}
-			set
-			{
-				if ((this._MealID != value))
-				{
-					if (this._Meal.HasLoadedOrAssignedValue)
-					{
-						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
-					}
-					this.OnMealIDChanging(value);
-					this.SendPropertyChanging();
-					this._MealID = value;
-					this.SendPropertyChanged("MealID");
-					this.OnMealIDChanged();
 				}
 			}
 		}
@@ -2470,40 +2556,6 @@ namespace DataConnect
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Meal_DailyMenuDetail", Storage="_Meal", ThisKey="MealID", OtherKey="MealID", IsForeignKey=true)]
-		public Meal Meal
-		{
-			get
-			{
-				return this._Meal.Entity;
-			}
-			set
-			{
-				Meal previousValue = this._Meal.Entity;
-				if (((previousValue != value) 
-							|| (this._Meal.HasLoadedOrAssignedValue == false)))
-				{
-					this.SendPropertyChanging();
-					if ((previousValue != null))
-					{
-						this._Meal.Entity = null;
-						previousValue.DailyMenuDetails.Remove(this);
-					}
-					this._Meal.Entity = value;
-					if ((value != null))
-					{
-						value.DailyMenuDetails.Add(this);
-						this._MealID = value.MealID;
-					}
-					else
-					{
-						this._MealID = default(int);
-					}
-					this.SendPropertyChanged("Meal");
-				}
-			}
-		}
-		
 		public event PropertyChangingEventHandler PropertyChanging;
 		
 		public event PropertyChangedEventHandler PropertyChanged;
@@ -2545,6 +2597,16 @@ namespace DataConnect
 		
 		private string _Reason;
 		
+		private System.Nullable<int> _Allowed;
+		
+		private System.Nullable<int> _NotAllowed;
+		
+		private System.Nullable<int> _Total;
+		
+		private string _Comment;
+		
+		private string _Pages;
+		
 		private EntityRef<Student> _Student;
 		
     #region Extensibility Method Definitions
@@ -2565,6 +2627,16 @@ namespace DataConnect
     partial void OnPresentChanged();
     partial void OnReasonChanging(string value);
     partial void OnReasonChanged();
+    partial void OnAllowedChanging(System.Nullable<int> value);
+    partial void OnAllowedChanged();
+    partial void OnNotAllowedChanging(System.Nullable<int> value);
+    partial void OnNotAllowedChanged();
+    partial void OnTotalChanging(System.Nullable<int> value);
+    partial void OnTotalChanged();
+    partial void OnCommentChanging(string value);
+    partial void OnCommentChanged();
+    partial void OnPagesChanging(string value);
+    partial void OnPagesChanged();
     #endregion
 		
 		public DailyTask()
@@ -2713,6 +2785,106 @@ namespace DataConnect
 					this._Reason = value;
 					this.SendPropertyChanged("Reason");
 					this.OnReasonChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Allowed", DbType="Int")]
+		public System.Nullable<int> Allowed
+		{
+			get
+			{
+				return this._Allowed;
+			}
+			set
+			{
+				if ((this._Allowed != value))
+				{
+					this.OnAllowedChanging(value);
+					this.SendPropertyChanging();
+					this._Allowed = value;
+					this.SendPropertyChanged("Allowed");
+					this.OnAllowedChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_NotAllowed", DbType="Int")]
+		public System.Nullable<int> NotAllowed
+		{
+			get
+			{
+				return this._NotAllowed;
+			}
+			set
+			{
+				if ((this._NotAllowed != value))
+				{
+					this.OnNotAllowedChanging(value);
+					this.SendPropertyChanging();
+					this._NotAllowed = value;
+					this.SendPropertyChanged("NotAllowed");
+					this.OnNotAllowedChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Total", DbType="Int")]
+		public System.Nullable<int> Total
+		{
+			get
+			{
+				return this._Total;
+			}
+			set
+			{
+				if ((this._Total != value))
+				{
+					this.OnTotalChanging(value);
+					this.SendPropertyChanging();
+					this._Total = value;
+					this.SendPropertyChanged("Total");
+					this.OnTotalChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Comment", DbType="NVarChar(200)")]
+		public string Comment
+		{
+			get
+			{
+				return this._Comment;
+			}
+			set
+			{
+				if ((this._Comment != value))
+				{
+					this.OnCommentChanging(value);
+					this.SendPropertyChanging();
+					this._Comment = value;
+					this.SendPropertyChanged("Comment");
+					this.OnCommentChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Pages", DbType="NChar(10)")]
+		public string Pages
+		{
+			get
+			{
+				return this._Pages;
+			}
+			set
+			{
+				if ((this._Pages != value))
+				{
+					this.OnPagesChanging(value);
+					this.SendPropertyChanging();
+					this._Pages = value;
+					this.SendPropertyChanged("Pages");
+					this.OnPagesChanged();
 				}
 			}
 		}
@@ -3048,172 +3220,6 @@ namespace DataConnect
 		}
 	}
 	
-	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.Dish")]
-	public partial class Dish : INotifyPropertyChanging, INotifyPropertyChanged
-	{
-		
-		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
-		
-		private int _DishID;
-		
-		private string _Name;
-		
-		private bool _Status;
-		
-		private EntitySet<DailyMenuDetail> _DailyMenuDetails;
-		
-		private EntitySet<DishDetail> _DishDetails;
-		
-    #region Extensibility Method Definitions
-    partial void OnLoaded();
-    partial void OnValidate(System.Data.Linq.ChangeAction action);
-    partial void OnCreated();
-    partial void OnDishIDChanging(int value);
-    partial void OnDishIDChanged();
-    partial void OnNameChanging(string value);
-    partial void OnNameChanged();
-    partial void OnStatusChanging(bool value);
-    partial void OnStatusChanged();
-    #endregion
-		
-		public Dish()
-		{
-			this._DailyMenuDetails = new EntitySet<DailyMenuDetail>(new Action<DailyMenuDetail>(this.attach_DailyMenuDetails), new Action<DailyMenuDetail>(this.detach_DailyMenuDetails));
-			this._DishDetails = new EntitySet<DishDetail>(new Action<DishDetail>(this.attach_DishDetails), new Action<DishDetail>(this.detach_DishDetails));
-			OnCreated();
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_DishID", AutoSync=AutoSync.OnInsert, DbType="Int NOT NULL IDENTITY", IsPrimaryKey=true, IsDbGenerated=true)]
-		public int DishID
-		{
-			get
-			{
-				return this._DishID;
-			}
-			set
-			{
-				if ((this._DishID != value))
-				{
-					this.OnDishIDChanging(value);
-					this.SendPropertyChanging();
-					this._DishID = value;
-					this.SendPropertyChanged("DishID");
-					this.OnDishIDChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Name", DbType="NVarChar(50) NOT NULL", CanBeNull=false)]
-		public string Name
-		{
-			get
-			{
-				return this._Name;
-			}
-			set
-			{
-				if ((this._Name != value))
-				{
-					this.OnNameChanging(value);
-					this.SendPropertyChanging();
-					this._Name = value;
-					this.SendPropertyChanged("Name");
-					this.OnNameChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Status", DbType="Bit NOT NULL")]
-		public bool Status
-		{
-			get
-			{
-				return this._Status;
-			}
-			set
-			{
-				if ((this._Status != value))
-				{
-					this.OnStatusChanging(value);
-					this.SendPropertyChanging();
-					this._Status = value;
-					this.SendPropertyChanged("Status");
-					this.OnStatusChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Dish_DailyMenuDetail", Storage="_DailyMenuDetails", ThisKey="DishID", OtherKey="DishID")]
-		public EntitySet<DailyMenuDetail> DailyMenuDetails
-		{
-			get
-			{
-				return this._DailyMenuDetails;
-			}
-			set
-			{
-				this._DailyMenuDetails.Assign(value);
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Dish_DishDetail", Storage="_DishDetails", ThisKey="DishID", OtherKey="DishID")]
-		public EntitySet<DishDetail> DishDetails
-		{
-			get
-			{
-				return this._DishDetails;
-			}
-			set
-			{
-				this._DishDetails.Assign(value);
-			}
-		}
-		
-		public event PropertyChangingEventHandler PropertyChanging;
-		
-		public event PropertyChangedEventHandler PropertyChanged;
-		
-		protected virtual void SendPropertyChanging()
-		{
-			if ((this.PropertyChanging != null))
-			{
-				this.PropertyChanging(this, emptyChangingEventArgs);
-			}
-		}
-		
-		protected virtual void SendPropertyChanged(String propertyName)
-		{
-			if ((this.PropertyChanged != null))
-			{
-				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
-			}
-		}
-		
-		private void attach_DailyMenuDetails(DailyMenuDetail entity)
-		{
-			this.SendPropertyChanging();
-			entity.Dish = this;
-		}
-		
-		private void detach_DailyMenuDetails(DailyMenuDetail entity)
-		{
-			this.SendPropertyChanging();
-			entity.Dish = null;
-		}
-		
-		private void attach_DishDetails(DishDetail entity)
-		{
-			this.SendPropertyChanging();
-			entity.Dish = this;
-		}
-		
-		private void detach_DishDetails(DishDetail entity)
-		{
-			this.SendPropertyChanging();
-			entity.Dish = null;
-		}
-	}
-	
 	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.DishDetail")]
 	public partial class DishDetail : INotifyPropertyChanging, INotifyPropertyChanged
 	{
@@ -3230,9 +3236,9 @@ namespace DataConnect
 		
 		private bool _Status;
 		
-		private EntityRef<Dish> _Dish;
-		
 		private EntityRef<Ingredient> _Ingredient;
+		
+		private EntityRef<Dish> _Dish;
 		
     #region Extensibility Method Definitions
     partial void OnLoaded();
@@ -3252,8 +3258,8 @@ namespace DataConnect
 		
 		public DishDetail()
 		{
-			this._Dish = default(EntityRef<Dish>);
 			this._Ingredient = default(EntityRef<Ingredient>);
+			this._Dish = default(EntityRef<Dish>);
 			OnCreated();
 		}
 		
@@ -3365,40 +3371,6 @@ namespace DataConnect
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Dish_DishDetail", Storage="_Dish", ThisKey="DishID", OtherKey="DishID", IsForeignKey=true)]
-		public Dish Dish
-		{
-			get
-			{
-				return this._Dish.Entity;
-			}
-			set
-			{
-				Dish previousValue = this._Dish.Entity;
-				if (((previousValue != value) 
-							|| (this._Dish.HasLoadedOrAssignedValue == false)))
-				{
-					this.SendPropertyChanging();
-					if ((previousValue != null))
-					{
-						this._Dish.Entity = null;
-						previousValue.DishDetails.Remove(this);
-					}
-					this._Dish.Entity = value;
-					if ((value != null))
-					{
-						value.DishDetails.Add(this);
-						this._DishID = value.DishID;
-					}
-					else
-					{
-						this._DishID = default(int);
-					}
-					this.SendPropertyChanged("Dish");
-				}
-			}
-		}
-		
 		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Ingredient_DishDetail", Storage="_Ingredient", ThisKey="IngredientID", OtherKey="IngredientID", IsForeignKey=true)]
 		public Ingredient Ingredient
 		{
@@ -3429,6 +3401,40 @@ namespace DataConnect
 						this._IngredientID = default(int);
 					}
 					this.SendPropertyChanged("Ingredient");
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Dish_DishDetail", Storage="_Dish", ThisKey="DishID", OtherKey="DishID", IsForeignKey=true)]
+		public Dish Dish
+		{
+			get
+			{
+				return this._Dish.Entity;
+			}
+			set
+			{
+				Dish previousValue = this._Dish.Entity;
+				if (((previousValue != value) 
+							|| (this._Dish.HasLoadedOrAssignedValue == false)))
+				{
+					this.SendPropertyChanging();
+					if ((previousValue != null))
+					{
+						this._Dish.Entity = null;
+						previousValue.DishDetails.Remove(this);
+					}
+					this._Dish.Entity = value;
+					if ((value != null))
+					{
+						value.DishDetails.Add(this);
+						this._DishID = value.DishID;
+					}
+					else
+					{
+						this._DishID = default(int);
+					}
+					this.SendPropertyChanged("Dish");
 				}
 			}
 		}
@@ -6592,11 +6598,11 @@ namespace DataConnect
 		
 		private int _StudentID;
 		
-		private int _HealthInsurance;
+		private string _HealthInsurance;
 		
-		private int _Height;
+		private System.Nullable<int> _Height;
 		
-		private int _Weight;
+		private System.Nullable<int> _Weight;
 		
 		private string _Eyes;
 		
@@ -6620,7 +6626,7 @@ namespace DataConnect
 		
 		private string _Note;
 		
-		private double _Rating;
+		private string _Rating;
 		
 		private bool _Status;
 		
@@ -6638,11 +6644,11 @@ namespace DataConnect
     partial void OnHealthExaminationIDChanged();
     partial void OnStudentIDChanging(int value);
     partial void OnStudentIDChanged();
-    partial void OnHealthInsuranceChanging(int value);
+    partial void OnHealthInsuranceChanging(string value);
     partial void OnHealthInsuranceChanged();
-    partial void OnHeightChanging(int value);
+    partial void OnHeightChanging(System.Nullable<int> value);
     partial void OnHeightChanged();
-    partial void OnWeightChanging(int value);
+    partial void OnWeightChanging(System.Nullable<int> value);
     partial void OnWeightChanged();
     partial void OnEyesChanging(string value);
     partial void OnEyesChanged();
@@ -6666,7 +6672,7 @@ namespace DataConnect
     partial void OnOtherChanged();
     partial void OnNoteChanging(string value);
     partial void OnNoteChanged();
-    partial void OnRatingChanging(double value);
+    partial void OnRatingChanging(string value);
     partial void OnRatingChanged();
     partial void OnStatusChanging(bool value);
     partial void OnStatusChanged();
@@ -6747,8 +6753,8 @@ namespace DataConnect
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_HealthInsurance", DbType="Int NOT NULL")]
-		public int HealthInsurance
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_HealthInsurance", DbType="NVarChar(50)")]
+		public string HealthInsurance
 		{
 			get
 			{
@@ -6767,8 +6773,8 @@ namespace DataConnect
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Height", DbType="Int NOT NULL")]
-		public int Height
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Height", DbType="Int")]
+		public System.Nullable<int> Height
 		{
 			get
 			{
@@ -6787,8 +6793,8 @@ namespace DataConnect
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Weight", DbType="Int NOT NULL")]
-		public int Weight
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Weight", DbType="Int")]
+		public System.Nullable<int> Weight
 		{
 			get
 			{
@@ -6807,7 +6813,7 @@ namespace DataConnect
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Eyes", DbType="NVarChar(30) NOT NULL", CanBeNull=false)]
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Eyes", DbType="NVarChar(30)")]
 		public string Eyes
 		{
 			get
@@ -6827,7 +6833,7 @@ namespace DataConnect
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ENT", DbType="NVarChar(30) NOT NULL", CanBeNull=false)]
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ENT", DbType="NVarChar(30)")]
 		public string ENT
 		{
 			get
@@ -6847,7 +6853,7 @@ namespace DataConnect
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_InternalMedicine", DbType="NVarChar(30) NOT NULL", CanBeNull=false)]
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_InternalMedicine", DbType="NVarChar(30)")]
 		public string InternalMedicine
 		{
 			get
@@ -6867,7 +6873,7 @@ namespace DataConnect
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Oral", DbType="NVarChar(30) NOT NULL", CanBeNull=false)]
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Oral", DbType="NVarChar(30)")]
 		public string Oral
 		{
 			get
@@ -6887,7 +6893,7 @@ namespace DataConnect
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Surgery", DbType="NVarChar(30) NOT NULL", CanBeNull=false)]
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Surgery", DbType="NVarChar(30)")]
 		public string Surgery
 		{
 			get
@@ -6907,7 +6913,7 @@ namespace DataConnect
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Dermatology", DbType="NVarChar(30) NOT NULL", CanBeNull=false)]
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Dermatology", DbType="NVarChar(30)")]
 		public string Dermatology
 		{
 			get
@@ -6927,7 +6933,7 @@ namespace DataConnect
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_BoneMuscle", DbType="NVarChar(30) NOT NULL", CanBeNull=false)]
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_BoneMuscle", DbType="NVarChar(30)")]
 		public string BoneMuscle
 		{
 			get
@@ -6947,7 +6953,7 @@ namespace DataConnect
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Nerve", DbType="NVarChar(30) NOT NULL", CanBeNull=false)]
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Nerve", DbType="NVarChar(30)")]
 		public string Nerve
 		{
 			get
@@ -6967,7 +6973,7 @@ namespace DataConnect
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Endocrine", DbType="NVarChar(30) NOT NULL", CanBeNull=false)]
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Endocrine", DbType="NVarChar(30)")]
 		public string Endocrine
 		{
 			get
@@ -6987,7 +6993,7 @@ namespace DataConnect
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Other", DbType="NVarChar(200) NOT NULL", CanBeNull=false)]
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Other", DbType="NVarChar(200)")]
 		public string Other
 		{
 			get
@@ -7007,7 +7013,7 @@ namespace DataConnect
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Note", DbType="NVarChar(200) NOT NULL", CanBeNull=false)]
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Note", DbType="NVarChar(200)")]
 		public string Note
 		{
 			get
@@ -7027,8 +7033,8 @@ namespace DataConnect
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Rating", DbType="Float NOT NULL")]
-		public double Rating
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Rating", DbType="NVarChar(50)")]
+		public string Rating
 		{
 			get
 			{
@@ -8613,6 +8619,10 @@ namespace DataConnect
 		
 		private EntitySet<InvoiceDetail> _InvoiceDetails;
 		
+		private EntityRef<Course> _Course;
+		
+		private EntityRef<Semester> _Semester;
+		
 		private EntityRef<SpendSpecy> _SpendSpecy;
 		
     #region Extensibility Method Definitions
@@ -8648,6 +8658,8 @@ namespace DataConnect
 		public Invoice()
 		{
 			this._InvoiceDetails = new EntitySet<InvoiceDetail>(new Action<InvoiceDetail>(this.attach_InvoiceDetails), new Action<InvoiceDetail>(this.detach_InvoiceDetails));
+			this._Course = default(EntityRef<Course>);
+			this._Semester = default(EntityRef<Semester>);
 			this._SpendSpecy = default(EntityRef<SpendSpecy>);
 			OnCreated();
 		}
@@ -8683,6 +8695,10 @@ namespace DataConnect
 			{
 				if ((this._CourseID != value))
 				{
+					if (this._Course.HasLoadedOrAssignedValue)
+					{
+						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
+					}
 					this.OnCourseIDChanging(value);
 					this.SendPropertyChanging();
 					this._CourseID = value;
@@ -8703,6 +8719,10 @@ namespace DataConnect
 			{
 				if ((this._SemesterID != value))
 				{
+					if (this._Semester.HasLoadedOrAssignedValue)
+					{
+						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
+					}
 					this.OnSemesterIDChanging(value);
 					this.SendPropertyChanging();
 					this._SemesterID = value;
@@ -8906,6 +8926,74 @@ namespace DataConnect
 			set
 			{
 				this._InvoiceDetails.Assign(value);
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Course_Invoice", Storage="_Course", ThisKey="CourseID", OtherKey="CourseID", IsForeignKey=true)]
+		public Course Course
+		{
+			get
+			{
+				return this._Course.Entity;
+			}
+			set
+			{
+				Course previousValue = this._Course.Entity;
+				if (((previousValue != value) 
+							|| (this._Course.HasLoadedOrAssignedValue == false)))
+				{
+					this.SendPropertyChanging();
+					if ((previousValue != null))
+					{
+						this._Course.Entity = null;
+						previousValue.Invoices.Remove(this);
+					}
+					this._Course.Entity = value;
+					if ((value != null))
+					{
+						value.Invoices.Add(this);
+						this._CourseID = value.CourseID;
+					}
+					else
+					{
+						this._CourseID = default(Nullable<int>);
+					}
+					this.SendPropertyChanged("Course");
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Semester_Invoice", Storage="_Semester", ThisKey="SemesterID", OtherKey="SemesterID", IsForeignKey=true)]
+		public Semester Semester
+		{
+			get
+			{
+				return this._Semester.Entity;
+			}
+			set
+			{
+				Semester previousValue = this._Semester.Entity;
+				if (((previousValue != value) 
+							|| (this._Semester.HasLoadedOrAssignedValue == false)))
+				{
+					this.SendPropertyChanging();
+					if ((previousValue != null))
+					{
+						this._Semester.Entity = null;
+						previousValue.Invoices.Remove(this);
+					}
+					this._Semester.Entity = value;
+					if ((value != null))
+					{
+						value.Invoices.Add(this);
+						this._SemesterID = value.SemesterID;
+					}
+					else
+					{
+						this._SemesterID = default(Nullable<int>);
+					}
+					this.SendPropertyChanged("Semester");
+				}
 			}
 		}
 		
@@ -9794,7 +9882,7 @@ namespace DataConnect
 		
 		private bool _Status;
 		
-		private EntitySet<DailyMenuDetail> _DailyMenuDetails;
+		private EntitySet<Dish> _Dishes;
 		
     #region Extensibility Method Definitions
     partial void OnLoaded();
@@ -9812,7 +9900,7 @@ namespace DataConnect
 		
 		public Meal()
 		{
-			this._DailyMenuDetails = new EntitySet<DailyMenuDetail>(new Action<DailyMenuDetail>(this.attach_DailyMenuDetails), new Action<DailyMenuDetail>(this.detach_DailyMenuDetails));
+			this._Dishes = new EntitySet<Dish>(new Action<Dish>(this.attach_Dishes), new Action<Dish>(this.detach_Dishes));
 			OnCreated();
 		}
 		
@@ -9896,16 +9984,16 @@ namespace DataConnect
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Meal_DailyMenuDetail", Storage="_DailyMenuDetails", ThisKey="MealID", OtherKey="MealID")]
-		public EntitySet<DailyMenuDetail> DailyMenuDetails
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Meal_Dish", Storage="_Dishes", ThisKey="MealID", OtherKey="MealID")]
+		public EntitySet<Dish> Dishes
 		{
 			get
 			{
-				return this._DailyMenuDetails;
+				return this._Dishes;
 			}
 			set
 			{
-				this._DailyMenuDetails.Assign(value);
+				this._Dishes.Assign(value);
 			}
 		}
 		
@@ -9929,13 +10017,13 @@ namespace DataConnect
 			}
 		}
 		
-		private void attach_DailyMenuDetails(DailyMenuDetail entity)
+		private void attach_Dishes(Dish entity)
 		{
 			this.SendPropertyChanging();
 			entity.Meal = this;
 		}
 		
-		private void detach_DailyMenuDetails(DailyMenuDetail entity)
+		private void detach_Dishes(Dish entity)
 		{
 			this.SendPropertyChanging();
 			entity.Meal = null;
@@ -10464,6 +10552,552 @@ namespace DataConnect
 		}
 	}
 	
+	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.PhysicalAssessment")]
+	public partial class PhysicalAssessment : INotifyPropertyChanging, INotifyPropertyChanged
+	{
+		
+		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
+		
+		private int _PhysicalAssessmentID;
+		
+		private System.DateTime _Date;
+		
+		private string _Name;
+		
+		private string _Note;
+		
+		private bool _Status;
+		
+		private EntitySet<PhysicalAssessmentDetail> _PhysicalAssessmentDetails;
+		
+    #region Extensibility Method Definitions
+    partial void OnLoaded();
+    partial void OnValidate(System.Data.Linq.ChangeAction action);
+    partial void OnCreated();
+    partial void OnPhysicalAssessmentIDChanging(int value);
+    partial void OnPhysicalAssessmentIDChanged();
+    partial void OnDateChanging(System.DateTime value);
+    partial void OnDateChanged();
+    partial void OnNameChanging(string value);
+    partial void OnNameChanged();
+    partial void OnNoteChanging(string value);
+    partial void OnNoteChanged();
+    partial void OnStatusChanging(bool value);
+    partial void OnStatusChanged();
+    #endregion
+		
+		public PhysicalAssessment()
+		{
+			this._PhysicalAssessmentDetails = new EntitySet<PhysicalAssessmentDetail>(new Action<PhysicalAssessmentDetail>(this.attach_PhysicalAssessmentDetails), new Action<PhysicalAssessmentDetail>(this.detach_PhysicalAssessmentDetails));
+			OnCreated();
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_PhysicalAssessmentID", AutoSync=AutoSync.OnInsert, DbType="Int NOT NULL IDENTITY", IsPrimaryKey=true, IsDbGenerated=true)]
+		public int PhysicalAssessmentID
+		{
+			get
+			{
+				return this._PhysicalAssessmentID;
+			}
+			set
+			{
+				if ((this._PhysicalAssessmentID != value))
+				{
+					this.OnPhysicalAssessmentIDChanging(value);
+					this.SendPropertyChanging();
+					this._PhysicalAssessmentID = value;
+					this.SendPropertyChanged("PhysicalAssessmentID");
+					this.OnPhysicalAssessmentIDChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Date", DbType="DateTime NOT NULL")]
+		public System.DateTime Date
+		{
+			get
+			{
+				return this._Date;
+			}
+			set
+			{
+				if ((this._Date != value))
+				{
+					this.OnDateChanging(value);
+					this.SendPropertyChanging();
+					this._Date = value;
+					this.SendPropertyChanged("Date");
+					this.OnDateChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Name", DbType="NVarChar(50) NOT NULL", CanBeNull=false)]
+		public string Name
+		{
+			get
+			{
+				return this._Name;
+			}
+			set
+			{
+				if ((this._Name != value))
+				{
+					this.OnNameChanging(value);
+					this.SendPropertyChanging();
+					this._Name = value;
+					this.SendPropertyChanged("Name");
+					this.OnNameChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Note", DbType="NVarChar(200)")]
+		public string Note
+		{
+			get
+			{
+				return this._Note;
+			}
+			set
+			{
+				if ((this._Note != value))
+				{
+					this.OnNoteChanging(value);
+					this.SendPropertyChanging();
+					this._Note = value;
+					this.SendPropertyChanged("Note");
+					this.OnNoteChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Status", DbType="Bit NOT NULL")]
+		public bool Status
+		{
+			get
+			{
+				return this._Status;
+			}
+			set
+			{
+				if ((this._Status != value))
+				{
+					this.OnStatusChanging(value);
+					this.SendPropertyChanging();
+					this._Status = value;
+					this.SendPropertyChanged("Status");
+					this.OnStatusChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="PhysicalAssessment_PhysicalAssessmentDetail", Storage="_PhysicalAssessmentDetails", ThisKey="PhysicalAssessmentID", OtherKey="PhysicalAssessmentID")]
+		public EntitySet<PhysicalAssessmentDetail> PhysicalAssessmentDetails
+		{
+			get
+			{
+				return this._PhysicalAssessmentDetails;
+			}
+			set
+			{
+				this._PhysicalAssessmentDetails.Assign(value);
+			}
+		}
+		
+		public event PropertyChangingEventHandler PropertyChanging;
+		
+		public event PropertyChangedEventHandler PropertyChanged;
+		
+		protected virtual void SendPropertyChanging()
+		{
+			if ((this.PropertyChanging != null))
+			{
+				this.PropertyChanging(this, emptyChangingEventArgs);
+			}
+		}
+		
+		protected virtual void SendPropertyChanged(String propertyName)
+		{
+			if ((this.PropertyChanged != null))
+			{
+				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
+			}
+		}
+		
+		private void attach_PhysicalAssessmentDetails(PhysicalAssessmentDetail entity)
+		{
+			this.SendPropertyChanging();
+			entity.PhysicalAssessment = this;
+		}
+		
+		private void detach_PhysicalAssessmentDetails(PhysicalAssessmentDetail entity)
+		{
+			this.SendPropertyChanging();
+			entity.PhysicalAssessment = null;
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.PhysicalAssessmentDetail")]
+	public partial class PhysicalAssessmentDetail : INotifyPropertyChanging, INotifyPropertyChanged
+	{
+		
+		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
+		
+		private int _PhysicalAssessmentDeailID;
+		
+		private int _PhysicalAssessmentID;
+		
+		private int _StudentID;
+		
+		private int _Height;
+		
+		private int _Weight;
+		
+		private string _HeightRating;
+		
+		private string _WeightRating;
+		
+		private string _OtherRating;
+		
+		private string _Note;
+		
+		private bool _Status;
+		
+		private EntityRef<PhysicalAssessment> _PhysicalAssessment;
+		
+		private EntityRef<Student> _Student;
+		
+    #region Extensibility Method Definitions
+    partial void OnLoaded();
+    partial void OnValidate(System.Data.Linq.ChangeAction action);
+    partial void OnCreated();
+    partial void OnPhysicalAssessmentDeailIDChanging(int value);
+    partial void OnPhysicalAssessmentDeailIDChanged();
+    partial void OnPhysicalAssessmentIDChanging(int value);
+    partial void OnPhysicalAssessmentIDChanged();
+    partial void OnStudentIDChanging(int value);
+    partial void OnStudentIDChanged();
+    partial void OnHeightChanging(int value);
+    partial void OnHeightChanged();
+    partial void OnWeightChanging(int value);
+    partial void OnWeightChanged();
+    partial void OnHeightRatingChanging(string value);
+    partial void OnHeightRatingChanged();
+    partial void OnWeightRatingChanging(string value);
+    partial void OnWeightRatingChanged();
+    partial void OnOtherRatingChanging(string value);
+    partial void OnOtherRatingChanged();
+    partial void OnNoteChanging(string value);
+    partial void OnNoteChanged();
+    partial void OnStatusChanging(bool value);
+    partial void OnStatusChanged();
+    #endregion
+		
+		public PhysicalAssessmentDetail()
+		{
+			this._PhysicalAssessment = default(EntityRef<PhysicalAssessment>);
+			this._Student = default(EntityRef<Student>);
+			OnCreated();
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_PhysicalAssessmentDeailID", AutoSync=AutoSync.OnInsert, DbType="Int NOT NULL IDENTITY", IsPrimaryKey=true, IsDbGenerated=true)]
+		public int PhysicalAssessmentDeailID
+		{
+			get
+			{
+				return this._PhysicalAssessmentDeailID;
+			}
+			set
+			{
+				if ((this._PhysicalAssessmentDeailID != value))
+				{
+					this.OnPhysicalAssessmentDeailIDChanging(value);
+					this.SendPropertyChanging();
+					this._PhysicalAssessmentDeailID = value;
+					this.SendPropertyChanged("PhysicalAssessmentDeailID");
+					this.OnPhysicalAssessmentDeailIDChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_PhysicalAssessmentID", DbType="Int NOT NULL")]
+		public int PhysicalAssessmentID
+		{
+			get
+			{
+				return this._PhysicalAssessmentID;
+			}
+			set
+			{
+				if ((this._PhysicalAssessmentID != value))
+				{
+					if (this._PhysicalAssessment.HasLoadedOrAssignedValue)
+					{
+						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
+					}
+					this.OnPhysicalAssessmentIDChanging(value);
+					this.SendPropertyChanging();
+					this._PhysicalAssessmentID = value;
+					this.SendPropertyChanged("PhysicalAssessmentID");
+					this.OnPhysicalAssessmentIDChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_StudentID", DbType="Int NOT NULL")]
+		public int StudentID
+		{
+			get
+			{
+				return this._StudentID;
+			}
+			set
+			{
+				if ((this._StudentID != value))
+				{
+					if (this._Student.HasLoadedOrAssignedValue)
+					{
+						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
+					}
+					this.OnStudentIDChanging(value);
+					this.SendPropertyChanging();
+					this._StudentID = value;
+					this.SendPropertyChanged("StudentID");
+					this.OnStudentIDChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Height", DbType="Int NOT NULL")]
+		public int Height
+		{
+			get
+			{
+				return this._Height;
+			}
+			set
+			{
+				if ((this._Height != value))
+				{
+					this.OnHeightChanging(value);
+					this.SendPropertyChanging();
+					this._Height = value;
+					this.SendPropertyChanged("Height");
+					this.OnHeightChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Weight", DbType="Int NOT NULL")]
+		public int Weight
+		{
+			get
+			{
+				return this._Weight;
+			}
+			set
+			{
+				if ((this._Weight != value))
+				{
+					this.OnWeightChanging(value);
+					this.SendPropertyChanging();
+					this._Weight = value;
+					this.SendPropertyChanged("Weight");
+					this.OnWeightChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_HeightRating", DbType="NVarChar(100) NOT NULL", CanBeNull=false)]
+		public string HeightRating
+		{
+			get
+			{
+				return this._HeightRating;
+			}
+			set
+			{
+				if ((this._HeightRating != value))
+				{
+					this.OnHeightRatingChanging(value);
+					this.SendPropertyChanging();
+					this._HeightRating = value;
+					this.SendPropertyChanged("HeightRating");
+					this.OnHeightRatingChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_WeightRating", DbType="NVarChar(100) NOT NULL", CanBeNull=false)]
+		public string WeightRating
+		{
+			get
+			{
+				return this._WeightRating;
+			}
+			set
+			{
+				if ((this._WeightRating != value))
+				{
+					this.OnWeightRatingChanging(value);
+					this.SendPropertyChanging();
+					this._WeightRating = value;
+					this.SendPropertyChanged("WeightRating");
+					this.OnWeightRatingChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_OtherRating", DbType="NVarChar(200)")]
+		public string OtherRating
+		{
+			get
+			{
+				return this._OtherRating;
+			}
+			set
+			{
+				if ((this._OtherRating != value))
+				{
+					this.OnOtherRatingChanging(value);
+					this.SendPropertyChanging();
+					this._OtherRating = value;
+					this.SendPropertyChanged("OtherRating");
+					this.OnOtherRatingChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Note", DbType="NVarChar(200)")]
+		public string Note
+		{
+			get
+			{
+				return this._Note;
+			}
+			set
+			{
+				if ((this._Note != value))
+				{
+					this.OnNoteChanging(value);
+					this.SendPropertyChanging();
+					this._Note = value;
+					this.SendPropertyChanged("Note");
+					this.OnNoteChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Status", DbType="Bit NOT NULL")]
+		public bool Status
+		{
+			get
+			{
+				return this._Status;
+			}
+			set
+			{
+				if ((this._Status != value))
+				{
+					this.OnStatusChanging(value);
+					this.SendPropertyChanging();
+					this._Status = value;
+					this.SendPropertyChanged("Status");
+					this.OnStatusChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="PhysicalAssessment_PhysicalAssessmentDetail", Storage="_PhysicalAssessment", ThisKey="PhysicalAssessmentID", OtherKey="PhysicalAssessmentID", IsForeignKey=true)]
+		public PhysicalAssessment PhysicalAssessment
+		{
+			get
+			{
+				return this._PhysicalAssessment.Entity;
+			}
+			set
+			{
+				PhysicalAssessment previousValue = this._PhysicalAssessment.Entity;
+				if (((previousValue != value) 
+							|| (this._PhysicalAssessment.HasLoadedOrAssignedValue == false)))
+				{
+					this.SendPropertyChanging();
+					if ((previousValue != null))
+					{
+						this._PhysicalAssessment.Entity = null;
+						previousValue.PhysicalAssessmentDetails.Remove(this);
+					}
+					this._PhysicalAssessment.Entity = value;
+					if ((value != null))
+					{
+						value.PhysicalAssessmentDetails.Add(this);
+						this._PhysicalAssessmentID = value.PhysicalAssessmentID;
+					}
+					else
+					{
+						this._PhysicalAssessmentID = default(int);
+					}
+					this.SendPropertyChanged("PhysicalAssessment");
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Student_PhysicalAssessmentDetail", Storage="_Student", ThisKey="StudentID", OtherKey="StudentID", IsForeignKey=true)]
+		public Student Student
+		{
+			get
+			{
+				return this._Student.Entity;
+			}
+			set
+			{
+				Student previousValue = this._Student.Entity;
+				if (((previousValue != value) 
+							|| (this._Student.HasLoadedOrAssignedValue == false)))
+				{
+					this.SendPropertyChanging();
+					if ((previousValue != null))
+					{
+						this._Student.Entity = null;
+						previousValue.PhysicalAssessmentDetails.Remove(this);
+					}
+					this._Student.Entity = value;
+					if ((value != null))
+					{
+						value.PhysicalAssessmentDetails.Add(this);
+						this._StudentID = value.StudentID;
+					}
+					else
+					{
+						this._StudentID = default(int);
+					}
+					this.SendPropertyChanged("Student");
+				}
+			}
+		}
+		
+		public event PropertyChangingEventHandler PropertyChanging;
+		
+		public event PropertyChangedEventHandler PropertyChanged;
+		
+		protected virtual void SendPropertyChanging()
+		{
+			if ((this.PropertyChanging != null))
+			{
+				this.PropertyChanging(this, emptyChangingEventArgs);
+			}
+		}
+		
+		protected virtual void SendPropertyChanged(String propertyName)
+		{
+			if ((this.PropertyChanged != null))
+			{
+				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
+			}
+		}
+	}
+	
 	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.PhysicalMonthlyTask")]
 	public partial class PhysicalMonthlyTask : INotifyPropertyChanging, INotifyPropertyChanged
 	{
@@ -10829,6 +11463,168 @@ namespace DataConnect
 		{
 			this.SendPropertyChanging();
 			entity.Position = null;
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.Preferred")]
+	public partial class Preferred : INotifyPropertyChanging, INotifyPropertyChanged
+	{
+		
+		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
+		
+		private int _PreferredID;
+		
+		private string _Name;
+		
+		private bool _Status;
+		
+		private System.Nullable<double> _Percent;
+		
+		private EntitySet<Student> _Students;
+		
+    #region Extensibility Method Definitions
+    partial void OnLoaded();
+    partial void OnValidate(System.Data.Linq.ChangeAction action);
+    partial void OnCreated();
+    partial void OnPreferredIDChanging(int value);
+    partial void OnPreferredIDChanged();
+    partial void OnNameChanging(string value);
+    partial void OnNameChanged();
+    partial void OnStatusChanging(bool value);
+    partial void OnStatusChanged();
+    partial void OnPercentChanging(System.Nullable<double> value);
+    partial void OnPercentChanged();
+    #endregion
+		
+		public Preferred()
+		{
+			this._Students = new EntitySet<Student>(new Action<Student>(this.attach_Students), new Action<Student>(this.detach_Students));
+			OnCreated();
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_PreferredID", DbType="Int NOT NULL", IsPrimaryKey=true)]
+		public int PreferredID
+		{
+			get
+			{
+				return this._PreferredID;
+			}
+			set
+			{
+				if ((this._PreferredID != value))
+				{
+					this.OnPreferredIDChanging(value);
+					this.SendPropertyChanging();
+					this._PreferredID = value;
+					this.SendPropertyChanged("PreferredID");
+					this.OnPreferredIDChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Name", DbType="NVarChar(100) NOT NULL", CanBeNull=false)]
+		public string Name
+		{
+			get
+			{
+				return this._Name;
+			}
+			set
+			{
+				if ((this._Name != value))
+				{
+					this.OnNameChanging(value);
+					this.SendPropertyChanging();
+					this._Name = value;
+					this.SendPropertyChanged("Name");
+					this.OnNameChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Status", DbType="Bit NOT NULL")]
+		public bool Status
+		{
+			get
+			{
+				return this._Status;
+			}
+			set
+			{
+				if ((this._Status != value))
+				{
+					this.OnStatusChanging(value);
+					this.SendPropertyChanging();
+					this._Status = value;
+					this.SendPropertyChanged("Status");
+					this.OnStatusChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Name="[Percent]", Storage="_Percent", DbType="Float")]
+		public System.Nullable<double> Percent
+		{
+			get
+			{
+				return this._Percent;
+			}
+			set
+			{
+				if ((this._Percent != value))
+				{
+					this.OnPercentChanging(value);
+					this.SendPropertyChanging();
+					this._Percent = value;
+					this.SendPropertyChanged("Percent");
+					this.OnPercentChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Preferred_Student", Storage="_Students", ThisKey="PreferredID", OtherKey="PreferredID")]
+		public EntitySet<Student> Students
+		{
+			get
+			{
+				return this._Students;
+			}
+			set
+			{
+				this._Students.Assign(value);
+			}
+		}
+		
+		public event PropertyChangingEventHandler PropertyChanging;
+		
+		public event PropertyChangedEventHandler PropertyChanged;
+		
+		protected virtual void SendPropertyChanging()
+		{
+			if ((this.PropertyChanging != null))
+			{
+				this.PropertyChanging(this, emptyChangingEventArgs);
+			}
+		}
+		
+		protected virtual void SendPropertyChanged(String propertyName)
+		{
+			if ((this.PropertyChanged != null))
+			{
+				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
+			}
+		}
+		
+		private void attach_Students(Student entity)
+		{
+			this.SendPropertyChanging();
+			entity.Preferred = this;
+		}
+		
+		private void detach_Students(Student entity)
+		{
+			this.SendPropertyChanging();
+			entity.Preferred = null;
 		}
 	}
 	
@@ -11828,6 +12624,8 @@ namespace DataConnect
 		
 		private EntitySet<Grade> _Grades;
 		
+		private EntitySet<Invoice> _Invoices;
+		
 		private EntityRef<Course> _Course;
 		
     #region Extensibility Method Definitions
@@ -11851,6 +12649,7 @@ namespace DataConnect
 		public Semester()
 		{
 			this._Grades = new EntitySet<Grade>(new Action<Grade>(this.attach_Grades), new Action<Grade>(this.detach_Grades));
+			this._Invoices = new EntitySet<Invoice>(new Action<Invoice>(this.attach_Invoices), new Action<Invoice>(this.detach_Invoices));
 			this._Course = default(EntityRef<Course>);
 			OnCreated();
 		}
@@ -11992,6 +12791,19 @@ namespace DataConnect
 			}
 		}
 		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Semester_Invoice", Storage="_Invoices", ThisKey="SemesterID", OtherKey="SemesterID")]
+		public EntitySet<Invoice> Invoices
+		{
+			get
+			{
+				return this._Invoices;
+			}
+			set
+			{
+				this._Invoices.Assign(value);
+			}
+		}
+		
 		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Course_Semester", Storage="_Course", ThisKey="CourseID", OtherKey="CourseID", IsForeignKey=true)]
 		public Course Course
 		{
@@ -12057,6 +12869,204 @@ namespace DataConnect
 			this.SendPropertyChanging();
 			entity.Semester = null;
 		}
+		
+		private void attach_Invoices(Invoice entity)
+		{
+			this.SendPropertyChanging();
+			entity.Semester = this;
+		}
+		
+		private void detach_Invoices(Invoice entity)
+		{
+			this.SendPropertyChanging();
+			entity.Semester = null;
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.SpendSpecies")]
+	public partial class SpendSpecy : INotifyPropertyChanging, INotifyPropertyChanged
+	{
+		
+		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
+		
+		private int _SpendSpeciesID;
+		
+		private string _Name;
+		
+		private System.Nullable<System.DateTime> _CreatedDate;
+		
+		private string _Note;
+		
+		private System.Nullable<bool> _Status;
+		
+		private EntitySet<Invoice> _Invoices;
+		
+    #region Extensibility Method Definitions
+    partial void OnLoaded();
+    partial void OnValidate(System.Data.Linq.ChangeAction action);
+    partial void OnCreated();
+    partial void OnSpendSpeciesIDChanging(int value);
+    partial void OnSpendSpeciesIDChanged();
+    partial void OnNameChanging(string value);
+    partial void OnNameChanged();
+    partial void OnCreatedDateChanging(System.Nullable<System.DateTime> value);
+    partial void OnCreatedDateChanged();
+    partial void OnNoteChanging(string value);
+    partial void OnNoteChanged();
+    partial void OnStatusChanging(System.Nullable<bool> value);
+    partial void OnStatusChanged();
+    #endregion
+		
+		public SpendSpecy()
+		{
+			this._Invoices = new EntitySet<Invoice>(new Action<Invoice>(this.attach_Invoices), new Action<Invoice>(this.detach_Invoices));
+			OnCreated();
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_SpendSpeciesID", AutoSync=AutoSync.OnInsert, DbType="Int NOT NULL IDENTITY", IsPrimaryKey=true, IsDbGenerated=true)]
+		public int SpendSpeciesID
+		{
+			get
+			{
+				return this._SpendSpeciesID;
+			}
+			set
+			{
+				if ((this._SpendSpeciesID != value))
+				{
+					this.OnSpendSpeciesIDChanging(value);
+					this.SendPropertyChanging();
+					this._SpendSpeciesID = value;
+					this.SendPropertyChanged("SpendSpeciesID");
+					this.OnSpendSpeciesIDChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Name", DbType="NVarChar(50)")]
+		public string Name
+		{
+			get
+			{
+				return this._Name;
+			}
+			set
+			{
+				if ((this._Name != value))
+				{
+					this.OnNameChanging(value);
+					this.SendPropertyChanging();
+					this._Name = value;
+					this.SendPropertyChanged("Name");
+					this.OnNameChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CreatedDate", DbType="DateTime")]
+		public System.Nullable<System.DateTime> CreatedDate
+		{
+			get
+			{
+				return this._CreatedDate;
+			}
+			set
+			{
+				if ((this._CreatedDate != value))
+				{
+					this.OnCreatedDateChanging(value);
+					this.SendPropertyChanging();
+					this._CreatedDate = value;
+					this.SendPropertyChanged("CreatedDate");
+					this.OnCreatedDateChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Note", DbType="NText", UpdateCheck=UpdateCheck.Never)]
+		public string Note
+		{
+			get
+			{
+				return this._Note;
+			}
+			set
+			{
+				if ((this._Note != value))
+				{
+					this.OnNoteChanging(value);
+					this.SendPropertyChanging();
+					this._Note = value;
+					this.SendPropertyChanged("Note");
+					this.OnNoteChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Status", DbType="Bit")]
+		public System.Nullable<bool> Status
+		{
+			get
+			{
+				return this._Status;
+			}
+			set
+			{
+				if ((this._Status != value))
+				{
+					this.OnStatusChanging(value);
+					this.SendPropertyChanging();
+					this._Status = value;
+					this.SendPropertyChanged("Status");
+					this.OnStatusChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="SpendSpecy_Invoice", Storage="_Invoices", ThisKey="SpendSpeciesID", OtherKey="SpendSpeciesID")]
+		public EntitySet<Invoice> Invoices
+		{
+			get
+			{
+				return this._Invoices;
+			}
+			set
+			{
+				this._Invoices.Assign(value);
+			}
+		}
+		
+		public event PropertyChangingEventHandler PropertyChanging;
+		
+		public event PropertyChangedEventHandler PropertyChanged;
+		
+		protected virtual void SendPropertyChanging()
+		{
+			if ((this.PropertyChanging != null))
+			{
+				this.PropertyChanging(this, emptyChangingEventArgs);
+			}
+		}
+		
+		protected virtual void SendPropertyChanged(String propertyName)
+		{
+			if ((this.PropertyChanged != null))
+			{
+				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
+			}
+		}
+		
+		private void attach_Invoices(Invoice entity)
+		{
+			this.SendPropertyChanging();
+			entity.SpendSpecy = this;
+		}
+		
+		private void detach_Invoices(Invoice entity)
+		{
+			this.SendPropertyChanging();
+			entity.SpendSpecy = null;
+		}
 	}
 	
 	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.Student")]
@@ -12103,6 +13113,8 @@ namespace DataConnect
 		
 		private bool _Status;
 		
+		private EntitySet<WeeklyTask> _WeeklyTasks;
+		
 		private EntitySet<CourseTask> _CourseTasks;
 		
 		private EntitySet<DailyTask> _DailyTasks;
@@ -12110,6 +13122,8 @@ namespace DataConnect
 		private EntitySet<HealthExaminationDetail> _HealthExaminationDetails;
 		
 		private EntitySet<HealthProblem> _HealthProblems;
+		
+		private EntitySet<PhysicalAssessmentDetail> _PhysicalAssessmentDetails;
 		
 		private EntitySet<ReceivableDetail_Student> _ReceivableDetail_Students;
 		
@@ -12120,8 +13134,6 @@ namespace DataConnect
 		private EntitySet<StudentParent> _StudentParents;
 		
 		private EntitySet<TrackingUpLate> _TrackingUpLates;
-		
-		private EntitySet<PhysicalAssessmentDetail> _PhysicalAssessmentDetails;
 		
 		private EntityRef<Preferred> _Preferred;
 		
@@ -12171,16 +13183,17 @@ namespace DataConnect
 		
 		public Student()
 		{
+			this._WeeklyTasks = new EntitySet<WeeklyTask>(new Action<WeeklyTask>(this.attach_WeeklyTasks), new Action<WeeklyTask>(this.detach_WeeklyTasks));
 			this._CourseTasks = new EntitySet<CourseTask>(new Action<CourseTask>(this.attach_CourseTasks), new Action<CourseTask>(this.detach_CourseTasks));
 			this._DailyTasks = new EntitySet<DailyTask>(new Action<DailyTask>(this.attach_DailyTasks), new Action<DailyTask>(this.detach_DailyTasks));
 			this._HealthExaminationDetails = new EntitySet<HealthExaminationDetail>(new Action<HealthExaminationDetail>(this.attach_HealthExaminationDetails), new Action<HealthExaminationDetail>(this.detach_HealthExaminationDetails));
 			this._HealthProblems = new EntitySet<HealthProblem>(new Action<HealthProblem>(this.attach_HealthProblems), new Action<HealthProblem>(this.detach_HealthProblems));
+			this._PhysicalAssessmentDetails = new EntitySet<PhysicalAssessmentDetail>(new Action<PhysicalAssessmentDetail>(this.attach_PhysicalAssessmentDetails), new Action<PhysicalAssessmentDetail>(this.detach_PhysicalAssessmentDetails));
 			this._ReceivableDetail_Students = new EntitySet<ReceivableDetail_Student>(new Action<ReceivableDetail_Student>(this.attach_ReceivableDetail_Students), new Action<ReceivableDetail_Student>(this.detach_ReceivableDetail_Students));
 			this._Student_Classes = new EntitySet<Student_Class>(new Action<Student_Class>(this.attach_Student_Classes), new Action<Student_Class>(this.detach_Student_Classes));
 			this._Student_Lessons = new EntitySet<Student_Lesson>(new Action<Student_Lesson>(this.attach_Student_Lessons), new Action<Student_Lesson>(this.detach_Student_Lessons));
 			this._StudentParents = new EntitySet<StudentParent>(new Action<StudentParent>(this.attach_StudentParents), new Action<StudentParent>(this.detach_StudentParents));
 			this._TrackingUpLates = new EntitySet<TrackingUpLate>(new Action<TrackingUpLate>(this.attach_TrackingUpLates), new Action<TrackingUpLate>(this.detach_TrackingUpLates));
-			this._PhysicalAssessmentDetails = new EntitySet<PhysicalAssessmentDetail>(new Action<PhysicalAssessmentDetail>(this.attach_PhysicalAssessmentDetails), new Action<PhysicalAssessmentDetail>(this.detach_PhysicalAssessmentDetails));
 			this._Preferred = default(EntityRef<Preferred>);
 			OnCreated();
 		}
@@ -12569,6 +13582,19 @@ namespace DataConnect
 			}
 		}
 		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Student_WeeklyTask", Storage="_WeeklyTasks", ThisKey="StudentID", OtherKey="StudentID")]
+		public EntitySet<WeeklyTask> WeeklyTasks
+		{
+			get
+			{
+				return this._WeeklyTasks;
+			}
+			set
+			{
+				this._WeeklyTasks.Assign(value);
+			}
+		}
+		
 		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Student_CourseTask", Storage="_CourseTasks", ThisKey="StudentID", OtherKey="StudentID")]
 		public EntitySet<CourseTask> CourseTasks
 		{
@@ -12618,6 +13644,19 @@ namespace DataConnect
 			set
 			{
 				this._HealthProblems.Assign(value);
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Student_PhysicalAssessmentDetail", Storage="_PhysicalAssessmentDetails", ThisKey="StudentID", OtherKey="StudentID")]
+		public EntitySet<PhysicalAssessmentDetail> PhysicalAssessmentDetails
+		{
+			get
+			{
+				return this._PhysicalAssessmentDetails;
+			}
+			set
+			{
+				this._PhysicalAssessmentDetails.Assign(value);
 			}
 		}
 		
@@ -12686,19 +13725,6 @@ namespace DataConnect
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Student_PhysicalAssessmentDetail", Storage="_PhysicalAssessmentDetails", ThisKey="StudentID", OtherKey="StudentID")]
-		public EntitySet<PhysicalAssessmentDetail> PhysicalAssessmentDetails
-		{
-			get
-			{
-				return this._PhysicalAssessmentDetails;
-			}
-			set
-			{
-				this._PhysicalAssessmentDetails.Assign(value);
-			}
-		}
-		
 		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Preferred_Student", Storage="_Preferred", ThisKey="PreferredID", OtherKey="PreferredID", IsForeignKey=true)]
 		public Preferred Preferred
 		{
@@ -12753,6 +13779,18 @@ namespace DataConnect
 			}
 		}
 		
+		private void attach_WeeklyTasks(WeeklyTask entity)
+		{
+			this.SendPropertyChanging();
+			entity.Student = this;
+		}
+		
+		private void detach_WeeklyTasks(WeeklyTask entity)
+		{
+			this.SendPropertyChanging();
+			entity.Student = null;
+		}
+		
 		private void attach_CourseTasks(CourseTask entity)
 		{
 			this.SendPropertyChanging();
@@ -12796,6 +13834,18 @@ namespace DataConnect
 		}
 		
 		private void detach_HealthProblems(HealthProblem entity)
+		{
+			this.SendPropertyChanging();
+			entity.Student = null;
+		}
+		
+		private void attach_PhysicalAssessmentDetails(PhysicalAssessmentDetail entity)
+		{
+			this.SendPropertyChanging();
+			entity.Student = this;
+		}
+		
+		private void detach_PhysicalAssessmentDetails(PhysicalAssessmentDetail entity)
 		{
 			this.SendPropertyChanging();
 			entity.Student = null;
@@ -12856,18 +13906,6 @@ namespace DataConnect
 		}
 		
 		private void detach_TrackingUpLates(TrackingUpLate entity)
-		{
-			this.SendPropertyChanging();
-			entity.Student = null;
-		}
-		
-		private void attach_PhysicalAssessmentDetails(PhysicalAssessmentDetail entity)
-		{
-			this.SendPropertyChanging();
-			entity.Student = this;
-		}
-		
-		private void detach_PhysicalAssessmentDetails(PhysicalAssessmentDetail entity)
 		{
 			this.SendPropertyChanging();
 			entity.Student = null;
@@ -14615,430 +15653,100 @@ namespace DataConnect
 		}
 	}
 	
-	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.SpendSpecies")]
-	public partial class SpendSpecy : INotifyPropertyChanging, INotifyPropertyChanged
+	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.Dish")]
+	public partial class Dish : INotifyPropertyChanging, INotifyPropertyChanged
 	{
 		
 		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
 		
-		private int _SpendSpeciesID;
+		private int _DishID;
+		
+		private int _MealID;
 		
 		private string _Name;
 		
-		private System.Nullable<System.DateTime> _CreatedDate;
+		private int _CreatedBy;
 		
-		private string _Note;
+		private System.DateTime _CreatedDate;
 		
-		private System.Nullable<bool> _Status;
+		private System.Data.Linq.Binary _Image;
 		
-		private EntitySet<Invoice> _Invoices;
+		private bool _Status;
+		
+		private EntitySet<DailyMenuDetail> _DailyMenuDetails;
+		
+		private EntitySet<DishDetail> _DishDetails;
+		
+		private EntityRef<Meal> _Meal;
 		
     #region Extensibility Method Definitions
     partial void OnLoaded();
     partial void OnValidate(System.Data.Linq.ChangeAction action);
     partial void OnCreated();
-    partial void OnSpendSpeciesIDChanging(int value);
-    partial void OnSpendSpeciesIDChanged();
+    partial void OnDishIDChanging(int value);
+    partial void OnDishIDChanged();
+    partial void OnMealIDChanging(int value);
+    partial void OnMealIDChanged();
     partial void OnNameChanging(string value);
     partial void OnNameChanged();
-    partial void OnCreatedDateChanging(System.Nullable<System.DateTime> value);
+    partial void OnCreatedByChanging(int value);
+    partial void OnCreatedByChanged();
+    partial void OnCreatedDateChanging(System.DateTime value);
     partial void OnCreatedDateChanged();
-    partial void OnNoteChanging(string value);
-    partial void OnNoteChanged();
-    partial void OnStatusChanging(System.Nullable<bool> value);
-    partial void OnStatusChanged();
-    #endregion
-		
-		public SpendSpecy()
-		{
-			this._Invoices = new EntitySet<Invoice>(new Action<Invoice>(this.attach_Invoices), new Action<Invoice>(this.detach_Invoices));
-			OnCreated();
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_SpendSpeciesID", AutoSync=AutoSync.OnInsert, DbType="Int NOT NULL IDENTITY", IsPrimaryKey=true, IsDbGenerated=true)]
-		public int SpendSpeciesID
-		{
-			get
-			{
-				return this._SpendSpeciesID;
-			}
-			set
-			{
-				if ((this._SpendSpeciesID != value))
-				{
-					this.OnSpendSpeciesIDChanging(value);
-					this.SendPropertyChanging();
-					this._SpendSpeciesID = value;
-					this.SendPropertyChanged("SpendSpeciesID");
-					this.OnSpendSpeciesIDChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Name", DbType="NVarChar(50)")]
-		public string Name
-		{
-			get
-			{
-				return this._Name;
-			}
-			set
-			{
-				if ((this._Name != value))
-				{
-					this.OnNameChanging(value);
-					this.SendPropertyChanging();
-					this._Name = value;
-					this.SendPropertyChanged("Name");
-					this.OnNameChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CreatedDate", DbType="DateTime")]
-		public System.Nullable<System.DateTime> CreatedDate
-		{
-			get
-			{
-				return this._CreatedDate;
-			}
-			set
-			{
-				if ((this._CreatedDate != value))
-				{
-					this.OnCreatedDateChanging(value);
-					this.SendPropertyChanging();
-					this._CreatedDate = value;
-					this.SendPropertyChanged("CreatedDate");
-					this.OnCreatedDateChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Note", DbType="NText", UpdateCheck=UpdateCheck.Never)]
-		public string Note
-		{
-			get
-			{
-				return this._Note;
-			}
-			set
-			{
-				if ((this._Note != value))
-				{
-					this.OnNoteChanging(value);
-					this.SendPropertyChanging();
-					this._Note = value;
-					this.SendPropertyChanged("Note");
-					this.OnNoteChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Status", DbType="Bit")]
-		public System.Nullable<bool> Status
-		{
-			get
-			{
-				return this._Status;
-			}
-			set
-			{
-				if ((this._Status != value))
-				{
-					this.OnStatusChanging(value);
-					this.SendPropertyChanging();
-					this._Status = value;
-					this.SendPropertyChanged("Status");
-					this.OnStatusChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="SpendSpecy_Invoice", Storage="_Invoices", ThisKey="SpendSpeciesID", OtherKey="SpendSpeciesID")]
-		public EntitySet<Invoice> Invoices
-		{
-			get
-			{
-				return this._Invoices;
-			}
-			set
-			{
-				this._Invoices.Assign(value);
-			}
-		}
-		
-		public event PropertyChangingEventHandler PropertyChanging;
-		
-		public event PropertyChangedEventHandler PropertyChanged;
-		
-		protected virtual void SendPropertyChanging()
-		{
-			if ((this.PropertyChanging != null))
-			{
-				this.PropertyChanging(this, emptyChangingEventArgs);
-			}
-		}
-		
-		protected virtual void SendPropertyChanged(String propertyName)
-		{
-			if ((this.PropertyChanged != null))
-			{
-				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
-			}
-		}
-		
-		private void attach_Invoices(Invoice entity)
-		{
-			this.SendPropertyChanging();
-			entity.SpendSpecy = this;
-		}
-		
-		private void detach_Invoices(Invoice entity)
-		{
-			this.SendPropertyChanging();
-			entity.SpendSpecy = null;
-		}
-	}
-	
-	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.Preferred")]
-	public partial class Preferred : INotifyPropertyChanging, INotifyPropertyChanged
-	{
-		
-		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
-		
-		private int _PreferredID;
-		
-		private string _Name;
-		
-		private bool _Status;
-		
-		private System.Nullable<double> _Percent;
-		
-		private EntitySet<Student> _Students;
-		
-    #region Extensibility Method Definitions
-    partial void OnLoaded();
-    partial void OnValidate(System.Data.Linq.ChangeAction action);
-    partial void OnCreated();
-    partial void OnPreferredIDChanging(int value);
-    partial void OnPreferredIDChanged();
-    partial void OnNameChanging(string value);
-    partial void OnNameChanged();
-    partial void OnStatusChanging(bool value);
-    partial void OnStatusChanged();
-    partial void OnPercentChanging(System.Nullable<double> value);
-    partial void OnPercentChanged();
-    #endregion
-		
-		public Preferred()
-		{
-			this._Students = new EntitySet<Student>(new Action<Student>(this.attach_Students), new Action<Student>(this.detach_Students));
-			OnCreated();
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_PreferredID", DbType="Int NOT NULL", IsPrimaryKey=true)]
-		public int PreferredID
-		{
-			get
-			{
-				return this._PreferredID;
-			}
-			set
-			{
-				if ((this._PreferredID != value))
-				{
-					this.OnPreferredIDChanging(value);
-					this.SendPropertyChanging();
-					this._PreferredID = value;
-					this.SendPropertyChanged("PreferredID");
-					this.OnPreferredIDChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Name", DbType="NVarChar(100) NOT NULL", CanBeNull=false)]
-		public string Name
-		{
-			get
-			{
-				return this._Name;
-			}
-			set
-			{
-				if ((this._Name != value))
-				{
-					this.OnNameChanging(value);
-					this.SendPropertyChanging();
-					this._Name = value;
-					this.SendPropertyChanged("Name");
-					this.OnNameChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Status", DbType="Bit NOT NULL")]
-		public bool Status
-		{
-			get
-			{
-				return this._Status;
-			}
-			set
-			{
-				if ((this._Status != value))
-				{
-					this.OnStatusChanging(value);
-					this.SendPropertyChanging();
-					this._Status = value;
-					this.SendPropertyChanged("Status");
-					this.OnStatusChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Name="[Percent]", Storage="_Percent", DbType="Float")]
-		public System.Nullable<double> Percent
-		{
-			get
-			{
-				return this._Percent;
-			}
-			set
-			{
-				if ((this._Percent != value))
-				{
-					this.OnPercentChanging(value);
-					this.SendPropertyChanging();
-					this._Percent = value;
-					this.SendPropertyChanged("Percent");
-					this.OnPercentChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Preferred_Student", Storage="_Students", ThisKey="PreferredID", OtherKey="PreferredID")]
-		public EntitySet<Student> Students
-		{
-			get
-			{
-				return this._Students;
-			}
-			set
-			{
-				this._Students.Assign(value);
-			}
-		}
-		
-		public event PropertyChangingEventHandler PropertyChanging;
-		
-		public event PropertyChangedEventHandler PropertyChanged;
-		
-		protected virtual void SendPropertyChanging()
-		{
-			if ((this.PropertyChanging != null))
-			{
-				this.PropertyChanging(this, emptyChangingEventArgs);
-			}
-		}
-		
-		protected virtual void SendPropertyChanged(String propertyName)
-		{
-			if ((this.PropertyChanged != null))
-			{
-				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
-			}
-		}
-		
-		private void attach_Students(Student entity)
-		{
-			this.SendPropertyChanging();
-			entity.Preferred = this;
-		}
-		
-		private void detach_Students(Student entity)
-		{
-			this.SendPropertyChanging();
-			entity.Preferred = null;
-		}
-	}
-	
-	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.PhysicalAssessment")]
-	public partial class PhysicalAssessment : INotifyPropertyChanging, INotifyPropertyChanged
-	{
-		
-		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
-		
-		private int _PhysicalAssessmentID;
-		
-		private System.DateTime _Date;
-		
-		private string _Name;
-		
-		private string _Note;
-		
-		private bool _Status;
-		
-		private EntitySet<PhysicalAssessmentDetail> _PhysicalAssessmentDetails;
-		
-    #region Extensibility Method Definitions
-    partial void OnLoaded();
-    partial void OnValidate(System.Data.Linq.ChangeAction action);
-    partial void OnCreated();
-    partial void OnPhysicalAssessmentIDChanging(int value);
-    partial void OnPhysicalAssessmentIDChanged();
-    partial void OnDateChanging(System.DateTime value);
-    partial void OnDateChanged();
-    partial void OnNameChanging(string value);
-    partial void OnNameChanged();
-    partial void OnNoteChanging(string value);
-    partial void OnNoteChanged();
+    partial void OnImageChanging(System.Data.Linq.Binary value);
+    partial void OnImageChanged();
     partial void OnStatusChanging(bool value);
     partial void OnStatusChanged();
     #endregion
 		
-		public PhysicalAssessment()
+		public Dish()
 		{
-			this._PhysicalAssessmentDetails = new EntitySet<PhysicalAssessmentDetail>(new Action<PhysicalAssessmentDetail>(this.attach_PhysicalAssessmentDetails), new Action<PhysicalAssessmentDetail>(this.detach_PhysicalAssessmentDetails));
+			this._DailyMenuDetails = new EntitySet<DailyMenuDetail>(new Action<DailyMenuDetail>(this.attach_DailyMenuDetails), new Action<DailyMenuDetail>(this.detach_DailyMenuDetails));
+			this._DishDetails = new EntitySet<DishDetail>(new Action<DishDetail>(this.attach_DishDetails), new Action<DishDetail>(this.detach_DishDetails));
+			this._Meal = default(EntityRef<Meal>);
 			OnCreated();
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_PhysicalAssessmentID", AutoSync=AutoSync.OnInsert, DbType="Int NOT NULL IDENTITY", IsPrimaryKey=true, IsDbGenerated=true)]
-		public int PhysicalAssessmentID
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_DishID", AutoSync=AutoSync.OnInsert, DbType="Int NOT NULL IDENTITY", IsPrimaryKey=true, IsDbGenerated=true)]
+		public int DishID
 		{
 			get
 			{
-				return this._PhysicalAssessmentID;
+				return this._DishID;
 			}
 			set
 			{
-				if ((this._PhysicalAssessmentID != value))
+				if ((this._DishID != value))
 				{
-					this.OnPhysicalAssessmentIDChanging(value);
+					this.OnDishIDChanging(value);
 					this.SendPropertyChanging();
-					this._PhysicalAssessmentID = value;
-					this.SendPropertyChanged("PhysicalAssessmentID");
-					this.OnPhysicalAssessmentIDChanged();
+					this._DishID = value;
+					this.SendPropertyChanged("DishID");
+					this.OnDishIDChanged();
 				}
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Date", DbType="DateTime NOT NULL")]
-		public System.DateTime Date
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_MealID", DbType="Int NOT NULL")]
+		public int MealID
 		{
 			get
 			{
-				return this._Date;
+				return this._MealID;
 			}
 			set
 			{
-				if ((this._Date != value))
+				if ((this._MealID != value))
 				{
-					this.OnDateChanging(value);
+					if (this._Meal.HasLoadedOrAssignedValue)
+					{
+						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
+					}
+					this.OnMealIDChanging(value);
 					this.SendPropertyChanging();
-					this._Date = value;
-					this.SendPropertyChanged("Date");
-					this.OnDateChanged();
+					this._MealID = value;
+					this.SendPropertyChanged("MealID");
+					this.OnMealIDChanged();
 				}
 			}
 		}
@@ -15063,22 +15771,62 @@ namespace DataConnect
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Note", DbType="NVarChar(200)")]
-		public string Note
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CreatedBy", DbType="Int NOT NULL")]
+		public int CreatedBy
 		{
 			get
 			{
-				return this._Note;
+				return this._CreatedBy;
 			}
 			set
 			{
-				if ((this._Note != value))
+				if ((this._CreatedBy != value))
 				{
-					this.OnNoteChanging(value);
+					this.OnCreatedByChanging(value);
 					this.SendPropertyChanging();
-					this._Note = value;
-					this.SendPropertyChanged("Note");
-					this.OnNoteChanged();
+					this._CreatedBy = value;
+					this.SendPropertyChanged("CreatedBy");
+					this.OnCreatedByChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CreatedDate", DbType="DateTime NOT NULL")]
+		public System.DateTime CreatedDate
+		{
+			get
+			{
+				return this._CreatedDate;
+			}
+			set
+			{
+				if ((this._CreatedDate != value))
+				{
+					this.OnCreatedDateChanging(value);
+					this.SendPropertyChanging();
+					this._CreatedDate = value;
+					this.SendPropertyChanged("CreatedDate");
+					this.OnCreatedDateChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Image", DbType="Image", UpdateCheck=UpdateCheck.Never)]
+		public System.Data.Linq.Binary Image
+		{
+			get
+			{
+				return this._Image;
+			}
+			set
+			{
+				if ((this._Image != value))
+				{
+					this.OnImageChanging(value);
+					this.SendPropertyChanging();
+					this._Image = value;
+					this.SendPropertyChanged("Image");
+					this.OnImageChanged();
 				}
 			}
 		}
@@ -15103,16 +15851,63 @@ namespace DataConnect
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="PhysicalAssessment_PhysicalAssessmentDetail", Storage="_PhysicalAssessmentDetails", ThisKey="PhysicalAssessmentID", OtherKey="PhysicalAssessmentID")]
-		public EntitySet<PhysicalAssessmentDetail> PhysicalAssessmentDetails
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Dish_DailyMenuDetail", Storage="_DailyMenuDetails", ThisKey="DishID", OtherKey="DishID")]
+		public EntitySet<DailyMenuDetail> DailyMenuDetails
 		{
 			get
 			{
-				return this._PhysicalAssessmentDetails;
+				return this._DailyMenuDetails;
 			}
 			set
 			{
-				this._PhysicalAssessmentDetails.Assign(value);
+				this._DailyMenuDetails.Assign(value);
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Dish_DishDetail", Storage="_DishDetails", ThisKey="DishID", OtherKey="DishID")]
+		public EntitySet<DishDetail> DishDetails
+		{
+			get
+			{
+				return this._DishDetails;
+			}
+			set
+			{
+				this._DishDetails.Assign(value);
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Meal_Dish", Storage="_Meal", ThisKey="MealID", OtherKey="MealID", IsForeignKey=true)]
+		public Meal Meal
+		{
+			get
+			{
+				return this._Meal.Entity;
+			}
+			set
+			{
+				Meal previousValue = this._Meal.Entity;
+				if (((previousValue != value) 
+							|| (this._Meal.HasLoadedOrAssignedValue == false)))
+				{
+					this.SendPropertyChanging();
+					if ((previousValue != null))
+					{
+						this._Meal.Entity = null;
+						previousValue.Dishes.Remove(this);
+					}
+					this._Meal.Entity = value;
+					if ((value != null))
+					{
+						value.Dishes.Add(this);
+						this._MealID = value.MealID;
+					}
+					else
+					{
+						this._MealID = default(int);
+					}
+					this.SendPropertyChanged("Meal");
+				}
 			}
 		}
 		
@@ -15136,376 +15931,28 @@ namespace DataConnect
 			}
 		}
 		
-		private void attach_PhysicalAssessmentDetails(PhysicalAssessmentDetail entity)
+		private void attach_DailyMenuDetails(DailyMenuDetail entity)
 		{
 			this.SendPropertyChanging();
-			entity.PhysicalAssessment = this;
+			entity.Dish = this;
 		}
 		
-		private void detach_PhysicalAssessmentDetails(PhysicalAssessmentDetail entity)
+		private void detach_DailyMenuDetails(DailyMenuDetail entity)
 		{
 			this.SendPropertyChanging();
-			entity.PhysicalAssessment = null;
-		}
-	}
-	
-	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.PhysicalAssessmentDetail")]
-	public partial class PhysicalAssessmentDetail : INotifyPropertyChanging, INotifyPropertyChanged
-	{
-		
-		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
-		
-		private int _PhysicalAssessmentDeailID;
-		
-		private int _PhysicalAssessmentID;
-		
-		private int _StudentID;
-		
-		private int _Height;
-		
-		private int _Weight;
-		
-		private string _HeightRating;
-		
-		private string _WeightRating;
-		
-		private string _OtherRating;
-		
-		private string _Note;
-		
-		private bool _Status;
-		
-		private EntityRef<PhysicalAssessment> _PhysicalAssessment;
-		
-		private EntityRef<Student> _Student;
-		
-    #region Extensibility Method Definitions
-    partial void OnLoaded();
-    partial void OnValidate(System.Data.Linq.ChangeAction action);
-    partial void OnCreated();
-    partial void OnPhysicalAssessmentDeailIDChanging(int value);
-    partial void OnPhysicalAssessmentDeailIDChanged();
-    partial void OnPhysicalAssessmentIDChanging(int value);
-    partial void OnPhysicalAssessmentIDChanged();
-    partial void OnStudentIDChanging(int value);
-    partial void OnStudentIDChanged();
-    partial void OnHeightChanging(int value);
-    partial void OnHeightChanged();
-    partial void OnWeightChanging(int value);
-    partial void OnWeightChanged();
-    partial void OnHeightRatingChanging(string value);
-    partial void OnHeightRatingChanged();
-    partial void OnWeightRatingChanging(string value);
-    partial void OnWeightRatingChanged();
-    partial void OnOtherRatingChanging(string value);
-    partial void OnOtherRatingChanged();
-    partial void OnNoteChanging(string value);
-    partial void OnNoteChanged();
-    partial void OnStatusChanging(bool value);
-    partial void OnStatusChanged();
-    #endregion
-		
-		public PhysicalAssessmentDetail()
-		{
-			this._PhysicalAssessment = default(EntityRef<PhysicalAssessment>);
-			this._Student = default(EntityRef<Student>);
-			OnCreated();
+			entity.Dish = null;
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_PhysicalAssessmentDeailID", AutoSync=AutoSync.OnInsert, DbType="Int NOT NULL IDENTITY", IsPrimaryKey=true, IsDbGenerated=true)]
-		public int PhysicalAssessmentDeailID
+		private void attach_DishDetails(DishDetail entity)
 		{
-			get
-			{
-				return this._PhysicalAssessmentDeailID;
-			}
-			set
-			{
-				if ((this._PhysicalAssessmentDeailID != value))
-				{
-					this.OnPhysicalAssessmentDeailIDChanging(value);
-					this.SendPropertyChanging();
-					this._PhysicalAssessmentDeailID = value;
-					this.SendPropertyChanged("PhysicalAssessmentDeailID");
-					this.OnPhysicalAssessmentDeailIDChanged();
-				}
-			}
+			this.SendPropertyChanging();
+			entity.Dish = this;
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_PhysicalAssessmentID", DbType="Int NOT NULL")]
-		public int PhysicalAssessmentID
+		private void detach_DishDetails(DishDetail entity)
 		{
-			get
-			{
-				return this._PhysicalAssessmentID;
-			}
-			set
-			{
-				if ((this._PhysicalAssessmentID != value))
-				{
-					if (this._PhysicalAssessment.HasLoadedOrAssignedValue)
-					{
-						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
-					}
-					this.OnPhysicalAssessmentIDChanging(value);
-					this.SendPropertyChanging();
-					this._PhysicalAssessmentID = value;
-					this.SendPropertyChanged("PhysicalAssessmentID");
-					this.OnPhysicalAssessmentIDChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_StudentID", DbType="Int NOT NULL")]
-		public int StudentID
-		{
-			get
-			{
-				return this._StudentID;
-			}
-			set
-			{
-				if ((this._StudentID != value))
-				{
-					if (this._Student.HasLoadedOrAssignedValue)
-					{
-						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
-					}
-					this.OnStudentIDChanging(value);
-					this.SendPropertyChanging();
-					this._StudentID = value;
-					this.SendPropertyChanged("StudentID");
-					this.OnStudentIDChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Height", DbType="Int NOT NULL")]
-		public int Height
-		{
-			get
-			{
-				return this._Height;
-			}
-			set
-			{
-				if ((this._Height != value))
-				{
-					this.OnHeightChanging(value);
-					this.SendPropertyChanging();
-					this._Height = value;
-					this.SendPropertyChanged("Height");
-					this.OnHeightChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Weight", DbType="Int NOT NULL")]
-		public int Weight
-		{
-			get
-			{
-				return this._Weight;
-			}
-			set
-			{
-				if ((this._Weight != value))
-				{
-					this.OnWeightChanging(value);
-					this.SendPropertyChanging();
-					this._Weight = value;
-					this.SendPropertyChanged("Weight");
-					this.OnWeightChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_HeightRating", DbType="NVarChar(100) NOT NULL", CanBeNull=false)]
-		public string HeightRating
-		{
-			get
-			{
-				return this._HeightRating;
-			}
-			set
-			{
-				if ((this._HeightRating != value))
-				{
-					this.OnHeightRatingChanging(value);
-					this.SendPropertyChanging();
-					this._HeightRating = value;
-					this.SendPropertyChanged("HeightRating");
-					this.OnHeightRatingChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_WeightRating", DbType="NVarChar(100) NOT NULL", CanBeNull=false)]
-		public string WeightRating
-		{
-			get
-			{
-				return this._WeightRating;
-			}
-			set
-			{
-				if ((this._WeightRating != value))
-				{
-					this.OnWeightRatingChanging(value);
-					this.SendPropertyChanging();
-					this._WeightRating = value;
-					this.SendPropertyChanged("WeightRating");
-					this.OnWeightRatingChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_OtherRating", DbType="NVarChar(200)")]
-		public string OtherRating
-		{
-			get
-			{
-				return this._OtherRating;
-			}
-			set
-			{
-				if ((this._OtherRating != value))
-				{
-					this.OnOtherRatingChanging(value);
-					this.SendPropertyChanging();
-					this._OtherRating = value;
-					this.SendPropertyChanged("OtherRating");
-					this.OnOtherRatingChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Note", DbType="NVarChar(200)")]
-		public string Note
-		{
-			get
-			{
-				return this._Note;
-			}
-			set
-			{
-				if ((this._Note != value))
-				{
-					this.OnNoteChanging(value);
-					this.SendPropertyChanging();
-					this._Note = value;
-					this.SendPropertyChanged("Note");
-					this.OnNoteChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Status", DbType="Bit NOT NULL")]
-		public bool Status
-		{
-			get
-			{
-				return this._Status;
-			}
-			set
-			{
-				if ((this._Status != value))
-				{
-					this.OnStatusChanging(value);
-					this.SendPropertyChanging();
-					this._Status = value;
-					this.SendPropertyChanged("Status");
-					this.OnStatusChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="PhysicalAssessment_PhysicalAssessmentDetail", Storage="_PhysicalAssessment", ThisKey="PhysicalAssessmentID", OtherKey="PhysicalAssessmentID", IsForeignKey=true)]
-		public PhysicalAssessment PhysicalAssessment
-		{
-			get
-			{
-				return this._PhysicalAssessment.Entity;
-			}
-			set
-			{
-				PhysicalAssessment previousValue = this._PhysicalAssessment.Entity;
-				if (((previousValue != value) 
-							|| (this._PhysicalAssessment.HasLoadedOrAssignedValue == false)))
-				{
-					this.SendPropertyChanging();
-					if ((previousValue != null))
-					{
-						this._PhysicalAssessment.Entity = null;
-						previousValue.PhysicalAssessmentDetails.Remove(this);
-					}
-					this._PhysicalAssessment.Entity = value;
-					if ((value != null))
-					{
-						value.PhysicalAssessmentDetails.Add(this);
-						this._PhysicalAssessmentID = value.PhysicalAssessmentID;
-					}
-					else
-					{
-						this._PhysicalAssessmentID = default(int);
-					}
-					this.SendPropertyChanged("PhysicalAssessment");
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Student_PhysicalAssessmentDetail", Storage="_Student", ThisKey="StudentID", OtherKey="StudentID", IsForeignKey=true)]
-		public Student Student
-		{
-			get
-			{
-				return this._Student.Entity;
-			}
-			set
-			{
-				Student previousValue = this._Student.Entity;
-				if (((previousValue != value) 
-							|| (this._Student.HasLoadedOrAssignedValue == false)))
-				{
-					this.SendPropertyChanging();
-					if ((previousValue != null))
-					{
-						this._Student.Entity = null;
-						previousValue.PhysicalAssessmentDetails.Remove(this);
-					}
-					this._Student.Entity = value;
-					if ((value != null))
-					{
-						value.PhysicalAssessmentDetails.Add(this);
-						this._StudentID = value.StudentID;
-					}
-					else
-					{
-						this._StudentID = default(int);
-					}
-					this.SendPropertyChanged("Student");
-				}
-			}
-		}
-		
-		public event PropertyChangingEventHandler PropertyChanging;
-		
-		public event PropertyChangedEventHandler PropertyChanged;
-		
-		protected virtual void SendPropertyChanging()
-		{
-			if ((this.PropertyChanging != null))
-			{
-				this.PropertyChanging(this, emptyChangingEventArgs);
-			}
-		}
-		
-		protected virtual void SendPropertyChanged(String propertyName)
-		{
-			if ((this.PropertyChanged != null))
-			{
-				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
-			}
+			this.SendPropertyChanging();
+			entity.Dish = null;
 		}
 	}
 }

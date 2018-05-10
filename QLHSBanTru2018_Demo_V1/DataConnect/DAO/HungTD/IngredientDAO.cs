@@ -25,10 +25,27 @@ namespace DataConnect.DAO.HungTD
                             IngredientID = i.IngredientID,
                             Name = i.Name,
                             IngredientTypeID = i.IngredientTypeID,
-                            IngredientName = i.IngredientType.Name,
+                            IngredientTypeName = i.IngredientType.Name,
                             Unit = i.Unit,
-                            PriceOfUnit = i.QuantityOfUnit,
-
+                            PriceOfUnit = i.PriceOfUnit,
+                            QuantityOfUnit = i.QuantityOfUnit,
+                            Kcal = i.Kcal,
+                            Protein = i.Protein,
+                            Fat = i.Fat,
+                            Glucose = i.Glucose,
+                            Fiber = i.Fiber,
+                            Canxi = i.Canxi,
+                            Iron = i.Iron,
+                            Photpho = i.Photpho,
+                            Kali = i.Kali,
+                            Natri = i.Natri,
+                            VitaminA = i.VitaminA,
+                            VitaminB1 = i.VitaminB1,
+                            VitaminC = i.VitaminC,
+                            AxitFolic = i.AxitFolic,
+                            Cholesterol = i.Cholesterol,
+                            Status = i.Status,
+                            StringStatus = i.Status == true ? "Kích Hoạt" : "Khóa",
                         };
             return model.ToList();
         }
@@ -67,6 +84,7 @@ namespace DataConnect.DAO.HungTD
                 obj.IngredientTypeID = entity.IngredientTypeID;
                 obj.Unit = entity.Unit;
                 obj.QuantityOfUnit = entity.QuantityOfUnit;
+                obj.PriceOfUnit = entity.PriceOfUnit;
                 obj.Kcal = entity.Kcal;
                 obj.Protein = entity.Protein;
                 obj.Fat = entity.Fat;
@@ -83,6 +101,27 @@ namespace DataConnect.DAO.HungTD
                 obj.AxitFolic = entity.AxitFolic;
                 obj.Cholesterol = entity.Cholesterol;
                 obj.Status = entity.Status;
+                db.SubmitChanges();
+                return true;
+            }
+            catch
+            {
+                return false;
+            }
+        }
+        public bool UpdateQuantity(int ingredientID, double value, int iFunction = 0)
+        {
+            try
+            {
+                Ingredient obj = ingredients.SingleOrDefault(x => x.IngredientID == ingredientID);
+                if (iFunction == 1)
+                {
+                    obj.QuantityOfUnit = obj.QuantityOfUnit + value;
+                }
+                else if (iFunction == 2)
+                {
+                    obj.QuantityOfUnit = obj.QuantityOfUnit - value;
+                }
                 db.SubmitChanges();
                 return true;
             }

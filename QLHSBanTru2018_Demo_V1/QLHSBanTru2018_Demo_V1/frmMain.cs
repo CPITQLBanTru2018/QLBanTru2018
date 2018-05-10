@@ -23,6 +23,7 @@ using QLHSBanTru2018_Demo_V1.DAO.HungTD;
 using QLHSBanTru2018_Demo_V1.Common;
 using QLHSBanTru2018_Demo_V1.HungTD.Form.Ingredient;
 using QLHSBanTru2018_Demo_V1.QLThuChi.ChiTieu;
+using QLHSBanTru2018_Demo_V1.HungTD.Form.Dish;
 
 namespace QLHSBanTru2018_Demo_V1
 {
@@ -102,6 +103,13 @@ namespace QLHSBanTru2018_Demo_V1
             pnControlsPanel.Controls.Clear();
             pnControlsPanel.Controls.Add(new frmIngredient());
             labTitle.Caption = "QUẢN LÝ THỰC PHẨM";
+        }
+
+        private void btnDishManager_ItemClick(object sender, ItemClickEventArgs e)
+        {
+            pnControlsPanel.Controls.Clear();
+            pnControlsPanel.Controls.Add(new frmDish());
+            labTitle.Caption = "QUẢN LÝ MÓN ĂN";
         }
         #endregion
 
@@ -203,12 +211,11 @@ namespace QLHSBanTru2018_Demo_V1
 
 
 
+
         #endregion
 
         #region Vũ Đức Thiện
 
         #endregion
-
-        
     }
 }

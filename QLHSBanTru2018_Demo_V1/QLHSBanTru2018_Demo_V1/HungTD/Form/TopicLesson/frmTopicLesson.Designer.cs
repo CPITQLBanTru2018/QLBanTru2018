@@ -153,7 +153,7 @@
             // 
             // btnDetail
             // 
-            this.btnDetail.Location = new System.Drawing.Point(723, 62);
+            this.btnDetail.Location = new System.Drawing.Point(723, 61);
             this.btnDetail.Name = "btnDetail";
             this.btnDetail.Size = new System.Drawing.Size(56, 21);
             this.btnDetail.TabIndex = 15;
@@ -316,7 +316,7 @@
             // 
             this.cbbTopicType.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbbTopicType.FormattingEnabled = true;
-            this.cbbTopicType.Location = new System.Drawing.Point(537, 62);
+            this.cbbTopicType.Location = new System.Drawing.Point(537, 61);
             this.cbbTopicType.Name = "cbbTopicType";
             this.cbbTopicType.Size = new System.Drawing.Size(182, 21);
             this.cbbTopicType.TabIndex = 9;
@@ -324,7 +324,7 @@
             // 
             // txtDescription
             // 
-            this.txtDescription.Location = new System.Drawing.Point(537, 230);
+            this.txtDescription.Location = new System.Drawing.Point(537, 229);
             this.txtDescription.Name = "txtDescription";
             this.txtDescription.Properties.ReadOnly = true;
             this.txtDescription.Size = new System.Drawing.Size(242, 47);
@@ -333,7 +333,7 @@
             // 
             // txtName
             // 
-            this.txtName.Location = new System.Drawing.Point(537, 165);
+            this.txtName.Location = new System.Drawing.Point(537, 164);
             this.txtName.Name = "txtName";
             this.txtName.Properties.ReadOnly = true;
             this.txtName.Size = new System.Drawing.Size(242, 45);
@@ -342,7 +342,7 @@
             // 
             // txtTopicDescription
             // 
-            this.txtTopicDescription.Location = new System.Drawing.Point(537, 297);
+            this.txtTopicDescription.Location = new System.Drawing.Point(537, 296);
             this.txtTopicDescription.Name = "txtTopicDescription";
             this.txtTopicDescription.Properties.ReadOnly = true;
             this.txtTopicDescription.Size = new System.Drawing.Size(242, 42);
@@ -475,7 +475,7 @@
             this.emptySpaceItem2.AllowHotTrack = false;
             this.emptySpaceItem2.Location = new System.Drawing.Point(0, 41);
             this.emptySpaceItem2.Name = "emptySpaceItem2";
-            this.emptySpaceItem2.Size = new System.Drawing.Size(246, 19);
+            this.emptySpaceItem2.Size = new System.Drawing.Size(246, 20);
             this.emptySpaceItem2.TextSize = new System.Drawing.Size(0, 0);
             // 
             // layoutControlItem9
@@ -511,11 +511,11 @@
             // 
             this.emptySpaceItem1.AllowHotTrack = false;
             this.emptySpaceItem1.CustomizationFormText = "emptySpaceItem1";
-            this.emptySpaceItem1.Location = new System.Drawing.Point(510, 340);
+            this.emptySpaceItem1.Location = new System.Drawing.Point(510, 339);
             this.emptySpaceItem1.MaxSize = new System.Drawing.Size(270, 0);
             this.emptySpaceItem1.MinSize = new System.Drawing.Size(270, 24);
             this.emptySpaceItem1.Name = "emptySpaceItem1";
-            this.emptySpaceItem1.Size = new System.Drawing.Size(270, 192);
+            this.emptySpaceItem1.Size = new System.Drawing.Size(270, 193);
             this.emptySpaceItem1.SizeConstraintsType = DevExpress.XtraLayout.SizeConstraintsType.Custom;
             this.emptySpaceItem1.TextSize = new System.Drawing.Size(0, 0);
             // 
@@ -527,7 +527,7 @@
             this.layoutControlItem10});
             this.layoutControlGroup2.Location = new System.Drawing.Point(510, 103);
             this.layoutControlGroup2.Name = "layoutControlGroup2";
-            this.layoutControlGroup2.Size = new System.Drawing.Size(270, 237);
+            this.layoutControlGroup2.Size = new System.Drawing.Size(270, 236);
             this.layoutControlGroup2.Text = "Thông Tin Bài Giảng";
             // 
             // layoutControlItem7
