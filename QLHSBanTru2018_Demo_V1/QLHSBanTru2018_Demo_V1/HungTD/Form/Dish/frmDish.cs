@@ -32,7 +32,7 @@ namespace QLHSBanTru2018_Demo_V1.HungTD.Form.Dish
             //    frmTLD.setLesson(lessonID = Convert.ToInt32(view.GetRowCellValue(rowChild, "LessonID").ToString()));
             //}
             frmDD.setFunction(1);
-            frmDD.setTitle("Thêm Mới Món Ăn");
+            //frmDD.setTitle("Thêm Mới Món Ăn");
             frmDD.ShowDialog();
             //if (frmDD.DialogResult == DialogResult.OK)
             //    FillCombobox();

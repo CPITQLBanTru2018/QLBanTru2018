@@ -4,6 +4,7 @@ using System.Data.Linq;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using DataConnect.ViewModel;
 
 namespace DataConnect.DAO.HungTD
 {
