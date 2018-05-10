@@ -21,5 +21,9 @@ namespace DataConnect.DAO.HungTD
         {
             return null;
         }
+        public Dish GetByID(int dishID)
+        {
+            return dishes.FirstOrDefault(x => x.DishID.Equals(dishID));
+        }
     }
 }
