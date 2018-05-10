@@ -25,6 +25,10 @@ namespace QLHSBanTru2018_Demo_V1.HungTD.Form.Dish
         {
             this.dish = new DishDAO();
         }
+        public void setTitle(string title)
+        {
+            this.Text = title;
+        }
         public frmDishDetail()
         {
             InitializeComponent();
