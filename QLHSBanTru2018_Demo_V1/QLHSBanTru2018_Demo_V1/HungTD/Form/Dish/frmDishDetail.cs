@@ -54,11 +54,25 @@ namespace QLHSBanTru2018_Demo_V1.HungTD.Form.Dish
         }
         private void FillGridControls(int ingredientID)
         {
-
+            gcLeft.DataSource = new IngredientTypeDAO().ListAllActive();
         }
+
         private void btnNext_Click(object sender, EventArgs e)
         {
             tabInformation.SelectedTabPage = tabPage2;
+        }
+
+        private void cbbIngredientType_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            try
+            {
+                FillGridControls(int.Parse(cbbIngredientType.SelectedValue.ToString()));
+            }
+            catch
+            {
+
+            }
+
         }
     }
 }

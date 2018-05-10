@@ -122,6 +122,7 @@
             this.cbbIngredientType.Name = "cbbIngredientType";
             this.cbbIngredientType.Size = new System.Drawing.Size(192, 21);
             this.cbbIngredientType.TabIndex = 6;
+            this.cbbIngredientType.SelectedIndexChanged += new System.EventHandler(this.cbbIngredientType_SelectedIndexChanged);
             // 
             // panel1
             // 

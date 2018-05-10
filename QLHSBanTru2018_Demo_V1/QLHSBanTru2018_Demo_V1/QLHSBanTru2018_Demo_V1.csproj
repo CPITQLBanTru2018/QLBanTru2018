@@ -243,12 +243,6 @@
     <Compile Include="HungTD\Form\Ingredient\frmIngredientTypeDetail.Designer.cs">
       <DependentUpon>frmIngredientTypeDetail.cs</DependentUpon>
     </Compile>
-    <Compile Include="HungTD\Form\Ingredient\frmUpdateQuantity.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="HungTD\Form\Ingredient\frmUpdateQuantity.Designer.cs">
-      <DependentUpon>frmUpdateQuantity.cs</DependentUpon>
-    </Compile>
     <Compile Include="HungTD\Form\NewFolder1\frmABC.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -605,9 +599,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="HungTD\Form\Ingredient\frmIngredientTypeDetail.resx">
       <DependentUpon>frmIngredientTypeDetail.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="HungTD\Form\Ingredient\frmUpdateQuantity.resx">
-      <DependentUpon>frmUpdateQuantity.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="HungTD\Form\NewFolder1\frmABC.resx">
       <DependentUpon>frmABC.cs</DependentUpon>
