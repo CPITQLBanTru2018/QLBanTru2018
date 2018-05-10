@@ -105,7 +105,7 @@ namespace QLHSBanTru2018_Demo_V1.TienBao
         private void frmHealthExaminationDetail_Load(object sender, EventArgs e)
         {
             this.Dock = DockStyle.Fill;
-            
+
         }
         private void cmbHealthExam_Click(object sender, EventArgs e)
         {
