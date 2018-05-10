@@ -81,6 +81,7 @@
             this.ribbonStatusBar = new DevExpress.XtraBars.Ribbon.RibbonStatusBar();
             this.defaultLookAndFeel1 = new DevExpress.LookAndFeel.DefaultLookAndFeel();
             this.pnControlsPanel = new System.Windows.Forms.Panel();
+            this.ribbonPageGroup12 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             ((System.ComponentModel.ISupportInitialize)(this.ribbon)).BeginInit();
             this.SuspendLayout();
             // 
@@ -494,7 +495,8 @@
             // 
             this.ribbonPage2.Groups.AddRange(new DevExpress.XtraBars.Ribbon.RibbonPageGroup[] {
             this.ribbonPageGroup3,
-            this.ribbonPageGroup10});
+            this.ribbonPageGroup10,
+            this.ribbonPageGroup12});
             this.ribbonPage2.Name = "ribbonPage2";
             this.ribbonPage2.Text = "Thu Chi";
             // 
@@ -511,7 +513,6 @@
             this.ribbonPageGroup10.ItemLinks.Add(this.bntCackhoanchi);
             this.ribbonPageGroup10.ItemLinks.Add(this.btnLoaichi);
             this.ribbonPageGroup10.ItemLinks.Add(this.btnDanhMucChiTieu);
-            this.ribbonPageGroup10.ItemLinks.Add(this.btnChiThucPham);
             this.ribbonPageGroup10.Name = "ribbonPageGroup10";
             this.ribbonPageGroup10.Text = "Chi tiêu";
             // 
@@ -559,6 +560,12 @@
             this.pnControlsPanel.Name = "pnControlsPanel";
             this.pnControlsPanel.Size = new System.Drawing.Size(1364, 600);
             this.pnControlsPanel.TabIndex = 3;
+            // 
+            // ribbonPageGroup12
+            // 
+            this.ribbonPageGroup12.ItemLinks.Add(this.btnChiThucPham);
+            this.ribbonPageGroup12.Name = "ribbonPageGroup12";
+            this.ribbonPageGroup12.Text = "Chi tiêu thực phẩm";
             // 
             // frmMain
             // 
@@ -633,5 +640,6 @@
         private DevExpress.XtraBars.BarButtonItem btnDishManager;
         private DevExpress.XtraBars.Ribbon.RibbonPageGroup ribbonPageGroup11;
         private DevExpress.XtraBars.BarButtonItem btnChiThucPham;
+        private DevExpress.XtraBars.Ribbon.RibbonPageGroup ribbonPageGroup12;
     }
 }
