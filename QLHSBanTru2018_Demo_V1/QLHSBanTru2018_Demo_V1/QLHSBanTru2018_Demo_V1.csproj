@@ -467,6 +467,12 @@
     <Compile Include="TienBao\frmPhysicalAssessment.Designer.cs">
       <DependentUpon>frmPhysicalAssessment.cs</DependentUpon>
     </Compile>
+    <Compile Include="TienBao\frmPhysicalDetail.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="TienBao\frmPhysicalDetail.Designer.cs">
+      <DependentUpon>frmPhysicalDetail.cs</DependentUpon>
+    </Compile>
     <Compile Include="TienBao\frmStudent.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -678,6 +684,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="TienBao\frmPhysicalAssessment.resx">
       <DependentUpon>frmPhysicalAssessment.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="TienBao\frmPhysicalDetail.resx">
+      <DependentUpon>frmPhysicalDetail.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="TienBao\frmStudent.resx">
       <DependentUpon>frmStudent.cs</DependentUpon>
