@@ -100,6 +100,7 @@ namespace QLHSBanTru2018_Demo_V1.QLThuChi
         private void cbbNamhoc_SelectionChangeCommitted(object sender, EventArgs e)
         {
             LoadHocky();
+            LoadDataDotThu();
         }
 
         private void cbbHocky_SelectionChangeCommitted(object sender, EventArgs e)

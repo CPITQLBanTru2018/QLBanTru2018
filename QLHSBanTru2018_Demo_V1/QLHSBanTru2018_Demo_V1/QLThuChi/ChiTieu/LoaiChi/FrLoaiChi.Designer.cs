@@ -85,6 +85,7 @@
             this.grCacLoaiChi.Location = new System.Drawing.Point(12, 12);
             this.grCacLoaiChi.MainView = this.gridView1;
             this.grCacLoaiChi.Name = "grCacLoaiChi";
+            this.grCacLoaiChi.ShowOnlyPredefinedDetails = true;
             this.grCacLoaiChi.Size = new System.Drawing.Size(506, 372);
             this.grCacLoaiChi.TabIndex = 9;
             this.grCacLoaiChi.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
@@ -94,6 +95,7 @@
             // 
             this.gridView1.GridControl = this.grCacLoaiChi;
             this.gridView1.Name = "gridView1";
+            this.gridView1.OptionsView.ShowGroupPanel = false;
             this.gridView1.FocusedRowChanged += new DevExpress.XtraGrid.Views.Base.FocusedRowChangedEventHandler(this.gridView1_FocusedRowChanged);
             // 
             // btnXoa

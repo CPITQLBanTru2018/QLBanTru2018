@@ -20,6 +20,7 @@ namespace DataConnect.DAO.ThanhCongTC
             a.CreatedDate = entity.CreatedDate;
             a.Status = entity.Status;
             a.CourseID = entity.CourseID;
+            a.Note = entity.Note;
             dt.Receivables.InsertOnSubmit(a);
             dt.SubmitChanges();
             return a.ReceivableID;

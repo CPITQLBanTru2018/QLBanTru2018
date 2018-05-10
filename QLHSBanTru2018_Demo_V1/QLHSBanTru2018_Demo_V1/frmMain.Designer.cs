@@ -28,7 +28,6 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmMain));
             this.ribbon = new DevExpress.XtraBars.Ribbon.RibbonControl();
             this.btnDepartment = new DevExpress.XtraBars.BarButtonItem();
@@ -62,6 +61,8 @@
             this.btnLoaichi = new DevExpress.XtraBars.BarButtonItem();
             this.btnDanhMucChiTieu = new DevExpress.XtraBars.BarButtonItem();
             this.btnDoituongchinhsach = new DevExpress.XtraBars.BarButtonItem();
+            this.btnDishManager = new DevExpress.XtraBars.BarButtonItem();
+            this.btnChiThucPham = new DevExpress.XtraBars.BarButtonItem();
             this.ribbonPage1 = new DevExpress.XtraBars.Ribbon.RibbonPage();
             this.ribbonPageGroup1 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             this.ribbonPageGroup2 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
@@ -70,6 +71,7 @@
             this.ribbonPageGroup8 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             this.ribbonPage4 = new DevExpress.XtraBars.Ribbon.RibbonPage();
             this.ribbonPageGroup9 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
+            this.ribbonPageGroup11 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             this.ribbonPage2 = new DevExpress.XtraBars.Ribbon.RibbonPage();
             this.ribbonPageGroup3 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             this.ribbonPageGroup10 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
@@ -77,10 +79,8 @@
             this.ribbonPageGroup6 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             this.ribbonPageGroup7 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             this.ribbonStatusBar = new DevExpress.XtraBars.Ribbon.RibbonStatusBar();
-            this.defaultLookAndFeel1 = new DevExpress.LookAndFeel.DefaultLookAndFeel(this.components);
+            this.defaultLookAndFeel1 = new DevExpress.LookAndFeel.DefaultLookAndFeel();
             this.pnControlsPanel = new System.Windows.Forms.Panel();
-            this.ribbonPageGroup11 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
-            this.btnDishManager = new DevExpress.XtraBars.BarButtonItem();
             ((System.ComponentModel.ISupportInitialize)(this.ribbon)).BeginInit();
             this.SuspendLayout();
             // 
@@ -120,9 +120,10 @@
             this.btnLoaichi,
             this.btnDanhMucChiTieu,
             this.btnDoituongchinhsach,
-            this.btnDishManager});
+            this.btnDishManager,
+            this.btnChiThucPham});
             this.ribbon.Location = new System.Drawing.Point(0, 0);
-            this.ribbon.MaxItemId = 33;
+            this.ribbon.MaxItemId = 34;
             this.ribbon.Name = "ribbon";
             this.ribbon.Pages.AddRange(new DevExpress.XtraBars.Ribbon.RibbonPage[] {
             this.ribbonPage1,
@@ -406,6 +407,22 @@
             this.btnDoituongchinhsach.Name = "btnDoituongchinhsach";
             this.btnDoituongchinhsach.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.btnDoituongchinhsach_ItemClick);
             // 
+            // btnDishManager
+            // 
+            this.btnDishManager.Caption = "Quản Lý Món Ăn";
+            this.btnDishManager.Id = 32;
+            this.btnDishManager.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("btnDishManager.ImageOptions.Image")));
+            this.btnDishManager.ImageOptions.LargeImage = ((System.Drawing.Image)(resources.GetObject("btnDishManager.ImageOptions.LargeImage")));
+            this.btnDishManager.Name = "btnDishManager";
+            this.btnDishManager.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.btnDishManager_ItemClick);
+            // 
+            // btnChiThucPham
+            // 
+            this.btnChiThucPham.Caption = "Chi thực phẩm";
+            this.btnChiThucPham.Id = 33;
+            this.btnChiThucPham.ImageOptions.LargeImage = global::QLHSBanTru2018_Demo_V1.Properties.Resources.Steak_icon;
+            this.btnChiThucPham.Name = "btnChiThucPham";
+            // 
             // ribbonPage1
             // 
             this.ribbonPage1.Groups.AddRange(new DevExpress.XtraBars.Ribbon.RibbonPageGroup[] {
@@ -467,6 +484,12 @@
             this.ribbonPageGroup9.Name = "ribbonPageGroup9";
             this.ribbonPageGroup9.Text = "Thực Phẩm";
             // 
+            // ribbonPageGroup11
+            // 
+            this.ribbonPageGroup11.ItemLinks.Add(this.btnDishManager);
+            this.ribbonPageGroup11.Name = "ribbonPageGroup11";
+            this.ribbonPageGroup11.Text = "Món Ăn";
+            // 
             // ribbonPage2
             // 
             this.ribbonPage2.Groups.AddRange(new DevExpress.XtraBars.Ribbon.RibbonPageGroup[] {
@@ -488,6 +511,7 @@
             this.ribbonPageGroup10.ItemLinks.Add(this.bntCackhoanchi);
             this.ribbonPageGroup10.ItemLinks.Add(this.btnLoaichi);
             this.ribbonPageGroup10.ItemLinks.Add(this.btnDanhMucChiTieu);
+            this.ribbonPageGroup10.ItemLinks.Add(this.btnChiThucPham);
             this.ribbonPageGroup10.Name = "ribbonPageGroup10";
             this.ribbonPageGroup10.Text = "Chi tiêu";
             // 
@@ -535,21 +559,6 @@
             this.pnControlsPanel.Name = "pnControlsPanel";
             this.pnControlsPanel.Size = new System.Drawing.Size(1364, 600);
             this.pnControlsPanel.TabIndex = 3;
-            // 
-            // ribbonPageGroup11
-            // 
-            this.ribbonPageGroup11.ItemLinks.Add(this.btnDishManager);
-            this.ribbonPageGroup11.Name = "ribbonPageGroup11";
-            this.ribbonPageGroup11.Text = "Món Ăn";
-            // 
-            // btnDishManager
-            // 
-            this.btnDishManager.Caption = "Quản Lý Món Ăn";
-            this.btnDishManager.Id = 32;
-            this.btnDishManager.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("barButtonItem3.ImageOptions.Image")));
-            this.btnDishManager.ImageOptions.LargeImage = ((System.Drawing.Image)(resources.GetObject("barButtonItem3.ImageOptions.LargeImage")));
-            this.btnDishManager.Name = "btnDishManager";
-            this.btnDishManager.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.btnDishManager_ItemClick);
             // 
             // frmMain
             // 
@@ -623,5 +632,6 @@
         public DevExpress.XtraBars.BarStaticItem labTitle;
         private DevExpress.XtraBars.BarButtonItem btnDishManager;
         private DevExpress.XtraBars.Ribbon.RibbonPageGroup ribbonPageGroup11;
+        private DevExpress.XtraBars.BarButtonItem btnChiThucPham;
     }
 }

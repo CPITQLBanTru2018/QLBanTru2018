@@ -21,6 +21,7 @@ namespace DataConnect.DAO.ThanhCongTC
             a.TotalPriceDetail = entity.TotalPriceDetail;
             a.TimeUnits = entity.TimeUnits;
             a.Frequency = entity.Frequency;
+            a.Feedback = entity.Feedback;
             dt.ReceivableDetails.InsertOnSubmit(a);
             dt.SubmitChanges();
             return a.ReceivableDetailID;
@@ -36,6 +37,7 @@ namespace DataConnect.DAO.ThanhCongTC
             a.Status = entity.Status;
             a.Frequency = entity.Frequency;
             a.TimeUnits = entity.TimeUnits;
+            a.Feedback = entity.Feedback;
             a.TotalPriceDetail = entity.TotalPriceDetail;
             dt.SubmitChanges();
             return true;
