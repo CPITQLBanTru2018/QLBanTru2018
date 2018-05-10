@@ -11,18 +11,18 @@
 
 namespace DataConnect
 {
-	using System.Data.Linq;
-	using System.Data.Linq.Mapping;
-	using System.Data;
-	using System.Collections.Generic;
-	using System.Reflection;
-	using System.Linq;
-	using System.Linq.Expressions;
-	using System.ComponentModel;
-	using System;
-	
-	
-	[global::System.Data.Linq.Mapping.DatabaseAttribute(Name="CPITQLHSBanTru2018")]
+    using System.Data.Linq;
+    using System.Data.Linq.Mapping;
+    using System.Data;
+    using System.Collections.Generic;
+    using System.Reflection;
+    using System.Linq;
+    using System.Linq.Expressions;
+    using System.ComponentModel;
+    using System;
+    using DataConnect.DAO.HungTD;
+
+    [global::System.Data.Linq.Mapping.DatabaseAttribute(Name="CPITQLHSBanTru2018")]
 	public partial class QLHSSmartKidsDataContext : System.Data.Linq.DataContext
 	{
 		
@@ -3497,7 +3497,12 @@ namespace DataConnect
 			this.SendPropertyChanging();
 			entity.Dish = null;
 		}
-	}
+
+        public static implicit operator Dish(DishDAO v)
+        {
+            throw new NotImplementedException();
+        }
+    }
 	
 	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.DishDetail")]
 	public partial class DishDetail : INotifyPropertyChanging, INotifyPropertyChanged

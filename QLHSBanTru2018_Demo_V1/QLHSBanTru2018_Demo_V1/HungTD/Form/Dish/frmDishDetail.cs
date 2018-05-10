@@ -9,6 +9,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using DevExpress.XtraEditors;
 using DataConnect;
+using DataConnect.DAO.HungTD;
 
 namespace QLHSBanTru2018_Demo_V1.HungTD.Form.Dish
 {
@@ -22,7 +23,7 @@ namespace QLHSBanTru2018_Demo_V1.HungTD.Form.Dish
         }
         public void setDish(int dishID)
         {
-            this.dish = new DishDAO
+            this.dish = new DishDAO();
         }
         public frmDishDetail()
         {
