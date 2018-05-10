@@ -75,6 +75,7 @@ namespace QLHSBanTru2018_Demo_V1.QLThuChi
                 LoadKhoihoc();             
                 LoadLophoc();
                 loadDSHS();
+                ReceivableIDAO.ReceivableID = (int)cbbDotthu.SelectedValue;
             }
             catch 
             {

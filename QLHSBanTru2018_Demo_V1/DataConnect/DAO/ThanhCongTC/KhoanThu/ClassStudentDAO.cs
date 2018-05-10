@@ -55,7 +55,11 @@ namespace DataConnect.DAO.ThanhCongTC
                 foreach (var item in a1)
                 {
                     st = dt.ReceivableDetail_Students.Where(t => t.StudentID == i.StudentID&&t.ReceivableDetailID==item.ReceivableDetailID).FirstOrDefault();
-                    listStudenReceivableDetail.Add(st);
+                    if (st!=null)
+                    {
+                        listStudenReceivableDetail.Add(st);
+                    }
+                    
                     break;
                 }
                 

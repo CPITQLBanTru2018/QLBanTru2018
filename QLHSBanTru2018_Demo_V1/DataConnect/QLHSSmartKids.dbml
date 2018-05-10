@@ -123,19 +123,6 @@
       <Association Name="Department_Division" Member="Divisions" ThisKey="DepartmentID" OtherKey="DepartmentID" Type="Division" />
     </Type>
   </Table>
-  <Table Name="dbo.Dish" Member="Dishes">
-    <Type Name="Dish">
-      <Column Name="DishID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
-      <Column Name="MealID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
-      <Column Name="Name" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
-      <Column Name="CreatedBy" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
-      <Column Name="CreatedDate" Type="System.DateTime" DbType="DateTime NOT NULL" CanBeNull="false" />
-      <Column Name="Status" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
-      <Association Name="Dish_DailyMenuDetail" Member="DailyMenuDetails" ThisKey="DishID" OtherKey="DishID" Type="DailyMenuDetail" />
-      <Association Name="Dish_DishDetail" Member="DishDetails" ThisKey="DishID" OtherKey="DishID" Type="DishDetail" />
-      <Association Name="Meal_Dish" Member="Meal" ThisKey="MealID" OtherKey="MealID" Type="Meal" IsForeignKey="true" />
-    </Type>
-  </Table>
   <Table Name="dbo.DishDetail" Member="DishDetails">
     <Type Name="DishDetail">
       <Column Name="DishDetailID" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
@@ -143,8 +130,8 @@
       <Column Name="IngredientID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
       <Column Name="QuantiyOfUnit" Type="System.Double" DbType="Float NOT NULL" CanBeNull="false" />
       <Column Name="Status" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
-      <Association Name="Dish_DishDetail" Member="Dish" ThisKey="DishID" OtherKey="DishID" Type="Dish" IsForeignKey="true" />
       <Association Name="Ingredient_DishDetail" Member="Ingredient" ThisKey="IngredientID" OtherKey="IngredientID" Type="Ingredient" IsForeignKey="true" />
+      <Association Name="Dish_DishDetail" Member="Dish" ThisKey="DishID" OtherKey="DishID" Type="Dish" IsForeignKey="true" />
     </Type>
   </Table>
   <Table Name="dbo.Division" Member="Divisions">
@@ -714,6 +701,20 @@
       <Column Name="EndDate" Type="System.DateTime" DbType="Date NOT NULL" CanBeNull="false" />
       <Column Name="Status" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
       <Association Name="WeeklyMenu_DailyMenu" Member="DailyMenus" ThisKey="WeeklyMenuID" OtherKey="WeeklyMenuID" Type="DailyMenu" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Dish" Member="Dishes">
+    <Type Name="Dish">
+      <Column Name="DishID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="MealID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="Name" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="CreatedBy" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="CreatedDate" Type="System.DateTime" DbType="DateTime NOT NULL" CanBeNull="false" />
+      <Column Name="Image" Type="System.Data.Linq.Binary" DbType="Image" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="Status" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
+      <Association Name="Dish_DailyMenuDetail" Member="DailyMenuDetails" ThisKey="DishID" OtherKey="DishID" Type="DailyMenuDetail" />
+      <Association Name="Dish_DishDetail" Member="DishDetails" ThisKey="DishID" OtherKey="DishID" Type="DishDetail" />
+      <Association Name="Meal_Dish" Member="Meal" ThisKey="MealID" OtherKey="MealID" Type="Meal" IsForeignKey="true" />
     </Type>
   </Table>
 </Database>

@@ -11,18 +11,18 @@
 
 namespace DataConnect
 {
-    using System.Data.Linq;
-    using System.Data.Linq.Mapping;
-    using System.Data;
-    using System.Collections.Generic;
-    using System.Reflection;
-    using System.Linq;
-    using System.Linq.Expressions;
-    using System.ComponentModel;
-    using System;
-    using DataConnect.DAO.HungTD;
-
-    [global::System.Data.Linq.Mapping.DatabaseAttribute(Name="CPITQLHSBanTru2018")]
+	using System.Data.Linq;
+	using System.Data.Linq.Mapping;
+	using System.Data;
+	using System.Collections.Generic;
+	using System.Reflection;
+	using System.Linq;
+	using System.Linq.Expressions;
+	using System.ComponentModel;
+	using System;
+	
+	
+	[global::System.Data.Linq.Mapping.DatabaseAttribute(Name="CPITQLHSBanTru2018")]
 	public partial class QLHSSmartKidsDataContext : System.Data.Linq.DataContext
 	{
 		
@@ -60,9 +60,6 @@ namespace DataConnect
     partial void InsertDepartment(Department instance);
     partial void UpdateDepartment(Department instance);
     partial void DeleteDepartment(Department instance);
-    partial void InsertDish(Dish instance);
-    partial void UpdateDish(Dish instance);
-    partial void DeleteDish(Dish instance);
     partial void InsertDishDetail(DishDetail instance);
     partial void UpdateDishDetail(DishDetail instance);
     partial void DeleteDishDetail(DishDetail instance);
@@ -189,6 +186,9 @@ namespace DataConnect
     partial void InsertWeeklyMenu(WeeklyMenu instance);
     partial void UpdateWeeklyMenu(WeeklyMenu instance);
     partial void DeleteWeeklyMenu(WeeklyMenu instance);
+    partial void InsertDish(Dish instance);
+    partial void UpdateDish(Dish instance);
+    partial void DeleteDish(Dish instance);
     #endregion
 		
 		public QLHSSmartKidsDataContext() : 
@@ -298,14 +298,6 @@ namespace DataConnect
 			get
 			{
 				return this.GetTable<Department>();
-			}
-		}
-		
-		public System.Data.Linq.Table<Dish> Dishes
-		{
-			get
-			{
-				return this.GetTable<Dish>();
 			}
 		}
 		
@@ -642,6 +634,14 @@ namespace DataConnect
 			get
 			{
 				return this.GetTable<WeeklyMenu>();
+			}
+		}
+		
+		public System.Data.Linq.Table<Dish> Dishes
+		{
+			get
+			{
+				return this.GetTable<Dish>();
 			}
 		}
 	}
@@ -3220,290 +3220,6 @@ namespace DataConnect
 		}
 	}
 	
-	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.Dish")]
-	public partial class Dish : INotifyPropertyChanging, INotifyPropertyChanged
-	{
-		
-		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
-		
-		private int _DishID;
-		
-		private int _MealID;
-		
-		private string _Name;
-		
-		private int _CreatedBy;
-		
-		private System.DateTime _CreatedDate;
-		
-		private bool _Status;
-		
-		private EntitySet<DailyMenuDetail> _DailyMenuDetails;
-		
-		private EntitySet<DishDetail> _DishDetails;
-		
-		private EntityRef<Meal> _Meal;
-		
-    #region Extensibility Method Definitions
-    partial void OnLoaded();
-    partial void OnValidate(System.Data.Linq.ChangeAction action);
-    partial void OnCreated();
-    partial void OnDishIDChanging(int value);
-    partial void OnDishIDChanged();
-    partial void OnMealIDChanging(int value);
-    partial void OnMealIDChanged();
-    partial void OnNameChanging(string value);
-    partial void OnNameChanged();
-    partial void OnCreatedByChanging(int value);
-    partial void OnCreatedByChanged();
-    partial void OnCreatedDateChanging(System.DateTime value);
-    partial void OnCreatedDateChanged();
-    partial void OnStatusChanging(bool value);
-    partial void OnStatusChanged();
-    #endregion
-		
-		public Dish()
-		{
-			this._DailyMenuDetails = new EntitySet<DailyMenuDetail>(new Action<DailyMenuDetail>(this.attach_DailyMenuDetails), new Action<DailyMenuDetail>(this.detach_DailyMenuDetails));
-			this._DishDetails = new EntitySet<DishDetail>(new Action<DishDetail>(this.attach_DishDetails), new Action<DishDetail>(this.detach_DishDetails));
-			this._Meal = default(EntityRef<Meal>);
-			OnCreated();
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_DishID", AutoSync=AutoSync.OnInsert, DbType="Int NOT NULL IDENTITY", IsPrimaryKey=true, IsDbGenerated=true)]
-		public int DishID
-		{
-			get
-			{
-				return this._DishID;
-			}
-			set
-			{
-				if ((this._DishID != value))
-				{
-					this.OnDishIDChanging(value);
-					this.SendPropertyChanging();
-					this._DishID = value;
-					this.SendPropertyChanged("DishID");
-					this.OnDishIDChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_MealID", DbType="Int NOT NULL")]
-		public int MealID
-		{
-			get
-			{
-				return this._MealID;
-			}
-			set
-			{
-				if ((this._MealID != value))
-				{
-					if (this._Meal.HasLoadedOrAssignedValue)
-					{
-						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
-					}
-					this.OnMealIDChanging(value);
-					this.SendPropertyChanging();
-					this._MealID = value;
-					this.SendPropertyChanged("MealID");
-					this.OnMealIDChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Name", DbType="NVarChar(50) NOT NULL", CanBeNull=false)]
-		public string Name
-		{
-			get
-			{
-				return this._Name;
-			}
-			set
-			{
-				if ((this._Name != value))
-				{
-					this.OnNameChanging(value);
-					this.SendPropertyChanging();
-					this._Name = value;
-					this.SendPropertyChanged("Name");
-					this.OnNameChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CreatedBy", DbType="Int NOT NULL")]
-		public int CreatedBy
-		{
-			get
-			{
-				return this._CreatedBy;
-			}
-			set
-			{
-				if ((this._CreatedBy != value))
-				{
-					this.OnCreatedByChanging(value);
-					this.SendPropertyChanging();
-					this._CreatedBy = value;
-					this.SendPropertyChanged("CreatedBy");
-					this.OnCreatedByChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CreatedDate", DbType="DateTime NOT NULL")]
-		public System.DateTime CreatedDate
-		{
-			get
-			{
-				return this._CreatedDate;
-			}
-			set
-			{
-				if ((this._CreatedDate != value))
-				{
-					this.OnCreatedDateChanging(value);
-					this.SendPropertyChanging();
-					this._CreatedDate = value;
-					this.SendPropertyChanged("CreatedDate");
-					this.OnCreatedDateChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Status", DbType="Bit NOT NULL")]
-		public bool Status
-		{
-			get
-			{
-				return this._Status;
-			}
-			set
-			{
-				if ((this._Status != value))
-				{
-					this.OnStatusChanging(value);
-					this.SendPropertyChanging();
-					this._Status = value;
-					this.SendPropertyChanged("Status");
-					this.OnStatusChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Dish_DailyMenuDetail", Storage="_DailyMenuDetails", ThisKey="DishID", OtherKey="DishID")]
-		public EntitySet<DailyMenuDetail> DailyMenuDetails
-		{
-			get
-			{
-				return this._DailyMenuDetails;
-			}
-			set
-			{
-				this._DailyMenuDetails.Assign(value);
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Dish_DishDetail", Storage="_DishDetails", ThisKey="DishID", OtherKey="DishID")]
-		public EntitySet<DishDetail> DishDetails
-		{
-			get
-			{
-				return this._DishDetails;
-			}
-			set
-			{
-				this._DishDetails.Assign(value);
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Meal_Dish", Storage="_Meal", ThisKey="MealID", OtherKey="MealID", IsForeignKey=true)]
-		public Meal Meal
-		{
-			get
-			{
-				return this._Meal.Entity;
-			}
-			set
-			{
-				Meal previousValue = this._Meal.Entity;
-				if (((previousValue != value) 
-							|| (this._Meal.HasLoadedOrAssignedValue == false)))
-				{
-					this.SendPropertyChanging();
-					if ((previousValue != null))
-					{
-						this._Meal.Entity = null;
-						previousValue.Dishes.Remove(this);
-					}
-					this._Meal.Entity = value;
-					if ((value != null))
-					{
-						value.Dishes.Add(this);
-						this._MealID = value.MealID;
-					}
-					else
-					{
-						this._MealID = default(int);
-					}
-					this.SendPropertyChanged("Meal");
-				}
-			}
-		}
-		
-		public event PropertyChangingEventHandler PropertyChanging;
-		
-		public event PropertyChangedEventHandler PropertyChanged;
-		
-		protected virtual void SendPropertyChanging()
-		{
-			if ((this.PropertyChanging != null))
-			{
-				this.PropertyChanging(this, emptyChangingEventArgs);
-			}
-		}
-		
-		protected virtual void SendPropertyChanged(String propertyName)
-		{
-			if ((this.PropertyChanged != null))
-			{
-				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
-			}
-		}
-		
-		private void attach_DailyMenuDetails(DailyMenuDetail entity)
-		{
-			this.SendPropertyChanging();
-			entity.Dish = this;
-		}
-		
-		private void detach_DailyMenuDetails(DailyMenuDetail entity)
-		{
-			this.SendPropertyChanging();
-			entity.Dish = null;
-		}
-		
-		private void attach_DishDetails(DishDetail entity)
-		{
-			this.SendPropertyChanging();
-			entity.Dish = this;
-		}
-		
-		private void detach_DishDetails(DishDetail entity)
-		{
-			this.SendPropertyChanging();
-			entity.Dish = null;
-		}
-
-        public static implicit operator Dish(DishDAO v)
-        {
-            throw new NotImplementedException();
-        }
-    }
-	
 	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.DishDetail")]
 	public partial class DishDetail : INotifyPropertyChanging, INotifyPropertyChanged
 	{
@@ -3520,9 +3236,9 @@ namespace DataConnect
 		
 		private bool _Status;
 		
-		private EntityRef<Dish> _Dish;
-		
 		private EntityRef<Ingredient> _Ingredient;
+		
+		private EntityRef<Dish> _Dish;
 		
     #region Extensibility Method Definitions
     partial void OnLoaded();
@@ -3542,8 +3258,8 @@ namespace DataConnect
 		
 		public DishDetail()
 		{
-			this._Dish = default(EntityRef<Dish>);
 			this._Ingredient = default(EntityRef<Ingredient>);
+			this._Dish = default(EntityRef<Dish>);
 			OnCreated();
 		}
 		
@@ -3655,40 +3371,6 @@ namespace DataConnect
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Dish_DishDetail", Storage="_Dish", ThisKey="DishID", OtherKey="DishID", IsForeignKey=true)]
-		public Dish Dish
-		{
-			get
-			{
-				return this._Dish.Entity;
-			}
-			set
-			{
-				Dish previousValue = this._Dish.Entity;
-				if (((previousValue != value) 
-							|| (this._Dish.HasLoadedOrAssignedValue == false)))
-				{
-					this.SendPropertyChanging();
-					if ((previousValue != null))
-					{
-						this._Dish.Entity = null;
-						previousValue.DishDetails.Remove(this);
-					}
-					this._Dish.Entity = value;
-					if ((value != null))
-					{
-						value.DishDetails.Add(this);
-						this._DishID = value.DishID;
-					}
-					else
-					{
-						this._DishID = default(int);
-					}
-					this.SendPropertyChanged("Dish");
-				}
-			}
-		}
-		
 		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Ingredient_DishDetail", Storage="_Ingredient", ThisKey="IngredientID", OtherKey="IngredientID", IsForeignKey=true)]
 		public Ingredient Ingredient
 		{
@@ -3719,6 +3401,40 @@ namespace DataConnect
 						this._IngredientID = default(int);
 					}
 					this.SendPropertyChanged("Ingredient");
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Dish_DishDetail", Storage="_Dish", ThisKey="DishID", OtherKey="DishID", IsForeignKey=true)]
+		public Dish Dish
+		{
+			get
+			{
+				return this._Dish.Entity;
+			}
+			set
+			{
+				Dish previousValue = this._Dish.Entity;
+				if (((previousValue != value) 
+							|| (this._Dish.HasLoadedOrAssignedValue == false)))
+				{
+					this.SendPropertyChanging();
+					if ((previousValue != null))
+					{
+						this._Dish.Entity = null;
+						previousValue.DishDetails.Remove(this);
+					}
+					this._Dish.Entity = value;
+					if ((value != null))
+					{
+						value.DishDetails.Add(this);
+						this._DishID = value.DishID;
+					}
+					else
+					{
+						this._DishID = default(int);
+					}
+					this.SendPropertyChanged("Dish");
 				}
 			}
 		}
@@ -15934,6 +15650,309 @@ namespace DataConnect
 		{
 			this.SendPropertyChanging();
 			entity.WeeklyMenu = null;
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.Dish")]
+	public partial class Dish : INotifyPropertyChanging, INotifyPropertyChanged
+	{
+		
+		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
+		
+		private int _DishID;
+		
+		private int _MealID;
+		
+		private string _Name;
+		
+		private int _CreatedBy;
+		
+		private System.DateTime _CreatedDate;
+		
+		private System.Data.Linq.Binary _Image;
+		
+		private bool _Status;
+		
+		private EntitySet<DailyMenuDetail> _DailyMenuDetails;
+		
+		private EntitySet<DishDetail> _DishDetails;
+		
+		private EntityRef<Meal> _Meal;
+		
+    #region Extensibility Method Definitions
+    partial void OnLoaded();
+    partial void OnValidate(System.Data.Linq.ChangeAction action);
+    partial void OnCreated();
+    partial void OnDishIDChanging(int value);
+    partial void OnDishIDChanged();
+    partial void OnMealIDChanging(int value);
+    partial void OnMealIDChanged();
+    partial void OnNameChanging(string value);
+    partial void OnNameChanged();
+    partial void OnCreatedByChanging(int value);
+    partial void OnCreatedByChanged();
+    partial void OnCreatedDateChanging(System.DateTime value);
+    partial void OnCreatedDateChanged();
+    partial void OnImageChanging(System.Data.Linq.Binary value);
+    partial void OnImageChanged();
+    partial void OnStatusChanging(bool value);
+    partial void OnStatusChanged();
+    #endregion
+		
+		public Dish()
+		{
+			this._DailyMenuDetails = new EntitySet<DailyMenuDetail>(new Action<DailyMenuDetail>(this.attach_DailyMenuDetails), new Action<DailyMenuDetail>(this.detach_DailyMenuDetails));
+			this._DishDetails = new EntitySet<DishDetail>(new Action<DishDetail>(this.attach_DishDetails), new Action<DishDetail>(this.detach_DishDetails));
+			this._Meal = default(EntityRef<Meal>);
+			OnCreated();
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_DishID", AutoSync=AutoSync.OnInsert, DbType="Int NOT NULL IDENTITY", IsPrimaryKey=true, IsDbGenerated=true)]
+		public int DishID
+		{
+			get
+			{
+				return this._DishID;
+			}
+			set
+			{
+				if ((this._DishID != value))
+				{
+					this.OnDishIDChanging(value);
+					this.SendPropertyChanging();
+					this._DishID = value;
+					this.SendPropertyChanged("DishID");
+					this.OnDishIDChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_MealID", DbType="Int NOT NULL")]
+		public int MealID
+		{
+			get
+			{
+				return this._MealID;
+			}
+			set
+			{
+				if ((this._MealID != value))
+				{
+					if (this._Meal.HasLoadedOrAssignedValue)
+					{
+						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
+					}
+					this.OnMealIDChanging(value);
+					this.SendPropertyChanging();
+					this._MealID = value;
+					this.SendPropertyChanged("MealID");
+					this.OnMealIDChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Name", DbType="NVarChar(50) NOT NULL", CanBeNull=false)]
+		public string Name
+		{
+			get
+			{
+				return this._Name;
+			}
+			set
+			{
+				if ((this._Name != value))
+				{
+					this.OnNameChanging(value);
+					this.SendPropertyChanging();
+					this._Name = value;
+					this.SendPropertyChanged("Name");
+					this.OnNameChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CreatedBy", DbType="Int NOT NULL")]
+		public int CreatedBy
+		{
+			get
+			{
+				return this._CreatedBy;
+			}
+			set
+			{
+				if ((this._CreatedBy != value))
+				{
+					this.OnCreatedByChanging(value);
+					this.SendPropertyChanging();
+					this._CreatedBy = value;
+					this.SendPropertyChanged("CreatedBy");
+					this.OnCreatedByChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CreatedDate", DbType="DateTime NOT NULL")]
+		public System.DateTime CreatedDate
+		{
+			get
+			{
+				return this._CreatedDate;
+			}
+			set
+			{
+				if ((this._CreatedDate != value))
+				{
+					this.OnCreatedDateChanging(value);
+					this.SendPropertyChanging();
+					this._CreatedDate = value;
+					this.SendPropertyChanged("CreatedDate");
+					this.OnCreatedDateChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Image", DbType="Image", UpdateCheck=UpdateCheck.Never)]
+		public System.Data.Linq.Binary Image
+		{
+			get
+			{
+				return this._Image;
+			}
+			set
+			{
+				if ((this._Image != value))
+				{
+					this.OnImageChanging(value);
+					this.SendPropertyChanging();
+					this._Image = value;
+					this.SendPropertyChanged("Image");
+					this.OnImageChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Status", DbType="Bit NOT NULL")]
+		public bool Status
+		{
+			get
+			{
+				return this._Status;
+			}
+			set
+			{
+				if ((this._Status != value))
+				{
+					this.OnStatusChanging(value);
+					this.SendPropertyChanging();
+					this._Status = value;
+					this.SendPropertyChanged("Status");
+					this.OnStatusChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Dish_DailyMenuDetail", Storage="_DailyMenuDetails", ThisKey="DishID", OtherKey="DishID")]
+		public EntitySet<DailyMenuDetail> DailyMenuDetails
+		{
+			get
+			{
+				return this._DailyMenuDetails;
+			}
+			set
+			{
+				this._DailyMenuDetails.Assign(value);
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Dish_DishDetail", Storage="_DishDetails", ThisKey="DishID", OtherKey="DishID")]
+		public EntitySet<DishDetail> DishDetails
+		{
+			get
+			{
+				return this._DishDetails;
+			}
+			set
+			{
+				this._DishDetails.Assign(value);
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Meal_Dish", Storage="_Meal", ThisKey="MealID", OtherKey="MealID", IsForeignKey=true)]
+		public Meal Meal
+		{
+			get
+			{
+				return this._Meal.Entity;
+			}
+			set
+			{
+				Meal previousValue = this._Meal.Entity;
+				if (((previousValue != value) 
+							|| (this._Meal.HasLoadedOrAssignedValue == false)))
+				{
+					this.SendPropertyChanging();
+					if ((previousValue != null))
+					{
+						this._Meal.Entity = null;
+						previousValue.Dishes.Remove(this);
+					}
+					this._Meal.Entity = value;
+					if ((value != null))
+					{
+						value.Dishes.Add(this);
+						this._MealID = value.MealID;
+					}
+					else
+					{
+						this._MealID = default(int);
+					}
+					this.SendPropertyChanged("Meal");
+				}
+			}
+		}
+		
+		public event PropertyChangingEventHandler PropertyChanging;
+		
+		public event PropertyChangedEventHandler PropertyChanged;
+		
+		protected virtual void SendPropertyChanging()
+		{
+			if ((this.PropertyChanging != null))
+			{
+				this.PropertyChanging(this, emptyChangingEventArgs);
+			}
+		}
+		
+		protected virtual void SendPropertyChanged(String propertyName)
+		{
+			if ((this.PropertyChanged != null))
+			{
+				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
+			}
+		}
+		
+		private void attach_DailyMenuDetails(DailyMenuDetail entity)
+		{
+			this.SendPropertyChanging();
+			entity.Dish = this;
+		}
+		
+		private void detach_DailyMenuDetails(DailyMenuDetail entity)
+		{
+			this.SendPropertyChanging();
+			entity.Dish = null;
+		}
+		
+		private void attach_DishDetails(DishDetail entity)
+		{
+			this.SendPropertyChanging();
+			entity.Dish = this;
+		}
+		
+		private void detach_DishDetails(DishDetail entity)
+		{
+			this.SendPropertyChanging();
+			entity.Dish = null;
 		}
 	}
 }
