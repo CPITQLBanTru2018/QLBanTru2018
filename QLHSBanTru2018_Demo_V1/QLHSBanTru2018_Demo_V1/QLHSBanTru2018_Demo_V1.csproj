@@ -899,6 +899,9 @@
     <None Include="Resources\Steak-icon.png" />
 >>>>>>> 4cec8ea2f9a4271cc83276a295e5be679bc61287
   </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\1232.JPG" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it.
        Other similar extension points exist, see Microsoft.Common.targets.

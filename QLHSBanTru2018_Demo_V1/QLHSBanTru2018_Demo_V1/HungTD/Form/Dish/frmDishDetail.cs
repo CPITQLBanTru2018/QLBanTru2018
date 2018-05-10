@@ -54,7 +54,7 @@ namespace QLHSBanTru2018_Demo_V1.HungTD.Form.Dish
         }
         private void FillGridControls(int ingredientID)
         {
-            gcLeft.DataSource = new IngredientTypeDAO().ListAllActive();
+            gcLeft.DataSource = new IngredientDAO().ListAllActive(ingredientID);
         }
 
         private void btnNext_Click(object sender, EventArgs e)
@@ -73,6 +73,22 @@ namespace QLHSBanTru2018_Demo_V1.HungTD.Form.Dish
 
             }
 
+        }
+
+        private void btnNext_Click_1(object sender, EventArgs e)
+        {
+            tabInformation.SelectedTabPage = tabPage2;
+            btnPrevious.Enabled = true;
+            btnFinish.Enabled = true;
+            btnNext.Enabled = false;
+        }
+
+        private void btnPrevious_Click(object sender, EventArgs e)
+        {
+            tabInformation.SelectedTabPage = tabPage1;
+            btnNext.Enabled = true;
+            btnPrevious.Enabled = false;
+            btnFinish.Enabled = false;
         }
     }
 }
