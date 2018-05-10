@@ -27,8 +27,6 @@ namespace DataConnect.DAO.HungTD
                             IngredientTypeID = i.IngredientTypeID,
                             IngredientTypeName = i.IngredientType.Name,
                             Unit = i.Unit,
-                            PriceOfUnit = i.PriceOfUnit,
-                            QuantityOfUnit = i.QuantityOfUnit,
                             Kcal = i.Kcal,
                             Protein = i.Protein,
                             Fat = i.Fat,
@@ -83,8 +81,6 @@ namespace DataConnect.DAO.HungTD
                 obj.Name = entity.Name;
                 obj.IngredientTypeID = entity.IngredientTypeID;
                 obj.Unit = entity.Unit;
-                obj.QuantityOfUnit = entity.QuantityOfUnit;
-                obj.PriceOfUnit = entity.PriceOfUnit;
                 obj.Kcal = entity.Kcal;
                 obj.Protein = entity.Protein;
                 obj.Fat = entity.Fat;
@@ -116,11 +112,11 @@ namespace DataConnect.DAO.HungTD
                 Ingredient obj = ingredients.SingleOrDefault(x => x.IngredientID == ingredientID);
                 if (iFunction == 1)
                 {
-                    obj.QuantityOfUnit = obj.QuantityOfUnit + value;
+
                 }
                 else if (iFunction == 2)
                 {
-                    obj.QuantityOfUnit = obj.QuantityOfUnit - value;
+
                 }
                 db.SubmitChanges();
                 return true;

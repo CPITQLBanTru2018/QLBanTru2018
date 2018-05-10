@@ -13,8 +13,6 @@ namespace DataConnect.ViewModel
         public int IngredientTypeID { get; set; }
         public string IngredientTypeName { get; set; }
         public string Unit { get; set; }
-        public decimal PriceOfUnit { get; set; }
-        public double QuantityOfUnit { get; set; }
         public double Kcal { get; set; }
         public double Protein { get; set; }
         public double Fat { get; set; }

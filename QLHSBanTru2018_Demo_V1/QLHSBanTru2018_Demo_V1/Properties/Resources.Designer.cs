@@ -143,6 +143,16 @@ namespace QLHSBanTru2018_Demo_V1.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap Steak_icon {
+            get {
+                object obj = ResourceManager.GetObject("Steak-icon", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap Synchronize {
             get {
                 object obj = ResourceManager.GetObject("Synchronize", resourceCulture);

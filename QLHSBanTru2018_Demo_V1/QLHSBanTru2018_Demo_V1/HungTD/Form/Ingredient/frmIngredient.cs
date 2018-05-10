@@ -37,10 +37,6 @@ namespace QLHSBanTru2018_Demo_V1.HungTD.Form.Ingredient
             txtIngredientType.DataBindings.Add(new Binding("Text", gcMain.DataSource, "IngredientTypeName"));
             txtUnit.DataBindings.Clear();
             txtUnit.DataBindings.Add(new Binding("Text", gcMain.DataSource, "Unit"));
-            txtPriceOfUnit.DataBindings.Clear();
-            txtPriceOfUnit.DataBindings.Add(new Binding("Text", gcMain.DataSource, "PriceOfUnit"));
-            txtQuantityOfUnit.DataBindings.Clear();
-            txtQuantityOfUnit.DataBindings.Add(new Binding("Text", gcMain.DataSource, "QuantityOfUnit"));
             chkStatus.DataBindings.Clear();
             chkStatus.DataBindings.Add(new Binding("Checked", gcMain.DataSource, "Status"));
             txtKcal.DataBindings.Clear();
@@ -110,53 +106,17 @@ namespace QLHSBanTru2018_Demo_V1.HungTD.Form.Ingredient
 
         private void btnIncrease_Click(object sender, EventArgs e)
         {
-            frmUpdateQuantity frmUQ = new frmUpdateQuantity();
-            var rowHandle = gridView1.FocusedRowHandle;
-            try
-            {
-                frmUQ.setIngredient(Convert.ToInt32(gridView1.GetRowCellValue(rowHandle, "IngredientID").ToString()));
-            }
-            catch
-            {
-                var rowChildHand = gridView1.GetChildRowHandle(rowHandle, 0);
-                frmUQ.setIngredient(Convert.ToInt32(gridView1.GetRowCellValue(rowChildHand, "IngredientID").ToString()));
-            }
-            frmUQ.setFunction(1);
-            frmUQ.setTitle("Nhập Thực Phẩm");
-            frmUQ.ShowDialog();
-            if (frmUQ.DialogResult == DialogResult.OK)
-            {
-                FillGridControl();
-            }
+
         }
 
         private void btnReduction_Click(object sender, EventArgs e)
         {
-            frmUpdateQuantity frmUQ = new frmUpdateQuantity();
-            var rowHandle = gridView1.FocusedRowHandle;
-            try
-            {
-                frmUQ.setIngredient(Convert.ToInt32(gridView1.GetRowCellValue(rowHandle, "IngredientID").ToString()));
-            }
-            catch
-            {
-                var rowChildHand = gridView1.GetChildRowHandle(rowHandle, 0);
-                frmUQ.setIngredient(Convert.ToInt32(gridView1.GetRowCellValue(rowChildHand, "IngredientID").ToString()));
-            }
-            frmUQ.setFunction(2);
-            frmUQ.setTitle("Xuất Thực Phẩm");
-            //setIngredient
-            frmUQ.ShowDialog();
-            if (frmUQ.DialogResult == DialogResult.OK)
-            {
-                FillGridControl();
-            }
+
         }
 
         private void txtUnit_EditValueChanged(object sender, EventArgs e)
         {
-            labUnit1.Text = "(vnđ/" + txtUnit.Text + ")";
-            labUnit2.Text = "(" + txtUnit.Text + ")";
+
         }
 
         private void btnDelete_Click(object sender, EventArgs e)

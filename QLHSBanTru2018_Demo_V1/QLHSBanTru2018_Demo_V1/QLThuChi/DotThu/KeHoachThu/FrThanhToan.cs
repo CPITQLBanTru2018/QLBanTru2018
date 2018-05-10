@@ -102,8 +102,8 @@ namespace QLHSBanTru2018_Demo_V1.QLThuChi.DotThu.KeHoachThu
         }
         private void FrThanhToan_Load(object sender, EventArgs e)
         {
-            LoadKhoanPhi();
             loadStuden();
+            LoadKhoanPhi();
             checkKhoathu();
             loatGrKhoanPhi();
             if (txtConlai.Text == "0")
@@ -191,6 +191,10 @@ namespace QLHSBanTru2018_Demo_V1.QLThuChi.DotThu.KeHoachThu
             decimal a = 0;
             if (e.Column.FieldName != "miengiam") return;
             int perferredID = dt.lookforPreferredID(ClassStudentDAO.StudentID);
+            if (perferredID==null)
+            {
+                e.Value = 0;
+            }
             List<string> b = new List<string>();
             string mg = gridView1.GetListSourceRowCellValue(rowindex, "PreferredID").ToString();
             decimal f =Convert.ToDecimal(gridView1.GetListSourceRowCellValue(rowindex, "TotalPriceDetail"));

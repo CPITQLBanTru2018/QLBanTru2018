@@ -75,6 +75,7 @@
     <Reference Include="DevExpress.XtraReports.v17.2.Extensions, Version=17.2.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
     <Reference Include="DevExpress.XtraRichEdit.v17.2, Version=17.2.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
     <Reference Include="DevExpress.XtraTreeList.v17.2, Version=17.2.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.XtraWizard.v17.2, Version=17.2.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
     <Reference Include="Microsoft.Office.Interop.Excel1">
       <HintPath>C:\Program Files (x86)\Microsoft Visual Studio\Shared\Visual Studio Tools for Office\PIA\Office15\Microsoft.Office.Interop.Excel.dll</HintPath>
       <EmbedInteropTypes>True</EmbedInteropTypes>
@@ -242,12 +243,6 @@
     <Compile Include="HungTD\Form\Ingredient\frmIngredientTypeDetail.Designer.cs">
       <DependentUpon>frmIngredientTypeDetail.cs</DependentUpon>
     </Compile>
-    <Compile Include="HungTD\Form\Ingredient\frmUpdateQuantity.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="HungTD\Form\Ingredient\frmUpdateQuantity.Designer.cs">
-      <DependentUpon>frmUpdateQuantity.cs</DependentUpon>
-    </Compile>
     <Compile Include="HungTD\Form\NewFolder1\frmABC.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -311,6 +306,24 @@
     <Compile Include="MD5Hash\PasswordEncryptor.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="QLThuChi\ChiTieu\ChiTieuThucPham\FrThemPhieuChi.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="QLThuChi\ChiTieu\ChiTieuThucPham\FrThemPhieuChi.Designer.cs">
+      <DependentUpon>FrThemPhieuChi.cs</DependentUpon>
+    </Compile>
+    <Compile Include="QLThuChi\ChiTieu\ChiTieuThucPham\UsChiThucPham.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="QLThuChi\ChiTieu\ChiTieuThucPham\UsChiThucPham.Designer.cs">
+      <DependentUpon>UsChiThucPham.cs</DependentUpon>
+    </Compile>
+    <Compile Include="QLThuChi\ChiTieu\ChiTieuThucPham\UsYeuCauThucPham.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="QLThuChi\ChiTieu\ChiTieuThucPham\UsYeuCauThucPham.Designer.cs">
+      <DependentUpon>UsYeuCauThucPham.cs</DependentUpon>
+    </Compile>
     <Compile Include="QLThuChi\ChiTieu\KhoanChi\FrChiTietHoaDon.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -593,9 +606,6 @@
     <EmbeddedResource Include="HungTD\Form\Ingredient\frmIngredientTypeDetail.resx">
       <DependentUpon>frmIngredientTypeDetail.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="HungTD\Form\Ingredient\frmUpdateQuantity.resx">
-      <DependentUpon>frmUpdateQuantity.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="HungTD\Form\NewFolder1\frmABC.resx">
       <DependentUpon>frmABC.cs</DependentUpon>
     </EmbeddedResource>
@@ -637,6 +647,15 @@
       <DependentUpon>Resources.resx</DependentUpon>
       <DesignTime>True</DesignTime>
     </Compile>
+    <EmbeddedResource Include="QLThuChi\ChiTieu\ChiTieuThucPham\FrThemPhieuChi.resx">
+      <DependentUpon>FrThemPhieuChi.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="QLThuChi\ChiTieu\ChiTieuThucPham\UsChiThucPham.resx">
+      <DependentUpon>UsChiThucPham.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="QLThuChi\ChiTieu\ChiTieuThucPham\UsYeuCauThucPham.resx">
+      <DependentUpon>UsYeuCauThucPham.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="QLThuChi\ChiTieu\KhoanChi\FrChiTietHoaDon.resx">
       <DependentUpon>FrChiTietHoaDon.cs</DependentUpon>
     </EmbeddedResource>
@@ -834,6 +853,9 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\Synchronize.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Steak-icon.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it.

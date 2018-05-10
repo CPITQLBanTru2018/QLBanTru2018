@@ -28,7 +28,6 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.components = new System.ComponentModel.Container();
             this.layoutControl1 = new DevExpress.XtraLayout.LayoutControl();
             this.groupControl2 = new DevExpress.XtraEditors.GroupControl();
             this.layoutControl5 = new DevExpress.XtraLayout.LayoutControl();
@@ -67,21 +66,20 @@
             this.groupControl1 = new DevExpress.XtraEditors.GroupControl();
             this.txtGhichu = new System.Windows.Forms.TextBox();
             this.grChitietkhoanchi = new DevExpress.XtraGrid.GridControl();
+            this.MnChiTietKhoanChi = new System.Windows.Forms.ContextMenuStrip();
+            this.chiTiếtToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.gridView2 = new DevExpress.XtraGrid.Views.Grid.GridView();
+            this.gridColumn13 = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.gridColumn14 = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.gridColumn15 = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.gridColumn16 = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.gridColumn17 = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.gridColumn18 = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.gridColumn19 = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.gridColumn20 = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.gridColumn21 = new DevExpress.XtraGrid.Columns.GridColumn();
             this.grKhoanchi = new DevExpress.XtraGrid.GridControl();
             this.gridView1 = new DevExpress.XtraGrid.Views.Grid.GridView();
-            this.layoutControlGroup1 = new DevExpress.XtraLayout.LayoutControlGroup();
-            this.layoutControlItem1 = new DevExpress.XtraLayout.LayoutControlItem();
-            this.layoutControlItem4 = new DevExpress.XtraLayout.LayoutControlItem();
-            this.layoutControlItem5 = new DevExpress.XtraLayout.LayoutControlItem();
-            this.layoutControlItem3 = new DevExpress.XtraLayout.LayoutControlItem();
-            this.layoutControlItem2 = new DevExpress.XtraLayout.LayoutControlItem();
-            this.layoutControlItem8 = new DevExpress.XtraLayout.LayoutControlItem();
-            this.layoutControlItem12 = new DevExpress.XtraLayout.LayoutControlItem();
-            this.emptySpaceItem1 = new DevExpress.XtraLayout.EmptySpaceItem();
-            this.emptySpaceItem2 = new DevExpress.XtraLayout.EmptySpaceItem();
-            this.MnChiTietKhoanChi = new System.Windows.Forms.ContextMenuStrip(this.components);
-            this.chiTiếtToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.gridColumn1 = new DevExpress.XtraGrid.Columns.GridColumn();
             this.gridColumn2 = new DevExpress.XtraGrid.Columns.GridColumn();
             this.gridColumn3 = new DevExpress.XtraGrid.Columns.GridColumn();
@@ -94,15 +92,16 @@
             this.gridColumn10 = new DevExpress.XtraGrid.Columns.GridColumn();
             this.gridColumn11 = new DevExpress.XtraGrid.Columns.GridColumn();
             this.gridColumn12 = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.gridColumn13 = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.gridColumn14 = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.gridColumn15 = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.gridColumn16 = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.gridColumn17 = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.gridColumn18 = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.gridColumn19 = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.gridColumn20 = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.gridColumn21 = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.layoutControlGroup1 = new DevExpress.XtraLayout.LayoutControlGroup();
+            this.layoutControlItem1 = new DevExpress.XtraLayout.LayoutControlItem();
+            this.layoutControlItem4 = new DevExpress.XtraLayout.LayoutControlItem();
+            this.layoutControlItem5 = new DevExpress.XtraLayout.LayoutControlItem();
+            this.layoutControlItem3 = new DevExpress.XtraLayout.LayoutControlItem();
+            this.layoutControlItem2 = new DevExpress.XtraLayout.LayoutControlItem();
+            this.layoutControlItem8 = new DevExpress.XtraLayout.LayoutControlItem();
+            this.layoutControlItem12 = new DevExpress.XtraLayout.LayoutControlItem();
+            this.emptySpaceItem1 = new DevExpress.XtraLayout.EmptySpaceItem();
+            this.emptySpaceItem2 = new DevExpress.XtraLayout.EmptySpaceItem();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControl1)).BeginInit();
             this.layoutControl1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.groupControl2)).BeginInit();
@@ -141,6 +140,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.groupControl1)).BeginInit();
             this.groupControl1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.grChitietkhoanchi)).BeginInit();
+            this.MnChiTietKhoanChi.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.gridView2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.grKhoanchi)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridView1)).BeginInit();
@@ -154,7 +154,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem12)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem2)).BeginInit();
-            this.MnChiTietKhoanChi.SuspendLayout();
             this.SuspendLayout();
             // 
             // layoutControl1
@@ -190,10 +189,10 @@
             this.layoutControl5.Controls.Add(this.txtDiaChi);
             this.layoutControl5.Controls.Add(this.txtHoTen);
             this.layoutControl5.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.layoutControl5.Location = new System.Drawing.Point(2, 20);
+            this.layoutControl5.Location = new System.Drawing.Point(2, 21);
             this.layoutControl5.Name = "layoutControl5";
             this.layoutControl5.Root = this.layoutControlGroup5;
-            this.layoutControl5.Size = new System.Drawing.Size(406, 69);
+            this.layoutControl5.Size = new System.Drawing.Size(406, 68);
             this.layoutControl5.TabIndex = 0;
             this.layoutControl5.Text = "layoutControl5";
             // 
@@ -227,7 +226,7 @@
             this.layoutControlItem15,
             this.layoutControlItem16});
             this.layoutControlGroup5.Name = "layoutControlGroup5";
-            this.layoutControlGroup5.Size = new System.Drawing.Size(406, 69);
+            this.layoutControlGroup5.Size = new System.Drawing.Size(406, 68);
             this.layoutControlGroup5.TextVisible = false;
             // 
             // layoutControlItem13
@@ -244,7 +243,7 @@
             this.layoutControlItem15.Control = this.txtDiaChi;
             this.layoutControlItem15.Location = new System.Drawing.Point(0, 24);
             this.layoutControlItem15.Name = "layoutControlItem15";
-            this.layoutControlItem15.Size = new System.Drawing.Size(193, 25);
+            this.layoutControlItem15.Size = new System.Drawing.Size(193, 24);
             this.layoutControlItem15.Text = "Địa chỉ";
             this.layoutControlItem15.TextSize = new System.Drawing.Size(32, 13);
             // 
@@ -253,7 +252,7 @@
             this.layoutControlItem16.Control = this.txtSDT;
             this.layoutControlItem16.Location = new System.Drawing.Point(193, 24);
             this.layoutControlItem16.Name = "layoutControlItem16";
-            this.layoutControlItem16.Size = new System.Drawing.Size(193, 25);
+            this.layoutControlItem16.Size = new System.Drawing.Size(193, 24);
             this.layoutControlItem16.Text = "SĐT";
             this.layoutControlItem16.TextSize = new System.Drawing.Size(32, 13);
             // 
@@ -513,10 +512,10 @@
             // txtGhichu
             // 
             this.txtGhichu.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.txtGhichu.Location = new System.Drawing.Point(2, 20);
+            this.txtGhichu.Location = new System.Drawing.Point(2, 21);
             this.txtGhichu.Multiline = true;
             this.txtGhichu.Name = "txtGhichu";
-            this.txtGhichu.Size = new System.Drawing.Size(406, 75);
+            this.txtGhichu.Size = new System.Drawing.Size(406, 74);
             this.txtGhichu.TabIndex = 0;
             // 
             // grChitietkhoanchi
@@ -529,6 +528,20 @@
             this.grChitietkhoanchi.TabIndex = 8;
             this.grChitietkhoanchi.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gridView2});
+            // 
+            // MnChiTietKhoanChi
+            // 
+            this.MnChiTietKhoanChi.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.chiTiếtToolStripMenuItem});
+            this.MnChiTietKhoanChi.Name = "MnChiTietKhoanChi";
+            this.MnChiTietKhoanChi.Size = new System.Drawing.Size(116, 26);
+            // 
+            // chiTiếtToolStripMenuItem
+            // 
+            this.chiTiếtToolStripMenuItem.Name = "chiTiếtToolStripMenuItem";
+            this.chiTiếtToolStripMenuItem.Size = new System.Drawing.Size(115, 22);
+            this.chiTiếtToolStripMenuItem.Text = "Chi tiết ";
+            this.chiTiếtToolStripMenuItem.Click += new System.EventHandler(this.chiTiếtToolStripMenuItem_Click);
             // 
             // gridView2
             // 
@@ -547,6 +560,76 @@
             this.gridView2.OptionsView.ShowAutoFilterRow = true;
             this.gridView2.OptionsView.ShowGroupPanel = false;
             this.gridView2.FocusedRowChanged += new DevExpress.XtraGrid.Views.Base.FocusedRowChangedEventHandler(this.gridView2_FocusedRowChanged);
+            // 
+            // gridColumn13
+            // 
+            this.gridColumn13.Caption = "Mã chi tiết";
+            this.gridColumn13.FieldName = "InvoiceDetailID";
+            this.gridColumn13.Name = "gridColumn13";
+            this.gridColumn13.Visible = true;
+            this.gridColumn13.VisibleIndex = 0;
+            // 
+            // gridColumn14
+            // 
+            this.gridColumn14.Caption = "Mã hóa đơn";
+            this.gridColumn14.FieldName = "InvoiceID";
+            this.gridColumn14.Name = "gridColumn14";
+            this.gridColumn14.Visible = true;
+            this.gridColumn14.VisibleIndex = 1;
+            // 
+            // gridColumn15
+            // 
+            this.gridColumn15.Caption = "Tên chi tiết";
+            this.gridColumn15.FieldName = "NameInvoiceDetail";
+            this.gridColumn15.Name = "gridColumn15";
+            this.gridColumn15.Visible = true;
+            this.gridColumn15.VisibleIndex = 2;
+            // 
+            // gridColumn16
+            // 
+            this.gridColumn16.Caption = "Đơn giá";
+            this.gridColumn16.FieldName = "Price";
+            this.gridColumn16.Name = "gridColumn16";
+            this.gridColumn16.Visible = true;
+            this.gridColumn16.VisibleIndex = 3;
+            // 
+            // gridColumn17
+            // 
+            this.gridColumn17.Caption = "Đơn vị";
+            this.gridColumn17.FieldName = "Unit";
+            this.gridColumn17.Name = "gridColumn17";
+            this.gridColumn17.Visible = true;
+            this.gridColumn17.VisibleIndex = 4;
+            // 
+            // gridColumn18
+            // 
+            this.gridColumn18.Caption = "Số lượng";
+            this.gridColumn18.FieldName = "Amount";
+            this.gridColumn18.Name = "gridColumn18";
+            this.gridColumn18.Visible = true;
+            this.gridColumn18.VisibleIndex = 5;
+            // 
+            // gridColumn19
+            // 
+            this.gridColumn19.Caption = "Thành tiền";
+            this.gridColumn19.FieldName = "TotalPriceDetail";
+            this.gridColumn19.Name = "gridColumn19";
+            this.gridColumn19.Visible = true;
+            this.gridColumn19.VisibleIndex = 6;
+            // 
+            // gridColumn20
+            // 
+            this.gridColumn20.Caption = "Ghi chú";
+            this.gridColumn20.FieldName = "Note";
+            this.gridColumn20.Name = "gridColumn20";
+            this.gridColumn20.Visible = true;
+            this.gridColumn20.VisibleIndex = 7;
+            // 
+            // gridColumn21
+            // 
+            this.gridColumn21.Caption = "Tình trạng";
+            this.gridColumn21.FieldName = "Status";
+            this.gridColumn21.Name = "gridColumn21";
             // 
             // grKhoanchi
             // 
@@ -577,6 +660,93 @@
             this.gridView1.Name = "gridView1";
             this.gridView1.OptionsView.ShowAutoFilterRow = true;
             this.gridView1.FocusedRowChanged += new DevExpress.XtraGrid.Views.Base.FocusedRowChangedEventHandler(this.gridView1_FocusedRowChanged);
+            // 
+            // gridColumn1
+            // 
+            this.gridColumn1.Caption = "Mã hóa đơn";
+            this.gridColumn1.FieldName = "InvoiceID";
+            this.gridColumn1.Name = "gridColumn1";
+            this.gridColumn1.Visible = true;
+            this.gridColumn1.VisibleIndex = 0;
+            this.gridColumn1.Width = 211;
+            // 
+            // gridColumn2
+            // 
+            this.gridColumn2.Caption = "Năm học";
+            this.gridColumn2.FieldName = "CourseID";
+            this.gridColumn2.Name = "gridColumn2";
+            // 
+            // gridColumn3
+            // 
+            this.gridColumn3.Caption = "Học kỳ";
+            this.gridColumn3.FieldName = "SemesterID";
+            this.gridColumn3.Name = "gridColumn3";
+            // 
+            // gridColumn4
+            // 
+            this.gridColumn4.Caption = "Ngày khởi tạo";
+            this.gridColumn4.FieldName = "CreatedDate";
+            this.gridColumn4.Name = "gridColumn4";
+            this.gridColumn4.Visible = true;
+            this.gridColumn4.VisibleIndex = 1;
+            this.gridColumn4.Width = 199;
+            // 
+            // gridColumn5
+            // 
+            this.gridColumn5.Caption = "Mã nhân viên";
+            this.gridColumn5.FieldName = "EmployeeID";
+            this.gridColumn5.Name = "gridColumn5";
+            // 
+            // gridColumn6
+            // 
+            this.gridColumn6.Caption = "Tên người nhận";
+            this.gridColumn6.FieldName = "NameMoneyReceive";
+            this.gridColumn6.Name = "gridColumn6";
+            this.gridColumn6.Visible = true;
+            this.gridColumn6.VisibleIndex = 2;
+            this.gridColumn6.Width = 199;
+            // 
+            // gridColumn7
+            // 
+            this.gridColumn7.Caption = "SDT";
+            this.gridColumn7.FieldName = "PhoneNumber";
+            this.gridColumn7.Name = "gridColumn7";
+            // 
+            // gridColumn8
+            // 
+            this.gridColumn8.Caption = "Địa chỉ";
+            this.gridColumn8.FieldName = "AdressDetail";
+            this.gridColumn8.Name = "gridColumn8";
+            // 
+            // gridColumn9
+            // 
+            this.gridColumn9.Caption = "Tổng tiền";
+            this.gridColumn9.FieldName = "TotalPrice";
+            this.gridColumn9.Name = "gridColumn9";
+            this.gridColumn9.Visible = true;
+            this.gridColumn9.VisibleIndex = 4;
+            this.gridColumn9.Width = 204;
+            // 
+            // gridColumn10
+            // 
+            this.gridColumn10.Caption = "Loại chi";
+            this.gridColumn10.FieldName = "SpendSpeciesID";
+            this.gridColumn10.Name = "gridColumn10";
+            this.gridColumn10.Visible = true;
+            this.gridColumn10.VisibleIndex = 3;
+            this.gridColumn10.Width = 199;
+            // 
+            // gridColumn11
+            // 
+            this.gridColumn11.Caption = "Ghi chú";
+            this.gridColumn11.FieldName = "Note";
+            this.gridColumn11.Name = "gridColumn11";
+            // 
+            // gridColumn12
+            // 
+            this.gridColumn12.Caption = "Trạng thái";
+            this.gridColumn12.FieldName = "Status";
+            this.gridColumn12.Name = "gridColumn12";
             // 
             // layoutControlGroup1
             // 
@@ -682,177 +852,6 @@
             this.emptySpaceItem2.Size = new System.Drawing.Size(328, 474);
             this.emptySpaceItem2.TextSize = new System.Drawing.Size(0, 0);
             // 
-            // MnChiTietKhoanChi
-            // 
-            this.MnChiTietKhoanChi.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.chiTiếtToolStripMenuItem});
-            this.MnChiTietKhoanChi.Name = "MnChiTietKhoanChi";
-            this.MnChiTietKhoanChi.Size = new System.Drawing.Size(116, 26);
-            // 
-            // chiTiếtToolStripMenuItem
-            // 
-            this.chiTiếtToolStripMenuItem.Name = "chiTiếtToolStripMenuItem";
-            this.chiTiếtToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
-            this.chiTiếtToolStripMenuItem.Text = "Chi tiết ";
-            this.chiTiếtToolStripMenuItem.Click += new System.EventHandler(this.chiTiếtToolStripMenuItem_Click);
-            // 
-            // gridColumn1
-            // 
-            this.gridColumn1.Caption = "Mã hóa đơn";
-            this.gridColumn1.FieldName = "InvoiceID";
-            this.gridColumn1.Name = "gridColumn1";
-            this.gridColumn1.Visible = true;
-            this.gridColumn1.VisibleIndex = 0;
-            this.gridColumn1.Width = 211;
-            // 
-            // gridColumn2
-            // 
-            this.gridColumn2.Caption = "Năm học";
-            this.gridColumn2.FieldName = "CourseID";
-            this.gridColumn2.Name = "gridColumn2";
-            // 
-            // gridColumn3
-            // 
-            this.gridColumn3.Caption = "Học kỳ";
-            this.gridColumn3.FieldName = "SemesterID";
-            this.gridColumn3.Name = "gridColumn3";
-            // 
-            // gridColumn4
-            // 
-            this.gridColumn4.Caption = "Ngày khởi tạo";
-            this.gridColumn4.FieldName = "CreatedDate";
-            this.gridColumn4.Name = "gridColumn4";
-            this.gridColumn4.Visible = true;
-            this.gridColumn4.VisibleIndex = 1;
-            this.gridColumn4.Width = 199;
-            // 
-            // gridColumn5
-            // 
-            this.gridColumn5.Caption = "Mã nhân viên";
-            this.gridColumn5.FieldName = "EmployeeID";
-            this.gridColumn5.Name = "gridColumn5";
-            // 
-            // gridColumn6
-            // 
-            this.gridColumn6.Caption = "Tên người nhận";
-            this.gridColumn6.FieldName = "NameMoneyReceive";
-            this.gridColumn6.Name = "gridColumn6";
-            this.gridColumn6.Visible = true;
-            this.gridColumn6.VisibleIndex = 2;
-            this.gridColumn6.Width = 199;
-            // 
-            // gridColumn7
-            // 
-            this.gridColumn7.Caption = "SDT";
-            this.gridColumn7.FieldName = "PhoneNumber";
-            this.gridColumn7.Name = "gridColumn7";
-            // 
-            // gridColumn8
-            // 
-            this.gridColumn8.Caption = "Địa chỉ";
-            this.gridColumn8.FieldName = "AdressDetail";
-            this.gridColumn8.Name = "gridColumn8";
-            // 
-            // gridColumn9
-            // 
-            this.gridColumn9.Caption = "Tổng tiền";
-            this.gridColumn9.FieldName = "TotalPrice";
-            this.gridColumn9.Name = "gridColumn9";
-            this.gridColumn9.Visible = true;
-            this.gridColumn9.VisibleIndex = 4;
-            this.gridColumn9.Width = 204;
-            // 
-            // gridColumn10
-            // 
-            this.gridColumn10.Caption = "Loại chi";
-            this.gridColumn10.FieldName = "SpendSpeciesID";
-            this.gridColumn10.Name = "gridColumn10";
-            this.gridColumn10.Visible = true;
-            this.gridColumn10.VisibleIndex = 3;
-            this.gridColumn10.Width = 199;
-            // 
-            // gridColumn11
-            // 
-            this.gridColumn11.Caption = "Ghi chú";
-            this.gridColumn11.FieldName = "Note";
-            this.gridColumn11.Name = "gridColumn11";
-            // 
-            // gridColumn12
-            // 
-            this.gridColumn12.Caption = "Trạng thái";
-            this.gridColumn12.FieldName = "Status";
-            this.gridColumn12.Name = "gridColumn12";
-            // 
-            // gridColumn13
-            // 
-            this.gridColumn13.Caption = "Mã chi tiết";
-            this.gridColumn13.FieldName = "InvoiceDetailID";
-            this.gridColumn13.Name = "gridColumn13";
-            this.gridColumn13.Visible = true;
-            this.gridColumn13.VisibleIndex = 0;
-            // 
-            // gridColumn14
-            // 
-            this.gridColumn14.Caption = "Mã hóa đơn";
-            this.gridColumn14.FieldName = "InvoiceID";
-            this.gridColumn14.Name = "gridColumn14";
-            this.gridColumn14.Visible = true;
-            this.gridColumn14.VisibleIndex = 1;
-            // 
-            // gridColumn15
-            // 
-            this.gridColumn15.Caption = "Tên chi tiết";
-            this.gridColumn15.FieldName = "NameInvoiceDetail";
-            this.gridColumn15.Name = "gridColumn15";
-            this.gridColumn15.Visible = true;
-            this.gridColumn15.VisibleIndex = 2;
-            // 
-            // gridColumn16
-            // 
-            this.gridColumn16.Caption = "Đơn giá";
-            this.gridColumn16.FieldName = "Price";
-            this.gridColumn16.Name = "gridColumn16";
-            this.gridColumn16.Visible = true;
-            this.gridColumn16.VisibleIndex = 3;
-            // 
-            // gridColumn17
-            // 
-            this.gridColumn17.Caption = "Đơn vị";
-            this.gridColumn17.FieldName = "Unit";
-            this.gridColumn17.Name = "gridColumn17";
-            this.gridColumn17.Visible = true;
-            this.gridColumn17.VisibleIndex = 4;
-            // 
-            // gridColumn18
-            // 
-            this.gridColumn18.Caption = "Số lượng";
-            this.gridColumn18.FieldName = "Amount";
-            this.gridColumn18.Name = "gridColumn18";
-            this.gridColumn18.Visible = true;
-            this.gridColumn18.VisibleIndex = 5;
-            // 
-            // gridColumn19
-            // 
-            this.gridColumn19.Caption = "Thành tiền";
-            this.gridColumn19.FieldName = "TotalPriceDetail";
-            this.gridColumn19.Name = "gridColumn19";
-            this.gridColumn19.Visible = true;
-            this.gridColumn19.VisibleIndex = 6;
-            // 
-            // gridColumn20
-            // 
-            this.gridColumn20.Caption = "Ghi chú";
-            this.gridColumn20.FieldName = "Note";
-            this.gridColumn20.Name = "gridColumn20";
-            this.gridColumn20.Visible = true;
-            this.gridColumn20.VisibleIndex = 7;
-            // 
-            // gridColumn21
-            // 
-            this.gridColumn21.Caption = "Tình trạng";
-            this.gridColumn21.FieldName = "Status";
-            this.gridColumn21.Name = "gridColumn21";
-            // 
             // UsKhoanChi
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -900,6 +899,7 @@
             this.groupControl1.ResumeLayout(false);
             this.groupControl1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.grChitietkhoanchi)).EndInit();
+            this.MnChiTietKhoanChi.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.gridView2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.grKhoanchi)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridView1)).EndInit();
@@ -913,7 +913,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem12)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem2)).EndInit();
-            this.MnChiTietKhoanChi.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }

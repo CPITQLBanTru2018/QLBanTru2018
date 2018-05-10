@@ -47,8 +47,6 @@ namespace QLHSBanTru2018_Demo_V1.HungTD.Form.Ingredient
                     txtName.Text = ingredient.Name;
                     cbbIngredientTypeID.SelectedValue = ingredient.IngredientTypeID;
                     txtUnit.Text = ingredient.Unit;
-                    txtPriceOfUnit.Text = ingredient.PriceOfUnit.ToString();
-                    txtQuantityOfUnit.Text = ingredient.QuantityOfUnit.ToString();
                     chkStatus.Checked = ingredient.Status;
 
                     txtKcal.Text = ingredient.Kcal.ToString();
@@ -89,8 +87,6 @@ namespace QLHSBanTru2018_Demo_V1.HungTD.Form.Ingredient
                     entity.Name = txtName.Text;
                     entity.IngredientTypeID = int.Parse(cbbIngredientTypeID.SelectedValue.ToString());
                     entity.Unit = txtUnit.Text;
-                    entity.QuantityOfUnit = float.Parse(txtQuantityOfUnit.Text);
-                    entity.PriceOfUnit = decimal.Parse(txtPriceOfUnit.Text);
                     entity.Status = chkStatus.Checked;
 
                     entity.Kcal = float.Parse(txtKcal.Text);
