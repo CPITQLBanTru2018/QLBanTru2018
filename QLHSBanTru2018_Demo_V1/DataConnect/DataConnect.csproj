@@ -92,6 +92,8 @@
     <Compile Include="DAO\TienBao\HealthExaminationDAO.cs" />
     <Compile Include="DAO\TienBao\HealthExaminationDetailDAO.cs" />
     <Compile Include="DAO\TienBao\HealthProblemDAO.cs" />
+    <Compile Include="DAO\TienBao\PhysicalAssessmentDAO.cs" />
+    <Compile Include="DAO\TienBao\PhysicalAssessmentDetailDAO.cs" />
     <Compile Include="DAO\TienBao\StudentClassDao.cs" />
     <Compile Include="DAO\TienBao\StudentDAO.cs" />
     <Compile Include="DAO\TienBao\StudentParentsDAO.cs" />
@@ -123,6 +125,7 @@
     <Compile Include="ViewModel\IngredientTypeViewModel.cs" />
     <Compile Include="ViewModel\IngredientViewModel.cs" />
     <Compile Include="ViewModel\LessonViewModel.cs" />
+    <Compile Include="ViewModel\PhysicalAssessmentViewModel.cs" />
     <Compile Include="ViewModel\SemesterViewModel.cs" />
     <Compile Include="ViewModel\StudentViewModel.cs" />
   </ItemGroup>

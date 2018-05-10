@@ -27,6 +27,76 @@ namespace QLHSBanTru2018_Demo_V1.TienBao
             InitializeComponent();
         }
 
+        #region LoadInfor
+        private void LoadClassInfor(int GradeID)
+        {
+            List<DataConnect.Class> listClass = new ClassDAO().ListClassByGrade(GradeID);
+            cmbLopHoc.DisplayMember = "Name";
+            cmbLopHoc.ValueMember = "ClassID";
+            cmbLopHoc.DataSource = listClass;
+        }
+        private void LoadGradeInfor(int SemesterID)
+        {
+            List<DataConnect.Grade> ListGrade = new DataConnect.DAO.HungTD.GradeDAO().ListBySemester(SemesterID);
+            cmbKhoiLop.DisplayMember = "Name";
+            cmbKhoiLop.ValueMember = "GradeID";
+            cmbKhoiLop.DataSource = ListGrade;
+        }
+        private void LoadSemesterInfor(int CourseID)
+        {
+            List<DataConnect.Semester> ListSemester = new SemesterDAO().ListByCourseID(CourseID);
+            cmbHocKy.DisplayMember = "Name";
+            cmbHocKy.ValueMember = "SemesterID";
+            cmbHocKy.DataSource = ListSemester;
+        }
+        private void LoadCourseInfor()
+        {
+            List<DataConnect.Course> ListCourse = new CourseDAO().ListAll();
+            cmbNamHoc.DataSource = ListCourse;
+            cmbNamHoc.DisplayMember = "Name";
+            cmbNamHoc.ValueMember = "CourseID";
+        }
+        private void LoadPhysicalAssessmentInfor()
+        {
+            cmbPhysicalAssessment.DataSource = new PhysicalAssessmentDAO().ListPhysicalAssessment(); ;
+            cmbPhysicalAssessment.DisplayMember = "NamePhysicalAssessment";
+            cmbPhysicalAssessment.ValueMember = "PhysicalAssessmentID";
+        }
+        private void FillGridControl(int ClassID, int PhysicalAssessmentID)
+        {
+            try
+            {
+                dgvPhysicalAssessment.DataSource = new PhysicalAssessmentDetailDAO().ListPhysicalDetail(ClassID, PhysicalAssessmentID);
+
+            }
+            catch
+            { }
+        }
+              
+        #endregion
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        #region STT
         private void bandedGridView1_CustomDrawRowIndicator(object sender, RowIndicatorCustomDrawEventArgs e)
         {
             try
@@ -81,5 +151,6 @@ namespace QLHSBanTru2018_Demo_V1.TienBao
             gridview.IndicatorWidth = Convert.ToInt32(size.Width + 0.999f) + GridPainter.Indicator.ImageSize.Width + 10;
 
         }
+        #endregion
     }
 }
