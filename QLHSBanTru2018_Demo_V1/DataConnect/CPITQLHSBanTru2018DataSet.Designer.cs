@@ -36,8 +36,6 @@ namespace DataConnect {
         
         private DailyMenuDetailDataTable tableDailyMenuDetail;
         
-        private DailyTaskDataTable tableDailyTask;
-        
         private DegreeDataTable tableDegree;
         
         private DepartmentDataTable tableDepartment;
@@ -116,7 +114,9 @@ namespace DataConnect {
         
         private WeeklyMenuDataTable tableWeeklyMenu;
         
-        private WeeklyTaskDataTable tableWeeklyTask;
+        private DailyTaskDataTable tableDailyTask;
+        
+        private TrackingUpLateDataTable tableTrackingUpLate;
         
         private global::System.Data.DataRelation relationFK_Class_Grade;
         
@@ -135,12 +135,6 @@ namespace DataConnect {
         private global::System.Data.DataRelation relationFK_DailyMenuDetail_Dish;
         
         private global::System.Data.DataRelation relationFK_DailyMenuDetail_Meal;
-        
-        private global::System.Data.DataRelation relationFK_DailyTask_PhysicalMonthlyTask;
-        
-        private global::System.Data.DataRelation relationFK_DailyTask_Student;
-        
-        private global::System.Data.DataRelation relationFK_DailyTask_WeeklyTask;
         
         private global::System.Data.DataRelation relationFK_DishDetail_Dish;
         
@@ -218,6 +212,10 @@ namespace DataConnect {
         
         private global::System.Data.DataRelation relationFK_Topic_TopicType;
         
+        private global::System.Data.DataRelation relationFK_DailyTask_Student;
+        
+        private global::System.Data.DataRelation relationFK_TrackingUpLate_Student;
+        
         private global::System.Data.SchemaSerializationMode _schemaSerializationMode = global::System.Data.SchemaSerializationMode.IncludeSchema;
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -263,9 +261,6 @@ namespace DataConnect {
                 }
                 if ((ds.Tables["DailyMenuDetail"] != null)) {
                     base.Tables.Add(new DailyMenuDetailDataTable(ds.Tables["DailyMenuDetail"]));
-                }
-                if ((ds.Tables["DailyTask"] != null)) {
-                    base.Tables.Add(new DailyTaskDataTable(ds.Tables["DailyTask"]));
                 }
                 if ((ds.Tables["Degree"] != null)) {
                     base.Tables.Add(new DegreeDataTable(ds.Tables["Degree"]));
@@ -384,8 +379,11 @@ namespace DataConnect {
                 if ((ds.Tables["WeeklyMenu"] != null)) {
                     base.Tables.Add(new WeeklyMenuDataTable(ds.Tables["WeeklyMenu"]));
                 }
-                if ((ds.Tables["WeeklyTask"] != null)) {
-                    base.Tables.Add(new WeeklyTaskDataTable(ds.Tables["WeeklyTask"]));
+                if ((ds.Tables["DailyTask"] != null)) {
+                    base.Tables.Add(new DailyTaskDataTable(ds.Tables["DailyTask"]));
+                }
+                if ((ds.Tables["TrackingUpLate"] != null)) {
+                    base.Tables.Add(new TrackingUpLateDataTable(ds.Tables["TrackingUpLate"]));
                 }
                 this.DataSetName = ds.DataSetName;
                 this.Prefix = ds.Prefix;
@@ -462,16 +460,6 @@ namespace DataConnect {
         public DailyMenuDetailDataTable DailyMenuDetail {
             get {
                 return this.tableDailyMenuDetail;
-            }
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-        [global::System.ComponentModel.Browsable(false)]
-        [global::System.ComponentModel.DesignerSerializationVisibility(global::System.ComponentModel.DesignerSerializationVisibility.Content)]
-        public DailyTaskDataTable DailyTask {
-            get {
-                return this.tableDailyTask;
             }
         }
         
@@ -869,9 +857,19 @@ namespace DataConnect {
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
         [global::System.ComponentModel.Browsable(false)]
         [global::System.ComponentModel.DesignerSerializationVisibility(global::System.ComponentModel.DesignerSerializationVisibility.Content)]
-        public WeeklyTaskDataTable WeeklyTask {
+        public DailyTaskDataTable DailyTask {
             get {
-                return this.tableWeeklyTask;
+                return this.tableDailyTask;
+            }
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+        [global::System.ComponentModel.Browsable(false)]
+        [global::System.ComponentModel.DesignerSerializationVisibility(global::System.ComponentModel.DesignerSerializationVisibility.Content)]
+        public TrackingUpLateDataTable TrackingUpLate {
+            get {
+                return this.tableTrackingUpLate;
             }
         }
         
@@ -959,9 +957,6 @@ namespace DataConnect {
                 }
                 if ((ds.Tables["DailyMenuDetail"] != null)) {
                     base.Tables.Add(new DailyMenuDetailDataTable(ds.Tables["DailyMenuDetail"]));
-                }
-                if ((ds.Tables["DailyTask"] != null)) {
-                    base.Tables.Add(new DailyTaskDataTable(ds.Tables["DailyTask"]));
                 }
                 if ((ds.Tables["Degree"] != null)) {
                     base.Tables.Add(new DegreeDataTable(ds.Tables["Degree"]));
@@ -1080,8 +1075,11 @@ namespace DataConnect {
                 if ((ds.Tables["WeeklyMenu"] != null)) {
                     base.Tables.Add(new WeeklyMenuDataTable(ds.Tables["WeeklyMenu"]));
                 }
-                if ((ds.Tables["WeeklyTask"] != null)) {
-                    base.Tables.Add(new WeeklyTaskDataTable(ds.Tables["WeeklyTask"]));
+                if ((ds.Tables["DailyTask"] != null)) {
+                    base.Tables.Add(new DailyTaskDataTable(ds.Tables["DailyTask"]));
+                }
+                if ((ds.Tables["TrackingUpLate"] != null)) {
+                    base.Tables.Add(new TrackingUpLateDataTable(ds.Tables["TrackingUpLate"]));
                 }
                 this.DataSetName = ds.DataSetName;
                 this.Prefix = ds.Prefix;
@@ -1150,12 +1148,6 @@ namespace DataConnect {
             if ((initTable == true)) {
                 if ((this.tableDailyMenuDetail != null)) {
                     this.tableDailyMenuDetail.InitVars();
-                }
-            }
-            this.tableDailyTask = ((DailyTaskDataTable)(base.Tables["DailyTask"]));
-            if ((initTable == true)) {
-                if ((this.tableDailyTask != null)) {
-                    this.tableDailyTask.InitVars();
                 }
             }
             this.tableDegree = ((DegreeDataTable)(base.Tables["Degree"]));
@@ -1392,10 +1384,16 @@ namespace DataConnect {
                     this.tableWeeklyMenu.InitVars();
                 }
             }
-            this.tableWeeklyTask = ((WeeklyTaskDataTable)(base.Tables["WeeklyTask"]));
+            this.tableDailyTask = ((DailyTaskDataTable)(base.Tables["DailyTask"]));
             if ((initTable == true)) {
-                if ((this.tableWeeklyTask != null)) {
-                    this.tableWeeklyTask.InitVars();
+                if ((this.tableDailyTask != null)) {
+                    this.tableDailyTask.InitVars();
+                }
+            }
+            this.tableTrackingUpLate = ((TrackingUpLateDataTable)(base.Tables["TrackingUpLate"]));
+            if ((initTable == true)) {
+                if ((this.tableTrackingUpLate != null)) {
+                    this.tableTrackingUpLate.InitVars();
                 }
             }
             this.relationFK_Class_Grade = this.Relations["FK_Class_Grade"];
@@ -1407,9 +1405,6 @@ namespace DataConnect {
             this.relationFK_DailyMenuDetail_DailyMenu = this.Relations["FK_DailyMenuDetail_DailyMenu"];
             this.relationFK_DailyMenuDetail_Dish = this.Relations["FK_DailyMenuDetail_Dish"];
             this.relationFK_DailyMenuDetail_Meal = this.Relations["FK_DailyMenuDetail_Meal"];
-            this.relationFK_DailyTask_PhysicalMonthlyTask = this.Relations["FK_DailyTask_PhysicalMonthlyTask"];
-            this.relationFK_DailyTask_Student = this.Relations["FK_DailyTask_Student"];
-            this.relationFK_DailyTask_WeeklyTask = this.Relations["FK_DailyTask_WeeklyTask"];
             this.relationFK_DishDetail_Dish = this.Relations["FK_DishDetail_Dish"];
             this.relationFK_DishDetail_Ingredient = this.Relations["FK_DishDetail_Ingredient"];
             this.relationFK_Division_Department = this.Relations["FK_Division_Department"];
@@ -1448,6 +1443,8 @@ namespace DataConnect {
             this.relationFK_Student_Lesson_Student = this.Relations["FK_Student_Lesson_Student"];
             this.relationFK_StudentParents_Student = this.Relations["FK_StudentParents_Student"];
             this.relationFK_Topic_TopicType = this.Relations["FK_Topic_TopicType"];
+            this.relationFK_DailyTask_Student = this.Relations["FK_DailyTask_Student"];
+            this.relationFK_TrackingUpLate_Student = this.Relations["FK_TrackingUpLate_Student"];
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -1470,8 +1467,6 @@ namespace DataConnect {
             base.Tables.Add(this.tableDailyMenu);
             this.tableDailyMenuDetail = new DailyMenuDetailDataTable();
             base.Tables.Add(this.tableDailyMenuDetail);
-            this.tableDailyTask = new DailyTaskDataTable();
-            base.Tables.Add(this.tableDailyTask);
             this.tableDegree = new DegreeDataTable();
             base.Tables.Add(this.tableDegree);
             this.tableDepartment = new DepartmentDataTable();
@@ -1550,8 +1545,10 @@ namespace DataConnect {
             base.Tables.Add(this.tableTopicType);
             this.tableWeeklyMenu = new WeeklyMenuDataTable();
             base.Tables.Add(this.tableWeeklyMenu);
-            this.tableWeeklyTask = new WeeklyTaskDataTable();
-            base.Tables.Add(this.tableWeeklyTask);
+            this.tableDailyTask = new DailyTaskDataTable();
+            base.Tables.Add(this.tableDailyTask);
+            this.tableTrackingUpLate = new TrackingUpLateDataTable();
+            base.Tables.Add(this.tableTrackingUpLate);
             this.relationFK_Class_Grade = new global::System.Data.DataRelation("FK_Class_Grade", new global::System.Data.DataColumn[] {
                         this.tableGrade.GradeIDColumn}, new global::System.Data.DataColumn[] {
                         this.tableClass.GradeIDColumn}, false);
@@ -1588,18 +1585,6 @@ namespace DataConnect {
                         this.tableMeal.MealIDColumn}, new global::System.Data.DataColumn[] {
                         this.tableDailyMenuDetail.MealIDColumn}, false);
             this.Relations.Add(this.relationFK_DailyMenuDetail_Meal);
-            this.relationFK_DailyTask_PhysicalMonthlyTask = new global::System.Data.DataRelation("FK_DailyTask_PhysicalMonthlyTask", new global::System.Data.DataColumn[] {
-                        this.tablePhysicalMonthlyTask.PhysicalMonthlyTaskIDColumn}, new global::System.Data.DataColumn[] {
-                        this.tableDailyTask.MonthlyTaskIDColumn}, false);
-            this.Relations.Add(this.relationFK_DailyTask_PhysicalMonthlyTask);
-            this.relationFK_DailyTask_Student = new global::System.Data.DataRelation("FK_DailyTask_Student", new global::System.Data.DataColumn[] {
-                        this.tableStudent.StudentIDColumn}, new global::System.Data.DataColumn[] {
-                        this.tableDailyTask.StudentIDColumn}, false);
-            this.Relations.Add(this.relationFK_DailyTask_Student);
-            this.relationFK_DailyTask_WeeklyTask = new global::System.Data.DataRelation("FK_DailyTask_WeeklyTask", new global::System.Data.DataColumn[] {
-                        this.tableWeeklyTask.WeeklyTaskIDColumn}, new global::System.Data.DataColumn[] {
-                        this.tableDailyTask.WeeklyTaskIDColumn}, false);
-            this.Relations.Add(this.relationFK_DailyTask_WeeklyTask);
             this.relationFK_DishDetail_Dish = new global::System.Data.DataRelation("FK_DishDetail_Dish", new global::System.Data.DataColumn[] {
                         this.tableDish.DishIDColumn}, new global::System.Data.DataColumn[] {
                         this.tableDishDetail.DishIDColumn}, false);
@@ -1752,6 +1737,14 @@ namespace DataConnect {
                         this.tableTopicType.TopicTypeIDColumn}, new global::System.Data.DataColumn[] {
                         this.tableTopic.TopicTypeIDColumn}, false);
             this.Relations.Add(this.relationFK_Topic_TopicType);
+            this.relationFK_DailyTask_Student = new global::System.Data.DataRelation("FK_DailyTask_Student", new global::System.Data.DataColumn[] {
+                        this.tableStudent.StudentIDColumn}, new global::System.Data.DataColumn[] {
+                        this.tableDailyTask.StudentIDColumn}, false);
+            this.Relations.Add(this.relationFK_DailyTask_Student);
+            this.relationFK_TrackingUpLate_Student = new global::System.Data.DataRelation("FK_TrackingUpLate_Student", new global::System.Data.DataColumn[] {
+                        this.tableStudent.StudentIDColumn}, new global::System.Data.DataColumn[] {
+                        this.tableTrackingUpLate.StudentIDColumn}, false);
+            this.Relations.Add(this.relationFK_TrackingUpLate_Student);
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -1787,12 +1780,6 @@ namespace DataConnect {
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
         private bool ShouldSerializeDailyMenuDetail() {
-            return false;
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-        private bool ShouldSerializeDailyTask() {
             return false;
         }
         
@@ -2032,7 +2019,13 @@ namespace DataConnect {
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-        private bool ShouldSerializeWeeklyTask() {
+        private bool ShouldSerializeDailyTask() {
+            return false;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+        private bool ShouldSerializeTrackingUpLate() {
             return false;
         }
         
@@ -2108,9 +2101,6 @@ namespace DataConnect {
         
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
         public delegate void DailyMenuDetailRowChangeEventHandler(object sender, DailyMenuDetailRowChangeEvent e);
-        
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-        public delegate void DailyTaskRowChangeEventHandler(object sender, DailyTaskRowChangeEvent e);
         
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
         public delegate void DegreeRowChangeEventHandler(object sender, DegreeRowChangeEvent e);
@@ -2230,7 +2220,10 @@ namespace DataConnect {
         public delegate void WeeklyMenuRowChangeEventHandler(object sender, WeeklyMenuRowChangeEvent e);
         
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-        public delegate void WeeklyTaskRowChangeEventHandler(object sender, WeeklyTaskRowChangeEvent e);
+        public delegate void DailyTaskRowChangeEventHandler(object sender, DailyTaskRowChangeEvent e);
+        
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+        public delegate void TrackingUpLateRowChangeEventHandler(object sender, TrackingUpLateRowChangeEvent e);
         
         /// <summary>
         ///Represents the strongly named DataTable class.
@@ -4282,488 +4275,6 @@ namespace DataConnect {
                 global::System.Xml.Schema.XmlSchemaAttribute attribute2 = new global::System.Xml.Schema.XmlSchemaAttribute();
                 attribute2.Name = "tableTypeName";
                 attribute2.FixedValue = "DailyMenuDetailDataTable";
-                type.Attributes.Add(attribute2);
-                type.Particle = sequence;
-                global::System.Xml.Schema.XmlSchema dsSchema = ds.GetSchemaSerializable();
-                if (xs.Contains(dsSchema.TargetNamespace)) {
-                    global::System.IO.MemoryStream s1 = new global::System.IO.MemoryStream();
-                    global::System.IO.MemoryStream s2 = new global::System.IO.MemoryStream();
-                    try {
-                        global::System.Xml.Schema.XmlSchema schema = null;
-                        dsSchema.Write(s1);
-                        for (global::System.Collections.IEnumerator schemas = xs.Schemas(dsSchema.TargetNamespace).GetEnumerator(); schemas.MoveNext(); ) {
-                            schema = ((global::System.Xml.Schema.XmlSchema)(schemas.Current));
-                            s2.SetLength(0);
-                            schema.Write(s2);
-                            if ((s1.Length == s2.Length)) {
-                                s1.Position = 0;
-                                s2.Position = 0;
-                                for (; ((s1.Position != s1.Length) 
-                                            && (s1.ReadByte() == s2.ReadByte())); ) {
-                                    ;
-                                }
-                                if ((s1.Position == s1.Length)) {
-                                    return type;
-                                }
-                            }
-                        }
-                    }
-                    finally {
-                        if ((s1 != null)) {
-                            s1.Close();
-                        }
-                        if ((s2 != null)) {
-                            s2.Close();
-                        }
-                    }
-                }
-                xs.Add(dsSchema);
-                return type;
-            }
-        }
-        
-        /// <summary>
-        ///Represents the strongly named DataTable class.
-        ///</summary>
-        [global::System.Serializable()]
-        [global::System.Xml.Serialization.XmlSchemaProviderAttribute("GetTypedTableSchema")]
-        public partial class DailyTaskDataTable : global::System.Data.TypedTableBase<DailyTaskRow> {
-            
-            private global::System.Data.DataColumn columnDailyTaskID;
-            
-            private global::System.Data.DataColumn columnStudentID;
-            
-            private global::System.Data.DataColumn columnWeeklyTaskID;
-            
-            private global::System.Data.DataColumn columnMonthlyTaskID;
-            
-            private global::System.Data.DataColumn columnDateTask;
-            
-            private global::System.Data.DataColumn columnPresent;
-            
-            private global::System.Data.DataColumn columnReason;
-            
-            private global::System.Data.DataColumn columnDrugTime;
-            
-            private global::System.Data.DataColumn columnEatRating;
-            
-            private global::System.Data.DataColumn columnSleepRating;
-            
-            private global::System.Data.DataColumn columnHealthRating;
-            
-            private global::System.Data.DataColumn columnStudyRating;
-            
-            private global::System.Data.DataColumn columnPickTime;
-            
-            private global::System.Data.DataColumn columnNote;
-            
-            private global::System.Data.DataColumn columnStatus;
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public DailyTaskDataTable() {
-                this.TableName = "DailyTask";
-                this.BeginInit();
-                this.InitClass();
-                this.EndInit();
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            internal DailyTaskDataTable(global::System.Data.DataTable table) {
-                this.TableName = table.TableName;
-                if ((table.CaseSensitive != table.DataSet.CaseSensitive)) {
-                    this.CaseSensitive = table.CaseSensitive;
-                }
-                if ((table.Locale.ToString() != table.DataSet.Locale.ToString())) {
-                    this.Locale = table.Locale;
-                }
-                if ((table.Namespace != table.DataSet.Namespace)) {
-                    this.Namespace = table.Namespace;
-                }
-                this.Prefix = table.Prefix;
-                this.MinimumCapacity = table.MinimumCapacity;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            protected DailyTaskDataTable(global::System.Runtime.Serialization.SerializationInfo info, global::System.Runtime.Serialization.StreamingContext context) : 
-                    base(info, context) {
-                this.InitVars();
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public global::System.Data.DataColumn DailyTaskIDColumn {
-                get {
-                    return this.columnDailyTaskID;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public global::System.Data.DataColumn StudentIDColumn {
-                get {
-                    return this.columnStudentID;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public global::System.Data.DataColumn WeeklyTaskIDColumn {
-                get {
-                    return this.columnWeeklyTaskID;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public global::System.Data.DataColumn MonthlyTaskIDColumn {
-                get {
-                    return this.columnMonthlyTaskID;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public global::System.Data.DataColumn DateTaskColumn {
-                get {
-                    return this.columnDateTask;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public global::System.Data.DataColumn PresentColumn {
-                get {
-                    return this.columnPresent;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public global::System.Data.DataColumn ReasonColumn {
-                get {
-                    return this.columnReason;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public global::System.Data.DataColumn DrugTimeColumn {
-                get {
-                    return this.columnDrugTime;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public global::System.Data.DataColumn EatRatingColumn {
-                get {
-                    return this.columnEatRating;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public global::System.Data.DataColumn SleepRatingColumn {
-                get {
-                    return this.columnSleepRating;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public global::System.Data.DataColumn HealthRatingColumn {
-                get {
-                    return this.columnHealthRating;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public global::System.Data.DataColumn StudyRatingColumn {
-                get {
-                    return this.columnStudyRating;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public global::System.Data.DataColumn PickTimeColumn {
-                get {
-                    return this.columnPickTime;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public global::System.Data.DataColumn NoteColumn {
-                get {
-                    return this.columnNote;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public global::System.Data.DataColumn StatusColumn {
-                get {
-                    return this.columnStatus;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            [global::System.ComponentModel.Browsable(false)]
-            public int Count {
-                get {
-                    return this.Rows.Count;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public DailyTaskRow this[int index] {
-                get {
-                    return ((DailyTaskRow)(this.Rows[index]));
-                }
-            }
-            
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public event DailyTaskRowChangeEventHandler DailyTaskRowChanging;
-            
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public event DailyTaskRowChangeEventHandler DailyTaskRowChanged;
-            
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public event DailyTaskRowChangeEventHandler DailyTaskRowDeleting;
-            
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public event DailyTaskRowChangeEventHandler DailyTaskRowDeleted;
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public void AddDailyTaskRow(DailyTaskRow row) {
-                this.Rows.Add(row);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public DailyTaskRow AddDailyTaskRow(StudentRow parentStudentRowByFK_DailyTask_Student, WeeklyTaskRow parentWeeklyTaskRowByFK_DailyTask_WeeklyTask, PhysicalMonthlyTaskRow parentPhysicalMonthlyTaskRowByFK_DailyTask_PhysicalMonthlyTask, System.DateTime DateTask, bool Present, string Reason, System.TimeSpan DrugTime, double EatRating, double SleepRating, double HealthRating, double StudyRating, System.TimeSpan PickTime, string Note, bool Status) {
-                DailyTaskRow rowDailyTaskRow = ((DailyTaskRow)(this.NewRow()));
-                object[] columnValuesArray = new object[] {
-                        null,
-                        null,
-                        null,
-                        null,
-                        DateTask,
-                        Present,
-                        Reason,
-                        DrugTime,
-                        EatRating,
-                        SleepRating,
-                        HealthRating,
-                        StudyRating,
-                        PickTime,
-                        Note,
-                        Status};
-                if ((parentStudentRowByFK_DailyTask_Student != null)) {
-                    columnValuesArray[1] = parentStudentRowByFK_DailyTask_Student[0];
-                }
-                if ((parentWeeklyTaskRowByFK_DailyTask_WeeklyTask != null)) {
-                    columnValuesArray[2] = parentWeeklyTaskRowByFK_DailyTask_WeeklyTask[0];
-                }
-                if ((parentPhysicalMonthlyTaskRowByFK_DailyTask_PhysicalMonthlyTask != null)) {
-                    columnValuesArray[3] = parentPhysicalMonthlyTaskRowByFK_DailyTask_PhysicalMonthlyTask[0];
-                }
-                rowDailyTaskRow.ItemArray = columnValuesArray;
-                this.Rows.Add(rowDailyTaskRow);
-                return rowDailyTaskRow;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public DailyTaskRow FindByDailyTaskID(int DailyTaskID) {
-                return ((DailyTaskRow)(this.Rows.Find(new object[] {
-                            DailyTaskID})));
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public override global::System.Data.DataTable Clone() {
-                DailyTaskDataTable cln = ((DailyTaskDataTable)(base.Clone()));
-                cln.InitVars();
-                return cln;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            protected override global::System.Data.DataTable CreateInstance() {
-                return new DailyTaskDataTable();
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            internal void InitVars() {
-                this.columnDailyTaskID = base.Columns["DailyTaskID"];
-                this.columnStudentID = base.Columns["StudentID"];
-                this.columnWeeklyTaskID = base.Columns["WeeklyTaskID"];
-                this.columnMonthlyTaskID = base.Columns["MonthlyTaskID"];
-                this.columnDateTask = base.Columns["DateTask"];
-                this.columnPresent = base.Columns["Present"];
-                this.columnReason = base.Columns["Reason"];
-                this.columnDrugTime = base.Columns["DrugTime"];
-                this.columnEatRating = base.Columns["EatRating"];
-                this.columnSleepRating = base.Columns["SleepRating"];
-                this.columnHealthRating = base.Columns["HealthRating"];
-                this.columnStudyRating = base.Columns["StudyRating"];
-                this.columnPickTime = base.Columns["PickTime"];
-                this.columnNote = base.Columns["Note"];
-                this.columnStatus = base.Columns["Status"];
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            private void InitClass() {
-                this.columnDailyTaskID = new global::System.Data.DataColumn("DailyTaskID", typeof(int), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnDailyTaskID);
-                this.columnStudentID = new global::System.Data.DataColumn("StudentID", typeof(int), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnStudentID);
-                this.columnWeeklyTaskID = new global::System.Data.DataColumn("WeeklyTaskID", typeof(int), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnWeeklyTaskID);
-                this.columnMonthlyTaskID = new global::System.Data.DataColumn("MonthlyTaskID", typeof(int), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnMonthlyTaskID);
-                this.columnDateTask = new global::System.Data.DataColumn("DateTask", typeof(global::System.DateTime), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnDateTask);
-                this.columnPresent = new global::System.Data.DataColumn("Present", typeof(bool), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnPresent);
-                this.columnReason = new global::System.Data.DataColumn("Reason", typeof(string), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnReason);
-                this.columnDrugTime = new global::System.Data.DataColumn("DrugTime", typeof(global::System.TimeSpan), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnDrugTime);
-                this.columnEatRating = new global::System.Data.DataColumn("EatRating", typeof(double), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnEatRating);
-                this.columnSleepRating = new global::System.Data.DataColumn("SleepRating", typeof(double), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnSleepRating);
-                this.columnHealthRating = new global::System.Data.DataColumn("HealthRating", typeof(double), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnHealthRating);
-                this.columnStudyRating = new global::System.Data.DataColumn("StudyRating", typeof(double), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnStudyRating);
-                this.columnPickTime = new global::System.Data.DataColumn("PickTime", typeof(global::System.TimeSpan), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnPickTime);
-                this.columnNote = new global::System.Data.DataColumn("Note", typeof(string), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnNote);
-                this.columnStatus = new global::System.Data.DataColumn("Status", typeof(bool), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnStatus);
-                this.Constraints.Add(new global::System.Data.UniqueConstraint("Constraint1", new global::System.Data.DataColumn[] {
-                                this.columnDailyTaskID}, true));
-                this.columnDailyTaskID.AutoIncrement = true;
-                this.columnDailyTaskID.AutoIncrementSeed = -1;
-                this.columnDailyTaskID.AutoIncrementStep = -1;
-                this.columnDailyTaskID.AllowDBNull = false;
-                this.columnDailyTaskID.ReadOnly = true;
-                this.columnDailyTaskID.Unique = true;
-                this.columnStudentID.AllowDBNull = false;
-                this.columnWeeklyTaskID.AllowDBNull = false;
-                this.columnMonthlyTaskID.AllowDBNull = false;
-                this.columnDateTask.AllowDBNull = false;
-                this.columnPresent.AllowDBNull = false;
-                this.columnReason.AllowDBNull = false;
-                this.columnReason.MaxLength = 200;
-                this.columnDrugTime.AllowDBNull = false;
-                this.columnEatRating.AllowDBNull = false;
-                this.columnSleepRating.AllowDBNull = false;
-                this.columnHealthRating.AllowDBNull = false;
-                this.columnStudyRating.AllowDBNull = false;
-                this.columnPickTime.AllowDBNull = false;
-                this.columnNote.MaxLength = 200;
-                this.columnStatus.AllowDBNull = false;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public DailyTaskRow NewDailyTaskRow() {
-                return ((DailyTaskRow)(this.NewRow()));
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            protected override global::System.Data.DataRow NewRowFromBuilder(global::System.Data.DataRowBuilder builder) {
-                return new DailyTaskRow(builder);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            protected override global::System.Type GetRowType() {
-                return typeof(DailyTaskRow);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            protected override void OnRowChanged(global::System.Data.DataRowChangeEventArgs e) {
-                base.OnRowChanged(e);
-                if ((this.DailyTaskRowChanged != null)) {
-                    this.DailyTaskRowChanged(this, new DailyTaskRowChangeEvent(((DailyTaskRow)(e.Row)), e.Action));
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            protected override void OnRowChanging(global::System.Data.DataRowChangeEventArgs e) {
-                base.OnRowChanging(e);
-                if ((this.DailyTaskRowChanging != null)) {
-                    this.DailyTaskRowChanging(this, new DailyTaskRowChangeEvent(((DailyTaskRow)(e.Row)), e.Action));
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            protected override void OnRowDeleted(global::System.Data.DataRowChangeEventArgs e) {
-                base.OnRowDeleted(e);
-                if ((this.DailyTaskRowDeleted != null)) {
-                    this.DailyTaskRowDeleted(this, new DailyTaskRowChangeEvent(((DailyTaskRow)(e.Row)), e.Action));
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            protected override void OnRowDeleting(global::System.Data.DataRowChangeEventArgs e) {
-                base.OnRowDeleting(e);
-                if ((this.DailyTaskRowDeleting != null)) {
-                    this.DailyTaskRowDeleting(this, new DailyTaskRowChangeEvent(((DailyTaskRow)(e.Row)), e.Action));
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public void RemoveDailyTaskRow(DailyTaskRow row) {
-                this.Rows.Remove(row);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public static global::System.Xml.Schema.XmlSchemaComplexType GetTypedTableSchema(global::System.Xml.Schema.XmlSchemaSet xs) {
-                global::System.Xml.Schema.XmlSchemaComplexType type = new global::System.Xml.Schema.XmlSchemaComplexType();
-                global::System.Xml.Schema.XmlSchemaSequence sequence = new global::System.Xml.Schema.XmlSchemaSequence();
-                CPITQLHSBanTru2018DataSet ds = new CPITQLHSBanTru2018DataSet();
-                global::System.Xml.Schema.XmlSchemaAny any1 = new global::System.Xml.Schema.XmlSchemaAny();
-                any1.Namespace = "http://www.w3.org/2001/XMLSchema";
-                any1.MinOccurs = new decimal(0);
-                any1.MaxOccurs = decimal.MaxValue;
-                any1.ProcessContents = global::System.Xml.Schema.XmlSchemaContentProcessing.Lax;
-                sequence.Items.Add(any1);
-                global::System.Xml.Schema.XmlSchemaAny any2 = new global::System.Xml.Schema.XmlSchemaAny();
-                any2.Namespace = "urn:schemas-microsoft-com:xml-diffgram-v1";
-                any2.MinOccurs = new decimal(1);
-                any2.ProcessContents = global::System.Xml.Schema.XmlSchemaContentProcessing.Lax;
-                sequence.Items.Add(any2);
-                global::System.Xml.Schema.XmlSchemaAttribute attribute1 = new global::System.Xml.Schema.XmlSchemaAttribute();
-                attribute1.Name = "namespace";
-                attribute1.FixedValue = ds.Namespace;
-                type.Attributes.Add(attribute1);
-                global::System.Xml.Schema.XmlSchemaAttribute attribute2 = new global::System.Xml.Schema.XmlSchemaAttribute();
-                attribute2.Name = "tableTypeName";
-                attribute2.FixedValue = "DailyTaskDataTable";
                 type.Attributes.Add(attribute2);
                 type.Particle = sequence;
                 global::System.Xml.Schema.XmlSchema dsSchema = ds.GetSchemaSerializable();
@@ -18824,20 +18335,26 @@ namespace DataConnect {
         ///</summary>
         [global::System.Serializable()]
         [global::System.Xml.Serialization.XmlSchemaProviderAttribute("GetTypedTableSchema")]
-        public partial class WeeklyTaskDataTable : global::System.Data.TypedTableBase<WeeklyTaskRow> {
+        public partial class DailyTaskDataTable : global::System.Data.TypedTableBase<DailyTaskRow> {
+            
+            private global::System.Data.DataColumn columnDailyTaskID;
+            
+            private global::System.Data.DataColumn columnStudentID;
             
             private global::System.Data.DataColumn columnWeeklyTaskID;
             
-            private global::System.Data.DataColumn columnName;
+            private global::System.Data.DataColumn columnMonthlyTaskID;
             
-            private global::System.Data.DataColumn columnNote;
+            private global::System.Data.DataColumn columnDateTask;
             
-            private global::System.Data.DataColumn columnStatus;
+            private global::System.Data.DataColumn columnPresent;
+            
+            private global::System.Data.DataColumn columnReason;
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public WeeklyTaskDataTable() {
-                this.TableName = "WeeklyTask";
+            public DailyTaskDataTable() {
+                this.TableName = "DailyTask";
                 this.BeginInit();
                 this.InitClass();
                 this.EndInit();
@@ -18845,7 +18362,7 @@ namespace DataConnect {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            internal WeeklyTaskDataTable(global::System.Data.DataTable table) {
+            internal DailyTaskDataTable(global::System.Data.DataTable table) {
                 this.TableName = table.TableName;
                 if ((table.CaseSensitive != table.DataSet.CaseSensitive)) {
                     this.CaseSensitive = table.CaseSensitive;
@@ -18862,9 +18379,25 @@ namespace DataConnect {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            protected WeeklyTaskDataTable(global::System.Runtime.Serialization.SerializationInfo info, global::System.Runtime.Serialization.StreamingContext context) : 
+            protected DailyTaskDataTable(global::System.Runtime.Serialization.SerializationInfo info, global::System.Runtime.Serialization.StreamingContext context) : 
                     base(info, context) {
                 this.InitVars();
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public global::System.Data.DataColumn DailyTaskIDColumn {
+                get {
+                    return this.columnDailyTaskID;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public global::System.Data.DataColumn StudentIDColumn {
+                get {
+                    return this.columnStudentID;
+                }
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -18877,25 +18410,33 @@ namespace DataConnect {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public global::System.Data.DataColumn NameColumn {
+            public global::System.Data.DataColumn MonthlyTaskIDColumn {
                 get {
-                    return this.columnName;
+                    return this.columnMonthlyTaskID;
                 }
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public global::System.Data.DataColumn NoteColumn {
+            public global::System.Data.DataColumn DateTaskColumn {
                 get {
-                    return this.columnNote;
+                    return this.columnDateTask;
                 }
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public global::System.Data.DataColumn StatusColumn {
+            public global::System.Data.DataColumn PresentColumn {
                 get {
-                    return this.columnStatus;
+                    return this.columnPresent;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public global::System.Data.DataColumn ReasonColumn {
+                get {
+                    return this.columnReason;
                 }
             }
             
@@ -18910,55 +18451,61 @@ namespace DataConnect {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public WeeklyTaskRow this[int index] {
+            public DailyTaskRow this[int index] {
                 get {
-                    return ((WeeklyTaskRow)(this.Rows[index]));
+                    return ((DailyTaskRow)(this.Rows[index]));
                 }
             }
             
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public event WeeklyTaskRowChangeEventHandler WeeklyTaskRowChanging;
+            public event DailyTaskRowChangeEventHandler DailyTaskRowChanging;
             
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public event WeeklyTaskRowChangeEventHandler WeeklyTaskRowChanged;
+            public event DailyTaskRowChangeEventHandler DailyTaskRowChanged;
             
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public event WeeklyTaskRowChangeEventHandler WeeklyTaskRowDeleting;
+            public event DailyTaskRowChangeEventHandler DailyTaskRowDeleting;
             
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public event WeeklyTaskRowChangeEventHandler WeeklyTaskRowDeleted;
+            public event DailyTaskRowChangeEventHandler DailyTaskRowDeleted;
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public void AddWeeklyTaskRow(WeeklyTaskRow row) {
+            public void AddDailyTaskRow(DailyTaskRow row) {
                 this.Rows.Add(row);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public WeeklyTaskRow AddWeeklyTaskRow(string Name, string Note, bool Status) {
-                WeeklyTaskRow rowWeeklyTaskRow = ((WeeklyTaskRow)(this.NewRow()));
+            public DailyTaskRow AddDailyTaskRow(StudentRow parentStudentRowByFK_DailyTask_Student, int WeeklyTaskID, string MonthlyTaskID, string DateTask, string Present, string Reason) {
+                DailyTaskRow rowDailyTaskRow = ((DailyTaskRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
                         null,
-                        Name,
-                        Note,
-                        Status};
-                rowWeeklyTaskRow.ItemArray = columnValuesArray;
-                this.Rows.Add(rowWeeklyTaskRow);
-                return rowWeeklyTaskRow;
+                        null,
+                        WeeklyTaskID,
+                        MonthlyTaskID,
+                        DateTask,
+                        Present,
+                        Reason};
+                if ((parentStudentRowByFK_DailyTask_Student != null)) {
+                    columnValuesArray[1] = parentStudentRowByFK_DailyTask_Student[0];
+                }
+                rowDailyTaskRow.ItemArray = columnValuesArray;
+                this.Rows.Add(rowDailyTaskRow);
+                return rowDailyTaskRow;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public WeeklyTaskRow FindByWeeklyTaskID(int WeeklyTaskID) {
-                return ((WeeklyTaskRow)(this.Rows.Find(new object[] {
-                            WeeklyTaskID})));
+            public DailyTaskRow FindByDailyTaskID(int DailyTaskID) {
+                return ((DailyTaskRow)(this.Rows.Find(new object[] {
+                            DailyTaskID})));
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
             public override global::System.Data.DataTable Clone() {
-                WeeklyTaskDataTable cln = ((WeeklyTaskDataTable)(base.Clone()));
+                DailyTaskDataTable cln = ((DailyTaskDataTable)(base.Clone()));
                 cln.InitVars();
                 return cln;
             }
@@ -18966,67 +18513,80 @@ namespace DataConnect {
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
             protected override global::System.Data.DataTable CreateInstance() {
-                return new WeeklyTaskDataTable();
+                return new DailyTaskDataTable();
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
             internal void InitVars() {
+                this.columnDailyTaskID = base.Columns["DailyTaskID"];
+                this.columnStudentID = base.Columns["StudentID"];
                 this.columnWeeklyTaskID = base.Columns["WeeklyTaskID"];
-                this.columnName = base.Columns["Name"];
-                this.columnNote = base.Columns["Note"];
-                this.columnStatus = base.Columns["Status"];
+                this.columnMonthlyTaskID = base.Columns["MonthlyTaskID"];
+                this.columnDateTask = base.Columns["DateTask"];
+                this.columnPresent = base.Columns["Present"];
+                this.columnReason = base.Columns["Reason"];
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
             private void InitClass() {
+                this.columnDailyTaskID = new global::System.Data.DataColumn("DailyTaskID", typeof(int), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnDailyTaskID);
+                this.columnStudentID = new global::System.Data.DataColumn("StudentID", typeof(int), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnStudentID);
                 this.columnWeeklyTaskID = new global::System.Data.DataColumn("WeeklyTaskID", typeof(int), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnWeeklyTaskID);
-                this.columnName = new global::System.Data.DataColumn("Name", typeof(string), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnName);
-                this.columnNote = new global::System.Data.DataColumn("Note", typeof(string), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnNote);
-                this.columnStatus = new global::System.Data.DataColumn("Status", typeof(bool), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnStatus);
+                this.columnMonthlyTaskID = new global::System.Data.DataColumn("MonthlyTaskID", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnMonthlyTaskID);
+                this.columnDateTask = new global::System.Data.DataColumn("DateTask", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnDateTask);
+                this.columnPresent = new global::System.Data.DataColumn("Present", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnPresent);
+                this.columnReason = new global::System.Data.DataColumn("Reason", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnReason);
                 this.Constraints.Add(new global::System.Data.UniqueConstraint("Constraint1", new global::System.Data.DataColumn[] {
-                                this.columnWeeklyTaskID}, true));
-                this.columnWeeklyTaskID.AutoIncrement = true;
-                this.columnWeeklyTaskID.AutoIncrementSeed = -1;
-                this.columnWeeklyTaskID.AutoIncrementStep = -1;
+                                this.columnDailyTaskID}, true));
+                this.columnDailyTaskID.AutoIncrement = true;
+                this.columnDailyTaskID.AutoIncrementSeed = -1;
+                this.columnDailyTaskID.AutoIncrementStep = -1;
+                this.columnDailyTaskID.AllowDBNull = false;
+                this.columnDailyTaskID.ReadOnly = true;
+                this.columnDailyTaskID.Unique = true;
+                this.columnStudentID.AllowDBNull = false;
                 this.columnWeeklyTaskID.AllowDBNull = false;
-                this.columnWeeklyTaskID.ReadOnly = true;
-                this.columnWeeklyTaskID.Unique = true;
-                this.columnName.AllowDBNull = false;
-                this.columnName.MaxLength = 50;
-                this.columnNote.MaxLength = 200;
-                this.columnStatus.AllowDBNull = false;
+                this.columnMonthlyTaskID.AllowDBNull = false;
+                this.columnMonthlyTaskID.MaxLength = 20;
+                this.columnDateTask.AllowDBNull = false;
+                this.columnDateTask.MaxLength = 20;
+                this.columnPresent.MaxLength = 20;
+                this.columnReason.MaxLength = 200;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public WeeklyTaskRow NewWeeklyTaskRow() {
-                return ((WeeklyTaskRow)(this.NewRow()));
+            public DailyTaskRow NewDailyTaskRow() {
+                return ((DailyTaskRow)(this.NewRow()));
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
             protected override global::System.Data.DataRow NewRowFromBuilder(global::System.Data.DataRowBuilder builder) {
-                return new WeeklyTaskRow(builder);
+                return new DailyTaskRow(builder);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
             protected override global::System.Type GetRowType() {
-                return typeof(WeeklyTaskRow);
+                return typeof(DailyTaskRow);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
             protected override void OnRowChanged(global::System.Data.DataRowChangeEventArgs e) {
                 base.OnRowChanged(e);
-                if ((this.WeeklyTaskRowChanged != null)) {
-                    this.WeeklyTaskRowChanged(this, new WeeklyTaskRowChangeEvent(((WeeklyTaskRow)(e.Row)), e.Action));
+                if ((this.DailyTaskRowChanged != null)) {
+                    this.DailyTaskRowChanged(this, new DailyTaskRowChangeEvent(((DailyTaskRow)(e.Row)), e.Action));
                 }
             }
             
@@ -19034,8 +18594,8 @@ namespace DataConnect {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
             protected override void OnRowChanging(global::System.Data.DataRowChangeEventArgs e) {
                 base.OnRowChanging(e);
-                if ((this.WeeklyTaskRowChanging != null)) {
-                    this.WeeklyTaskRowChanging(this, new WeeklyTaskRowChangeEvent(((WeeklyTaskRow)(e.Row)), e.Action));
+                if ((this.DailyTaskRowChanging != null)) {
+                    this.DailyTaskRowChanging(this, new DailyTaskRowChangeEvent(((DailyTaskRow)(e.Row)), e.Action));
                 }
             }
             
@@ -19043,8 +18603,8 @@ namespace DataConnect {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
             protected override void OnRowDeleted(global::System.Data.DataRowChangeEventArgs e) {
                 base.OnRowDeleted(e);
-                if ((this.WeeklyTaskRowDeleted != null)) {
-                    this.WeeklyTaskRowDeleted(this, new WeeklyTaskRowChangeEvent(((WeeklyTaskRow)(e.Row)), e.Action));
+                if ((this.DailyTaskRowDeleted != null)) {
+                    this.DailyTaskRowDeleted(this, new DailyTaskRowChangeEvent(((DailyTaskRow)(e.Row)), e.Action));
                 }
             }
             
@@ -19052,14 +18612,14 @@ namespace DataConnect {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
             protected override void OnRowDeleting(global::System.Data.DataRowChangeEventArgs e) {
                 base.OnRowDeleting(e);
-                if ((this.WeeklyTaskRowDeleting != null)) {
-                    this.WeeklyTaskRowDeleting(this, new WeeklyTaskRowChangeEvent(((WeeklyTaskRow)(e.Row)), e.Action));
+                if ((this.DailyTaskRowDeleting != null)) {
+                    this.DailyTaskRowDeleting(this, new DailyTaskRowChangeEvent(((DailyTaskRow)(e.Row)), e.Action));
                 }
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public void RemoveWeeklyTaskRow(WeeklyTaskRow row) {
+            public void RemoveDailyTaskRow(DailyTaskRow row) {
                 this.Rows.Remove(row);
             }
             
@@ -19086,7 +18646,422 @@ namespace DataConnect {
                 type.Attributes.Add(attribute1);
                 global::System.Xml.Schema.XmlSchemaAttribute attribute2 = new global::System.Xml.Schema.XmlSchemaAttribute();
                 attribute2.Name = "tableTypeName";
-                attribute2.FixedValue = "WeeklyTaskDataTable";
+                attribute2.FixedValue = "DailyTaskDataTable";
+                type.Attributes.Add(attribute2);
+                type.Particle = sequence;
+                global::System.Xml.Schema.XmlSchema dsSchema = ds.GetSchemaSerializable();
+                if (xs.Contains(dsSchema.TargetNamespace)) {
+                    global::System.IO.MemoryStream s1 = new global::System.IO.MemoryStream();
+                    global::System.IO.MemoryStream s2 = new global::System.IO.MemoryStream();
+                    try {
+                        global::System.Xml.Schema.XmlSchema schema = null;
+                        dsSchema.Write(s1);
+                        for (global::System.Collections.IEnumerator schemas = xs.Schemas(dsSchema.TargetNamespace).GetEnumerator(); schemas.MoveNext(); ) {
+                            schema = ((global::System.Xml.Schema.XmlSchema)(schemas.Current));
+                            s2.SetLength(0);
+                            schema.Write(s2);
+                            if ((s1.Length == s2.Length)) {
+                                s1.Position = 0;
+                                s2.Position = 0;
+                                for (; ((s1.Position != s1.Length) 
+                                            && (s1.ReadByte() == s2.ReadByte())); ) {
+                                    ;
+                                }
+                                if ((s1.Position == s1.Length)) {
+                                    return type;
+                                }
+                            }
+                        }
+                    }
+                    finally {
+                        if ((s1 != null)) {
+                            s1.Close();
+                        }
+                        if ((s2 != null)) {
+                            s2.Close();
+                        }
+                    }
+                }
+                xs.Add(dsSchema);
+                return type;
+            }
+        }
+        
+        /// <summary>
+        ///Represents the strongly named DataTable class.
+        ///</summary>
+        [global::System.Serializable()]
+        [global::System.Xml.Serialization.XmlSchemaProviderAttribute("GetTypedTableSchema")]
+        public partial class TrackingUpLateDataTable : global::System.Data.TypedTableBase<TrackingUpLateRow> {
+            
+            private global::System.Data.DataColumn columnTrackingID;
+            
+            private global::System.Data.DataColumn columnStudentID;
+            
+            private global::System.Data.DataColumn columnDateOfEntry;
+            
+            private global::System.Data.DataColumn columnStartTime;
+            
+            private global::System.Data.DataColumn columnEndTime;
+            
+            private global::System.Data.DataColumn columnDrugTime;
+            
+            private global::System.Data.DataColumn columnEating;
+            
+            private global::System.Data.DataColumn columnSleep;
+            
+            private global::System.Data.DataColumn columnHealth;
+            
+            private global::System.Data.DataColumn columnStudy;
+            
+            private global::System.Data.DataColumn columnNote;
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public TrackingUpLateDataTable() {
+                this.TableName = "TrackingUpLate";
+                this.BeginInit();
+                this.InitClass();
+                this.EndInit();
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            internal TrackingUpLateDataTable(global::System.Data.DataTable table) {
+                this.TableName = table.TableName;
+                if ((table.CaseSensitive != table.DataSet.CaseSensitive)) {
+                    this.CaseSensitive = table.CaseSensitive;
+                }
+                if ((table.Locale.ToString() != table.DataSet.Locale.ToString())) {
+                    this.Locale = table.Locale;
+                }
+                if ((table.Namespace != table.DataSet.Namespace)) {
+                    this.Namespace = table.Namespace;
+                }
+                this.Prefix = table.Prefix;
+                this.MinimumCapacity = table.MinimumCapacity;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            protected TrackingUpLateDataTable(global::System.Runtime.Serialization.SerializationInfo info, global::System.Runtime.Serialization.StreamingContext context) : 
+                    base(info, context) {
+                this.InitVars();
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public global::System.Data.DataColumn TrackingIDColumn {
+                get {
+                    return this.columnTrackingID;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public global::System.Data.DataColumn StudentIDColumn {
+                get {
+                    return this.columnStudentID;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public global::System.Data.DataColumn DateOfEntryColumn {
+                get {
+                    return this.columnDateOfEntry;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public global::System.Data.DataColumn StartTimeColumn {
+                get {
+                    return this.columnStartTime;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public global::System.Data.DataColumn EndTimeColumn {
+                get {
+                    return this.columnEndTime;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public global::System.Data.DataColumn DrugTimeColumn {
+                get {
+                    return this.columnDrugTime;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public global::System.Data.DataColumn EatingColumn {
+                get {
+                    return this.columnEating;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public global::System.Data.DataColumn SleepColumn {
+                get {
+                    return this.columnSleep;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public global::System.Data.DataColumn HealthColumn {
+                get {
+                    return this.columnHealth;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public global::System.Data.DataColumn StudyColumn {
+                get {
+                    return this.columnStudy;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public global::System.Data.DataColumn NoteColumn {
+                get {
+                    return this.columnNote;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            [global::System.ComponentModel.Browsable(false)]
+            public int Count {
+                get {
+                    return this.Rows.Count;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public TrackingUpLateRow this[int index] {
+                get {
+                    return ((TrackingUpLateRow)(this.Rows[index]));
+                }
+            }
+            
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public event TrackingUpLateRowChangeEventHandler TrackingUpLateRowChanging;
+            
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public event TrackingUpLateRowChangeEventHandler TrackingUpLateRowChanged;
+            
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public event TrackingUpLateRowChangeEventHandler TrackingUpLateRowDeleting;
+            
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public event TrackingUpLateRowChangeEventHandler TrackingUpLateRowDeleted;
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public void AddTrackingUpLateRow(TrackingUpLateRow row) {
+                this.Rows.Add(row);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public TrackingUpLateRow AddTrackingUpLateRow(StudentRow parentStudentRowByFK_TrackingUpLate_Student, string DateOfEntry, string StartTime, string EndTime, string DrugTime, string Eating, string Sleep, string Health, string Study, string Note) {
+                TrackingUpLateRow rowTrackingUpLateRow = ((TrackingUpLateRow)(this.NewRow()));
+                object[] columnValuesArray = new object[] {
+                        null,
+                        null,
+                        DateOfEntry,
+                        StartTime,
+                        EndTime,
+                        DrugTime,
+                        Eating,
+                        Sleep,
+                        Health,
+                        Study,
+                        Note};
+                if ((parentStudentRowByFK_TrackingUpLate_Student != null)) {
+                    columnValuesArray[1] = parentStudentRowByFK_TrackingUpLate_Student[0];
+                }
+                rowTrackingUpLateRow.ItemArray = columnValuesArray;
+                this.Rows.Add(rowTrackingUpLateRow);
+                return rowTrackingUpLateRow;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public TrackingUpLateRow FindByTrackingID(int TrackingID) {
+                return ((TrackingUpLateRow)(this.Rows.Find(new object[] {
+                            TrackingID})));
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public override global::System.Data.DataTable Clone() {
+                TrackingUpLateDataTable cln = ((TrackingUpLateDataTable)(base.Clone()));
+                cln.InitVars();
+                return cln;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            protected override global::System.Data.DataTable CreateInstance() {
+                return new TrackingUpLateDataTable();
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            internal void InitVars() {
+                this.columnTrackingID = base.Columns["TrackingID"];
+                this.columnStudentID = base.Columns["StudentID"];
+                this.columnDateOfEntry = base.Columns["DateOfEntry"];
+                this.columnStartTime = base.Columns["StartTime"];
+                this.columnEndTime = base.Columns["EndTime"];
+                this.columnDrugTime = base.Columns["DrugTime"];
+                this.columnEating = base.Columns["Eating"];
+                this.columnSleep = base.Columns["Sleep"];
+                this.columnHealth = base.Columns["Health"];
+                this.columnStudy = base.Columns["Study"];
+                this.columnNote = base.Columns["Note"];
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            private void InitClass() {
+                this.columnTrackingID = new global::System.Data.DataColumn("TrackingID", typeof(int), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnTrackingID);
+                this.columnStudentID = new global::System.Data.DataColumn("StudentID", typeof(int), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnStudentID);
+                this.columnDateOfEntry = new global::System.Data.DataColumn("DateOfEntry", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnDateOfEntry);
+                this.columnStartTime = new global::System.Data.DataColumn("StartTime", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnStartTime);
+                this.columnEndTime = new global::System.Data.DataColumn("EndTime", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnEndTime);
+                this.columnDrugTime = new global::System.Data.DataColumn("DrugTime", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnDrugTime);
+                this.columnEating = new global::System.Data.DataColumn("Eating", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnEating);
+                this.columnSleep = new global::System.Data.DataColumn("Sleep", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnSleep);
+                this.columnHealth = new global::System.Data.DataColumn("Health", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnHealth);
+                this.columnStudy = new global::System.Data.DataColumn("Study", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnStudy);
+                this.columnNote = new global::System.Data.DataColumn("Note", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnNote);
+                this.Constraints.Add(new global::System.Data.UniqueConstraint("Constraint1", new global::System.Data.DataColumn[] {
+                                this.columnTrackingID}, true));
+                this.columnTrackingID.AutoIncrement = true;
+                this.columnTrackingID.AutoIncrementSeed = -1;
+                this.columnTrackingID.AutoIncrementStep = -1;
+                this.columnTrackingID.AllowDBNull = false;
+                this.columnTrackingID.ReadOnly = true;
+                this.columnTrackingID.Unique = true;
+                this.columnStudentID.AllowDBNull = false;
+                this.columnDateOfEntry.MaxLength = 10;
+                this.columnStartTime.MaxLength = 10;
+                this.columnEndTime.MaxLength = 10;
+                this.columnDrugTime.MaxLength = 20;
+                this.columnEating.MaxLength = 200;
+                this.columnSleep.MaxLength = 200;
+                this.columnHealth.MaxLength = 200;
+                this.columnStudy.MaxLength = 200;
+                this.columnNote.MaxLength = 200;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public TrackingUpLateRow NewTrackingUpLateRow() {
+                return ((TrackingUpLateRow)(this.NewRow()));
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            protected override global::System.Data.DataRow NewRowFromBuilder(global::System.Data.DataRowBuilder builder) {
+                return new TrackingUpLateRow(builder);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            protected override global::System.Type GetRowType() {
+                return typeof(TrackingUpLateRow);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            protected override void OnRowChanged(global::System.Data.DataRowChangeEventArgs e) {
+                base.OnRowChanged(e);
+                if ((this.TrackingUpLateRowChanged != null)) {
+                    this.TrackingUpLateRowChanged(this, new TrackingUpLateRowChangeEvent(((TrackingUpLateRow)(e.Row)), e.Action));
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            protected override void OnRowChanging(global::System.Data.DataRowChangeEventArgs e) {
+                base.OnRowChanging(e);
+                if ((this.TrackingUpLateRowChanging != null)) {
+                    this.TrackingUpLateRowChanging(this, new TrackingUpLateRowChangeEvent(((TrackingUpLateRow)(e.Row)), e.Action));
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            protected override void OnRowDeleted(global::System.Data.DataRowChangeEventArgs e) {
+                base.OnRowDeleted(e);
+                if ((this.TrackingUpLateRowDeleted != null)) {
+                    this.TrackingUpLateRowDeleted(this, new TrackingUpLateRowChangeEvent(((TrackingUpLateRow)(e.Row)), e.Action));
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            protected override void OnRowDeleting(global::System.Data.DataRowChangeEventArgs e) {
+                base.OnRowDeleting(e);
+                if ((this.TrackingUpLateRowDeleting != null)) {
+                    this.TrackingUpLateRowDeleting(this, new TrackingUpLateRowChangeEvent(((TrackingUpLateRow)(e.Row)), e.Action));
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public void RemoveTrackingUpLateRow(TrackingUpLateRow row) {
+                this.Rows.Remove(row);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public static global::System.Xml.Schema.XmlSchemaComplexType GetTypedTableSchema(global::System.Xml.Schema.XmlSchemaSet xs) {
+                global::System.Xml.Schema.XmlSchemaComplexType type = new global::System.Xml.Schema.XmlSchemaComplexType();
+                global::System.Xml.Schema.XmlSchemaSequence sequence = new global::System.Xml.Schema.XmlSchemaSequence();
+                CPITQLHSBanTru2018DataSet ds = new CPITQLHSBanTru2018DataSet();
+                global::System.Xml.Schema.XmlSchemaAny any1 = new global::System.Xml.Schema.XmlSchemaAny();
+                any1.Namespace = "http://www.w3.org/2001/XMLSchema";
+                any1.MinOccurs = new decimal(0);
+                any1.MaxOccurs = decimal.MaxValue;
+                any1.ProcessContents = global::System.Xml.Schema.XmlSchemaContentProcessing.Lax;
+                sequence.Items.Add(any1);
+                global::System.Xml.Schema.XmlSchemaAny any2 = new global::System.Xml.Schema.XmlSchemaAny();
+                any2.Namespace = "urn:schemas-microsoft-com:xml-diffgram-v1";
+                any2.MinOccurs = new decimal(1);
+                any2.ProcessContents = global::System.Xml.Schema.XmlSchemaContentProcessing.Lax;
+                sequence.Items.Add(any2);
+                global::System.Xml.Schema.XmlSchemaAttribute attribute1 = new global::System.Xml.Schema.XmlSchemaAttribute();
+                attribute1.Name = "namespace";
+                attribute1.FixedValue = ds.Namespace;
+                type.Attributes.Add(attribute1);
+                global::System.Xml.Schema.XmlSchemaAttribute attribute2 = new global::System.Xml.Schema.XmlSchemaAttribute();
+                attribute2.Name = "tableTypeName";
+                attribute2.FixedValue = "TrackingUpLateDataTable";
                 type.Attributes.Add(attribute2);
                 type.Particle = sequence;
                 global::System.Xml.Schema.XmlSchema dsSchema = ds.GetSchemaSerializable();
@@ -19910,236 +19885,6 @@ namespace DataConnect {
                 set {
                     this.SetParentRow(value, this.Table.ParentRelations["FK_DailyMenuDetail_Meal"]);
                 }
-            }
-        }
-        
-        /// <summary>
-        ///Represents strongly named DataRow class.
-        ///</summary>
-        public partial class DailyTaskRow : global::System.Data.DataRow {
-            
-            private DailyTaskDataTable tableDailyTask;
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            internal DailyTaskRow(global::System.Data.DataRowBuilder rb) : 
-                    base(rb) {
-                this.tableDailyTask = ((DailyTaskDataTable)(this.Table));
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public int DailyTaskID {
-                get {
-                    return ((int)(this[this.tableDailyTask.DailyTaskIDColumn]));
-                }
-                set {
-                    this[this.tableDailyTask.DailyTaskIDColumn] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public int StudentID {
-                get {
-                    return ((int)(this[this.tableDailyTask.StudentIDColumn]));
-                }
-                set {
-                    this[this.tableDailyTask.StudentIDColumn] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public int WeeklyTaskID {
-                get {
-                    return ((int)(this[this.tableDailyTask.WeeklyTaskIDColumn]));
-                }
-                set {
-                    this[this.tableDailyTask.WeeklyTaskIDColumn] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public int MonthlyTaskID {
-                get {
-                    return ((int)(this[this.tableDailyTask.MonthlyTaskIDColumn]));
-                }
-                set {
-                    this[this.tableDailyTask.MonthlyTaskIDColumn] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public System.DateTime DateTask {
-                get {
-                    return ((global::System.DateTime)(this[this.tableDailyTask.DateTaskColumn]));
-                }
-                set {
-                    this[this.tableDailyTask.DateTaskColumn] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public bool Present {
-                get {
-                    return ((bool)(this[this.tableDailyTask.PresentColumn]));
-                }
-                set {
-                    this[this.tableDailyTask.PresentColumn] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public string Reason {
-                get {
-                    return ((string)(this[this.tableDailyTask.ReasonColumn]));
-                }
-                set {
-                    this[this.tableDailyTask.ReasonColumn] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public System.TimeSpan DrugTime {
-                get {
-                    return ((global::System.TimeSpan)(this[this.tableDailyTask.DrugTimeColumn]));
-                }
-                set {
-                    this[this.tableDailyTask.DrugTimeColumn] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public double EatRating {
-                get {
-                    return ((double)(this[this.tableDailyTask.EatRatingColumn]));
-                }
-                set {
-                    this[this.tableDailyTask.EatRatingColumn] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public double SleepRating {
-                get {
-                    return ((double)(this[this.tableDailyTask.SleepRatingColumn]));
-                }
-                set {
-                    this[this.tableDailyTask.SleepRatingColumn] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public double HealthRating {
-                get {
-                    return ((double)(this[this.tableDailyTask.HealthRatingColumn]));
-                }
-                set {
-                    this[this.tableDailyTask.HealthRatingColumn] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public double StudyRating {
-                get {
-                    return ((double)(this[this.tableDailyTask.StudyRatingColumn]));
-                }
-                set {
-                    this[this.tableDailyTask.StudyRatingColumn] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public System.TimeSpan PickTime {
-                get {
-                    return ((global::System.TimeSpan)(this[this.tableDailyTask.PickTimeColumn]));
-                }
-                set {
-                    this[this.tableDailyTask.PickTimeColumn] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public string Note {
-                get {
-                    try {
-                        return ((string)(this[this.tableDailyTask.NoteColumn]));
-                    }
-                    catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'Note\' in table \'DailyTask\' is DBNull.", e);
-                    }
-                }
-                set {
-                    this[this.tableDailyTask.NoteColumn] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public bool Status {
-                get {
-                    return ((bool)(this[this.tableDailyTask.StatusColumn]));
-                }
-                set {
-                    this[this.tableDailyTask.StatusColumn] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public PhysicalMonthlyTaskRow PhysicalMonthlyTaskRow {
-                get {
-                    return ((PhysicalMonthlyTaskRow)(this.GetParentRow(this.Table.ParentRelations["FK_DailyTask_PhysicalMonthlyTask"])));
-                }
-                set {
-                    this.SetParentRow(value, this.Table.ParentRelations["FK_DailyTask_PhysicalMonthlyTask"]);
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public StudentRow StudentRow {
-                get {
-                    return ((StudentRow)(this.GetParentRow(this.Table.ParentRelations["FK_DailyTask_Student"])));
-                }
-                set {
-                    this.SetParentRow(value, this.Table.ParentRelations["FK_DailyTask_Student"]);
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public WeeklyTaskRow WeeklyTaskRow {
-                get {
-                    return ((WeeklyTaskRow)(this.GetParentRow(this.Table.ParentRelations["FK_DailyTask_WeeklyTask"])));
-                }
-                set {
-                    this.SetParentRow(value, this.Table.ParentRelations["FK_DailyTask_WeeklyTask"]);
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public bool IsNoteNull() {
-                return this.IsNull(this.tableDailyTask.NoteColumn);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public void SetNoteNull() {
-                this[this.tableDailyTask.NoteColumn] = global::System.Convert.DBNull;
             }
         }
         
@@ -23474,17 +23219,6 @@ namespace DataConnect {
                     this[this.tablePhysicalMonthlyTask.StatusColumn] = value;
                 }
             }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public DailyTaskRow[] GetDailyTaskRows() {
-                if ((this.Table.ChildRelations["FK_DailyTask_PhysicalMonthlyTask"] == null)) {
-                    return new DailyTaskRow[0];
-                }
-                else {
-                    return ((DailyTaskRow[])(base.GetChildRows(this.Table.ChildRelations["FK_DailyTask_PhysicalMonthlyTask"])));
-                }
-            }
         }
         
         /// <summary>
@@ -24616,17 +24350,6 @@ namespace DataConnect {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public DailyTaskRow[] GetDailyTaskRows() {
-                if ((this.Table.ChildRelations["FK_DailyTask_Student"] == null)) {
-                    return new DailyTaskRow[0];
-                }
-                else {
-                    return ((DailyTaskRow[])(base.GetChildRows(this.Table.ChildRelations["FK_DailyTask_Student"])));
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
             public HealthExaminationDetailRow[] GetHealthExaminationDetailRows() {
                 if ((this.Table.ChildRelations["FK_HealthExaminationDetail_Student"] == null)) {
                     return new HealthExaminationDetailRow[0];
@@ -24688,6 +24411,28 @@ namespace DataConnect {
                 }
                 else {
                     return ((StudentParentsRow[])(base.GetChildRows(this.Table.ChildRelations["FK_StudentParents_Student"])));
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public DailyTaskRow[] GetDailyTaskRows() {
+                if ((this.Table.ChildRelations["FK_DailyTask_Student"] == null)) {
+                    return new DailyTaskRow[0];
+                }
+                else {
+                    return ((DailyTaskRow[])(base.GetChildRows(this.Table.ChildRelations["FK_DailyTask_Student"])));
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public TrackingUpLateRow[] GetTrackingUpLateRows() {
+                if ((this.Table.ChildRelations["FK_TrackingUpLate_Student"] == null)) {
+                    return new TrackingUpLateRow[0];
+                }
+                else {
+                    return ((TrackingUpLateRow[])(base.GetChildRows(this.Table.ChildRelations["FK_TrackingUpLate_Student"])));
                 }
             }
         }
@@ -25473,36 +25218,301 @@ namespace DataConnect {
         /// <summary>
         ///Represents strongly named DataRow class.
         ///</summary>
-        public partial class WeeklyTaskRow : global::System.Data.DataRow {
+        public partial class DailyTaskRow : global::System.Data.DataRow {
             
-            private WeeklyTaskDataTable tableWeeklyTask;
+            private DailyTaskDataTable tableDailyTask;
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            internal WeeklyTaskRow(global::System.Data.DataRowBuilder rb) : 
+            internal DailyTaskRow(global::System.Data.DataRowBuilder rb) : 
                     base(rb) {
-                this.tableWeeklyTask = ((WeeklyTaskDataTable)(this.Table));
+                this.tableDailyTask = ((DailyTaskDataTable)(this.Table));
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public int DailyTaskID {
+                get {
+                    return ((int)(this[this.tableDailyTask.DailyTaskIDColumn]));
+                }
+                set {
+                    this[this.tableDailyTask.DailyTaskIDColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public int StudentID {
+                get {
+                    return ((int)(this[this.tableDailyTask.StudentIDColumn]));
+                }
+                set {
+                    this[this.tableDailyTask.StudentIDColumn] = value;
+                }
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
             public int WeeklyTaskID {
                 get {
-                    return ((int)(this[this.tableWeeklyTask.WeeklyTaskIDColumn]));
+                    return ((int)(this[this.tableDailyTask.WeeklyTaskIDColumn]));
                 }
                 set {
-                    this[this.tableWeeklyTask.WeeklyTaskIDColumn] = value;
+                    this[this.tableDailyTask.WeeklyTaskIDColumn] = value;
                 }
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public string Name {
+            public string MonthlyTaskID {
                 get {
-                    return ((string)(this[this.tableWeeklyTask.NameColumn]));
+                    return ((string)(this[this.tableDailyTask.MonthlyTaskIDColumn]));
                 }
                 set {
-                    this[this.tableWeeklyTask.NameColumn] = value;
+                    this[this.tableDailyTask.MonthlyTaskIDColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public string DateTask {
+                get {
+                    return ((string)(this[this.tableDailyTask.DateTaskColumn]));
+                }
+                set {
+                    this[this.tableDailyTask.DateTaskColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public string Present {
+                get {
+                    try {
+                        return ((string)(this[this.tableDailyTask.PresentColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'Present\' in table \'DailyTask\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableDailyTask.PresentColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public string Reason {
+                get {
+                    try {
+                        return ((string)(this[this.tableDailyTask.ReasonColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'Reason\' in table \'DailyTask\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableDailyTask.ReasonColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public StudentRow StudentRow {
+                get {
+                    return ((StudentRow)(this.GetParentRow(this.Table.ParentRelations["FK_DailyTask_Student"])));
+                }
+                set {
+                    this.SetParentRow(value, this.Table.ParentRelations["FK_DailyTask_Student"]);
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public bool IsPresentNull() {
+                return this.IsNull(this.tableDailyTask.PresentColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public void SetPresentNull() {
+                this[this.tableDailyTask.PresentColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public bool IsReasonNull() {
+                return this.IsNull(this.tableDailyTask.ReasonColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public void SetReasonNull() {
+                this[this.tableDailyTask.ReasonColumn] = global::System.Convert.DBNull;
+            }
+        }
+        
+        /// <summary>
+        ///Represents strongly named DataRow class.
+        ///</summary>
+        public partial class TrackingUpLateRow : global::System.Data.DataRow {
+            
+            private TrackingUpLateDataTable tableTrackingUpLate;
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            internal TrackingUpLateRow(global::System.Data.DataRowBuilder rb) : 
+                    base(rb) {
+                this.tableTrackingUpLate = ((TrackingUpLateDataTable)(this.Table));
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public int TrackingID {
+                get {
+                    return ((int)(this[this.tableTrackingUpLate.TrackingIDColumn]));
+                }
+                set {
+                    this[this.tableTrackingUpLate.TrackingIDColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public int StudentID {
+                get {
+                    return ((int)(this[this.tableTrackingUpLate.StudentIDColumn]));
+                }
+                set {
+                    this[this.tableTrackingUpLate.StudentIDColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public string DateOfEntry {
+                get {
+                    try {
+                        return ((string)(this[this.tableTrackingUpLate.DateOfEntryColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'DateOfEntry\' in table \'TrackingUpLate\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableTrackingUpLate.DateOfEntryColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public string StartTime {
+                get {
+                    try {
+                        return ((string)(this[this.tableTrackingUpLate.StartTimeColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'StartTime\' in table \'TrackingUpLate\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableTrackingUpLate.StartTimeColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public string EndTime {
+                get {
+                    try {
+                        return ((string)(this[this.tableTrackingUpLate.EndTimeColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'EndTime\' in table \'TrackingUpLate\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableTrackingUpLate.EndTimeColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public string DrugTime {
+                get {
+                    try {
+                        return ((string)(this[this.tableTrackingUpLate.DrugTimeColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'DrugTime\' in table \'TrackingUpLate\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableTrackingUpLate.DrugTimeColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public string Eating {
+                get {
+                    try {
+                        return ((string)(this[this.tableTrackingUpLate.EatingColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'Eating\' in table \'TrackingUpLate\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableTrackingUpLate.EatingColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public string Sleep {
+                get {
+                    try {
+                        return ((string)(this[this.tableTrackingUpLate.SleepColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'Sleep\' in table \'TrackingUpLate\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableTrackingUpLate.SleepColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public string Health {
+                get {
+                    try {
+                        return ((string)(this[this.tableTrackingUpLate.HealthColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'Health\' in table \'TrackingUpLate\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableTrackingUpLate.HealthColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public string Study {
+                get {
+                    try {
+                        return ((string)(this[this.tableTrackingUpLate.StudyColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'Study\' in table \'TrackingUpLate\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableTrackingUpLate.StudyColumn] = value;
                 }
             }
             
@@ -25511,49 +25521,134 @@ namespace DataConnect {
             public string Note {
                 get {
                     try {
-                        return ((string)(this[this.tableWeeklyTask.NoteColumn]));
+                        return ((string)(this[this.tableTrackingUpLate.NoteColumn]));
                     }
                     catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'Note\' in table \'WeeklyTask\' is DBNull.", e);
+                        throw new global::System.Data.StrongTypingException("The value for column \'Note\' in table \'TrackingUpLate\' is DBNull.", e);
                     }
                 }
                 set {
-                    this[this.tableWeeklyTask.NoteColumn] = value;
+                    this[this.tableTrackingUpLate.NoteColumn] = value;
                 }
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public bool Status {
+            public StudentRow StudentRow {
                 get {
-                    return ((bool)(this[this.tableWeeklyTask.StatusColumn]));
+                    return ((StudentRow)(this.GetParentRow(this.Table.ParentRelations["FK_TrackingUpLate_Student"])));
                 }
                 set {
-                    this[this.tableWeeklyTask.StatusColumn] = value;
+                    this.SetParentRow(value, this.Table.ParentRelations["FK_TrackingUpLate_Student"]);
                 }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public bool IsDateOfEntryNull() {
+                return this.IsNull(this.tableTrackingUpLate.DateOfEntryColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public void SetDateOfEntryNull() {
+                this[this.tableTrackingUpLate.DateOfEntryColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public bool IsStartTimeNull() {
+                return this.IsNull(this.tableTrackingUpLate.StartTimeColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public void SetStartTimeNull() {
+                this[this.tableTrackingUpLate.StartTimeColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public bool IsEndTimeNull() {
+                return this.IsNull(this.tableTrackingUpLate.EndTimeColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public void SetEndTimeNull() {
+                this[this.tableTrackingUpLate.EndTimeColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public bool IsDrugTimeNull() {
+                return this.IsNull(this.tableTrackingUpLate.DrugTimeColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public void SetDrugTimeNull() {
+                this[this.tableTrackingUpLate.DrugTimeColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public bool IsEatingNull() {
+                return this.IsNull(this.tableTrackingUpLate.EatingColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public void SetEatingNull() {
+                this[this.tableTrackingUpLate.EatingColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public bool IsSleepNull() {
+                return this.IsNull(this.tableTrackingUpLate.SleepColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public void SetSleepNull() {
+                this[this.tableTrackingUpLate.SleepColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public bool IsHealthNull() {
+                return this.IsNull(this.tableTrackingUpLate.HealthColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public void SetHealthNull() {
+                this[this.tableTrackingUpLate.HealthColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public bool IsStudyNull() {
+                return this.IsNull(this.tableTrackingUpLate.StudyColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public void SetStudyNull() {
+                this[this.tableTrackingUpLate.StudyColumn] = global::System.Convert.DBNull;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
             public bool IsNoteNull() {
-                return this.IsNull(this.tableWeeklyTask.NoteColumn);
+                return this.IsNull(this.tableTrackingUpLate.NoteColumn);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
             public void SetNoteNull() {
-                this[this.tableWeeklyTask.NoteColumn] = global::System.Convert.DBNull;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public DailyTaskRow[] GetDailyTaskRows() {
-                if ((this.Table.ChildRelations["FK_DailyTask_WeeklyTask"] == null)) {
-                    return new DailyTaskRow[0];
-                }
-                else {
-                    return ((DailyTaskRow[])(base.GetChildRows(this.Table.ChildRelations["FK_DailyTask_WeeklyTask"])));
-                }
+                this[this.tableTrackingUpLate.NoteColumn] = global::System.Convert.DBNull;
             }
         }
         
@@ -25747,40 +25842,6 @@ namespace DataConnect {
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
             public DailyMenuDetailRow Row {
-                get {
-                    return this.eventRow;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public global::System.Data.DataRowAction Action {
-                get {
-                    return this.eventAction;
-                }
-            }
-        }
-        
-        /// <summary>
-        ///Row event argument class
-        ///</summary>
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-        public class DailyTaskRowChangeEvent : global::System.EventArgs {
-            
-            private DailyTaskRow eventRow;
-            
-            private global::System.Data.DataRowAction eventAction;
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public DailyTaskRowChangeEvent(DailyTaskRow row, global::System.Data.DataRowAction action) {
-                this.eventRow = row;
-                this.eventAction = action;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public DailyTaskRow Row {
                 get {
                     return this.eventRow;
                 }
@@ -27125,22 +27186,56 @@ namespace DataConnect {
         ///Row event argument class
         ///</summary>
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-        public class WeeklyTaskRowChangeEvent : global::System.EventArgs {
+        public class DailyTaskRowChangeEvent : global::System.EventArgs {
             
-            private WeeklyTaskRow eventRow;
+            private DailyTaskRow eventRow;
             
             private global::System.Data.DataRowAction eventAction;
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public WeeklyTaskRowChangeEvent(WeeklyTaskRow row, global::System.Data.DataRowAction action) {
+            public DailyTaskRowChangeEvent(DailyTaskRow row, global::System.Data.DataRowAction action) {
                 this.eventRow = row;
                 this.eventAction = action;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public WeeklyTaskRow Row {
+            public DailyTaskRow Row {
+                get {
+                    return this.eventRow;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public global::System.Data.DataRowAction Action {
+                get {
+                    return this.eventAction;
+                }
+            }
+        }
+        
+        /// <summary>
+        ///Row event argument class
+        ///</summary>
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+        public class TrackingUpLateRowChangeEvent : global::System.EventArgs {
+            
+            private TrackingUpLateRow eventRow;
+            
+            private global::System.Data.DataRowAction eventAction;
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public TrackingUpLateRowChangeEvent(TrackingUpLateRow row, global::System.Data.DataRowAction action) {
+                this.eventRow = row;
+                this.eventAction = action;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public TrackingUpLateRow Row {
                 get {
                     return this.eventRow;
                 }
@@ -29471,526 +29566,6 @@ SELECT DailyMenuID, MealID, DishID, Status FROM DailyMenuDetail WHERE (DailyMenu
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Update, true)]
         public virtual int Update(bool Status, int Original_DailyMenuID, int Original_MealID, int Original_DishID, bool Original_Status) {
             return this.Update(Original_DailyMenuID, Original_MealID, Original_DishID, Status, Original_DailyMenuID, Original_MealID, Original_DishID, Original_Status);
-        }
-    }
-    
-    /// <summary>
-    ///Represents the connection and commands used to retrieve and save data.
-    ///</summary>
-    [global::System.ComponentModel.DesignerCategoryAttribute("code")]
-    [global::System.ComponentModel.ToolboxItem(true)]
-    [global::System.ComponentModel.DataObjectAttribute(true)]
-    [global::System.ComponentModel.DesignerAttribute("Microsoft.VSDesigner.DataSource.Design.TableAdapterDesigner, Microsoft.VSDesigner" +
-        ", Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a")]
-    [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-    public partial class DailyTaskTableAdapter : global::System.ComponentModel.Component {
-        
-        private global::System.Data.SqlClient.SqlDataAdapter _adapter;
-        
-        private global::System.Data.SqlClient.SqlConnection _connection;
-        
-        private global::System.Data.SqlClient.SqlTransaction _transaction;
-        
-        private global::System.Data.SqlClient.SqlCommand[] _commandCollection;
-        
-        private bool _clearBeforeFill;
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-        public DailyTaskTableAdapter() {
-            this.ClearBeforeFill = true;
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-        protected internal global::System.Data.SqlClient.SqlDataAdapter Adapter {
-            get {
-                if ((this._adapter == null)) {
-                    this.InitAdapter();
-                }
-                return this._adapter;
-            }
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-        internal global::System.Data.SqlClient.SqlConnection Connection {
-            get {
-                if ((this._connection == null)) {
-                    this.InitConnection();
-                }
-                return this._connection;
-            }
-            set {
-                this._connection = value;
-                if ((this.Adapter.InsertCommand != null)) {
-                    this.Adapter.InsertCommand.Connection = value;
-                }
-                if ((this.Adapter.DeleteCommand != null)) {
-                    this.Adapter.DeleteCommand.Connection = value;
-                }
-                if ((this.Adapter.UpdateCommand != null)) {
-                    this.Adapter.UpdateCommand.Connection = value;
-                }
-                for (int i = 0; (i < this.CommandCollection.Length); i = (i + 1)) {
-                    if ((this.CommandCollection[i] != null)) {
-                        ((global::System.Data.SqlClient.SqlCommand)(this.CommandCollection[i])).Connection = value;
-                    }
-                }
-            }
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-        internal global::System.Data.SqlClient.SqlTransaction Transaction {
-            get {
-                return this._transaction;
-            }
-            set {
-                this._transaction = value;
-                for (int i = 0; (i < this.CommandCollection.Length); i = (i + 1)) {
-                    this.CommandCollection[i].Transaction = this._transaction;
-                }
-                if (((this.Adapter != null) 
-                            && (this.Adapter.DeleteCommand != null))) {
-                    this.Adapter.DeleteCommand.Transaction = this._transaction;
-                }
-                if (((this.Adapter != null) 
-                            && (this.Adapter.InsertCommand != null))) {
-                    this.Adapter.InsertCommand.Transaction = this._transaction;
-                }
-                if (((this.Adapter != null) 
-                            && (this.Adapter.UpdateCommand != null))) {
-                    this.Adapter.UpdateCommand.Transaction = this._transaction;
-                }
-            }
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-        protected global::System.Data.SqlClient.SqlCommand[] CommandCollection {
-            get {
-                if ((this._commandCollection == null)) {
-                    this.InitCommandCollection();
-                }
-                return this._commandCollection;
-            }
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-        public bool ClearBeforeFill {
-            get {
-                return this._clearBeforeFill;
-            }
-            set {
-                this._clearBeforeFill = value;
-            }
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-        private void InitAdapter() {
-            this._adapter = new global::System.Data.SqlClient.SqlDataAdapter();
-            global::System.Data.Common.DataTableMapping tableMapping = new global::System.Data.Common.DataTableMapping();
-            tableMapping.SourceTable = "Table";
-            tableMapping.DataSetTable = "DailyTask";
-            tableMapping.ColumnMappings.Add("DailyTaskID", "DailyTaskID");
-            tableMapping.ColumnMappings.Add("StudentID", "StudentID");
-            tableMapping.ColumnMappings.Add("WeeklyTaskID", "WeeklyTaskID");
-            tableMapping.ColumnMappings.Add("MonthlyTaskID", "MonthlyTaskID");
-            tableMapping.ColumnMappings.Add("DateTask", "DateTask");
-            tableMapping.ColumnMappings.Add("Present", "Present");
-            tableMapping.ColumnMappings.Add("Reason", "Reason");
-            tableMapping.ColumnMappings.Add("DrugTime", "DrugTime");
-            tableMapping.ColumnMappings.Add("EatRating", "EatRating");
-            tableMapping.ColumnMappings.Add("SleepRating", "SleepRating");
-            tableMapping.ColumnMappings.Add("HealthRating", "HealthRating");
-            tableMapping.ColumnMappings.Add("StudyRating", "StudyRating");
-            tableMapping.ColumnMappings.Add("PickTime", "PickTime");
-            tableMapping.ColumnMappings.Add("Note", "Note");
-            tableMapping.ColumnMappings.Add("Status", "Status");
-            this._adapter.TableMappings.Add(tableMapping);
-            this._adapter.DeleteCommand = new global::System.Data.SqlClient.SqlCommand();
-            this._adapter.DeleteCommand.Connection = this.Connection;
-            this._adapter.DeleteCommand.CommandText = @"DELETE FROM [dbo].[DailyTask] WHERE (([DailyTaskID] = @Original_DailyTaskID) AND ([StudentID] = @Original_StudentID) AND ([WeeklyTaskID] = @Original_WeeklyTaskID) AND ([MonthlyTaskID] = @Original_MonthlyTaskID) AND ([DateTask] = @Original_DateTask) AND ([Present] = @Original_Present) AND ([Reason] = @Original_Reason) AND ([DrugTime] = @Original_DrugTime) AND ([EatRating] = @Original_EatRating) AND ([SleepRating] = @Original_SleepRating) AND ([HealthRating] = @Original_HealthRating) AND ([StudyRating] = @Original_StudyRating) AND ([PickTime] = @Original_PickTime) AND ((@IsNull_Note = 1 AND [Note] IS NULL) OR ([Note] = @Original_Note)) AND ([Status] = @Original_Status))";
-            this._adapter.DeleteCommand.CommandType = global::System.Data.CommandType.Text;
-            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_DailyTaskID", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "DailyTaskID", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_StudentID", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "StudentID", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_WeeklyTaskID", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "WeeklyTaskID", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_MonthlyTaskID", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "MonthlyTaskID", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_DateTask", global::System.Data.SqlDbType.Date, 0, global::System.Data.ParameterDirection.Input, 0, 0, "DateTask", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Present", global::System.Data.SqlDbType.Bit, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Present", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Reason", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Reason", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_DrugTime", global::System.Data.SqlDbType.Time, 0, global::System.Data.ParameterDirection.Input, 0, 0, "DrugTime", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_EatRating", global::System.Data.SqlDbType.Float, 0, global::System.Data.ParameterDirection.Input, 0, 0, "EatRating", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_SleepRating", global::System.Data.SqlDbType.Float, 0, global::System.Data.ParameterDirection.Input, 0, 0, "SleepRating", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_HealthRating", global::System.Data.SqlDbType.Float, 0, global::System.Data.ParameterDirection.Input, 0, 0, "HealthRating", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_StudyRating", global::System.Data.SqlDbType.Float, 0, global::System.Data.ParameterDirection.Input, 0, 0, "StudyRating", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_PickTime", global::System.Data.SqlDbType.Time, 0, global::System.Data.ParameterDirection.Input, 0, 0, "PickTime", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_Note", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Note", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
-            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Note", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Note", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Status", global::System.Data.SqlDbType.Bit, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Status", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.InsertCommand = new global::System.Data.SqlClient.SqlCommand();
-            this._adapter.InsertCommand.Connection = this.Connection;
-            this._adapter.InsertCommand.CommandText = @"INSERT INTO [dbo].[DailyTask] ([StudentID], [WeeklyTaskID], [MonthlyTaskID], [DateTask], [Present], [Reason], [DrugTime], [EatRating], [SleepRating], [HealthRating], [StudyRating], [PickTime], [Note], [Status]) VALUES (@StudentID, @WeeklyTaskID, @MonthlyTaskID, @DateTask, @Present, @Reason, @DrugTime, @EatRating, @SleepRating, @HealthRating, @StudyRating, @PickTime, @Note, @Status);
-SELECT DailyTaskID, StudentID, WeeklyTaskID, MonthlyTaskID, DateTask, Present, Reason, DrugTime, EatRating, SleepRating, HealthRating, StudyRating, PickTime, Note, Status FROM DailyTask WHERE (DailyTaskID = SCOPE_IDENTITY())";
-            this._adapter.InsertCommand.CommandType = global::System.Data.CommandType.Text;
-            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@StudentID", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "StudentID", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@WeeklyTaskID", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "WeeklyTaskID", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@MonthlyTaskID", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "MonthlyTaskID", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@DateTask", global::System.Data.SqlDbType.Date, 0, global::System.Data.ParameterDirection.Input, 0, 0, "DateTask", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Present", global::System.Data.SqlDbType.Bit, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Present", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Reason", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Reason", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@DrugTime", global::System.Data.SqlDbType.Time, 0, global::System.Data.ParameterDirection.Input, 0, 0, "DrugTime", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@EatRating", global::System.Data.SqlDbType.Float, 0, global::System.Data.ParameterDirection.Input, 0, 0, "EatRating", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@SleepRating", global::System.Data.SqlDbType.Float, 0, global::System.Data.ParameterDirection.Input, 0, 0, "SleepRating", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@HealthRating", global::System.Data.SqlDbType.Float, 0, global::System.Data.ParameterDirection.Input, 0, 0, "HealthRating", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@StudyRating", global::System.Data.SqlDbType.Float, 0, global::System.Data.ParameterDirection.Input, 0, 0, "StudyRating", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@PickTime", global::System.Data.SqlDbType.Time, 0, global::System.Data.ParameterDirection.Input, 0, 0, "PickTime", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Note", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Note", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Status", global::System.Data.SqlDbType.Bit, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Status", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.UpdateCommand = new global::System.Data.SqlClient.SqlCommand();
-            this._adapter.UpdateCommand.Connection = this.Connection;
-            this._adapter.UpdateCommand.CommandText = @"UPDATE [dbo].[DailyTask] SET [StudentID] = @StudentID, [WeeklyTaskID] = @WeeklyTaskID, [MonthlyTaskID] = @MonthlyTaskID, [DateTask] = @DateTask, [Present] = @Present, [Reason] = @Reason, [DrugTime] = @DrugTime, [EatRating] = @EatRating, [SleepRating] = @SleepRating, [HealthRating] = @HealthRating, [StudyRating] = @StudyRating, [PickTime] = @PickTime, [Note] = @Note, [Status] = @Status WHERE (([DailyTaskID] = @Original_DailyTaskID) AND ([StudentID] = @Original_StudentID) AND ([WeeklyTaskID] = @Original_WeeklyTaskID) AND ([MonthlyTaskID] = @Original_MonthlyTaskID) AND ([DateTask] = @Original_DateTask) AND ([Present] = @Original_Present) AND ([Reason] = @Original_Reason) AND ([DrugTime] = @Original_DrugTime) AND ([EatRating] = @Original_EatRating) AND ([SleepRating] = @Original_SleepRating) AND ([HealthRating] = @Original_HealthRating) AND ([StudyRating] = @Original_StudyRating) AND ([PickTime] = @Original_PickTime) AND ((@IsNull_Note = 1 AND [Note] IS NULL) OR ([Note] = @Original_Note)) AND ([Status] = @Original_Status));
-SELECT DailyTaskID, StudentID, WeeklyTaskID, MonthlyTaskID, DateTask, Present, Reason, DrugTime, EatRating, SleepRating, HealthRating, StudyRating, PickTime, Note, Status FROM DailyTask WHERE (DailyTaskID = @DailyTaskID)";
-            this._adapter.UpdateCommand.CommandType = global::System.Data.CommandType.Text;
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@StudentID", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "StudentID", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@WeeklyTaskID", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "WeeklyTaskID", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@MonthlyTaskID", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "MonthlyTaskID", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@DateTask", global::System.Data.SqlDbType.Date, 0, global::System.Data.ParameterDirection.Input, 0, 0, "DateTask", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Present", global::System.Data.SqlDbType.Bit, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Present", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Reason", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Reason", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@DrugTime", global::System.Data.SqlDbType.Time, 0, global::System.Data.ParameterDirection.Input, 0, 0, "DrugTime", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@EatRating", global::System.Data.SqlDbType.Float, 0, global::System.Data.ParameterDirection.Input, 0, 0, "EatRating", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@SleepRating", global::System.Data.SqlDbType.Float, 0, global::System.Data.ParameterDirection.Input, 0, 0, "SleepRating", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@HealthRating", global::System.Data.SqlDbType.Float, 0, global::System.Data.ParameterDirection.Input, 0, 0, "HealthRating", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@StudyRating", global::System.Data.SqlDbType.Float, 0, global::System.Data.ParameterDirection.Input, 0, 0, "StudyRating", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@PickTime", global::System.Data.SqlDbType.Time, 0, global::System.Data.ParameterDirection.Input, 0, 0, "PickTime", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Note", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Note", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Status", global::System.Data.SqlDbType.Bit, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Status", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_DailyTaskID", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "DailyTaskID", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_StudentID", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "StudentID", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_WeeklyTaskID", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "WeeklyTaskID", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_MonthlyTaskID", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "MonthlyTaskID", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_DateTask", global::System.Data.SqlDbType.Date, 0, global::System.Data.ParameterDirection.Input, 0, 0, "DateTask", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Present", global::System.Data.SqlDbType.Bit, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Present", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Reason", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Reason", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_DrugTime", global::System.Data.SqlDbType.Time, 0, global::System.Data.ParameterDirection.Input, 0, 0, "DrugTime", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_EatRating", global::System.Data.SqlDbType.Float, 0, global::System.Data.ParameterDirection.Input, 0, 0, "EatRating", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_SleepRating", global::System.Data.SqlDbType.Float, 0, global::System.Data.ParameterDirection.Input, 0, 0, "SleepRating", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_HealthRating", global::System.Data.SqlDbType.Float, 0, global::System.Data.ParameterDirection.Input, 0, 0, "HealthRating", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_StudyRating", global::System.Data.SqlDbType.Float, 0, global::System.Data.ParameterDirection.Input, 0, 0, "StudyRating", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_PickTime", global::System.Data.SqlDbType.Time, 0, global::System.Data.ParameterDirection.Input, 0, 0, "PickTime", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_Note", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Note", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Note", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Note", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Status", global::System.Data.SqlDbType.Bit, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Status", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@DailyTaskID", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, 0, 0, "DailyTaskID", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-        private void InitConnection() {
-            this._connection = new global::System.Data.SqlClient.SqlConnection();
-            this._connection.ConnectionString = global::DataConnect.Properties.Settings.Default.CPITQLHSBanTru2018ConnectionString;
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-        private void InitCommandCollection() {
-            this._commandCollection = new global::System.Data.SqlClient.SqlCommand[1];
-            this._commandCollection[0] = new global::System.Data.SqlClient.SqlCommand();
-            this._commandCollection[0].Connection = this.Connection;
-            this._commandCollection[0].CommandText = "SELECT DailyTaskID, StudentID, WeeklyTaskID, MonthlyTaskID, DateTask, Present, Re" +
-                "ason, DrugTime, EatRating, SleepRating, HealthRating, StudyRating, PickTime, Not" +
-                "e, Status FROM dbo.DailyTask";
-            this._commandCollection[0].CommandType = global::System.Data.CommandType.Text;
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Fill, true)]
-        public virtual int Fill(CPITQLHSBanTru2018DataSet.DailyTaskDataTable dataTable) {
-            this.Adapter.SelectCommand = this.CommandCollection[0];
-            if ((this.ClearBeforeFill == true)) {
-                dataTable.Clear();
-            }
-            int returnValue = this.Adapter.Fill(dataTable);
-            return returnValue;
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Select, true)]
-        public virtual CPITQLHSBanTru2018DataSet.DailyTaskDataTable GetData() {
-            this.Adapter.SelectCommand = this.CommandCollection[0];
-            CPITQLHSBanTru2018DataSet.DailyTaskDataTable dataTable = new CPITQLHSBanTru2018DataSet.DailyTaskDataTable();
-            this.Adapter.Fill(dataTable);
-            return dataTable;
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-        public virtual int Update(CPITQLHSBanTru2018DataSet.DailyTaskDataTable dataTable) {
-            return this.Adapter.Update(dataTable);
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-        public virtual int Update(CPITQLHSBanTru2018DataSet dataSet) {
-            return this.Adapter.Update(dataSet, "DailyTask");
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-        public virtual int Update(global::System.Data.DataRow dataRow) {
-            return this.Adapter.Update(new global::System.Data.DataRow[] {
-                        dataRow});
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-        public virtual int Update(global::System.Data.DataRow[] dataRows) {
-            return this.Adapter.Update(dataRows);
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Delete, true)]
-        public virtual int Delete(int Original_DailyTaskID, int Original_StudentID, int Original_WeeklyTaskID, int Original_MonthlyTaskID, System.DateTime Original_DateTask, bool Original_Present, string Original_Reason, System.TimeSpan Original_DrugTime, double Original_EatRating, double Original_SleepRating, double Original_HealthRating, double Original_StudyRating, System.TimeSpan Original_PickTime, string Original_Note, bool Original_Status) {
-            this.Adapter.DeleteCommand.Parameters[0].Value = ((int)(Original_DailyTaskID));
-            this.Adapter.DeleteCommand.Parameters[1].Value = ((int)(Original_StudentID));
-            this.Adapter.DeleteCommand.Parameters[2].Value = ((int)(Original_WeeklyTaskID));
-            this.Adapter.DeleteCommand.Parameters[3].Value = ((int)(Original_MonthlyTaskID));
-            this.Adapter.DeleteCommand.Parameters[4].Value = ((System.DateTime)(Original_DateTask));
-            this.Adapter.DeleteCommand.Parameters[5].Value = ((bool)(Original_Present));
-            if ((Original_Reason == null)) {
-                throw new global::System.ArgumentNullException("Original_Reason");
-            }
-            else {
-                this.Adapter.DeleteCommand.Parameters[6].Value = ((string)(Original_Reason));
-            }
-            this.Adapter.DeleteCommand.Parameters[7].Value = ((System.TimeSpan)(Original_DrugTime));
-            this.Adapter.DeleteCommand.Parameters[8].Value = ((double)(Original_EatRating));
-            this.Adapter.DeleteCommand.Parameters[9].Value = ((double)(Original_SleepRating));
-            this.Adapter.DeleteCommand.Parameters[10].Value = ((double)(Original_HealthRating));
-            this.Adapter.DeleteCommand.Parameters[11].Value = ((double)(Original_StudyRating));
-            this.Adapter.DeleteCommand.Parameters[12].Value = ((System.TimeSpan)(Original_PickTime));
-            if ((Original_Note == null)) {
-                this.Adapter.DeleteCommand.Parameters[13].Value = ((object)(1));
-                this.Adapter.DeleteCommand.Parameters[14].Value = global::System.DBNull.Value;
-            }
-            else {
-                this.Adapter.DeleteCommand.Parameters[13].Value = ((object)(0));
-                this.Adapter.DeleteCommand.Parameters[14].Value = ((string)(Original_Note));
-            }
-            this.Adapter.DeleteCommand.Parameters[15].Value = ((bool)(Original_Status));
-            global::System.Data.ConnectionState previousConnectionState = this.Adapter.DeleteCommand.Connection.State;
-            if (((this.Adapter.DeleteCommand.Connection.State & global::System.Data.ConnectionState.Open) 
-                        != global::System.Data.ConnectionState.Open)) {
-                this.Adapter.DeleteCommand.Connection.Open();
-            }
-            try {
-                int returnValue = this.Adapter.DeleteCommand.ExecuteNonQuery();
-                return returnValue;
-            }
-            finally {
-                if ((previousConnectionState == global::System.Data.ConnectionState.Closed)) {
-                    this.Adapter.DeleteCommand.Connection.Close();
-                }
-            }
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Insert, true)]
-        public virtual int Insert(int StudentID, int WeeklyTaskID, int MonthlyTaskID, System.DateTime DateTask, bool Present, string Reason, System.TimeSpan DrugTime, double EatRating, double SleepRating, double HealthRating, double StudyRating, System.TimeSpan PickTime, string Note, bool Status) {
-            this.Adapter.InsertCommand.Parameters[0].Value = ((int)(StudentID));
-            this.Adapter.InsertCommand.Parameters[1].Value = ((int)(WeeklyTaskID));
-            this.Adapter.InsertCommand.Parameters[2].Value = ((int)(MonthlyTaskID));
-            this.Adapter.InsertCommand.Parameters[3].Value = ((System.DateTime)(DateTask));
-            this.Adapter.InsertCommand.Parameters[4].Value = ((bool)(Present));
-            if ((Reason == null)) {
-                throw new global::System.ArgumentNullException("Reason");
-            }
-            else {
-                this.Adapter.InsertCommand.Parameters[5].Value = ((string)(Reason));
-            }
-            this.Adapter.InsertCommand.Parameters[6].Value = ((System.TimeSpan)(DrugTime));
-            this.Adapter.InsertCommand.Parameters[7].Value = ((double)(EatRating));
-            this.Adapter.InsertCommand.Parameters[8].Value = ((double)(SleepRating));
-            this.Adapter.InsertCommand.Parameters[9].Value = ((double)(HealthRating));
-            this.Adapter.InsertCommand.Parameters[10].Value = ((double)(StudyRating));
-            this.Adapter.InsertCommand.Parameters[11].Value = ((System.TimeSpan)(PickTime));
-            if ((Note == null)) {
-                this.Adapter.InsertCommand.Parameters[12].Value = global::System.DBNull.Value;
-            }
-            else {
-                this.Adapter.InsertCommand.Parameters[12].Value = ((string)(Note));
-            }
-            this.Adapter.InsertCommand.Parameters[13].Value = ((bool)(Status));
-            global::System.Data.ConnectionState previousConnectionState = this.Adapter.InsertCommand.Connection.State;
-            if (((this.Adapter.InsertCommand.Connection.State & global::System.Data.ConnectionState.Open) 
-                        != global::System.Data.ConnectionState.Open)) {
-                this.Adapter.InsertCommand.Connection.Open();
-            }
-            try {
-                int returnValue = this.Adapter.InsertCommand.ExecuteNonQuery();
-                return returnValue;
-            }
-            finally {
-                if ((previousConnectionState == global::System.Data.ConnectionState.Closed)) {
-                    this.Adapter.InsertCommand.Connection.Close();
-                }
-            }
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Update, true)]
-        public virtual int Update(
-                    int StudentID, 
-                    int WeeklyTaskID, 
-                    int MonthlyTaskID, 
-                    System.DateTime DateTask, 
-                    bool Present, 
-                    string Reason, 
-                    System.TimeSpan DrugTime, 
-                    double EatRating, 
-                    double SleepRating, 
-                    double HealthRating, 
-                    double StudyRating, 
-                    System.TimeSpan PickTime, 
-                    string Note, 
-                    bool Status, 
-                    int Original_DailyTaskID, 
-                    int Original_StudentID, 
-                    int Original_WeeklyTaskID, 
-                    int Original_MonthlyTaskID, 
-                    System.DateTime Original_DateTask, 
-                    bool Original_Present, 
-                    string Original_Reason, 
-                    System.TimeSpan Original_DrugTime, 
-                    double Original_EatRating, 
-                    double Original_SleepRating, 
-                    double Original_HealthRating, 
-                    double Original_StudyRating, 
-                    System.TimeSpan Original_PickTime, 
-                    string Original_Note, 
-                    bool Original_Status, 
-                    int DailyTaskID) {
-            this.Adapter.UpdateCommand.Parameters[0].Value = ((int)(StudentID));
-            this.Adapter.UpdateCommand.Parameters[1].Value = ((int)(WeeklyTaskID));
-            this.Adapter.UpdateCommand.Parameters[2].Value = ((int)(MonthlyTaskID));
-            this.Adapter.UpdateCommand.Parameters[3].Value = ((System.DateTime)(DateTask));
-            this.Adapter.UpdateCommand.Parameters[4].Value = ((bool)(Present));
-            if ((Reason == null)) {
-                throw new global::System.ArgumentNullException("Reason");
-            }
-            else {
-                this.Adapter.UpdateCommand.Parameters[5].Value = ((string)(Reason));
-            }
-            this.Adapter.UpdateCommand.Parameters[6].Value = ((System.TimeSpan)(DrugTime));
-            this.Adapter.UpdateCommand.Parameters[7].Value = ((double)(EatRating));
-            this.Adapter.UpdateCommand.Parameters[8].Value = ((double)(SleepRating));
-            this.Adapter.UpdateCommand.Parameters[9].Value = ((double)(HealthRating));
-            this.Adapter.UpdateCommand.Parameters[10].Value = ((double)(StudyRating));
-            this.Adapter.UpdateCommand.Parameters[11].Value = ((System.TimeSpan)(PickTime));
-            if ((Note == null)) {
-                this.Adapter.UpdateCommand.Parameters[12].Value = global::System.DBNull.Value;
-            }
-            else {
-                this.Adapter.UpdateCommand.Parameters[12].Value = ((string)(Note));
-            }
-            this.Adapter.UpdateCommand.Parameters[13].Value = ((bool)(Status));
-            this.Adapter.UpdateCommand.Parameters[14].Value = ((int)(Original_DailyTaskID));
-            this.Adapter.UpdateCommand.Parameters[15].Value = ((int)(Original_StudentID));
-            this.Adapter.UpdateCommand.Parameters[16].Value = ((int)(Original_WeeklyTaskID));
-            this.Adapter.UpdateCommand.Parameters[17].Value = ((int)(Original_MonthlyTaskID));
-            this.Adapter.UpdateCommand.Parameters[18].Value = ((System.DateTime)(Original_DateTask));
-            this.Adapter.UpdateCommand.Parameters[19].Value = ((bool)(Original_Present));
-            if ((Original_Reason == null)) {
-                throw new global::System.ArgumentNullException("Original_Reason");
-            }
-            else {
-                this.Adapter.UpdateCommand.Parameters[20].Value = ((string)(Original_Reason));
-            }
-            this.Adapter.UpdateCommand.Parameters[21].Value = ((System.TimeSpan)(Original_DrugTime));
-            this.Adapter.UpdateCommand.Parameters[22].Value = ((double)(Original_EatRating));
-            this.Adapter.UpdateCommand.Parameters[23].Value = ((double)(Original_SleepRating));
-            this.Adapter.UpdateCommand.Parameters[24].Value = ((double)(Original_HealthRating));
-            this.Adapter.UpdateCommand.Parameters[25].Value = ((double)(Original_StudyRating));
-            this.Adapter.UpdateCommand.Parameters[26].Value = ((System.TimeSpan)(Original_PickTime));
-            if ((Original_Note == null)) {
-                this.Adapter.UpdateCommand.Parameters[27].Value = ((object)(1));
-                this.Adapter.UpdateCommand.Parameters[28].Value = global::System.DBNull.Value;
-            }
-            else {
-                this.Adapter.UpdateCommand.Parameters[27].Value = ((object)(0));
-                this.Adapter.UpdateCommand.Parameters[28].Value = ((string)(Original_Note));
-            }
-            this.Adapter.UpdateCommand.Parameters[29].Value = ((bool)(Original_Status));
-            this.Adapter.UpdateCommand.Parameters[30].Value = ((int)(DailyTaskID));
-            global::System.Data.ConnectionState previousConnectionState = this.Adapter.UpdateCommand.Connection.State;
-            if (((this.Adapter.UpdateCommand.Connection.State & global::System.Data.ConnectionState.Open) 
-                        != global::System.Data.ConnectionState.Open)) {
-                this.Adapter.UpdateCommand.Connection.Open();
-            }
-            try {
-                int returnValue = this.Adapter.UpdateCommand.ExecuteNonQuery();
-                return returnValue;
-            }
-            finally {
-                if ((previousConnectionState == global::System.Data.ConnectionState.Closed)) {
-                    this.Adapter.UpdateCommand.Connection.Close();
-                }
-            }
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Update, true)]
-        public virtual int Update(
-                    int StudentID, 
-                    int WeeklyTaskID, 
-                    int MonthlyTaskID, 
-                    System.DateTime DateTask, 
-                    bool Present, 
-                    string Reason, 
-                    System.TimeSpan DrugTime, 
-                    double EatRating, 
-                    double SleepRating, 
-                    double HealthRating, 
-                    double StudyRating, 
-                    System.TimeSpan PickTime, 
-                    string Note, 
-                    bool Status, 
-                    int Original_DailyTaskID, 
-                    int Original_StudentID, 
-                    int Original_WeeklyTaskID, 
-                    int Original_MonthlyTaskID, 
-                    System.DateTime Original_DateTask, 
-                    bool Original_Present, 
-                    string Original_Reason, 
-                    System.TimeSpan Original_DrugTime, 
-                    double Original_EatRating, 
-                    double Original_SleepRating, 
-                    double Original_HealthRating, 
-                    double Original_StudyRating, 
-                    System.TimeSpan Original_PickTime, 
-                    string Original_Note, 
-                    bool Original_Status) {
-            return this.Update(StudentID, WeeklyTaskID, MonthlyTaskID, DateTask, Present, Reason, DrugTime, EatRating, SleepRating, HealthRating, StudyRating, PickTime, Note, Status, Original_DailyTaskID, Original_StudentID, Original_WeeklyTaskID, Original_MonthlyTaskID, Original_DateTask, Original_Present, Original_Reason, Original_DrugTime, Original_EatRating, Original_SleepRating, Original_HealthRating, Original_StudyRating, Original_PickTime, Original_Note, Original_Status, Original_DailyTaskID);
         }
     }
     
@@ -46575,7 +46150,7 @@ SELECT WeeklyMenuID, Name, StartDate, EndDate, Status FROM WeeklyMenu WHERE (Wee
     [global::System.ComponentModel.DesignerAttribute("Microsoft.VSDesigner.DataSource.Design.TableAdapterDesigner, Microsoft.VSDesigner" +
         ", Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a")]
     [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-    public partial class WeeklyTaskTableAdapter : global::System.ComponentModel.Component {
+    public partial class DailyTaskTableAdapter : global::System.ComponentModel.Component {
         
         private global::System.Data.SqlClient.SqlDataAdapter _adapter;
         
@@ -46589,7 +46164,7 @@ SELECT WeeklyMenuID, Name, StartDate, EndDate, Status FROM WeeklyMenu WHERE (Wee
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-        public WeeklyTaskTableAdapter() {
+        public DailyTaskTableAdapter() {
             this.ClearBeforeFill = true;
         }
         
@@ -46686,46 +46261,60 @@ SELECT WeeklyMenuID, Name, StartDate, EndDate, Status FROM WeeklyMenu WHERE (Wee
             this._adapter = new global::System.Data.SqlClient.SqlDataAdapter();
             global::System.Data.Common.DataTableMapping tableMapping = new global::System.Data.Common.DataTableMapping();
             tableMapping.SourceTable = "Table";
-            tableMapping.DataSetTable = "WeeklyTask";
+            tableMapping.DataSetTable = "DailyTask";
+            tableMapping.ColumnMappings.Add("DailyTaskID", "DailyTaskID");
+            tableMapping.ColumnMappings.Add("StudentID", "StudentID");
             tableMapping.ColumnMappings.Add("WeeklyTaskID", "WeeklyTaskID");
-            tableMapping.ColumnMappings.Add("Name", "Name");
-            tableMapping.ColumnMappings.Add("Note", "Note");
-            tableMapping.ColumnMappings.Add("Status", "Status");
+            tableMapping.ColumnMappings.Add("MonthlyTaskID", "MonthlyTaskID");
+            tableMapping.ColumnMappings.Add("DateTask", "DateTask");
+            tableMapping.ColumnMappings.Add("Present", "Present");
+            tableMapping.ColumnMappings.Add("Reason", "Reason");
             this._adapter.TableMappings.Add(tableMapping);
             this._adapter.DeleteCommand = new global::System.Data.SqlClient.SqlCommand();
             this._adapter.DeleteCommand.Connection = this.Connection;
-            this._adapter.DeleteCommand.CommandText = "DELETE FROM [dbo].[WeeklyTask] WHERE (([WeeklyTaskID] = @Original_WeeklyTaskID) A" +
-                "ND ([Name] = @Original_Name) AND ((@IsNull_Note = 1 AND [Note] IS NULL) OR ([Not" +
-                "e] = @Original_Note)) AND ([Status] = @Original_Status))";
+            this._adapter.DeleteCommand.CommandText = @"DELETE FROM [dbo].[DailyTask] WHERE (([DailyTaskID] = @Original_DailyTaskID) AND ([StudentID] = @Original_StudentID) AND ([WeeklyTaskID] = @Original_WeeklyTaskID) AND ([MonthlyTaskID] = @Original_MonthlyTaskID) AND ([DateTask] = @Original_DateTask) AND ((@IsNull_Present = 1 AND [Present] IS NULL) OR ([Present] = @Original_Present)) AND ((@IsNull_Reason = 1 AND [Reason] IS NULL) OR ([Reason] = @Original_Reason)))";
             this._adapter.DeleteCommand.CommandType = global::System.Data.CommandType.Text;
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_DailyTaskID", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "DailyTaskID", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_StudentID", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "StudentID", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_WeeklyTaskID", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "WeeklyTaskID", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Name", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Name", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_Note", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Note", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
-            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Note", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Note", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Status", global::System.Data.SqlDbType.Bit, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Status", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_MonthlyTaskID", global::System.Data.SqlDbType.NChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "MonthlyTaskID", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_DateTask", global::System.Data.SqlDbType.NChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "DateTask", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_Present", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Present", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Present", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Present", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_Reason", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Reason", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Reason", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Reason", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.InsertCommand = new global::System.Data.SqlClient.SqlCommand();
             this._adapter.InsertCommand.Connection = this.Connection;
-            this._adapter.InsertCommand.CommandText = "INSERT INTO [dbo].[WeeklyTask] ([Name], [Note], [Status]) VALUES (@Name, @Note, @" +
-                "Status);\r\nSELECT WeeklyTaskID, Name, Note, Status FROM WeeklyTask WHERE (WeeklyT" +
-                "askID = SCOPE_IDENTITY())";
+            this._adapter.InsertCommand.CommandText = @"INSERT INTO [dbo].[DailyTask] ([StudentID], [WeeklyTaskID], [MonthlyTaskID], [DateTask], [Present], [Reason]) VALUES (@StudentID, @WeeklyTaskID, @MonthlyTaskID, @DateTask, @Present, @Reason);
+SELECT DailyTaskID, StudentID, WeeklyTaskID, MonthlyTaskID, DateTask, Present, Reason FROM DailyTask WHERE (DailyTaskID = SCOPE_IDENTITY())";
             this._adapter.InsertCommand.CommandType = global::System.Data.CommandType.Text;
-            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Name", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Name", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Note", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Note", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Status", global::System.Data.SqlDbType.Bit, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Status", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@StudentID", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "StudentID", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@WeeklyTaskID", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "WeeklyTaskID", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@MonthlyTaskID", global::System.Data.SqlDbType.NChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "MonthlyTaskID", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@DateTask", global::System.Data.SqlDbType.NChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "DateTask", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Present", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Present", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Reason", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Reason", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand = new global::System.Data.SqlClient.SqlCommand();
             this._adapter.UpdateCommand.Connection = this.Connection;
-            this._adapter.UpdateCommand.CommandText = @"UPDATE [dbo].[WeeklyTask] SET [Name] = @Name, [Note] = @Note, [Status] = @Status WHERE (([WeeklyTaskID] = @Original_WeeklyTaskID) AND ([Name] = @Original_Name) AND ((@IsNull_Note = 1 AND [Note] IS NULL) OR ([Note] = @Original_Note)) AND ([Status] = @Original_Status));
-SELECT WeeklyTaskID, Name, Note, Status FROM WeeklyTask WHERE (WeeklyTaskID = @WeeklyTaskID)";
+            this._adapter.UpdateCommand.CommandText = @"UPDATE [dbo].[DailyTask] SET [StudentID] = @StudentID, [WeeklyTaskID] = @WeeklyTaskID, [MonthlyTaskID] = @MonthlyTaskID, [DateTask] = @DateTask, [Present] = @Present, [Reason] = @Reason WHERE (([DailyTaskID] = @Original_DailyTaskID) AND ([StudentID] = @Original_StudentID) AND ([WeeklyTaskID] = @Original_WeeklyTaskID) AND ([MonthlyTaskID] = @Original_MonthlyTaskID) AND ([DateTask] = @Original_DateTask) AND ((@IsNull_Present = 1 AND [Present] IS NULL) OR ([Present] = @Original_Present)) AND ((@IsNull_Reason = 1 AND [Reason] IS NULL) OR ([Reason] = @Original_Reason)));
+SELECT DailyTaskID, StudentID, WeeklyTaskID, MonthlyTaskID, DateTask, Present, Reason FROM DailyTask WHERE (DailyTaskID = @DailyTaskID)";
             this._adapter.UpdateCommand.CommandType = global::System.Data.CommandType.Text;
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Name", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Name", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Note", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Note", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Status", global::System.Data.SqlDbType.Bit, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Status", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@StudentID", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "StudentID", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@WeeklyTaskID", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "WeeklyTaskID", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@MonthlyTaskID", global::System.Data.SqlDbType.NChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "MonthlyTaskID", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@DateTask", global::System.Data.SqlDbType.NChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "DateTask", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Present", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Present", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Reason", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Reason", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_DailyTaskID", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "DailyTaskID", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_StudentID", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "StudentID", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_WeeklyTaskID", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "WeeklyTaskID", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Name", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Name", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_Note", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Note", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Note", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Note", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Status", global::System.Data.SqlDbType.Bit, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Status", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@WeeklyTaskID", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, 0, 0, "WeeklyTaskID", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_MonthlyTaskID", global::System.Data.SqlDbType.NChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "MonthlyTaskID", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_DateTask", global::System.Data.SqlDbType.NChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "DateTask", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_Present", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Present", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Present", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Present", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_Reason", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Reason", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Reason", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Reason", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@DailyTaskID", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, 0, 0, "DailyTaskID", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -46741,7 +46330,8 @@ SELECT WeeklyTaskID, Name, Note, Status FROM WeeklyTask WHERE (WeeklyTaskID = @W
             this._commandCollection = new global::System.Data.SqlClient.SqlCommand[1];
             this._commandCollection[0] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[0].Connection = this.Connection;
-            this._commandCollection[0].CommandText = "SELECT WeeklyTaskID, Name, Note, Status FROM dbo.WeeklyTask";
+            this._commandCollection[0].CommandText = "SELECT DailyTaskID, StudentID, WeeklyTaskID, MonthlyTaskID, DateTask, Present, Re" +
+                "ason FROM dbo.DailyTask";
             this._commandCollection[0].CommandType = global::System.Data.CommandType.Text;
         }
         
@@ -46749,7 +46339,7 @@ SELECT WeeklyTaskID, Name, Note, Status FROM WeeklyTask WHERE (WeeklyTaskID = @W
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Fill, true)]
-        public virtual int Fill(CPITQLHSBanTru2018DataSet.WeeklyTaskDataTable dataTable) {
+        public virtual int Fill(CPITQLHSBanTru2018DataSet.DailyTaskDataTable dataTable) {
             this.Adapter.SelectCommand = this.CommandCollection[0];
             if ((this.ClearBeforeFill == true)) {
                 dataTable.Clear();
@@ -46762,9 +46352,9 @@ SELECT WeeklyTaskID, Name, Note, Status FROM WeeklyTask WHERE (WeeklyTaskID = @W
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Select, true)]
-        public virtual CPITQLHSBanTru2018DataSet.WeeklyTaskDataTable GetData() {
+        public virtual CPITQLHSBanTru2018DataSet.DailyTaskDataTable GetData() {
             this.Adapter.SelectCommand = this.CommandCollection[0];
-            CPITQLHSBanTru2018DataSet.WeeklyTaskDataTable dataTable = new CPITQLHSBanTru2018DataSet.WeeklyTaskDataTable();
+            CPITQLHSBanTru2018DataSet.DailyTaskDataTable dataTable = new CPITQLHSBanTru2018DataSet.DailyTaskDataTable();
             this.Adapter.Fill(dataTable);
             return dataTable;
         }
@@ -46772,7 +46362,7 @@ SELECT WeeklyTaskID, Name, Note, Status FROM WeeklyTask WHERE (WeeklyTaskID = @W
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-        public virtual int Update(CPITQLHSBanTru2018DataSet.WeeklyTaskDataTable dataTable) {
+        public virtual int Update(CPITQLHSBanTru2018DataSet.DailyTaskDataTable dataTable) {
             return this.Adapter.Update(dataTable);
         }
         
@@ -46780,7 +46370,7 @@ SELECT WeeklyTaskID, Name, Note, Status FROM WeeklyTask WHERE (WeeklyTaskID = @W
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         public virtual int Update(CPITQLHSBanTru2018DataSet dataSet) {
-            return this.Adapter.Update(dataSet, "WeeklyTask");
+            return this.Adapter.Update(dataSet, "DailyTask");
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -46802,23 +46392,38 @@ SELECT WeeklyTaskID, Name, Note, Status FROM WeeklyTask WHERE (WeeklyTaskID = @W
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Delete, true)]
-        public virtual int Delete(int Original_WeeklyTaskID, string Original_Name, string Original_Note, bool Original_Status) {
-            this.Adapter.DeleteCommand.Parameters[0].Value = ((int)(Original_WeeklyTaskID));
-            if ((Original_Name == null)) {
-                throw new global::System.ArgumentNullException("Original_Name");
+        public virtual int Delete(int Original_DailyTaskID, int Original_StudentID, int Original_WeeklyTaskID, string Original_MonthlyTaskID, string Original_DateTask, string Original_Present, string Original_Reason) {
+            this.Adapter.DeleteCommand.Parameters[0].Value = ((int)(Original_DailyTaskID));
+            this.Adapter.DeleteCommand.Parameters[1].Value = ((int)(Original_StudentID));
+            this.Adapter.DeleteCommand.Parameters[2].Value = ((int)(Original_WeeklyTaskID));
+            if ((Original_MonthlyTaskID == null)) {
+                throw new global::System.ArgumentNullException("Original_MonthlyTaskID");
             }
             else {
-                this.Adapter.DeleteCommand.Parameters[1].Value = ((string)(Original_Name));
+                this.Adapter.DeleteCommand.Parameters[3].Value = ((string)(Original_MonthlyTaskID));
             }
-            if ((Original_Note == null)) {
-                this.Adapter.DeleteCommand.Parameters[2].Value = ((object)(1));
-                this.Adapter.DeleteCommand.Parameters[3].Value = global::System.DBNull.Value;
+            if ((Original_DateTask == null)) {
+                throw new global::System.ArgumentNullException("Original_DateTask");
             }
             else {
-                this.Adapter.DeleteCommand.Parameters[2].Value = ((object)(0));
-                this.Adapter.DeleteCommand.Parameters[3].Value = ((string)(Original_Note));
+                this.Adapter.DeleteCommand.Parameters[4].Value = ((string)(Original_DateTask));
             }
-            this.Adapter.DeleteCommand.Parameters[4].Value = ((bool)(Original_Status));
+            if ((Original_Present == null)) {
+                this.Adapter.DeleteCommand.Parameters[5].Value = ((object)(1));
+                this.Adapter.DeleteCommand.Parameters[6].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.DeleteCommand.Parameters[5].Value = ((object)(0));
+                this.Adapter.DeleteCommand.Parameters[6].Value = ((string)(Original_Present));
+            }
+            if ((Original_Reason == null)) {
+                this.Adapter.DeleteCommand.Parameters[7].Value = ((object)(1));
+                this.Adapter.DeleteCommand.Parameters[8].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.DeleteCommand.Parameters[7].Value = ((object)(0));
+                this.Adapter.DeleteCommand.Parameters[8].Value = ((string)(Original_Reason));
+            }
             global::System.Data.ConnectionState previousConnectionState = this.Adapter.DeleteCommand.Connection.State;
             if (((this.Adapter.DeleteCommand.Connection.State & global::System.Data.ConnectionState.Open) 
                         != global::System.Data.ConnectionState.Open)) {
@@ -46839,20 +46444,33 @@ SELECT WeeklyTaskID, Name, Note, Status FROM WeeklyTask WHERE (WeeklyTaskID = @W
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Insert, true)]
-        public virtual int Insert(string Name, string Note, bool Status) {
-            if ((Name == null)) {
-                throw new global::System.ArgumentNullException("Name");
+        public virtual int Insert(int StudentID, int WeeklyTaskID, string MonthlyTaskID, string DateTask, string Present, string Reason) {
+            this.Adapter.InsertCommand.Parameters[0].Value = ((int)(StudentID));
+            this.Adapter.InsertCommand.Parameters[1].Value = ((int)(WeeklyTaskID));
+            if ((MonthlyTaskID == null)) {
+                throw new global::System.ArgumentNullException("MonthlyTaskID");
             }
             else {
-                this.Adapter.InsertCommand.Parameters[0].Value = ((string)(Name));
+                this.Adapter.InsertCommand.Parameters[2].Value = ((string)(MonthlyTaskID));
             }
-            if ((Note == null)) {
-                this.Adapter.InsertCommand.Parameters[1].Value = global::System.DBNull.Value;
+            if ((DateTask == null)) {
+                throw new global::System.ArgumentNullException("DateTask");
             }
             else {
-                this.Adapter.InsertCommand.Parameters[1].Value = ((string)(Note));
+                this.Adapter.InsertCommand.Parameters[3].Value = ((string)(DateTask));
             }
-            this.Adapter.InsertCommand.Parameters[2].Value = ((bool)(Status));
+            if ((Present == null)) {
+                this.Adapter.InsertCommand.Parameters[4].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.InsertCommand.Parameters[4].Value = ((string)(Present));
+            }
+            if ((Reason == null)) {
+                this.Adapter.InsertCommand.Parameters[5].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.InsertCommand.Parameters[5].Value = ((string)(Reason));
+            }
             global::System.Data.ConnectionState previousConnectionState = this.Adapter.InsertCommand.Connection.State;
             if (((this.Adapter.InsertCommand.Connection.State & global::System.Data.ConnectionState.Open) 
                         != global::System.Data.ConnectionState.Open)) {
@@ -46873,37 +46491,65 @@ SELECT WeeklyTaskID, Name, Note, Status FROM WeeklyTask WHERE (WeeklyTaskID = @W
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Update, true)]
-        public virtual int Update(string Name, string Note, bool Status, int Original_WeeklyTaskID, string Original_Name, string Original_Note, bool Original_Status, int WeeklyTaskID) {
-            if ((Name == null)) {
-                throw new global::System.ArgumentNullException("Name");
+        public virtual int Update(int StudentID, int WeeklyTaskID, string MonthlyTaskID, string DateTask, string Present, string Reason, int Original_DailyTaskID, int Original_StudentID, int Original_WeeklyTaskID, string Original_MonthlyTaskID, string Original_DateTask, string Original_Present, string Original_Reason, int DailyTaskID) {
+            this.Adapter.UpdateCommand.Parameters[0].Value = ((int)(StudentID));
+            this.Adapter.UpdateCommand.Parameters[1].Value = ((int)(WeeklyTaskID));
+            if ((MonthlyTaskID == null)) {
+                throw new global::System.ArgumentNullException("MonthlyTaskID");
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[0].Value = ((string)(Name));
+                this.Adapter.UpdateCommand.Parameters[2].Value = ((string)(MonthlyTaskID));
             }
-            if ((Note == null)) {
-                this.Adapter.UpdateCommand.Parameters[1].Value = global::System.DBNull.Value;
-            }
-            else {
-                this.Adapter.UpdateCommand.Parameters[1].Value = ((string)(Note));
-            }
-            this.Adapter.UpdateCommand.Parameters[2].Value = ((bool)(Status));
-            this.Adapter.UpdateCommand.Parameters[3].Value = ((int)(Original_WeeklyTaskID));
-            if ((Original_Name == null)) {
-                throw new global::System.ArgumentNullException("Original_Name");
+            if ((DateTask == null)) {
+                throw new global::System.ArgumentNullException("DateTask");
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[4].Value = ((string)(Original_Name));
+                this.Adapter.UpdateCommand.Parameters[3].Value = ((string)(DateTask));
             }
-            if ((Original_Note == null)) {
-                this.Adapter.UpdateCommand.Parameters[5].Value = ((object)(1));
-                this.Adapter.UpdateCommand.Parameters[6].Value = global::System.DBNull.Value;
+            if ((Present == null)) {
+                this.Adapter.UpdateCommand.Parameters[4].Value = global::System.DBNull.Value;
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[5].Value = ((object)(0));
-                this.Adapter.UpdateCommand.Parameters[6].Value = ((string)(Original_Note));
+                this.Adapter.UpdateCommand.Parameters[4].Value = ((string)(Present));
             }
-            this.Adapter.UpdateCommand.Parameters[7].Value = ((bool)(Original_Status));
-            this.Adapter.UpdateCommand.Parameters[8].Value = ((int)(WeeklyTaskID));
+            if ((Reason == null)) {
+                this.Adapter.UpdateCommand.Parameters[5].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[5].Value = ((string)(Reason));
+            }
+            this.Adapter.UpdateCommand.Parameters[6].Value = ((int)(Original_DailyTaskID));
+            this.Adapter.UpdateCommand.Parameters[7].Value = ((int)(Original_StudentID));
+            this.Adapter.UpdateCommand.Parameters[8].Value = ((int)(Original_WeeklyTaskID));
+            if ((Original_MonthlyTaskID == null)) {
+                throw new global::System.ArgumentNullException("Original_MonthlyTaskID");
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[9].Value = ((string)(Original_MonthlyTaskID));
+            }
+            if ((Original_DateTask == null)) {
+                throw new global::System.ArgumentNullException("Original_DateTask");
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[10].Value = ((string)(Original_DateTask));
+            }
+            if ((Original_Present == null)) {
+                this.Adapter.UpdateCommand.Parameters[11].Value = ((object)(1));
+                this.Adapter.UpdateCommand.Parameters[12].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[11].Value = ((object)(0));
+                this.Adapter.UpdateCommand.Parameters[12].Value = ((string)(Original_Present));
+            }
+            if ((Original_Reason == null)) {
+                this.Adapter.UpdateCommand.Parameters[13].Value = ((object)(1));
+                this.Adapter.UpdateCommand.Parameters[14].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[13].Value = ((object)(0));
+                this.Adapter.UpdateCommand.Parameters[14].Value = ((string)(Original_Reason));
+            }
+            this.Adapter.UpdateCommand.Parameters[15].Value = ((int)(DailyTaskID));
             global::System.Data.ConnectionState previousConnectionState = this.Adapter.UpdateCommand.Connection.State;
             if (((this.Adapter.UpdateCommand.Connection.State & global::System.Data.ConnectionState.Open) 
                         != global::System.Data.ConnectionState.Open)) {
@@ -46924,8 +46570,663 @@ SELECT WeeklyTaskID, Name, Note, Status FROM WeeklyTask WHERE (WeeklyTaskID = @W
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Update, true)]
-        public virtual int Update(string Name, string Note, bool Status, int Original_WeeklyTaskID, string Original_Name, string Original_Note, bool Original_Status) {
-            return this.Update(Name, Note, Status, Original_WeeklyTaskID, Original_Name, Original_Note, Original_Status, Original_WeeklyTaskID);
+        public virtual int Update(int StudentID, int WeeklyTaskID, string MonthlyTaskID, string DateTask, string Present, string Reason, int Original_DailyTaskID, int Original_StudentID, int Original_WeeklyTaskID, string Original_MonthlyTaskID, string Original_DateTask, string Original_Present, string Original_Reason) {
+            return this.Update(StudentID, WeeklyTaskID, MonthlyTaskID, DateTask, Present, Reason, Original_DailyTaskID, Original_StudentID, Original_WeeklyTaskID, Original_MonthlyTaskID, Original_DateTask, Original_Present, Original_Reason, Original_DailyTaskID);
+        }
+    }
+    
+    /// <summary>
+    ///Represents the connection and commands used to retrieve and save data.
+    ///</summary>
+    [global::System.ComponentModel.DesignerCategoryAttribute("code")]
+    [global::System.ComponentModel.ToolboxItem(true)]
+    [global::System.ComponentModel.DataObjectAttribute(true)]
+    [global::System.ComponentModel.DesignerAttribute("Microsoft.VSDesigner.DataSource.Design.TableAdapterDesigner, Microsoft.VSDesigner" +
+        ", Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a")]
+    [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+    public partial class TrackingUpLateTableAdapter : global::System.ComponentModel.Component {
+        
+        private global::System.Data.SqlClient.SqlDataAdapter _adapter;
+        
+        private global::System.Data.SqlClient.SqlConnection _connection;
+        
+        private global::System.Data.SqlClient.SqlTransaction _transaction;
+        
+        private global::System.Data.SqlClient.SqlCommand[] _commandCollection;
+        
+        private bool _clearBeforeFill;
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+        public TrackingUpLateTableAdapter() {
+            this.ClearBeforeFill = true;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+        protected internal global::System.Data.SqlClient.SqlDataAdapter Adapter {
+            get {
+                if ((this._adapter == null)) {
+                    this.InitAdapter();
+                }
+                return this._adapter;
+            }
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+        internal global::System.Data.SqlClient.SqlConnection Connection {
+            get {
+                if ((this._connection == null)) {
+                    this.InitConnection();
+                }
+                return this._connection;
+            }
+            set {
+                this._connection = value;
+                if ((this.Adapter.InsertCommand != null)) {
+                    this.Adapter.InsertCommand.Connection = value;
+                }
+                if ((this.Adapter.DeleteCommand != null)) {
+                    this.Adapter.DeleteCommand.Connection = value;
+                }
+                if ((this.Adapter.UpdateCommand != null)) {
+                    this.Adapter.UpdateCommand.Connection = value;
+                }
+                for (int i = 0; (i < this.CommandCollection.Length); i = (i + 1)) {
+                    if ((this.CommandCollection[i] != null)) {
+                        ((global::System.Data.SqlClient.SqlCommand)(this.CommandCollection[i])).Connection = value;
+                    }
+                }
+            }
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+        internal global::System.Data.SqlClient.SqlTransaction Transaction {
+            get {
+                return this._transaction;
+            }
+            set {
+                this._transaction = value;
+                for (int i = 0; (i < this.CommandCollection.Length); i = (i + 1)) {
+                    this.CommandCollection[i].Transaction = this._transaction;
+                }
+                if (((this.Adapter != null) 
+                            && (this.Adapter.DeleteCommand != null))) {
+                    this.Adapter.DeleteCommand.Transaction = this._transaction;
+                }
+                if (((this.Adapter != null) 
+                            && (this.Adapter.InsertCommand != null))) {
+                    this.Adapter.InsertCommand.Transaction = this._transaction;
+                }
+                if (((this.Adapter != null) 
+                            && (this.Adapter.UpdateCommand != null))) {
+                    this.Adapter.UpdateCommand.Transaction = this._transaction;
+                }
+            }
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+        protected global::System.Data.SqlClient.SqlCommand[] CommandCollection {
+            get {
+                if ((this._commandCollection == null)) {
+                    this.InitCommandCollection();
+                }
+                return this._commandCollection;
+            }
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+        public bool ClearBeforeFill {
+            get {
+                return this._clearBeforeFill;
+            }
+            set {
+                this._clearBeforeFill = value;
+            }
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+        private void InitAdapter() {
+            this._adapter = new global::System.Data.SqlClient.SqlDataAdapter();
+            global::System.Data.Common.DataTableMapping tableMapping = new global::System.Data.Common.DataTableMapping();
+            tableMapping.SourceTable = "Table";
+            tableMapping.DataSetTable = "TrackingUpLate";
+            tableMapping.ColumnMappings.Add("TrackingID", "TrackingID");
+            tableMapping.ColumnMappings.Add("StudentID", "StudentID");
+            tableMapping.ColumnMappings.Add("DateOfEntry", "DateOfEntry");
+            tableMapping.ColumnMappings.Add("StartTime", "StartTime");
+            tableMapping.ColumnMappings.Add("EndTime", "EndTime");
+            tableMapping.ColumnMappings.Add("DrugTime", "DrugTime");
+            tableMapping.ColumnMappings.Add("Eating", "Eating");
+            tableMapping.ColumnMappings.Add("Sleep", "Sleep");
+            tableMapping.ColumnMappings.Add("Health", "Health");
+            tableMapping.ColumnMappings.Add("Study", "Study");
+            tableMapping.ColumnMappings.Add("Note", "Note");
+            this._adapter.TableMappings.Add(tableMapping);
+            this._adapter.DeleteCommand = new global::System.Data.SqlClient.SqlCommand();
+            this._adapter.DeleteCommand.Connection = this.Connection;
+            this._adapter.DeleteCommand.CommandText = @"DELETE FROM [dbo].[TrackingUpLate] WHERE (([TrackingID] = @Original_TrackingID) AND ([StudentID] = @Original_StudentID) AND ((@IsNull_DateOfEntry = 1 AND [DateOfEntry] IS NULL) OR ([DateOfEntry] = @Original_DateOfEntry)) AND ((@IsNull_StartTime = 1 AND [StartTime] IS NULL) OR ([StartTime] = @Original_StartTime)) AND ((@IsNull_EndTime = 1 AND [EndTime] IS NULL) OR ([EndTime] = @Original_EndTime)) AND ((@IsNull_DrugTime = 1 AND [DrugTime] IS NULL) OR ([DrugTime] = @Original_DrugTime)) AND ((@IsNull_Eating = 1 AND [Eating] IS NULL) OR ([Eating] = @Original_Eating)) AND ((@IsNull_Sleep = 1 AND [Sleep] IS NULL) OR ([Sleep] = @Original_Sleep)) AND ((@IsNull_Health = 1 AND [Health] IS NULL) OR ([Health] = @Original_Health)) AND ((@IsNull_Study = 1 AND [Study] IS NULL) OR ([Study] = @Original_Study)) AND ((@IsNull_Note = 1 AND [Note] IS NULL) OR ([Note] = @Original_Note)))";
+            this._adapter.DeleteCommand.CommandType = global::System.Data.CommandType.Text;
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_TrackingID", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "TrackingID", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_StudentID", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "StudentID", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_DateOfEntry", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "DateOfEntry", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_DateOfEntry", global::System.Data.SqlDbType.NChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "DateOfEntry", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_StartTime", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "StartTime", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_StartTime", global::System.Data.SqlDbType.NChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "StartTime", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_EndTime", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "EndTime", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_EndTime", global::System.Data.SqlDbType.NChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "EndTime", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_DrugTime", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "DrugTime", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_DrugTime", global::System.Data.SqlDbType.NChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "DrugTime", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_Eating", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Eating", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Eating", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Eating", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_Sleep", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Sleep", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Sleep", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Sleep", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_Health", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Health", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Health", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Health", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_Study", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Study", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Study", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Study", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_Note", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Note", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Note", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Note", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.InsertCommand = new global::System.Data.SqlClient.SqlCommand();
+            this._adapter.InsertCommand.Connection = this.Connection;
+            this._adapter.InsertCommand.CommandText = @"INSERT INTO [dbo].[TrackingUpLate] ([StudentID], [DateOfEntry], [StartTime], [EndTime], [DrugTime], [Eating], [Sleep], [Health], [Study], [Note]) VALUES (@StudentID, @DateOfEntry, @StartTime, @EndTime, @DrugTime, @Eating, @Sleep, @Health, @Study, @Note);
+SELECT TrackingID, StudentID, DateOfEntry, StartTime, EndTime, DrugTime, Eating, Sleep, Health, Study, Note FROM TrackingUpLate WHERE (TrackingID = SCOPE_IDENTITY())";
+            this._adapter.InsertCommand.CommandType = global::System.Data.CommandType.Text;
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@StudentID", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "StudentID", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@DateOfEntry", global::System.Data.SqlDbType.NChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "DateOfEntry", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@StartTime", global::System.Data.SqlDbType.NChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "StartTime", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@EndTime", global::System.Data.SqlDbType.NChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "EndTime", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@DrugTime", global::System.Data.SqlDbType.NChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "DrugTime", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Eating", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Eating", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Sleep", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Sleep", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Health", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Health", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Study", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Study", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Note", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Note", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.UpdateCommand = new global::System.Data.SqlClient.SqlCommand();
+            this._adapter.UpdateCommand.Connection = this.Connection;
+            this._adapter.UpdateCommand.CommandText = @"UPDATE [dbo].[TrackingUpLate] SET [StudentID] = @StudentID, [DateOfEntry] = @DateOfEntry, [StartTime] = @StartTime, [EndTime] = @EndTime, [DrugTime] = @DrugTime, [Eating] = @Eating, [Sleep] = @Sleep, [Health] = @Health, [Study] = @Study, [Note] = @Note WHERE (([TrackingID] = @Original_TrackingID) AND ([StudentID] = @Original_StudentID) AND ((@IsNull_DateOfEntry = 1 AND [DateOfEntry] IS NULL) OR ([DateOfEntry] = @Original_DateOfEntry)) AND ((@IsNull_StartTime = 1 AND [StartTime] IS NULL) OR ([StartTime] = @Original_StartTime)) AND ((@IsNull_EndTime = 1 AND [EndTime] IS NULL) OR ([EndTime] = @Original_EndTime)) AND ((@IsNull_DrugTime = 1 AND [DrugTime] IS NULL) OR ([DrugTime] = @Original_DrugTime)) AND ((@IsNull_Eating = 1 AND [Eating] IS NULL) OR ([Eating] = @Original_Eating)) AND ((@IsNull_Sleep = 1 AND [Sleep] IS NULL) OR ([Sleep] = @Original_Sleep)) AND ((@IsNull_Health = 1 AND [Health] IS NULL) OR ([Health] = @Original_Health)) AND ((@IsNull_Study = 1 AND [Study] IS NULL) OR ([Study] = @Original_Study)) AND ((@IsNull_Note = 1 AND [Note] IS NULL) OR ([Note] = @Original_Note)));
+SELECT TrackingID, StudentID, DateOfEntry, StartTime, EndTime, DrugTime, Eating, Sleep, Health, Study, Note FROM TrackingUpLate WHERE (TrackingID = @TrackingID)";
+            this._adapter.UpdateCommand.CommandType = global::System.Data.CommandType.Text;
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@StudentID", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "StudentID", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@DateOfEntry", global::System.Data.SqlDbType.NChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "DateOfEntry", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@StartTime", global::System.Data.SqlDbType.NChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "StartTime", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@EndTime", global::System.Data.SqlDbType.NChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "EndTime", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@DrugTime", global::System.Data.SqlDbType.NChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "DrugTime", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Eating", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Eating", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Sleep", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Sleep", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Health", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Health", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Study", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Study", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Note", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Note", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_TrackingID", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "TrackingID", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_StudentID", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "StudentID", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_DateOfEntry", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "DateOfEntry", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_DateOfEntry", global::System.Data.SqlDbType.NChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "DateOfEntry", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_StartTime", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "StartTime", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_StartTime", global::System.Data.SqlDbType.NChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "StartTime", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_EndTime", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "EndTime", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_EndTime", global::System.Data.SqlDbType.NChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "EndTime", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_DrugTime", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "DrugTime", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_DrugTime", global::System.Data.SqlDbType.NChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "DrugTime", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_Eating", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Eating", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Eating", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Eating", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_Sleep", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Sleep", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Sleep", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Sleep", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_Health", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Health", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Health", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Health", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_Study", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Study", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Study", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Study", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_Note", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Note", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Note", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Note", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@TrackingID", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, 0, 0, "TrackingID", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+        private void InitConnection() {
+            this._connection = new global::System.Data.SqlClient.SqlConnection();
+            this._connection.ConnectionString = global::DataConnect.Properties.Settings.Default.CPITQLHSBanTru2018ConnectionString;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+        private void InitCommandCollection() {
+            this._commandCollection = new global::System.Data.SqlClient.SqlCommand[1];
+            this._commandCollection[0] = new global::System.Data.SqlClient.SqlCommand();
+            this._commandCollection[0].Connection = this.Connection;
+            this._commandCollection[0].CommandText = "SELECT TrackingID, StudentID, DateOfEntry, StartTime, EndTime, DrugTime, Eating, " +
+                "Sleep, Health, Study, Note FROM dbo.TrackingUpLate";
+            this._commandCollection[0].CommandType = global::System.Data.CommandType.Text;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Fill, true)]
+        public virtual int Fill(CPITQLHSBanTru2018DataSet.TrackingUpLateDataTable dataTable) {
+            this.Adapter.SelectCommand = this.CommandCollection[0];
+            if ((this.ClearBeforeFill == true)) {
+                dataTable.Clear();
+            }
+            int returnValue = this.Adapter.Fill(dataTable);
+            return returnValue;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Select, true)]
+        public virtual CPITQLHSBanTru2018DataSet.TrackingUpLateDataTable GetData() {
+            this.Adapter.SelectCommand = this.CommandCollection[0];
+            CPITQLHSBanTru2018DataSet.TrackingUpLateDataTable dataTable = new CPITQLHSBanTru2018DataSet.TrackingUpLateDataTable();
+            this.Adapter.Fill(dataTable);
+            return dataTable;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        public virtual int Update(CPITQLHSBanTru2018DataSet.TrackingUpLateDataTable dataTable) {
+            return this.Adapter.Update(dataTable);
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        public virtual int Update(CPITQLHSBanTru2018DataSet dataSet) {
+            return this.Adapter.Update(dataSet, "TrackingUpLate");
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        public virtual int Update(global::System.Data.DataRow dataRow) {
+            return this.Adapter.Update(new global::System.Data.DataRow[] {
+                        dataRow});
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        public virtual int Update(global::System.Data.DataRow[] dataRows) {
+            return this.Adapter.Update(dataRows);
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Delete, true)]
+        public virtual int Delete(int Original_TrackingID, int Original_StudentID, string Original_DateOfEntry, string Original_StartTime, string Original_EndTime, string Original_DrugTime, string Original_Eating, string Original_Sleep, string Original_Health, string Original_Study, string Original_Note) {
+            this.Adapter.DeleteCommand.Parameters[0].Value = ((int)(Original_TrackingID));
+            this.Adapter.DeleteCommand.Parameters[1].Value = ((int)(Original_StudentID));
+            if ((Original_DateOfEntry == null)) {
+                this.Adapter.DeleteCommand.Parameters[2].Value = ((object)(1));
+                this.Adapter.DeleteCommand.Parameters[3].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.DeleteCommand.Parameters[2].Value = ((object)(0));
+                this.Adapter.DeleteCommand.Parameters[3].Value = ((string)(Original_DateOfEntry));
+            }
+            if ((Original_StartTime == null)) {
+                this.Adapter.DeleteCommand.Parameters[4].Value = ((object)(1));
+                this.Adapter.DeleteCommand.Parameters[5].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.DeleteCommand.Parameters[4].Value = ((object)(0));
+                this.Adapter.DeleteCommand.Parameters[5].Value = ((string)(Original_StartTime));
+            }
+            if ((Original_EndTime == null)) {
+                this.Adapter.DeleteCommand.Parameters[6].Value = ((object)(1));
+                this.Adapter.DeleteCommand.Parameters[7].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.DeleteCommand.Parameters[6].Value = ((object)(0));
+                this.Adapter.DeleteCommand.Parameters[7].Value = ((string)(Original_EndTime));
+            }
+            if ((Original_DrugTime == null)) {
+                this.Adapter.DeleteCommand.Parameters[8].Value = ((object)(1));
+                this.Adapter.DeleteCommand.Parameters[9].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.DeleteCommand.Parameters[8].Value = ((object)(0));
+                this.Adapter.DeleteCommand.Parameters[9].Value = ((string)(Original_DrugTime));
+            }
+            if ((Original_Eating == null)) {
+                this.Adapter.DeleteCommand.Parameters[10].Value = ((object)(1));
+                this.Adapter.DeleteCommand.Parameters[11].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.DeleteCommand.Parameters[10].Value = ((object)(0));
+                this.Adapter.DeleteCommand.Parameters[11].Value = ((string)(Original_Eating));
+            }
+            if ((Original_Sleep == null)) {
+                this.Adapter.DeleteCommand.Parameters[12].Value = ((object)(1));
+                this.Adapter.DeleteCommand.Parameters[13].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.DeleteCommand.Parameters[12].Value = ((object)(0));
+                this.Adapter.DeleteCommand.Parameters[13].Value = ((string)(Original_Sleep));
+            }
+            if ((Original_Health == null)) {
+                this.Adapter.DeleteCommand.Parameters[14].Value = ((object)(1));
+                this.Adapter.DeleteCommand.Parameters[15].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.DeleteCommand.Parameters[14].Value = ((object)(0));
+                this.Adapter.DeleteCommand.Parameters[15].Value = ((string)(Original_Health));
+            }
+            if ((Original_Study == null)) {
+                this.Adapter.DeleteCommand.Parameters[16].Value = ((object)(1));
+                this.Adapter.DeleteCommand.Parameters[17].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.DeleteCommand.Parameters[16].Value = ((object)(0));
+                this.Adapter.DeleteCommand.Parameters[17].Value = ((string)(Original_Study));
+            }
+            if ((Original_Note == null)) {
+                this.Adapter.DeleteCommand.Parameters[18].Value = ((object)(1));
+                this.Adapter.DeleteCommand.Parameters[19].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.DeleteCommand.Parameters[18].Value = ((object)(0));
+                this.Adapter.DeleteCommand.Parameters[19].Value = ((string)(Original_Note));
+            }
+            global::System.Data.ConnectionState previousConnectionState = this.Adapter.DeleteCommand.Connection.State;
+            if (((this.Adapter.DeleteCommand.Connection.State & global::System.Data.ConnectionState.Open) 
+                        != global::System.Data.ConnectionState.Open)) {
+                this.Adapter.DeleteCommand.Connection.Open();
+            }
+            try {
+                int returnValue = this.Adapter.DeleteCommand.ExecuteNonQuery();
+                return returnValue;
+            }
+            finally {
+                if ((previousConnectionState == global::System.Data.ConnectionState.Closed)) {
+                    this.Adapter.DeleteCommand.Connection.Close();
+                }
+            }
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Insert, true)]
+        public virtual int Insert(int StudentID, string DateOfEntry, string StartTime, string EndTime, string DrugTime, string Eating, string Sleep, string Health, string Study, string Note) {
+            this.Adapter.InsertCommand.Parameters[0].Value = ((int)(StudentID));
+            if ((DateOfEntry == null)) {
+                this.Adapter.InsertCommand.Parameters[1].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.InsertCommand.Parameters[1].Value = ((string)(DateOfEntry));
+            }
+            if ((StartTime == null)) {
+                this.Adapter.InsertCommand.Parameters[2].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.InsertCommand.Parameters[2].Value = ((string)(StartTime));
+            }
+            if ((EndTime == null)) {
+                this.Adapter.InsertCommand.Parameters[3].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.InsertCommand.Parameters[3].Value = ((string)(EndTime));
+            }
+            if ((DrugTime == null)) {
+                this.Adapter.InsertCommand.Parameters[4].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.InsertCommand.Parameters[4].Value = ((string)(DrugTime));
+            }
+            if ((Eating == null)) {
+                this.Adapter.InsertCommand.Parameters[5].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.InsertCommand.Parameters[5].Value = ((string)(Eating));
+            }
+            if ((Sleep == null)) {
+                this.Adapter.InsertCommand.Parameters[6].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.InsertCommand.Parameters[6].Value = ((string)(Sleep));
+            }
+            if ((Health == null)) {
+                this.Adapter.InsertCommand.Parameters[7].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.InsertCommand.Parameters[7].Value = ((string)(Health));
+            }
+            if ((Study == null)) {
+                this.Adapter.InsertCommand.Parameters[8].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.InsertCommand.Parameters[8].Value = ((string)(Study));
+            }
+            if ((Note == null)) {
+                this.Adapter.InsertCommand.Parameters[9].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.InsertCommand.Parameters[9].Value = ((string)(Note));
+            }
+            global::System.Data.ConnectionState previousConnectionState = this.Adapter.InsertCommand.Connection.State;
+            if (((this.Adapter.InsertCommand.Connection.State & global::System.Data.ConnectionState.Open) 
+                        != global::System.Data.ConnectionState.Open)) {
+                this.Adapter.InsertCommand.Connection.Open();
+            }
+            try {
+                int returnValue = this.Adapter.InsertCommand.ExecuteNonQuery();
+                return returnValue;
+            }
+            finally {
+                if ((previousConnectionState == global::System.Data.ConnectionState.Closed)) {
+                    this.Adapter.InsertCommand.Connection.Close();
+                }
+            }
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Update, true)]
+        public virtual int Update(
+                    int StudentID, 
+                    string DateOfEntry, 
+                    string StartTime, 
+                    string EndTime, 
+                    string DrugTime, 
+                    string Eating, 
+                    string Sleep, 
+                    string Health, 
+                    string Study, 
+                    string Note, 
+                    int Original_TrackingID, 
+                    int Original_StudentID, 
+                    string Original_DateOfEntry, 
+                    string Original_StartTime, 
+                    string Original_EndTime, 
+                    string Original_DrugTime, 
+                    string Original_Eating, 
+                    string Original_Sleep, 
+                    string Original_Health, 
+                    string Original_Study, 
+                    string Original_Note, 
+                    int TrackingID) {
+            this.Adapter.UpdateCommand.Parameters[0].Value = ((int)(StudentID));
+            if ((DateOfEntry == null)) {
+                this.Adapter.UpdateCommand.Parameters[1].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[1].Value = ((string)(DateOfEntry));
+            }
+            if ((StartTime == null)) {
+                this.Adapter.UpdateCommand.Parameters[2].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[2].Value = ((string)(StartTime));
+            }
+            if ((EndTime == null)) {
+                this.Adapter.UpdateCommand.Parameters[3].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[3].Value = ((string)(EndTime));
+            }
+            if ((DrugTime == null)) {
+                this.Adapter.UpdateCommand.Parameters[4].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[4].Value = ((string)(DrugTime));
+            }
+            if ((Eating == null)) {
+                this.Adapter.UpdateCommand.Parameters[5].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[5].Value = ((string)(Eating));
+            }
+            if ((Sleep == null)) {
+                this.Adapter.UpdateCommand.Parameters[6].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[6].Value = ((string)(Sleep));
+            }
+            if ((Health == null)) {
+                this.Adapter.UpdateCommand.Parameters[7].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[7].Value = ((string)(Health));
+            }
+            if ((Study == null)) {
+                this.Adapter.UpdateCommand.Parameters[8].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[8].Value = ((string)(Study));
+            }
+            if ((Note == null)) {
+                this.Adapter.UpdateCommand.Parameters[9].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[9].Value = ((string)(Note));
+            }
+            this.Adapter.UpdateCommand.Parameters[10].Value = ((int)(Original_TrackingID));
+            this.Adapter.UpdateCommand.Parameters[11].Value = ((int)(Original_StudentID));
+            if ((Original_DateOfEntry == null)) {
+                this.Adapter.UpdateCommand.Parameters[12].Value = ((object)(1));
+                this.Adapter.UpdateCommand.Parameters[13].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[12].Value = ((object)(0));
+                this.Adapter.UpdateCommand.Parameters[13].Value = ((string)(Original_DateOfEntry));
+            }
+            if ((Original_StartTime == null)) {
+                this.Adapter.UpdateCommand.Parameters[14].Value = ((object)(1));
+                this.Adapter.UpdateCommand.Parameters[15].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[14].Value = ((object)(0));
+                this.Adapter.UpdateCommand.Parameters[15].Value = ((string)(Original_StartTime));
+            }
+            if ((Original_EndTime == null)) {
+                this.Adapter.UpdateCommand.Parameters[16].Value = ((object)(1));
+                this.Adapter.UpdateCommand.Parameters[17].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[16].Value = ((object)(0));
+                this.Adapter.UpdateCommand.Parameters[17].Value = ((string)(Original_EndTime));
+            }
+            if ((Original_DrugTime == null)) {
+                this.Adapter.UpdateCommand.Parameters[18].Value = ((object)(1));
+                this.Adapter.UpdateCommand.Parameters[19].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[18].Value = ((object)(0));
+                this.Adapter.UpdateCommand.Parameters[19].Value = ((string)(Original_DrugTime));
+            }
+            if ((Original_Eating == null)) {
+                this.Adapter.UpdateCommand.Parameters[20].Value = ((object)(1));
+                this.Adapter.UpdateCommand.Parameters[21].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[20].Value = ((object)(0));
+                this.Adapter.UpdateCommand.Parameters[21].Value = ((string)(Original_Eating));
+            }
+            if ((Original_Sleep == null)) {
+                this.Adapter.UpdateCommand.Parameters[22].Value = ((object)(1));
+                this.Adapter.UpdateCommand.Parameters[23].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[22].Value = ((object)(0));
+                this.Adapter.UpdateCommand.Parameters[23].Value = ((string)(Original_Sleep));
+            }
+            if ((Original_Health == null)) {
+                this.Adapter.UpdateCommand.Parameters[24].Value = ((object)(1));
+                this.Adapter.UpdateCommand.Parameters[25].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[24].Value = ((object)(0));
+                this.Adapter.UpdateCommand.Parameters[25].Value = ((string)(Original_Health));
+            }
+            if ((Original_Study == null)) {
+                this.Adapter.UpdateCommand.Parameters[26].Value = ((object)(1));
+                this.Adapter.UpdateCommand.Parameters[27].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[26].Value = ((object)(0));
+                this.Adapter.UpdateCommand.Parameters[27].Value = ((string)(Original_Study));
+            }
+            if ((Original_Note == null)) {
+                this.Adapter.UpdateCommand.Parameters[28].Value = ((object)(1));
+                this.Adapter.UpdateCommand.Parameters[29].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[28].Value = ((object)(0));
+                this.Adapter.UpdateCommand.Parameters[29].Value = ((string)(Original_Note));
+            }
+            this.Adapter.UpdateCommand.Parameters[30].Value = ((int)(TrackingID));
+            global::System.Data.ConnectionState previousConnectionState = this.Adapter.UpdateCommand.Connection.State;
+            if (((this.Adapter.UpdateCommand.Connection.State & global::System.Data.ConnectionState.Open) 
+                        != global::System.Data.ConnectionState.Open)) {
+                this.Adapter.UpdateCommand.Connection.Open();
+            }
+            try {
+                int returnValue = this.Adapter.UpdateCommand.ExecuteNonQuery();
+                return returnValue;
+            }
+            finally {
+                if ((previousConnectionState == global::System.Data.ConnectionState.Closed)) {
+                    this.Adapter.UpdateCommand.Connection.Close();
+                }
+            }
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Update, true)]
+        public virtual int Update(
+                    int StudentID, 
+                    string DateOfEntry, 
+                    string StartTime, 
+                    string EndTime, 
+                    string DrugTime, 
+                    string Eating, 
+                    string Sleep, 
+                    string Health, 
+                    string Study, 
+                    string Note, 
+                    int Original_TrackingID, 
+                    int Original_StudentID, 
+                    string Original_DateOfEntry, 
+                    string Original_StartTime, 
+                    string Original_EndTime, 
+                    string Original_DrugTime, 
+                    string Original_Eating, 
+                    string Original_Sleep, 
+                    string Original_Health, 
+                    string Original_Study, 
+                    string Original_Note) {
+            return this.Update(StudentID, DateOfEntry, StartTime, EndTime, DrugTime, Eating, Sleep, Health, Study, Note, Original_TrackingID, Original_StudentID, Original_DateOfEntry, Original_StartTime, Original_EndTime, Original_DrugTime, Original_Eating, Original_Sleep, Original_Health, Original_Study, Original_Note, Original_TrackingID);
         }
     }
     
@@ -46952,8 +47253,6 @@ SELECT WeeklyTaskID, Name, Note, Status FROM WeeklyTask WHERE (WeeklyTaskID = @W
         private DailyMenuTableAdapter _dailyMenuTableAdapter;
         
         private DailyMenuDetailTableAdapter _dailyMenuDetailTableAdapter;
-        
-        private DailyTaskTableAdapter _dailyTaskTableAdapter;
         
         private DegreeTableAdapter _degreeTableAdapter;
         
@@ -47033,7 +47332,9 @@ SELECT WeeklyTaskID, Name, Note, Status FROM WeeklyTask WHERE (WeeklyTaskID = @W
         
         private WeeklyMenuTableAdapter _weeklyMenuTableAdapter;
         
-        private WeeklyTaskTableAdapter _weeklyTaskTableAdapter;
+        private DailyTaskTableAdapter _dailyTaskTableAdapter;
+        
+        private TrackingUpLateTableAdapter _trackingUpLateTableAdapter;
         
         private bool _backupDataSetBeforeUpdate;
         
@@ -47131,20 +47432,6 @@ SELECT WeeklyTaskID, Name, Note, Status FROM WeeklyTask WHERE (WeeklyTaskID = @W
             }
             set {
                 this._dailyMenuDetailTableAdapter = value;
-            }
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-        [global::System.ComponentModel.EditorAttribute("Microsoft.VSDesigner.DataSource.Design.TableAdapterManagerPropertyEditor, Microso" +
-            "ft.VSDesigner, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3" +
-            "a", "System.Drawing.Design.UITypeEditor")]
-        public DailyTaskTableAdapter DailyTaskTableAdapter {
-            get {
-                return this._dailyTaskTableAdapter;
-            }
-            set {
-                this._dailyTaskTableAdapter = value;
             }
         }
         
@@ -47699,12 +47986,26 @@ SELECT WeeklyTaskID, Name, Note, Status FROM WeeklyTask WHERE (WeeklyTaskID = @W
         [global::System.ComponentModel.EditorAttribute("Microsoft.VSDesigner.DataSource.Design.TableAdapterManagerPropertyEditor, Microso" +
             "ft.VSDesigner, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3" +
             "a", "System.Drawing.Design.UITypeEditor")]
-        public WeeklyTaskTableAdapter WeeklyTaskTableAdapter {
+        public DailyTaskTableAdapter DailyTaskTableAdapter {
             get {
-                return this._weeklyTaskTableAdapter;
+                return this._dailyTaskTableAdapter;
             }
             set {
-                this._weeklyTaskTableAdapter = value;
+                this._dailyTaskTableAdapter = value;
+            }
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+        [global::System.ComponentModel.EditorAttribute("Microsoft.VSDesigner.DataSource.Design.TableAdapterManagerPropertyEditor, Microso" +
+            "ft.VSDesigner, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3" +
+            "a", "System.Drawing.Design.UITypeEditor")]
+        public TrackingUpLateTableAdapter TrackingUpLateTableAdapter {
+            get {
+                return this._trackingUpLateTableAdapter;
+            }
+            set {
+                this._trackingUpLateTableAdapter = value;
             }
         }
         
@@ -47750,10 +48051,6 @@ SELECT WeeklyTaskID, Name, Note, Status FROM WeeklyTask WHERE (WeeklyTaskID = @W
                 if (((this._dailyMenuDetailTableAdapter != null) 
                             && (this._dailyMenuDetailTableAdapter.Connection != null))) {
                     return this._dailyMenuDetailTableAdapter.Connection;
-                }
-                if (((this._dailyTaskTableAdapter != null) 
-                            && (this._dailyTaskTableAdapter.Connection != null))) {
-                    return this._dailyTaskTableAdapter.Connection;
                 }
                 if (((this._degreeTableAdapter != null) 
                             && (this._degreeTableAdapter.Connection != null))) {
@@ -47911,9 +48208,13 @@ SELECT WeeklyTaskID, Name, Note, Status FROM WeeklyTask WHERE (WeeklyTaskID = @W
                             && (this._weeklyMenuTableAdapter.Connection != null))) {
                     return this._weeklyMenuTableAdapter.Connection;
                 }
-                if (((this._weeklyTaskTableAdapter != null) 
-                            && (this._weeklyTaskTableAdapter.Connection != null))) {
-                    return this._weeklyTaskTableAdapter.Connection;
+                if (((this._dailyTaskTableAdapter != null) 
+                            && (this._dailyTaskTableAdapter.Connection != null))) {
+                    return this._dailyTaskTableAdapter.Connection;
+                }
+                if (((this._trackingUpLateTableAdapter != null) 
+                            && (this._trackingUpLateTableAdapter.Connection != null))) {
+                    return this._trackingUpLateTableAdapter.Connection;
                 }
                 return null;
             }
@@ -47944,9 +48245,6 @@ SELECT WeeklyTaskID, Name, Note, Status FROM WeeklyTask WHERE (WeeklyTaskID = @W
                     count = (count + 1);
                 }
                 if ((this._dailyMenuDetailTableAdapter != null)) {
-                    count = (count + 1);
-                }
-                if ((this._dailyTaskTableAdapter != null)) {
                     count = (count + 1);
                 }
                 if ((this._degreeTableAdapter != null)) {
@@ -48066,7 +48364,10 @@ SELECT WeeklyTaskID, Name, Note, Status FROM WeeklyTask WHERE (WeeklyTaskID = @W
                 if ((this._weeklyMenuTableAdapter != null)) {
                     count = (count + 1);
                 }
-                if ((this._weeklyTaskTableAdapter != null)) {
+                if ((this._dailyTaskTableAdapter != null)) {
+                    count = (count + 1);
+                }
+                if ((this._trackingUpLateTableAdapter != null)) {
                     count = (count + 1);
                 }
                 return count;
@@ -48134,12 +48435,12 @@ SELECT WeeklyTaskID, Name, Note, Status FROM WeeklyTask WHERE (WeeklyTaskID = @W
                     allChangedRows.AddRange(updatedRows);
                 }
             }
-            if ((this._ingredientTypeTableAdapter != null)) {
-                global::System.Data.DataRow[] updatedRows = dataSet.IngredientType.Select(null, null, global::System.Data.DataViewRowState.ModifiedCurrent);
+            if ((this._locationTableAdapter != null)) {
+                global::System.Data.DataRow[] updatedRows = dataSet.Location.Select(null, null, global::System.Data.DataViewRowState.ModifiedCurrent);
                 updatedRows = this.GetRealUpdatedRows(updatedRows, allAddedRows);
                 if (((updatedRows != null) 
                             && (0 < updatedRows.Length))) {
-                    result = (result + this._ingredientTypeTableAdapter.Update(updatedRows));
+                    result = (result + this._locationTableAdapter.Update(updatedRows));
                     allChangedRows.AddRange(updatedRows);
                 }
             }
@@ -48152,21 +48453,21 @@ SELECT WeeklyTaskID, Name, Note, Status FROM WeeklyTask WHERE (WeeklyTaskID = @W
                     allChangedRows.AddRange(updatedRows);
                 }
             }
-            if ((this._locationTableAdapter != null)) {
-                global::System.Data.DataRow[] updatedRows = dataSet.Location.Select(null, null, global::System.Data.DataViewRowState.ModifiedCurrent);
+            if ((this._receivableTableAdapter != null)) {
+                global::System.Data.DataRow[] updatedRows = dataSet.Receivable.Select(null, null, global::System.Data.DataViewRowState.ModifiedCurrent);
                 updatedRows = this.GetRealUpdatedRows(updatedRows, allAddedRows);
                 if (((updatedRows != null) 
                             && (0 < updatedRows.Length))) {
-                    result = (result + this._locationTableAdapter.Update(updatedRows));
+                    result = (result + this._receivableTableAdapter.Update(updatedRows));
                     allChangedRows.AddRange(updatedRows);
                 }
             }
-            if ((this._weeklyMenuTableAdapter != null)) {
-                global::System.Data.DataRow[] updatedRows = dataSet.WeeklyMenu.Select(null, null, global::System.Data.DataViewRowState.ModifiedCurrent);
+            if ((this._ingredientTypeTableAdapter != null)) {
+                global::System.Data.DataRow[] updatedRows = dataSet.IngredientType.Select(null, null, global::System.Data.DataViewRowState.ModifiedCurrent);
                 updatedRows = this.GetRealUpdatedRows(updatedRows, allAddedRows);
                 if (((updatedRows != null) 
                             && (0 < updatedRows.Length))) {
-                    result = (result + this._weeklyMenuTableAdapter.Update(updatedRows));
+                    result = (result + this._ingredientTypeTableAdapter.Update(updatedRows));
                     allChangedRows.AddRange(updatedRows);
                 }
             }
@@ -48179,15 +48480,6 @@ SELECT WeeklyTaskID, Name, Note, Status FROM WeeklyTask WHERE (WeeklyTaskID = @W
                     allChangedRows.AddRange(updatedRows);
                 }
             }
-            if ((this._religionTableAdapter != null)) {
-                global::System.Data.DataRow[] updatedRows = dataSet.Religion.Select(null, null, global::System.Data.DataViewRowState.ModifiedCurrent);
-                updatedRows = this.GetRealUpdatedRows(updatedRows, allAddedRows);
-                if (((updatedRows != null) 
-                            && (0 < updatedRows.Length))) {
-                    result = (result + this._religionTableAdapter.Update(updatedRows));
-                    allChangedRows.AddRange(updatedRows);
-                }
-            }
             if ((this._topicTableAdapter != null)) {
                 global::System.Data.DataRow[] updatedRows = dataSet.Topic.Select(null, null, global::System.Data.DataViewRowState.ModifiedCurrent);
                 updatedRows = this.GetRealUpdatedRows(updatedRows, allAddedRows);
@@ -48197,30 +48489,30 @@ SELECT WeeklyTaskID, Name, Note, Status FROM WeeklyTask WHERE (WeeklyTaskID = @W
                     allChangedRows.AddRange(updatedRows);
                 }
             }
-            if ((this._receivableTableAdapter != null)) {
-                global::System.Data.DataRow[] updatedRows = dataSet.Receivable.Select(null, null, global::System.Data.DataViewRowState.ModifiedCurrent);
+            if ((this._weeklyMenuTableAdapter != null)) {
+                global::System.Data.DataRow[] updatedRows = dataSet.WeeklyMenu.Select(null, null, global::System.Data.DataViewRowState.ModifiedCurrent);
                 updatedRows = this.GetRealUpdatedRows(updatedRows, allAddedRows);
                 if (((updatedRows != null) 
                             && (0 < updatedRows.Length))) {
-                    result = (result + this._receivableTableAdapter.Update(updatedRows));
+                    result = (result + this._weeklyMenuTableAdapter.Update(updatedRows));
                     allChangedRows.AddRange(updatedRows);
                 }
             }
-            if ((this._ingredientTableAdapter != null)) {
-                global::System.Data.DataRow[] updatedRows = dataSet.Ingredient.Select(null, null, global::System.Data.DataViewRowState.ModifiedCurrent);
+            if ((this._religionTableAdapter != null)) {
+                global::System.Data.DataRow[] updatedRows = dataSet.Religion.Select(null, null, global::System.Data.DataViewRowState.ModifiedCurrent);
                 updatedRows = this.GetRealUpdatedRows(updatedRows, allAddedRows);
                 if (((updatedRows != null) 
                             && (0 < updatedRows.Length))) {
-                    result = (result + this._ingredientTableAdapter.Update(updatedRows));
+                    result = (result + this._religionTableAdapter.Update(updatedRows));
                     allChangedRows.AddRange(updatedRows);
                 }
             }
-            if ((this._physicalMonthlyTaskTableAdapter != null)) {
-                global::System.Data.DataRow[] updatedRows = dataSet.PhysicalMonthlyTask.Select(null, null, global::System.Data.DataViewRowState.ModifiedCurrent);
+            if ((this._positionTableAdapter != null)) {
+                global::System.Data.DataRow[] updatedRows = dataSet.Position.Select(null, null, global::System.Data.DataViewRowState.ModifiedCurrent);
                 updatedRows = this.GetRealUpdatedRows(updatedRows, allAddedRows);
                 if (((updatedRows != null) 
                             && (0 < updatedRows.Length))) {
-                    result = (result + this._physicalMonthlyTaskTableAdapter.Update(updatedRows));
+                    result = (result + this._positionTableAdapter.Update(updatedRows));
                     allChangedRows.AddRange(updatedRows);
                 }
             }
@@ -48242,12 +48534,12 @@ SELECT WeeklyTaskID, Name, Note, Status FROM WeeklyTask WHERE (WeeklyTaskID = @W
                     allChangedRows.AddRange(updatedRows);
                 }
             }
-            if ((this._receivableDetailTableAdapter != null)) {
-                global::System.Data.DataRow[] updatedRows = dataSet.ReceivableDetail.Select(null, null, global::System.Data.DataViewRowState.ModifiedCurrent);
+            if ((this._studentTableAdapter != null)) {
+                global::System.Data.DataRow[] updatedRows = dataSet.Student.Select(null, null, global::System.Data.DataViewRowState.ModifiedCurrent);
                 updatedRows = this.GetRealUpdatedRows(updatedRows, allAddedRows);
                 if (((updatedRows != null) 
                             && (0 < updatedRows.Length))) {
-                    result = (result + this._receivableDetailTableAdapter.Update(updatedRows));
+                    result = (result + this._studentTableAdapter.Update(updatedRows));
                     allChangedRows.AddRange(updatedRows);
                 }
             }
@@ -48260,39 +48552,21 @@ SELECT WeeklyTaskID, Name, Note, Status FROM WeeklyTask WHERE (WeeklyTaskID = @W
                     allChangedRows.AddRange(updatedRows);
                 }
             }
-            if ((this._studentTableAdapter != null)) {
-                global::System.Data.DataRow[] updatedRows = dataSet.Student.Select(null, null, global::System.Data.DataViewRowState.ModifiedCurrent);
+            if ((this._receivableDetailTableAdapter != null)) {
+                global::System.Data.DataRow[] updatedRows = dataSet.ReceivableDetail.Select(null, null, global::System.Data.DataViewRowState.ModifiedCurrent);
                 updatedRows = this.GetRealUpdatedRows(updatedRows, allAddedRows);
                 if (((updatedRows != null) 
                             && (0 < updatedRows.Length))) {
-                    result = (result + this._studentTableAdapter.Update(updatedRows));
+                    result = (result + this._receivableDetailTableAdapter.Update(updatedRows));
                     allChangedRows.AddRange(updatedRows);
                 }
             }
-            if ((this._positionTableAdapter != null)) {
-                global::System.Data.DataRow[] updatedRows = dataSet.Position.Select(null, null, global::System.Data.DataViewRowState.ModifiedCurrent);
+            if ((this._ingredientTableAdapter != null)) {
+                global::System.Data.DataRow[] updatedRows = dataSet.Ingredient.Select(null, null, global::System.Data.DataViewRowState.ModifiedCurrent);
                 updatedRows = this.GetRealUpdatedRows(updatedRows, allAddedRows);
                 if (((updatedRows != null) 
                             && (0 < updatedRows.Length))) {
-                    result = (result + this._positionTableAdapter.Update(updatedRows));
-                    allChangedRows.AddRange(updatedRows);
-                }
-            }
-            if ((this._weeklyTaskTableAdapter != null)) {
-                global::System.Data.DataRow[] updatedRows = dataSet.WeeklyTask.Select(null, null, global::System.Data.DataViewRowState.ModifiedCurrent);
-                updatedRows = this.GetRealUpdatedRows(updatedRows, allAddedRows);
-                if (((updatedRows != null) 
-                            && (0 < updatedRows.Length))) {
-                    result = (result + this._weeklyTaskTableAdapter.Update(updatedRows));
-                    allChangedRows.AddRange(updatedRows);
-                }
-            }
-            if ((this._dishTableAdapter != null)) {
-                global::System.Data.DataRow[] updatedRows = dataSet.Dish.Select(null, null, global::System.Data.DataViewRowState.ModifiedCurrent);
-                updatedRows = this.GetRealUpdatedRows(updatedRows, allAddedRows);
-                if (((updatedRows != null) 
-                            && (0 < updatedRows.Length))) {
-                    result = (result + this._dishTableAdapter.Update(updatedRows));
+                    result = (result + this._ingredientTableAdapter.Update(updatedRows));
                     allChangedRows.AddRange(updatedRows);
                 }
             }
@@ -48314,15 +48588,6 @@ SELECT WeeklyTaskID, Name, Note, Status FROM WeeklyTask WHERE (WeeklyTaskID = @W
                     allChangedRows.AddRange(updatedRows);
                 }
             }
-            if ((this._employeeTableAdapter != null)) {
-                global::System.Data.DataRow[] updatedRows = dataSet.Employee.Select(null, null, global::System.Data.DataViewRowState.ModifiedCurrent);
-                updatedRows = this.GetRealUpdatedRows(updatedRows, allAddedRows);
-                if (((updatedRows != null) 
-                            && (0 < updatedRows.Length))) {
-                    result = (result + this._employeeTableAdapter.Update(updatedRows));
-                    allChangedRows.AddRange(updatedRows);
-                }
-            }
             if ((this._dailyMenuTableAdapter != null)) {
                 global::System.Data.DataRow[] updatedRows = dataSet.DailyMenu.Select(null, null, global::System.Data.DataViewRowState.ModifiedCurrent);
                 updatedRows = this.GetRealUpdatedRows(updatedRows, allAddedRows);
@@ -48332,12 +48597,39 @@ SELECT WeeklyTaskID, Name, Note, Status FROM WeeklyTask WHERE (WeeklyTaskID = @W
                     allChangedRows.AddRange(updatedRows);
                 }
             }
+            if ((this._employeeTableAdapter != null)) {
+                global::System.Data.DataRow[] updatedRows = dataSet.Employee.Select(null, null, global::System.Data.DataViewRowState.ModifiedCurrent);
+                updatedRows = this.GetRealUpdatedRows(updatedRows, allAddedRows);
+                if (((updatedRows != null) 
+                            && (0 < updatedRows.Length))) {
+                    result = (result + this._employeeTableAdapter.Update(updatedRows));
+                    allChangedRows.AddRange(updatedRows);
+                }
+            }
             if ((this._departmentTableAdapter != null)) {
                 global::System.Data.DataRow[] updatedRows = dataSet.Department.Select(null, null, global::System.Data.DataViewRowState.ModifiedCurrent);
                 updatedRows = this.GetRealUpdatedRows(updatedRows, allAddedRows);
                 if (((updatedRows != null) 
                             && (0 < updatedRows.Length))) {
                     result = (result + this._departmentTableAdapter.Update(updatedRows));
+                    allChangedRows.AddRange(updatedRows);
+                }
+            }
+            if ((this._dishTableAdapter != null)) {
+                global::System.Data.DataRow[] updatedRows = dataSet.Dish.Select(null, null, global::System.Data.DataViewRowState.ModifiedCurrent);
+                updatedRows = this.GetRealUpdatedRows(updatedRows, allAddedRows);
+                if (((updatedRows != null) 
+                            && (0 < updatedRows.Length))) {
+                    result = (result + this._dishTableAdapter.Update(updatedRows));
+                    allChangedRows.AddRange(updatedRows);
+                }
+            }
+            if ((this._healthProblemTableAdapter != null)) {
+                global::System.Data.DataRow[] updatedRows = dataSet.HealthProblem.Select(null, null, global::System.Data.DataViewRowState.ModifiedCurrent);
+                updatedRows = this.GetRealUpdatedRows(updatedRows, allAddedRows);
+                if (((updatedRows != null) 
+                            && (0 < updatedRows.Length))) {
+                    result = (result + this._healthProblemTableAdapter.Update(updatedRows));
                     allChangedRows.AddRange(updatedRows);
                 }
             }
@@ -48395,12 +48687,21 @@ SELECT WeeklyTaskID, Name, Note, Status FROM WeeklyTask WHERE (WeeklyTaskID = @W
                     allChangedRows.AddRange(updatedRows);
                 }
             }
-            if ((this._dailyTaskTableAdapter != null)) {
-                global::System.Data.DataRow[] updatedRows = dataSet.DailyTask.Select(null, null, global::System.Data.DataViewRowState.ModifiedCurrent);
+            if ((this._receivableDetail_StudentTableAdapter != null)) {
+                global::System.Data.DataRow[] updatedRows = dataSet.ReceivableDetail_Student.Select(null, null, global::System.Data.DataViewRowState.ModifiedCurrent);
                 updatedRows = this.GetRealUpdatedRows(updatedRows, allAddedRows);
                 if (((updatedRows != null) 
                             && (0 < updatedRows.Length))) {
-                    result = (result + this._dailyTaskTableAdapter.Update(updatedRows));
+                    result = (result + this._receivableDetail_StudentTableAdapter.Update(updatedRows));
+                    allChangedRows.AddRange(updatedRows);
+                }
+            }
+            if ((this._divisionTableAdapter != null)) {
+                global::System.Data.DataRow[] updatedRows = dataSet.Division.Select(null, null, global::System.Data.DataViewRowState.ModifiedCurrent);
+                updatedRows = this.GetRealUpdatedRows(updatedRows, allAddedRows);
+                if (((updatedRows != null) 
+                            && (0 < updatedRows.Length))) {
+                    result = (result + this._divisionTableAdapter.Update(updatedRows));
                     allChangedRows.AddRange(updatedRows);
                 }
             }
@@ -48413,15 +48714,6 @@ SELECT WeeklyTaskID, Name, Note, Status FROM WeeklyTask WHERE (WeeklyTaskID = @W
                     allChangedRows.AddRange(updatedRows);
                 }
             }
-            if ((this._healthProblemTableAdapter != null)) {
-                global::System.Data.DataRow[] updatedRows = dataSet.HealthProblem.Select(null, null, global::System.Data.DataViewRowState.ModifiedCurrent);
-                updatedRows = this.GetRealUpdatedRows(updatedRows, allAddedRows);
-                if (((updatedRows != null) 
-                            && (0 < updatedRows.Length))) {
-                    result = (result + this._healthProblemTableAdapter.Update(updatedRows));
-                    allChangedRows.AddRange(updatedRows);
-                }
-            }
             if ((this._preferredTableAdapter != null)) {
                 global::System.Data.DataRow[] updatedRows = dataSet.Preferred.Select(null, null, global::System.Data.DataViewRowState.ModifiedCurrent);
                 updatedRows = this.GetRealUpdatedRows(updatedRows, allAddedRows);
@@ -48431,21 +48723,12 @@ SELECT WeeklyTaskID, Name, Note, Status FROM WeeklyTask WHERE (WeeklyTaskID = @W
                     allChangedRows.AddRange(updatedRows);
                 }
             }
-            if ((this._dishDetailTableAdapter != null)) {
-                global::System.Data.DataRow[] updatedRows = dataSet.DishDetail.Select(null, null, global::System.Data.DataViewRowState.ModifiedCurrent);
+            if ((this._physicalMonthlyTaskTableAdapter != null)) {
+                global::System.Data.DataRow[] updatedRows = dataSet.PhysicalMonthlyTask.Select(null, null, global::System.Data.DataViewRowState.ModifiedCurrent);
                 updatedRows = this.GetRealUpdatedRows(updatedRows, allAddedRows);
                 if (((updatedRows != null) 
                             && (0 < updatedRows.Length))) {
-                    result = (result + this._dishDetailTableAdapter.Update(updatedRows));
-                    allChangedRows.AddRange(updatedRows);
-                }
-            }
-            if ((this._divisionTableAdapter != null)) {
-                global::System.Data.DataRow[] updatedRows = dataSet.Division.Select(null, null, global::System.Data.DataViewRowState.ModifiedCurrent);
-                updatedRows = this.GetRealUpdatedRows(updatedRows, allAddedRows);
-                if (((updatedRows != null) 
-                            && (0 < updatedRows.Length))) {
-                    result = (result + this._divisionTableAdapter.Update(updatedRows));
+                    result = (result + this._physicalMonthlyTaskTableAdapter.Update(updatedRows));
                     allChangedRows.AddRange(updatedRows);
                 }
             }
@@ -48485,12 +48768,12 @@ SELECT WeeklyTaskID, Name, Note, Status FROM WeeklyTask WHERE (WeeklyTaskID = @W
                     allChangedRows.AddRange(updatedRows);
                 }
             }
-            if ((this._receivableDetail_StudentTableAdapter != null)) {
-                global::System.Data.DataRow[] updatedRows = dataSet.ReceivableDetail_Student.Select(null, null, global::System.Data.DataViewRowState.ModifiedCurrent);
+            if ((this._dailyTaskTableAdapter != null)) {
+                global::System.Data.DataRow[] updatedRows = dataSet.DailyTask.Select(null, null, global::System.Data.DataViewRowState.ModifiedCurrent);
                 updatedRows = this.GetRealUpdatedRows(updatedRows, allAddedRows);
                 if (((updatedRows != null) 
                             && (0 < updatedRows.Length))) {
-                    result = (result + this._receivableDetail_StudentTableAdapter.Update(updatedRows));
+                    result = (result + this._dailyTaskTableAdapter.Update(updatedRows));
                     allChangedRows.AddRange(updatedRows);
                 }
             }
@@ -48500,6 +48783,24 @@ SELECT WeeklyTaskID, Name, Note, Status FROM WeeklyTask WHERE (WeeklyTaskID = @W
                 if (((updatedRows != null) 
                             && (0 < updatedRows.Length))) {
                     result = (result + this._historyTableAdapter.Update(updatedRows));
+                    allChangedRows.AddRange(updatedRows);
+                }
+            }
+            if ((this._dishDetailTableAdapter != null)) {
+                global::System.Data.DataRow[] updatedRows = dataSet.DishDetail.Select(null, null, global::System.Data.DataViewRowState.ModifiedCurrent);
+                updatedRows = this.GetRealUpdatedRows(updatedRows, allAddedRows);
+                if (((updatedRows != null) 
+                            && (0 < updatedRows.Length))) {
+                    result = (result + this._dishDetailTableAdapter.Update(updatedRows));
+                    allChangedRows.AddRange(updatedRows);
+                }
+            }
+            if ((this._trackingUpLateTableAdapter != null)) {
+                global::System.Data.DataRow[] updatedRows = dataSet.TrackingUpLate.Select(null, null, global::System.Data.DataViewRowState.ModifiedCurrent);
+                updatedRows = this.GetRealUpdatedRows(updatedRows, allAddedRows);
+                if (((updatedRows != null) 
+                            && (0 < updatedRows.Length))) {
+                    result = (result + this._trackingUpLateTableAdapter.Update(updatedRows));
                     allChangedRows.AddRange(updatedRows);
                 }
             }
@@ -48561,11 +48862,11 @@ SELECT WeeklyTaskID, Name, Note, Status FROM WeeklyTask WHERE (WeeklyTaskID = @W
                     allAddedRows.AddRange(addedRows);
                 }
             }
-            if ((this._ingredientTypeTableAdapter != null)) {
-                global::System.Data.DataRow[] addedRows = dataSet.IngredientType.Select(null, null, global::System.Data.DataViewRowState.Added);
+            if ((this._locationTableAdapter != null)) {
+                global::System.Data.DataRow[] addedRows = dataSet.Location.Select(null, null, global::System.Data.DataViewRowState.Added);
                 if (((addedRows != null) 
                             && (0 < addedRows.Length))) {
-                    result = (result + this._ingredientTypeTableAdapter.Update(addedRows));
+                    result = (result + this._locationTableAdapter.Update(addedRows));
                     allAddedRows.AddRange(addedRows);
                 }
             }
@@ -48577,19 +48878,19 @@ SELECT WeeklyTaskID, Name, Note, Status FROM WeeklyTask WHERE (WeeklyTaskID = @W
                     allAddedRows.AddRange(addedRows);
                 }
             }
-            if ((this._locationTableAdapter != null)) {
-                global::System.Data.DataRow[] addedRows = dataSet.Location.Select(null, null, global::System.Data.DataViewRowState.Added);
+            if ((this._receivableTableAdapter != null)) {
+                global::System.Data.DataRow[] addedRows = dataSet.Receivable.Select(null, null, global::System.Data.DataViewRowState.Added);
                 if (((addedRows != null) 
                             && (0 < addedRows.Length))) {
-                    result = (result + this._locationTableAdapter.Update(addedRows));
+                    result = (result + this._receivableTableAdapter.Update(addedRows));
                     allAddedRows.AddRange(addedRows);
                 }
             }
-            if ((this._weeklyMenuTableAdapter != null)) {
-                global::System.Data.DataRow[] addedRows = dataSet.WeeklyMenu.Select(null, null, global::System.Data.DataViewRowState.Added);
+            if ((this._ingredientTypeTableAdapter != null)) {
+                global::System.Data.DataRow[] addedRows = dataSet.IngredientType.Select(null, null, global::System.Data.DataViewRowState.Added);
                 if (((addedRows != null) 
                             && (0 < addedRows.Length))) {
-                    result = (result + this._weeklyMenuTableAdapter.Update(addedRows));
+                    result = (result + this._ingredientTypeTableAdapter.Update(addedRows));
                     allAddedRows.AddRange(addedRows);
                 }
             }
@@ -48601,14 +48902,6 @@ SELECT WeeklyTaskID, Name, Note, Status FROM WeeklyTask WHERE (WeeklyTaskID = @W
                     allAddedRows.AddRange(addedRows);
                 }
             }
-            if ((this._religionTableAdapter != null)) {
-                global::System.Data.DataRow[] addedRows = dataSet.Religion.Select(null, null, global::System.Data.DataViewRowState.Added);
-                if (((addedRows != null) 
-                            && (0 < addedRows.Length))) {
-                    result = (result + this._religionTableAdapter.Update(addedRows));
-                    allAddedRows.AddRange(addedRows);
-                }
-            }
             if ((this._topicTableAdapter != null)) {
                 global::System.Data.DataRow[] addedRows = dataSet.Topic.Select(null, null, global::System.Data.DataViewRowState.Added);
                 if (((addedRows != null) 
@@ -48617,27 +48910,27 @@ SELECT WeeklyTaskID, Name, Note, Status FROM WeeklyTask WHERE (WeeklyTaskID = @W
                     allAddedRows.AddRange(addedRows);
                 }
             }
-            if ((this._receivableTableAdapter != null)) {
-                global::System.Data.DataRow[] addedRows = dataSet.Receivable.Select(null, null, global::System.Data.DataViewRowState.Added);
+            if ((this._weeklyMenuTableAdapter != null)) {
+                global::System.Data.DataRow[] addedRows = dataSet.WeeklyMenu.Select(null, null, global::System.Data.DataViewRowState.Added);
                 if (((addedRows != null) 
                             && (0 < addedRows.Length))) {
-                    result = (result + this._receivableTableAdapter.Update(addedRows));
+                    result = (result + this._weeklyMenuTableAdapter.Update(addedRows));
                     allAddedRows.AddRange(addedRows);
                 }
             }
-            if ((this._ingredientTableAdapter != null)) {
-                global::System.Data.DataRow[] addedRows = dataSet.Ingredient.Select(null, null, global::System.Data.DataViewRowState.Added);
+            if ((this._religionTableAdapter != null)) {
+                global::System.Data.DataRow[] addedRows = dataSet.Religion.Select(null, null, global::System.Data.DataViewRowState.Added);
                 if (((addedRows != null) 
                             && (0 < addedRows.Length))) {
-                    result = (result + this._ingredientTableAdapter.Update(addedRows));
+                    result = (result + this._religionTableAdapter.Update(addedRows));
                     allAddedRows.AddRange(addedRows);
                 }
             }
-            if ((this._physicalMonthlyTaskTableAdapter != null)) {
-                global::System.Data.DataRow[] addedRows = dataSet.PhysicalMonthlyTask.Select(null, null, global::System.Data.DataViewRowState.Added);
+            if ((this._positionTableAdapter != null)) {
+                global::System.Data.DataRow[] addedRows = dataSet.Position.Select(null, null, global::System.Data.DataViewRowState.Added);
                 if (((addedRows != null) 
                             && (0 < addedRows.Length))) {
-                    result = (result + this._physicalMonthlyTaskTableAdapter.Update(addedRows));
+                    result = (result + this._positionTableAdapter.Update(addedRows));
                     allAddedRows.AddRange(addedRows);
                 }
             }
@@ -48657,11 +48950,11 @@ SELECT WeeklyTaskID, Name, Note, Status FROM WeeklyTask WHERE (WeeklyTaskID = @W
                     allAddedRows.AddRange(addedRows);
                 }
             }
-            if ((this._receivableDetailTableAdapter != null)) {
-                global::System.Data.DataRow[] addedRows = dataSet.ReceivableDetail.Select(null, null, global::System.Data.DataViewRowState.Added);
+            if ((this._studentTableAdapter != null)) {
+                global::System.Data.DataRow[] addedRows = dataSet.Student.Select(null, null, global::System.Data.DataViewRowState.Added);
                 if (((addedRows != null) 
                             && (0 < addedRows.Length))) {
-                    result = (result + this._receivableDetailTableAdapter.Update(addedRows));
+                    result = (result + this._studentTableAdapter.Update(addedRows));
                     allAddedRows.AddRange(addedRows);
                 }
             }
@@ -48673,35 +48966,19 @@ SELECT WeeklyTaskID, Name, Note, Status FROM WeeklyTask WHERE (WeeklyTaskID = @W
                     allAddedRows.AddRange(addedRows);
                 }
             }
-            if ((this._studentTableAdapter != null)) {
-                global::System.Data.DataRow[] addedRows = dataSet.Student.Select(null, null, global::System.Data.DataViewRowState.Added);
+            if ((this._receivableDetailTableAdapter != null)) {
+                global::System.Data.DataRow[] addedRows = dataSet.ReceivableDetail.Select(null, null, global::System.Data.DataViewRowState.Added);
                 if (((addedRows != null) 
                             && (0 < addedRows.Length))) {
-                    result = (result + this._studentTableAdapter.Update(addedRows));
+                    result = (result + this._receivableDetailTableAdapter.Update(addedRows));
                     allAddedRows.AddRange(addedRows);
                 }
             }
-            if ((this._positionTableAdapter != null)) {
-                global::System.Data.DataRow[] addedRows = dataSet.Position.Select(null, null, global::System.Data.DataViewRowState.Added);
+            if ((this._ingredientTableAdapter != null)) {
+                global::System.Data.DataRow[] addedRows = dataSet.Ingredient.Select(null, null, global::System.Data.DataViewRowState.Added);
                 if (((addedRows != null) 
                             && (0 < addedRows.Length))) {
-                    result = (result + this._positionTableAdapter.Update(addedRows));
-                    allAddedRows.AddRange(addedRows);
-                }
-            }
-            if ((this._weeklyTaskTableAdapter != null)) {
-                global::System.Data.DataRow[] addedRows = dataSet.WeeklyTask.Select(null, null, global::System.Data.DataViewRowState.Added);
-                if (((addedRows != null) 
-                            && (0 < addedRows.Length))) {
-                    result = (result + this._weeklyTaskTableAdapter.Update(addedRows));
-                    allAddedRows.AddRange(addedRows);
-                }
-            }
-            if ((this._dishTableAdapter != null)) {
-                global::System.Data.DataRow[] addedRows = dataSet.Dish.Select(null, null, global::System.Data.DataViewRowState.Added);
-                if (((addedRows != null) 
-                            && (0 < addedRows.Length))) {
-                    result = (result + this._dishTableAdapter.Update(addedRows));
+                    result = (result + this._ingredientTableAdapter.Update(addedRows));
                     allAddedRows.AddRange(addedRows);
                 }
             }
@@ -48721,14 +48998,6 @@ SELECT WeeklyTaskID, Name, Note, Status FROM WeeklyTask WHERE (WeeklyTaskID = @W
                     allAddedRows.AddRange(addedRows);
                 }
             }
-            if ((this._employeeTableAdapter != null)) {
-                global::System.Data.DataRow[] addedRows = dataSet.Employee.Select(null, null, global::System.Data.DataViewRowState.Added);
-                if (((addedRows != null) 
-                            && (0 < addedRows.Length))) {
-                    result = (result + this._employeeTableAdapter.Update(addedRows));
-                    allAddedRows.AddRange(addedRows);
-                }
-            }
             if ((this._dailyMenuTableAdapter != null)) {
                 global::System.Data.DataRow[] addedRows = dataSet.DailyMenu.Select(null, null, global::System.Data.DataViewRowState.Added);
                 if (((addedRows != null) 
@@ -48737,11 +49006,35 @@ SELECT WeeklyTaskID, Name, Note, Status FROM WeeklyTask WHERE (WeeklyTaskID = @W
                     allAddedRows.AddRange(addedRows);
                 }
             }
+            if ((this._employeeTableAdapter != null)) {
+                global::System.Data.DataRow[] addedRows = dataSet.Employee.Select(null, null, global::System.Data.DataViewRowState.Added);
+                if (((addedRows != null) 
+                            && (0 < addedRows.Length))) {
+                    result = (result + this._employeeTableAdapter.Update(addedRows));
+                    allAddedRows.AddRange(addedRows);
+                }
+            }
             if ((this._departmentTableAdapter != null)) {
                 global::System.Data.DataRow[] addedRows = dataSet.Department.Select(null, null, global::System.Data.DataViewRowState.Added);
                 if (((addedRows != null) 
                             && (0 < addedRows.Length))) {
                     result = (result + this._departmentTableAdapter.Update(addedRows));
+                    allAddedRows.AddRange(addedRows);
+                }
+            }
+            if ((this._dishTableAdapter != null)) {
+                global::System.Data.DataRow[] addedRows = dataSet.Dish.Select(null, null, global::System.Data.DataViewRowState.Added);
+                if (((addedRows != null) 
+                            && (0 < addedRows.Length))) {
+                    result = (result + this._dishTableAdapter.Update(addedRows));
+                    allAddedRows.AddRange(addedRows);
+                }
+            }
+            if ((this._healthProblemTableAdapter != null)) {
+                global::System.Data.DataRow[] addedRows = dataSet.HealthProblem.Select(null, null, global::System.Data.DataViewRowState.Added);
+                if (((addedRows != null) 
+                            && (0 < addedRows.Length))) {
+                    result = (result + this._healthProblemTableAdapter.Update(addedRows));
                     allAddedRows.AddRange(addedRows);
                 }
             }
@@ -48793,11 +49086,19 @@ SELECT WeeklyTaskID, Name, Note, Status FROM WeeklyTask WHERE (WeeklyTaskID = @W
                     allAddedRows.AddRange(addedRows);
                 }
             }
-            if ((this._dailyTaskTableAdapter != null)) {
-                global::System.Data.DataRow[] addedRows = dataSet.DailyTask.Select(null, null, global::System.Data.DataViewRowState.Added);
+            if ((this._receivableDetail_StudentTableAdapter != null)) {
+                global::System.Data.DataRow[] addedRows = dataSet.ReceivableDetail_Student.Select(null, null, global::System.Data.DataViewRowState.Added);
                 if (((addedRows != null) 
                             && (0 < addedRows.Length))) {
-                    result = (result + this._dailyTaskTableAdapter.Update(addedRows));
+                    result = (result + this._receivableDetail_StudentTableAdapter.Update(addedRows));
+                    allAddedRows.AddRange(addedRows);
+                }
+            }
+            if ((this._divisionTableAdapter != null)) {
+                global::System.Data.DataRow[] addedRows = dataSet.Division.Select(null, null, global::System.Data.DataViewRowState.Added);
+                if (((addedRows != null) 
+                            && (0 < addedRows.Length))) {
+                    result = (result + this._divisionTableAdapter.Update(addedRows));
                     allAddedRows.AddRange(addedRows);
                 }
             }
@@ -48809,14 +49110,6 @@ SELECT WeeklyTaskID, Name, Note, Status FROM WeeklyTask WHERE (WeeklyTaskID = @W
                     allAddedRows.AddRange(addedRows);
                 }
             }
-            if ((this._healthProblemTableAdapter != null)) {
-                global::System.Data.DataRow[] addedRows = dataSet.HealthProblem.Select(null, null, global::System.Data.DataViewRowState.Added);
-                if (((addedRows != null) 
-                            && (0 < addedRows.Length))) {
-                    result = (result + this._healthProblemTableAdapter.Update(addedRows));
-                    allAddedRows.AddRange(addedRows);
-                }
-            }
             if ((this._preferredTableAdapter != null)) {
                 global::System.Data.DataRow[] addedRows = dataSet.Preferred.Select(null, null, global::System.Data.DataViewRowState.Added);
                 if (((addedRows != null) 
@@ -48825,19 +49118,11 @@ SELECT WeeklyTaskID, Name, Note, Status FROM WeeklyTask WHERE (WeeklyTaskID = @W
                     allAddedRows.AddRange(addedRows);
                 }
             }
-            if ((this._dishDetailTableAdapter != null)) {
-                global::System.Data.DataRow[] addedRows = dataSet.DishDetail.Select(null, null, global::System.Data.DataViewRowState.Added);
+            if ((this._physicalMonthlyTaskTableAdapter != null)) {
+                global::System.Data.DataRow[] addedRows = dataSet.PhysicalMonthlyTask.Select(null, null, global::System.Data.DataViewRowState.Added);
                 if (((addedRows != null) 
                             && (0 < addedRows.Length))) {
-                    result = (result + this._dishDetailTableAdapter.Update(addedRows));
-                    allAddedRows.AddRange(addedRows);
-                }
-            }
-            if ((this._divisionTableAdapter != null)) {
-                global::System.Data.DataRow[] addedRows = dataSet.Division.Select(null, null, global::System.Data.DataViewRowState.Added);
-                if (((addedRows != null) 
-                            && (0 < addedRows.Length))) {
-                    result = (result + this._divisionTableAdapter.Update(addedRows));
+                    result = (result + this._physicalMonthlyTaskTableAdapter.Update(addedRows));
                     allAddedRows.AddRange(addedRows);
                 }
             }
@@ -48873,11 +49158,11 @@ SELECT WeeklyTaskID, Name, Note, Status FROM WeeklyTask WHERE (WeeklyTaskID = @W
                     allAddedRows.AddRange(addedRows);
                 }
             }
-            if ((this._receivableDetail_StudentTableAdapter != null)) {
-                global::System.Data.DataRow[] addedRows = dataSet.ReceivableDetail_Student.Select(null, null, global::System.Data.DataViewRowState.Added);
+            if ((this._dailyTaskTableAdapter != null)) {
+                global::System.Data.DataRow[] addedRows = dataSet.DailyTask.Select(null, null, global::System.Data.DataViewRowState.Added);
                 if (((addedRows != null) 
                             && (0 < addedRows.Length))) {
-                    result = (result + this._receivableDetail_StudentTableAdapter.Update(addedRows));
+                    result = (result + this._dailyTaskTableAdapter.Update(addedRows));
                     allAddedRows.AddRange(addedRows);
                 }
             }
@@ -48886,6 +49171,22 @@ SELECT WeeklyTaskID, Name, Note, Status FROM WeeklyTask WHERE (WeeklyTaskID = @W
                 if (((addedRows != null) 
                             && (0 < addedRows.Length))) {
                     result = (result + this._historyTableAdapter.Update(addedRows));
+                    allAddedRows.AddRange(addedRows);
+                }
+            }
+            if ((this._dishDetailTableAdapter != null)) {
+                global::System.Data.DataRow[] addedRows = dataSet.DishDetail.Select(null, null, global::System.Data.DataViewRowState.Added);
+                if (((addedRows != null) 
+                            && (0 < addedRows.Length))) {
+                    result = (result + this._dishDetailTableAdapter.Update(addedRows));
+                    allAddedRows.AddRange(addedRows);
+                }
+            }
+            if ((this._trackingUpLateTableAdapter != null)) {
+                global::System.Data.DataRow[] addedRows = dataSet.TrackingUpLate.Select(null, null, global::System.Data.DataViewRowState.Added);
+                if (((addedRows != null) 
+                            && (0 < addedRows.Length))) {
+                    result = (result + this._trackingUpLateTableAdapter.Update(addedRows));
                     allAddedRows.AddRange(addedRows);
                 }
             }
@@ -48899,6 +49200,22 @@ SELECT WeeklyTaskID, Name, Note, Status FROM WeeklyTask WHERE (WeeklyTaskID = @W
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
         private int UpdateDeletedRows(CPITQLHSBanTru2018DataSet dataSet, global::System.Collections.Generic.List<global::System.Data.DataRow> allChangedRows) {
             int result = 0;
+            if ((this._trackingUpLateTableAdapter != null)) {
+                global::System.Data.DataRow[] deletedRows = dataSet.TrackingUpLate.Select(null, null, global::System.Data.DataViewRowState.Deleted);
+                if (((deletedRows != null) 
+                            && (0 < deletedRows.Length))) {
+                    result = (result + this._trackingUpLateTableAdapter.Update(deletedRows));
+                    allChangedRows.AddRange(deletedRows);
+                }
+            }
+            if ((this._dishDetailTableAdapter != null)) {
+                global::System.Data.DataRow[] deletedRows = dataSet.DishDetail.Select(null, null, global::System.Data.DataViewRowState.Deleted);
+                if (((deletedRows != null) 
+                            && (0 < deletedRows.Length))) {
+                    result = (result + this._dishDetailTableAdapter.Update(deletedRows));
+                    allChangedRows.AddRange(deletedRows);
+                }
+            }
             if ((this._historyTableAdapter != null)) {
                 global::System.Data.DataRow[] deletedRows = dataSet.History.Select(null, null, global::System.Data.DataViewRowState.Deleted);
                 if (((deletedRows != null) 
@@ -48907,11 +49224,11 @@ SELECT WeeklyTaskID, Name, Note, Status FROM WeeklyTask WHERE (WeeklyTaskID = @W
                     allChangedRows.AddRange(deletedRows);
                 }
             }
-            if ((this._receivableDetail_StudentTableAdapter != null)) {
-                global::System.Data.DataRow[] deletedRows = dataSet.ReceivableDetail_Student.Select(null, null, global::System.Data.DataViewRowState.Deleted);
+            if ((this._dailyTaskTableAdapter != null)) {
+                global::System.Data.DataRow[] deletedRows = dataSet.DailyTask.Select(null, null, global::System.Data.DataViewRowState.Deleted);
                 if (((deletedRows != null) 
                             && (0 < deletedRows.Length))) {
-                    result = (result + this._receivableDetail_StudentTableAdapter.Update(deletedRows));
+                    result = (result + this._dailyTaskTableAdapter.Update(deletedRows));
                     allChangedRows.AddRange(deletedRows);
                 }
             }
@@ -48947,19 +49264,11 @@ SELECT WeeklyTaskID, Name, Note, Status FROM WeeklyTask WHERE (WeeklyTaskID = @W
                     allChangedRows.AddRange(deletedRows);
                 }
             }
-            if ((this._divisionTableAdapter != null)) {
-                global::System.Data.DataRow[] deletedRows = dataSet.Division.Select(null, null, global::System.Data.DataViewRowState.Deleted);
+            if ((this._physicalMonthlyTaskTableAdapter != null)) {
+                global::System.Data.DataRow[] deletedRows = dataSet.PhysicalMonthlyTask.Select(null, null, global::System.Data.DataViewRowState.Deleted);
                 if (((deletedRows != null) 
                             && (0 < deletedRows.Length))) {
-                    result = (result + this._divisionTableAdapter.Update(deletedRows));
-                    allChangedRows.AddRange(deletedRows);
-                }
-            }
-            if ((this._dishDetailTableAdapter != null)) {
-                global::System.Data.DataRow[] deletedRows = dataSet.DishDetail.Select(null, null, global::System.Data.DataViewRowState.Deleted);
-                if (((deletedRows != null) 
-                            && (0 < deletedRows.Length))) {
-                    result = (result + this._dishDetailTableAdapter.Update(deletedRows));
+                    result = (result + this._physicalMonthlyTaskTableAdapter.Update(deletedRows));
                     allChangedRows.AddRange(deletedRows);
                 }
             }
@@ -48971,14 +49280,6 @@ SELECT WeeklyTaskID, Name, Note, Status FROM WeeklyTask WHERE (WeeklyTaskID = @W
                     allChangedRows.AddRange(deletedRows);
                 }
             }
-            if ((this._healthProblemTableAdapter != null)) {
-                global::System.Data.DataRow[] deletedRows = dataSet.HealthProblem.Select(null, null, global::System.Data.DataViewRowState.Deleted);
-                if (((deletedRows != null) 
-                            && (0 < deletedRows.Length))) {
-                    result = (result + this._healthProblemTableAdapter.Update(deletedRows));
-                    allChangedRows.AddRange(deletedRows);
-                }
-            }
             if ((this._healthExaminationDetailTableAdapter != null)) {
                 global::System.Data.DataRow[] deletedRows = dataSet.HealthExaminationDetail.Select(null, null, global::System.Data.DataViewRowState.Deleted);
                 if (((deletedRows != null) 
@@ -48987,11 +49288,19 @@ SELECT WeeklyTaskID, Name, Note, Status FROM WeeklyTask WHERE (WeeklyTaskID = @W
                     allChangedRows.AddRange(deletedRows);
                 }
             }
-            if ((this._dailyTaskTableAdapter != null)) {
-                global::System.Data.DataRow[] deletedRows = dataSet.DailyTask.Select(null, null, global::System.Data.DataViewRowState.Deleted);
+            if ((this._divisionTableAdapter != null)) {
+                global::System.Data.DataRow[] deletedRows = dataSet.Division.Select(null, null, global::System.Data.DataViewRowState.Deleted);
                 if (((deletedRows != null) 
                             && (0 < deletedRows.Length))) {
-                    result = (result + this._dailyTaskTableAdapter.Update(deletedRows));
+                    result = (result + this._divisionTableAdapter.Update(deletedRows));
+                    allChangedRows.AddRange(deletedRows);
+                }
+            }
+            if ((this._receivableDetail_StudentTableAdapter != null)) {
+                global::System.Data.DataRow[] deletedRows = dataSet.ReceivableDetail_Student.Select(null, null, global::System.Data.DataViewRowState.Deleted);
+                if (((deletedRows != null) 
+                            && (0 < deletedRows.Length))) {
+                    result = (result + this._receivableDetail_StudentTableAdapter.Update(deletedRows));
                     allChangedRows.AddRange(deletedRows);
                 }
             }
@@ -49043,6 +49352,22 @@ SELECT WeeklyTaskID, Name, Note, Status FROM WeeklyTask WHERE (WeeklyTaskID = @W
                     allChangedRows.AddRange(deletedRows);
                 }
             }
+            if ((this._healthProblemTableAdapter != null)) {
+                global::System.Data.DataRow[] deletedRows = dataSet.HealthProblem.Select(null, null, global::System.Data.DataViewRowState.Deleted);
+                if (((deletedRows != null) 
+                            && (0 < deletedRows.Length))) {
+                    result = (result + this._healthProblemTableAdapter.Update(deletedRows));
+                    allChangedRows.AddRange(deletedRows);
+                }
+            }
+            if ((this._dishTableAdapter != null)) {
+                global::System.Data.DataRow[] deletedRows = dataSet.Dish.Select(null, null, global::System.Data.DataViewRowState.Deleted);
+                if (((deletedRows != null) 
+                            && (0 < deletedRows.Length))) {
+                    result = (result + this._dishTableAdapter.Update(deletedRows));
+                    allChangedRows.AddRange(deletedRows);
+                }
+            }
             if ((this._departmentTableAdapter != null)) {
                 global::System.Data.DataRow[] deletedRows = dataSet.Department.Select(null, null, global::System.Data.DataViewRowState.Deleted);
                 if (((deletedRows != null) 
@@ -49051,19 +49376,19 @@ SELECT WeeklyTaskID, Name, Note, Status FROM WeeklyTask WHERE (WeeklyTaskID = @W
                     allChangedRows.AddRange(deletedRows);
                 }
             }
-            if ((this._dailyMenuTableAdapter != null)) {
-                global::System.Data.DataRow[] deletedRows = dataSet.DailyMenu.Select(null, null, global::System.Data.DataViewRowState.Deleted);
-                if (((deletedRows != null) 
-                            && (0 < deletedRows.Length))) {
-                    result = (result + this._dailyMenuTableAdapter.Update(deletedRows));
-                    allChangedRows.AddRange(deletedRows);
-                }
-            }
             if ((this._employeeTableAdapter != null)) {
                 global::System.Data.DataRow[] deletedRows = dataSet.Employee.Select(null, null, global::System.Data.DataViewRowState.Deleted);
                 if (((deletedRows != null) 
                             && (0 < deletedRows.Length))) {
                     result = (result + this._employeeTableAdapter.Update(deletedRows));
+                    allChangedRows.AddRange(deletedRows);
+                }
+            }
+            if ((this._dailyMenuTableAdapter != null)) {
+                global::System.Data.DataRow[] deletedRows = dataSet.DailyMenu.Select(null, null, global::System.Data.DataViewRowState.Deleted);
+                if (((deletedRows != null) 
+                            && (0 < deletedRows.Length))) {
+                    result = (result + this._dailyMenuTableAdapter.Update(deletedRows));
                     allChangedRows.AddRange(deletedRows);
                 }
             }
@@ -49083,35 +49408,19 @@ SELECT WeeklyTaskID, Name, Note, Status FROM WeeklyTask WHERE (WeeklyTaskID = @W
                     allChangedRows.AddRange(deletedRows);
                 }
             }
-            if ((this._dishTableAdapter != null)) {
-                global::System.Data.DataRow[] deletedRows = dataSet.Dish.Select(null, null, global::System.Data.DataViewRowState.Deleted);
+            if ((this._ingredientTableAdapter != null)) {
+                global::System.Data.DataRow[] deletedRows = dataSet.Ingredient.Select(null, null, global::System.Data.DataViewRowState.Deleted);
                 if (((deletedRows != null) 
                             && (0 < deletedRows.Length))) {
-                    result = (result + this._dishTableAdapter.Update(deletedRows));
+                    result = (result + this._ingredientTableAdapter.Update(deletedRows));
                     allChangedRows.AddRange(deletedRows);
                 }
             }
-            if ((this._weeklyTaskTableAdapter != null)) {
-                global::System.Data.DataRow[] deletedRows = dataSet.WeeklyTask.Select(null, null, global::System.Data.DataViewRowState.Deleted);
+            if ((this._receivableDetailTableAdapter != null)) {
+                global::System.Data.DataRow[] deletedRows = dataSet.ReceivableDetail.Select(null, null, global::System.Data.DataViewRowState.Deleted);
                 if (((deletedRows != null) 
                             && (0 < deletedRows.Length))) {
-                    result = (result + this._weeklyTaskTableAdapter.Update(deletedRows));
-                    allChangedRows.AddRange(deletedRows);
-                }
-            }
-            if ((this._positionTableAdapter != null)) {
-                global::System.Data.DataRow[] deletedRows = dataSet.Position.Select(null, null, global::System.Data.DataViewRowState.Deleted);
-                if (((deletedRows != null) 
-                            && (0 < deletedRows.Length))) {
-                    result = (result + this._positionTableAdapter.Update(deletedRows));
-                    allChangedRows.AddRange(deletedRows);
-                }
-            }
-            if ((this._studentTableAdapter != null)) {
-                global::System.Data.DataRow[] deletedRows = dataSet.Student.Select(null, null, global::System.Data.DataViewRowState.Deleted);
-                if (((deletedRows != null) 
-                            && (0 < deletedRows.Length))) {
-                    result = (result + this._studentTableAdapter.Update(deletedRows));
+                    result = (result + this._receivableDetailTableAdapter.Update(deletedRows));
                     allChangedRows.AddRange(deletedRows);
                 }
             }
@@ -49123,11 +49432,11 @@ SELECT WeeklyTaskID, Name, Note, Status FROM WeeklyTask WHERE (WeeklyTaskID = @W
                     allChangedRows.AddRange(deletedRows);
                 }
             }
-            if ((this._receivableDetailTableAdapter != null)) {
-                global::System.Data.DataRow[] deletedRows = dataSet.ReceivableDetail.Select(null, null, global::System.Data.DataViewRowState.Deleted);
+            if ((this._studentTableAdapter != null)) {
+                global::System.Data.DataRow[] deletedRows = dataSet.Student.Select(null, null, global::System.Data.DataViewRowState.Deleted);
                 if (((deletedRows != null) 
                             && (0 < deletedRows.Length))) {
-                    result = (result + this._receivableDetailTableAdapter.Update(deletedRows));
+                    result = (result + this._studentTableAdapter.Update(deletedRows));
                     allChangedRows.AddRange(deletedRows);
                 }
             }
@@ -49147,35 +49456,11 @@ SELECT WeeklyTaskID, Name, Note, Status FROM WeeklyTask WHERE (WeeklyTaskID = @W
                     allChangedRows.AddRange(deletedRows);
                 }
             }
-            if ((this._physicalMonthlyTaskTableAdapter != null)) {
-                global::System.Data.DataRow[] deletedRows = dataSet.PhysicalMonthlyTask.Select(null, null, global::System.Data.DataViewRowState.Deleted);
+            if ((this._positionTableAdapter != null)) {
+                global::System.Data.DataRow[] deletedRows = dataSet.Position.Select(null, null, global::System.Data.DataViewRowState.Deleted);
                 if (((deletedRows != null) 
                             && (0 < deletedRows.Length))) {
-                    result = (result + this._physicalMonthlyTaskTableAdapter.Update(deletedRows));
-                    allChangedRows.AddRange(deletedRows);
-                }
-            }
-            if ((this._ingredientTableAdapter != null)) {
-                global::System.Data.DataRow[] deletedRows = dataSet.Ingredient.Select(null, null, global::System.Data.DataViewRowState.Deleted);
-                if (((deletedRows != null) 
-                            && (0 < deletedRows.Length))) {
-                    result = (result + this._ingredientTableAdapter.Update(deletedRows));
-                    allChangedRows.AddRange(deletedRows);
-                }
-            }
-            if ((this._receivableTableAdapter != null)) {
-                global::System.Data.DataRow[] deletedRows = dataSet.Receivable.Select(null, null, global::System.Data.DataViewRowState.Deleted);
-                if (((deletedRows != null) 
-                            && (0 < deletedRows.Length))) {
-                    result = (result + this._receivableTableAdapter.Update(deletedRows));
-                    allChangedRows.AddRange(deletedRows);
-                }
-            }
-            if ((this._topicTableAdapter != null)) {
-                global::System.Data.DataRow[] deletedRows = dataSet.Topic.Select(null, null, global::System.Data.DataViewRowState.Deleted);
-                if (((deletedRows != null) 
-                            && (0 < deletedRows.Length))) {
-                    result = (result + this._topicTableAdapter.Update(deletedRows));
+                    result = (result + this._positionTableAdapter.Update(deletedRows));
                     allChangedRows.AddRange(deletedRows);
                 }
             }
@@ -49187,14 +49472,6 @@ SELECT WeeklyTaskID, Name, Note, Status FROM WeeklyTask WHERE (WeeklyTaskID = @W
                     allChangedRows.AddRange(deletedRows);
                 }
             }
-            if ((this._degreeTableAdapter != null)) {
-                global::System.Data.DataRow[] deletedRows = dataSet.Degree.Select(null, null, global::System.Data.DataViewRowState.Deleted);
-                if (((deletedRows != null) 
-                            && (0 < deletedRows.Length))) {
-                    result = (result + this._degreeTableAdapter.Update(deletedRows));
-                    allChangedRows.AddRange(deletedRows);
-                }
-            }
             if ((this._weeklyMenuTableAdapter != null)) {
                 global::System.Data.DataRow[] deletedRows = dataSet.WeeklyMenu.Select(null, null, global::System.Data.DataViewRowState.Deleted);
                 if (((deletedRows != null) 
@@ -49203,11 +49480,35 @@ SELECT WeeklyTaskID, Name, Note, Status FROM WeeklyTask WHERE (WeeklyTaskID = @W
                     allChangedRows.AddRange(deletedRows);
                 }
             }
-            if ((this._locationTableAdapter != null)) {
-                global::System.Data.DataRow[] deletedRows = dataSet.Location.Select(null, null, global::System.Data.DataViewRowState.Deleted);
+            if ((this._topicTableAdapter != null)) {
+                global::System.Data.DataRow[] deletedRows = dataSet.Topic.Select(null, null, global::System.Data.DataViewRowState.Deleted);
                 if (((deletedRows != null) 
                             && (0 < deletedRows.Length))) {
-                    result = (result + this._locationTableAdapter.Update(deletedRows));
+                    result = (result + this._topicTableAdapter.Update(deletedRows));
+                    allChangedRows.AddRange(deletedRows);
+                }
+            }
+            if ((this._degreeTableAdapter != null)) {
+                global::System.Data.DataRow[] deletedRows = dataSet.Degree.Select(null, null, global::System.Data.DataViewRowState.Deleted);
+                if (((deletedRows != null) 
+                            && (0 < deletedRows.Length))) {
+                    result = (result + this._degreeTableAdapter.Update(deletedRows));
+                    allChangedRows.AddRange(deletedRows);
+                }
+            }
+            if ((this._ingredientTypeTableAdapter != null)) {
+                global::System.Data.DataRow[] deletedRows = dataSet.IngredientType.Select(null, null, global::System.Data.DataViewRowState.Deleted);
+                if (((deletedRows != null) 
+                            && (0 < deletedRows.Length))) {
+                    result = (result + this._ingredientTypeTableAdapter.Update(deletedRows));
+                    allChangedRows.AddRange(deletedRows);
+                }
+            }
+            if ((this._receivableTableAdapter != null)) {
+                global::System.Data.DataRow[] deletedRows = dataSet.Receivable.Select(null, null, global::System.Data.DataViewRowState.Deleted);
+                if (((deletedRows != null) 
+                            && (0 < deletedRows.Length))) {
+                    result = (result + this._receivableTableAdapter.Update(deletedRows));
                     allChangedRows.AddRange(deletedRows);
                 }
             }
@@ -49219,11 +49520,11 @@ SELECT WeeklyTaskID, Name, Note, Status FROM WeeklyTask WHERE (WeeklyTaskID = @W
                     allChangedRows.AddRange(deletedRows);
                 }
             }
-            if ((this._ingredientTypeTableAdapter != null)) {
-                global::System.Data.DataRow[] deletedRows = dataSet.IngredientType.Select(null, null, global::System.Data.DataViewRowState.Deleted);
+            if ((this._locationTableAdapter != null)) {
+                global::System.Data.DataRow[] deletedRows = dataSet.Location.Select(null, null, global::System.Data.DataViewRowState.Deleted);
                 if (((deletedRows != null) 
                             && (0 < deletedRows.Length))) {
-                    result = (result + this._ingredientTypeTableAdapter.Update(deletedRows));
+                    result = (result + this._locationTableAdapter.Update(deletedRows));
                     allChangedRows.AddRange(deletedRows);
                 }
             }
@@ -49341,11 +49642,6 @@ SELECT WeeklyTaskID, Name, Note, Status FROM WeeklyTask WHERE (WeeklyTaskID = @W
             }
             if (((this._dailyMenuDetailTableAdapter != null) 
                         && (this.MatchTableAdapterConnection(this._dailyMenuDetailTableAdapter.Connection) == false))) {
-                throw new global::System.ArgumentException("All TableAdapters managed by a TableAdapterManager must use the same connection s" +
-                        "tring.");
-            }
-            if (((this._dailyTaskTableAdapter != null) 
-                        && (this.MatchTableAdapterConnection(this._dailyTaskTableAdapter.Connection) == false))) {
                 throw new global::System.ArgumentException("All TableAdapters managed by a TableAdapterManager must use the same connection s" +
                         "tring.");
             }
@@ -49544,8 +49840,13 @@ SELECT WeeklyTaskID, Name, Note, Status FROM WeeklyTask WHERE (WeeklyTaskID = @W
                 throw new global::System.ArgumentException("All TableAdapters managed by a TableAdapterManager must use the same connection s" +
                         "tring.");
             }
-            if (((this._weeklyTaskTableAdapter != null) 
-                        && (this.MatchTableAdapterConnection(this._weeklyTaskTableAdapter.Connection) == false))) {
+            if (((this._dailyTaskTableAdapter != null) 
+                        && (this.MatchTableAdapterConnection(this._dailyTaskTableAdapter.Connection) == false))) {
+                throw new global::System.ArgumentException("All TableAdapters managed by a TableAdapterManager must use the same connection s" +
+                        "tring.");
+            }
+            if (((this._trackingUpLateTableAdapter != null) 
+                        && (this.MatchTableAdapterConnection(this._trackingUpLateTableAdapter.Connection) == false))) {
                 throw new global::System.ArgumentException("All TableAdapters managed by a TableAdapterManager must use the same connection s" +
                         "tring.");
             }
@@ -49633,15 +49934,6 @@ SELECT WeeklyTaskID, Name, Note, Status FROM WeeklyTask WHERE (WeeklyTaskID = @W
                     if (this._dailyMenuDetailTableAdapter.Adapter.AcceptChangesDuringUpdate) {
                         this._dailyMenuDetailTableAdapter.Adapter.AcceptChangesDuringUpdate = false;
                         adaptersWithAcceptChangesDuringUpdate.Add(this._dailyMenuDetailTableAdapter.Adapter);
-                    }
-                }
-                if ((this._dailyTaskTableAdapter != null)) {
-                    revertConnections.Add(this._dailyTaskTableAdapter, this._dailyTaskTableAdapter.Connection);
-                    this._dailyTaskTableAdapter.Connection = ((global::System.Data.SqlClient.SqlConnection)(workConnection));
-                    this._dailyTaskTableAdapter.Transaction = ((global::System.Data.SqlClient.SqlTransaction)(workTransaction));
-                    if (this._dailyTaskTableAdapter.Adapter.AcceptChangesDuringUpdate) {
-                        this._dailyTaskTableAdapter.Adapter.AcceptChangesDuringUpdate = false;
-                        adaptersWithAcceptChangesDuringUpdate.Add(this._dailyTaskTableAdapter.Adapter);
                     }
                 }
                 if ((this._degreeTableAdapter != null)) {
@@ -49995,13 +50287,22 @@ SELECT WeeklyTaskID, Name, Note, Status FROM WeeklyTask WHERE (WeeklyTaskID = @W
                         adaptersWithAcceptChangesDuringUpdate.Add(this._weeklyMenuTableAdapter.Adapter);
                     }
                 }
-                if ((this._weeklyTaskTableAdapter != null)) {
-                    revertConnections.Add(this._weeklyTaskTableAdapter, this._weeklyTaskTableAdapter.Connection);
-                    this._weeklyTaskTableAdapter.Connection = ((global::System.Data.SqlClient.SqlConnection)(workConnection));
-                    this._weeklyTaskTableAdapter.Transaction = ((global::System.Data.SqlClient.SqlTransaction)(workTransaction));
-                    if (this._weeklyTaskTableAdapter.Adapter.AcceptChangesDuringUpdate) {
-                        this._weeklyTaskTableAdapter.Adapter.AcceptChangesDuringUpdate = false;
-                        adaptersWithAcceptChangesDuringUpdate.Add(this._weeklyTaskTableAdapter.Adapter);
+                if ((this._dailyTaskTableAdapter != null)) {
+                    revertConnections.Add(this._dailyTaskTableAdapter, this._dailyTaskTableAdapter.Connection);
+                    this._dailyTaskTableAdapter.Connection = ((global::System.Data.SqlClient.SqlConnection)(workConnection));
+                    this._dailyTaskTableAdapter.Transaction = ((global::System.Data.SqlClient.SqlTransaction)(workTransaction));
+                    if (this._dailyTaskTableAdapter.Adapter.AcceptChangesDuringUpdate) {
+                        this._dailyTaskTableAdapter.Adapter.AcceptChangesDuringUpdate = false;
+                        adaptersWithAcceptChangesDuringUpdate.Add(this._dailyTaskTableAdapter.Adapter);
+                    }
+                }
+                if ((this._trackingUpLateTableAdapter != null)) {
+                    revertConnections.Add(this._trackingUpLateTableAdapter, this._trackingUpLateTableAdapter.Connection);
+                    this._trackingUpLateTableAdapter.Connection = ((global::System.Data.SqlClient.SqlConnection)(workConnection));
+                    this._trackingUpLateTableAdapter.Transaction = ((global::System.Data.SqlClient.SqlTransaction)(workTransaction));
+                    if (this._trackingUpLateTableAdapter.Adapter.AcceptChangesDuringUpdate) {
+                        this._trackingUpLateTableAdapter.Adapter.AcceptChangesDuringUpdate = false;
+                        adaptersWithAcceptChangesDuringUpdate.Add(this._trackingUpLateTableAdapter.Adapter);
                     }
                 }
                 // 
@@ -50085,10 +50386,6 @@ SELECT WeeklyTaskID, Name, Note, Status FROM WeeklyTask WHERE (WeeklyTaskID = @W
                 if ((this._dailyMenuDetailTableAdapter != null)) {
                     this._dailyMenuDetailTableAdapter.Connection = ((global::System.Data.SqlClient.SqlConnection)(revertConnections[this._dailyMenuDetailTableAdapter]));
                     this._dailyMenuDetailTableAdapter.Transaction = null;
-                }
-                if ((this._dailyTaskTableAdapter != null)) {
-                    this._dailyTaskTableAdapter.Connection = ((global::System.Data.SqlClient.SqlConnection)(revertConnections[this._dailyTaskTableAdapter]));
-                    this._dailyTaskTableAdapter.Transaction = null;
                 }
                 if ((this._degreeTableAdapter != null)) {
                     this._degreeTableAdapter.Connection = ((global::System.Data.SqlClient.SqlConnection)(revertConnections[this._degreeTableAdapter]));
@@ -50246,9 +50543,13 @@ SELECT WeeklyTaskID, Name, Note, Status FROM WeeklyTask WHERE (WeeklyTaskID = @W
                     this._weeklyMenuTableAdapter.Connection = ((global::System.Data.SqlClient.SqlConnection)(revertConnections[this._weeklyMenuTableAdapter]));
                     this._weeklyMenuTableAdapter.Transaction = null;
                 }
-                if ((this._weeklyTaskTableAdapter != null)) {
-                    this._weeklyTaskTableAdapter.Connection = ((global::System.Data.SqlClient.SqlConnection)(revertConnections[this._weeklyTaskTableAdapter]));
-                    this._weeklyTaskTableAdapter.Transaction = null;
+                if ((this._dailyTaskTableAdapter != null)) {
+                    this._dailyTaskTableAdapter.Connection = ((global::System.Data.SqlClient.SqlConnection)(revertConnections[this._dailyTaskTableAdapter]));
+                    this._dailyTaskTableAdapter.Transaction = null;
+                }
+                if ((this._trackingUpLateTableAdapter != null)) {
+                    this._trackingUpLateTableAdapter.Connection = ((global::System.Data.SqlClient.SqlConnection)(revertConnections[this._trackingUpLateTableAdapter]));
+                    this._trackingUpLateTableAdapter.Transaction = null;
                 }
                 if ((0 < adaptersWithAcceptChangesDuringUpdate.Count)) {
                     global::System.Data.Common.DataAdapter[] adapters = new System.Data.Common.DataAdapter[adaptersWithAcceptChangesDuringUpdate.Count];

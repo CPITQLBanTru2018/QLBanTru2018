@@ -11,6 +11,8 @@
       <Association Name="Grade_Class" Member="Grade" ThisKey="GradeID" OtherKey="GradeID" Type="Grade" IsForeignKey="true" />
     </Type>
   </Table>
+<<<<<<< HEAD
+=======
   <Table Name="dbo.WeeklyTask" Member="WeeklyTasks">
     <Type Name="WeeklyTask">
       <Column Name="WeeklyTaskID" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
@@ -25,6 +27,7 @@
       <Association Name="Student_WeeklyTask" Member="Student" ThisKey="StudentID" OtherKey="StudentID" Type="Student" IsForeignKey="true" />
     </Type>
   </Table>
+>>>>>>> 4cec8ea2f9a4271cc83276a295e5be679bc61287
   <Table Name="dbo.Contract" Member="Contracts">
     <Type Name="Contract">
       <Column Name="ContractID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
@@ -90,6 +93,8 @@
       <Association Name="Dish_DailyMenuDetail" Member="Dish" ThisKey="DishID" OtherKey="DishID" Type="Dish" IsForeignKey="true" />
     </Type>
   </Table>
+<<<<<<< HEAD
+=======
   <Table Name="dbo.DailyTask" Member="DailyTasks">
     <Type Name="DailyTask">
       <Column Name="DailyTaskID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
@@ -107,6 +112,7 @@
       <Association Name="Student_DailyTask" Member="Student" ThisKey="StudentID" OtherKey="StudentID" Type="Student" IsForeignKey="true" />
     </Type>
   </Table>
+>>>>>>> 4cec8ea2f9a4271cc83276a295e5be679bc61287
   <Table Name="dbo.Degree" Member="Degrees">
     <Type Name="Degree">
       <Column Name="DegreeID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
@@ -448,18 +454,6 @@
       <Association Name="Meal_Dish" Member="Dishes" ThisKey="MealID" OtherKey="MealID" Type="Dish" />
     </Type>
   </Table>
-  <Table Name="dbo.[Order]" Member="Orders">
-    <Type Name="Order">
-      <Column Name="OrderID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
-      <Column Name="OrderName" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
-      <Column Name="Date" Type="System.DateTime" DbType="DateTime NOT NULL" CanBeNull="false" />
-      <Column Name="EmployeeID1" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
-      <Column Name="EmployeeID2" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
-      <Column Name="EmployeeID3" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
-      <Column Name="Status" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
-      <Association Name="Order_OrderDetail" Member="OrderDetails" ThisKey="OrderID" OtherKey="OrderID" Type="OrderDetail" />
-    </Type>
-  </Table>
   <Table Name="dbo.OrderDetail" Member="OrderDetails">
     <Type Name="OrderDetail">
       <Column Name="OrderID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
@@ -473,6 +467,8 @@
       <Association Name="Order_OrderDetail" Member="Order" ThisKey="OrderID" OtherKey="OrderID" Type="Order" IsForeignKey="true" />
     </Type>
   </Table>
+<<<<<<< HEAD
+=======
   <Table Name="dbo.PhysicalAssessment" Member="PhysicalAssessments">
     <Type Name="PhysicalAssessment">
       <Column Name="PhysicalAssessmentID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
@@ -511,6 +507,7 @@
       <Column Name="Status" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
     </Type>
   </Table>
+>>>>>>> 4cec8ea2f9a4271cc83276a295e5be679bc61287
   <Table Name="dbo.Position" Member="Positions">
     <Type Name="Position">
       <Column Name="PositionID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
@@ -623,7 +620,6 @@
       <Column Name="Status" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
       <Association Name="Student_WeeklyTask" Member="WeeklyTasks" ThisKey="StudentID" OtherKey="StudentID" Type="WeeklyTask" />
       <Association Name="Student_CourseTask" Member="CourseTasks" ThisKey="StudentID" OtherKey="StudentID" Type="CourseTask" />
-      <Association Name="Student_DailyTask" Member="DailyTasks" ThisKey="StudentID" OtherKey="StudentID" Type="DailyTask" />
       <Association Name="Student_HealthExaminationDetail" Member="HealthExaminationDetails" ThisKey="StudentID" OtherKey="StudentID" Type="HealthExaminationDetail" />
       <Association Name="Student_HealthProblem" Member="HealthProblems" ThisKey="StudentID" OtherKey="StudentID" Type="HealthProblem" />
       <Association Name="Student_PhysicalAssessmentDetail" Member="PhysicalAssessmentDetails" ThisKey="StudentID" OtherKey="StudentID" Type="PhysicalAssessmentDetail" />
@@ -632,7 +628,12 @@
       <Association Name="Student_Student_Lesson" Member="Student_Lessons" ThisKey="StudentID" OtherKey="StudentID" Type="Student_Lesson" />
       <Association Name="Student_StudentParent" Member="StudentParents" ThisKey="StudentID" OtherKey="StudentID" Type="StudentParent" />
       <Association Name="Student_TrackingUpLate" Member="TrackingUpLates" ThisKey="StudentID" OtherKey="StudentID" Type="TrackingUpLate" />
+<<<<<<< HEAD
+      <Association Name="Student_WeeklyTask" Member="WeeklyTasks" ThisKey="StudentID" OtherKey="StudentID" Type="WeeklyTask" />
+      <Association Name="Student_DailyTask" Member="DailyTasks" ThisKey="StudentID" OtherKey="StudentID" Type="DailyTask" />
+=======
       <Association Name="Preferred_Student" Member="Preferred" ThisKey="PreferredID" OtherKey="PreferredID" Type="Preferred" IsForeignKey="true" />
+>>>>>>> 4cec8ea2f9a4271cc83276a295e5be679bc61287
     </Type>
   </Table>
   <Table Name="dbo.Student_Class" Member="Student_Classes">
@@ -719,6 +720,190 @@
       <Association Name="WeeklyMenu_DailyMenu" Member="DailyMenus" ThisKey="WeeklyMenuID" OtherKey="WeeklyMenuID" Type="DailyMenu" />
     </Type>
   </Table>
+<<<<<<< HEAD
+  <Table Name="dbo.TrackingUpLate" Member="TrackingUpLates">
+    <Type Name="TrackingUpLate">
+      <Column Name="TrackingID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="StudentID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="DateOfEntry" Type="System.String" DbType="NChar(10)" CanBeNull="true" />
+      <Column Name="StartTime" Type="System.String" DbType="NChar(10)" CanBeNull="true" />
+      <Column Name="EndTime" Type="System.String" DbType="NChar(10)" CanBeNull="true" />
+      <Column Name="DrugTime" Type="System.String" DbType="NChar(20)" CanBeNull="true" />
+      <Column Name="Eating" Type="System.String" DbType="NVarChar(200)" CanBeNull="true" />
+      <Column Name="Sleep" Type="System.String" DbType="NVarChar(200)" CanBeNull="true" />
+      <Column Name="Health" Type="System.String" DbType="NVarChar(200)" CanBeNull="true" />
+      <Column Name="Study" Type="System.String" DbType="NVarChar(200)" CanBeNull="true" />
+      <Column Name="Note" Type="System.String" DbType="NVarChar(200)" CanBeNull="true" />
+      <Association Name="Student_TrackingUpLate" Member="Student" ThisKey="StudentID" OtherKey="StudentID" Type="Student" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.WeeklyTask" Member="WeeklyTasks">
+    <Type Name="WeeklyTask">
+      <Column Name="WeeklyTaskID" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="MonthlyTaskID" Type="System.String" DbType="NChar(20) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="StudentID" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="Eating" Type="System.String" DbType="NVarChar(200)" CanBeNull="true" />
+      <Column Name="Sleep" Type="System.String" DbType="NVarChar(200)" CanBeNull="true" />
+      <Column Name="Health" Type="System.String" DbType="NVarChar(200)" CanBeNull="true" />
+      <Column Name="Study" Type="System.String" DbType="NVarChar(200)" CanBeNull="true" />
+      <Column Name="Comment" Type="System.String" DbType="NVarChar(200)" CanBeNull="true" />
+      <Column Name="Pages" Type="System.String" DbType="NChar(10)" CanBeNull="true" />
+      <Association Name="Student_WeeklyTask" Member="Student" ThisKey="StudentID" OtherKey="StudentID" Type="Student" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.DailyTask" Member="DailyTasks">
+    <Type Name="DailyTask">
+      <Column Name="DailyTaskID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="StudentID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="WeeklyTaskID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="MonthlyTaskID" Type="System.String" DbType="NChar(20) NOT NULL" CanBeNull="false" />
+      <Column Name="DateTask" Type="System.String" DbType="NChar(20) NOT NULL" CanBeNull="false" />
+      <Column Name="Present" Type="System.String" DbType="NVarChar(20)" CanBeNull="true" />
+      <Column Name="Reason" Type="System.String" DbType="NVarChar(200)" CanBeNull="true" />
+      <Association Name="Student_DailyTask" Member="Student" ThisKey="StudentID" OtherKey="StudentID" Type="Student" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Function Name="dbo.BangDiemDanh_DELETE" Method="BangDiemDanh_DELETE">
+    <Parameter Name="StudentID" Parameter="studentID" Type="System.Int32" DbType="Int" />
+    <Parameter Name="DateTask" Parameter="dateTask" Type="System.String" DbType="NChar(20)" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.BangDiemDanh_SEARCH" Method="BangDiemDanh_SEARCH">
+    <Parameter Name="DateTask" Parameter="dateTask" Type="System.String" DbType="NChar(20)" />
+    <ElementType Name="BangDiemDanh_SEARCHResult">
+      <Column Name="DateTask" Type="System.String" DbType="NChar(20)" CanBeNull="true" />
+      <Column Name="StudentID" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="FirstName" Type="System.String" DbType="NVarChar(20)" CanBeNull="true" />
+      <Column Name="LastName" Type="System.String" DbType="NVarChar(20)" CanBeNull="true" />
+      <Column Name="WeeklyTaskID" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="MonthlyTaskID" Type="System.String" DbType="NChar(20)" CanBeNull="true" />
+      <Column Name="Present" Type="System.String" DbType="NVarChar(20)" CanBeNull="true" />
+      <Column Name="Reason" Type="System.String" DbType="NVarChar(200)" CanBeNull="true" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.BangDiemDanh_UPDATE" Method="BangDiemDanh_UPDATE">
+    <Parameter Name="StudentID" Parameter="studentID" Type="System.Int32" DbType="Int" />
+    <Parameter Name="WeeklyTaskID" Parameter="weeklyTaskID" Type="System.Int32" DbType="Int" />
+    <Parameter Name="MonthlyTaskID" Parameter="monthlyTaskID" Type="System.String" DbType="NChar(20)" />
+    <Parameter Name="DateTask" Parameter="dateTask" Type="System.String" DbType="NChar(20)" />
+    <Parameter Name="Present" Parameter="present" Type="System.String" DbType="NVarChar(20)" />
+    <Parameter Name="Reason" Parameter="reason" Type="System.String" DbType="NVarChar(200)" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.DDHS_SELECT" Method="DDHS_SELECT">
+    <ElementType Name="DDHS_SELECTResult">
+      <Column Name="DateTask" Type="System.String" DbType="NChar(20)" CanBeNull="true" />
+      <Column Name="StudentID" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="FirstName" Type="System.String" DbType="NVarChar(20)" CanBeNull="true" />
+      <Column Name="LastName" Type="System.String" DbType="NVarChar(20)" CanBeNull="true" />
+      <Column Name="WeeklyTaskID" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="MonthlyTaskID" Type="System.String" DbType="NChar(20)" CanBeNull="true" />
+      <Column Name="Present" Type="System.String" DbType="NVarChar(20)" CanBeNull="true" />
+      <Column Name="Reason" Type="System.String" DbType="NVarChar(200)" CanBeNull="true" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.NhanXetHangTuan_DELETE" Method="NhanXetHangTuan_DELETE">
+    <Parameter Name="WeeklyTaskID" Parameter="weeklyTaskID" Type="System.Int32" DbType="Int" />
+    <Parameter Name="MonthlyTaskID" Parameter="monthlyTaskID" Type="System.String" DbType="NChar(20)" />
+    <Parameter Name="StudentID" Parameter="studentID" Type="System.Int32" DbType="Int" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.NhanXetHangTuan_INSERT" Method="NhanXetHangTuan_INSERT">
+    <Parameter Name="StudentID" Parameter="studentID" Type="System.Int32" DbType="Int" />
+    <Parameter Name="WeeklyTaskID" Parameter="weeklyTaskID" Type="System.Int32" DbType="Int" />
+    <Parameter Name="MonthlyTaskID" Parameter="monthlyTaskID" Type="System.String" DbType="NChar(20)" />
+    <Parameter Name="Eating" Parameter="eating" Type="System.String" DbType="NVarChar(200)" />
+    <Parameter Name="Sleep" Parameter="sleep" Type="System.String" DbType="NVarChar(200)" />
+    <Parameter Name="Health" Parameter="health" Type="System.String" DbType="NVarChar(200)" />
+    <Parameter Name="Study" Parameter="study" Type="System.String" DbType="NVarChar(200)" />
+    <Parameter Name="Comment" Parameter="comment" Type="System.String" DbType="NVarChar(200)" />
+    <Parameter Name="Pages" Parameter="pages" Type="System.String" DbType="NChar(10)" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.NhanXetHangTuan_SELECT" Method="NhanXetHangTuan_SELECT">
+    <ElementType Name="NhanXetHangTuan_SELECTResult">
+      <Column Name="WeeklyTaskID" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="MonthlyTaskID" Type="System.String" DbType="NChar(20)" CanBeNull="true" />
+      <Column Name="StudentID" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="FirstName" Type="System.String" DbType="NVarChar(20)" CanBeNull="true" />
+      <Column Name="LastName" Type="System.String" DbType="NVarChar(20)" CanBeNull="true" />
+      <Column Name="Eating" Type="System.String" DbType="NVarChar(200)" CanBeNull="true" />
+      <Column Name="Sleep" Type="System.String" DbType="NVarChar(200)" CanBeNull="true" />
+      <Column Name="Health" Type="System.String" DbType="NVarChar(200)" CanBeNull="true" />
+      <Column Name="Study" Type="System.String" DbType="NVarChar(200)" CanBeNull="true" />
+      <Column Name="Comment" Type="System.String" DbType="NVarChar(200)" CanBeNull="true" />
+      <Column Name="Pages" Type="System.String" DbType="NChar(10)" CanBeNull="true" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.NhanXetHangTuan_UPDATE" Method="NhanXetHangTuan_UPDATE">
+    <Parameter Name="StudentID" Parameter="studentID" Type="System.Int32" DbType="Int" />
+    <Parameter Name="WeeklyTaskID" Parameter="weeklyTaskID" Type="System.Int32" DbType="Int" />
+    <Parameter Name="MonthlyTaskID" Parameter="monthlyTaskID" Type="System.String" DbType="NChar(20)" />
+    <Parameter Name="Eating" Parameter="eating" Type="System.String" DbType="NVarChar(200)" />
+    <Parameter Name="Sleep" Parameter="sleep" Type="System.String" DbType="NVarChar(200)" />
+    <Parameter Name="Health" Parameter="health" Type="System.String" DbType="NVarChar(200)" />
+    <Parameter Name="Study" Parameter="study" Type="System.String" DbType="NVarChar(200)" />
+    <Parameter Name="Comment" Parameter="comment" Type="System.String" DbType="NVarChar(200)" />
+    <Parameter Name="Pages" Parameter="pages" Type="System.String" DbType="NChar(10)" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.TheoDoiDenMuon_DELETE" Method="TheoDoiDenMuon_DELETE">
+    <Parameter Name="StudentID" Parameter="studentID" Type="System.Int32" DbType="Int" />
+    <Parameter Name="DateOfEntry" Parameter="dateOfEntry" Type="System.String" DbType="NChar(10)" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.TheoDoiDenMuon_INSERT" Method="TheoDoiDenMuon_INSERT">
+    <Parameter Name="StudentID" Parameter="studentID" Type="System.Int32" DbType="Int" />
+    <Parameter Name="DateOfEntry" Parameter="dateOfEntry" Type="System.String" DbType="NChar(10)" />
+    <Parameter Name="StartTime" Parameter="startTime" Type="System.String" DbType="NChar(10)" />
+    <Parameter Name="EndTime" Parameter="endTime" Type="System.String" DbType="NChar(10)" />
+    <Parameter Name="DrugTime" Parameter="drugTime" Type="System.String" DbType="NChar(20)" />
+    <Parameter Name="Eating" Parameter="eating" Type="System.String" DbType="NVarChar(200)" />
+    <Parameter Name="Sleep" Parameter="sleep" Type="System.String" DbType="NVarChar(200)" />
+    <Parameter Name="Health" Parameter="health" Type="System.String" DbType="NVarChar(200)" />
+    <Parameter Name="Study" Parameter="study" Type="System.String" DbType="NVarChar(200)" />
+    <Parameter Name="Note" Parameter="note" Type="System.String" DbType="NVarChar(200)" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.TheoDoiDenMuon_SELECT" Method="TheoDoiDenMuon_SELECT">
+    <ElementType Name="TheoDoiDenMuon_SELECTResult">
+      <Column Name="StudentID" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="FirstName" Type="System.String" DbType="NVarChar(20)" CanBeNull="true" />
+      <Column Name="LastName" Type="System.String" DbType="NVarChar(20)" CanBeNull="true" />
+      <Column Name="DateOfEntry" Type="System.String" DbType="NChar(10)" CanBeNull="true" />
+      <Column Name="StartTime" Type="System.String" DbType="NChar(10)" CanBeNull="true" />
+      <Column Name="EndTime" Type="System.String" DbType="NChar(10)" CanBeNull="true" />
+      <Column Name="DrugTime" Type="System.String" DbType="NChar(20)" CanBeNull="true" />
+      <Column Name="Eating" Type="System.String" DbType="NVarChar(200)" CanBeNull="true" />
+      <Column Name="Sleep" Type="System.String" DbType="NVarChar(200)" CanBeNull="true" />
+      <Column Name="Health" Type="System.String" DbType="NVarChar(200)" CanBeNull="true" />
+      <Column Name="Study" Type="System.String" DbType="NVarChar(200)" CanBeNull="true" />
+      <Column Name="Note" Type="System.String" DbType="NVarChar(200)" CanBeNull="true" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.TheoDoiDenMuon_UPDATE" Method="TheoDoiDenMuon_UPDATE">
+    <Parameter Name="StudentID" Parameter="studentID" Type="System.Int32" DbType="Int" />
+    <Parameter Name="DateOfEntry" Parameter="dateOfEntry" Type="System.String" DbType="NChar(10)" />
+    <Parameter Name="StartTime" Parameter="startTime" Type="System.String" DbType="NChar(10)" />
+    <Parameter Name="EndTime" Parameter="endTime" Type="System.String" DbType="NChar(10)" />
+    <Parameter Name="DrugTime" Parameter="drugTime" Type="System.String" DbType="NChar(20)" />
+    <Parameter Name="Eating" Parameter="eating" Type="System.String" DbType="NVarChar(200)" />
+    <Parameter Name="Sleep" Parameter="sleep" Type="System.String" DbType="NVarChar(200)" />
+    <Parameter Name="Health" Parameter="health" Type="System.String" DbType="NVarChar(200)" />
+    <Parameter Name="Study" Parameter="study" Type="System.String" DbType="NVarChar(200)" />
+    <Parameter Name="Note" Parameter="note" Type="System.String" DbType="NVarChar(200)" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.BangDiemDanh_INSERT" Method="BangDiemDanh_INSERT">
+    <Parameter Name="StudentID" Parameter="studentID" Type="System.Int32" DbType="Int" />
+    <Parameter Name="WeeklyTaskID" Parameter="weeklyTaskID" Type="System.Int32" DbType="Int" />
+    <Parameter Name="MonthlyTaskID" Parameter="monthlyTaskID" Type="System.String" DbType="NChar(20)" />
+    <Parameter Name="DateTask" Parameter="dateTask" Type="System.String" DbType="NChar(20)" />
+    <Parameter Name="Present" Parameter="present" Type="System.String" DbType="NVarChar(20)" />
+    <Parameter Name="Reason" Parameter="reason" Type="System.String" DbType="NVarChar(200)" />
+    <Return Type="System.Int32" />
+  </Function>
+=======
   <Table Name="dbo.IngredientRequestDetail" Member="IngredientRequestDetails">
     <Type Name="IngredientRequestDetail">
       <Column Name="IngredientID" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
@@ -740,4 +925,15 @@
       <Association Name="Employee_IngredientRequest" Member="Employee" ThisKey="CreatedBy" OtherKey="EmployeeID" Type="Employee" IsForeignKey="true" />
     </Type>
   </Table>
+  <Table Name="dbo.[Order]" Member="Orders">
+    <Type Name="Order">
+      <Column Name="OrderID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="OrderName" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="Date" Type="System.DateTime" DbType="DateTime NOT NULL" CanBeNull="false" />
+      <Column Name="EmployeeID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="Status" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
+      <Association Name="Order_OrderDetail" Member="OrderDetails" ThisKey="OrderID" OtherKey="OrderID" Type="OrderDetail" />
+    </Type>
+  </Table>
+>>>>>>> 4cec8ea2f9a4271cc83276a295e5be679bc61287
 </Database>

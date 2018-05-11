@@ -42,7 +42,11 @@
   <ItemGroup>
     <Reference Include="Accessibility" />
     <Reference Include="Bunifu_UI_v1.5.3">
+<<<<<<< HEAD
+      <HintPath>C:\Users\ADMIN\Downloads\Bunifu_UI_v1.5.3.dll</HintPath>
+=======
       <HintPath>E:\20180319\Bunifu_UI_v1.5.3.dll</HintPath>
+>>>>>>> 4cec8ea2f9a4271cc83276a295e5be679bc61287
     </Reference>
     <Reference Include="Dapper, Version=1.50.4.0, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\packages\Dapper.1.50.4\lib\net451\Dapper.dll</HintPath>
@@ -318,6 +322,12 @@
     <Compile Include="QLThuChi\ChiTieu\ChiTieuThucPham\UsChiThucPham.Designer.cs">
       <DependentUpon>UsChiThucPham.cs</DependentUpon>
     </Compile>
+    <Compile Include="QLThuChi\ChiTieu\ChiTieuThucPham\UsYeuCauThucPham.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="QLThuChi\ChiTieu\ChiTieuThucPham\UsYeuCauThucPham.Designer.cs">
+      <DependentUpon>UsYeuCauThucPham.cs</DependentUpon>
+    </Compile>
     <Compile Include="QLThuChi\ChiTieu\KhoanChi\FrChiTietHoaDon.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -444,6 +454,25 @@
     <Compile Include="Reports\ContractReport.Designer.cs">
       <DependentUpon>ContractReport.cs</DependentUpon>
     </Compile>
+<<<<<<< HEAD
+    <Compile Include="Thien\DiemDanhHS.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Thien\DiemDanhHS.Designer.cs">
+      <DependentUpon>DiemDanhHS.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Thien\NhanXetHangTuan.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Thien\NhanXetHangTuan.Designer.cs">
+      <DependentUpon>NhanXetHangTuan.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Thien\TheoDoiDenMuon.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Thien\TheoDoiDenMuon.Designer.cs">
+      <DependentUpon>TheoDoiDenMuon.cs</DependentUpon>
+=======
     <Compile Include="TienBao\frmAddHealthExamination.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -455,6 +484,7 @@
     </Compile>
     <Compile Include="TienBao\frmAddHealthExaminationDetail.Designer.cs">
       <DependentUpon>frmAddHealthExaminationDetail.cs</DependentUpon>
+>>>>>>> 4cec8ea2f9a4271cc83276a295e5be679bc61287
     </Compile>
     <Compile Include="TienBao\frmAddStudent.cs">
       <SubType>Form</SubType>
@@ -647,6 +677,9 @@
     <EmbeddedResource Include="QLThuChi\ChiTieu\ChiTieuThucPham\UsChiThucPham.resx">
       <DependentUpon>UsChiThucPham.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="QLThuChi\ChiTieu\ChiTieuThucPham\UsYeuCauThucPham.resx">
+      <DependentUpon>UsYeuCauThucPham.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="QLThuChi\ChiTieu\KhoanChi\FrChiTietHoaDon.resx">
       <DependentUpon>FrChiTietHoaDon.cs</DependentUpon>
     </EmbeddedResource>
@@ -710,11 +743,22 @@
     <EmbeddedResource Include="Reports\ContractReport.resx">
       <DependentUpon>ContractReport.cs</DependentUpon>
     </EmbeddedResource>
+<<<<<<< HEAD
+    <EmbeddedResource Include="Thien\DiemDanhHS.resx">
+      <DependentUpon>DiemDanhHS.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Thien\NhanXetHangTuan.resx">
+      <DependentUpon>NhanXetHangTuan.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Thien\TheoDoiDenMuon.resx">
+      <DependentUpon>TheoDoiDenMuon.cs</DependentUpon>
+=======
     <EmbeddedResource Include="TienBao\frmAddHealthExamination.resx">
       <DependentUpon>frmAddHealthExamination.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="TienBao\frmAddHealthExaminationDetail.resx">
       <DependentUpon>frmAddHealthExaminationDetail.cs</DependentUpon>
+>>>>>>> 4cec8ea2f9a4271cc83276a295e5be679bc61287
     </EmbeddedResource>
     <EmbeddedResource Include="TienBao\frmAddStudent.resx">
       <DependentUpon>frmAddStudent.cs</DependentUpon>
@@ -802,7 +846,7 @@
     <COMReference Include="Microsoft.Office.Core">
       <Guid>{2DF8D04C-5BFA-101B-BDE5-00AA0044DE52}</Guid>
       <VersionMajor>2</VersionMajor>
-      <VersionMinor>8</VersionMinor>
+      <VersionMinor>5</VersionMinor>
       <Lcid>0</Lcid>
       <WrapperTool>primary</WrapperTool>
       <Isolated>False</Isolated>
@@ -820,7 +864,7 @@
     <COMReference Include="Microsoft.Office.Interop.Excel">
       <Guid>{00020813-0000-0000-C000-000000000046}</Guid>
       <VersionMajor>1</VersionMajor>
-      <VersionMinor>9</VersionMinor>
+      <VersionMinor>7</VersionMinor>
       <Lcid>0</Lcid>
       <WrapperTool>primary</WrapperTool>
       <Isolated>False</Isolated>
@@ -846,7 +890,17 @@
     <None Include="Resources\Synchronize.png" />
   </ItemGroup>
   <ItemGroup>
+<<<<<<< HEAD
+    <WCFMetadata Include="Connected Services\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{3259AA49-8AA1-44D3-9025-A0B520596A8C}" />
+=======
     <None Include="Resources\Steak-icon.png" />
+>>>>>>> 4cec8ea2f9a4271cc83276a295e5be679bc61287
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\1232.JPG" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\1232.JPG" />

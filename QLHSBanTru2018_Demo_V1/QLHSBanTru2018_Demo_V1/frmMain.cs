@@ -21,9 +21,14 @@ using QLHSBanTru2018_Demo_V1.HungTD.Form.TopicLession;
 using QLHSBanTru2018_Demo_V1.HungTD.Form.WorkProgress;
 using QLHSBanTru2018_Demo_V1.DAO.HungTD;
 using QLHSBanTru2018_Demo_V1.Common;
+<<<<<<< HEAD
+using QLHSBanTru2018_Demo_V1.Thien;
+
+=======
 using QLHSBanTru2018_Demo_V1.HungTD.Form.Ingredient;
 using QLHSBanTru2018_Demo_V1.QLThuChi.ChiTieu;
 using QLHSBanTru2018_Demo_V1.HungTD.Form.Dish;
+>>>>>>> 4cec8ea2f9a4271cc83276a295e5be679bc61287
 
 namespace QLHSBanTru2018_Demo_V1
 {
@@ -178,6 +183,29 @@ namespace QLHSBanTru2018_Demo_V1
             pnControlsPanel.Controls.Add(m_frmImportExcel);
             m_frmImportExcel.Dock = DockStyle.Fill;
         }
+<<<<<<< HEAD
+        #endregion
+
+        #region Vũ Đức Thiện
+        private void btnDiemDanhHS_ItemClick(object sender, ItemClickEventArgs e)
+        {
+            DiemDanhHS a = new DiemDanhHS();
+            a.ShowDialog();
+        }
+
+        private void btnNhanXet_ItemClick(object sender, ItemClickEventArgs e)
+        {
+            NhanXetHangTuan a = new NhanXetHangTuan();
+            a.ShowDialog();
+        }
+
+        private void btnTheodoidenmuon_ItemClick(object sender, ItemClickEventArgs e)
+        {
+            TheoDoiDenMuon a = new TheoDoiDenMuon();
+            a.ShowDialog();
+        }
+        #endregion
+=======
         private void btnHealthProblem_ItemClick(object sender, ItemClickEventArgs e)
         {
             frmHealthProblem m_frmHealthProblem = new frmHealthProblem();
@@ -185,6 +213,7 @@ namespace QLHSBanTru2018_Demo_V1
             pnControlsPanel.Controls.Add(m_frmHealthProblem);
             m_frmHealthProblem.Dock = DockStyle.Fill;
         }
+>>>>>>> 4cec8ea2f9a4271cc83276a295e5be679bc61287
 
         private void btnCanDo_ItemClick(object sender, ItemClickEventArgs e)
         {
@@ -201,6 +230,13 @@ namespace QLHSBanTru2018_Demo_V1
             pnControlsPanel.Controls.Add(m_frmHealthExam);
             m_frmHealthExam.Dock = DockStyle.Fill;
         }
+<<<<<<< HEAD
+
+        private void ribbon_Click(object sender, EventArgs e)
+        {
+
+        }
+=======
         private void btnHealthExaminationDetail_ItemClick(object sender, ItemClickEventArgs e)
         {
             frmHealthExaminationDetail m_frmHealthExamDetail = new frmHealthExaminationDetail();
@@ -217,5 +253,6 @@ namespace QLHSBanTru2018_Demo_V1
         #region Vũ Đức Thiện
 
         #endregion
+>>>>>>> 4cec8ea2f9a4271cc83276a295e5be679bc61287
     }
 }

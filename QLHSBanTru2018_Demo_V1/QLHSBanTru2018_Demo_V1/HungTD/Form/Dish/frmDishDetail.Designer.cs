@@ -597,6 +597,10 @@
             this.btnFinish.Location = new System.Drawing.Point(531, 354);
             this.btnFinish.Name = "btnFinish";
             this.btnFinish.Size = new System.Drawing.Size(98, 22);
+<<<<<<< HEAD
+=======
+            this.btnFinish.StyleController = this.layoutControl1;
+>>>>>>> 77c0c257b0509f2af4fc7f06f48926816f6cadbb
             this.btnFinish.TabIndex = 5;
             this.btnFinish.Text = "Hoàn Tất";
             this.btnFinish.Click += new System.EventHandler(this.btnNext_Click);
@@ -606,6 +610,10 @@
             this.btnNext.Location = new System.Drawing.Point(431, 354);
             this.btnNext.Name = "btnNext";
             this.btnNext.Size = new System.Drawing.Size(96, 22);
+<<<<<<< HEAD
+=======
+            this.btnNext.StyleController = this.layoutControl1;
+>>>>>>> 77c0c257b0509f2af4fc7f06f48926816f6cadbb
             this.btnNext.TabIndex = 6;
             this.btnNext.Text = "Tiếp Tục";
             this.btnNext.Click += new System.EventHandler(this.btnNext_Click_1);
@@ -616,6 +624,10 @@
             this.btnPrevious.Location = new System.Drawing.Point(332, 354);
             this.btnPrevious.Name = "btnPrevious";
             this.btnPrevious.Size = new System.Drawing.Size(95, 22);
+<<<<<<< HEAD
+=======
+            this.btnPrevious.StyleController = this.layoutControl1;
+>>>>>>> 77c0c257b0509f2af4fc7f06f48926816f6cadbb
             this.btnPrevious.TabIndex = 7;
             this.btnPrevious.Text = "Trờ Về";
             this.btnPrevious.Click += new System.EventHandler(this.btnPrevious_Click);
@@ -630,7 +642,11 @@
             this.emptySpaceItem1,
             this.layoutControlItem7,
             this.layoutControlItem8});
+<<<<<<< HEAD
             this.layoutControlGroup1.Name = "Root";
+=======
+            this.layoutControlGroup1.Name = "layoutControlGroup1";
+>>>>>>> 77c0c257b0509f2af4fc7f06f48926816f6cadbb
             this.layoutControlGroup1.Size = new System.Drawing.Size(641, 388);
             this.layoutControlGroup1.TextVisible = false;
             // 
