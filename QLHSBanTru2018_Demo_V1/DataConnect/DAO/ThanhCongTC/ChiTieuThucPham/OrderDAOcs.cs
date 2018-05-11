@@ -32,5 +32,6 @@ namespace DataConnect.DAO.ThanhCongTC.ChiTieuThucPham
             var a = dt.Orders.Where(t=>t.Date.Month==dateTime.Month&&t.Date.Year==dateTime.Year);
             return a.ToList();
         }
+        //rggr
     }
 }
